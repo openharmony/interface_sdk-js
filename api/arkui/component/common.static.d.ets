@@ -42,7 +42,7 @@ import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
 import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics } from "./units";
 import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
 import { ScrollState } from "./list";
-import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType } from "./enums";
+import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool } from "./enums";
 import { TextRange } from "./textCommon";
 import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
@@ -339,6 +339,64 @@ export declare interface Rectangle {
      * @since 22 static
      */
     height?: Length;
+}
+/**
+ * Defines the response region interface.
+ * 
+ * @interface ResponseRegion
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export declare interface ResponseRegion {
+  /**
+   *  The event tool type applicable to this response region.
+   * 
+   * @type { ?ResponseRegionSupportedTool }
+   * @default ResponseRegionSupportedTool.ALL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  tool?: ResponseRegionSupportedTool;
+
+  /**
+   * Horizontal axis coordinate.
+   * 
+   * @type { ?LengthMetrics }
+   * @default LengthMetrics.vp(0)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  x?: LengthMetrics;
+
+  /**
+   * Vertical axis coordinate.
+   * 
+   * @type { ?LengthMetrics }
+   * @default LengthMetrics.vp(0)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  y?: LengthMetrics;
+
+  /**
+   * Sets the width of the current touchRect.
+   * 
+   * @type { ?(LengthMetrics | string) }
+   * @default LengthMetrics.percent(1)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  width?: LengthMetrics | string;
+
+  /**
+   * Sets the height of the current touchRect.
+   * 
+   * @type { ?(LengthMetrics | string) }
+   * @default LengthMetrics.percent(1)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  height?: LengthMetrics | string;
 }
 /**
  * Interface for ExpectedFrameRateRange.
@@ -8809,76 +8867,6 @@ export declare interface BackgroundOptions {
      * @since 22 static
      */
     align?: Alignment;
-}
-/**
- * Defines the response region interface.
- * 
- * @interface ResponseRegion
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 23
- */
-export declare interface ResponseRegion {
-  /**
-   *  The event tool type applicable to this response region.
-   * 
-   * @type { ?ResponseRegionSupportedTool }
-   * @default ResponseRegionSupportedTool.ALL
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 23
-   */
-  tool?: ResponseRegionSupportedTool;
-
-  /**
-   * Horizontal axis coordinate.
-   * 
-   * @type { ?LengthMetrics }
-   * @default LengthMetrics.vp(0)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 23
-   */
-  x?: LengthMetrics;
-
-  /**
-   * Vertical axis coordinate.
-   * 
-   * @type { ?LengthMetrics }
-   * @default LengthMetrics.vp(0)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 23
-   */
-  y?: LengthMetrics;
-
-  /**
-   * Sets the width of the current touchRect.
-   * 
-   * @type { ?(LengthMetrics | string) }
-   * @default LengthMetrics.percent(1)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 23
-   */
-  width?: LengthMetrics | string;
-
-  /**
-   * Sets the height of the current touchRect.
-   * 
-   * @type { ?(LengthMetrics | string) }
-   * @default LengthMetrics.percent(1)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 23
-   */
-  height?: LengthMetrics | string;
 }
 /**
  * Defines the value of the custom property..

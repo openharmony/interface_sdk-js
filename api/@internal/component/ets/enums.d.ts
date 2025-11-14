@@ -7979,57 +7979,6 @@ declare enum CopyOptions {
 }
 
 /**
- * Defines the event tool type that support response region settings.
- * 
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 23
- */
-declare enum ResponseRegionSupportedTool {
-  /**
-   * All source tool type.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 23
-   */
-  ALL = 0,
-
-  /**
-   * The finger type.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 23
-   */
-  FINGER = 1,
-
-  /**
-   * The pen type.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 23
-   */
-  PEN = 2,
-
-  /**
-   * The mouse type.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 23
-   */
-  MOUSE = 3,
-}
-
-/**
  * Defines the hit test mode.
  *
  * @enum { number }
@@ -10903,6 +10852,57 @@ declare enum AnimationPropertyType {
    * @since 20 dynamic
    */
   OPACITY = 3,
+}
+
+/**
+ * Defines the event tool type that support response region settings.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 21 dynamic
+ */
+declare enum ResponseRegionSupportedTool {
+  /**
+   * All source tool type.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  ALL = 0,
+
+  /**
+   * The finger type.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  FINGER = 1,
+
+  /**
+   * The pen type.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  PEN = 2,
+
+  /**
+   * The mouse type.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  MOUSE = 3,
 }
 
 /**
