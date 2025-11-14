@@ -5092,7 +5092,7 @@ export declare interface WebAttribute extends CommonMethod {
      * @param { OnVerifyPinCallback | undefined } callback The triggered callback when needs verify pin from the user.
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
-     * @@since 22 static
+     * @since 22 static
      */
     default onVerifyPin(callback: OnVerifyPinCallback | undefined): this;
     /**
