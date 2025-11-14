@@ -4636,8 +4636,309 @@ declare namespace i18n {
      */
     timeZoneName?: TextStyle;
   }
-  class advancedMeasureFormat{
-    
+  
+  /**
+   * Building upon the measurement unit formatting capabilities provided by Intl.NumberFormat, the formatting
+   * functionality has been enhanced. It supports automatically selecting appropriate measurement units
+   * based on usage scenarios to format numbers.For example, there are many units of measurement for length,
+   * including millimeters, centimeters, meters, kilometers, and so on. However, depending on the context
+   * in which the measurement is used, each scenario has its commonly used units. Millimeters are more frequently
+   * used when expressing rainfall, while meters are more commonly used to describe visibility.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  export class AdvancedMeasureFormat {  
+    /**
+     * A constructor used to create an AdvancedMeasureFormat object.
+     *
+     * @param { Intl.NumberFormat } numberFormat - Indicates the number format object that used to format number.
+     * @param { AdvancedMeasureFormatOptions } [ options ] - Indicates the options for AdvancedMeasureFormat.
+     *     When no options are provided, the formatting result is consistent with that of NumberFormat.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    constructor(numberFormat: Intl.NumberFormat, options?: AdvancedMeasureFormatOptions);
+
+    /**
+     * Formats a number by appropriate measure for usage scenarios. For instance, when formatting the value 12.3
+     *     for rainfall in the English locale, the output is "12.3 mm".
+     *
+     * @param { double } num - number to be formatted.
+     * @returns { string } measure formatting result.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    format(num: double): string;
   }
+
+  /**
+   * Represents optional configuration items for AdvancedMeasureFormat object.
+   *
+   * @interface AdvancedMeasureFormatOptions
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  export interface AdvancedMeasureFormatOptions {  
+    /**
+     * Scenarios for MeasureFormat.
+     *
+     * @type { ?UnitUsage }
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    unitUsage?: UnitUsage;
+  }
+
+  /**
+   * Enumerates Scenarios for MeasureFormat.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  export enum UnitUsage {    
+  /**
+   * Area land agricult scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  AREA_LAND_AGRICULT = 1,
+
+  /**
+   * Area land commercl scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  AREA_LAND_COMMERCL = 2,
+
+  /**
+   * Area land residntl scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  AREA_LAND_RESIDNTL = 3,
+
+  /**
+   * Length person scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  LENGTH_PERSON = 4,
+
+  /**
+   * Length person small scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  LENGTH_PERSON_SMALL = 5,
+
+  /**
+   * Length rainfall scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  LENGTH_RAINFALL = 6,
+
+  /**
+   * Length road scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  LENGTH_ROAD = 7,
+
+  /**
+   * Length road small scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  LENGTH_ROAD_SMALL = 8,
+
+  /**
+   * Length snowfall scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  LENGTH_SNOWFALL = 9,
+
+  /**
+   * Length vehicle scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  LENGTH_VEHICLE = 10,
+
+  /**
+   * Length visiblty scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  LENGTH_VISIBLTY = 11,
+
+  /**
+   * Length visiblty small scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  LENGTH_VISIBLTY_SMALL = 12,
+
+  /**
+   * Length person informal scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  LENGTH_PERSON_INFORMAL = 13,
+
+  /**
+   * Length person small informal scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  LENGTH_PERSON_SMALL_INFORMAL = 14,
+
+  /**
+   * Length road informal scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  LENGTH_ROAD_INFORMAL = 15,
+
+  /**
+   * Speed road travel scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  SPEED_ROAD_TRAVEL = 16,
+
+  /**
+   * Speed wind scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  SPEED_WIND = 17,
+
+  /**
+   * Temperature person scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  TEMPERATURE_PERSON = 18,
+
+  /**
+   * Temperature weather scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  TEMPERATURE_WEATHER = 19,
+
+  /**
+   * Volume vehicle fuel scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  VOLUME_VEHICLE_FUEL = 20,
+
+  /**
+   * Elapsed time second scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  ELAPSED_TIME_SECOND = 21,
+
+  /**
+   * Size file byte scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  SIZE_FILE_BYTE = 22,
+
+  /**
+   * Size shortfile byte scenario.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  SIZE_SHORTFILE_BYTE = 23
+}
 }
 export default i18n;
