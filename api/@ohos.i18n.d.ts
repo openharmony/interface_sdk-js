@@ -4636,5 +4636,8 @@ declare namespace i18n {
      */
     timeZoneName?: TextStyle;
   }
+  class advancedMeasureFormat{
+    
+  }
 }
 export default i18n;
