@@ -209,9 +209,8 @@ export declare struct GridObjectSortComponent {
   onCancel: () => void;
   /**
    * Build function of GridObjectSortComponent.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder
   build(): void;

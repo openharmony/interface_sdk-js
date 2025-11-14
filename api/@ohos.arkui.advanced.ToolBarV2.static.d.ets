@@ -539,9 +539,8 @@ export declare struct ToolBarV2 {
   toolBarModifier?: ToolBarV2Modifier;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder
   build(): void;

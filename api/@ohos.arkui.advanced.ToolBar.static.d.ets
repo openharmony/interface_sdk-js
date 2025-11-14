@@ -194,7 +194,7 @@ export declare class ToolBarOption {
  * Declare ToolBarOptions use in ToolBar.
  * @typedef { Array<ToolBarOption> } ToolBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 staticonly
+ * @since 22 static
  * @noninterop
  */
 export type ToolBarOptions = Array<ToolBarOption>
@@ -298,9 +298,8 @@ export declare struct ToolBar {
   toolBarModifier?: ToolBarModifier;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder
   build(): void;
