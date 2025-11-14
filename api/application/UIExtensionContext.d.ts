@@ -1173,6 +1173,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 22 static
    */
   startUIAbilities(wantList: Array<Want>): Promise<void>;
 
