@@ -4243,7 +4243,7 @@ export declare interface HoverEvent extends BaseEvent {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    stopPropagation: () => void;
+    stopPropagation(): void;
 }
 /**
  * The mouse click action triggers this method invocation.
@@ -5464,7 +5464,7 @@ export declare interface KeyEvent {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    stopPropagation(): void;
+    stopPropagation: () => void;
     /**
      * Intention code of a key or modifier keys.
      *
