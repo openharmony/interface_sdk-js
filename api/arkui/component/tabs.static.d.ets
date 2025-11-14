@@ -24,6 +24,7 @@ import { EdgeEffect, PageFlipMode, Curve } from "./enums";
 import { Dimension, Length, ResourceColor } from "./units";
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, ICurve } from "./common";
+import { CommonModifier } from '@ohos.arkui.modifier';
 /**
  * Declare the graphic format of the bar chart.
  *
@@ -264,6 +265,14 @@ export declare interface TabsOptions {
      * @since 22 static
      */
     controller?: TabsController;
+    /**
+     * Set common attributes to tabbar.
+     *
+     * @type { ?CommonModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    barModifier?: CommonModifier;
 }
 /**
  * Provides an interface for tabs animation.
