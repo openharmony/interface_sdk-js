@@ -5266,6 +5266,7 @@ declare namespace notificationManager {
    *
    * @typedef RingtoneInfo
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 21 dynamic
    * @since 22 static
    */
@@ -5275,6 +5276,7 @@ declare namespace notificationManager {
      *
      * @type { RingtoneType }
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 21 dynamic
      * @since 22 static
      */
@@ -5285,6 +5287,7 @@ declare namespace notificationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 21 dynamic
      * @since 22 static
      */
@@ -5295,6 +5298,7 @@ declare namespace notificationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 21 dynamic
      * @since 22 static
      */
@@ -5305,6 +5309,7 @@ declare namespace notificationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 21 dynamic
      * @since 22 static
      */
@@ -5593,7 +5598,7 @@ declare namespace notificationManager {
    *
    * @enum { int }
    * @syscap SystemCapability.Notification.Notification
-   * @atomicservice
+   * @systemapi
    * @since 21 dynamic
    * @since 22 static
    */
@@ -5602,7 +5607,7 @@ declare namespace notificationManager {
      * System custom ringtone.
      *
      * @syscap SystemCapability.Notification.Notification
-     * @atomicservice
+     * @systemapi
      * @since 21 dynamic
      * @since 22 static
      */
@@ -5612,7 +5617,7 @@ declare namespace notificationManager {
      * Local custom ringtone.
      *
      * @syscap SystemCapability.Notification.Notification
-     * @atomicservice
+     * @systemapi
      * @since 21 dynamic
      * @since 22 static
      */
@@ -5622,7 +5627,7 @@ declare namespace notificationManager {
      * Online custom ringtone.
      *
      * @syscap SystemCapability.Notification.Notification
-     * @atomicservice
+     * @systemapi
      * @since 21 dynamic
      * @since 22 static
      */
@@ -5632,7 +5637,7 @@ declare namespace notificationManager {
      * No custom ringtone.
      *
      * @syscap SystemCapability.Notification.Notification
-     * @atomicservice
+     * @systemapi
      * @since 21 dynamic
      * @since 22 static
      */
