@@ -6807,6 +6807,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     getPreferredOrientation(): Orientation;
 
@@ -9989,7 +9990,7 @@ declare namespace window {
     /**
      * Sets the window blur radius.
      *
-     * @param { number } radius the blur radius.
+     * @param { double } radius the blur radius.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -10002,7 +10003,7 @@ declare namespace window {
     /**
      * Sets the window blur radius.
      *
-     * @param { number } radius the blur radius.
+     * @param { double } radius the blur radius.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -10012,13 +10013,14 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
-    setBlur(radius: number): void;
+    setBlur(radius: double): void;
 
     /**
      * Sets the window backdrop blur radius.
      *
-     * @param { number } radius the blur radius.
+     * @param { double } radius the blur radius.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -10033,7 +10035,7 @@ declare namespace window {
      * The window background refers to the lower-layer area covered by the window, which is the same as the window size.
      * To make the blur effect visible, you must set the window background transparent by calling setWindowBackgroundColor.
      *
-     * @param { number } radius the blur radius.
+     * @param { double } radius the blur radius.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -10043,8 +10045,9 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
-    setBackdropBlur(radius: number): void;
+    setBackdropBlur(radius: double): void;
 
     /**
      * Sets the window backdrop blur style.
@@ -10072,6 +10075,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     setBackdropBlurStyle(blurStyle: BlurStyle): void;
 
@@ -10114,7 +10118,7 @@ declare namespace window {
     /**
      * Sets the blur radius of the shadow on the edges of a child window or floating window.
      *
-     * @param { number } radius - Radius of the shadow, measured in px.
+     * @param { double } radius - Radius of the shadow, measured in px.
      *                            The value is a floating point number greater than or equal to 0.0,
      *                            and the value 0.0 means that the shadow is disabled for the window borders.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
@@ -10126,8 +10130,9 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
+     * @since 22 static
      */
-    setWindowShadowRadius(radius: number): void;
+    setWindowShadowRadius(radius: double): void;
 
     /**
      * Sets corner radius.
@@ -10162,7 +10167,7 @@ declare namespace window {
     /**
      * Sets the radius of the rounded corners for a child window or floating window.
      *
-     * @param { number } cornerRadius - Radius of the rounded corners, measured in vp.
+     * @param { double } cornerRadius - Radius of the rounded corners, measured in vp.
      *                                  The value is a floating point number greater than or equal to 0.0.
      *                                  The value 0.0 means that the window does not use rounded corners.
      * @returns { Promise<void> } Promise that returns no value.
@@ -10176,21 +10181,23 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
+     * @since 22 static
      */
-    setWindowCornerRadius(cornerRadius: number): Promise<void>;
+    setWindowCornerRadius(cornerRadius: double): Promise<void>;
 
     /**
      * Obtains the radius of rounded corners of a child window or floating window.
      *
-     * @returns { number } - Radius of the rounded corner of the child window or floating window, measured in vp.
+     * @returns { double } - Radius of the rounded corner of the child window or floating window, measured in vp.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
+     * @since 22 static
      */
-    getWindowCornerRadius(): number;
+    getWindowCornerRadius(): double;
 
     /**
      * Raise app sub window to app top
@@ -11615,20 +11622,16 @@ declare namespace window {
     /**
      * Register the callback of rotation change
      *
-     * @param { 'rotationChange' } type - The value is fixed at 'rotationChange',
-     *     indicating the window rotation change event.
      * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined> } callback -
-     *     Callback used to return the rotation change result.
+     *     Register the callback function.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 22 static
      */
-    on(type: 'rotationChange', callback: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined>):
-      void;
+    onRotationChange(callback: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined>): void;
 
     /**
      * Unregister the callback of rotationChange
@@ -11636,7 +11639,7 @@ declare namespace window {
      * @param { 'rotationChange' } type - The value is fixed at 'rotationChange',
      *     indicating the window rotation change event.
      * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void> } [callback] -
-     *     Callback used to return the RectChangeOptions.
+     *     Unregister the callback function. If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -11649,22 +11652,19 @@ declare namespace window {
       callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void>): void;
 
     /**
-     * Unregister the callback of rotationChange
+     * Unregister the callback of rotation change
      *
-     * @param { 'rotationChange' } type - The value is fixed at 'rotationChange',
-     *     indicating the window rotation change event.
      * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined> } [callback] -
-     *     Callback used to return the RectChangeOptions.
+     *     Unregister the callback function. If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 22 static
      */
-    off(type: 'rotationChange',
-      callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined>): void;
+    offRotationChange(callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined>):
+      void;
 
     /**
      * UIExtension in window secure limit change callback on.
