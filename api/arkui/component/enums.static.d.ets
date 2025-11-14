@@ -194,12 +194,20 @@ export declare enum ColoringStrategy {
  */
 export declare enum ImageFit {
   /**
+   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  Fill = 0,
+
+  /**
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  Contain = 0,
+  Contain = 1,
 
   /**
    * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the
@@ -208,7 +216,7 @@ export declare enum ImageFit {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  Cover = 1,
+  Cover = 2,
 
   /**
    * Adaptive display
@@ -216,23 +224,7 @@ export declare enum ImageFit {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  Auto = 2,
-
-  /**
-   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  Fill = 3,
-
-  /**
-   * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  ScaleDown = 4,
+  Auto = 3,
 
   /**
    * Keep the original size and display it in the center.
@@ -241,6 +233,14 @@ export declare enum ImageFit {
    * @since 23 static
    */
   None = 5,
+
+  /**
+   * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ScaleDown = 6,
 
   /**
    * Top Start.
