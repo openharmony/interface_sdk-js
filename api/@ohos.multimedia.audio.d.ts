@@ -4666,6 +4666,19 @@ declare namespace audio {
      * @since 18 dynamic
      * @since 22 static
      */
+    /**
+     * Exclude output devices. After calling this function successfully, audio will not be played on the specified
+     * devices. Note that only the external ouput device can be excluded by this function. Local output devices is not
+     * accepted.
+     * @param { DeviceUsage } usage - Device usage, only output device usages can be accepted.
+     * @param { AudioDeviceDescriptors } devices - The devices to be excluded.
+     * @returns { Promise<void> } Promise used to return result.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 23 dynamic&static
+     */
     excludeOutputDevices(usage: DeviceUsage, devices: AudioDeviceDescriptors): Promise<void>;
 
     /**
@@ -4682,6 +4695,17 @@ declare namespace audio {
      * @since 18 dynamic
      * @since 22 static
      */
+    /**
+     * Unexclude output devices. This function will unexclude target output devices belong to specific usage.
+     * @param { DeviceUsage } usage - Device usage, only output device usages can be accepted.
+     * @param { AudioDeviceDescriptors } devices - The devices to be unexcluded.
+     * @returns { Promise<void> } Promise used to return result.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 23 dynamic&static
+     */
     unexcludeOutputDevices(usage: DeviceUsage, devices: AudioDeviceDescriptors): Promise<void>;
 
     /**
@@ -4697,7 +4721,17 @@ declare namespace audio {
      * @since 18 dynamic
      * @since 22 static
      */
-     unexcludeOutputDevices(usage: DeviceUsage): Promise<void>;
+    /**
+     * Unexclude output devices. This function will unexclude all output devices belong to specific usage.
+     * @param { DeviceUsage } usage - Device usage, only output device usages can be accepted.
+     * @returns { Promise<void> } Promise used to return result.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    unexcludeOutputDevices(usage: DeviceUsage): Promise<void>;
 
     /**
      * Get excluded devices by filter.
