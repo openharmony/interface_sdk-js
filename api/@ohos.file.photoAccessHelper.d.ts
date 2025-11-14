@@ -3131,6 +3131,14 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic&static
      */
     COMPOSITE_DISPLAY_STATUS = 'composite_display_status',
+    /**
+     * Video mode, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    VIDEO_MODE = 'video_mode',
   }
 
   /**
@@ -12267,6 +12275,32 @@ declare namespace photoAccessHelper {
      * @since 22
      */
     HDR_VIVID_DUAL = 5,
+  }
+
+  /**
+   * Enumeration of video mode type
+   *
+   * @enum { int } VideoMode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 22 dynamic&static
+   */
+  enum VideoMode {
+    /**
+     * Default type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    DEFAULT = 0,
+    /**
+     * Huawei log video
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    HUAWEI_LOG_VIDEO = 1,
   }
 
   /**
