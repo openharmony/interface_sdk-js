@@ -71,6 +71,17 @@ declare interface Callback<T, V = void> {
 declare type WindowAnimationCurveParam = Array<double>;
 
 /**
+ * Callback function for transition controller
+ * 
+ * @typedef { function } TransitionControllerCallback
+ * @param { window.TransitionContext } context - The transition context
+ * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @systemapi Hide this for inner system use.
+ * @since 22 static
+ */
+declare type TransitionControllerCallback = (context: window.TransitionContext) => void;
+
+/**
  * Window manager.
  *
  * @namespace window
@@ -2554,9 +2565,20 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     animationForShown(context: TransitionContext): void;
+
+    /**
+     * Animation configuration when showing window
+     *
+     * @type { ?TransitionControllerCallback }
+     * @default undefined
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    animationForShown?: TransitionControllerCallback;
+
     /**
      * Animation configuration when hiding window
      *
@@ -2577,9 +2599,19 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     animationForHidden(context: TransitionContext): void;
+
+    /**
+     * Animation configuration when hiding window
+     *
+     * @type { ?TransitionControllerCallback }
+     * @default undefined
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    animationForHidden?: TransitionControllerCallback;
   }
 
   /**
@@ -9904,6 +9936,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     getTransitionController(): TransitionController;
 
@@ -10076,6 +10109,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     setCornerRadius(cornerRadius: number): void;
 
