@@ -2794,6 +2794,16 @@ declare namespace commonEventManager {
     COMMON_EVENT_CLOUD_DISK_STATE_CHANGED = 'usual.event.CLOUD_DISK_STATE_CHANGED',
 
     /**
+     * This common event means that table mode has been changed.
+     * 
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi 
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_TABLET_MODE_CHANGED = 'usual.event.TABLET_MODE_CHANGED',
+
+    /**
      * This common event means that lid state has been changed.
      * 
      * @syscap SystemCapability.Notification.CommonEvent
