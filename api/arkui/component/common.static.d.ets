@@ -8962,14 +8962,12 @@ export declare interface CommonMethod {
      */
     default mouseResponseRegion(value: Array<Rectangle> | Rectangle | undefined): this;
     /**
-    * Sets the response region list of tyeh current component.
+    * Sets the response region list of the current component.
     * 
-    * @param { Array<ResponseRegion> | ResponseRegion | undefined } regions
+    * @param { Array<ResponseRegion> | undefined } regions
     * @returns { this } return the component attribute
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @crossplatform
-    * @atomicservice
-    * @since 23 static
+    * @since 22 static
     */
     default responseRegionList(regions: Array<ResponseRegion> | undefined): this;
     /**
