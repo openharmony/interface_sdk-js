@@ -4370,15 +4370,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    /**
-     * Set RdbStore version. The version number must be an integer greater than 0.
-     * Obtains the RdbStore version.
-     *
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
      */
@@ -4386,7 +4377,7 @@ declare namespace relationalStore {
      * Set RdbStore version. The version number must be an integer greater than 0.
      * Obtains the RdbStore version.
      *
-     * @type { number }
+     * @type { int }
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -4406,8 +4397,9 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 22 static
      */
-    version: number;
+    version: int;
 
     /**
      * Set whether the database is rebuilt.
