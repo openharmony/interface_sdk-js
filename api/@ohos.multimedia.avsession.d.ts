@@ -94,7 +94,7 @@ declare namespace avSession {
    * @throws { BusinessError } 6600102 - The session does not exist.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 21 dynamic
+   * @since 22 dynamic&static
    */
   function getAVSession(context: Context): Promise<AVSession>;
 
@@ -1477,7 +1477,7 @@ declare namespace avSession {
      * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 21 dynamic
+     * @since 22 dynamic&static
      */
     readonly sessionTag: string;
 
