@@ -22,6 +22,7 @@
 import { Dimension, Position, Edges, LocalizedEdges, ResourceColor, Padding, Length, SizeOptions, ConstraintSizeOptions, BorderRadiuses } from './units';
 import { FontStyle, FontWeight, BorderStyle, TextHeightAdaptivePolicy, Axis, Alignment } from './enums';
 import { ChainStyle, LocalizedAlignRuleOptions, AlignRuleOption, AttributeModifier, CommonMethod } from './common';
+import { FocusBoxStyle } from './focus';
 import { Resource } from '../../global/resource';
 
 /**
@@ -410,4 +411,13 @@ export declare interface SecurityComponentMethod {
    * @since 22 static
    */
   enabled(respond: boolean | undefined): this;
+  /**
+   * Set the focusBox style.
+   *
+   * @param { FocusBoxStyle | undefined } style FocusBox style.
+   * @returns { SecurityComponentMethod } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  focusBox(style: FocusBoxStyle | undefined): this;
 }
