@@ -22,7 +22,6 @@
 export * from './arkui/incremental/runtime/state';
 export * from './arkui/incremental/annotation';
 export * from './arkui/stateManagement/decorator';
-export * from './arkui/stateManagement/runtime';
 export * from './arkui/stateManagement/storage/appStorage';
 export * from './arkui/stateManagement/storage/appStorageV2';
 export * from './arkui/stateManagement/storage/environment';
