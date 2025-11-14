@@ -2149,6 +2149,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 20 dynamic
    */
   enableAutoSpacing(enabled: Optional<boolean>): SearchAttribute;
+
+  /**
+   * Set the divider color.
+   * 
+   * @param { Optional<ColorMetrics> } color - Color of the divider.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  dividerColor(color: Optional<ColorMetrics>): SearchAttribute;
 }
 
 /**
