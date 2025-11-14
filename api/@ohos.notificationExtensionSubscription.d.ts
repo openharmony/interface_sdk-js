@@ -19,7 +19,8 @@
  */
 
 import type UIAbilityContext from './application/UIAbilityContext';
-import { BundleOption as _BundleOption } from './notification/NotificationCommonDef';
+import { BundleOption as _BundleOption,
+  GrantedBundleInfo as _GrantedBundleInfo } from './notification/NotificationCommonDef';
 import {
   NotificationExtensionSubscriptionInfo as _NotificationExtensionSubscriptionInfo
 } from './notification/NotificationExtensionSubscriptionInfo';
@@ -35,8 +36,8 @@ import { NotificationInfo as _NotificationInfo } from './notification/Notificati
 declare namespace notificationExtensionSubscription {
   
   /**
-   * Opens the notification extension subscriber settings page of the application, which is displayed in semi-modal mode
-   * and can be used to set the notification enabling and notification mode.
+   * Opens the notification extension subscription settings page of the application, which is displayed in
+   * semi-modal mode and can be used to set the notification enabling and notification mode.
    * This API uses a promise to return the result.
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
@@ -52,7 +53,7 @@ declare namespace notificationExtensionSubscription {
   function openSubscriptionSettings(context: UIAbilityContext): Promise<void>;
 
   /**
-   * Subscribe the notification when the bluetooth addr is connected.
+   * Subscribe the notification extension when the bluetooth addr is connected.
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @param { NotificationExtensionSubscriptionInfo[] } info - The info to be subscribe.
@@ -67,7 +68,7 @@ declare namespace notificationExtensionSubscription {
   function subscribe(info: NotificationExtensionSubscriptionInfo[]): Promise<void>;
 
   /**
-   * Unsubscribe the notification.
+   * Unsubscribe the notification extension.
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @returns { Promise<void> } The promise returned by the function.
@@ -80,7 +81,7 @@ declare namespace notificationExtensionSubscription {
   function unsubscribe(): Promise<void>;
 
   /**
-   * Obtains the subscribe info for app.
+   * Obtains the subscribe info.
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @returns { Promise<NotificationExtensionSubscriptionInfo[]> } The promise returned by the function.
@@ -93,7 +94,7 @@ declare namespace notificationExtensionSubscription {
   function getSubscribeInfo(): Promise<NotificationExtensionSubscriptionInfo[]>;
 
   /**
-   * Obtains the list of bundleOption which granted by user.
+   * Obtains the list of is third-party wearable application.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<BundleOption[]> } Returns all enabled notification extension subscription applications.
@@ -108,7 +109,7 @@ declare namespace notificationExtensionSubscription {
   function getAllSubscriptionBundles(): Promise<BundleOption[]>;
 
   /**
-   * Obtains whether the notification extension subscription is enabled.
+   * Obtains whether the notification extension subscription is granted by user.
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @returns { Promise<boolean> } The promise returned by the function.
@@ -121,7 +122,7 @@ declare namespace notificationExtensionSubscription {
   function isUserGranted(): Promise<boolean>;
 
   /**
-   * Obtains whether the notification extension subscription is enabled.
+   * Obtains whether the notification extension subscription of targetBundle is granted by user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } targetBundle - The bundle option to be query.
@@ -138,7 +139,7 @@ declare namespace notificationExtensionSubscription {
   function getUserGrantedState(targetBundle: BundleOption): Promise<boolean>;
 
   /**
-   * Set the notification extension subscription state.
+   * Set the notification extension subscription state for targetBundle by user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } targetBundle - The bundle option.
@@ -173,20 +174,20 @@ declare namespace notificationExtensionSubscription {
   function getUserGrantedEnabledBundles(targetBundle: BundleOption): Promise<BundleOption[]>;
 
   /**
-   * Obtains the list of bundleNames that have been granted by the user.
+   * Obtains the list of grantedBundleInfo that have been granted by the user.
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
-   * @returns { Promise<string[]> } Return the list of bundleName which is enabled.
+   * @returns { Promise<GrantedBundleInfo[]> } Return the list of bundleInfo which is enabled.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic&static
    */
-  function getUserGrantedEnabledBundles(): Promise<string[]>;
+  function getUserGrantedEnabledBundles(): Promise<GrantedBundleInfo[]>;
 
   /**
-   * Set the bundleOption of the extensionAbility to be subscribe or unsubscribe.
+   * Set the state of BundleOptions that granted to targetBundle by user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } targetBundle - The bundle option to be set.
@@ -232,6 +233,15 @@ declare namespace notificationExtensionSubscription {
   export type BundleOption = _BundleOption;
 
   /**
+   * Describes a grantedBundleInfo.
+   *
+   * @typedef { _GrantedBundleInfo } GrantedBundleInfo
+   * @syscap SystemCapability.Notification.Notification
+   * @since 22 dynamic&static
+   */
+  export type GrantedBundleInfo = _GrantedBundleInfo;
+
+  /**
    * the notification extension subscription info.
    *
    * @typedef { _NotificationExtensionSubscriptionInfo } NotificationExtensionSubscriptionInfo
@@ -241,7 +251,7 @@ declare namespace notificationExtensionSubscription {
   export type NotificationExtensionSubscriptionInfo = _NotificationExtensionSubscriptionInfo;
 
   /**
-   * Describes the notification extension info.
+   * Describes the notification info.
    *
    * @typedef { _NotificationInfo } NotificationInfo
    * @syscap SystemCapability.Notification.Notification
