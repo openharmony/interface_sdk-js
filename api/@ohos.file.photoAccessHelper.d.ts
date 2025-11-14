@@ -8133,6 +8133,55 @@ declare namespace photoAccessHelper {
      * @since 20 dynamic
      */
     photoViewMimeTypeFileSizeFilters?: Array<PhotoViewMimeTypeFileSizeFilter>;
+
+    /**
+     * Support showing moving photo badge.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    isMovingPhotoBadgeShown?: boolean
+  }
+
+  /**
+   * Enumerates the types of the moving photo badge.
+   *
+   * @enum { int } MovingPhotoBadgeStateType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  export enum MovingPhotoBadgeStateType {
+    /**
+     * NOT_MOVING_PHOTO indicates that non-moving photos.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    NOT_MOVING_PHOTO = 0,
+    /**
+     * MOVING_PHOTO_ENABLED indicates that the motion photo effect is activated.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    MOVING_PHOTO_ENABLED = 1,
+    /**
+     * MOVING_PHOTO_DISABLED indicates that the motion photo effect is deactivated.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    MOVING_PHOTO_DISABLED =	2
   }
 
   /**
@@ -8506,6 +8555,18 @@ declare namespace photoAccessHelper {
      * @since 21 dynamic
      */
     contextRecoveryInfo: ContextRecoveryInfo;
+
+    /**
+     * Moving photo badge states for the selected media files in the gallery.
+     * When isShowMovingPhotoBadge is true, movingPhotoBadgeStates contains the moving photo states;
+     * otherwise, it is empty.
+     *
+     * @type { Array<MovingPhotoBadgeStateType> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    movingPhotoBadgeStates: Array<MovingPhotoBadgeStateType>;
   }
 
   /**
