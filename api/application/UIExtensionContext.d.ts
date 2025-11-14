@@ -1215,6 +1215,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 21 dynamic
+   * @since 22 static
    */
   startUIAbilitiesInSplitWindowMode(primaryWindowId: int, secondaryWant: Want): Promise<void>;
 }
