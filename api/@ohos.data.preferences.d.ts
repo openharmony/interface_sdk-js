@@ -160,6 +160,7 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 18 dynamic
+   * @since 22 static
    */
   enum StorageType {
     /**
@@ -168,6 +169,7 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     XML = 0,
 
@@ -177,6 +179,7 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     GSKV
   }
@@ -245,6 +248,7 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     storageType?: StorageType | null | undefined;
   }
@@ -485,6 +489,7 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 18 dynamic
+   * @since 22 static
    */
   function isStorageTypeSupported(type: StorageType): boolean;
   /**
