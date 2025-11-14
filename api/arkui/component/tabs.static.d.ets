@@ -440,7 +440,18 @@ export type TabsCustomContentTransitionCallback = (from: int, to: int) => TabCon
  * @since 22 static
  */
 export type OnTabsContentWillChangeCallback = (currentIndex: int, comingIndex: int) => boolean;
-
+/**
+ * Defines a tabs callback when onContentDidScroll.
+ *
+ * @typedef { function } OnTabsContentDidScrollCallback
+ * @param { int } selectedIndex - the index value of the Tabs content selected before animation start.
+ * @param { int } index - the index value of the Tabs content.
+ * @param { double } position - the moving ratio of the Tabs content from the start position of the Tabs main axis.
+ * @param { double } mainAxisLength - the Tabs main axis length for calculating position.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export type OnTabsContentDidScrollCallback = (selectedIndex: int, index: int, position: double, mainAxisLength: double) => void;
 /**
  * The TabsAttribute.
  * 
@@ -846,6 +857,25 @@ export declare interface TabsAttribute extends CommonMethod {
      * @noninterop
      */ 
     default attributeModifier(modifier: AttributeModifier<TabsAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Triggered when scrolling content within the Tabs component.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>During page scrolling, the OnTabsContentDidScrollCallback callback is invoked for all pages in the viewport
+     * on a frame-by-frame basis.
+     * </p>
+     *
+     * @param { OnTabsContentDidScrollCallback | undefined } handler - callback of tabs,
+     *     selectedIndex is the index value of the Tabs content selected before animation start.
+     *     index is the index value of the Tabs content.
+     *     position is the moving ratio of the Tabs content from the start position of the Tabs main axis.
+     *     mainAxisLength is the Tabs main axis length for calculating position.
+     *     undefined means unbinding callback.
+     * @returns { this } - the attribute of the Tabs.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default onContentDidScroll(handler: OnTabsContentDidScrollCallback | undefined): this;
 }
 /**
  * Defines the Tab Content animated transition options.
