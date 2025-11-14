@@ -116,6 +116,16 @@ declare type Length = string | number | Resource;
  * @atomicservice
  * @since 18 dynamic
  */
+/**
+ * Defines the length property with number in units of px.
+ *
+ * @typedef { `${number}px` } PX
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare type PX = `${number}px`;
 
 /**
@@ -141,6 +151,16 @@ declare type PX = `${number}px`;
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ */
+/**
+ * Defines the length property with number or number in units of vp.
+ *
+ * @typedef { `${number}vp` | number } VP
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
  */
 declare type VP = `${number}vp` | number;
 
@@ -168,6 +188,16 @@ declare type VP = `${number}vp` | number;
  * @atomicservice
  * @since 18 dynamic
  */
+/**
+ * Defines the length property with number in units of fp.
+ *
+ * @typedef { `${number}fp` } FP
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare type FP = `${number}fp`;
 
 /**
@@ -194,6 +224,16 @@ declare type FP = `${number}fp`;
  * @atomicservice
  * @since 18 dynamic
  */
+/**
+ * Defines the length property with number in units of lpx.
+ *
+ * @typedef { `${number}lpx` } LPX
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare type LPX = `${number}lpx`;
 
 /**
@@ -219,6 +259,16 @@ declare type LPX = `${number}lpx`;
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ */
+/**
+ * Defines the length property with number in units of Percentage.
+ *
+ * @typedef { `${number}%` } Percentage
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
  */
 declare type Percentage = `${number}%`;
 
@@ -262,6 +312,16 @@ declare type Degree = `${number}deg`;
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ */
+/**
+ * Defines the dimension property with number with units(vp|px|fp|lpx|%), and resource.
+ *
+ * @typedef { PX | VP | FP | LPX | Percentage | Resource } Dimension
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
  */
 declare type Dimension = PX | VP | FP | LPX | Percentage | Resource;
 
