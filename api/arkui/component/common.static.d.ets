@@ -10248,12 +10248,12 @@ export declare interface CommonMethod {
     /**
      * Allowed drop uniformData type for this node.
      *
-     * @param { Array<UniformDataType> | null | undefined } value - the uniformData type for this node.
-     * @returns { this } return the component attribute.
+     * @param { Array<UniformDataType> | null | Array<string> | undefined } value - the uniformData type for this node.
+     * @returns { this } - return the component attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    default allowDrop(value: Array<UniformDataType> | null | undefined): this;
+    default allowDrop(value: Array<UniformDataType> | null | Array<string> | undefined): this;
     /**
      * Enable the selectable area can be dragged.
      *
