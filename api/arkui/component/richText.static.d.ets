@@ -19,8 +19,7 @@
  */
 import { CommonMethod } from './common';
 import { Resource } from '../../global/resource';
-import { CustomBuilder } from "./builder";
-import { ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from "./builder";
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Defines the RichText attribute functions.

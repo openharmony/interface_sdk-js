@@ -41,7 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class Stack<T> {
   /**
@@ -67,7 +67,7 @@ declare class Stack<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   constructor();
   /**
@@ -103,7 +103,7 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   get length(): int;
 
@@ -133,7 +133,7 @@ declare class Stack<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isEmpty(): boolean;
   /**
@@ -176,7 +176,7 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   peek(): T | undefined;
 
@@ -220,7 +220,7 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   pop(): T | undefined;
 
@@ -253,7 +253,7 @@ declare class Stack<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   push(item: T): T;
   /**
@@ -285,7 +285,7 @@ declare class Stack<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   locate(element: T): int;
   /**
@@ -348,7 +348,7 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   forEach(callbackfn: StackForEachCb<T>): void;
 
@@ -388,7 +388,7 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   $_iterator(): IterableIterator<T>;
 
@@ -404,7 +404,7 @@ declare class Stack<T> {
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 20 static
+ * @since 22 static
  */
 export type StackForEachCb<T> = (value: T, index: int, stack: Stack<T>) => void
 

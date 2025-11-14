@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -40,7 +40,6 @@ import * as _UIServiceExtensionContext from './application/UIServiceExtensionCon
 import * as _UIServiceProxy from './application/UIServiceProxy';
 import * as _UIServiceHostProxy from './application/UIServiceHostProxy';
 import * as _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
-import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 /*** endif */
 /*** if arkts static */
 import _UIAbilityContext from './application/UIAbilityContext';
@@ -55,6 +54,9 @@ import _Context from './application/Context';
 import _ExtensionContext from './application/ExtensionContext';
 import _FormExtensionContext from './application/FormExtensionContext';
 import _ServiceExtensionContext from './application/ServiceExtensionContext';
+import _EventHub from './application/EventHub';
+import type _AutoStartupCallback from './application/AutoStartupCallback';
+import type _AutoStartupInfo from './application/AutoStartupInfo';
 import _UIServiceProxy from './application/UIServiceProxy';
 import _UIServiceHostProxy from './application/UIServiceHostProxy';
 import _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
@@ -62,6 +64,8 @@ import _UIServiceExtensionConnectCallback from './application/UIServiceExtension
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type _AbilityStartCallback from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
+import { PacMap as _PacMap } from './ability/dataAbilityHelper';
+
 /**
  * This module provides application context classes and common data structures.
  *
@@ -87,7 +91,7 @@ import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace common {
   /**
@@ -125,7 +129,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   export type UIAbilityContext = _UIAbilityContext;
 
@@ -164,7 +168,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   export type AbilityStageContext = _AbilityStageContext;
 
@@ -203,7 +207,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   export type ApplicationContext = _ApplicationContext;
 
@@ -241,7 +245,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
-   * @since 20 static
+   * @since 22 static
    */
   export type BaseContext = _BaseContext;
 
@@ -284,7 +288,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   export type Context = _Context;
 
@@ -313,7 +317,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   export type ExtensionContext = _ExtensionContext;
 
@@ -345,7 +349,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   export type FormExtensionContext = _FormExtensionContext;
 
@@ -370,7 +374,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   export type ServiceExtensionContext = _ServiceExtensionContext;
 
@@ -402,6 +406,17 @@ declare namespace common {
   export type EventHub = _EventHub.default;
 
   /**
+   * The event center of a context, support the subscription and publication of events.
+   *
+   * @typedef { _EventHub }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @since 22 static
+   */
+  export type EventHub = _EventHub;
+
+  /**
    * Defines a PacMap object for storing a series of values.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -415,6 +430,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
   export type PacMap = _PacMap;
 
@@ -433,7 +449,7 @@ declare namespace common {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type AbilityResult = _AbilityResult;
 
@@ -444,7 +460,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type ConnectOptions = _ConnectOptions;
 
@@ -466,7 +482,7 @@ declare namespace common {
    * @typedef { _UIExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   export type UIExtensionContext = _UIExtensionContext;
 
@@ -490,7 +506,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   export type AutoFillExtensionContext = _AutoFillExtensionContext;
 
@@ -502,7 +518,7 @@ declare namespace common {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type AbilityStartCallback = _AbilityStartCallback;
 
@@ -514,6 +530,7 @@ declare namespace common {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 22 static
    */
   export type AutoStartupInfo = _AutoStartupInfo;
 
@@ -525,6 +542,7 @@ declare namespace common {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 22 static
    */
   export type AutoStartupCallback = _AutoStartupCallback;
 
@@ -579,7 +597,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   export type UIServiceExtensionContext = _UIServiceExtensionContext;
 
@@ -601,7 +619,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   export type UIServiceProxy = _UIServiceProxy;
 
@@ -623,7 +641,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   export type UIServiceHostProxy = _UIServiceHostProxy;
 
@@ -645,7 +663,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   export type UIServiceExtensionConnectCallback = _UIServiceExtensionConnectCallback;
 
@@ -667,7 +685,7 @@ declare namespace common {
    * @typedef { _AppServiceExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   export type AppServiceExtensionContext = _AppServiceExtensionContext;
 }

@@ -23,7 +23,7 @@ import { ButtonType } from './button';
 import { ClickEvent, AttributeModifier, CommonMethod } from './common';
 import { SecurityComponentMethod } from './securityComponent';
 import { BusinessError } from '../../@ohos.base';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 
 /**
  * Enumerates the icon styles.
@@ -31,7 +31,7 @@ import { memo, ComponentBuilder } from './../stateManagement/runtime';
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 20 static
+ * @since 22 static
  */
 export declare enum PasteIconStyle {
   /**
@@ -39,7 +39,7 @@ export declare enum PasteIconStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   LINES = 0
 }
@@ -50,7 +50,7 @@ export declare enum PasteIconStyle {
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 20 static
+ * @since 22 static
  */
 export declare enum PasteDescription {
   /**
@@ -58,7 +58,7 @@ export declare enum PasteDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   PASTE = 0
 }
@@ -69,7 +69,7 @@ export declare enum PasteDescription {
  * @interface PasteButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 20 static
+ * @since 22 static
  */
 export declare interface PasteButtonOptions {
   /**
@@ -78,7 +78,7 @@ export declare interface PasteButtonOptions {
    * @type { ?PasteIconStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   icon?: PasteIconStyle;
 
@@ -88,7 +88,7 @@ export declare interface PasteButtonOptions {
    * @type { ?PasteDescription }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   text?: PasteDescription;
 
@@ -98,7 +98,7 @@ export declare interface PasteButtonOptions {
    * @type { ?ButtonType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   buttonType?: ButtonType;
 }
@@ -109,7 +109,7 @@ export declare interface PasteButtonOptions {
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 20 static
+ * @since 22 static
  */
 export declare enum PasteButtonOnClickResult {
   /**
@@ -117,7 +117,7 @@ export declare enum PasteButtonOnClickResult {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   SUCCESS = 0,
   /**
@@ -125,7 +125,7 @@ export declare enum PasteButtonOnClickResult {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   TEMPORARY_AUTHORIZATION_FAILED = 1
 }
@@ -139,7 +139,7 @@ export declare enum PasteButtonOnClickResult {
  * @param { BusinessError<void> } [error] - The error code and message of click event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 20 static
+ * @since 22 static
  */
 export type PasteButtonCallback 
   = (event: ClickEvent, result: PasteButtonOnClickResult, error?: BusinessError<void>) => void;
@@ -151,7 +151,7 @@ export type PasteButtonCallback
  * @interface PasteButtonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 20 static
+ * @since 22 static
  */
 export declare interface PasteButtonAttribute extends SecurityComponentMethod {
   /**
@@ -161,7 +161,7 @@ export declare interface PasteButtonAttribute extends SecurityComponentMethod {
    * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   onClick(event: PasteButtonCallback | undefined): this;
 }
@@ -173,9 +173,8 @@ export declare interface PasteButtonAttribute extends SecurityComponentMethod {
  * @returns { PasteButtonAttribute } Attributes of the paste button.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 20 static
+ * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function PasteButton(
     options?: PasteButtonOptions

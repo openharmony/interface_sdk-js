@@ -26,6 +26,6 @@ import { TimePickerAttribute } from '@ohos.arkui.component';
  *
  * @implements { TimePickerAttribute, AttributeModifier<TimePickerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare class TimePickerModifier implements TimePickerAttribute, AttributeModifier<TimePickerAttribute> {}

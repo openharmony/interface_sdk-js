@@ -2380,6 +2380,24 @@ declare namespace bundleManager {
    * @since 20
    */
   function getInstallationAllowedAppDistributionTypes(admin: Want): Array<AppDistributionType>;
+
+  /**
+   * Install the application in the market.
+   *
+   * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<string> } bundleNames - bundleNames indicates the bundleName list of applications that need to install.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9201002 - Failed to install the application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 22
+   */
+  function installMarketApps(admin: Want, bundleNames: Array<string>): void;
   
   /**
    * App distribution type.

@@ -18,7 +18,7 @@
  */
 
 import { Builder } from './builder';
-import { ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 import { DynamicNode } from './common'
 
 /**
@@ -26,31 +26,31 @@ import { DynamicNode } from './common'
  *
  * @typedef { function } ItemGeneratorFunc<T>
  * @param { T } item - item in an array
- * @param { number } index - index corresponding to an array item.
+ * @param { int } index - index corresponding to an array item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Builder
-declare type ItemGeneratorFunc<T> = (item: T, index: number) => void;
+declare type ItemGeneratorFunc<T> = (item: T, index: int) => void;
 
 /**
  * Define key generator function.
  *
  * @typedef { function } KeyGeneratorFunc<T>
  * @param { T } item - item in an array
- * @param { number } index - index corresponding to an array item.
+ * @param { int } index - index corresponding to an array item.
  * @returns {string} Character string generated based on item and index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
-declare type KeyGeneratorFunc<T> = (item: T, index: number) => string;
+declare type KeyGeneratorFunc<T> = (item: T, index: int) => string;
 
 /**
  * declare ForEachAttribute
  *
  * @interface ForEachAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export interface ForEachAttribute extends DynamicNode {}
@@ -62,7 +62,7 @@ export interface ForEachAttribute extends DynamicNode {}
  * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function
  * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 @ComponentBuilder

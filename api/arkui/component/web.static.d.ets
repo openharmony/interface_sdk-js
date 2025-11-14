@@ -20,13 +20,12 @@
 import webview from '../../@ohos.web.webview';
 import image from '../../@ohos.multimedia.image';
 import { CommonMethod, Callback, TouchEvent, MouseEvent, NestedScrollOptions, KeyEvent, HapticFeedbackMode } from './common';
-import { CustomBuilder } from './builder';
+import { CustomBuilder, ComponentBuilder } from './builder';
 import { Resource } from '../../global/resource';
 import { Position, ResourceStr, VoidCallback } from './units';
 import { MenuType, EditMenuOptions, TextDataDetectorConfig } from './textCommon';
 import { CopyOptions, NestedScrollMode } from './enums';
 import { PreviewMenuOptions } from './richEditor';
-import { ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Provides methods for controlling the web controller.
@@ -54,6 +53,15 @@ export type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadComm
  * @since 22 static
  */
 export type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
+/**
+ * The callback of verify pin.
+ *
+ * @typedef { function } OnVerifyPinCallback
+ * @param { VerifyPinEvent } verifyPinEvent - The event of verify PIN.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export type OnVerifyPinCallback = (verifyPinEvent: VerifyPinEvent) => void;
 /**
  * The callback of onOverrideErrorPage.
  *
@@ -1071,6 +1079,41 @@ export declare class FileSelectorParam {
      * @since 22 static
      */
     getMimeTypes(): Array<string>;
+    /**
+    * Gets suggested file names.
+    *
+    * @returns { string } Return the suggested file names.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    getSuggestedName(): string;
+
+    /**
+    * Get the default path opened when pulling up the selector.
+    *
+    * @returns { string } Return to the default path opened when pulling up the selector.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    getDefaultPath(): string;
+
+    /**
+    * Gets a description array of file types.
+    *
+    * @returns { Array<string> } Return an array of description of the file type.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    getDescriptions(): Array<string>;
+
+    /**
+    * Gets whether to filter fully matching file types.
+    *
+    * @returns { boolean } Return whether to filter all matching file types.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    isAcceptAllOptionExcluded(): boolean;
 }
 /**
  * Defines the js result.
@@ -1200,6 +1243,18 @@ export declare class SslErrorHandler {
      * @since 22 static
      */
     handleCancel(): void;
+    /**
+     * ArkWeb has encountered an SSL certificate error, and this interface indicates whether to terminate or
+     * continue displaying the error to users.
+     *
+     * @param { boolean } abortLoading If abortLoading is true, the current request will be canceled and the
+     *     user will remain on the current page. If it is false, the SSL error will not be ignored, and a
+     *     blank page will be displayed. If a default error page is enabled, the default error page will be
+     *     shown instead. The default value is false.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    handleCancel(abortLoading: boolean): void;
 }
 /**
  * Defines the client certificate request result, related to {@link onClientAuthenticationRequest} method.
@@ -1233,6 +1288,17 @@ export declare class ClientAuthenticationHandler {
      */
     confirm(authUri: string): void;
     /**
+     * Confirm to use the identify of the certificate. The identify can be obtained from certificate management.
+     *
+     * @param { string } identity - The identify of the credential.
+     * @param { CredentialType | string } credentialTypeOrCertChainFile - The type of the credential or the file that store
+     *     client certificate chain.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    confirm(identity: string, credentialTypeOrCertChainFile: CredentialType | string): void;
+    /**
      * Cancel this certificate request.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -1247,6 +1313,29 @@ export declare class ClientAuthenticationHandler {
      */
     ignore(): void;
 }
+/**
+ * Handle the result of PIN verification.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare class VerifyPinHandler {
+    /**
+     * Constructor.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    constructor();
+    /**
+     * Passes the PIN code verify result.
+     *
+     * @param { PinVerifyResult } result The PIN code verify result.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    confirm(result: PinVerifyResult): void;
+  }
 /**
  * Defines the accessible resource type, related to {@link onPermissionRequest} method.
  *
@@ -4536,7 +4625,7 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 22 static
      */
     default mediaOptions(options: WebMediaOptions | undefined): this;
-    
+
     /**
      * Sets whether to load web pages by using the overview mode, which means reducing the content to fit the screen width.
      * Currently, only mobile devices are supported.
@@ -4631,6 +4720,17 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default metaViewport(enabled: boolean | undefined): this;
     /**
+     * Called when the web page starts to be loaded.
+     * This API is called only for the main frame, and not for the iframe or frameset content.
+     *
+     * @param { Callback<OnPageBeginEvent> | undefined } callback The triggered function at the begin of web page
+     *     loading.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    default onPageBegin(callback: Callback<OnPageBeginEvent> | undefined): this;
+    /**
      * Triggered at the end of web page loading.
      * This callback is only invoked for the main frame and not for subframes.
      *
@@ -4640,16 +4740,6 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 22 static
      */
     default onPageEnd(callback: Callback<OnPageEndEvent> | undefined): this;
-    /**
-     * Called when the web page starts to be loaded.
-     * This API is called only for the main frame, and not for the iframe or frameset content.
-     *
-     * @param { Callback<OnPageBeginEvent> | undefined } callback The triggered function at the begin of web page loading.
-     * @returns { WebAttribute }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
-     */
-    default onPageBegin(callback: Callback<OnPageBeginEvent> | undefined): this;
     /**
      * Triggered at the begin of web page loading. This method is called once for each main frame load.  Embedded frame
      * changes, i.e. clicking a link whose target is an iframe and fragment navigations (navigations to #fragment_id)
@@ -5008,6 +5098,15 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 22 static
      */
     default onClientAuthenticationRequest(callback: Callback<OnClientAuthenticationEvent> | undefined): this;
+    /**
+     * Triggered when the Web page needs verify pin from the user.
+     *
+     * @param { OnVerifyPinCallback | undefined } callback The triggered callback when needs verify pin from the user.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @@since 22 static
+     */
+    default onVerifyPin(callback: OnVerifyPinCallback | undefined): this;
     /**
      * Triggered when web page requires the user to create a window.
      * If the {@link setWebController} interface is not called, the render process will be blocked.
@@ -6049,6 +6148,28 @@ export declare interface SslErrorEvent {
     certChainData?: Array<Uint8Array>;
 }
 /**
+ * Defines the event for PIN verification.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare interface VerifyPinEvent {
+    /**
+     * Handle the result of PIN verification.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    handler: VerifyPinHandler;
+    /**
+     * The identity of the Credential.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    identity: string;
+  }
+/**
  * Define nested scroll options
  *
  * @interface NestedScrollOptionsExt
@@ -6161,3 +6282,56 @@ export declare function Web(
     value: WebOptions,
     content_?: CustomBuilder,
 ): WebAttribute
+/**
+ * Enum type supplied to {@link PinVerifyResult} when VerifyPinHandler#confirm being called.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare enum PinVerifyResult {
+    /**
+     * SUCCESS.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    PIN_VERIFICATION_SUCCESS = 0,
+    /**
+     * FAILED.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    PIN_VERIFICATION_FAILED = 1
+}
+/**
+ * Enum type supplied to {@link CredentialType} when ClientAuthenticationHandler#confirm being called.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare enum CredentialType {
+    /**
+     * User credential.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    CREDENTIAL_USER = 2,
+    /**
+     * Application-specific credential.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    CREDENTIAL_APP = 3,
+    /**
+     * Hardware security key credential.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    CREDENTIAL_UKEY = 4,
+  }

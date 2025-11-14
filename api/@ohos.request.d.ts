@@ -45,7 +45,7 @@ import { WantAgent } from './@ohos.app.ability.wantAgent';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace request {
   /**
@@ -2523,7 +2523,7 @@ declare namespace request {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   namespace agent {
     /**
@@ -2557,7 +2557,7 @@ declare namespace request {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     enum Action {
       /**
@@ -2573,7 +2573,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       DOWNLOAD,
       /**
@@ -2589,7 +2589,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       UPLOAD
     }
@@ -2740,7 +2740,7 @@ declare namespace request {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     interface FileSpec {
       /**
@@ -2775,7 +2775,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 12 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       path: string;
       /**
@@ -2823,7 +2823,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       filename?: string;
       /**
@@ -2862,7 +2862,7 @@ declare namespace request {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     interface FormItem {
       /**
@@ -2880,7 +2880,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       name: string;
       /**
@@ -2898,7 +2898,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       value: string | FileSpec | Array<FileSpec>;
     }
@@ -3047,7 +3047,7 @@ declare namespace request {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     interface Config {
       /**
@@ -3065,7 +3065,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       action: Action;
       /**
@@ -3099,7 +3099,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 15 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       url: string;
       /**
@@ -3190,7 +3190,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       overwrite?: boolean;
       /**
@@ -3214,7 +3214,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       method?: string;
       /**
@@ -3259,7 +3259,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       data?: string | Array<FormItem>;
       /**
@@ -3300,7 +3300,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 12 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       saveas?: string;
       /**
@@ -3644,7 +3644,7 @@ declare namespace request {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     enum State {
       /**
@@ -3660,7 +3660,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       INITIALIZED = 0x00,
       /**
@@ -3676,7 +3676,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       WAITING = 0x10,
       /**
@@ -3692,7 +3692,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       RUNNING = 0x20,
       /**
@@ -3708,7 +3708,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       RETRYING = 0x21,
       /**
@@ -3724,7 +3724,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       PAUSED = 0x30,
       /**
@@ -3740,7 +3740,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       STOPPED = 0x31,
       /**
@@ -3756,7 +3756,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       COMPLETED = 0x40,
       /**
@@ -3772,7 +3772,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       FAILED = 0x41,
       /**
@@ -3788,7 +3788,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       REMOVED = 0x50
     }
@@ -3824,7 +3824,7 @@ declare namespace request {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     interface Progress {
       /**
@@ -3844,7 +3844,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       readonly state: State;
       /**
@@ -3864,7 +3864,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       readonly index: int;
       /**
@@ -3884,7 +3884,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       readonly processed: long;
       /**
@@ -3904,7 +3904,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       readonly sizes: Array<long>;
       /**
@@ -4110,7 +4110,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @systemapi Hide this for inner system use.
        * @since 10 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       bundle?: string;
       /**
@@ -4232,7 +4232,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @systemapi Hide this for inner system use.
        * @since 10 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       readonly uid?: string;
       /**
@@ -4244,7 +4244,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @systemapi Hide this for inner system use.
        * @since 10 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       readonly bundle?: string;
       /**
@@ -4588,7 +4588,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     interface HttpResponse {
       /**
@@ -4608,7 +4609,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 20 dynamic&static
+       * @since 20 dynamic
+       * @since 22 static
        */
       readonly version: string,
       /**
@@ -4628,7 +4630,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 20 dynamic&static
+       * @since 20 dynamic
+       * @since 22 static
        */
       readonly statusCode: int,
       /**
@@ -4648,7 +4651,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 20 dynamic&static
+       * @since 20 dynamic
+       * @since 22 static
        */
       readonly reason: string,
       /**
@@ -4736,7 +4740,7 @@ declare namespace request {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     interface Task {
       /**
@@ -4801,7 +4805,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       on(event: 'progress', callback: (progress: Progress) => void): void;
       /**
@@ -4854,7 +4858,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       on(event: 'completed', callback: (progress: Progress) => void): void;
       /**
@@ -5102,7 +5106,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 20 dynamic&static
+       * @since 20 dynamic
+       * @since 22 static
        */
       on(event: 'response', callback: Callback<HttpResponse>): void;
       /**
@@ -5217,7 +5222,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 12 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       start(callback: AsyncCallback<void>): void;
       /**
@@ -5258,7 +5263,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 12 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       start(): Promise<void>;
       /**
@@ -5492,7 +5497,7 @@ declare namespace request {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     function create(context: BaseContext, config: Config, callback: AsyncCallback<Task>): void;
 
@@ -5538,7 +5543,7 @@ declare namespace request {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     function create(context: BaseContext, config: Config): Promise<Task>;
 

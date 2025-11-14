@@ -29,7 +29,7 @@ import { TabsAttribute } from './component/tabs';
  *
  * @implements { TabsAttribute, AttributeModifier<TabsAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare class TabsModifier implements TabsAttribute, AttributeModifier<TabsAttribute> {}

@@ -40,7 +40,7 @@ import type _PermissionRequestResult from './security/PermissionRequestResult';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace abilityAccessCtrl {
   /**
@@ -66,7 +66,7 @@ declare namespace abilityAccessCtrl {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createAtManager(): AtManager;
 
@@ -84,7 +84,7 @@ declare namespace abilityAccessCtrl {
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AtManager {
     /**
@@ -95,7 +95,7 @@ declare namespace abilityAccessCtrl {
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @syscap SystemCapability.Security.AccessToken
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     verifyAccessToken(tokenID: int, permissionName: Permissions): Promise<GrantStatus>;
 
@@ -122,7 +122,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, or the permissionName exceeds 256 characters.
      * @syscap SystemCapability.Security.AccessToken
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     verifyAccessTokenSync(tokenID: int, permissionName: Permissions): GrantStatus;
 
@@ -163,7 +163,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     checkAccessToken(tokenID: int, permissionName: Permissions): Promise<GrantStatus>;
 
@@ -193,7 +193,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     checkAccessTokenSync(tokenID: int, permissionName: Permissions): GrantStatus;
 
@@ -256,7 +256,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     requestPermissionsFromUser(
       context: Context,
@@ -310,7 +310,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     requestPermissionsFromUser(context: Context, permissionList: Array<Permissions>): Promise<PermissionRequestResult>;
 
@@ -667,7 +667,8 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
      * @atomicservice
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     requestPermissionOnSetting(context: Context, permissionList: Array<Permissions>): Promise<Array<GrantStatus>>;
 
@@ -744,7 +745,8 @@ declare namespace abilityAccessCtrl {
      *     user_grant or manual_settings permission.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     grantPermission(tokenID: int, permissionName: Permissions, permissionFlags: int): Promise<void>;
 
@@ -772,7 +774,8 @@ declare namespace abilityAccessCtrl {
      *     user_grant or manual_settings permission.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     revokePermission(tokenID: int, permissionName: Permissions, permissionFlags: int): Promise<void>;
 
@@ -821,7 +824,7 @@ declare namespace abilityAccessCtrl {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum GrantStatus {
     /**
@@ -844,7 +847,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PERMISSION_DENIED = -1,
     /**
@@ -867,7 +870,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PERMISSION_GRANTED = 0
   }
@@ -1105,7 +1108,7 @@ export { Permissions };
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type PermissionRequestResult = _PermissionRequestResult;
 /**
@@ -1126,6 +1129,6 @@ export type PermissionRequestResult = _PermissionRequestResult;
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type Context = _Context;

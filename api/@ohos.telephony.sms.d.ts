@@ -27,7 +27,7 @@ import type Context from './application/BaseContext';
  * @namespace sms
  * @syscap SystemCapability.Telephony.SmsMms
  * @since 6 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace sms {
   /**
@@ -344,7 +344,7 @@ declare namespace sms {
    * Returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function hasSmsCapability(): boolean;
 
@@ -554,6 +554,24 @@ declare namespace sms {
    * @since 7 dynamic
    */
   function setCBConfig(options: CBConfigOptions): Promise<void>;
+
+  /**
+   * Turn on Cell BroadCast by list.
+   *
+   * @permission ohos.permission.RECEIVE_SMS
+   * @param { CBConfigListConfigs } configs - Indicates cell broadcast configuration list configs.
+   * @returns { Promise<void> } The promise returned by the setCBConfigList.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8700001 - Invalid parameter value.
+   * @throws { BusinessError } 8700002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8700003 - System internal error.
+   * @throws { BusinessError } 8700999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @systemapi Hide this for inner system use.
+   * @since 22 dynamic&static
+   */
+  function setCBConfigList(configs: CBConfigListConfigs): Promise<void>;
 
   /**
    * Get an SMS segment encode relation information.
@@ -2316,6 +2334,46 @@ declare namespace sms {
   }
 
   /**
+   * Defines the cell broadcast configuration list configs.
+   *
+   * @interface CBConfigListConfigs
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @systemapi Hide this for inner system use.
+   * @since 22 dynamic&static
+   */
+  export interface CBConfigListConfigs {
+    /**
+     * Indicates the card slot ID for the cell broadcast configuration list configs.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Telephony.SmsMms
+     * @systemapi Hide this for inner system use.
+     * @since 22 dynamic&static
+     */
+    slotId: int;
+
+    /**
+     * Indicates the messageIDs for the cell broadcast configuration list configs.
+     *
+     * @type { int[] }
+     * @syscap SystemCapability.Telephony.SmsMms
+     * @systemapi Hide this for inner system use.
+     * @since 22 dynamic&static
+     */
+    messageIds: int[];
+
+    /**
+     * Indicates the RAN type for the cell broadcast configuration list configs.
+     *
+     * @type { RanType }
+     * @syscap SystemCapability.Telephony.SmsMms
+     * @systemapi Hide this for inner system use.
+     * @since 22 dynamic&static
+     */
+    ranType: RanType;
+  }
+
+  /**
    * Defines the SIM message options.
    *
    * @interface SimMessageOptions
@@ -2853,6 +2911,7 @@ declare namespace sms {
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
   export enum RanType {
     /**
@@ -2861,6 +2920,7 @@ declare namespace sms {
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
     TYPE_GSM = 1,
 
@@ -2870,6 +2930,7 @@ declare namespace sms {
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
     TYPE_CDMA = 2,
   }

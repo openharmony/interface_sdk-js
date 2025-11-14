@@ -32,7 +32,7 @@
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export declare interface InputEvent {
   /**
@@ -47,7 +47,7 @@ export declare interface InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   id: int;
 
@@ -63,7 +63,7 @@ export declare interface InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   deviceId: int;
 
@@ -79,7 +79,7 @@ export declare interface InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   actionTime: long;
 
@@ -95,7 +95,7 @@ export declare interface InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   screenId: int;
 
@@ -111,7 +111,7 @@ export declare interface InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   windowId: int;
 }

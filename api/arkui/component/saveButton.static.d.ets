@@ -23,7 +23,7 @@ import { ButtonType } from './button';
 import { ClickEvent, AttributeModifier, CommonMethod } from './common';
 import { SecurityComponentMethod } from './securityComponent';
 import { BusinessError } from '../../@ohos.base';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 /**
  * Enumerates the icon styles.
  *
@@ -245,6 +245,28 @@ export declare interface SaveButtonAttribute extends SecurityComponentMethod {
   onClick(event: SaveButtonCallback | undefined): this;
 
   /**
+   * Sets the icon of the save button.
+   *
+   * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+   * @param { Resource | undefined } icon - Source of the icon.
+   * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  setIcon(icon: Resource | undefined): this;
+
+  /**
+   * Sets the text of the save button.
+   *
+   * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+   * @param { string | Resource | undefined } text - Content of text.
+   * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  setText(text: string | Resource | undefined): this;
+
+  /**
    * Sets the size of the icon.
    *
    * @param { Dimension | SizeOptions | undefined } size - Dimensions of the icon to set.
@@ -253,6 +275,29 @@ export declare interface SaveButtonAttribute extends SecurityComponentMethod {
    * @since 22 static
    */
   iconSize(size: Dimension | SizeOptions | undefined): this;
+
+  /**
+   * Sets the border radius of the icon.
+   *
+   * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+   * @param { Dimension | BorderRadiuses | undefined } radius - Border radius of the icon to set.
+   * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  iconBorderRadius(radius: Dimension | BorderRadiuses | undefined): this;
+
+  /**
+   * Enables the press effect of the button.
+   *
+   * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+   * @param { boolean | undefined } enabled - Whether to enable the press effect. The value true means
+   *     to enable the press effect; the value false means the opposite.
+   * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  stateEffect(enabled: boolean | undefined): this;
 }
 
 
@@ -264,7 +309,6 @@ export declare interface SaveButtonAttribute extends SecurityComponentMethod {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function SaveButton(
     options?: SaveButtonOptions 

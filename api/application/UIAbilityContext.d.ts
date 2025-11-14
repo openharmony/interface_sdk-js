@@ -20,7 +20,6 @@
 
 /*** if arkts dynamic */
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
-import contextConstant from '../@ohos.app.ability.contextConstant';
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 /*** endif */
@@ -42,6 +41,8 @@ import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import type AbilityStartCallback from './AbilityStartCallback';
 /*** if arkts static */
+import { LocalStorage } from '@ohos.arkui.stateManagement';
+import { RecordData } from '../@ohos.base';
 import UIServiceProxy from './UIServiceProxy';
 import UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 /*** endif */
@@ -71,7 +72,7 @@ import UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallba
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class UIAbilityContext extends Context {
   /**
@@ -100,7 +101,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   abilityInfo: AbilityInfo;
 
@@ -130,7 +131,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   currentHapModuleInfo: HapModuleInfo;
 
@@ -160,7 +161,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   config: Configuration;
 
@@ -172,8 +173,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   /**
    * Indicates windowStage information.
@@ -184,7 +185,8 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   windowStage: window.WindowStage;
 
@@ -350,7 +352,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -562,7 +564,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -785,7 +787,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -820,7 +822,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   openLink(link: string, options?: OpenLinkOptions, callback?: AsyncCallback<AbilityResult>): Promise<void>;
 
@@ -934,6 +936,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
   startAbilityAsCaller(want: Want, callback: AsyncCallback<void>): void;
 
@@ -1044,6 +1047,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
   startAbilityAsCaller(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -1160,6 +1164,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
   startAbilityAsCaller(want: Want, options?: StartOptions): Promise<void>;
 
@@ -1302,7 +1307,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   startAbilityByCall(want: Want): Promise<Caller>;
 
@@ -1495,7 +1500,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -1528,8 +1533,9 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
-  startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+  startAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Starts a new ability with account.
@@ -1640,7 +1646,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
@@ -1672,8 +1678,9 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
-  startAbilityWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
+  startAbilityWithAccount(want: Want, accountId: int, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Starts a new ability with account. If the caller application is in foreground,
@@ -1759,7 +1766,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
@@ -1793,8 +1800,9 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
-  startAbilityWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<void>;
+  startAbilityWithAccount(want: Want, accountId: int, options?: StartOptions): Promise<void>;
 
   /**
    * Starts an ability and returns the execution result when the ability is destroyed.
@@ -2001,7 +2009,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
 
@@ -2206,7 +2214,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
 
@@ -2421,7 +2429,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
@@ -2525,7 +2533,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -2558,8 +2566,9 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
-  startAbilityForResultWithAccount(want: Want, accountId: number, callback: AsyncCallback<AbilityResult>): void;
+  startAbilityForResultWithAccount(want: Want, accountId: int, callback: AsyncCallback<AbilityResult>): void;
 
   /**
    * Starts an ability and returns the execution result when the ability is destroyed with account.
@@ -2670,7 +2679,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
@@ -2702,10 +2711,11 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
   startAbilityForResultWithAccount(
     want: Want,
-    accountId: number,
+    accountId: int,
     options: StartOptions,
     callback: AsyncCallback<void>
   ): void;
@@ -2813,7 +2823,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<AbilityResult> } Returns the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
@@ -2847,8 +2857,9 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
-  startAbilityForResultWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<AbilityResult>;
+  startAbilityForResultWithAccount(want: Want, accountId: int, options?: StartOptions): Promise<AbilityResult>;
 
   /**
    * Starts a new service extension ability.
@@ -2927,7 +2938,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   startServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -3008,7 +3019,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   startServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -3074,7 +3085,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -3095,8 +3106,9 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
-  startServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+  startServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Starts a new service extension ability with account.
@@ -3160,7 +3172,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -3181,8 +3193,9 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
-  startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
+  startServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
   /**
    * Stops other service extension ability.
@@ -3229,6 +3242,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 22 static
    */
   stopServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -3275,6 +3289,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 22 static
    */
   stopServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -3309,7 +3324,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the accountId to start.
+   * @param { int } accountId - Indicates the accountId to start.
    * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -3326,8 +3341,9 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 22 static
    */
-  stopServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+  stopServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Stops other service extension ability with account.
@@ -3360,7 +3376,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the accountId to start.
+   * @param { int } accountId - Indicates the accountId to start.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -3377,8 +3393,9 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 22 static
    */
-  stopServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
+  stopServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
   /**
    * Destroys this Page ability.
@@ -3421,7 +3438,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   terminateSelf(callback: AsyncCallback<void>): void;
 
@@ -3463,7 +3480,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   terminateSelf(): Promise<void>;
 
@@ -3509,7 +3526,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
 
@@ -3555,7 +3572,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
 
@@ -3577,7 +3594,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   backToCallerAbilityWithResult(abilityResult: AbilityResult, requestCode: string): Promise<void>;
 
@@ -3622,7 +3639,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
@@ -3655,9 +3672,9 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - The element name of the service ability
-   * @param { number } accountId - The account to connect
+   * @param { int } accountId - The account to connect
    * @param { ConnectOptions } options - The remote object instance
-   * @returns { number } Returns the number code of the ability connected
+   * @returns { long } Returns the number code of the ability connected
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
@@ -3675,8 +3692,9 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 22 static
    */
-  connectServiceExtensionAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
+  connectServiceExtensionAbilityWithAccount(want: Want, accountId: int, options: ConnectOptions): long;
 
   /**
    * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
@@ -3689,7 +3707,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
@@ -3704,7 +3722,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   disconnectServiceExtensionAbility(connection: long): Promise<void>;
 
@@ -3732,7 +3750,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   setMissionLabel(label: string, callback: AsyncCallback<void>): void;
 
@@ -3760,7 +3778,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   setMissionLabel(label: string): Promise<void>;
 
@@ -3790,6 +3808,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 22 static
    */
   setMissionIcon(icon: image.PixelMap, callback: AsyncCallback<void>): void;
 
@@ -3819,6 +3838,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 22 static
    */
   setMissionIcon(icon: image.PixelMap): Promise<void>;
 
@@ -3898,6 +3918,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
   restoreWindowStage(localStorage: LocalStorage): void;
 
@@ -3919,7 +3940,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isTerminating(): boolean;
 
@@ -4057,6 +4078,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
   startRecentAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -4192,6 +4214,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
   startRecentAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -4333,6 +4356,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
   startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -4389,7 +4413,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   requestDialogService(want: Want, result: AsyncCallback<dialogRequest.RequestResult>): void;
 
@@ -4447,7 +4471,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   requestDialogService(want: Want): Promise<dialogRequest.RequestResult>;
 
@@ -4483,7 +4507,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   reportDrawnCompleted(callback: AsyncCallback<void>): void;
 
@@ -4524,9 +4548,24 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
+    abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void;
+
+  /**
+   * Starts the UIAbility or UIExtensionAbility by type.
+   * If the caller application is in the background, it is not allowed to call this interface.
+   *
+   * @param { string } type - The type of target ability.
+   * @param { Record<string, RecordData> } wantParam - Indicates the want parameter.
+   * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
+   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  startAbilityByType(type: string, wantParam: Record<string, RecordData>,
     abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void;
 
   /**
@@ -4571,6 +4610,22 @@ declare class UIAbilityContext extends Context {
     abilityStartCallback: AbilityStartCallback): Promise<void>;
 
   /**
+   * Starts the UIAbility or UIExtensionAbility by type.
+   * If the caller application is in the background, it is not allowed to call this interface.
+   *
+   * @param { string } type - The type of target ability.
+   * @param { Record<string, RecordData> } wantParam - Indicates the want parameter.
+   * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  startAbilityByType(type: string, wantParam: Record<string, RecordData>,
+    abilityStartCallback: AbilityStartCallback): Promise<void>;
+
+  /**
    * Requests the Modal UIExtensionAbility.
    * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
@@ -4608,7 +4663,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
 
@@ -4650,7 +4705,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   requestModalUIExtension(pickerWant: Want): Promise<void>;
 
@@ -4674,7 +4729,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<AbilityResult>;
 
@@ -4691,7 +4746,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   moveAbilityToBackground(): Promise<void>;
 
@@ -4706,6 +4761,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
   showAbility(): Promise<void>;
 
@@ -4720,6 +4776,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
   hideAbility(): Promise<void>;
 
@@ -4734,6 +4791,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
+   * @since 22 static
    */
   setRestoreEnabled(enabled: boolean): void;
 
@@ -4764,7 +4822,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   startUIServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4794,7 +4852,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise<UIServiceProxy>;
 
@@ -4811,7 +4869,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>;
 
@@ -4832,6 +4890,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 15 dynamic
+   * @since 22 static
    */
   setAbilityInstanceInfo(label: string, icon: image.PixelMap): Promise<void>;
 
@@ -4848,6 +4907,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 17 dynamic
+   * @since 22 static
    */
   revokeDelegator(): Promise<void>;
 
@@ -4860,7 +4920,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 
@@ -4887,6 +4947,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 22 static
    */
   startAppServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4909,6 +4970,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 22 static
    */
   stopAppServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4919,7 +4981,7 @@ declare class UIAbilityContext extends Context {
    *
    * @param { Want } want - The element name of the app service ability
    * @param { ConnectOptions } callback - The callback for obtaining the connection result
-   * @returns { number } Returns the number code of the ability connected
+   * @returns { long } Returns the number code of the ability connected
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -4933,13 +4995,14 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 22 static
    */
-  connectAppServiceExtensionAbility(want: Want, callback: ConnectOptions): number;
+  connectAppServiceExtensionAbility(want: Want, callback: ConnectOptions): long;
 
   /**
    * Disconnect current ability from an app service extension, in contrast to {@link connectAppServiceExtensionAbility}.
    *
-   * @param { number } connection - The number code of the ability connected
+   * @param { long } connection - The number code of the ability connected
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -4947,8 +5010,9 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 22 static
    */
-  disconnectAppServiceExtensionAbility(connection: number): Promise<void>;
+  disconnectAppServiceExtensionAbility(connection: long): Promise<void>;
 
   /**
    * The onNewWant callback is not triggered when a UIAbility's lifecycle is driven by scenarios.

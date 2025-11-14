@@ -33,8 +33,9 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 13
+ * @useinstead Navigation#NavPathStack and navDestination
  */
 declare interface RouteInfo {
   /**
@@ -100,8 +101,9 @@ declare interface RouteInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 13
+ * @useinstead Navigation#NavPathStack and navDestination
  */
 declare interface NavRouterInterface {
   /**
@@ -169,8 +171,9 @@ declare interface NavRouterInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 13
+ * @useinstead Navigation#NavPathStack and navDestination
  */
 declare enum NavRouteMode {
   /**
@@ -250,8 +253,9 @@ declare enum NavRouteMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 13
+ * @useinstead Navigation#NavPathStack and navDestination
  */
 declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
   /**
@@ -326,8 +330,9 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 13
+ * @useinstead Navigation#NavPathStack and navDestination
  */
 declare const NavRouter: NavRouterInterface;
 
@@ -350,7 +355,8 @@ declare const NavRouter: NavRouterInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 13
+ * @useinstead Navigation#NavPathStack and navDestination
  */
 declare const NavRouterInstance: NavRouterAttribute;

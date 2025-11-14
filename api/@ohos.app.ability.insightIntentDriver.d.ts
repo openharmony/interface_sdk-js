@@ -22,6 +22,9 @@ import Want from './@ohos.app.ability.Want';
 import wantConstant from './@ohos.app.ability.wantConstant';
 import type { AsyncCallback } from './@ohos.base';
 import type insightIntent from './@ohos.app.ability.insightIntent';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * Insight intent driver.
@@ -31,7 +34,7 @@ import type insightIntent from './@ohos.app.ability.insightIntent';
  * @systemapi
  * @StageModelOnly
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace insightIntentDriver {
   /**
@@ -42,7 +45,7 @@ declare namespace insightIntentDriver {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ExecuteParam {
     /**
@@ -53,7 +56,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bundleName: string;
 
@@ -65,7 +68,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     moduleName: string;
 
@@ -77,7 +80,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     abilityName: string;
 
@@ -89,7 +92,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     insightIntentName: string;
 
@@ -101,9 +104,19 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
      */
     insightIntentParam: Record<string, Object>;
+
+    /**
+     * Indicates the insight intent param.
+     *
+     * @type { Record<string, RecordData> }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 22 static
+     */
+    insightIntentParam: Record<string, RecordData>;
 
     /**
      * Indicates the execute mode.
@@ -113,7 +126,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     executeMode: insightIntent.ExecuteMode;
 
@@ -125,7 +138,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @StageModelOnly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     displayId?: long;
 
@@ -137,7 +150,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uris?: Array<string>;
 
@@ -153,7 +166,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     flags?: int;
   }
@@ -189,7 +202,7 @@ declare namespace insightIntentDriver {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function execute(param: ExecuteParam, callback: AsyncCallback<insightIntent.ExecuteResult>): void;
 
@@ -224,7 +237,7 @@ declare namespace insightIntentDriver {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function execute(param: ExecuteParam): Promise<insightIntent.ExecuteResult>;
 

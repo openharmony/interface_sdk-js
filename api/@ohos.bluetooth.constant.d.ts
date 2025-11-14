@@ -41,7 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 13 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace constant {
   /**
@@ -366,7 +366,7 @@ declare namespace constant {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum ProfileConnectionState {
     /**
@@ -389,7 +389,7 @@ declare namespace constant {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_DISCONNECTED = 0,
     /**
@@ -434,7 +434,7 @@ declare namespace constant {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_CONNECTED = 2,
     /**
@@ -475,7 +475,7 @@ declare namespace constant {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum MajorClass {
     /**
@@ -497,7 +497,7 @@ declare namespace constant {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MAJOR_PHONE = 0x0200,
     /**
@@ -519,7 +519,7 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MAJOR_AUDIO_VIDEO = 0x0400,
     /**
@@ -569,7 +569,7 @@ declare namespace constant {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MAJOR_UNCATEGORIZED = 0x1F00
   }
@@ -588,7 +588,7 @@ declare namespace constant {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum MajorMinorClass {
     /**
@@ -860,7 +860,7 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUDIO_VIDEO_WEARABLE_HEADSET = 0x0404,
     /**
@@ -903,7 +903,7 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUDIO_VIDEO_LOUDSPEAKER = 0x0414,
     /**
@@ -918,7 +918,7 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUDIO_VIDEO_HEADPHONES = 0x0418,
     /**

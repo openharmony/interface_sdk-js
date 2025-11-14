@@ -264,7 +264,7 @@ export declare enum WebNetErrorList {
    * @since 22 dynamic
    */
   ERR_INSUFFICIENT_RESOURCES = -12,
-  
+
   /**
    * Memory allocation failed.
    *
@@ -402,7 +402,7 @@ export declare enum WebNetErrorList {
    * @since 22 dynamic
    */
   ERR_BLOCKED_BY_CLIENT = -20,
-  
+
   /**
    * The network changed.
    *
@@ -455,7 +455,7 @@ export declare enum WebNetErrorList {
    * @since 22 dynamic
    */
   ERR_SOCKET_CONNECTED = -23,
-  
+
   /**
    * The upload failed because the upload stream needed to be re-read, due to a
    * retry or a redirect, but the upload stream doesn't support that operation.
@@ -493,7 +493,7 @@ export declare enum WebNetErrorList {
    * @since 22 dynamic
    */
   ERR_CONTEXT_SHUT_DOWN = -26,
-  
+
   /**
    * The request failed because the response was delivered along with requirements
    * which are not met ('X-Frame-Options' and 'Content-Security-Policy' ancestor
@@ -533,7 +533,7 @@ export declare enum WebNetErrorList {
    * @since 22 dynamic
    */
   ERR_CLEARTEXT_NOT_PERMITTED = -29,
-  
+
   /**
    * The request was blocked by a Content Security Policy.
    *
@@ -635,7 +635,7 @@ export declare enum WebNetErrorList {
    * @since 22 dynamic
    */
   ERR_CONNECTION_REFUSED = -102,
-  
+
   /**
    * A connection timed out as a result of not receiving an ACK for data sent.
    * This can include a FIN packet that did not get ACK'd.
@@ -1427,7 +1427,7 @@ export declare enum WebNetErrorList {
    * @since 22 dynamic
    */
   ERR_SSL_DECRYPT_ERROR_ALERT = -153,
-  
+
   /**
    * There are too many pending WebSocketJob instances, so the new job was not
    * pushed to the queue.
@@ -1446,7 +1446,7 @@ export declare enum WebNetErrorList {
    * @since 22 dynamic
    */
   ERR_WS_THROTTLE_QUEUE_TOO_LARGE = -154,
-      
+
   /**
    * The SSL server certificate changed in a renegotiation.
    *
@@ -1842,7 +1842,7 @@ export declare enum WebNetErrorList {
    * returned a value indicating it supported TLS 1.3. This is part of a security
    * check in TLS 1.3, but it may also indicate the user is behind a buggy
    * TLS-terminating proxy which implemented TLS 1.2 incorrectly.
-   * 
+   *
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1853,7 +1853,7 @@ export declare enum WebNetErrorList {
    * returned a value indicating it supported TLS 1.3. This is part of a security
    * check in TLS 1.3, but it may also indicate the user is behind a buggy
    * TLS-terminating proxy which implemented TLS 1.2 incorrectly.
-   * 
+   *
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -2198,7 +2198,7 @@ export declare enum WebNetErrorList {
    * @since 22 dynamic
    */
   ERR_CERT_WEAK_KEY = -211,
-  
+
   /**
    * The certificate claimed DNS names that are in violation of name constraints.
    *
@@ -2425,7 +2425,7 @@ export declare enum WebNetErrorList {
    * @since 22 dynamic
    */
   ERR_UNSAFE_REDIRECT = -311,
-  
+
   /**
    * Attempting to load an URL with an unsafe port number.
    *
@@ -2546,7 +2546,7 @@ export declare enum WebNetErrorList {
    * @since 22 dynamic
    */
   ERR_RESPONSE_HEADERS_TOO_BIG = -325,
-  
+
   /**
    * The evaluation of the PAC script failed.
    *
