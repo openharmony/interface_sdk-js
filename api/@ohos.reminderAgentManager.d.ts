@@ -243,7 +243,7 @@ declare namespace reminderAgentManager {
    * Updates a scheduled reminder.
    *
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
-   * @param { reminderId } int - Indicates the reminder id.
+   * @param { int } reminderId - Indicates the reminder id.
    * @param { ReminderRequest } reminderReq - Indicates the reminder.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -540,7 +540,7 @@ declare namespace reminderAgentManager {
   /**
    * Declares ring channel.
    *
-   * @enum { number }
+   * @enum { int }
    *
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 20 dynamic
