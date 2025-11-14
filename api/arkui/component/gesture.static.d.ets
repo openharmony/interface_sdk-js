@@ -1235,6 +1235,15 @@ export interface TapGestureHandlerOptions extends BaseHandlerOptions {
      * @since 22 static
      */
     fingers?: int;
+    /**
+     * The limited move distance of click. If the value is less than 0, the default value is used.
+     *
+     * @type { ?double }
+     * @default Infinity
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    distanceThreshold?: double;
 }
 /**
  * Defines the TapGesture handler.
