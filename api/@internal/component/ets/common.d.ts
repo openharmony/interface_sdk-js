@@ -13631,7 +13631,19 @@ declare enum BlendApplyType {
    * @atomicservice
    * @since 12
    */
-  OFFSCREEN = 1
+  OFFSCREEN = 1,
+
+  /**
+   * The content of the component and its child components are drawn on the
+   * offscreen canvas, and then blended with the existing content on the canvas.
+   * The offscreen canvas will copy background to initialize itself when created.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 23 dynamic
+   */
+  OFFSCREEN_WITH_BACKGROUND = 2
 }
 
 /**
@@ -26586,11 +26598,12 @@ declare class CommonMethod<T> {
    * @param { BlendMode | Blender } effect - When the effect type is BlendMode type, define Different hybrid modes.
    * When the effect type is Blender type, Define the corresponding blending effect.
    * @param { BlendApplyType } [type] - Different blend apply type
+   *     Default value: BlendApplyType.FAST.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since 13
+   * @since 13 dynamic
    */
   advancedBlendMode(effect: BlendMode | Blender, type?: BlendApplyType): T;
 
