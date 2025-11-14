@@ -7201,6 +7201,16 @@ declare namespace window {
     on(type: 'windowSizeChange', callback: Callback<Size>): void;
 
     /**
+     * Register the callback of windowSizeChange
+     *
+     * @param { Callback<Size> } callback - Callback used to return the window size.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    onWindowSizeChange(callback: Callback<Size>): void;
+
+    /**
      * Unregister the callback of windowSizeChange
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
@@ -7235,6 +7245,17 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'windowSizeChange', callback?: Callback<Size>): void;
+
+    /**
+     * Unregister the callback of windowSizeChange
+     *
+     * @param { Callback<Size> } [callback] - Callback used to return the window size.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    offWindowSizeChange(callback?: Callback<Size>): void;
 
     /**
      * Register the callback of systemAvoidAreaChange
@@ -8279,6 +8300,18 @@ declare namespace window {
     on(type: 'windowStatusChange', callback: Callback<WindowStatusType>): void;
 
     /**
+     * Register the callback of windowStatusChange
+     *
+     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *  Failed to call the API due to limited device capabilities.
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @since 22 static
+     */
+    onWindowStatusChange(callback: Callback<WindowStatusType>): void;
+
+    /**
      * Unregister the callback of windowStatusChange
      *
      * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
@@ -8316,6 +8349,19 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'windowStatusChange', callback?: Callback<WindowStatusType>): void;
+
+    /**
+     * Unregister the callback of window status change
+     *
+     * @param { Callback } [callback] - Callback used to return the window status.
+     * If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * Failed to call the API due to limited device capabilities.
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @since 22 static
+     */
+    offWindowStatusChange(callback?: Callback<WindowStatusType>): void;
 
     /**
      * Register the callback of windowStatusDidChange. The windowRect has been updated when this callback is triggered.
@@ -11134,6 +11180,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     startMoving(): Promise<void>;
 
@@ -11141,10 +11188,10 @@ declare namespace window {
      * Specifies the cursor position within the window and moves the window. It first adjusts the window to the cursor position before starting to move the window.
      * The window moves along with the cursor only when this API is called in the callback function of onTouch, where the event type is TouchType.Down.
      *
-     * @param { number } offsetX - X-axis offset of the cursor position relative to the upper left corner of the window during movement, measured in px.
+     * @param { int } offsetX - X-axis offset of the cursor position relative to the upper left corner of the window during movement, measured in px.
      *                             This parameter only accepts integer values; any floating-point input will be rounded down.
      *                             Negative values or values exceeding the window width are invalid. The window width can be obtained from WindowProperties.
-     * @param { number } offsetY - Y-axis offset of the cursor position relative to the upper left corner of the window during movement, measured in px.
+     * @param { int } offsetY - Y-axis offset of the cursor position relative to the upper left corner of the window during movement, measured in px.
      *                             This parameter only accepts integer values; any floating-point input will be rounded down.
      *                             Negative values or values exceeding the window height are invalid. The window height can be obtained from WindowProperties.
      * @returns { Promise<void> } Promise that returns no value.
@@ -11158,8 +11205,9 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
-    startMoving(offsetX: number, offsetY: number): Promise<void>;
+    startMoving(offsetX: int, offsetY: int): Promise<void>;
 
     /**
      * Stops window movement when a window is being dragged. This API uses a promise to return the result.
@@ -11353,6 +11401,19 @@ declare namespace window {
     on(type: 'windowRectChange', callback: Callback<RectChangeOptions>): void;
 
     /**
+     * Register the callback of window rect change
+     *
+     * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onWindowRectChange(callback: Callback<RectChangeOptions>): void;
+
+    /**
      * Unregister the callback of windowRectChange
      *
      * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
@@ -11368,6 +11429,20 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'windowRectChange', callback?: Callback<RectChangeOptions>): void;
+
+    /**
+     * Unregister the callback of window rect change
+     *
+     * @param { Callback<RectChangeOptions> } [callback] - Callback used to return the RectChangeOptions.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offWindowRectChange(callback?: Callback<RectChangeOptions>): void;
 
     /**
      * Register the callback of rectChangeInGlobalDisplay
@@ -11683,6 +11758,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     getWindowStatus(): WindowStatusType;
 
