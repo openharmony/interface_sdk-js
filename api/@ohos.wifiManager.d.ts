@@ -3874,6 +3874,7 @@ declare namespace wifiManager {
      * Wifi 802.11a
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     WIFI_STANDARD_11A,
 
@@ -3881,6 +3882,7 @@ declare namespace wifiManager {
      * Wifi 802.11b
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     WIFI_STANDARD_11B,
 
@@ -3888,6 +3890,7 @@ declare namespace wifiManager {
      * Wifi 802.11g
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     WIFI_STANDARD_11G,
 
@@ -3895,6 +3898,7 @@ declare namespace wifiManager {
      * Wifi 802.11n
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     WIFI_STANDARD_11N,
 
@@ -3902,6 +3906,7 @@ declare namespace wifiManager {
      * Wifi 802.11ac
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     WIFI_STANDARD_11AC,
 
@@ -3909,6 +3914,7 @@ declare namespace wifiManager {
      * Wifi 802.11ax
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     WIFI_STANDARD_11AX,
 
@@ -3916,6 +3922,7 @@ declare namespace wifiManager {
      * Wifi 802.11ad
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     WIFI_STANDARD_11AD
   }
@@ -3975,6 +3982,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     networkId: number;
 
@@ -4008,6 +4016,7 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
+     * @since 22 static
      */
     linkSpeed: number;
 
@@ -4016,6 +4025,7 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     rxLinkSpeed: number;
 
@@ -4024,6 +4034,7 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     maxSupportedTxLinkSpeed: number;
 
@@ -4032,6 +4043,7 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     maxSupportedRxLinkSpeed: number;
 
@@ -4047,6 +4059,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     frequency: number;
 
@@ -4055,6 +4068,7 @@ declare namespace wifiManager {
      * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
+     * @since 22 static
      */
     isHidden: boolean;
 
@@ -4063,6 +4077,7 @@ declare namespace wifiManager {
      * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
+     * @since 22 static
      */
     isRestricted: boolean;
 
@@ -4072,6 +4087,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     chload: number;
 
@@ -4081,6 +4097,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     snr: number;
 
@@ -4089,6 +4106,7 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
+     * @since 22 static
      */
     macType: number;
 
@@ -4106,6 +4124,7 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
+     * @since 22 static
      */
     ipAddress: number;
 
@@ -4115,6 +4134,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     suppState: SuppState;
 
@@ -4132,6 +4152,7 @@ declare namespace wifiManager {
      * @type { WifiChannelWidth }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     channelWidth: WifiChannelWidth;
 
@@ -4140,6 +4161,7 @@ declare namespace wifiManager {
      * @type { WifiStandard }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     wifiStandard: WifiStandard;
 
@@ -4157,6 +4179,7 @@ declare namespace wifiManager {
      * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12 dynamic
+     * @since 22 static
      */
     isHiLinkNetwork: boolean;
 
@@ -4166,6 +4189,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
+     * @since 22 static
      */
     isHiLinkProNetwork?: boolean;
 
@@ -4174,6 +4198,7 @@ declare namespace wifiManager {
      * @type { ?WifiLinkType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 18 dynamic
+     * @since 22 static
      */
     wifiLinkType?: WifiLinkType;
   }
@@ -4200,6 +4225,7 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
+     * @since 22 static
      */
     gateway: number;
 
@@ -4208,6 +4234,7 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
+     * @since 22 static
      */
     netmask: number;
 
@@ -4216,6 +4243,7 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
+     * @since 22 static
      */
     primaryDns: number;
 
@@ -4224,6 +4252,7 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
+     * @since 22 static
      */
     secondDns: number;
 
@@ -4232,6 +4261,7 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
+     * @since 22 static
      */
     serverIp: number;
 
@@ -4240,6 +4270,7 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
+     * @since 22 static
      */
     leaseDuration: number;
   }
@@ -4266,6 +4297,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     globalIpv6Address: string;
 
@@ -4274,6 +4306,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     randomGlobalIpv6Address: string;
 
@@ -4282,6 +4315,7 @@ declare namespace wifiManager {
      * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12 dynamic
+     * @since 22 static
      */
     uniqueIpv6Address?: string;
 
@@ -4290,6 +4324,7 @@ declare namespace wifiManager {
      * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12 dynamic
+     * @since 22 static
      */
     randomUniqueIpv6Address?: string;
 
@@ -4298,6 +4333,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     gateway: string;
 
@@ -4306,6 +4342,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     netmask: string;
 
@@ -4314,6 +4351,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     primaryDNS: string;
 
@@ -4322,6 +4360,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
+     * @since 22 static
      */
     secondDNS: string;
   }
@@ -4371,6 +4410,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 22 static
      */
     channel?: number;
 
@@ -4390,6 +4430,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     maxConn: number;
 
@@ -4399,6 +4440,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 22 static
      */
     ipAddress?: string;
   }
@@ -4418,6 +4460,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     name: string;
 
@@ -4437,6 +4480,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 22 static
      */
     macAddressType?: DeviceAddressType;
 
@@ -4446,6 +4490,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     ipAddress: string;
   }
@@ -4457,6 +4502,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   enum IpType {
     /**
@@ -4464,6 +4510,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     STATIC,
 
@@ -4472,6 +4519,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     DHCP,
 
@@ -4480,6 +4528,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     UNKNOWN
   }
@@ -4491,6 +4540,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   export enum SuppState {
     /**
@@ -4498,6 +4548,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     DISCONNECTED,
 
@@ -4506,6 +4557,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     INTERFACE_DISABLED,
 
@@ -4514,6 +4566,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     INACTIVE,
 
@@ -4522,6 +4575,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     SCANNING,
 
@@ -4530,6 +4584,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     AUTHENTICATING,
 
@@ -4538,6 +4593,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     ASSOCIATING,
 
@@ -4546,6 +4602,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     ASSOCIATED,
 
@@ -4554,6 +4611,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     FOUR_WAY_HANDSHAKE,
 
@@ -4562,6 +4620,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     GROUP_HANDSHAKE,
 
@@ -4570,6 +4629,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     COMPLETED,
 
@@ -4578,6 +4638,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     UNINITIALIZED,
 
@@ -4586,6 +4647,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     INVALID
   }
@@ -4742,6 +4804,7 @@ declare namespace wifiManager {
    * @typedef WifiP2PConfig
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
+   * @since 22 static
    */
   interface WifiP2PConfig {
     /** 
@@ -4749,6 +4812,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
+     * @since 22 static
      */
     deviceAddress: string;
 
@@ -4757,6 +4821,7 @@ declare namespace wifiManager {
      * @type { ?DeviceAddressType }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 10 dynamic
+     * @since 22 static
      */
     deviceAddressType?: DeviceAddressType;
 
@@ -4766,6 +4831,7 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
+     * @since 22 static
      */
     netId: number;
 
@@ -4774,6 +4840,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
+     * @since 22 static
      */
     passphrase: string;
 
@@ -4782,6 +4849,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
+     * @since 22 static
      */
     groupName: string;
 
@@ -4790,6 +4858,7 @@ declare namespace wifiManager {
      * @type { GroupOwnerBand }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
+     * @since 22 static
      */
     goBand: GroupOwnerBand;
   }
@@ -4800,6 +4869,7 @@ declare namespace wifiManager {
    * @typedef WifiP2pGroupInfo
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
+   * @since 22 static
    */
   interface WifiP2pGroupInfo {
     /**
@@ -4807,6 +4877,7 @@ declare namespace wifiManager {
      * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
+     * @since 22 static
      */
     isP2pGo: boolean;
 
@@ -4815,6 +4886,7 @@ declare namespace wifiManager {
      * @type { WifiP2pDevice }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
+     * @since 22 static
      */
     ownerInfo: WifiP2pDevice;
 
@@ -4823,6 +4895,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
+     * @since 22 static
      */
     passphrase: string;
 
@@ -4835,10 +4908,19 @@ declare namespace wifiManager {
     interface: string;
 
     /**
+     * Interface name
+     * @type { string }
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 22 static
+     */
+    interfaceName: string;
+
+    /**
      * Group name
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
+     * @since 22 static
      */
     groupName: string;
 
@@ -4847,6 +4929,7 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
+     * @since 22 static
      */
     networkId: number;
 
@@ -4855,6 +4938,7 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
+     * @since 22 static
      */
     frequency: number;
 
@@ -4863,6 +4947,7 @@ declare namespace wifiManager {
      * @type { WifiP2pDevice[] }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
+     * @since 22 static
      */
     clientDevices: WifiP2pDevice[];
 
@@ -4871,6 +4956,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
+     * @since 22 static
      */
     goIpAddress: string;
   }
@@ -4994,12 +5080,14 @@ declare namespace wifiManager {
    * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
+   * @since 22 static
    */
   enum GroupOwnerBand {
   /**
    * default band.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
+   * @since 22 static
    */
     GO_BAND_AUTO = 0,
 
@@ -5007,6 +5095,7 @@ declare namespace wifiManager {
    * 2.4G band.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
+   * @since 22 static
    */
     GO_BAND_2GHZ = 1,
 
@@ -5014,6 +5103,7 @@ declare namespace wifiManager {
    * 5G band.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
+   * @since 22 static
    */
     GO_BAND_5GHZ = 2
   }
