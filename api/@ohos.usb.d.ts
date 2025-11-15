@@ -307,7 +307,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.Endpoint#address
+     * @useinstead ohos.usbManager/usbManager.USBEndpoint#address
      */
     address: number;
 
@@ -318,7 +318,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.Endpoint#attributes
+     * @useinstead ohos.usbManager/usbManager.USBEndpoint#attributes
      */
     attributes: number;
 
@@ -329,7 +329,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.Endpoint#interval
+     * @useinstead ohos.usbManager/usbManager.USBEndpoint#interval
      */
     interval: number;
 
@@ -340,7 +340,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.Endpoint#maxPacketSize
+     * @useinstead ohos.usbManager/usbManager.USBEndpoint#maxPacketSize
      */
     maxPacketSize: number;
 
@@ -351,7 +351,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.Endpoint#direction
+     * @useinstead ohos.usbManager/usbManager.USBEndpoint#direction
      */
     direction: USBRequestDirection;
 
@@ -362,7 +362,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.Endpoint#number
+     * @useinstead ohos.usbManager/usbManager.USBEndpoint#number
      */
     number: number;
 
@@ -373,7 +373,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.Endpoint#type
+     * @useinstead ohos.usbManager/usbManager.USBEndpoint#type
      */
     type: number;
 
@@ -384,7 +384,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.Endpoint#interfaceId
+     * @useinstead ohos.usbManager/usbManager.USBEndpoint#interfaceId
      */
     interfaceId: number;
   }
