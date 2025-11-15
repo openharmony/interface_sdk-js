@@ -702,6 +702,7 @@
     { "filePath": "application/AutoFillRect.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "application/AutoFillRequest.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "application/AutoFillType.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
+    { "filePath": "application/AutoFillTriggerType.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "application/AutoStartupCallback.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "application/AutoStartupInfo.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "application/BaseContext.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
