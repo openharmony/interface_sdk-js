@@ -8678,7 +8678,7 @@ declare namespace audio {
     readonly highQualityRecordingSupported?: boolean;
 
     /**
-     * whether hiplay device.
+     * Whether hiplay device.
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
