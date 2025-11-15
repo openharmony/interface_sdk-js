@@ -8678,10 +8678,12 @@ declare namespace audio {
     readonly highQualityRecordingSupported?: boolean;
 
     /**
-     * whether Hiplay device.
+     * whether hiplay device.
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @crossplatform
+     * @atomicservice
      * @since 22 dynamic&static
      */
     readonly isHiplayDevice: boolean;
