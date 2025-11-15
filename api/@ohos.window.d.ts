@@ -7537,7 +7537,7 @@ declare namespace window {
      * Register the callback of keyboardHeightChange
      *
      * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
-      * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px.
+     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -7572,8 +7572,8 @@ declare namespace window {
      * Unregister the callback of keyboardHeightChange
      *
      * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
-     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px. 	
-     * If a value is passed in, the corresponding subscription is canceled. 	
+     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px.
+     * If a value is passed in, the corresponding subscription is canceled.
      * If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
@@ -7584,8 +7584,8 @@ declare namespace window {
      * Unregister the callback of keyboardHeightChange
      *
      * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
-     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px. 	
-     * If a value is passed in, the corresponding subscription is canceled. 	
+     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px.
+     * If a value is passed in, the corresponding subscription is canceled.
      * If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
@@ -7717,9 +7717,9 @@ declare namespace window {
     /**
      * Register the callback of keyboardDidShow
      *
-     * @param { 'keyboardDidShow' } type - The value is fixed at 'keyboardDidShow', indicating the completion of the keyboard show animation event.	
-     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard show animation is completed.	
-     * @throws { BusinessError } 801 - Capability not supported. Function keyboardDidShow can not work correctly due to limited device capabilities.	
+     * @param { 'keyboardDidShow' } type - The value is fixed at 'keyboardDidShow', indicating the completion of the keyboard show animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard show animation is completed.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardDidShow can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -7741,7 +7741,7 @@ declare namespace window {
     onKeyboardDidShow(callback: Callback<KeyboardInfo>): void;
 
     /**
-     * Unregister the callback of keyboard did show
+     * Unregister the callback of keyboardDidShow
      *
      * @param { 'keyboardDidShow' } type - The value is fixed at 'keyboardDidShow', indicating the completion of the keyboard show animation event.	
      * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard show animation is completed.	
@@ -7768,7 +7768,7 @@ declare namespace window {
     offKeyboardDidShow(callback?: Callback<KeyboardInfo>): void;
 
     /**
-     * Register the callback of keyboard did hide
+     * Register the callback of keyboardDidHide
      *
      * @param { 'keyboardDidHide' } type - The value is fixed at 'keyboardDidHide', indicating the completion of the keyboard hide animation event.
      * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard hide animation is completed.
@@ -7794,9 +7794,9 @@ declare namespace window {
     onKeyboardDidHide(callback: Callback<KeyboardInfo>): void;
 
     /**
-     * Unregister the callback of keyboard did hide
+     * Unregister the callback of keyboardDidHide
      *
-     * @param { 'keyboardDidHide' } type - The value is fixed at 'keyboardDidHide', indicating the completion of the keyboard hide animation event.	
+     * @param { 'keyboardDidHide' } type - The value is fixed at 'keyboardDidHide', indicating the completion of the keyboard hide animation event.
      * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard hide animation is completed.
      * @throws { BusinessError } 801 - Capability not supported. Function keyboardDidHide can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
