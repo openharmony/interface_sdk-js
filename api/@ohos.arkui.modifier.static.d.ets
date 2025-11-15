@@ -533,3 +533,16 @@ export { TextClockModifier } from './arkui/TextClockModifier';
  * @since 22 static
  */
 export { DataPanelModifier } from './arkui/DataPanelModifier';
+
+/**
+ * Export AlphabetIndexerModifier, which is used to expose applyNormalAttribute function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { AlphabetIndexerModifier } from './arkui/AlphabetIndexerModifier';
+/**
+ * Export TabsModifier, which is used to expose applyNormalAttribute function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { TabsModifier } from './arkui/TabsModifier';
