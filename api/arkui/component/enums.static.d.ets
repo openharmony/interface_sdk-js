@@ -2386,7 +2386,7 @@ export declare enum ResponseRegionSupportedTool {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  MOUSE = 3,
+  MOUSE = 3
 }
 
 /**

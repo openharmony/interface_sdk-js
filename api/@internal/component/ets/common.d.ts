@@ -1884,7 +1884,7 @@ declare interface ResponseRegion {
   tool?: ResponseRegionSupportedTool;
 
   /**
-   * Horizontal axis coordinate.
+   * Horizontal axis coordinate
    * 
    * @type { ?LengthMetrics }
    * @default LengthMetrics.vp(0)

@@ -10902,7 +10902,7 @@ declare enum ResponseRegionSupportedTool {
    * @atomicservice
    * @since 23 dynamic
    */
-  MOUSE = 3,
+  MOUSE = 3
 }
 
 /**
