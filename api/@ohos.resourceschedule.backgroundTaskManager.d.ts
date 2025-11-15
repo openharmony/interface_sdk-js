@@ -110,16 +110,18 @@ declare namespace backgroundTaskManager {
     isModeSupported(): boolean;
 
     /**
-     * Result of user authorization for 'MODE_SPECIAL_SCENARIO_PROCESSING'.
+     * Check whether the application can request MODE_SPECIAL_SCENARIO_PROCESSING.
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+     * @param { Context } context - App running context.
      * @param { Callback<UserAuthResult> } callback - The callback of the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
      * @since 22 dynamic
      */
-    requestAuthFromUser(callback: Callback<UserAuthResult>): void;
+    requestAuthFromUser(context: Context, callback: Callback<UserAuthResult>): void;
 
     /**
      * The result of checkSpecialScenarioAuth.
@@ -404,6 +406,55 @@ declare namespace backgroundTaskManager {
      * @since 22 static
      */
     suspendState: boolean;
+  }
+
+  /**
+   * The background task state info of user authorization status.
+   *
+   * @interface BackgroundTaskStateInfo
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  interface BackgroundTaskStateInfo {
+    /**
+     * UserId of the application applying for special continuous task.
+     *
+     * @type { int }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    userId: int;
+    /**
+     * BundleName of the application applying for special continuous task.
+     * @type { string }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    bundleName: string;
+    /**
+     * AppIndex of the application applying for special continuous task.
+     * @type { string }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    appIndex: string;
+    /**
+     * Type of user authorization status.
+     * @type { ?UserAuthResult }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    authResult?: UserAuthResult;
   }
 
   /**
@@ -977,6 +1028,39 @@ declare namespace backgroundTaskManager {
    * @since 22 static
    */
   function getAllContinuousTasks(context: Context, includeSuspended: boolean): Promise<ContinuousTaskInfo[]>;
+
+  /**
+   * Set the user authorization status of special continuous tasks.
+   *
+   * @permission ohos.permission.SET_BACKGROUND_TASK_STATE
+   * @param { BackgroundTaskStateInfo } stateInfo - Background task state info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  function setBackgroundTaskState(stateInfo: BackgroundTaskStateInfo): void;
+
+  /**
+   * Get the user authorization status of special continuous tasks.
+   *
+   * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
+   * @param { BackgroundTaskStateInfo } stateInfo - Background task state info.
+   * @returns { UserAuthResult } Type of user authorization status.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  function getBackgroundTaskState(stateInfo: BackgroundTaskStateInfo): UserAuthResult;
 
   /**
    * Apply or unapply efficiency resources.
