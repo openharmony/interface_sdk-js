@@ -13819,7 +13819,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
      */
     setImageForRecent(imageResource: long | image.PixelMap, value: ImageFit): Promise<void>;
 
