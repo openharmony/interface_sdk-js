@@ -33,6 +33,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#getDevices
    */
   function getDevices(): Array<Readonly<USBDevice>>;
 
@@ -44,6 +45,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#connectDevice
    */
   function connectDevice(device: USBDevice): Readonly<USBDevicePipe>;
 
@@ -55,6 +57,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#hasRight
    */
   function hasRight(deviceName: string): boolean;
 
@@ -66,6 +69,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#requestRight
    */
   function requestRight(deviceName: string): Promise<boolean>;
 
@@ -78,6 +82,7 @@ declare namespace usb {
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#usbFunctionsFromString
    */
   function usbFunctionsFromString(funcs: string): number;
 
@@ -90,6 +95,7 @@ declare namespace usb {
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#usbFunctionsToString
    */
   function usbFunctionsToString(funcs: FunctionType): string;
 
@@ -102,6 +108,7 @@ declare namespace usb {
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#setCurrentFunctions
    */
   function setCurrentFunctions(funcs: FunctionType): Promise<boolean>;
 
@@ -113,6 +120,7 @@ declare namespace usb {
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#getCurrentFunctions
    */
   function getCurrentFunctions(): FunctionType;
 
@@ -124,6 +132,7 @@ declare namespace usb {
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#getPorts
    */
   function getPorts(): Array<USBPort>;
 
@@ -136,6 +145,7 @@ declare namespace usb {
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#getSupportedModes
    */
   function getSupportedModes(portId: number): PortModeType;
 
@@ -150,6 +160,7 @@ declare namespace usb {
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#setPortRoles
    */
   function setPortRoles(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<boolean>;
 
@@ -164,6 +175,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#claimInterface
    */
   function claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean): number;
 
@@ -176,6 +188,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#releaseInterface
    */
   function releaseInterface(pipe: USBDevicePipe, iface: USBInterface): number;
 
@@ -188,6 +201,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#setConfiguration
    */
   function setConfiguration(pipe: USBDevicePipe, config: USBConfig): number;
 
@@ -200,6 +214,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#setInterface
    */
   function setInterface(pipe: USBDevicePipe, iface: USBInterface): number;
 
@@ -211,6 +226,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#getRawDescriptor
    */
   function getRawDescriptor(pipe: USBDevicePipe): Uint8Array;
 
@@ -222,6 +238,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#getFileDescriptor
    */
   function getFileDescriptor(pipe: USBDevicePipe): number;
 
@@ -236,6 +253,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#controlTransfer
    */
   function controlTransfer(pipe: USBDevicePipe, controlparam: USBControlParams, timeout?: number): Promise<number>;
 
@@ -251,6 +269,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#bulkTransfer
    */
   function bulkTransfer(
     pipe: USBDevicePipe,
@@ -267,6 +286,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager#closePipe
    */
   function closePipe(pipe: USBDevicePipe): number;
 
@@ -277,6 +297,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager.USBEndpoint
    */
   interface USBEndpoint {
     /**
@@ -286,6 +307,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.Endpoint#address
      */
     address: number;
 
@@ -296,6 +318,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.Endpoint#attributes
      */
     attributes: number;
 
@@ -306,6 +329,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.Endpoint#interval
      */
     interval: number;
 
@@ -316,6 +340,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.Endpoint#maxPacketSize
      */
     maxPacketSize: number;
 
@@ -326,6 +351,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.Endpoint#direction
      */
     direction: USBRequestDirection;
 
@@ -336,6 +362,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.Endpoint#number
      */
     number: number;
 
@@ -346,6 +373,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.Endpoint#type
      */
     type: number;
 
@@ -356,6 +384,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.Endpoint#interfaceId
      */
     interfaceId: number;
   }
@@ -367,6 +396,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager.USBInterface
    */
   interface USBInterface {
     /**
@@ -376,6 +406,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBInterface#id
      */
     id: number;
 
@@ -386,6 +417,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBInterface#protocol
      */
     protocol: number;
 
@@ -396,6 +428,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBInterface#clazz
      */
     clazz: number;
 
@@ -406,6 +439,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBInterface#subClass
      */
     subClass: number;
 
@@ -416,6 +450,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBInterface#alternateSetting
      */
     alternateSetting: number;
 
@@ -426,6 +461,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBInterface#name
      */
     name: string;
 
@@ -436,6 +472,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBInterface#endpoints
      */
     endpoints: Array<USBEndpoint>;
   }
@@ -447,6 +484,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager.USBConfiguration
    */
   interface USBConfig {
     /**
@@ -456,6 +494,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBConfiguration#id
      */
     id: number;
 
@@ -466,6 +505,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBConfiguration#attributes
      */
     attributes: number;
 
@@ -476,6 +516,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBConfiguration#maxPower
      */
     maxPower: number;
 
@@ -486,6 +527,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBConfiguration#name
      */
     name: string;
 
@@ -496,6 +538,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBConfiguration#isRemoteWakeup
      */
     isRemoteWakeup: boolean;
 
@@ -506,6 +549,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBConfiguration#isSelfPowered
      */
     isSelfPowered: boolean;
 
@@ -516,6 +560,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBConfiguration#interfaces
      */
     interfaces: Array<USBInterface>;
   }
@@ -527,6 +572,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager.USBDevice
    */
   interface USBDevice {
     /**
@@ -536,6 +582,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBDevice#busNum
      */
     busNum: number;
 
@@ -546,6 +593,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBDevice#devAddress
      */
     devAddress: number;
 
@@ -556,6 +604,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBDevice#serial
      */
     serial: string;
 
@@ -566,6 +615,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBDevice#name
      */
     name: string;
 
@@ -576,6 +626,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBDevice#manufacturerName
      */
     manufacturerName: string;
 
@@ -586,6 +637,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBDevice#productName
      */
     productName: string;
 
@@ -596,6 +648,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBDevice#version
      */
     version: string;
 
@@ -606,6 +659,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBDevice#vendorId
      */
     vendorId: number;
 
@@ -616,6 +670,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBDevice#productId
      */
     productId: number;
 
@@ -626,6 +681,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBDevice#clazz
      */
     clazz: number;
 
@@ -636,6 +692,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBDevice#subClass
      */
     subClass: number;
 
@@ -646,6 +703,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBDevice#protocol
      */
     protocol: number;
 
@@ -656,6 +714,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBDevice#configs
      */
     configs: Array<USBConfig>;
   }
@@ -667,6 +726,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager.USBDevicePipe
    */
   interface USBDevicePipe {
     /**
@@ -676,6 +736,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBDevicePipe#busNum
      */
     busNum: number;
 
@@ -686,6 +747,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBDevicePipe#devAddress
      */
     devAddress: number;
   }
@@ -698,6 +760,7 @@ declare namespace usb {
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager.PowerRoleType
    */
   export enum PowerRoleType {
     /**
@@ -707,6 +770,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.PowerRoleType#NONE
      */
     NONE = 0,
 
@@ -717,6 +781,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.PowerRoleType#SOURCE
      */
     SOURCE = 1,
 
@@ -727,6 +792,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.PowerRoleType#SINK
      */
     SINK = 2
   }
@@ -739,6 +805,7 @@ declare namespace usb {
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager.DataRoleType
    */
   export enum DataRoleType {
     /**
@@ -748,6 +815,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.DataRoleType#NONE
      */
     NONE = 0,
 
@@ -758,6 +826,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.DataRoleType#HOST
      */
     HOST = 1,
 
@@ -768,6 +837,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.DataRoleType#DEVICE
      */
     DEVICE = 2
   }
@@ -780,6 +850,7 @@ declare namespace usb {
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager.PortModeType
    */
   export enum PortModeType {
     /**
@@ -789,6 +860,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.PortModeType#NONE
      */
     NONE = 0,
 
@@ -799,6 +871,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.PortModeType#UFP
      */
     UFP = 1,
 
@@ -809,6 +882,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.PortModeType#DFP
      */
     DFP = 2,
 
@@ -819,6 +893,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.PortModeType#DRP
      */
     DRP = 3,
 
@@ -829,6 +904,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.PortModeType#NUM_MODES
      */
     NUM_MODES = 4
   }
@@ -841,6 +917,7 @@ declare namespace usb {
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager.USBPortStatus
    */
   interface USBPortStatus {
     /**
@@ -851,6 +928,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBPortStatus#currentMode
      */
     currentMode: number;
 
@@ -862,6 +940,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBPortStatus#currentPowerRole
      */
     currentPowerRole: number;
 
@@ -873,6 +952,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBPortStatus#currentDataRole
      */
     currentDataRole: number;
   }
@@ -885,6 +965,7 @@ declare namespace usb {
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager.USBPort
    */
   interface USBPort {
     /**
@@ -895,6 +976,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBPort#id
      */
     id: number;
 
@@ -906,6 +988,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBPort#supportedModes
      */
     supportedModes: PortModeType;
 
@@ -917,6 +1000,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBPort#status
      */
     status: USBPortStatus;
   }
@@ -928,6 +1012,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager.USBControlParams
    */
   interface USBControlParams {
     /**
@@ -937,6 +1022,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBControlParams#request
      */
     request: number;
 
@@ -947,6 +1033,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBControlParams#target
      */
     target: USBRequestTargetType;
 
@@ -957,6 +1044,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBControlParams#reqType
      */
     reqType: USBControlRequestType;
 
@@ -967,6 +1055,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBControlParams#value
      */
     value: number;
 
@@ -977,6 +1066,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBControlParams#index
      */
     index: number;
 
@@ -987,6 +1077,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBControlParams#data
      */
     data: Uint8Array;
   }
@@ -998,6 +1089,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager.USBRequestTargetType
    */
   export enum USBRequestTargetType {
     /**
@@ -1006,6 +1098,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBRequestTargetType#USB_REQUEST_TARGET_DEVICE
      */
     USB_REQUEST_TARGET_DEVICE = 0,
 
@@ -1015,6 +1108,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBRequestTargetType#USB_REQUEST_TARGET_INTERFACE
      */
     USB_REQUEST_TARGET_INTERFACE = 1,
 
@@ -1024,6 +1118,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBRequestTargetType#USB_REQUEST_TARGET_ENDPOINT
      */
     USB_REQUEST_TARGET_ENDPOINT = 2,
 
@@ -1033,6 +1128,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBRequestTargetType#USB_REQUEST_TARGET_OTHER
      */
     USB_REQUEST_TARGET_OTHER = 3
   }
@@ -1044,6 +1140,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager.USBControlRequestType
    */
   export enum USBControlRequestType {
     /**
@@ -1052,6 +1149,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBControlRequestType#USB_REQUEST_TYPE_STANDARD
      */
     USB_REQUEST_TYPE_STANDARD = 0,
 
@@ -1061,6 +1159,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBControlRequestType#USB_REQUEST_TYPE_CLASS
      */
     USB_REQUEST_TYPE_CLASS = 1,
 
@@ -1070,6 +1169,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBControlRequestType#USB_REQUEST_TYPE_VENDOR
      */
     USB_REQUEST_TYPE_VENDOR = 2
   }
@@ -1081,6 +1181,7 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager.USBRequestDirection
    */
   export enum USBRequestDirection {
     /**
@@ -1089,6 +1190,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBRequestDirection#USB_REQUEST_DIR_TO_DEVICE
      */
     USB_REQUEST_DIR_TO_DEVICE = 0,
 
@@ -1098,6 +1200,7 @@ declare namespace usb {
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.USBRequestDirection#USB_REQUEST_DIR_FROM_DEVICE
      */
     USB_REQUEST_DIR_FROM_DEVICE = 0x80
   }
@@ -1110,6 +1213,7 @@ declare namespace usb {
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.usbManager/usbManager.FunctionType
    */
   export enum FunctionType {
     /**
@@ -1119,6 +1223,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.FunctionType#NONE
      */
     NONE = 0,
 
@@ -1129,6 +1234,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.FunctionType#ACM
      */
     ACM = 1,
 
@@ -1139,6 +1245,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.FunctionType#ECM
      */
     ECM = 2,
 
@@ -1149,6 +1256,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.FunctionType#HDC
      */
     HDC = 4,
 
@@ -1159,6 +1267,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.FunctionType#MTP
      */
     MTP = 8,
 
@@ -1169,6 +1278,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.FunctionType#PTP
      */
     PTP = 16,
 
@@ -1179,6 +1289,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.FunctionType#RNDIS
      */
     RNDIS = 32,
 
@@ -1189,6 +1300,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.FunctionType#MIDI
      */
     MIDI = 64,
 
@@ -1199,6 +1311,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.FunctionType#AUDIO_SOURCE
      */
     AUDIO_SOURCE = 128,
 
@@ -1209,6 +1322,7 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.usbManager/usbManager.FunctionType#NCM
      */
     NCM = 256
   }
