@@ -36,6 +36,8 @@ export * from '@ohos.arkui.stateManagement';
 export * from '@ohos.arkui.advanced.Counter';
 export * from '@ohos.arkui.advanced.SegmentButton';
 export * from '@ohos.arkui.advanced.SegmentButtonV2';
+export * from '@ohos.arkui.advanced.Chip';
+export * from '@ohos.arkui.advanced.ChipGroup';
 export { GETINSPECTORBYKEY as getInspectorByKey, GETINSPECTORTREE as getInspectorTree , SENDEVENTBYKEY as sendEventByKey } from '@ohos.arkui.inspector';
 
 export { window, display, screen, screenshot, uiExtensionHost };
