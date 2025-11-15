@@ -10861,7 +10861,7 @@ declare enum AnimationPropertyType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 21 dynamic
+ * @since 23 dynamic
  */
 declare enum ResponseRegionSupportedTool {
   /**
@@ -10870,7 +10870,7 @@ declare enum ResponseRegionSupportedTool {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 23 dynamic
    */
   ALL = 0,
 
@@ -10880,7 +10880,7 @@ declare enum ResponseRegionSupportedTool {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 23 dynamic
    */
   FINGER = 1,
 
@@ -10890,7 +10890,7 @@ declare enum ResponseRegionSupportedTool {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 23 dynamic
    */
   PEN = 2,
 
@@ -10900,7 +10900,7 @@ declare enum ResponseRegionSupportedTool {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 23 dynamic
    */
   MOUSE = 3,
 }

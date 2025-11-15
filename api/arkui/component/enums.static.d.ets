@@ -2353,14 +2353,14 @@ export declare enum CopyOptions {
  * 
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ResponseRegionSupportedTool {
   /**
    * All source tool type.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ALL = 0,
 
@@ -2368,7 +2368,7 @@ export declare enum ResponseRegionSupportedTool {
    * The finger type.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   FINGER = 1,
 
@@ -2376,7 +2376,7 @@ export declare enum ResponseRegionSupportedTool {
    * The pen type.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   PEN = 2,
 
@@ -2384,7 +2384,7 @@ export declare enum ResponseRegionSupportedTool {
    * The mouse type.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   MOUSE = 3,
 }

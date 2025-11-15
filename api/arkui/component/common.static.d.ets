@@ -345,7 +345,7 @@ export declare interface Rectangle {
  * 
  * @interface ResponseRegion
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ResponseRegion {
   /**
@@ -354,7 +354,7 @@ export declare interface ResponseRegion {
    * @type { ?ResponseRegionSupportedTool }
    * @default ResponseRegionSupportedTool.ALL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   tool?: ResponseRegionSupportedTool;
 
@@ -364,7 +364,7 @@ export declare interface ResponseRegion {
    * @type { ?LengthMetrics }
    * @default LengthMetrics.vp(0)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   x?: LengthMetrics;
 
@@ -374,7 +374,7 @@ export declare interface ResponseRegion {
    * @type { ?LengthMetrics }
    * @default LengthMetrics.vp(0)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   y?: LengthMetrics;
 
@@ -384,7 +384,7 @@ export declare interface ResponseRegion {
    * @type { ?(LengthMetrics | string) }
    * @default LengthMetrics.percent(1)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   width?: LengthMetrics | string;
 
@@ -394,7 +394,7 @@ export declare interface ResponseRegion {
    * @type { ?(LengthMetrics | string) }
    * @default LengthMetrics.percent(1)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   height?: LengthMetrics | string;
 }
@@ -8967,7 +8967,7 @@ export declare interface CommonMethod {
     * @param { Array<ResponseRegion> | undefined } regions
     * @returns { this } return the component attribute
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 22 static
+    * @since 23 static
     */
     default responseRegionList(regions: Array<ResponseRegion> | undefined): this;
     /**

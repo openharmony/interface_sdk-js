@@ -1868,7 +1868,7 @@ declare interface Rectangle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 21 dynamic
+ * @since 23 dynamic
  */
 declare interface ResponseRegion {
   /**
@@ -1879,7 +1879,7 @@ declare interface ResponseRegion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 23 dynamic
    */
   tool?: ResponseRegionSupportedTool;
 
@@ -1891,7 +1891,7 @@ declare interface ResponseRegion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 23 dynamic
    */
   x?: LengthMetrics;
 
@@ -1903,7 +1903,7 @@ declare interface ResponseRegion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 23 dynamic
    */
   y?: LengthMetrics;
 
@@ -1915,7 +1915,7 @@ declare interface ResponseRegion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 23 dynamic
    */
   width?: LengthMetrics | string;
 
@@ -1927,7 +1927,7 @@ declare interface ResponseRegion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 23 dynamic
    */
   height?: LengthMetrics | string;
 }
@@ -21199,7 +21199,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 23 dynamic
    */
   responseRegionList(regions: Array<ResponseRegion>): T;
   
