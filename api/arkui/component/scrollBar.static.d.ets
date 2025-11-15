@@ -25,7 +25,7 @@ import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Content scroll direction.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */

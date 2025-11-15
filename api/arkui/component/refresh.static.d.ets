@@ -26,7 +26,7 @@ import { AttributeModifier, CommonMethod } from "./common";
 /**
  * The refresh status of the drop-down refresh.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -139,12 +139,12 @@ export declare interface RefreshAttribute extends CommonMethod {
     /**
      * The pull-down offset to trigger refresh.
      *
-     * @param { number | undefined } value
+     * @param { double | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default refreshOffset(value: number | undefined): this;
+    default refreshOffset(value: double | undefined): this;
     /**
      * Sets whether to trigger refresh when the pull-down distance exceeds the refreshOffset.
      *
@@ -158,21 +158,21 @@ export declare interface RefreshAttribute extends CommonMethod {
      * Called when the refresh offset changed.
      * The unit is vp.
      *
-     * @param { Callback<number> | undefined } callback
+     * @param { Callback<double> | undefined } callback
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default onOffsetChange(callback: Callback<number> | undefined): this;
+    default onOffsetChange(callback: Callback<double> | undefined): this;
     /**
      * Pull-down follow ratio for Refresh.
      *
-     * @param { number | undefined } ratio - Pull-down follow ratio for Refresh.
+     * @param { double | undefined } ratio - Pull-down follow ratio for Refresh.
      * @returns { this } The attribute of the Refresh.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default pullDownRatio(ratio: number | undefined): this;
+    default pullDownRatio(ratio: double | undefined): this;
     /**
      * Called attributeModifier.
      *

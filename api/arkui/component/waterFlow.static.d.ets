@@ -30,12 +30,12 @@ import { AttributeModifier, CommonMethod } from "./common";
  * function that returns item main size by index.
  *
  * @typedef { function } GetItemMainSizeByIndex
- * @param { number } index - Index of the target water flow item.<br>Value range: [0, total number of child nodes - 1].
- * @returns { number } main size of the FlowItem at index
+ * @param { int } index - Index of the target water flow item.<br>Value range: [0, total number of child nodes - 1].
+ * @returns { double } main size of the FlowItem at index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export type GetItemMainSizeByIndex = (index: number) => number;
+export type GetItemMainSizeByIndex = (index: int) => double;
 /**
  * Describes the configuration of the water flow item section.
  *
@@ -46,22 +46,22 @@ export declare class SectionOptions {
     /**
      * The number of FlowItems in this section.
      *
-     * @type { number } itemsCount - Number of water flow items in the section. The value must be a positive integer.
+     * @type { int } itemsCount - Number of water flow items in the section. The value must be a positive integer.
      * If the <em>splice</em>, <em>push</em>, or <em>update</em> APIs receive a section where the <em>itemsCount</em> value is less than 0, these APIs will not be executed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    itemsCount: number;
+    itemsCount: int;
     /**
      * The columns of this section in vertical layout, or rows in horizontal layout.
      *
-     * @type { ?number } crossCount - Number of columns (in vertical layout) or rows (in horizontal layout).
+     * @type { ?int } crossCount - Number of columns (in vertical layout) or rows (in horizontal layout).
      * <br> If the value is less than 1, the default value is used.
      * @default 1 one column in vertical layout, or one row in horizontal layout
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    crossCount?: number;
+    crossCount?: int;
     /**
      * Callback used to obtain the main axis size,in vp, of the water flow item at a specified index during
      * the layout process of the WaterFlow component.
@@ -127,12 +127,12 @@ export declare class WaterFlowSections {
     /**
      * Changes sections by removing or replacing an existing section and/or adding a section.
      *
-     * @param { number } start - Zero-based index at which the changing starts. The value is converted to an integer.
+     * @param { int } start - Zero-based index at which the changing starts. The value is converted to an integer.
      * <br><em>NOTE</em>
      * <br>1. A negative index counts back from the end of the section list. If -<em>WaterFlowSections.length()</em> <= <em>start</em> < <em>0</em>, <em>start</em> + <em>array.length</em> is used.
      * <br>2. If <em>start</em> < -<em>WaterFlowSections.length()</em>, <em>0</em> is used.
      * <br>3. If <em>start</em> >= <em>WaterFlowSections.length()</em>, a new section is added at the end.
-     * @param { number } [deleteCount] - Number of sections to be deleted from the position specified by <em>start</em>.
+     * @param { int } [deleteCount] - Number of sections to be deleted from the position specified by <em>start</em>.
      * <br><em>NOTE</em>
      * <br>1. If <em>deleteCount</em> is omitted, or if its value is greater than or equal to the number of sections from
      * the position specified by <em>start</em> to the end of the <em>WaterFlowSections</em>,
@@ -144,7 +144,7 @@ export declare class WaterFlowSections {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    splice(start: number, deleteCount?: number, sections?: Array<SectionOptions>): boolean;
+    splice(start: int, deleteCount?: int, sections?: Array<SectionOptions>): boolean;
     /**
      * Adds the specified sections to the end of the <em>WaterFlow</em> component.
      *
@@ -157,7 +157,7 @@ export declare class WaterFlowSections {
     /**
      * Updates the configuration of a specified water flow item section.
      *
-     * @param { number } sectionIndex - Zero-based index of the water flow item section to update. The value is converted to an integer.
+     * @param { int } sectionIndex - Zero-based index of the water flow item section to update. The value is converted to an integer.
      * <br><em>NOTE</em>
      * <br>1. A negative index counts back from the end of the section list. If -<em>WaterFlowSections.length()</em> <= <em>sectionIndex</em> < <em>0</em>, <em>sectionIndex</em> + <em>array.length</em> is used.
      * <br>2. If <em>sectionIndex</em> < -<em>WaterFlowSections.length()</em>, <em>0</em> is used.<br>3. If <em>sectionIndex</em> >= <em>WaterFlowSections.length()</em>, a new section is added at the end.
@@ -166,7 +166,7 @@ export declare class WaterFlowSections {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    update(sectionIndex: number, section: SectionOptions): boolean;
+    update(sectionIndex: int, section: SectionOptions): boolean;
     /**
      * Obtains the configuration of all sections in the <em>WaterFlow</em> component.
      *
@@ -178,16 +178,16 @@ export declare class WaterFlowSections {
     /**
      * Obtains the number of sections in the <em>WaterFlow</em> component.
      *
-     * @returns { number } Returns section counts in the WaterFlow.
+     * @returns { int } Returns section counts in the WaterFlow.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    length(): number;
+    length(): int;
 }
 /**
  * Declare layout modes of WaterFlow.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -350,7 +350,7 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
     /**
      * Sets the number of items to be cached.
      *
-     * @param { number | undefined } value - Number of water flow items to be preloaded (cached).
+     * @param { int | undefined } value - Number of water flow items to be preloaded (cached).
      * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
      * <br>Value range: [0, +∞).
      * <br>Values less than 0 are treated as <em>1</em>.
@@ -358,11 +358,11 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default cachedCount(value: number | undefined): this;
+    default cachedCount(value: int | undefined): this;
     /**
      * Sets the number of water flow items to be cached (preloaded) and specifies whether to display the cached nodes.
      *
-     * @param { number | undefined } count - Number of water flow items to be preloaded (cached).
+     * @param { int | undefined } count - Number of water flow items to be preloaded (cached).
      * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
      * <br>Value range: [0, +∞).
      * <br>Values less than 0 are treated as <em>1</em>.
@@ -371,7 +371,7 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default cachedCount(count: number | undefined, show: boolean | undefined): this;
+    default cachedCount(count: int | undefined, show: boolean | undefined): this;
     /**
      * Called when scrolling begin each frame.
      * Anonymous Object Rectification.
@@ -394,7 +394,7 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default onScrollIndex(event: ((first: number, last: number) => void) | undefined): this;
+    default onScrollIndex(event: ((first: int, last: int) => void) | undefined): this;
     /**
      * Called when the scrollable will scroll.
      *
