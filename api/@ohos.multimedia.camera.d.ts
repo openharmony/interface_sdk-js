@@ -1511,9 +1511,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'cameraStatus', callback: AsyncCallback<CameraStatusInfo>): void;
+
+    /**
+     * Subscribes cameras status change event callback.
+     *
+     * @param { AsyncCallback<CameraStatusInfo> } callback - Callback used to get the camera status change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onCameraStatus(callback: AsyncCallback<CameraStatusInfo>): void;
 
     /**
      * Unsubscribes from camera status change event callback.
@@ -1531,9 +1539,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'cameraStatus', callback?: AsyncCallback<CameraStatusInfo>): void;
+
+    /**
+     * Unsubscribes from camera status change event callback.
+     *
+     * @param { AsyncCallback<CameraStatusInfo> } [callback] - Callback used to get the camera status change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+    */
+    offCameraStatus(callback?: AsyncCallback<CameraStatusInfo>): void;
 
     /**
      * Subscribes fold status change event callback.
@@ -1554,9 +1570,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'foldStatusChange', callback: AsyncCallback<FoldStatusInfo>): void;
+
+    /**
+     * Subscribes fold status change event callback.
+     * 
+     * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to get the fold status change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+    */
+    onFoldStatusChange(callback: AsyncCallback<FoldStatusInfo>): void;
 
     /**
      * Unsubscribes from fold status change event callback.
@@ -1574,11 +1598,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'foldStatusChange', callback?: AsyncCallback<FoldStatusInfo>): void;
 
     /**
+     * Unsubscribes from fold status change event callback.
+     *
+     * @param { AsyncCallback<FoldStatusInfo> } [callback] - Callback used to get the fold status change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offFoldStatusChange(callback?: AsyncCallback<FoldStatusInfo>): void;
+
+    /**
      * Subscribes camera mute change event callback.
      *
      * @param { 'cameraMute' } type - Event type.
@@ -1596,9 +1628,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     on(type: 'cameraMute', callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Subscribes camera mute change event callback.
+     * 
+     * @param { AsyncCallback<boolean> } callback - Callback used to get the camera mute change.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onCameraMute(callback: AsyncCallback<boolean>): void;
 
     /**
      * Unsubscribes from camera mute change event callback.
@@ -1618,9 +1660,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     off(type: 'cameraMute', callback?: AsyncCallback<boolean>): void;
+
+    /**
+     * Unsubscribes from camera mute change event callback.
+     *
+     * @param { AsyncCallback<boolean> } [callback] - Callback used to get the camera mute change.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offCameraMute(callback?: AsyncCallback<boolean>): void;
 
     /**
      * Subscribes control center status change event callback.
@@ -1911,9 +1963,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'torchStatusChange', callback: AsyncCallback<TorchStatusInfo>): void;
+
+    /**
+     * Subscribes torch status change event callback.
+     * 
+     * @param { AsyncCallback<TorchStatusInfo> } callback - Callback used to return the torch status change
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+    */
+    onTorchStatusChange(callback: AsyncCallback<TorchStatusInfo>): void;
 
     /**
      * Unsubscribes torch status change event callback.
@@ -1931,9 +1991,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'torchStatusChange', callback?: AsyncCallback<TorchStatusInfo>): void;
+
+    /**
+     * Unsubscribes torch status change event callback.
+     * 
+     * @param { AsyncCallback<TorchStatusInfo> } [callback] - Callback used to return the torch status change
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+    */
+    offTorchStatusChange(callback?: AsyncCallback<TorchStatusInfo>): void;
   }
 
   /**
@@ -3041,9 +3109,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'error', camera: CameraDevice, callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     * 
+     * @param { CameraDevice } camera - Camera device.}
+     * @param { ErrorCallback } callback - Callback used to get the camera input errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onError(camera: CameraDevice, callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -3063,9 +3140,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'error', camera: CameraDevice, callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     * 
+     * @param { CameraDevice } camera - Camera device.
+     * @param { ErrorCallback } [callback] - Callback used to get the camera input errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offError(camera: CameraDevice, callback?: ErrorCallback): void;
 
     /**
      * Subscribes to camera occlusion detection results.
@@ -3076,9 +3162,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'cameraOcclusionDetection', callback: AsyncCallback<CameraOcclusionDetectionResult>): void;
+
+    /**
+     * Subscribes to camera occlusion detection results.
+     * 
+     * @param { AsyncCallback<CameraOcclusionDetectionResult> } callback - Callback used to get detection results.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onCameraOcclusionDetection(callback: AsyncCallback<CameraOcclusionDetectionResult>): void;
 
     /**
      * Unsubscribes from camera occlusion detection results.
@@ -3089,9 +3185,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'cameraOcclusionDetection', callback?: AsyncCallback<CameraOcclusionDetectionResult>): void;
+
+    /**
+     * Unsubscribes from camera occlusion detection results.
+     * 
+     * @param { AsyncCallback<CameraOcclusionDetectionResult> } [callback] - Callback used to get detection results.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offCameraOcclusionDetection(callback?: AsyncCallback<CameraOcclusionDetectionResult>): void;
 
     /**
      * Sets the camera to be used as a camera at the specified position.
@@ -8266,9 +8372,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -8286,9 +8400,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+    */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes focus state change event callback.
@@ -8310,9 +8432,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     * 
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus state change event callback.
@@ -8330,9 +8460,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     * 
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
     /**
      * Subscribes zoom info event callback.
@@ -8354,9 +8492,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Subscribes zoom info event callback.
+     * 
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Unsubscribes from zoom info event callback.
@@ -8374,11 +8520,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
+     * Unsubscribes from zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
      * Subscribes camera macro status event callback.
      *
      * @param { 'macroStatusChanged' } type - Event type.
@@ -8398,9 +8552,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     on(type: 'macroStatusChanged', callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Subscribes camera macro status event callback.
+     *
+     * @param { AsyncCallback<boolean> } callback - Callback used to return macro detection result,
+     *     true indicating macro scene is detected and can be enabled, false indicating no macro scene is detected,
+     *     and macro should be disabled.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onMacroStatusChanged(callback: AsyncCallback<boolean>): void;
 
     /**
      * Unsubscribes camera macro status event callback.
@@ -8422,9 +8586,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
+
+    /**
+     * Unsubscribes camera macro status event callback.
+     * 
+     * @param { AsyncCallback<boolean> } [callback] - Callback used to return macro detection result,
+     *     true indicating macro scene is detected and can be enabled, false indicating no macro scene is detected,
+     *     and macro should be disabled.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offMacroStatusChanged(callback?: AsyncCallback<boolean>): void;
 
     /**
      * Subscribes to system pressure level event callback.
@@ -8434,9 +8608,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     on(type: 'systemPressureLevelChange', callback: AsyncCallback<SystemPressureLevel>): void
+
+    /**
+     * Subscribes to system pressure level event callback.
+     *
+     * @param { AsyncCallback<SystemPressureLevel> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onSystemPressureLevelChange(callback: AsyncCallback<SystemPressureLevel>): void
 
     /**
      * Unsubscribes to system pressure level event callback.
@@ -8446,9 +8628,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     off(type: 'systemPressureLevelChange', callback?: AsyncCallback<SystemPressureLevel>): void
+
+    /**
+     * Unsubscribes to system pressure level event callback.
+     *
+     * @param { AsyncCallback<SystemPressureLevel> } [callback] - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offSystemPressureLevelChange(callback?: AsyncCallback<SystemPressureLevel>): void
 
     /**
      * Subscribes to feature detection results.
@@ -8460,9 +8650,20 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'featureDetection', featureType: SceneFeatureType, callback: AsyncCallback<SceneFeatureDetectionResult>): void;
+
+    /**
+     * Subscribes to feature detection results.
+     * 
+     * @param { SceneFeatureType } featureType - Feature type.
+     * @param { AsyncCallback<SceneFeatureDetectionResult> } callback - Callback used to get the detection result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onFeatureDetection(featureType: SceneFeatureType, callback: AsyncCallback<SceneFeatureDetectionResult>): void;
 
     /**
      * Unsubscribes from feature detection result.
@@ -8474,9 +8675,20 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'featureDetection', featureType: SceneFeatureType, callback?: AsyncCallback<SceneFeatureDetectionResult>): void;
+
+    /**
+     * Unsubscribes from feature detection result.
+     * 
+     * @param { SceneFeatureType } featureType - Feature type.
+     * @param { AsyncCallback<SceneFeatureDetectionResult> } [callback] - Callback used to get the detection result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offFeatureDetection(featureType: SceneFeatureType, callback?: AsyncCallback<SceneFeatureDetectionResult>): void;
 
     /**
      * Subscribes to effect suggestion event callback.
@@ -8486,9 +8698,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'effectSuggestionChange', callback: AsyncCallback<EffectSuggestionType>): void;
+
+    /**
+     * Subscribes to effect suggestion event callback.
+     * 
+     * @param { AsyncCallback<EffectSuggestionType> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onEffectSuggestionChange(callback: AsyncCallback<EffectSuggestionType>): void;
 
     /**
      * Unsubscribes from effect suggestion event callback.
@@ -8498,9 +8719,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'effectSuggestionChange', callback?: AsyncCallback<EffectSuggestionType>): void;
+
+    /**
+     * Unsubscribes from effect suggestion event callback.
+     * 
+     * @param { AsyncCallback<EffectSuggestionType> } [callback] - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offEffectSuggestionChange(callback?: AsyncCallback<EffectSuggestionType>): void;
 
     /**
      * Subscribes to auto device switch status event callback.
@@ -8522,9 +8752,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'autoDeviceSwitchStatusChange', callback: AsyncCallback<AutoDeviceSwitchStatus>): void;
+
+    /**
+     * Subscribes to auto device switch status event callback.
+     * 
+     * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onAutoDeviceSwitchStatusChange(callback: AsyncCallback<AutoDeviceSwitchStatus>): void;
 
     /**
      * Unsubscribes to auto device switch status event callback.
@@ -8542,9 +8780,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'autoDeviceSwitchStatusChange', callback?: AsyncCallback<AutoDeviceSwitchStatus>): void;
+
+    /**
+     * Unsubscribes to auto device switch status event callback.
+     * 
+     * @param { AsyncCallback<AutoDeviceSwitchStatus> } [callback] - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offAutoDeviceSwitchStatusChange(callback?: AsyncCallback<AutoDeviceSwitchStatus>): void;
 
     /**
      * Subscribes to lcd flash status.
@@ -8555,9 +8801,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
+     * Subscribes to lcd flash status.
+     * 
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onLcdFlashStatus(callback: AsyncCallback<LcdFlashStatus>): void;
 
     /**
      * Unsubscribes from lcd flash status.
@@ -8568,9 +8824,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
+     * Unsubscribes from lcd flash status.
+     * 
+     * @param { AsyncCallback<LcdFlashStatus> } [callback] - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offLcdFlashStatus(callback?: AsyncCallback<LcdFlashStatus>): void;
 
     /**
      * Gets session functions.
@@ -8790,9 +9056,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -8810,9 +9084,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes focus state change event callback.
@@ -8834,9 +9116,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus state change event callback.
@@ -8854,9 +9144,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
     /**
      * Subscribes zoom info event callback.
@@ -8878,9 +9176,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Subscribes zoom info event callback.
+     * 
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Unsubscribes from zoom info event callback.
@@ -8898,11 +9204,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
+     * Unsubscribes from zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
      * Subscribes camera macro status event callback.
      *
      * @param { 'macroStatusChanged' } type - Event type.
@@ -8922,9 +9236,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     on(type: 'macroStatusChanged', callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Subscribes camera macro status event callback.
+     *
+     * @param { AsyncCallback<boolean> } callback - Callback used to return macro detection result,
+     *     true indicating macro scene is detected and can be enabled, false indicating no macro scene is detected,
+     *     and macro should be disabled.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onMacroStatusChanged(callback: AsyncCallback<boolean>): void;
 
     /**
      * Unsubscribes camera macro status event callback.
@@ -8946,9 +9270,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
+
+    /**
+     * Unsubscribes camera macro status event callback.
+     *
+     * @param { AsyncCallback<boolean> } [callback] - Callback used to return macro detection result,
+     *     true indicating macro scene is detected and can be enabled, false indicating no macro scene is detected,
+     *     and macro should be disabled.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offMacroStatusChanged(callback?: AsyncCallback<boolean>): void;
 
     /**
      * Subscribes to system pressure level event callback.
@@ -8958,9 +9292,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     on(type: 'systemPressureLevelChange', callback: AsyncCallback<SystemPressureLevel>): void
+
+    /**
+     * Subscribes to system pressure level event callback.
+     *
+     * @param { AsyncCallback<SystemPressureLevel> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onSystemPressureLevelChange(callback: AsyncCallback<SystemPressureLevel>): void
 
     /**
      * Unsubscribes to system pressure level event callback.
@@ -8970,9 +9312,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     off(type: 'systemPressureLevelChange', callback?: AsyncCallback<SystemPressureLevel>): void
+
+    /**
+     * Unsubscribes to system pressure level event callback.
+     *
+     * @param { AsyncCallback<SystemPressureLevel> } [callback] - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offSystemPressureLevelChange(callback?: AsyncCallback<SystemPressureLevel>): void
 
     /**
      * Subscribes to control center effect status change callback.
@@ -9005,9 +9355,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
+    
+    /**
+     * Subscribes to lcd flash status.
+     * 
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+    */
+    onLcdFlashStatus(callback: AsyncCallback<LcdFlashStatus>): void;
 
     /**
      * Unsubscribes from lcd flash status.
@@ -9018,9 +9378,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
+     * Unsubscribes from lcd flash status.
+     * 
+     * @param { AsyncCallback<LcdFlashStatus> } [callback] - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+    */
+    offLcdFlashStatus(callback?: AsyncCallback<LcdFlashStatus>): void;
 
     /**
      * Subscribes to auto device switch status event callback.
@@ -9043,9 +9413,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'autoDeviceSwitchStatusChange', callback: AsyncCallback<AutoDeviceSwitchStatus>): void;
+
+    /**
+     * Subscribes to auto device switch status event callback.
+     * 
+     * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+    */
+    onAutoDeviceSwitchStatusChange(callback: AsyncCallback<AutoDeviceSwitchStatus>): void;
 
     /**
      * Unsubscribes to auto device switch status event callback.
@@ -9063,9 +9441,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'autoDeviceSwitchStatusChange', callback?: AsyncCallback<AutoDeviceSwitchStatus>): void;
+
+    /**
+     * Unsubscribes to auto device switch status event callback.
+     * 
+     * @param { AsyncCallback<AutoDeviceSwitchStatus> } [callback] - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+    */
+    offAutoDeviceSwitchStatusChange(callback?: AsyncCallback<AutoDeviceSwitchStatus>): void;
 
     /**
      * Subscribes to focus tracking info event callback.
@@ -9076,9 +9462,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
      */
     on(type: 'focusTrackingInfoAvailable', callback: Callback<FocusTrackingInfo>): void;
+
+    /**
+     * Subscribes to focus tracking info event callback.
+     * 
+     * @param { Callback<FocusTrackingInfo> } callback - Callback used to get the focus tracking info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onFocusTrackingInfoAvailable(callback: Callback<FocusTrackingInfo>): void;
 
     /**
      * Unsubscribes from focus tracking info event callback.
@@ -9089,9 +9485,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
      */
     off(type: 'focusTrackingInfoAvailable', callback?: Callback<FocusTrackingInfo>): void;
+
+    /**
+     * Unsubscribes from focus tracking info event callback.
+     * 
+     * @param { Callback<FocusTrackingInfo> } [callback] - Callback used to get the focus tracking info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offFocusTrackingInfoAvailable(callback?: Callback<FocusTrackingInfo>): void;
 
     /**
      * Subscribes to effect suggestion change events.
@@ -9101,9 +9507,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
      */
     on(type: 'effectSuggestionChange', callback: AsyncCallback<EffectSuggestionType>): void;
+
+    /**
+     * Subscribes to effect suggestion change events.
+     *
+     * @param { AsyncCallback<EffectSuggestionType> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.[object Object]
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onEffectSuggestionChange(callback: AsyncCallback<EffectSuggestionType>): void;
 
     /**
      * Unsubscribes from effect suggestion change events.
@@ -9114,9 +9530,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
      */
     off(type: 'effectSuggestionChange', callback?: AsyncCallback<EffectSuggestionType>): void;
+
+    /**
+     * Unsubscribes from effect suggestion change events.
+     *
+     * @param { AsyncCallback<EffectSuggestionType> } [callback] - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.[object Object]
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offEffectSuggestionChange(callback?: AsyncCallback<EffectSuggestionType>): void;
 
     /**
      * Gets session functions.
@@ -9183,9 +9609,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
      */
     on(type: 'lightStatusChange', callback: AsyncCallback<LightStatus>): void;
+
+    /**
+     * Subscribes camera light status event callback.
+     * 
+     * @param { AsyncCallback<LightStatus> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onLightStatusChange(callback: AsyncCallback<LightStatus>): void;
 
     /**
      * Unsubscribes camera light status event callback.
@@ -9196,9 +9632,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
      */
     off(type: 'lightStatusChange', callback?: AsyncCallback<LightStatus>): void;
+
+    /**
+     * Unsubscribes camera light status event callback.
+     *
+     * @param { AsyncCallback<LightStatus> } [callback] - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offLightStatusChange(callback?: AsyncCallback<LightStatus>): void;
   }
 
   /**
@@ -9604,8 +10050,8 @@ declare namespace camera {
    * @interface PortraitPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-     * @since 11 dynamic
-     * @since 22 static
+   * @since 11 dynamic
+   * @since 22 static
    */
   interface PortraitPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty, ColorEffect, ColorManagement, Portrait, Aperture {
     /**
@@ -9616,9 +10062,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -9628,9 +10083,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes focus state change event callback.
@@ -9640,9 +10104,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     * 
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus state change event callback.
@@ -9652,9 +10125,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
     /**
      * Subscribes zoom info event callback.
@@ -9664,9 +10146,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Subscribes zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Unsubscribes from zoom info event callback.
@@ -9676,9 +10167,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Unsubscribes from zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Subscribes to lcd flash status.
@@ -9689,9 +10189,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
+     * Subscribes to lcd flash status.
+     *
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onLcdFlashStatus(callback: AsyncCallback<LcdFlashStatus>): void;
 
     /**
      * Unsubscribes from lcd flash status.
@@ -9702,9 +10212,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
+     * Unsubscribes from lcd flash status.
+     *
+     * @param { AsyncCallback<LcdFlashStatus> } [callback] - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offLcdFlashStatus(callback?: AsyncCallback<LcdFlashStatus>): void;
 
     /**
      * Gets session functions.
@@ -9753,9 +10273,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -9766,9 +10296,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes focus state change event callback.
@@ -9779,9 +10319,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus state change event callback.
@@ -9792,9 +10342,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
     /**
      * Subscribes zoom info event callback.
@@ -9805,9 +10365,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Subscribes zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Unsubscribes from zoom info event callback.
@@ -9818,9 +10388,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Unsubscribes from zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
   }
 
   /**
@@ -9938,9 +10518,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -9950,9 +10539,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes focus state change event callback.
@@ -9962,9 +10560,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus state change event callback.
@@ -9974,9 +10581,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
     /**
      * Subscribes zoom info event callback.
@@ -9986,9 +10602,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Subscribes zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Unsubscribes from zoom info event callback.
@@ -9998,9 +10623,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Unsubscribes from zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Subscribes to lcd flash status.
@@ -10011,9 +10645,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
+     * Subscribes to lcd flash status.
+     *
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onLcdFlashStatus(callback: AsyncCallback<LcdFlashStatus>): void;
 
     /**
      * Unsubscribes from lcd flash status.
@@ -10024,9 +10668,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
+     * Unsubscribes from lcd flash status.
+     *
+     * @param { AsyncCallback<LcdFlashStatus> } [callback] - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offLcdFlashStatus(callback?: AsyncCallback<LcdFlashStatus>): void;
   }
 
   /**
@@ -10140,9 +10794,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -10153,9 +10815,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes focus state change event callback.
@@ -10166,9 +10836,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus state change event callback.
@@ -10179,9 +10857,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
     /**
      * Subscribes zoom info event callback.
@@ -10192,9 +10878,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Subscribes zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Unsubscribes from zoom info event callback.
@@ -10205,9 +10899,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Unsubscribes from zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Subscribes ISO info event callback.
@@ -10218,9 +10920,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'isoInfoChange', callback: AsyncCallback<IsoInfo>): void;
+
+    /**
+     * Subscribes ISO info event callback.
+     *
+     * @param { AsyncCallback<IsoInfo> } callback - Callback used to get the ISO info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onIsoInfoChange(callback: AsyncCallback<IsoInfo>): void;
 
     /**
      * Unsubscribes from ISO info event callback.
@@ -10231,9 +10941,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'isoInfoChange', callback?: AsyncCallback<IsoInfo>): void;
+
+    /**
+     * Unsubscribes from ISO info event callback.
+     *
+     * @param { AsyncCallback<IsoInfo> } [callback] - Callback used to get the ISO info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offIsoInfoChange(callback?: AsyncCallback<IsoInfo>): void;
 
     /**
      * Subscribes exposure info event callback.
@@ -10244,9 +10962,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'exposureInfoChange', callback: AsyncCallback<ExposureInfo>): void;
+
+    /**
+     * Subscribes exposure info event callback.
+     *
+     * @param { AsyncCallback<ExposureInfo> } callback - Callback used to get the exposure info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onExposureInfoChange(callback: AsyncCallback<ExposureInfo>): void;
 
     /**
      * Unsubscribes from exposure info event callback.
@@ -10257,9 +10983,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'exposureInfoChange', callback?: AsyncCallback<ExposureInfo>): void;
+
+    /**
+     * Unsubscribes from exposure info event callback.
+     *
+     * @param { AsyncCallback<ExposureInfo> } [callback] - Callback used to get the exposure info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offExposureInfoChange(callback?: AsyncCallback<ExposureInfo>): void;
 
     /**
      * Subscribes aperture info event callback.
@@ -10270,9 +11004,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'apertureInfoChange', callback: AsyncCallback<ApertureInfo>): void;
+
+    /**
+     * Subscribes aperture info event callback.
+     *
+     * @param { AsyncCallback<ApertureInfo> } callback - Callback used to get the aperture info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onApertureInfoChange(callback: AsyncCallback<ApertureInfo>): void;
 
     /**
      * Unsubscribes from aperture info event callback.
@@ -10283,9 +11027,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'apertureInfoChange', callback?: AsyncCallback<ApertureInfo>): void;
+
+    /**
+     * Unsubscribes from aperture info event callback.
+     *
+     * @param { AsyncCallback<ApertureInfo> } [callback] - Callback used to get the aperture info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offApertureInfoChange(callback?: AsyncCallback<ApertureInfo>): void;
 
     /**
      * Subscribes lumination info event callback.
@@ -10296,9 +11050,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'luminationInfoChange', callback: AsyncCallback<LuminationInfo>): void;
+
+    /**
+     *  Subscribes lumination info event callback.
+     *
+     * @param { AsyncCallback<LuminationInfo> } callback - Callback used to get the lumination info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onLuminationInfoChange(callback: AsyncCallback<LuminationInfo>): void;
 
     /**
      * Unsubscribes from lumination info event callback.
@@ -10309,9 +11073,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'luminationInfoChange', callback?: AsyncCallback<LuminationInfo>): void;
+
+    /**
+     * Unsubscribes from lumination info event callback.
+     *
+     * @param { AsyncCallback<LuminationInfo> } [callback] - Callback used to get the lumination info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offLuminationInfoChange(callback?: AsyncCallback<LuminationInfo>): void;
   }
 
   /**
@@ -10334,9 +11108,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -10347,9 +11129,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes focus state change event callback.
@@ -10360,9 +11150,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus state change event callback.
@@ -10373,9 +11171,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
     /**
      * Subscribes zoom info event callback.
@@ -10386,9 +11192,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Subscribes zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Unsubscribes from zoom info event callback.
@@ -10399,9 +11213,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Unsubscribes from zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Subscribes ISO info event callback.
@@ -10412,9 +11234,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'isoInfoChange', callback: AsyncCallback<IsoInfo>): void;
+
+    /**
+     * Subscribes ISO info event callback.
+     *
+     * @param { AsyncCallback<IsoInfo> } callback - Callback used to get the ISO info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onIsoInfoChange(callback: AsyncCallback<IsoInfo>): void;
 
     /**
      * Unsubscribes from ISO info event callback.
@@ -10425,9 +11255,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'isoInfoChange', callback?: AsyncCallback<IsoInfo>): void;
+
+    /**
+     * Unsubscribes from ISO info event callback.
+     *
+     * @param { AsyncCallback<IsoInfo> } [callback] - Callback used to get the ISO info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offIsoInfoChange(callback?: AsyncCallback<IsoInfo>): void;
 
     /**
      * Subscribes exposure info event callback.
@@ -10438,9 +11276,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'exposureInfoChange', callback: AsyncCallback<ExposureInfo>): void;
+
+    /**
+     * Subscribes exposure info event callback.
+     *
+     * @param { AsyncCallback<ExposureInfo> } callback - Callback used to get the exposure info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onExposureInfoChange(callback: AsyncCallback<ExposureInfo>): void;
 
     /**
      * Unsubscribes from exposure info event callback.
@@ -10451,9 +11297,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'exposureInfoChange', callback?: AsyncCallback<ExposureInfo>): void;
+
+    /**
+     * Unsubscribes from exposure info event callback.
+     *
+     * @param { AsyncCallback<ExposureInfo> } [callback] - Callback used to get the exposure info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offExposureInfoChange(callback?: AsyncCallback<ExposureInfo>): void;
 
     /**
      * Subscribes aperture info event callback.
@@ -10464,9 +11318,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'apertureInfoChange', callback: AsyncCallback<ApertureInfo>): void;
+
+    /**
+     * Subscribes aperture info event callback.
+     *
+     * @param { AsyncCallback<ApertureInfo> } callback - Callback used to get the aperture info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onApertureInfoChange(callback: AsyncCallback<ApertureInfo>): void;
 
     /**
      * Unsubscribes from aperture info event callback.
@@ -10477,9 +11341,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'apertureInfoChange', callback?: AsyncCallback<ApertureInfo>): void;
+
+    /**
+     * Unsubscribes from aperture info event callback.
+     *
+     * @param { AsyncCallback<ApertureInfo> } [callback] - Callback used to get the aperture info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offApertureInfoChange(callback?: AsyncCallback<ApertureInfo>): void;
 
     /**
      * Subscribes lumination info event callback.
@@ -10490,9 +11364,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'luminationInfoChange', callback: AsyncCallback<LuminationInfo>): void;
+
+    /**
+     * Subscribes lumination info event callback.
+     *
+     * @param { AsyncCallback<LuminationInfo> } callback - Callback used to get the lumination info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onLuminationInfoChange(callback: AsyncCallback<LuminationInfo>): void;
 
     /**
      * Unsubscribes from lumination info event callback.
@@ -10503,9 +11387,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'luminationInfoChange', callback?: AsyncCallback<LuminationInfo>): void;
+
+    /**
+     * Unsubscribes from lumination info event callback.
+     *
+     * @param { AsyncCallback<LuminationInfo> } [callback] - Callback used to get the lumination info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offLuminationInfoChange(callback?: AsyncCallback<LuminationInfo>): void;
   }
 
   /**
@@ -10589,9 +11483,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -10602,9 +11506,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes focus state change event callback.
@@ -10615,9 +11529,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus state change event callback.
@@ -10628,9 +11552,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
     /**
      * Subscribes zoom info event callback.
@@ -10641,9 +11575,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Subscribes zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Unsubscribes from zoom info event callback.
@@ -10654,9 +11598,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Unsubscribes from zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Determine whether camera slow motion detection is supported.
@@ -10712,9 +11666,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'slowMotionStatus', callback: AsyncCallback<SlowMotionStatus>): void;
+
+    /**
+     * Subscribes slow motion status callback.
+     *
+     * @param { AsyncCallback<SlowMotionStatus> } callback - Callback used to get the slow motion status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onSlowMotionStatus(callback: AsyncCallback<SlowMotionStatus>): void;
 
     /**
      * Unsubscribes slow motion status callback.
@@ -10725,9 +11689,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'slowMotionStatus', callback?: AsyncCallback<SlowMotionStatus>): void;
+
+    /**
+     * Unsubscribes slow motion status callback.
+     *
+     * @param { AsyncCallback<SlowMotionStatus> } callback - Callback used to get the slow motion status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offSlowMotionStatus(callback?: AsyncCallback<SlowMotionStatus>): void;
   }
 
   /**
@@ -10750,9 +11724,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -10763,9 +11747,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes focus state change event callback.
@@ -10776,9 +11770,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus state change event callback.
@@ -10789,9 +11793,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
   }
 
   /**
@@ -10832,9 +11846,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -10845,9 +11869,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes focus state change event callback.
@@ -10858,9 +11892,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus state change event callback.
@@ -10871,9 +11915,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
     /**
      * Subscribes zoom info event callback.
@@ -10884,9 +11938,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Subscribes zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Unsubscribes from zoom info event callback.
@@ -10897,9 +11961,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Unsubscribes from zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
   }
 
   /**
@@ -10931,9 +12005,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -10944,9 +12028,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes focus state change event callback.
@@ -10957,9 +12051,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus state change event callback.
@@ -10970,9 +12074,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
     /**
      * Subscribes zoom info event callback.
@@ -10983,9 +12097,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
+    
+    /**
+     * Subscribes zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Unsubscribes from zoom info event callback.
@@ -10996,9 +12120,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Unsubscribes from zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
   }
 
   /**
@@ -11081,9 +12215,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -11101,9 +12243,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes focus status change event callback.
@@ -11125,9 +12275,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus status change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus status change event callback.
@@ -11145,9 +12303,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus status change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
   }
 
   /**
@@ -11170,9 +12336,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     * 
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -11183,9 +12359,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes focus state change event callback.
@@ -11196,9 +12382,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus state change event callback.
@@ -11209,9 +12405,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
     /**
      * Subscribes zoom info event callback.
@@ -11222,9 +12428,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Subscribes zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Unsubscribes from zoom info event callback.
@@ -11235,9 +12451,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Unsubscribes from zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Gets the light painting type in use.
@@ -11310,9 +12536,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+    
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -11323,9 +12559,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes to effect suggestion event callback.
@@ -11336,9 +12582,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'effectSuggestionChange', callback: AsyncCallback<EffectSuggestionType>): void;
+
+    /**
+     * Subscribes to effect suggestion change events.
+     *
+     * @param { AsyncCallback<EffectSuggestionType> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onEffectSuggestionChange(callback: AsyncCallback<EffectSuggestionType>): void;
 
     /**
      * Unsubscribes from effect suggestion event callback.
@@ -11349,9 +12605,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'effectSuggestionChange', callback?: AsyncCallback<EffectSuggestionType>): void;
+
+    /**
+     * Unsubscribes from effect suggestion change evevts.
+     *
+     * @param { AsyncCallback<EffectSuggestionType> } [callback] - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offEffectSuggestionChange(callback?: AsyncCallback<EffectSuggestionType>): void;
 
     /**
      * Subscribes focus state change event callback.
@@ -11362,9 +12628,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus state change event callback.
@@ -11375,9 +12651,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
     /**
      * Subscribes zoom info event callback.
@@ -11388,9 +12674,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Subscribes zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Unsubscribes from zoom info event callback.
@@ -11401,9 +12697,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Unsubscribes from zoom info event callback.
+     *
+     * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
   }
 
   /**
@@ -11426,9 +12732,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -11439,9 +12755,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes focus state change event callback.
@@ -11452,9 +12778,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus state change event callback.
@@ -11465,9 +12801,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
   }
 
   /**
@@ -11490,9 +12836,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -11503,9 +12859,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes focus state change event callback.
@@ -11516,9 +12882,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus state change event callback.
@@ -11529,9 +12905,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
   }
 
   /**
@@ -11799,9 +13185,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'frameStart', callback: AsyncCallback<void>): void;
+
+    /**
+     * Subscribes frame start event callback.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onFrameStart(callback: AsyncCallback<void>): void;
 
     /**
      * Unsubscribes from frame start event callback.
@@ -11819,9 +13213,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'frameStart', callback?: AsyncCallback<void>): void;
+
+    /**
+     * Unsubscribes from frame start event callback.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offFrameStart(callback?: AsyncCallback<void>): void;
 
     /**
      * Subscribes frame end event callback.
@@ -11843,9 +13245,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'frameEnd', callback: AsyncCallback<void>): void;
+
+    /**
+     * Subscribes frame end event callback.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onFrameEnd(callback: AsyncCallback<void>): void;
 
     /**
      * Unsubscribes from frame end event callback.
@@ -11863,9 +13273,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'frameEnd', callback?: AsyncCallback<void>): void;
+
+    /**
+     * Unsubscribes from frame end event callback.
+     *
+     * @param { AsyncCallback<void> } [callback] - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offFrameEnd(callback?: AsyncCallback<void>): void;
 
     /**
      * Subscribes to error events.
@@ -11887,9 +13305,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the preview output errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -11907,9 +13333,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the preview output errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Get supported frame rates which can be set during session running.
@@ -12145,9 +13579,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     on(type: 'sketchStatusChanged', callback: AsyncCallback<SketchStatusData>): void;
+
+    /**
+     * Subscribes sketch status changed event callback.
+     *
+     * @param { AsyncCallback<SketchStatusData> } callback - Callback used to sketch status data.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onSketchStatusChanged(callback: AsyncCallback<SketchStatusData>): void;
 
     /**
      * Unsubscribes sketch status changed event callback.
@@ -12158,9 +13602,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     off(type: 'sketchStatusChanged', callback?: AsyncCallback<SketchStatusData>): void;
+
+    /**
+     * Unsubscribes sketch status changed event callback.
+     *
+     * @param { AsyncCallback<SketchStatusData> } [callback] - Callback used to get sketch status data.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offSketchStatusChanged(callback?: AsyncCallback<SketchStatusData>): void;
   }
 
   /**
@@ -12358,8 +13812,8 @@ declare namespace camera {
    * @typedef Location
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-     * @since 19 dynamic
-     * @since 22 static
+   * @since 19 dynamic
+   * @since 22 static
    */
   interface Location {
     /**
@@ -13126,9 +14580,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'photoAvailable', callback: AsyncCallback<Photo>): void;
+
+    /**
+     * Subscribes photo available event callback.
+     *
+     * @param { AsyncCallback<Photo> } callback - Callback used to get the Photo.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onPhotoAvailable(callback: AsyncCallback<Photo>): void;
 
     /**
      * Unsubscribes photo available event callback.
@@ -13146,9 +14608,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'photoAvailable', callback?: AsyncCallback<Photo>): void;
+
+    /**
+     * Subscribes photo error event callback.
+     *
+     * @param { AsyncCallback<Photo> } [callback] - Callback used to get the Photo.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offPhotoAvailable(callback?: AsyncCallback<Photo>): void;
 
     /**
      * Subscribes deferred photo proxy available event callback.
@@ -13159,9 +14629,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     on(type: 'deferredPhotoProxyAvailable', callback: AsyncCallback<DeferredPhotoProxy>): void;
+
+    /**
+     * Subscribes deferred photo proxy available event callback.
+     *
+     * @param { AsyncCallback<DeferredPhotoProxy> } callback - Callback used to get the DeferredPhotoProxy.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onDeferredPhotoProxyAvailable(callback: AsyncCallback<DeferredPhotoProxy>): void;
 
     /**
      * Unsubscribes deferred photo proxy available event callback.
@@ -13172,9 +14652,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     off(type: 'deferredPhotoProxyAvailable', callback?: AsyncCallback<DeferredPhotoProxy>): void;
+
+    /**
+     * Unsubscribes deferred photo proxy available event callback.
+     *
+     * @param { AsyncCallback<DeferredPhotoProxy> } [callback] - Callback used to get the DeferredPhotoProxy.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offDeferredPhotoProxyAvailable(callback?: AsyncCallback<DeferredPhotoProxy>): void;
 
     /**
      * Subscribes to photo asset event callback.
@@ -13204,9 +14694,21 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'photoAssetAvailable', callback: AsyncCallback<photoAccessHelper.PhotoAsset>): void;
+
+    /**
+     * Subscribes to photo asset event callback.
+     * 
+     * <p>This API processes deferred photo delivery data by quickly displaying low-quality images to give
+     * users the impression of faster photo capture, while also generating high-quality images to maintain the
+     * final output quality. For details about the design specifications, see {@link
+     * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-camera-shot2see}. </p>
+     * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } callback - Callback used to get the asset.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+    */
+    onPhotoAssetAvailable(callback: AsyncCallback<photoAccessHelper.PhotoAsset>): void;
 
     /**
      * Unsubscribes photo asset event callback.
@@ -13224,9 +14726,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'photoAssetAvailable', callback?: AsyncCallback<photoAccessHelper.PhotoAsset>): void;
+
+    /**
+     * Unsubscribes photo asset error event callback.
+     *
+     * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } [callback] - Callback used to get the asset.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offPhotoAssetAvailable(callback?: AsyncCallback<photoAccessHelper.PhotoAsset>): void;
 
     /**
      * Check whether to support mirror photo.
@@ -13318,9 +14828,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'captureStartWithInfo', callback: AsyncCallback<CaptureStartInfo>): void;
+
+    /**
+     * Subscribes capture start event callback.
+     * 
+     * @param { AsyncCallback<CaptureStartInfo> } callback - Callback used to get the capture start info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onCaptureStartWithInfo(callback: AsyncCallback<CaptureStartInfo>): void;
 
     /**
      * Unsubscribes from capture start event callback.
@@ -13338,11 +14856,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'captureStartWithInfo', callback?: AsyncCallback<CaptureStartInfo>): void;
 
     /**
+     * Unsubscribes from capture start event callback.
+     *
+     * @param { AsyncCallback<CaptureStartInfo> } [callback] - Callback used to get the capture start info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offCaptureStartWithInfo(callback?: AsyncCallback<CaptureStartInfo>): void;
+
+    /**
      * Subscribes frame shutter event callback.
      *
      * @param { 'frameShutter' } type - Event type.
@@ -13358,9 +14884,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'frameShutter', callback: AsyncCallback<FrameShutterInfo>): void;
+
+    /**
+     * Subscribes frame shutter event callback.
+     *
+     * @param { AsyncCallback<FrameShutterInfo> } callback - Callback used to get the frame shutter information.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onFrameShutter(callback: AsyncCallback<FrameShutterInfo>): void;
 
     /**
      * Unsubscribes from frame shutter event callback.
@@ -13378,9 +14912,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'frameShutter', callback?: AsyncCallback<FrameShutterInfo>): void;
+
+    /**
+     * Unsubscribes from frame shutter event callback.
+     *
+     * @param { AsyncCallback<FrameShutterInfo> } [callback] - Callback used to get the frame shutter information.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offFrameShutter(callback?: AsyncCallback<FrameShutterInfo>): void;
 
     /**
      * Subscribes frame shutter end event callback.
@@ -13402,9 +14944,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'frameShutterEnd', callback: AsyncCallback<FrameShutterEndInfo>): void;
+
+    /**
+     * Subscribes frame shutter end event callback.
+     *
+     * @param { AsyncCallback<FrameShutterEndInfo> } callback - Callback used to get the frame shutter end information.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onFrameShutterEnd(callback: AsyncCallback<FrameShutterEndInfo>): void;
 
     /**
      * Unsubscribes from frame shutter end event callback.
@@ -13422,9 +14972,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'frameShutterEnd', callback?: AsyncCallback<FrameShutterEndInfo>): void;
+
+    /**
+     * Unsubscribes from frame shutter end event callback.
+     *
+     * @param { AsyncCallback<FrameShutterEndInfo> } [callback] - Callback used to get the frame shutter end information.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offFrameShutterEnd(callback?: AsyncCallback<FrameShutterEndInfo>): void;
 
     /**
      * Subscribes capture end event callback.
@@ -13447,9 +15005,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'captureEnd', callback: AsyncCallback<CaptureEndInfo>): void;
+
+    /**
+     * Subscribes capture end event callback.
+     *
+     * @param { AsyncCallback<CaptureEndInfo> } callback - Callback used to get the capture end information.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onCaptureEnd(callback: AsyncCallback<CaptureEndInfo>): void;
 
     /**
      * Unsubscribes from capture end event callback.
@@ -13467,9 +15033,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'captureEnd', callback?: AsyncCallback<CaptureEndInfo>): void;
+
+    /**
+     * Unsubscribes from capture end event callback.
+     *
+     * @param { AsyncCallback<CaptureEndInfo> } [callback] - Callback used to get the capture end information.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offCaptureEnd(callback?: AsyncCallback<CaptureEndInfo>): void;
 
     /**
      * Subscribes capture ready event callback. After receiving the callback, can proceed to the next capture
@@ -13491,9 +15065,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'captureReady', callback: AsyncCallback<void>): void;
+
+    /**
+     * Subscribes capture ready event callback. After receiving the callback, can proceed to the next capture
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to notice capture ready.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onCaptureReady(callback: AsyncCallback<void>): void;
 
     /**
      * Unsubscribes from capture ready event callback.
@@ -13511,9 +15093,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'captureReady', callback?: AsyncCallback<void>): void;
+
+    /**
+     * Unsubscribes from capture ready event callback.
+     *
+     * @param { AsyncCallback<void> } [callback] - Callback used to notice capture ready.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offCaptureReady(callback?: AsyncCallback<void>): void;
 
     /**
      * Subscribes estimated capture duration event callback.
@@ -13535,9 +15125,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'estimatedCaptureDuration', callback: AsyncCallback<double>): void;
+
+    /**
+     * Subscribes estimated capture duration event callback.
+     *
+     * @param { AsyncCallback<double> } callback - Callback used to notify the estimated capture duration (in milliseconds).
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onEstimatedCaptureDuration(callback: AsyncCallback<double>): void;
 
     /**
      * Unsubscribes from estimated capture duration event callback.
@@ -13555,9 +15153,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'estimatedCaptureDuration', callback?: AsyncCallback<double>): void;
+
+    /**
+     * Unsubscribes from estimated capture duration event callback.
+     *
+     * @param { AsyncCallback<double> } [callback] - Callback used to notify the estimated capture duration (in milliseconds).
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offEstimatedCaptureDuration(callback?: AsyncCallback<double>): void;
 
     /**
      * Subscribes to error events.
@@ -13579,9 +15185,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the photo output errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -13599,9 +15213,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     * 
+     * @param { ErrorCallback } [callback] - Callback used to get the photo output errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+    */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Gets the current preconfig type if you had already call preconfig interface.
@@ -13686,9 +15308,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
      */
     on(type: 'quickThumbnail', callback: AsyncCallback<image.PixelMap>): void;
+
+    /**
+     * Subscribes to camera thumbnail events.
+     * This method is valid only after enableQuickThumbnail(true) is called.
+     *
+     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to get the quick thumbnail.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onQuickThumbnail(callback: AsyncCallback<image.PixelMap>): void;
 
     /**
      * Unsubscribes from camera thumbnail events.
@@ -13699,9 +15331,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
      */
     off(type: 'quickThumbnail', callback?: AsyncCallback<image.PixelMap>): void;
+
+    /**
+     * Unsubscribes from camera thumbnail events.
+     * This method is valid only after enableQuickThumbnail(true) is called.
+     *
+     * @param { AsyncCallback<image.PixelMap> } [callback] - Callback used to get the quick thumbnail.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offQuickThumbnail(callback?: AsyncCallback<image.PixelMap>): void;
 
     /**
      * Confirm if the auto high quality photo supported.
@@ -13865,9 +15507,20 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
      */
     on(type: 'offlineDeliveryFinished', callback: AsyncCallback<void>): void;
+
+    /**
+     * Subscribes offline Delivery finished events.
+     * This method is valid only after enableOffline() is called.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to get offline Delivery finished events.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onOfflineDeliveryFinished(callback: AsyncCallback<void>): void;
 
     /**
      * Unsubscribes offline Delivery finished events.
@@ -13879,9 +15532,20 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
      */
     off(type: 'offlineDeliveryFinished', callback?: AsyncCallback<void>): void;
+
+    /**
+     * Unsubscribes offline Delivery finished events.
+     * This method is valid only after enableOffline() is called.
+     *
+     * @param { AsyncCallback<void>} [callback] - Callback used to get offline Delivery finished events.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offOfflineDeliveryFinished(callback?: AsyncCallback<void>): void;
 
     /**
      * Query whether photo quality prioritization is supported.
@@ -14500,9 +16164,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     on(type: 'deferredVideoEnhancementInfo', callback: AsyncCallback<DeferredVideoEnhancementInfo>): void;
+
+    /**
+     * Subscribes to deferred video enhancement info callback.
+     * 
+     * @param { AsyncCallback<DeferredVideoEnhancementInfo> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+    */
+    onDeferredVideoEnhancementInfo(callback: AsyncCallback<DeferredVideoEnhancementInfo>): void;
 
     /**
      * Unsubscribes from deferred video enhancement info callback.
@@ -14513,9 +16187,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     off(type: 'deferredVideoEnhancementInfo', callback?: AsyncCallback<DeferredVideoEnhancementInfo>): void;
+
+    /**
+     * Unsubscribes from deferred video enhancement info callback.
+     *
+     * @param { AsyncCallback<DeferredVideoEnhancementInfo> } [callback] - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offDeferredVideoEnhancementInfo(callback?: AsyncCallback<DeferredVideoEnhancementInfo>): void;
 
     /**
      * Subscribes frame start event callback.
@@ -14537,9 +16221,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'frameStart', callback: AsyncCallback<void>): void;
+
+    /**
+     * Subscribes frame start event callback.
+     * 
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+    */
+    onFrameStart(callback: AsyncCallback<void>): void;
 
     /**
      * Unsubscribes from frame start event callback.
@@ -14557,11 +16249,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'frameStart', callback?: AsyncCallback<void>): void;
 
     /**
+     * Unsubscribes from frame start event callback.
+     *
+     * @param { AsyncCallback<void> } [callback] - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offFrameStart(callback?: AsyncCallback<void>): void;
+
+    /**
      * Subscribes frame end event callback.
      *
      * @param { 'frameEnd' } type - Event type.
@@ -14577,9 +16277,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'frameEnd', callback: AsyncCallback<void>): void;
+
+    /**
+     * Subscribes frame end event callback.
+     * 
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onFrameEnd(callback: AsyncCallback<void>): void;
 
     /**
      * Unsubscribes from frame end event callback.
@@ -14597,9 +16305,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'frameEnd', callback?: AsyncCallback<void>): void;
+
+    /**
+     * Unsubscribes from frame end event callback.
+     *
+     * @param { AsyncCallback<void> } [callback] - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offFrameEnd(callback?: AsyncCallback<void>): void;
 
     /**
      * Subscribes to error events.
@@ -14621,9 +16337,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     * 
+     * @param { ErrorCallback } callback - Callback used to get the video output errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+    */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -14641,9 +16365,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     * 
+     * @param { ErrorCallback } [callback] - Callback used to get the video output errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Gets the current preconfig type if you had already call preconfig interface.
@@ -15520,9 +17252,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>): void;
+
+    /**
+     * Subscribes to metadata objects available event callback.
+     * 
+     * @param { AsyncCallback<Array<MetadataObject>> } callback - Callback used to get the available metadata objects.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+    */
+    onMetadataObjectsAvailable(callback: AsyncCallback<Array<MetadataObject>>): void;
 
     /**
      * Unsubscribes from metadata objects available event callback.
@@ -15540,9 +17280,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'metadataObjectsAvailable', callback?: AsyncCallback<Array<MetadataObject>>): void;
+
+    /**
+     * Unsubscribe from metadata objects available event callback.
+     *
+     * @param { AsyncCallback<Array<MetadataObject>> } [callback] - Callback used to get the available metadata objects.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offMetadataObjectsAvailable(callback?: AsyncCallback<Array<MetadataObject>>): void;
 
     /**
      * Subscribes to error events.
@@ -15564,9 +17312,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the video output errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -15584,9 +17340,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribe from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the video output errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
   }
 
   /**
@@ -15878,9 +17642,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to focus state change event callback.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -15891,9 +17665,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     * 
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+    */
+    offError(callback?: ErrorCallback): void;
 
     /**
      * Subscribes focus state change event callback.
@@ -15904,9 +17688,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     * 
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+    */
+    onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
     /**
      * Unsubscribes from focus state change event callback.
@@ -15917,9 +17711,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     * 
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+    */
+    offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
     /**
      * Subscribes ISO info event callback.
@@ -15930,9 +17734,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'isoInfoChange', callback: AsyncCallback<IsoInfo>): void;
+
+    /**
+     * Subscribes ISO info event callback.
+     * 
+     * @param { AsyncCallback<IsoInfo> } callback - Callback used to get the ISO info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onIsoInfoChange(callback: AsyncCallback<IsoInfo>): void;
 
     /**
      * Unsubscribes from ISO info event callback.
@@ -15943,9 +17757,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'isoInfoChange', callback?: AsyncCallback<IsoInfo>): void;
+
+    /**
+     * Unsubscribes from ISO info event callback.
+     * 
+     * @param { AsyncCallback<IsoInfo> } [callback] - Callback used to get the ISO info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offIsoInfoChange(callback?: AsyncCallback<IsoInfo>): void;
 
     /**
      * Subscribes exposure info event callback.
@@ -15956,9 +17780,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'exposureInfoChange', callback: AsyncCallback<ExposureInfo>): void;
+
+    /**
+     * Subscribes exposure info event callback.
+     * 
+     * @param { AsyncCallback<ExposureInfo> } callback - Callback used to get the exposure info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onExposureInfoChange(callback: AsyncCallback<ExposureInfo>): void;
 
     /**
      * Unsubscribes from exposure info event callback.
@@ -15969,9 +17803,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'exposureInfoChange', callback?: AsyncCallback<ExposureInfo>): void;
+
+    /**
+     * Unsubscribes from exposure info event callback.
+     * 
+     * @param { AsyncCallback<ExposureInfo> } [callback] - Callback used to get the exposure info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offExposureInfoChange(callback?: AsyncCallback<ExposureInfo>): void;
 
     /**
      * Subscribes lumination info event callback.
@@ -15982,9 +17826,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'luminationInfoChange', callback: AsyncCallback<LuminationInfo>): void;
+
+    /**
+     * Subscribes lumination info event callback.
+     * 
+     * @param { AsyncCallback<LuminationInfo> } callback - Callback used to get the lumination info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onLuminationInfoChange(callback: AsyncCallback<LuminationInfo>): void;
 
     /**
      * Unsubscribes from lumination info event callback.
@@ -15995,9 +17849,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'luminationInfoChange', callback?: AsyncCallback<LuminationInfo>): void;
+
+    /**
+     * Unsubscribes from lumination info event callback.
+     * 
+     * @param { AsyncCallback<LuminationInfo> } [callback] - Callback used to get the lumination info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offLuminationInfoChange(callback?: AsyncCallback<LuminationInfo>): void;
 
     /**
      * Check whether try AE is needed.
@@ -16047,9 +17911,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'tryAEInfoChange', callback: AsyncCallback<TryAEInfo>): void;
+    
+    /**
+     * Subscribes try AE info event callback.
+     * 
+     * @param { AsyncCallback<TryAEInfo> } callback - Callback used to get the try AE info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onTryAEInfoChange(callback: AsyncCallback<TryAEInfo>): void;
 
     /**
      * Unsubscribes from try AE info event callback.
@@ -16060,9 +17934,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'tryAEInfoChange', callback?: AsyncCallback<TryAEInfo>): void;
+
+    /**
+     * Unsubscribes from try AE info event callback.
+     * 
+     * @param { AsyncCallback<TryAEInfo> } [callback] - Callback used to get the try AE info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offTryAEInfoChange(callback?: AsyncCallback<TryAEInfo>): void;
 
     /**
      * Gets supported timelapse interval range.
@@ -16417,9 +18301,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     on(type: 'depthDataAvailable', callback: AsyncCallback<DepthData>): void;
+
+    /**
+     * Subscribes to depth data objects available event callback.
+     *
+     * @param { AsyncCallback<DepthData> } callback - Callback used to get the available DepthData objects.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onDepthDataAvailable(callback: AsyncCallback<DepthData>): void;
 
     /**
      * Unsubscribes from depth data objects available event callback.
@@ -16430,9 +18324,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     off(type: 'depthDataAvailable', callback?: AsyncCallback<DepthData>): void;
+
+    /**
+     * Unsubscribes from depth data objects available event callback.
+     *
+     * @param { AsyncCallback<DepthData> } [callback] - Callback used to get the available DepthData objects.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offDepthDataAvailable(callback?: AsyncCallback<DepthData>): void;
 
     /**
      * Subscribes to error events.
@@ -16443,9 +18347,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { ErrorCallback } callback - Callback used to get the video output errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onError(callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
@@ -16456,9 +18370,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { ErrorCallback } [callback] - Callback used to get the video output errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offError(callback?: ErrorCallback): void;
   }
 
   /**
