@@ -10855,6 +10855,57 @@ declare enum AnimationPropertyType {
 }
 
 /**
+ * Defines the event tool type that support response region settings.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare enum ResponseRegionSupportedTool {
+  /**
+   * All source tool type.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  ALL = 0,
+
+  /**
+   * The finger type.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  FINGER = 1,
+
+  /**
+   * The pen type.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  PEN = 2,
+
+  /**
+   * The mouse type.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  MOUSE = 3
+}
+
+/**
  * Define the axis type of axis event.
  *
  * @enum {number}
