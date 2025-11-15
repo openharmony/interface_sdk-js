@@ -330,7 +330,7 @@ export declare struct TipsDialogV2 {
   /**
    * The method to build component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder
   build(): void;
@@ -393,8 +393,9 @@ export declare struct SelectDialogV2 {
   radioContent: SheetInfo[];
   /**
    * The method to build component.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder
   build(): void;
@@ -475,8 +476,9 @@ export declare struct ConfirmDialogV2 {
   onCheckedChange?: AdvancedDialogV2OnCheckedChange;
   /**
    * The method to build component.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder
   build(): void;
@@ -539,8 +541,9 @@ export declare struct AlertDialogV2 {
   secondaryButton?: AdvancedDialogV2Button;
   /**
    * The method to build component.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder
   build(): void;
@@ -566,8 +569,9 @@ export declare struct LoadingDialogV2 {
   content?: ResourceStr;
   /**
    * The method to build component.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder
   build(): void;
@@ -628,8 +632,9 @@ export declare struct CustomContentDialogV2 {
   buttons?: AdvancedDialogV2Button[];
   /**
    * The method to build component.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder
   build(): void;
@@ -684,8 +689,9 @@ export declare struct PopoverDialogV2 {
   targetBuilder: CustomBuilder;
   /**
    * The method to build component.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder
   build(): void;

@@ -24,8 +24,6 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-
-
 /**
  * Declare enum IconType
  * @enum { number }

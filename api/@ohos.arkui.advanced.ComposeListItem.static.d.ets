@@ -29,6 +29,7 @@ import { Builder } from '@ohos.arkui.component';
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
+ * @noninterop
  */
 export declare enum IconType {
   /**
@@ -93,6 +94,7 @@ export declare enum IconType {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
+ * @noninterop
  */
 export declare class OperateIcon {
   /**
@@ -329,10 +331,9 @@ export declare class OperateItem {
   public button?: OperateButton;
   /**
    * Sets the toggle.
-   *
    * @type { ?OperateCheck }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   public toggle?: OperateCheck;
   /**
@@ -414,9 +415,8 @@ export declare struct ComposeListItem {
   operateItem?: OperateItem;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder
   build(): void;
