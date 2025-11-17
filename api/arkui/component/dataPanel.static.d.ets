@@ -26,7 +26,7 @@ import { AttributeModifier } from "./common";
 /**
  * DataPanelType enum
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -114,19 +114,19 @@ export declare interface DataPanelOptions {
     /**
      * Current data value. the max length is 9.
      *
-     * @type { number[] }
+     * @type { double[] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    values: number[];
+    values: double[];
     /**
      * Maximum value of the current data.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    max?: number;
+    max?: double;
     /**
      * DataPanel Type
      *
@@ -148,19 +148,19 @@ export declare interface DataPanelConfiguration extends CommonConfiguration<Data
     /**
      * Current data value. the max length is 9.
      *
-     * @type { number[] }
+     * @type { double[] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    values: number[];
+    values: double[];
     /**
      * Maximum value of the current data.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    maxValue: number;
+    maxValue: double;
 }
 /**
  * Defines the Button component attributes.

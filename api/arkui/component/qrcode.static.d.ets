@@ -54,12 +54,12 @@ export declare interface QRCodeAttribute extends CommonMethod {
     default backgroundColor(value: ResourceColor | undefined): this;
     /**
      * Set the opacity of the QR code content color.
-     * @param { number | Resource | undefined } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
+     * @param { double | Resource | undefined } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
      * @returns { QRCodeAttribute } the attribute of the QR code
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default contentOpacity(value: number | Resource | undefined): this;
+    default contentOpacity(value: double | Resource | undefined): this;
     /**
      * Set the attribute modifier
      *
