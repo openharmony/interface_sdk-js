@@ -7197,7 +7197,7 @@ declare namespace ble {
   /**
    * The Profile of the BLE protocol.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 21 dynamic
    * @since 22 static
@@ -7267,7 +7267,7 @@ declare namespace ble {
   /**
    * The enum of gatt disconnection reasons.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice

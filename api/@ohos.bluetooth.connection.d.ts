@@ -506,7 +506,6 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
    */
   function getRemoteDeviceName(deviceId: string): string;
 
