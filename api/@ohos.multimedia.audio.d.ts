@@ -8672,7 +8672,6 @@ declare namespace audio {
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @atomicservice
      * @since 22 dynamic&static
      */
     readonly isHiplayDevice: boolean;
@@ -8683,7 +8682,6 @@ declare namespace audio {
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @atomicservice
      * @since 22 dynamic&static
      */
     readonly capabilities: Array<AudioStreamInfo>;
