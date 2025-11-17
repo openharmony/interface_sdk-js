@@ -347,6 +347,16 @@ export declare class PickerController {
    */
   saveTrustedPhotoAssets(trustedUris: Array<string>, callback: AsyncCallback<Array<string>>,
     configs?: Array<photoAccessHelper.PhotoCreationConfig>, saveMode?: SaveMode): void;
+
+  /**
+   * Update options of the PhotoPicker component.
+   *
+   * @param { UpdatablePickerOptions } updateConfig - Subset of PickerOptions
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  updatePickerOptions(updateConfig: UpdatablePickerOptions): Promise<void>;
 }
 
 /**
@@ -569,6 +579,156 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   * @since 21 dynamic
   */
   badgeConfig?: BadgeConfig;
+}
+
+/**
+ * UpdatablePickerOptions
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 22 dynamic&static
+ */
+export declare class UpdatablePickerOptions {
+
+  /**
+   * The type of the file in the recent photo window.
+   *
+   * @type { ?photoAccessHelper.PhotoViewMIMETypes }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  mimeType?: photoAccessHelper.PhotoViewMIMETypes;
+
+  /**
+   * Media file filtering configuration.
+   *
+   * @type { ?photoAccessHelper.MimeTypeFilter }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  mimeTypeFilter?: photoAccessHelper.MimeTypeFilter;
+
+  /**
+   * Maximum number of assets for a single selection.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  maxSelectNumber?: number;
+
+  /**
+   * Maximum number of photos for a single selection.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  maxPhotoSelectNumber?: number;
+
+  /**
+   * Maximum number of videos for a single selection.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  maxVideoSelectNumber?: number;
+
+  /**
+   * Select mode of the picker.
+   *
+   * @type { ?SelectMode }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  selectMode?: SelectMode;
+
+  /**
+   * The mode of single selection.
+   *
+   * @type { ?photoAccessHelper.SingleSelectionMode }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  singleSelectionMode?: photoAccessHelper.SingleSelectionMode;
+
+  /**
+   * Support repeat select.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  isRepeatSelectSupported?: boolean;
+
+  /**
+   * The uri for the preselected files.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  preselectedUris?: Array<string>;
+
+  /**
+   * The checkbox color of the picker.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  checkBoxColor?: string;
+
+  /**
+   * The checkbox text color of the picker.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  checkboxTextColor?: string;
+
+  /**
+   * The background color of the picker.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  backgroundColor?: string;
+
+  /**
+   * Support to set photo browser background color mode.
+   *
+   * @type { ?PickerColorMode }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  photoBrowserBackgroundColorMode?: PickerColorMode;
+
+  /**
+   * Support to set UIComponent color mode.
+   *
+   * @type { ?PickerColorMode  }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+   uiComponentColorMode?: PickerColorMode;
 }
 
 /**
