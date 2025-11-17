@@ -8669,6 +8669,7 @@ declare namespace audio {
     /**
      * Specific model of device
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @since 22 dynamic&static
