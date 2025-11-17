@@ -132,12 +132,13 @@ declare namespace huksExternalCrypto {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - check permission failed.
    * @throws { BusinessError } 801 - api is not supported.
-   * @throws { BusinessError } 12000002 - the provider param is missing.
+   * @throws { BusinessError } 12000002 - the ability name param is missing.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000014 - memory is insufficient.
    * @throws { BusinessError } 12000018 - the input parameter is invalid.
    * @throws { BusinessError } 12000019 - the provider is already registered.
    * @throws { BusinessError } 12000020 - an error occured in the dependent module.
+   * @throws { BusinessError } 12000025 - the number of providers exceeds the limit.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -164,7 +165,7 @@ declare namespace huksExternalCrypto {
   function unregisterProvider(providerName: string, params?: Array<HuksExternalCryptoParam>): Promise<void>;
 
   /**
-   * Pin auth for the specified ukey resource id.
+   * Pin auth for the specified Ukey resource id.
    *
    * @param { string } resourceId - resourceId indicates the resource id of the provider.
    * @param { Array<HuksExternalCryptoParam> } params - params indicates the properties of the operation.
@@ -172,12 +173,14 @@ declare namespace huksExternalCrypto {
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 801 - api is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine.
+   * @throws { BusinessError } 12000006 - the Ukey driver operation failed.
    * @throws { BusinessError } 12000011 - queried entity does not exist.
    * @throws { BusinessError } 12000014 - memory is insufficient.
    * @throws { BusinessError } 12000018 - the input parameter is invalid.
-   * @throws { BusinessError } 12000020 - an error occured in the dependent module.
-   * @throws { BusinessError } 12000021 - the pin code is incorrect.
+   * @throws { BusinessError } 12000020 - the provider operation failed.
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked.
+   * @throws { BusinessError } 12000022 - the Ukey PIN is incorrect.
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @systemapi this method can be used only by system applications.
    * @since 22
