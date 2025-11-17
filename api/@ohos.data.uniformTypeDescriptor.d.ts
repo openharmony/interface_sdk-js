@@ -1829,7 +1829,7 @@ declare namespace uniformTypeDescriptor {
     CONTENT_FORM = 'general.content-form'
   }
 
-  /**
+   /**
    * Class describing the uniform data type defined in the {@code UniformDataType}, which consists of attributes and
    * <br>methods describing the uniform data type and its relationships to other uniform data types.
    *
@@ -1843,6 +1843,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @since 20 dynamic
+   * @since 22 static
    */
   class TypeDescriptor {
     /**
@@ -1873,6 +1874,24 @@ declare namespace uniformTypeDescriptor {
     typeId: string;
 
     /**
+     * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
+     *
+     * @returns { string } Type ID of the uniform data type.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 22 static
+     */
+    get typeId(): string;
+
+    /**
+     * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
+     *
+     * @param { string } value - Type ID of the uniform data type.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 22 static
+     */
+    set typeId(value: string);
+
+    /**
      * Uniform data type IDs that the uniform data type belongs to.
      *
      * @type { Array<string> }
@@ -1898,6 +1917,24 @@ declare namespace uniformTypeDescriptor {
      * @since 22 dynamic
      */
     belongingToTypes: Array<string>;
+
+    /**
+     * Uniform data type IDs that the uniform data type belongs to.
+     *
+     * @returns { Array<string> } Uniform data type IDs
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 22 static
+     */
+    get belongingToTypes(): Array<string>;
+
+    /**
+     * Uniform data type IDs that the uniform data type belongs to.
+     *
+     * @param { Array<string> } value - Uniform data type IDs
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 22 static
+     */
+    set belongingToTypes(value: Array<string>);
 
     /**
      * A textual description for the uniform data type.
@@ -1927,6 +1964,24 @@ declare namespace uniformTypeDescriptor {
     description: string;
 
     /**
+     * A textual description for the uniform data type.
+     *
+     * @returns { string } A textual description
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 22 static
+     */
+    get description(): string;
+
+    /**
+     * A textual description for the uniform data type.
+     *
+     * @param { string } value - A textual description
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 22 static
+     */
+    set description(value: string);
+
+    /**
      * Reference URL for the uniform data type, which describes the detail information of the type.
      *
      * @type { string }
@@ -1952,6 +2007,24 @@ declare namespace uniformTypeDescriptor {
      * @since 22 dynamic
      */
     referenceURL: string;
+
+    /**
+     * Reference URL for the uniform data type, which describes the detail information of the type.
+     *
+     * @returns { string } Reference URL
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 22 static
+     */
+    get referenceURL(): string;
+
+    /**
+     * Reference URL for the uniform data type, which describes the detail information of the type.
+     *
+     * @param { string } value - Reference URL
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 22 static
+     */
+    set referenceURL(value: string);
 
     /**
      * Default icon file path for the uniform data type.
@@ -1981,6 +2054,24 @@ declare namespace uniformTypeDescriptor {
     iconFile: string;
 
     /**
+     * Default icon file path for the uniform data type.
+     *
+     * @returns { string } Default icon file path
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 22 static
+     */
+    get iconFile(): string;
+
+    /**
+     * Default icon file path for the uniform data type.
+     *
+     * @param { string } value - Default icon file path
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 22 static
+     */
+    set iconFile(value: string);
+
+    /**
      * File name extensions for the uniform data type.
      *
      * @type { Array<string> }
@@ -2007,7 +2098,25 @@ declare namespace uniformTypeDescriptor {
      */
     filenameExtensions: Array<string>;
 
-     /**
+    /**
+     * File name extensions for the uniform data type.
+     *
+     * @returns { Array<string> } File name extensions
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 22 static
+     */
+    get filenameExtensions(): Array<string>;
+
+    /**
+     * File name extensions for the uniform data type.
+     *
+     * @param { Array<string> } value - File name extensions
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 22 static
+     */
+    set filenameExtensions(value: Array<string>);
+
+    /**
      * MIMETypes of the uniform data type.
      *
      * @type { Array<string> }
@@ -2035,6 +2144,24 @@ declare namespace uniformTypeDescriptor {
     mimeTypes: Array<string>;
 
     /**
+     * MIMETypes of the uniform data type.
+     *
+     * @returns { Array<string> } MIMETypes
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 22 static
+     */
+    get mimeTypes(): Array<string>;
+
+    /**
+     * MIMETypes of the uniform data type.
+     *
+     * @param { Array<string> } value - MIMETypes
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 22 static
+     */
+    set mimeTypes(value: Array<string>);
+
+    /**
      * Checks whether the uniform data type belongs to the given uniform data type.
      *
      * @param { string } type - A uniform data type to be compared.
@@ -2054,6 +2181,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 22 static
      */
     belongsTo(type: string): boolean;
 
@@ -2077,6 +2205,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 22 static
      */
     isLowerLevelType(type: string): boolean;
 
@@ -2100,6 +2229,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 22 static
      */
     isHigherLevelType(type: string): boolean;
 
@@ -2123,6 +2253,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 22 static
      */
     equals(typeDescriptor: TypeDescriptor): boolean;
   }
@@ -2136,21 +2267,22 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 11
+   * @since 11 dynamic
    */
+  function getTypeDescriptor(typeId: string): TypeDescriptor;
+
   /**
    * Queries and returns the uniform type descriptor by the given uniform data type ID.
    *
    * @param { string } typeId - Uniform data type ID.
-   * @returns { TypeDescriptor } Returns the uniform type descriptor corresponding to the uniform data type ID or null
-   * <br>if the uniform data type does not exist.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameters types.
+   * @returns { TypeDescriptor | null } Returns the uniform type descriptor corresponding to the uniform data type ID
+   *     or null if the uniform data type does not exist.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @crossplatform
-   * @since 20 dynamic
+   * @since 22 static
    */
-  function getTypeDescriptor(typeId: string): TypeDescriptor;
+  function getTypeDescriptor(typeId: string): TypeDescriptor | null;
 
   /**
    * Queries and returns the uniform type descriptor by the given filename extension and the uniform data type it
@@ -2208,6 +2340,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @since 20 dynamic
+   * @since 22 static
    */
   function getUniformDataTypeByMIMEType(mimeType: string, belongsTo?: string): string;
 
@@ -2239,6 +2372,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @since 20 dynamic
+   * @since 22 static
    */
   function getUniformDataTypesByFilenameExtension(filenameExtension: string, belongsTo?: string): Array<string>;
 
@@ -2270,6 +2404,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @since 20 dynamic
+   * @since 22 static
    */
   function getUniformDataTypesByMIMEType(mimeType: string, belongsTo?: string): Array<string>;
 
