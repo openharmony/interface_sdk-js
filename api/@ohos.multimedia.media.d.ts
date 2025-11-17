@@ -11614,7 +11614,14 @@ declare namespace media {
      * @since 18 dynamic
      * @since 22 static
      */
-    SCREENCAPTURE_STOPPED = 1
+    SCREENCAPTURE_STOPPED = 1,
+    /**
+     * The system screen recorder died.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    SCREENCAPTURE_DIED = 2
   }
 
   /**
