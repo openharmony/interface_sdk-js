@@ -3137,6 +3137,19 @@ export declare class UIContext {
   getWindowName(): string | undefined;
 
   /**
+   * Get window id to which the current UIContext belongs.
+   * <p>**NOTE**:
+   * If the current UIContext is in a UIExtensionAbility running within the host process,
+   * this method returns the top-level window ID of the host application.
+   * </p>
+   *
+   * @returns { int | undefined } - Window id. If the current UIContext is unavailable, return undefined.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  getWindowId(): int | undefined;
+
+  /**
    * Get the width breakpoint of current window.
    *
    * @returns { WidthBreakpoint } The width breakpoint of current window.
