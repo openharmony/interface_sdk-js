@@ -10470,10 +10470,10 @@ declare namespace audio {
      * 1. The audio route and interruption strategy of this renderer will not be affected by {@link AudioSessionManager}.
      * 2. The device type of this renderer will be {@link DeviceType#SYSTEM_PRIVATE}.
      * 3. Calling {@link start} when the audio scene is not {@link AudioScene#AUDIO_SCENE_VOICE_CHAT} will
-     * return error code 6800103.
-     * 4. Calling {@link getAudioTime} or {@link getAudioTimeSync} will return error code 6800103.
-     * 5. Calling {@link getAudioTimestampInfo} or {@link getAudioTimestampInfoSync} will return error code 6800103.
-     * 6. Calling {@link setDefaultOutputDevice} will return error code 6800103.
+     * return error code 6800301.
+     * 4. Calling {@link getAudioTime} or {@link getAudioTimeSync} will return error code 6800301.
+     * 5. Calling {@link getAudioTimestampInfo} or {@link getAudioTimestampInfoSync} will return error code 6800301.
+     * 6. Calling {@link setDefaultOutputDevice} will return error code 6800301.
      * @permission ohos.permission.INJECT_PLAYBACK_TO_AUDIO_CAPTURE
      * @param { RenderTarget } target - Render target.
      * @returns { Promise<void> } Promise used to return the result.
