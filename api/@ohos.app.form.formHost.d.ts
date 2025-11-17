@@ -738,7 +738,6 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
    */
   function on(type: 'formUninstall', callback: Callback<string>): void;
 
@@ -768,7 +767,6 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
    */
   function off(type: 'formUninstall', callback?: Callback<string>): void;
 
