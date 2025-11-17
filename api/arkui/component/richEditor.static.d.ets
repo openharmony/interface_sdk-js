@@ -272,6 +272,22 @@ export declare interface RichEditorTextStyle {
      * @since 22 static
      */
     textBackgroundStyle?: TextBackgroundStyle;
+    /**
+     * The stroke width of the text.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    strokeWidth?: LengthMetrics;
+    /**
+     * The stroke color of the text.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    strokeColor?: ResourceColor;
 }
 /**
  * Defines the leading margin placeholder of a paragraph.
@@ -626,6 +642,23 @@ export declare interface RichEditorTextStyleResult {
      * @since 22 static
      */
     textBackgroundStyle?: TextBackgroundStyle;
+    /**
+     * Get the stroke width of the text.
+     * The unit is vp.
+     *
+     * @type { ?double } - the stroke width of the text or undefined
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    strokeWidth?: double;
+    /**
+     * Get the stroke color of the text.
+     *
+     * @type { ?ResourceColor } - the stroke color of the text or undefined
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    strokeColor?: ResourceColor;
 }
 /**
  * Defines the paragraph result.
