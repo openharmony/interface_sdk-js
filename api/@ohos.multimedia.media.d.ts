@@ -492,7 +492,8 @@ declare namespace media {
    * @throws { BusinessError } 202 - System API error. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function createParallelSoundPool(maxStreams: int, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>;
 
@@ -1545,7 +1546,8 @@ declare namespace media {
    * This interface is used to define the output image size.
    * @typedef OutputSize
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface OutputSize {
     /**
@@ -1555,7 +1557,8 @@ declare namespace media {
      * If both width and height is not assigned, the output will be the original size of video frame.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     width?:int;
     /**
@@ -1565,7 +1568,8 @@ declare namespace media {
      * If both width and height is not assigned, the output will be the original size of video frame.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     height?: int;
   }
