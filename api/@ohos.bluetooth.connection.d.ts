@@ -62,6 +62,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
+   * @since 22 static
    */
   type ProfileConnectionState = constant.ProfileConnectionState;
 
@@ -79,6 +80,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
+   * @since 22 static
    */
   type ProfileId = constant.ProfileId;
 
@@ -104,6 +106,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
+   * @since 22 static
    */
   type ProfileUuids = constant.ProfileUuids;
 
@@ -191,6 +194,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
+   * @since 22 static
    */
   function getProfileConnectionState(profileId?: ProfileId): ProfileConnectionState;
 
@@ -244,6 +248,7 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
+   * @since 22 static
    */
   function pairDevice(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -297,6 +302,7 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
+   * @since 22 static
    */
   function pairDevice(deviceId: string): Promise<void>;
 
@@ -338,6 +344,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   function pairCredibleDevice(deviceId: string, transport: BluetoothTransport, callback: AsyncCallback<void>): void;
 
@@ -361,6 +368,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   function pairCredibleDevice(deviceId: string, transport: BluetoothTransport): Promise<void>;
 
@@ -381,6 +389,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   function cancelPairedDevice(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -401,6 +410,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   function cancelPairedDevice(deviceId: string): Promise<void>;
 
@@ -421,6 +431,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   function cancelPairingDevice(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -441,6 +452,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   function cancelPairingDevice(deviceId: string): Promise<void>;
 
@@ -608,6 +620,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
+   * @since 22 static
    */
   function getLocalName(): string;
 
@@ -706,6 +719,7 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
+   * @since 22 static
    */
   function getPairState(deviceId: string): BondState;
 
@@ -724,6 +738,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
+   * @since 22 static
    */
   function setDevicePairingConfirmation(deviceId: string, accept: boolean): void;
 
@@ -743,6 +758,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
+   * @since 22 static
    */
   function setDevicePinCode(deviceId: string, code: string, callback: AsyncCallback<void>): void;
 
@@ -762,6 +778,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
+   * @since 22 static
    */
   function setDevicePinCode(deviceId: string, code: string): Promise<void>;
 
@@ -829,6 +846,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
+   * @since 22 static
    */
   function getBluetoothScanMode(): ScanMode;
 
@@ -870,6 +888,7 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
+   * @since 22 static
    */
   function startBluetoothDiscovery(): void;
 
@@ -911,6 +930,7 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
+   * @since 22 static
    */
   function stopBluetoothDiscovery(): void;
 
@@ -940,6 +960,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
+   * @since 22 static
    */
   function isBluetoothDiscovering(): boolean;
 
@@ -959,6 +980,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   function getLocalProfileUuids(callback: AsyncCallback<Array<ProfileUuids>>): void;
 
@@ -978,6 +1000,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   function getLocalProfileUuids(): Promise<Array<ProfileUuids>>;
 
@@ -1029,6 +1052,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
+   * @since 22 static
    */
   function getRemoteProfileUuids(deviceId: string, callback: AsyncCallback<Array<ProfileUuids>>): void;
 
@@ -1080,6 +1104,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
+   * @since 22 static
    */
   function getRemoteProfileUuids(deviceId: string): Promise<Array<ProfileUuids>>;
 
@@ -1116,6 +1141,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 16 dynamic
+   * @since 22 static
    */
   function connectAllowedProfiles(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -1152,6 +1178,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 16 dynamic
+   * @since 22 static
    */
   function connectAllowedProfiles(deviceId: string): Promise<void>;
 
@@ -1172,6 +1199,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 22 static
    */
   function disconnectAllowedProfiles(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -1188,6 +1216,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 12 dynamic
+   * @since 22 static
    */
   function getRemoteDeviceBatteryInfo(deviceId: string): Promise<BatteryInfo>;
 
@@ -1245,6 +1274,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 22 static
    */
   function disconnectAllowedProfiles(deviceId: string): Promise<void>;
 
@@ -1263,6 +1293,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
    * @since 12 dynamic
+   * @since 22 static
    */
     function setRemoteDeviceName(deviceId: string, name: string): Promise<void>;
 
@@ -1281,6 +1312,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 12 dynamic
+   * @since 22 static
    */
   function setRemoteDeviceType(deviceId: string, type: DeviceType): Promise<void>;
 
@@ -1312,12 +1344,13 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 18 dynamic
+   * @since 22 static
    */
   function getRemoteDeviceType(deviceId: string): Promise<DeviceType>;
 
   /**
    * Controls the actions of Bluetooth peripherals.
-   *
+   * 
    * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
    * @param { ControlDeviceActionParams } controlDeviceActionParams - Indicates the action for Bluetooth peripherals.
    * @returns { Promise<void> } Returns the promise object.
@@ -1332,6 +1365,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 15 dynamic
+   * @since 22 static
    */
   function controlDeviceAction(controlDeviceActionParams: ControlDeviceActionParams): Promise<void>;
 
@@ -1339,7 +1373,7 @@ declare namespace connection {
    * Get latest connection time of device.
    *
    * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { Promise<number> } Returns latest connection time.
+   * @returns { Promise<long> } Returns latest connection time.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1348,8 +1382,9 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 15 dynamic
+   * @since 22 static
    */
-  function getLastConnectionTime(deviceId: string): Promise<number>;
+  function getLastConnectionTime(deviceId: string): Promise<long>;
 
   /**
    * update cloud devices.
@@ -1368,6 +1403,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 15 dynamic
+   * @since 22 static
    */
   function updateCloudBluetoothDevice(trustedPairedDevices: TrustedPairedDevices): Promise<void>;
 
@@ -1416,11 +1452,24 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
    */
   function on(type: 'bluetoothDeviceFind', callback: Callback<Array<string>>): void;
 
   /**
+   * Subscribe the event reported when a remote Bluetooth device is discovered.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<Array<string>> } callback - Callback used to listen for the discovering event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function onBluetoothDeviceFind(callback: Callback<Array<string>>): void;
+
+  /**
    * Unsubscribe the event reported when a remote Bluetooth device is discovered.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -1458,9 +1507,22 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
    */
   function off(type: 'bluetoothDeviceFind', callback?: Callback<Array<string>>): void;
+  
+  /**
+   * Unsubscribe the event reported when a remote Bluetooth device is discovered.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<Array<string>> } [callback] - Callback used to listen for the discovering event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function offBluetoothDeviceFind(callback?: Callback<Array<string>>): void;
 
   /**
    * Subscribe the event reported when a remote Bluetooth device is discovered.
@@ -1490,11 +1552,23 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 18 dynamic
-   * @since 22 static
    */
   function on(type: 'discoveryResult', callback: Callback<Array<DiscoveryResult>>): void;
 
   /**
+   * Subscribe the event reported when a remote Bluetooth device is discovered.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<Array<DiscoveryResult>> } callback - Callback used to listen for the discovering event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 static
+   */
+  function onDiscoveryResult(callback: Callback<Array<DiscoveryResult>>): void;
+
+  /**
    * Unsubscribe the event reported when a remote Bluetooth device is discovered.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.GET_BLUETOOTH_PEERS_MAC
@@ -1518,11 +1592,23 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 18 dynamic
-   * @since 22 static
    */
   function off(type: 'discoveryResult', callback?: Callback<Array<DiscoveryResult>>): void;
 
   /**
+   * Unsubscribe the event reported when a remote Bluetooth device is discovered.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<Array<DiscoveryResult>> } [callback] - Callback used to listen for the discovering event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 static
+   */
+  function offDiscoveryResult(callback?: Callback<Array<DiscoveryResult>>): void;
+
+  /**
    * Subscribe the event reported when a remote Bluetooth device is bonded.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -1550,9 +1636,22 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 22 static
    */
   function on(type: 'bondStateChange', callback: Callback<BondStateParam>): void;
+
+  /**
+   * Subscribe the event reported when a remote Bluetooth device is bonded.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function onBondStateChange(callback: Callback<BondStateParam>): void;
 
   /**
    * Unsubscribe the event reported when a remote Bluetooth device is bonded.
@@ -1582,9 +1681,22 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 22 static
    */
   function off(type: 'bondStateChange', callback?: Callback<BondStateParam>): void;
+
+  /**
+   * Unsubscribe the event reported when a remote Bluetooth device is bonded.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<BondStateParam> } [callback] - Callback used to listen for the bond state event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function offBondStateChange(callback?: Callback<BondStateParam>): void;
 
   /**
    * Subscribe the event of a pairing request from a remote Bluetooth device.
@@ -1599,9 +1711,21 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 22 static
    */
   function on(type: 'pinRequired', callback: Callback<PinRequiredParam>): void;
+
+  /**
+   * Subscribe the event of a pairing request from a remote Bluetooth device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<PinRequiredParam> } callback - Callback used to listen for the pairing request event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 static
+   */
+  function onPinRequired(callback: Callback<PinRequiredParam>): void;
 
   /**
    * Unsubscribe the event of a pairing request from a remote Bluetooth device.
@@ -1616,9 +1740,21 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 22 static
    */
   function off(type: 'pinRequired', callback?: Callback<PinRequiredParam>): void;
+
+  /**
+   * Unsubscribe the event of a pairing request from a remote Bluetooth device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<PinRequiredParam> } [callback] - Callback used to listen for the pairing request event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 static
+   */
+  function offPinRequired(callback?: Callback<PinRequiredParam>): void;
 
   /**
    * Subscribe the event of battery state changed from a remote device.
@@ -1630,9 +1766,20 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 12 dynamic
-   * @since 22 static
    */
   function on(type: 'batteryChange', callback: Callback<BatteryInfo>): void;
+  
+  /**
+   * Subscribe the event of battery state changed from a remote device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<BatteryInfo> } callback - Callback used to listen.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 static
+   */
+  function onBatteryChange(callback: Callback<BatteryInfo>): void;
 
   /**
    * Unsubscribe the event of battery state changed from a remote device.
@@ -1644,9 +1791,20 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 12 dynamic
-   * @since 22 static
    */
   function off(type: 'batteryChange', callback?: Callback<BatteryInfo>): void;
+
+  /**
+   * Unsubscribe the event of battery state changed from a remote device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<BatteryInfo> } [callback] - Callback used to listen.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 static
+   */
+  function offBatteryChange(callback?: Callback<BatteryInfo>): void;
 
   /**
    * Describes the class of a bluetooth device.
@@ -1713,6 +1871,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
+     * @since 22 static
      */
     cause: UnbondCause;
   }
@@ -1741,6 +1900,7 @@ declare namespace connection {
      * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10 dynamic
+     * @since 22 static
      */
     pinCode: string;
     /**
@@ -1750,6 +1910,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     pinType: PinType;
   }
@@ -1815,18 +1976,19 @@ declare namespace connection {
     /**
      * Class of the device.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
+     * @since 22 static
      */
-    classOfDevice: number;
+    classOfDevice: int;
   }
 
   /**
    * Enum for the transport of a remote device
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
    * @since 22 static
@@ -1837,6 +1999,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10 dynamic
+     * @since 22 static
      */
     TRANSPORT_BR_EDR = 0,
     /**
@@ -1844,6 +2007,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10 dynamic
+     * @since 22 static
      */
     TRANSPORT_LE = 1,
     /**
@@ -1893,6 +2057,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
+     * @since 22 static
      */
     SCAN_MODE_NONE = 0,
     /**
@@ -1907,6 +2072,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
+     * @since 22 static
      */
     SCAN_MODE_CONNECTABLE = 1,
     /**
@@ -1914,6 +2080,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10 dynamic
+     * @since 22 static
      */
     SCAN_MODE_GENERAL_DISCOVERABLE = 2,
     /**
@@ -1921,6 +2088,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10 dynamic
+     * @since 22 static
      */
     SCAN_MODE_LIMITED_DISCOVERABLE = 3,
     /**
@@ -1943,6 +2111,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10 dynamic
+     * @since 22 static
      */
     SCAN_MODE_CONNECTABLE_LIMITED_DISCOVERABLE = 5
   }
@@ -1993,6 +2162,7 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 22 static
      */
     BOND_STATE_INVALID = 0,
     /**
@@ -2015,6 +2185,7 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 22 static
      */
     BOND_STATE_BONDING = 1,
     /**
@@ -2045,10 +2216,11 @@ declare namespace connection {
   /**
    * Enum for the type of pairing to a remote device
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   enum PinType {
     /**
@@ -2057,6 +2229,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     PIN_TYPE_ENTER_PIN_CODE = 0,
     /**
@@ -2065,6 +2238,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     PIN_TYPE_ENTER_PASSKEY = 1,
     /**
@@ -2073,6 +2247,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     PIN_TYPE_CONFIRM_PASSKEY = 2,
     /**
@@ -2081,6 +2256,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     PIN_TYPE_NO_PASSKEY_CONSENT = 3,
     /**
@@ -2089,6 +2265,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     PIN_TYPE_NOTIFY_PASSKEY = 4,
     /**
@@ -2097,6 +2274,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     PIN_TYPE_DISPLAY_PIN_CODE = 5,
     /**
@@ -2105,6 +2283,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     PIN_TYPE_OOB_CONSENT = 6,
     /**
@@ -2113,6 +2292,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     PIN_TYPE_PIN_16_DIGITS = 7
   }
@@ -2162,11 +2342,12 @@ declare namespace connection {
     /**
      * RSSI of the remote device
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 18 dynamic
+     * @since 22 static
      */
-    rssi: number;
+    rssi: int;
     /**
      * The local name of the device
      *
@@ -2181,6 +2362,7 @@ declare namespace connection {
      * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 18 dynamic
+     * @since 22 static
      */
     deviceName: string;
     /**
@@ -2197,6 +2379,7 @@ declare namespace connection {
      * @type { DeviceClass }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 18 dynamic
+     * @since 22 static
      */
     deviceClass: DeviceClass;
   }
@@ -2223,57 +2406,64 @@ declare namespace connection {
     /**
      * Electricity value of the general device. {@code -1} means no power information.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
+     * @since 22 static
      */
-    batteryLevel: number;
+    batteryLevel: int;
     /**
      * Electricity value of the left ear. {@code -1} means no power information.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
+     * @since 22 static
      */
-    leftEarBatteryLevel: number;
+    leftEarBatteryLevel: int;
     /**
      * The charge state of the left ear.
      *
      * @type { DeviceChargeState }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
+     * @since 22 static
      */
     leftEarChargeState: DeviceChargeState;
     /**
      * Electricity value of the right ear. {@code -1} means no power information.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
+     * @since 22 static
      */
-    rightEarBatteryLevel: number;
+    rightEarBatteryLevel: int;
     /**
      * The charge state of the right ear.
      *
      * @type { DeviceChargeState }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
+     * @since 22 static
      */
     rightEarChargeState: DeviceChargeState;
     /**
      * Electricity value of the box. {@code -1} means no power information.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
+     * @since 22 static
      */
-    boxBatteryLevel: number;
+    boxBatteryLevel: int;
     /**
      * The charge state of the box.
      *
      * @type { DeviceChargeState }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
+     * @since 22 static
      */
     boxChargeState: DeviceChargeState;
   }
@@ -2281,9 +2471,10 @@ declare namespace connection {
   /**
    * Enum for the charge state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 12 dynamic
+   * @since 22 static
    */
   enum DeviceChargeState {
     /**
@@ -2291,6 +2482,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
+     * @since 22 static
      */
     DEVICE_NORMAL_CHARGE_NOT_CHARGED = 0,
     /**
@@ -2298,6 +2490,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
+     * @since 22 static
      */
     DEVICE_NORMAL_CHARGE_IN_CHARGING = 1,
     /**
@@ -2305,6 +2498,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
+     * @since 22 static
      */
     DEVICE_SUPER_CHARGE_NOT_CHARGED = 2,
     /**
@@ -2312,6 +2506,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
+     * @since 22 static
      */
     DEVICE_SUPER_CHARGE_IN_CHARGING = 3
   }
@@ -2319,10 +2514,11 @@ declare namespace connection {
   /**
    * Enum for the custom type of remote device.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 12 dynamic
+   * @since 22 static
    */
   enum DeviceType {
     /**
@@ -2331,6 +2527,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     DEVICE_TYPE_DEFAULT = 0,
     /**
@@ -2339,6 +2536,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     DEVICE_TYPE_CAR = 1,
     /**
@@ -2347,6 +2545,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     DEVICE_TYPE_HEADSET = 2,
     /**
@@ -2355,6 +2554,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     DEVICE_TYPE_HEARING = 3,
     /**
@@ -2363,6 +2563,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     DEVICE_TYPE_GLASSES = 4,
     /**
@@ -2371,6 +2572,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     DEVICE_TYPE_WATCH = 5,
     /**
@@ -2379,6 +2581,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     DEVICE_TYPE_SPEAKER = 6,
     /**
@@ -2387,6 +2590,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     DEVICE_TYPE_OTHERS = 7
   }
@@ -2401,10 +2605,11 @@ declare namespace connection {
   /**
    * Enum for cause of unbond.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
+   * @since 22 static
    */
   enum UnbondCause {
     /**
@@ -2419,6 +2624,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
+     * @since 22 static
      */
     USER_REMOVED = 0,
     /**
@@ -2426,6 +2632,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
+     * @since 22 static
      */
     REMOTE_DEVICE_DOWN = 1,
     /**
@@ -2433,6 +2640,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
+     * @since 22 static
      */
     AUTH_FAILURE = 2,
     /**
@@ -2440,6 +2648,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
+     * @since 22 static
      */
     AUTH_REJECTED = 3,
     /**
@@ -2447,6 +2656,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
+     * @since 22 static
      */
     INTERNAL_ERROR = 4
   }
@@ -2457,6 +2667,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 15 dynamic
+   * @since 22 static
    */
   interface ControlDeviceActionParams {
     /**
@@ -2476,6 +2687,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     type: ControlType;
     /**
@@ -2485,6 +2697,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     typeValue: ControlTypeValue;
     /**
@@ -2494,6 +2707,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     controlObject: ControlObject;
   }
@@ -2501,10 +2715,11 @@ declare namespace connection {
   /**
    * Describes the control type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 15 dynamic
+   * @since 22 static
    */
   enum ControlType {
     /**
@@ -2513,6 +2728,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     PLAY = 0,
     /**
@@ -2521,6 +2737,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     VIBRATE = 1,
     /**
@@ -2529,6 +2746,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     FLASH = 2,
     /**
@@ -2537,6 +2755,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     LOCK = 3,
     /**
@@ -2545,6 +2764,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     ERASE = 4,
   }
@@ -2552,10 +2772,11 @@ declare namespace connection {
   /**
    * Describes the control type value.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 15 dynamic
+   * @since 22 static
    */
   enum ControlTypeValue {
     /**
@@ -2564,6 +2785,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     DISABLE = 0,
     /**
@@ -2572,6 +2794,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     ENABLE = 1,
     /**
@@ -2580,6 +2803,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     QUERY = 2,
   }
@@ -2587,10 +2811,11 @@ declare namespace connection {
   /**
    * Describes the control object.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 15 dynamic
+   * @since 22 static
    */
   enum ControlObject {
     /**
@@ -2599,6 +2824,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     LEFT_EAR = 0,
     /**
@@ -2607,6 +2833,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     RIGHT_EAR = 1,
     /**
@@ -2615,6 +2842,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     LEFT_RIGHT_EAR = 2,
   }
@@ -2626,6 +2854,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 15 dynamic
+   * @since 22 static
    */
   interface TrustedPairedDevices {
     /**
@@ -2635,6 +2864,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     trustedPairedDevices: Array<TrustedPairedDevice>;
   }
@@ -2646,6 +2876,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 15 dynamic
+   * @since 22 static
    */
   interface TrustedPairedDevice {
     /**
@@ -2655,6 +2886,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     sn: string;
     /**
@@ -2664,6 +2896,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     deviceType: string;
     /**
@@ -2673,6 +2906,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     modelId: string;
     /**
@@ -2682,6 +2916,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     manufactory: string;
     /**
@@ -2691,6 +2926,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     productId: string;
     /**
@@ -2700,6 +2936,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     hiLinkVersion: string;
     /**
@@ -2709,6 +2946,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     macAddress: string;
     /**
@@ -2718,6 +2956,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     serviceType: string;
     /**
@@ -2727,6 +2966,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     serviceId: string;
     /**
@@ -2736,6 +2976,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     deviceName: string;
     /**
@@ -2745,17 +2986,19 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     uuids: string;
     /**
      * Indicates the bluetoothClass of the peripheral.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
-    bluetoothClass: number;
+    bluetoothClass: int;
     /**
      * Indicates the token of the peripheral.
      *
@@ -2763,17 +3006,19 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     token: ArrayBuffer;
     /**
      * Indicates the deviceNameTime of the peripheral.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
-    deviceNameTime: number;
+    deviceNameTime: long;
     /**
      * Indicates the securityAdvInfo of the peripheral.
      *
@@ -2781,17 +3026,19 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     secureAdvertisingInfo: ArrayBuffer;
     /**
      * Indicates the pairState of the peripheral.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
-    pairState: number;
+    pairState: int;
   }
 }
 export default connection;
