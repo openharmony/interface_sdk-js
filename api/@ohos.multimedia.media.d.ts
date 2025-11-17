@@ -1078,7 +1078,8 @@ declare namespace media {
      * @param { string } url - The URL of the media resource.
      * @param { Record<string, string> } [headers] - Optional request headers.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     setUrlSource(url: string, headers?: Record<string, string>): void;
 
@@ -2431,7 +2432,8 @@ declare namespace media {
    * @param { number } rate - playback rate.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   type OnPlaybackRateDone = (rate: number) => void;
 
@@ -3504,7 +3506,8 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed, if invalid state or live stream.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     setPlaybackRate(rate: number): void;
 
@@ -5763,7 +5766,8 @@ declare namespace media {
      *                    will be stopped when the media is closed to reduce power consumption.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     keepDecodingOnMute?: boolean;
 
@@ -6780,7 +6784,8 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -9213,7 +9218,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     VIDEO_SCALE_TYPE_SCALED_ASPECT = 2
 
@@ -9296,7 +9302,8 @@ declare namespace media {
     /**
      * A audio container format type aac with ADTS.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     CFT_AAC = 'aac',
   }
@@ -10505,7 +10512,8 @@ declare namespace media {
      * Indicates whether enable B Frame. Default is disabled.
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     enableBFrame?: boolean
   }
@@ -11168,7 +11176,8 @@ declare namespace media {
    * 
    * @typedef AVScreenCaptureStrategy
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface AVScreenCaptureStrategy {
     /**
@@ -11177,7 +11186,8 @@ declare namespace media {
      * @default false
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     enableDeviceLevelCapture?: boolean;
 
@@ -11187,7 +11197,8 @@ declare namespace media {
      * which means that the recording is ended during the call or the recording cannot be initiated.
      * @default {false} [Required if provided]
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     keepCaptureDuringCall?: boolean;
 
@@ -11195,7 +11206,8 @@ declare namespace media {
      * Indicates whether to enable B-frame encoding, whitch is used to reduce the size of the recorded file.
      * @type { ?boolean } The default value is false, which means B frames encoding are disabled.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     enableBFrame?: boolean;
   }
@@ -11297,7 +11309,8 @@ declare namespace media {
      * @type { ?AVScreenCaptureStrategy } Screen capture policy configuration values
      * @default {default value of the property} [Required if provided]
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     strategy?: AVScreenCaptureStrategy;
   }
@@ -12045,7 +12058,7 @@ declare namespace media {
      *     transcoding completion events.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     on(type:'complete', callback: Callback<void>):void;
 
