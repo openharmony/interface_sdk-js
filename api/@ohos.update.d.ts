@@ -642,6 +642,35 @@ declare namespace update {
      * @since 22 static
      */
     factoryReset(): Promise<void>;
+
+    /**
+     * Force reboot and clean user data.
+     *
+     * @permission ohos.permission.FORCE_FACTORY_RESET
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 11500104 - IPC error.
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since 23 dynamic&static
+     */
+    forceFactoryReset(callback: AsyncCallback<void>): void;
+
+    /**
+     * Force reboot and clean user data.
+     *
+     * @permission ohos.permission.FORCE_FACTORY_RESET
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 11500104 - IPC error.
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since 23 dynamic&static
+     */
+    forceFactoryReset(): Promise<void>;
   }
 
   /**
