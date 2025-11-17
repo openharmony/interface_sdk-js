@@ -25,7 +25,7 @@ import UIAbilityContext from './application/UIAbilityContext';
 import { Callback } from './@ohos.base';
 import { NavDestinationMode } from '@ohos.arkui.component';
 import { HeightBreakpoint, WidthBreakpoint } from '@ohos.arkui.component';
-
+import { Size } from '@ohos.arkui.node';
 /**
  * Register callbacks to observe ArkUI behavior.
  *
@@ -297,6 +297,15 @@ declare namespace uiObserver {
          * @since 22 static
          */
         mode?: NavDestinationMode;
+
+        /**
+         * NavDestination size.
+         *
+         * @type { ?Size }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        size?: Size;
     }
     /**
      * Navigation info.
@@ -516,6 +525,15 @@ declare namespace uiObserver {
          * @since 22 static
          */
         pageId: string;
+
+        /**
+         * The size of the router page.
+         *
+         * @type { ?Size }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        size?: Size;
     }
     /**
      * Density info.
