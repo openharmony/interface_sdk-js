@@ -8534,17 +8534,6 @@ declare namespace audio {
     readonly sampleRates: Array<int>;
 
     /**
-     * Supported sampling formats.
-     * @type { Array<AudioSampleFormat> }
-     * @readonly
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic&static
-     */
-    readonly sampleFormats: Array<AudioSampleFormat>;
-
-    /**
      * Supported channel counts.
      * @type { Array<int> }
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -8687,6 +8676,17 @@ declare namespace audio {
      * @since 22 dynamic&static
      */
     readonly isHiplayDevice: boolean;
+
+    /**
+     * Supported audio capabilities.
+     * @type { Array<AudioSampleFormat> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    readonly capabilities: Array<AudioStreamInfo>;
   }
 
   /**
