@@ -1632,11 +1632,11 @@ export declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
    * transfer the content to ImageBitmap
    *
-   * @returns { ImageBitmap }
+   * @returns { ImageBitmap | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  transferToImageBitmap(): ImageBitmap;
+  transferToImageBitmap(): ImageBitmap | undefined;
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
    *
@@ -1692,11 +1692,11 @@ export declare class OffscreenCanvas {
   /**
    * Exports rendered content as an ImageBitmap object
    *
-   * @returns { ImageBitmap }
+   * @returns { ImageBitmap | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  transferToImageBitmap(): ImageBitmap;
+  transferToImageBitmap(): ImageBitmap | undefined;
   /**
    * Creates the context from the current OffscreenCanvas.
    *
