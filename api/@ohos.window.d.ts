@@ -11922,6 +11922,24 @@ declare namespace window {
     /**
      * Register the callback of rotation change
      *
+     * @param { 'rotationChange' } type - The value is fixed at 'rotationChange',
+     *     indicating the window rotation change event.
+     * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined> } callback -
+     *     Callback used to return the rotation change result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22 static
+     */
+    on(type: 'rotationChange', callback: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined>):
+      void;
+
+    /**
+     * Register the callback of rotation change
+     *
      * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined> } callback -
      *     Register the callback function.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -11939,7 +11957,7 @@ declare namespace window {
      * @param { 'rotationChange' } type - The value is fixed at 'rotationChange',
      *     indicating the window rotation change event.
      * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void> } [callback] -
-     *     Unregister the callback function. If not provided, all callbacks for the given event type will be removed.
+     *     Callback used to return the RectChangeOptions.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -11950,6 +11968,24 @@ declare namespace window {
      */
     off(type: 'rotationChange',
       callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void>): void;
+
+    /**
+     * Unregister the callback of rotationChange
+     *
+     * @param { 'rotationChange' } type - The value is fixed at 'rotationChange',
+     *     indicating the window rotation change event.
+     * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined> } [callback] -
+     *     Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22 static
+     */
+    off(type: 'rotationChange',
+      callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined>): void;
 
     /**
      * Unregister the callback of rotation change
