@@ -8667,14 +8667,13 @@ declare namespace audio {
     readonly highQualityRecordingSupported?: boolean;
 
     /**
-     * Whether hiplay device.
-     * @type { boolean }
-     * @readonly
+     * Specific model of device
+     * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @since 22 dynamic&static
      */
-    readonly isHiplayDevice: boolean;
+    readonly model: string;
 
     /**
      * Supported audio capabilities.
