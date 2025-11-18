@@ -217,6 +217,37 @@ declare namespace insightIntent {
      */
     result?: T;
   }
+
+  /**
+   * Return mode for insight intent execution results.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  enum ReturnMode {  
+    /**
+     * Returns execution results through callback.
+     * 
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    CALLBACK = 0,
+
+    /**
+     * Returns execution results through call function.
+     * 
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    FUNCTION = 1
+  }
 }
 
 export default insightIntent;
