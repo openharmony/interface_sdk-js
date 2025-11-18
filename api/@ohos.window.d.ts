@@ -7068,6 +7068,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
@@ -7088,6 +7089,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     loadContentByName(name: string, callback: AsyncCallback<void>): void;
 
@@ -7109,6 +7111,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
 
@@ -8500,6 +8503,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     bindDialogTarget(token: rpc.RemoteObject, deathCallback: Callback<void>): Promise<void>;
 
@@ -8529,6 +8533,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     bindDialogTarget(token: rpc.RemoteObject, deathCallback: Callback<void>, callback: AsyncCallback<void>): void;
 
@@ -8558,6 +8563,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     bindDialogTarget(requestInfo: dialogRequest.RequestInfo, deathCallback: Callback<void>): Promise<void>;
 
@@ -8587,6 +8593,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     bindDialogTarget(
       requestInfo: dialogRequest.RequestInfo,
