@@ -25,7 +25,7 @@ import resourceManager from '../@ohos.resourceManager';
 
 /**
  * Enumerates the error type.
- * @enum { int }
+ * @enum { number }
  * @syscap SystemCapability.Multimedia.Media.SoundPool
  * @since 20 dynamic
  */
