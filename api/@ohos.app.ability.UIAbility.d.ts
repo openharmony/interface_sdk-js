@@ -168,7 +168,6 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
    */
   on(type: 'release', callback: OnReleaseCallback): void;
 
