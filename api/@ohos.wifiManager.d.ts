@@ -1082,7 +1082,7 @@ declare namespace wifiManager {
 
   /**
    * Enable Wi-Fi hotspot function.
-   * After the Wi-Fi hotspot is enabled, Wi-Fi may be disabled.
+   * This method is asynchronous. After the Wi-Fi hotspot is enabled, Wi-Fi may be disabled.
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -1097,7 +1097,7 @@ declare namespace wifiManager {
 
   /**
    * Disable Wi-Fi hotspot function.
-   * If Wi-Fi is enabled after the Wi-Fi hotspot is disabled, Wi-Fi may be re-enabled.
+   * This method is asynchronous. If Wi-Fi is enabled after the Wi-Fi hotspot is disabled, Wi-Fi may be re-enabled.
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
