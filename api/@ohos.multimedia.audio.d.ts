@@ -8671,20 +8671,18 @@ declare namespace audio {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @crossplatform
      * @since 22 dynamic&static
      */
-    readonly model: string;
+    readonly model?: string;
 
     /**
      * Supported audio capabilities.
      * @type { Array<AudioSampleFormat> }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @crossplatform
      * @since 22 dynamic&static
      */
-    readonly capabilities: Array<AudioStreamInfo>;
+    readonly capabilities?: Array<AudioStreamInfo>;
   }
 
   /**
