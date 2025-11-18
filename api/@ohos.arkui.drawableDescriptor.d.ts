@@ -169,6 +169,17 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Creates a new LayeredDrawableDescriptor.
+   *
+   * @param { DrawableDescriptor } [foreground] - Indicates the foreground option to create LayeredDrawableDescriptor.
+   * @param { DrawableDescriptor } [background] - Indicates the background option to create LayeredDrawableDescriptor.
+   * @param { DrawableDescriptor } [mask] - Indicates the mask option to create LayeredDrawableDescriptor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   constructor(
     foreground?: DrawableDescriptor,
     background?: DrawableDescriptor,
@@ -288,6 +299,15 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * Use the PixelMapDrawableDescriptor class to get the resource of pixelmap or resource descriptor information.
+ *
+ * @extends DrawableDescriptor
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
 export class PixelMapDrawableDescriptor extends DrawableDescriptor {
   /**
    * Creates a new PixelMapDrawableDescriptor.
@@ -295,6 +315,14 @@ export class PixelMapDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Creates a new PixelMapDrawableDescriptor.
+   * @param { image.PixelMap } src - Indicates the resource to create PixelMapDrawableDescriptor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   constructor(src?: image.PixelMap);
 }
