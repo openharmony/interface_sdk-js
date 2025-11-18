@@ -12044,6 +12044,7 @@ declare namespace media {
      *     transcoding completion events.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Subscribes to the event indicating that transcoding is complete.
