@@ -22376,6 +22376,19 @@ declare class CommonMethod<T> {
   compositingFilter(filter: Filter): T;
 
   /**
+   * Sets the visual effect of the material filter. The effects it contains are renderd at a level before the shadow.
+   *
+   * @param { Filter | undefined } filter - Filter effect parameters.
+   *     Undefined means to none material filter.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  materialFilter(filter: Filter | undefined): T;
+
+  /**
    * Applies a foreground blur style to the component.
    *
    * @param { BlurStyle } value - Settings of the foreground blur style.
