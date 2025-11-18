@@ -19,6 +19,7 @@
  */
 import type { Callback, AsyncCallback } from './@ohos.base';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
+import { UIContext } from "./@ohos.arkui.UIContext";
 /*** if arkts dynamic */
 import type { ElementName } from './bundleManager/ElementName';
 import type { PanelInfo } from './@ohos.inputMethod.Panel';
@@ -520,6 +521,24 @@ declare namespace inputMethod {
     isPanelShown(panelInfo: PanelInfo): boolean;
 
     /**
+     * Query whether the panel with specified information is shown on the target display.
+     *
+     * @param { PanelInfo } panelInfo - the information of panel which is queried.
+     * @param { long } displayId - the id of the target display.
+     * @returns { boolean }
+     *     If true, the panel being queried is shown.
+     *     If false, the panel being queried is hidden.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    isPanelShown(panelInfo: PanelInfo, displayId: long): boolean;
+
+    /**
      * List subtype of the specified input method.
      *
      * @param { InputMethodProperty } inputMethodProperty - the property of the specified inputmethod.
@@ -829,6 +848,23 @@ declare namespace inputMethod {
      * @since 22 static
      */
     attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason): Promise<void>;
+    /**
+     * Attach application to the input method service with UI context.
+     *
+     * @param { UIContext } uiContext - indicates the ui context where the attachment will be performed.
+     * @param { TextConfig } textConfig - indicates the config of the textInput.
+     * @param { AttachOptions } [attachOptions] - indicates the attach options.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    attachWithUIContext(uiContext: UIContext, textConfig: TextConfig, attachOptions?: AttachOptions): Promise<void>;
 
     /**
      * Discard the typing text
@@ -1186,6 +1222,26 @@ declare namespace inputMethod {
     showSoftKeyboard(): Promise<void>;
 
     /**
+     * Show the soft keyboard on the specific display.
+     *
+     * @permission ohos.permission.CONNECT_IME_ABILITY
+     * @param { long } displayId - the id of the target display.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    showSoftKeyboard(displayId: long): Promise<void>;
+
+    /**
      * Hide soft keyboard.
      * This API can be called only by system applications.
      *
@@ -1220,6 +1276,26 @@ declare namespace inputMethod {
      * @since 22 static
      */
     hideSoftKeyboard(): Promise<void>;
+
+    /**
+     * Hide the soft keyboard on the specific display.
+     *
+     * @permission ohos.permission.CONNECT_IME_ABILITY
+     * @param { long } displayId - the id of the target display.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    hideSoftKeyboard(displayId: long): Promise<void>;
 
     /**
      * Send message to input method.
@@ -2409,6 +2485,16 @@ declare namespace inputMethod {
      * @since 22 static
      */
     height: long;
+
+    /**
+     * Indicates the id of the display where the input window is shown.
+     *
+     * @type { ?long }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    displayId?: long;
   }
 
   /**
@@ -2594,6 +2680,36 @@ declare namespace inputMethod {
      * @since 23 dynamic
      */
     SERVICE_ABNORMAL
+  }
+  /**
+   * Attach options.
+   *
+   * @interface AttachOptions
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  export interface AttachOptions {
+    /**
+     * Whether to show the keyboard when attaching.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    showKeyboard?: boolean;
+    /**
+     * The reason for request keyboard.
+     *
+     * @type { ?RequestKeyboardReason }
+     * @default RequestKeyboardReason.NONE
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    requestKeyboardReason?: RequestKeyboardReason;
   }
 }
 
