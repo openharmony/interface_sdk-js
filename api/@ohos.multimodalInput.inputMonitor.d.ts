@@ -39,28 +39,18 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
  */
 declare namespace inputMonitor {
   /**
-   * Defines the callback for touch (touchscreen) events.
+   * Callback used to receive touch input events. If **true** is returned, the touch input is consumed,
+   * and the system performs the closing operation.
    *
-   * @interface TouchEventReceiver
+   * @typedef { function } TouchEventReceiver
+   * @param { TouchEvent } touchEvent - the reported touch event.
+   * @returns { boolean } Returns true indicates the touch input is consumed, the value false indicates opposite.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 7 dynamic
    * @since 22 static
    */
-  interface TouchEventReceiver {
-    /**
-     * Callback used to receive touch input events.
-     *
-     * @param { TouchEvent } touchEvent - the reported touch event.
-     * @returns { Boolean } Result indicating whether the touch event will be dispatched to the window. 
-     * The value true indicates that the touch event will be dispatched to the window, and the value false indicates the opposite.
-     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-     * @systemapi hide for inner use
-     * @since 7 dynamic
-     * @since 22 static
-     */
-    (touchEvent: TouchEvent): Boolean;
-  }
+  type TouchEventReceiver = (touchEvent: TouchEvent) => boolean;
 
   /**
    * Enables listening for global touch (touchscreen) events.
