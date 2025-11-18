@@ -12043,8 +12043,7 @@ declare namespace media {
      * @param { Callback<void> } callback - Callback that has been registered to listen for
      *     transcoding completion events.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12 dynamic
-     * @since 20 static
+     * @since 12
      */
     /**
      * Subscribes to the event indicating that transcoding is complete.
@@ -12059,7 +12058,7 @@ declare namespace media {
      *     transcoding completion events.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
      */
     on(type:'complete', callback: Callback<void>):void;
 
