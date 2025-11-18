@@ -272,7 +272,7 @@ declare namespace wifiManager {
   function getScanAlwaysAllowed(): boolean;
 
   /**
-   * Add Wi-Fi connection configuration to the device. The configuration will be updated when the configuration is added.</p>
+   * Add Wi-Fi connection configuration to the device. The configuration will be updated when the configuration is added.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
    * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi network.
    * @returns { Promise<int> } Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
@@ -289,7 +289,7 @@ declare namespace wifiManager {
   function addDeviceConfig(config: WifiDeviceConfig): Promise<int>;
   
   /**
-   * Add Wi-Fi connection configuration to the device. The configuration will be updated when the configuration is added.</p>
+   * Add Wi-Fi connection configuration to the device. The configuration will be updated when the configuration is added.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
    * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi network.
    * @param { AsyncCallback<int> } callback - Indicates call back of addDeviceConfig.
@@ -735,7 +735,7 @@ declare namespace wifiManager {
    * Obtain the features supported by the device.
    * To check whether this device supports a specified feature.
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { int } Returns the features supported by this device.
+   * @returns { long } Returns the features supported by this device.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -745,12 +745,12 @@ declare namespace wifiManager {
    * @since 9 dynamic
    * @since 22 static
    */
-  function getSupportedFeatures(): int;
+  function getSupportedFeatures(): long;
 
   /**
    * Check whether the device supports a specified feature.
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { int } featureId Indicates the ID of the feature.
+   * @param { long } featureId Indicates the ID of the feature.
    * @returns { boolean } Returns {@code true} if this device supports the specified feature, returns {@code false} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -761,7 +761,7 @@ declare namespace wifiManager {
    * @since 9 dynamic
    * @since 22 static
    */
-  function isFeatureSupported(featureId: int): boolean;
+  function isFeatureSupported(featureId: long): boolean;
 
   /**
    * Obtain the MAC address of a Wi-Fi device. Wi-Fi must be enabled.
@@ -3425,7 +3425,6 @@ declare namespace wifiManager {
      * Allocated networkId
      * @type { ?int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
      * @since 9 dynamic
      * @since 22 static
      */
@@ -3592,6 +3591,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   interface IpConfig {
     /**
@@ -3670,6 +3670,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
+     * @since 22 static
      */
     gateway: string;
  
