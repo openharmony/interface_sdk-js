@@ -6372,27 +6372,25 @@ declare namespace audio {
 
     /**
      * Subscribes to system volume percentage change events.
-     * @param { 'volumePercentageChange' } type - Type of event to subscribe to.
      * @param { Callback<VolumeEvent> } callback - Callback used to return the system volume percentage change event.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 23 dynamic
+     * @since 23 dynamic&static
      */
-    on(type: 'volumePercentageChange', callback: Callback<VolumeEvent>): void;
+    onVolumePercentageChange(callback: Callback<VolumeEvent>): void;
 
     /**
      * Unsubscribes from system volume percentage change events.
-     * @param { 'volumePercentageChange' } type - Type of event to unsubscribe from.
      * @param { Callback<VolumeEvent> } callback - Callback used to return the system volume percentage change event.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 23 dynamic
+     * @since 23 dynamic&static
      */
-    off(type: 'volumePercentageChange', callback?: Callback<VolumeEvent>): void;
+    offVolumePercentageChange(callback?: Callback<VolumeEvent>): void;
 
    /**
      * Obtains the volume of a volume type.
