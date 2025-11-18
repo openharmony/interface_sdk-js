@@ -27,20 +27,20 @@ import resourceManager from '../@ohos.resourceManager';
  * Enumerates the error type.
  * @enum { int }
  * @syscap SystemCapability.Multimedia.Media.SoundPool
- * @since 20 dynamic
+ * @since 20 dynamic&static
  */
 export enum ErrorType {
   /**
    * Load error.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   LOAD_ERROR = 1,
 
   /**
    * Play error.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   PLAY_ERROR = 2
 }
@@ -56,28 +56,28 @@ export interface ErrorInfo<T extends Error = BusinessError> {
    * Error code.
    * @type { T }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   errorCode: T;
   /**
    * Error type.
    * @type { ?ErrorType }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   errorType?: ErrorType;
   /**
    * Sound id, returned from SoundPool.load function.
    * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   soundId?: number;
   /**
    * Stream id, returned from SoundPool.play function.
    * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   streamId?: number;
 }
