@@ -36,6 +36,7 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
  * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
  * @systemapi hide for inner use
  * @since 7 dynamic
+ * @since 22 static
  */
 declare namespace inputMonitor {
   /**
