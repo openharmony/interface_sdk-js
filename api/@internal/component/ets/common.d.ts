@@ -10189,6 +10189,16 @@ declare enum ShadowStyle {
  * @atomicservice
  * @since 11 dynamic
  */
+/**
+ * Defines the options of Shadow.
+ *
+ * @interface MultiShadowOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare interface MultiShadowOptions {
   /**
    * Shadow blur radius.
@@ -10217,6 +10227,21 @@ declare interface MultiShadowOptions {
    * @atomicservice
    * @since 11 dynamic
    */
+  /**
+   * Shadow blur radius.
+   * Unit: vp.
+   * <p>**NOTE**:
+   * <br>A value less than or equal to 0 is handled as the default value.
+   * </p>
+   *
+   * @type { ?(number | Resource) }
+   * @default 20
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
   radius?: number | Resource;
 
   /**
@@ -10240,6 +10265,18 @@ declare interface MultiShadowOptions {
    * @atomicservice
    * @since 11 dynamic
    */
+  /**
+   * Offset on the x-axis.
+   * Unit: vp.
+   *
+   * @type { ?(number | Resource) }
+   * @default 5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
   offsetX?: number | Resource;
 
   /**
@@ -10262,6 +10299,18 @@ declare interface MultiShadowOptions {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Offset on the y-axis.
+   * Unit: vp.
+   * 
+   * @type { ?(number | Resource) }
+   * @default 5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   offsetY?: number | Resource;
 }
