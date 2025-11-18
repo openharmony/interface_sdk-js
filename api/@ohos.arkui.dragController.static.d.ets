@@ -152,11 +152,11 @@ declare namespace dragController {
         
         /**
          * A unique identifier to identify which touch point.
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        pointerId: number;
+        pointerId: int;
         
         
         /**
@@ -208,11 +208,11 @@ declare namespace dragController {
         
         /**
          * Animation duration, in ms.
-         * @type { ?number }
+         * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        duration?: number;
+        duration?: int;
         
         
         /**
