@@ -715,6 +715,7 @@ export declare interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 22 static
    */
+
   onErrorOccurred(callback: Callback<ErrorInfo>): void;
   /**
    * Unsubscribes from errorOccurred events of this **SoundPool** instance.
