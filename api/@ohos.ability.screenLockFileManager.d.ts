@@ -24,6 +24,7 @@
  * @namespace screenLockFileManager
  * @syscap SystemCapability.Security.ScreenLockFileManager
  * @since 12 dynamic
+ * @since 22 static
  */
 declare namespace screenLockFileManager {
   /**
@@ -32,6 +33,7 @@ declare namespace screenLockFileManager {
    * @enum { number }
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @since 12 dynamic
+   * @since 22 static
    */
   export enum DataType {
     /**
@@ -39,6 +41,7 @@ declare namespace screenLockFileManager {
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 12 dynamic
+     * @since 22 static
      */
     MEDIA_DATA = 0x00000001,
 
@@ -47,6 +50,7 @@ declare namespace screenLockFileManager {
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 12 dynamic
+     * @since 22 static
      */
     ALL_DATA = 0xffffffff
   }
@@ -57,6 +61,7 @@ declare namespace screenLockFileManager {
    * @enum { number }
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @since 12 dynamic
+   * @since 22 static
    */
   export enum AccessStatus {
     /**
@@ -64,6 +69,7 @@ declare namespace screenLockFileManager {
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 12 dynamic
+     * @since 22 static
      */
     ACCESS_DENIED = -1,
 
@@ -72,6 +78,7 @@ declare namespace screenLockFileManager {
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 12 dynamic
+     * @since 22 static
      */
     ACCESS_GRANTED = 0
   }
@@ -82,6 +89,7 @@ declare namespace screenLockFileManager {
    * @enum { number }
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @since 12 dynamic
+   * @since 22 static
    */
   export enum ReleaseStatus {
     /**
@@ -89,6 +97,7 @@ declare namespace screenLockFileManager {
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 12 dynamic
+     * @since 22 static
      */
     RELEASE_DENIED = -1,
 
@@ -97,6 +106,7 @@ declare namespace screenLockFileManager {
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 12 dynamic
+     * @since 22 static
      */
     RELEASE_GRANTED = 0
   }
@@ -107,6 +117,7 @@ declare namespace screenLockFileManager {
    * @enum { number }
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @since 18 dynamic
+   * @since 22 static
    */
   export enum KeyStatus {
     /**
@@ -114,6 +125,7 @@ declare namespace screenLockFileManager {
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 18 dynamic
+     * @since 22 static
      */
     KEY_NOT_EXIST = -2,
 
@@ -122,6 +134,7 @@ declare namespace screenLockFileManager {
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 18 dynamic
+     * @since 22 static
      */
     KEY_RELEASED = -1,
 
@@ -130,6 +143,7 @@ declare namespace screenLockFileManager {
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
      * @since 18 dynamic
+     * @since 22 static
      */
     KEY_EXIST = 0
   }
@@ -144,6 +158,7 @@ declare namespace screenLockFileManager {
    * @throws { BusinessError } 29300004 - File access is denied.
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @since 12 dynamic
+   * @since 22 static
    */
   function acquireAccess(): AccessStatus;
 
@@ -164,6 +179,7 @@ declare namespace screenLockFileManager {
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @systemapi
    * @since 12 dynamic
+   * @since 22 static
    */
   function acquireAccess(dataType: DataType): AccessStatus;
 
@@ -177,6 +193,7 @@ declare namespace screenLockFileManager {
    * @throws { BusinessError } 29300005 - File access was not acquired.
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @since 12 dynamic
+   * @since 22 static
    */
   function releaseAccess(): ReleaseStatus;
 
@@ -197,6 +214,7 @@ declare namespace screenLockFileManager {
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @systemapi
    * @since 12 dynamic
+   * @since 22 static
    */
   function releaseAccess(dataType: DataType): ReleaseStatus;
 
@@ -208,6 +226,7 @@ declare namespace screenLockFileManager {
    * @throws { BusinessError } 29300002 - The system ability work abnormally.
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @since 18 dynamic
+   * @since 22 static
    */
   function queryAppKeyState(): KeyStatus;
 
@@ -226,6 +245,7 @@ declare namespace screenLockFileManager {
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @systemapi
    * @since 18 dynamic
+   * @since 22 static
    */
   function queryAppKeyState(dataType: DataType): KeyStatus;
 }
