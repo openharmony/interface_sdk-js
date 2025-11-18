@@ -4703,6 +4703,10 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_REPLACE}.
+     * 
+     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -4717,6 +4721,10 @@ declare namespace relationalStore {
      */
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_REPLACE}.
+     * 
+     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -4733,6 +4741,10 @@ declare namespace relationalStore {
      */
     /**
      * Inserts a batch of data into the target table.
+     *
+     * The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_REPLACE}.
+     * 
+     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket}
@@ -4770,6 +4782,10 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_REPLACE}.
+     * 
+     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -4784,7 +4800,11 @@ declare namespace relationalStore {
      */
     /**
      * Inserts a batch of data into the target table.
-     *
+     * 
+     * The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_REPLACE}.
+     * 
+     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
+     * 
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
      * Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
@@ -4800,6 +4820,10 @@ declare namespace relationalStore {
      */
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_REPLACE}.
+     * 
+     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -4837,6 +4861,10 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_REPLACE}.
+     * 
+     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -4873,11 +4901,18 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
+     * the error code 14800000 is returned. The product of the number of inserted data records and the size of the union
+     * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
+     * a maximum of 3276 data records can be inserted (3276 × 10 = 32760). Ensure that your application complies with
+     * this constraint when calling this API to avoid errors caused by excessive parameters.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
      * Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * The default parameter is {@link ConflictResolution.ON_CONFLICT_NONE}.
      * @returns { Promise<number> } The number of values that were inserted if the operation is successful.
      * returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -4910,10 +4945,18 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
+     * the error code 14800000 is returned. The product of the number of inserted data records and the size of the union
+     * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
+     * a maximum of 3276 data records can be inserted (3276 × 10 = 32760). Ensure that your application complies with
+     * this constraint when calling this API to avoid errors caused by excessive parameters.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
      * Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * The default parameter is {@link ConflictResolution.ON_CONFLICT_NONE}.
      * @returns { number } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -8781,6 +8824,8 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_REPLACE}.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -8812,6 +8857,8 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_REPLACE}.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -8842,11 +8889,18 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
+     * the error code 14800000 is returned. The product of the number of inserted data records and the size of the union
+     * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
+     * a maximum of 3276 data records can be inserted (3276 × 10 = 32760). Ensure that your application complies with
+     * this constraint when calling this API to avoid errors caused by excessive parameters.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
      * Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * The default parameter is {@link ConflictResolution.ON_CONFLICT_NONE}.
      * @returns { Promise<number> } The number of values that were inserted if the operation is successful.
      * returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -8877,11 +8931,18 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
+     * the error code 14800000 is returned. The product of the number of inserted data records and the size of the union
+     * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
+     * a maximum of 3276 data records can be inserted (3276 × 10 = 32760). Ensure that your application complies with
+     * this constraint when calling this API to avoid errors caused by excessive parameters.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
      * Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * The default parameter is {@link ConflictResolution.ON_CONFLICT_NONE}.
      * @returns { number } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
