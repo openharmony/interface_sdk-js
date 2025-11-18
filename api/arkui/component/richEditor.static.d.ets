@@ -2112,6 +2112,15 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */
     default stopBackPress(isStopped: boolean | undefined): this;
     /**
+     * Whether to enable single line mode.
+     *
+     * @param { boolean | undefined } isEnable - Whether to enable single line mode, default is false.
+     * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default singleLine(isEnable: boolean | undefined): RichEditorAttribute;
+    /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<RichEditorAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
