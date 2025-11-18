@@ -12105,16 +12105,6 @@ declare namespace window {
      * @since 22 static
      */
     outlineEnabled?: boolean;
-    /**
-     * Indicates whether subwindow hide after uea hide
-     * 
-     * @type { ?boolean }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 22 dynamic
-     * @since 22 static
-     */
-    followUeaToHide?: boolean;
 
   }
   /**
