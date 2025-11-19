@@ -2026,6 +2026,15 @@ declare class FileSelectorParam {
    * @since 23 dynamic
    */
   isAcceptAllOptionExcluded(): boolean;
+
+  /**
+   * Gets an array of selected types for web page files.
+   *
+   * @returns { Array<Array<AcceptableFileType>> } Return an array of selected types for web page files.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  getAcceptableFileTypes(): Array<Array<AcceptableFileType>>;
 }
 
 /**
@@ -11292,6 +11301,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 22 dynamic
    */
   enableSelectedDataDetector(enable: boolean): WebAttribute
+
+  /**
+   * Set up web component to support AI image recognition capability.
+   *
+   * @param { boolean } enable - {@code true} means the Web AI image recognition capability,
+   *    {@code false} otherwise.
+   *    The default value is true.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  enableImageAnalyzer(enable: boolean): WebAttribute;
 }
 
 /**
@@ -11714,6 +11735,33 @@ declare enum GestureFocusMode {
    * @since 20 dynamic
    */
   GESTURE_TAP_AND_LONG_PRESS = 1
+}
+
+/**
+* Define file selection type.
+*
+* @typedef AcceptableFileType
+* @syscap SystemCapability.Web.Webview.Core
+* @since 23 dynamic
+*/
+declare interface AcceptableFileType {
+  /**
+    * A annotated file type identifier used to describe the format and content type of a file.
+    *
+    * @type { string }
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 dynamic
+    */
+  mimeType: string;
+
+  /**
+    * Array of file types accepted by web pages.
+    *
+    * @type { Array<string> }
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 dynamic
+    */
+  acceptableType: Array<string>;
 }
 
 /**

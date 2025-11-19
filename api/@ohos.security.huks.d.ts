@@ -1539,21 +1539,25 @@ declare namespace huks {
    * @param { AsyncCallback<HuksSessionHandle> } callback - Callback used to return a session handle for subsequent
    * operations.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000018 - the input parameter is invalid
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 22
@@ -1619,21 +1623,25 @@ declare namespace huks {
    * @param { HuksOptions } options - Parameter set used for the initSession operation.
    * @returns { Promise<HuksSessionHandle> } Promise used to return a session handle for subsequent operations.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000018 - the input parameter is invalid
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 22
@@ -1755,6 +1763,38 @@ declare namespace huks {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Updates the key operation by segment. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 22
+   */
   function updateSession(handle: long, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
   /**
@@ -1828,7 +1868,7 @@ declare namespace huks {
    * @param { long } handle - Handle for the updateSession operation.
    * @param { HuksOptions } options - Parameter set used for the updateSession operation.
    * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
-   * refined key access control is not performed.
+   *     refined key access control is not performed.
    * @returns { Promise<HuksReturnResult> } Promise used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -1857,7 +1897,7 @@ declare namespace huks {
    * @param { long } handle - Handle for the updateSession operation.
    * @param { HuksOptions } options - Parameter set used for the updateSession operation.
    * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
-   * refined key access control is not performed.
+   *     refined key access control is not performed.
    * @returns { Promise<HuksReturnResult> } Promise used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -1879,6 +1919,40 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Updates the key operation by segment. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   *     refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the updateSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 22
    */
   function updateSession(handle: long, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
 
@@ -1912,7 +1986,7 @@ declare namespace huks {
    * Finishes the key operation. This API uses an asynchronous callback to return the result.
    * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the finishSession operation.
+   * @param { long } handle - Handle for the finishSession operation.
    * @param { HuksOptions } options - Parameter set used for the finishSession operation.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1939,7 +2013,7 @@ declare namespace huks {
    * Finishes the key operation. This API uses an asynchronous callback to return the result.
    * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the finishSession operation.
+   * @param { long } handle - Handle for the finishSession operation.
    * @param { HuksOptions } options - Parameter set used for the finishSession operation.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1967,7 +2041,7 @@ declare namespace huks {
    * Finishes the key operation. This API uses an asynchronous callback to return the result.
    * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the finishSession operation.
+   * @param { long } handle - Handle for the finishSession operation.
    * @param { HuksOptions } options - Parameter set used for the finishSession operation.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1991,6 +2065,39 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 20
+   */
+  /**
+   * Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 22
    */
   function finishSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
@@ -2092,7 +2199,7 @@ declare namespace huks {
    * Finishes the key operation. This API uses a promise to return the result. huks.initSession,
    * huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the finishSession operation.
+   * @param { long } handle - Handle for the finishSession operation.
    * @param { HuksOptions } options - Parameter set used for the finishSession operation.
    * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
    * refined key access control is not performed.
@@ -2121,7 +2228,7 @@ declare namespace huks {
    * Finishes the key operation. This API uses a promise to return the result. huks.initSession,
    * huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the finishSession operation.
+   * @param { long } handle - Handle for the finishSession operation.
    * @param { HuksOptions } options - Parameter set used for the finishSession operation.
    * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
    * refined key access control is not performed.
@@ -2151,7 +2258,7 @@ declare namespace huks {
    * Finishes the key operation. This API uses a promise to return the result. huks.initSession,
    * huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the finishSession operation.
+   * @param { long } handle - Handle for the finishSession operation.
    * @param { HuksOptions } options - Parameter set used for the finishSession operation.
    * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
    * refined key access control is not performed.
@@ -2177,6 +2284,41 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 20
+   */
+  /**
+   * Finishes the key operation. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   * refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 22
    */
   function finishSession(handle: number, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
 
@@ -2209,7 +2351,7 @@ declare namespace huks {
   /**
    * Aborts a key operation. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } handle - Handle for the abortSession operation.
+   * @param { long } handle - Handle for the abortSession operation.
    * @param { HuksOptions } options - Parameter set used for the abortSession operation.
    * @param { AsyncCallback<void> } callback - Callback used to return the abortSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2228,7 +2370,7 @@ declare namespace huks {
   /**
    * Aborts a key operation. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } handle - Handle for the abortSession operation.
+   * @param { long } handle - Handle for the abortSession operation.
    * @param { HuksOptions } options - Parameter set used for the abortSession operation.
    * @param { AsyncCallback<void> } callback - Callback used to return the abortSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2245,12 +2387,34 @@ declare namespace huks {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Aborts a key operation. This API uses an asynchronous callback to return the result.
+   *
+   * @param { long } handle - Handle for the abortSession operation.
+   * @param { HuksOptions } options - Parameter set used for the abortSession operation.
+   * @param { AsyncCallback<void> } callback - Callback used to return the abortSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 22
+   */
   function abortSession(handle: number, options: HuksOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Aborts a key operation. This API uses a promise to return the result.
    *
-   * @param { number } handle - Handle for the abortSession operation.
+   * @param { long } handle - Handle for the abortSession operation.
    * @param { HuksOptions } options - Parameter set used for the abortSession operation.
    * @returns { Promise<void> } Promise used to return the abortSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2269,7 +2433,7 @@ declare namespace huks {
   /**
    * Aborts a key operation. This API uses a promise to return the result.
    *
-   * @param { number } handle - Handle for the abortSession operation.
+   * @param { long } handle - Handle for the abortSession operation.
    * @param { HuksOptions } options - Parameter set used for the abortSession operation.
    * @returns { Promise<void> } Promise used to return the abortSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2285,6 +2449,28 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Aborts a key operation. This API uses a promise to return the result.
+   *
+   * @param { long } handle - Handle for the abortSession operation.
+   * @param { HuksOptions } options - Parameter set used for the abortSession operation.
+   * @returns { Promise<void> } Promise used to return the abortSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 22
    */
   function abortSession(handle: number, options: HuksOptions): Promise<void>;
 
@@ -3567,6 +3753,62 @@ declare namespace huks {
      * @since 20
      */
     HUKS_ERR_CODE_INVALID_ARGUMENT = 12000018,
+    /**
+     * The item already exists.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 22
+     */
+    HUKS_ERR_CODE_ITEM_EXISTS = 12000019,
+    /**
+     * An error occurred in the external module.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 22
+     */
+    HUKS_ERR_CODE_EXTERNAL_MODULE = 12000020,
+    /**
+     * The Ukey PIN is locked.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @atomicservice
+     * @since 22
+     */
+    HUKS_ERR_CODE_PIN_LOCKED = 12000021,
+    /**
+     * The Ukey PIN is incorrect.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @atomicservice
+     * @since 22
+     */
+    HUKS_ERR_CODE_PIN_INCORRECT = 12000022,
+    /**
+     * The Ukey PIN is not authenticated.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @atomicservice
+     * @since 22
+     */
+    HUKS_ERR_CODE_PIN_NO_AUTH = 12000023,
+    /**
+     * The device or resource is busy.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 22
+     */
+    HUKS_ERR_CODE_BUSY = 12000024,
+    /**
+     * The resource exceeds the limit.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 22
+     */
+    HUKS_ERR_CODE_EXCEED_LIMIT = 12000025
   }
 
   /**

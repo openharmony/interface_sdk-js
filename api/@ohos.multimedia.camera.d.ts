@@ -13615,6 +13615,28 @@ declare namespace camera {
      * @since 22 static
      */
     offSketchStatusChanged(callback?: AsyncCallback<SketchStatusData>): void;
+
+    /**
+     * Checks whether bandwidth compression is supported.
+     *
+     * @returns { boolean } Is bandwidth compression supported.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    isBandwidthCompressionSupported(): boolean;
+
+    /**
+     * Enable bandwidth compression.
+     *
+     * @param { boolean } enabled - Target state for bandwidth compression.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    enableBandwidthCompression(enabled: boolean): void;
   }
 
   /**

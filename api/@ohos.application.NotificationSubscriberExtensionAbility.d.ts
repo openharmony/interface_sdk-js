@@ -40,7 +40,7 @@ declare class NotificationSubscriberExtensionAbility {
   context: NotificationSubscriberExtensionContext;
  
   /**
-   * Callback when the distributed collaborative extension is destroyed
+   * Callback when the extensionAbility is destroyed
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -49,7 +49,7 @@ declare class NotificationSubscriberExtensionAbility {
   onDestroy(): void;
 
   /**
-   * Called back when a notification is published.
+   * Callback when a notification is published.
    *
    * @param { NotificationInfo } notificationInfo - The notification info to be published.
    * @syscap SystemCapability.Notification.Notification
@@ -59,7 +59,7 @@ declare class NotificationSubscriberExtensionAbility {
   onReceiveMessage(notificationInfo: NotificationInfo): void;
 
   /**
-   * Called back when notifications is cancelled.
+   * Callback when notifications is cancelled.
    *
    * @param { Array<string> } hashCodes - The list of notification to be cancelled.
    * @syscap SystemCapability.Notification.Notification

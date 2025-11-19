@@ -1202,6 +1202,20 @@ declare namespace webview {
          * @since 22 static
          */
         static clearSessionCookie(callback: AsyncCallback<void>): void;
+
+        /**
+         * Delays the initialization of the web engine. By default, the web engine is initialized
+         * when the CookieManager interface is called. By setting the 'lazy' parameter to true,
+         * the web engine will not be initialized when the CookieManager interface is called.
+         * Instead, the web engine will be initialized either when the web component is created
+         * or when initializeWebEngine is called.
+         *
+         * @param { boolean } lazy - Controls whether to delay the initialization of the web engine.
+         * @static
+         * @syscap SystemCapability.Web.Webview.Core
+         * @since 23 static
+         */
+        static setLazyInitializeWebEngine(lazy: boolean): void;
     }
 
     /**

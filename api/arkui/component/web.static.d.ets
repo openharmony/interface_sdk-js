@@ -1114,6 +1114,15 @@ export declare class FileSelectorParam {
     * @since 23 static
     */
     isAcceptAllOptionExcluded(): boolean;
+
+    /**
+    * Gets an array of selected types for web page files.
+    *
+    * @returns { Array<Array<AcceptableFileType>> } Return an array of selected types for web page files.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    getAcceptableFileTypes(): Array<Array<AcceptableFileType>>;
 }
 /**
  * Defines the js result.
@@ -6065,6 +6074,17 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default backToTop(backToTop: boolean | undefined): this;
     /**
+    * Set up web component to support AI image recognition capability.
+    *
+    * @param { boolean | undefined } enable - {@code true} means the Web AI image recognition capability,
+    *    {@code false} otherwise.
+    *    The default value is true.
+    * @returns { WebAttribute }
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    default enableImageAnalyzer(enable: boolean | undefined): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<WebAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -6267,6 +6287,31 @@ export declare enum GestureFocusMode {
      * @since 22 static
      */
     GESTURE_TAP_AND_LONG_PRESS = 1
+}
+/**
+* Define file selection type.
+*
+* @typedef AcceptableFileType
+* @syscap SystemCapability.Web.Webview.Core
+* @since 23 static
+*/
+export declare interface AcceptableFileType {
+  /**
+    * A annotated file type identifier used to describe the format and content type of a file.
+    *
+    * @type { string }
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+  mimeType: string;
+  /**
+    * Array of file types accepted by web pages.
+    *
+    * @type { Array<string> }
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+  acceptableType: Array<string>;
 }
 /**
  * Defines Web Component.

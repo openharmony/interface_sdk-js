@@ -19,7 +19,7 @@
  */
 import { TextContentControllerBase, SelectionOptions, Callback, CommonMethod, Optional, TextDecorationOptions, Bindable, AttributeModifier } from "./common";
 import { CustomBuilder } from './builder';
-import { ResourceStr, Length, ResourceColor, Dimension, Font } from "./units";
+import { ResourceStr, Length, ResourceColor, Dimension, Font, ColorMetrics } from "./units";
 import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions, KeyboardAppearance, EditableTextChangeValue, AutoCapitalizationMode } from "./textCommon";
 import { EnterKeyType, OnTextSelectionChangeCallback, OnContentScrollCallback, OnPasteCallback, SubmitEvent } from "./textInput";
 import { CopyOptions, TextAlign } from "./enums";
@@ -1013,6 +1013,15 @@ export declare interface SearchAttribute extends CommonMethod {
      * @since 22 static
      */
     default keyboardAppearance(appearance: KeyboardAppearance | undefined): this;
+    /**
+     * Set the divider color.
+     * 
+     * @param { ColorMetrics | undefined } color - Color of the divider.
+     * @returns { SearchAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default dividerColor(color: ColorMetrics | undefined): this;
     /**
      * Sets the attribute modifier.
      *

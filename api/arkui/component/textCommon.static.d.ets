@@ -309,13 +309,13 @@ export declare interface TextBaseController {
     /**
      * Set selection to select a range of content.
      *
-     * @param { number } selectionStart - The start position of the selected text.
-     * @param { number } selectionEnd - The end position of the selected text.
+     * @param { int } selectionStart - The start position of the selected text.
+     * @param { int } selectionEnd - The end position of the selected text.
      * @param { SelectionOptions } [options] - Indicates the options of selection.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
+    setSelection(selectionStart: int, selectionEnd: int, options?: SelectionOptions): void;
     /**
      * Close the select menu when menu is on.
      *
@@ -359,20 +359,20 @@ export declare interface TextEditControllerEx extends TextBaseController {
     /**
      * Set caret offset.
      *
-     * @param { number } offset - caret offset.
+     * @param { int } offset - caret offset.
      * @returns { boolean } - Return true if the caret offset was successfully set, false otherwise.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    setCaretOffset(offset: number): boolean;
+    setCaretOffset(offset: int): boolean;
     /**
      * Get caret offset from controller.
      *
-     * @returns { number }
+     * @returns { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getCaretOffset(): number;
+    getCaretOffset(): int;
     /**
      * Get PreviewText.
      *
@@ -757,20 +757,22 @@ export type OnMenuItemClickCallback = (menuItem: TextMenuItem, range: TextRange)
 export declare interface EditMenuOptions {
     /**
      * Passes the default menu, invokes before every display to generate a menu for triggering click events.
+     * If `undefined` is passed, the existing registered event will be removed.
      *
-     * @type { OnCreateMenuCallback }
+     * @type { OnCreateMenuCallback | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onCreateMenu: OnCreateMenuCallback;
+    onCreateMenu: OnCreateMenuCallback | undefined;
     /**
      * Invoke upon clicking an item, capable of intercepting the default system menu execution behavior.
+     * If `undefined` is passed, the existing registered event will be removed.
      *
-     * @type { OnMenuItemClickCallback }
+     * @type { OnMenuItemClickCallback | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onMenuItemClick: OnMenuItemClickCallback;
+    onMenuItemClick: OnMenuItemClickCallback | undefined;
 }
 /**
  * Defines the font decoration result.

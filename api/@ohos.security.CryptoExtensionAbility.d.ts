@@ -21,7 +21,7 @@
 
 import huks from '@ohos.security.huks';
 import huksExternalCrypto from '@ohos.security.huksExternalCrypto';
-import { certificateManager } from '@ohos.security.certManager';
+import certificateManager from '@ohos.security.certManager';
 
 /**
  * Represents the information of certificate.
@@ -106,13 +106,13 @@ export interface HuksCryptoExtensionResult {
    */
   certs?: Array<HuksCryptoExtensionCertInfo>;
   /**
-   * Returned properity info.
+   * Returned property info.
    *
    * @type { ?Array<HuksExternalCrypto.HuksExternalCryptoParam>}
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
-  properity?: Array<HuksExternalCrypto.HuksExternalCryptoParam>;
+  property?: Array<HuksExternalCrypto.HuksExternalCryptoParam>;
   /**
    * Returned data.
    *
