@@ -50,6 +50,7 @@ export enum ErrorType {
  * @typedef { ErrorInfo<T extends Error = BusinessError> }
  * @syscap SystemCapability.Multimedia.Media.SoundPool
  * @since 20 dynamic
+ * @since 22 static
  */
 export interface ErrorInfo<T extends Error = BusinessError> {
   /**
@@ -57,6 +58,7 @@ export interface ErrorInfo<T extends Error = BusinessError> {
    * @type { T }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
+   * @since 22 static
    */
   errorCode: T;
   /**
@@ -64,6 +66,7 @@ export interface ErrorInfo<T extends Error = BusinessError> {
    * @type { ?ErrorType }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
+   * @since 22 static
    */
   errorType?: ErrorType;
   /**
@@ -71,6 +74,7 @@ export interface ErrorInfo<T extends Error = BusinessError> {
    * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
+   * @since 22 static
    */
   soundId?: number;
   /**
@@ -78,6 +82,7 @@ export interface ErrorInfo<T extends Error = BusinessError> {
    * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
+   * @since 22 static
    */
   streamId?: number;
 }
