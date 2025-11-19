@@ -25981,7 +25981,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   allowDrop(value: Array<UniformDataType> | null | Array<string>): T;
 
