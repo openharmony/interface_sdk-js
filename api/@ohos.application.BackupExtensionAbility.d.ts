@@ -161,14 +161,14 @@ declare class BackupExtensionAbility {
    * Callback to be called before extension ability exits.
    * Developer could override this method to clean abnormal data.
    *
-   * @param { number } scenario - The value 1 indicates backup and the value 2 indicates restoration.
+   * @param { int } scenario - The value 1 indicates backup and the value 2 indicates restoration.
    * @returns { Promise<void> } the promise returned by the function
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 20 dynamic
    * @since 22 static
    */
-  onRelease(scenario: number): Promise<void>;
+  onRelease(scenario: int): Promise<void>;
 
   /**
    * Callback to be called when getting application backup compatibilityInfo.
