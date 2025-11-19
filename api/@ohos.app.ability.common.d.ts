@@ -238,7 +238,6 @@ declare namespace common {
    * @since 11 dynamic
    */
   export type BaseContext = _BaseContext.default;
-
   /**
    * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
    *
