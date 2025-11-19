@@ -41,7 +41,7 @@ import { RecordData } from './@ohos.base';
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 22 static
+ * @since 22 staticonly
  */
 export type OnReceiveDataCallback = (data: Record<string, RecordData>) => void;
 
@@ -54,7 +54,7 @@ export type OnReceiveDataCallback = (data: Record<string, RecordData>) => void;
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 22 static
+ * @since 22 staticonly
  */
 export type OnReceiveDataForResultCallback = (data: Record<string, RecordData>) => Record<string, RecordData>;
 
