@@ -268,7 +268,8 @@ declare namespace uiExtension {
      *
      * @param { string } name - Name of the subwindow.
      * @param { window.SubWindowOptions } subWindowOptions - Parameters used for creating the subwindow.
-     * @param { boolean } [isHideFollowUIExt] - If true then the subwindow will also hide when uiextension is hidden. 
+     * @param { boolean } [isHideFollowUIExt] - Whether the subwindow will be hidden when uiextension is hidden,
+     *     the subwindow will be hidden if true or not be hidden if false. Default Value:true.
      * @returns { Promise<window.Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
