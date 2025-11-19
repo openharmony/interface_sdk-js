@@ -4752,7 +4752,8 @@ declare class UIAbilityContext extends Context {
 
   /**
    * Show current ability. The ability needs to be started by UIAbilityContext.startAbility
-   * with input parameter options.processMode setting to NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM.
+   * with input parameter options.processMode setting to NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM
+   * or ATTACH_TO_STATUS_BAR_ITEM.
    *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not support.
@@ -4767,7 +4768,8 @@ declare class UIAbilityContext extends Context {
 
   /**
    * Hide current ability. The ability needs to be started by UIAbilityContext.startAbility
-   * with input parameter options.processMode setting to NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM.
+   * with input parameter options.processMode setting to NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM
+   * or ATTACH_TO_STATUS_BAR_ITEM.
    *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not support.
