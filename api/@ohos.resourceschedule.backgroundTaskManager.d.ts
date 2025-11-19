@@ -1048,7 +1048,7 @@ declare namespace backgroundTaskManager {
   /**
    * Get the user authorization status of special continuous tasks.
    *
-   * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
+   * @permission ohos.permission.SET_BACKGROUND_TASK_STATE
    * @param { BackgroundTaskStateInfo } stateInfo - Background task state info.
    * @returns { UserAuthResult } Type of user authorization status.
    * @throws { BusinessError } 201 - Permission denied.
