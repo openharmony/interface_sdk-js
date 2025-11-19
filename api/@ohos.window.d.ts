@@ -3884,7 +3884,9 @@ declare namespace window {
    *
    * @returns { Promise<Array<WindowInfo>> } - Promise that returns windowInfo list.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   *     Possible causes: Not system app.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: Failed to send event.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
@@ -3896,8 +3898,10 @@ declare namespace window {
    * @permission ohos.permission.VISIBLE_WINDOW_INFO
    * @returns { Promise<Array<WindowInfo>> } - Promise that returns windowInfo list.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   *     Possible causes: Need VISIBLE_WINDOW_INFO permission.
    * @throws { BusinessError } 801 - Capability not supported. Function getVisibleWindowInfo can not work correctly due to limited device capabilities.
-   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: Failed to send event.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible causes: GetVisibilityWindowInfo failed.
    * @syscap SystemCapability.Window.SessionManager
    * @since 18 dynamic
    * @since 22 static
@@ -3933,9 +3937,12 @@ declare namespace window {
    * @param { int } [y] - Indicate the Y-coordinate of the window. If the value is less than or equal to 0,
    *    the function returns all visible windows in the display. Default Value: -1.
    * @returns { Promise<Array<Window>> } Promise used to return the window.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types; 
+   *                                                                  3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
    *    capabilities.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: Send event failed.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -3954,7 +3961,7 @@ declare namespace window {
    *                                                                  2. Incorrect parameter types; 
    *                                                                  3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: Send event failed.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -3969,6 +3976,7 @@ declare namespace window {
    *                                                                  2. Incorrect parameter types; 
    *                                                                  3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. function getAllWindowLayoutInfo can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: Send event failed.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -3985,8 +3993,9 @@ declare namespace window {
    * @returns { Promise<int> } Promise used to return the window modes.
    * @throws { BusinessError } 801 - Capability not supported. function getGlobalWindowMode can not work correctly due
    *     to limited device capabilities.
-   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause: Send event failed.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range;
+   *                                                                      2. The parameter format is incorrect.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
@@ -4215,8 +4224,9 @@ declare namespace window {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 801 - Capability not supported.function setStartWindowBackgroundColor can not to work
    *     correctly due to limited device capabilities.
-   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause: Send event failed.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. ModuleName has invalid parameter range;
+   *                                                                      2. AbilityName has invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
@@ -6197,6 +6207,9 @@ declare namespace window {
      *
      * @returns { WindowProperties } Return the window properties.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible causes: 1. The window is nullptr;
+     *                      2. Get property info failed;
+     *                      3. Create window property object failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -6211,6 +6224,9 @@ declare namespace window {
      * @returns { WindowDensityInfo } Return system density, default density and custom density of window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible causes: 1.The window is not created or destroyed;
+     *                      2.Get density info failed;
+     *                      3.Convert density info failed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
@@ -6226,7 +6242,7 @@ declare namespace window {
      *     failed. A non-system application calls a system API.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: The window is nullptr.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
@@ -6328,7 +6344,8 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is not created or destroyed;
+     *                                                                                    2. Convert avoid area failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -6344,9 +6361,10 @@ declare namespace window {
      * @returns { AvoidArea } Area where the window cannot be displayed.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is nullptr;
+     *                                                                                    2. Convert avoid area failed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Parameter verification failed.
+     * @throws { BusinessError } 1300016 - Parameter error.
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 dynamic&static
      */
@@ -6358,9 +6376,9 @@ declare namespace window {
      * @param { boolean } enabled - If true, the system window type can obtain avoid area. If false, the avoid area obtained by the system window type will always be empty.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible causes: Invalid window type.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
@@ -6373,9 +6391,8 @@ declare namespace window {
      *
      * @returns { boolean } enable - If true, the system window type can obtain avoid area. If false, the avoid area obtained by the system window type will always be empty.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: 1. The window is not created or destroyed; 2. Create js value failed.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible causes: Invalid window type.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
@@ -6450,7 +6467,7 @@ declare namespace window {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is nullptr
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -6589,7 +6606,8 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified;
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is nullptr;
+     *                                                                                    2. Send event failed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -6622,8 +6640,9 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws {BusinessError} 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                2. Incorrect parameter types.
-     * @throws {BusinessError} 1300002 - This window state is abnormal.
-     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @throws {BusinessError} 1300002 - This window state is abnormal. Possible cause: 1. The window is nullptr;
+     *                                                                                  2. Set specific bar property failed;
+     *                                                                                  3. Send event failed.
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @atomicservice
@@ -6664,7 +6683,8 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is nullptr;
+     *                                                                                    2. Send event failed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
@@ -6676,8 +6696,8 @@ declare namespace window {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is nullptr;
+     *                                                                                    2. Send event failed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -6695,7 +6715,8 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is nullptr;
+     *                                                                                    2. Send event failed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
@@ -6708,7 +6729,8 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is nullptr;
+     *                                                                                    2. Send event failed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -6719,10 +6741,8 @@ declare namespace window {
      *
      * @param { SystemBarProperties } systemBarProperties - The properties of system bar
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is nullptr;
+     *                                                                                    2. Send event failed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -6736,9 +6756,9 @@ declare namespace window {
      * Get the properties of system bar
      *
      * @returns { SystemBarProperties } Return system bar properties.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: The window is nullptr.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible causes: Create system bar properties object failed.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible causes: Not mainWindow.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
@@ -6751,12 +6771,10 @@ declare namespace window {
      *
      * @param { ColorMetrics } color - Content color of the status bar
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported on this device.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: 1. The window is nullptr;
+     *                                                                                     2. Update status bar property failed.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible causes: Send event failed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
@@ -6768,8 +6786,9 @@ declare namespace window {
      * Get the properties of the status bar.
      *
      * @returns { StatusBarProperty } Return status bar properties.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: The window is nullptr.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible causes: Get status bar property failed.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible causes: Not mainWindow.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
@@ -6799,10 +6818,10 @@ declare namespace window {
      * Get whether the gesture back function is currently disabled.
      * 
      * @returns { boolean } enabled - If true then the gesture back function is currently enabled, false then the gesture back function is currently disabled.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities. Possible cause: Not support PC.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is nullptr.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause: Get gesture back failed.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Not mainWindow.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 13 dynamic
@@ -9062,7 +9081,8 @@ declare namespace window {
      *
      * @returns { Promise<boolean> } Promise used to return the result.
      *  The value true means that the wide-gamut color space is supported, and false means the opposite.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: 1. The window is nullptr;
+     *                                                                                     2. Failed to send event.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9082,7 +9102,8 @@ declare namespace window {
      * Whether the window supports thr wide gamut setting.
      *
      * @param { AsyncCallback<boolean> } callback Callback used to return the result.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: 1. The window is nullptr;
+     *                                                                                     2. Failed to send event.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9147,7 +9168,8 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is nullptr;
+     *                                                                                    2. Failed to send event.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -9189,7 +9211,8 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is nullptr;
+     *                                                                                    2. Failed to send event.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -9311,9 +9334,8 @@ declare namespace window {
      * Sets the background color of window.
      *
      * @param { string | ColorMetrics } color - the specified color.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is nullptr;
+     *                                                                                    2. Set background color failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -9436,7 +9458,8 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is nullptr;
+     *                                                                                    2. Failed to send event.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -9478,7 +9501,8 @@ declare namespace window {
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is nullptr;
+     *                                                                                    2. Failed to send event.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -9673,7 +9697,7 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: Service abnormally
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
@@ -9685,7 +9709,7 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: Service abnormally
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -9698,7 +9722,7 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: Service abnormally
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -9740,7 +9764,7 @@ declare namespace window {
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: Service abnormally
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -9858,9 +9882,9 @@ declare namespace window {
      * @param { boolean } isPrivacyMode in private mode if true, or not if false.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: Need PRIVACY_WINDOW permission.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is nullptr;
+     *                                                                                    2. Failed to send event.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -9903,9 +9927,9 @@ declare namespace window {
      * @param { boolean } isPrivacyMode in private mode if true, or not if false.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: Need PRIVACY_WINDOW permission.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is nullptr;
+     *                                                                                    2. Failed to send event.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -10083,7 +10107,9 @@ declare namespace window {
      * Obtains snapshot of window
      *
      * @param { AsyncCallback<image.PixelMap> } callback Callback used to return the result.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: 1. Invalid window;
+     *                                                                                     2. Snapshot failed;
+     *                                                                                     3. Failed to send event.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
@@ -10103,7 +10129,9 @@ declare namespace window {
      * Obtains snapshot of window
      *
      * @returns { Promise<image.PixelMap> } Promise that returns no value.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: 1. The window is nullptr;
+     *                                                                                     2. Snapshot failed;
+     *                                                                                     3. Failed to send event.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
@@ -10117,7 +10145,8 @@ declare namespace window {
      * @returns { image.PixelMap } Return pixel map of snapshot.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: 1. The window is nullptr;
+     *                                                                                     2. Create pixel map failed.
      * @throws { BusinessError } 1300018 - Timeout.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
@@ -10130,7 +10159,10 @@ declare namespace window {
      *
      * @returns { Promise<image.PixelMap> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Function snapshotIgnorePrivacy can not work correctly due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: 1. The window is nullptr;
+     *                                                                                     2. Snapshot failed;
+     *                                                                                     3. Get nativePixelMap is null;
+     *                                                                                     4. Failed to send event.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
@@ -11729,9 +11761,10 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is nullptr;
+     *                                                                                    2. Send event failed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Not subWindow or appFloatingWindow.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -12099,9 +12132,9 @@ declare namespace window {
      * @param { boolean } enabled - The value true means to enable immersive mode, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is nullptr.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause: Set immersive mode enable state failed.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Not mainWindow or subWindow.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
@@ -12113,9 +12146,8 @@ declare namespace window {
      * Get whether the immersive mode is enabled or not.
      *
      * @returns { boolean } - The value true means the immersive mode is enabled, and false means the opposite.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: The window is nullptr.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible causes: Not mainWindow or subWindow.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
@@ -12130,7 +12162,7 @@ declare namespace window {
      * @returns { boolean } The value true means that the layout is immersive, and false means the opposite.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: The window is nullptr.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      * @since 22 static
@@ -12254,9 +12286,10 @@ declare namespace window {
      * @param { boolean } isDockHoverShown - Whether to show the dock bar. The value true means to show the dock bar,
      *                                       and false means the opposite. The default value is true.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities. Possible cause: Device not support.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is not created or destroyed.
+     *                                                                                    2. Send event failed.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Invalid window type.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
@@ -12273,8 +12306,8 @@ declare namespace window {
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is nullptr.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Permission verification failed.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      * @since 22 static
@@ -13649,8 +13682,8 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *    capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: MainWindow is nullptr.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal. Possible causes: WindowScene is nullptr.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @atomicservice
@@ -13666,8 +13699,8 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: MainWindow is nullptr.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal. Possible cause: Window scene is nullptr.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @atomicservice
@@ -13683,8 +13716,8 @@ declare namespace window {
      *     The default value is false.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: MainWindow is nullptr.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal. Possible cause: Window scene is nullptr.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 20 dynamic
@@ -13698,7 +13731,9 @@ declare namespace window {
      *
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: 1. Window scene is nullptr;
+     *                                                                                     2. Main window is nullptr;
+     *                                                                                     3. Send event failed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
