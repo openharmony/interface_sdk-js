@@ -2674,7 +2674,7 @@ export declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  BASELINE = 0,
+  BASELINE = 4,
 
   /**
    * Indicating that the bottom of the ImageSpan should be aligned with the bottom of the surrounding text.
@@ -2682,7 +2682,7 @@ export declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  BOTTOM = 1,
+  BOTTOM = 3,
 
   /**
    * Indicating that the center of the ImageSpan should be aligned with the center of the surrounding text.
@@ -2698,7 +2698,7 @@ export declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  TOP = 3,
+  TOP = 1,
 
   /**
    * Indicating that the ImageSpan should be aligned by the paragraph's textVerticalAlign.
@@ -2706,7 +2706,7 @@ export declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  FOLLOW_PARAGRAPH = 4
+  FOLLOW_PARAGRAPH = 5
 }
 
 /**
