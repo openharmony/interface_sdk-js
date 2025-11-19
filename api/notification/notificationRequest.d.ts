@@ -33,6 +33,7 @@ import type { BundleOption } from './NotificationCommonDef';
 /*** if arkts static */
 import { WantAgent } from '../@ohos.app.ability.wantAgent';
 import { BundleOption } from './NotificationCommonDef';
+import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
@@ -258,11 +259,11 @@ export interface NotificationRequest {
   /**
    * Expand parameters to provide customized services for applications.
    *
-   * @type { ?Record<string, Object> }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
    * @since 22 static
    */
-  extraInfo?: Record<string, Object>;
+  extraInfo?: Record<string, RecordData>;
 
   /**
    * Extended parameter. Recommendation system application usage.
@@ -271,9 +272,17 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
    */
   extendInfo?: Record<string, Object>;
+  /**
+   * Extended parameter. Recommendation system application usage.
+   *
+   * @type { ?Record<string, RecordData> }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 static
+   */
+  extendInfo?: Record<string, RecordData>;
 
   /**
    * Background color of the notification.
