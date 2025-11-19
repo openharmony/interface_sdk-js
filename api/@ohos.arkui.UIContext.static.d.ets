@@ -2681,7 +2681,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  getFilteredInspectorTreeById(id: string, depth: number, filters?: Array<string>): string;
+  getFilteredInspectorTreeById(id: string, depth: int, filters?: Array<string>): string;
 
   /**
    * get object router.
