@@ -268,16 +268,18 @@ declare namespace uiExtension {
      *
      * @param { string } name - Name of the subwindow.
      * @param { window.SubWindowOptions } subWindowOptions - Parameters used for creating the subwindow.
-     * @param { boolean } [isHideFollowUIExt] - If true then the subwindow will also hide when uiextension is hidden.
+     * @param { boolean } [isHideFollowUIExt] - If true then the subwindow will also hide when uiextension is hidden. 
      * @returns { Promise<window.Window> } Promise used to return the subwindow.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @atomicservice
      * @since 22 dynamic&static
      */
-    createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions, isHideFollowUIExt?: boolean): Promise<window.Window>;
+    createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions,
+        isHideFollowUIExt?: boolean): Promise<window.Window>;
 
     /**
      * Adds or deletes the watermark flag for this window. This API uses a promise to return the result.
