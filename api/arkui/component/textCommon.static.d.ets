@@ -21,6 +21,8 @@ import { DecorationStyleInterface, MutableStyledString, StyledString } from './s
 import { SelectionOptions, Callback } from './common';
 import { TextDecorationType, TextDecorationStyle } from './enums';
 import { AttributeModifier, CommonMethod } from './common';
+import text from '../../@ohos.graphics.text';
+
 /**
  * Defines the text data detector type.
  *
@@ -515,6 +517,27 @@ export declare interface LayoutManager {
      * @since 22 static
      */
     getGlyphPositionAtCoordinate(x: double, y: double): PositionWithAffinity;
+
+    /**
+     * Get LineMetrics.
+     * 
+     * @param { int } lineNumber - the number of line.
+     * @returns { LineMetrics } The line Metrics.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    getLineMetrics(lineNumber: int): LineMetrics;
+
+    /**
+     * Get the rects for range.
+     * @param { TextRange } range - The range to set.
+     * @param { RectWidthStyle } widthStyle - Width style to set.
+     * @param { RectHeightStyle } heightStyle - Height style to set.
+     * @returns { Array<TextBox> } The rects for range.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>;
 }
 /**
  * Position and affinity.
@@ -532,7 +555,59 @@ export interface PositionWithAffinity {
      * @since 22 static
      */
     position: int;
+
+    /**
+     * Affinity of the position.
+     * @type { Affinity }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 22 static
+     */
+    affinity: Affinity;
 }
+/**
+ * Define the Affinity type.
+ *
+ * @typedef { text.Affinity } Affinity
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+declare type Affinity = text.Affinity;
+
+/**
+ * Define the LineMetrics type.
+ *
+ * @typedef { text.LineMetrics } LineMetrics
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+declare type LineMetrics = text.LineMetrics;
+
+/**
+ * Define the RectWidthStyle type.
+ *
+ * @typedef { text.RectWidthStyle } RectWidthStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+declare type RectWidthStyle = text.RectWidthStyle;
+
+/**
+ * Define the RectHeightStyle type.
+ *
+ * @typedef { text.RectHeightStyle } RectHeightStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+declare type RectHeightStyle = text.RectHeightStyle;
+
+/**
+ * Define the TextBox type.
+ *
+ * @typedef { text.TextBox } TextBox
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+declare type TextBox = text.TextBox;
 /**
  * Defines the cursor style
  *
