@@ -282,7 +282,7 @@ declare namespace uiExtension {
      * @since 22 dynamic
      * @since 22 static
      */
-    createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions, isHideFollowUIExt: boolean): Promise<window.Window>;
+    createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions, isHideFollowUIExt?: boolean): Promise<window.Window>;
 
     /**
      * Adds or deletes the watermark flag for this window. This API uses a promise to return the result.

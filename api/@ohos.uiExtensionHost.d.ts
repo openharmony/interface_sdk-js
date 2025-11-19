@@ -227,10 +227,10 @@ declare namespace uiExtensionHost {
      * @since 20 static
      */
     /**
-     * Creates a subwindow for this window proxy. This API uses a promise to return the result.
+     * Create sub window.
      *
-     * @param { string } name - Name of the subwindow.
-     * @param { window.SubWindowOptions } subWindowOptions - Parameters used for creating the subwindow.
+     * @param { string } name - window name of sub window
+     * @param { window.SubWindowOptions } subWindowOptions - options of sub window creation
      * @param { boolean } isHideFollowUIExt - If true then the subwindow will also hide when uiextension is hidden.
      * @returns { Promise<window.Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
@@ -240,12 +240,12 @@ declare namespace uiExtensionHost {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
      * @StageModelOnly
-     * @atomicservice
      * @since 22 dynamic
      * @since 22 static
      */
-    createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions, isHideFollowUIExt: boolean): Promise<window.Window>;
+    createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions, isHideFollowUIExt?: boolean): Promise<window.Window>;
 
      /**
      * Set the watermark flag on the UIExtension window
