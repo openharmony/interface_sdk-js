@@ -2119,7 +2119,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    default singleLine(isEnable: boolean | undefined): RichEditorAttribute;
+    default singleLine(isEnable: boolean | undefined): this;
     /**
      * Sets the attribute modifier.
      *
