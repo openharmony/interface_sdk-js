@@ -60,6 +60,7 @@ import type _AutoStartupInfo from './application/AutoStartupInfo';
 import _UIServiceProxy from './application/UIServiceProxy';
 import _UIServiceHostProxy from './application/UIServiceHostProxy';
 import _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
+import type _PhotoEditorExtensionContext from './application/PhotoEditorExtensionContext';
 /*** endif */
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type _AbilityStartCallback from './application/AbilityStartCallback';
@@ -237,7 +238,6 @@ declare namespace common {
    * @since 11 dynamic
    */
   export type BaseContext = _BaseContext.default;
-  
   /**
    * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
    *
@@ -577,7 +577,17 @@ declare namespace common {
    * @stagemodelonly
    * @since 12 dynamic
    */
-    export type PhotoEditorExtensionContext = _PhotoEditorExtensionContext.default;
+  export type PhotoEditorExtensionContext = _PhotoEditorExtensionContext.default;
+
+  /**
+   * The context of an photo editor extension ability.
+   *
+   * @typedef { _PhotoEditorExtensionContext }
+   * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
+   * @stagemodelonly
+   * @since 22 static
+   */
+  export type PhotoEditorExtensionContext = _PhotoEditorExtensionContext;
 
   /**
    * The context of a UI service ability.
