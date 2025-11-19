@@ -25,15 +25,17 @@ import resourceManager from '../@ohos.resourceManager';
 
 /**
  * Enumerates the error type.
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.Multimedia.Media.SoundPool
  * @since 20 dynamic
+ * @since 22 static
  */
 export enum ErrorType {
   /**
    * Load error.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
+   * @since 22 static
    */
   LOAD_ERROR = 1,
 
@@ -41,6 +43,7 @@ export enum ErrorType {
    * Play error.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
+   * @since 22 static
    */
   PLAY_ERROR = 2
 }
