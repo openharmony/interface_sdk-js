@@ -166,6 +166,7 @@ declare class BackupExtensionAbility {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 20 dynamic
+   * @since 22 static
    */
   onRelease(scenario: number): Promise<void>;
 
@@ -179,6 +180,7 @@ declare class BackupExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 20 dynamic
+   * @since 22 static
    */
   getBackupCompatibilityInfo(extInfo: string) : Promise<string>;
 
@@ -192,6 +194,7 @@ declare class BackupExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 20 dynamic
+   * @since 22 static
    */
   getRestoreCompatibilityInfo(extInfo: string) : Promise<string>;
 }
