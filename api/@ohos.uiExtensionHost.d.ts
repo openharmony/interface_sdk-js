@@ -231,19 +231,14 @@ declare namespace uiExtensionHost {
      *
      * @param { string } name - window name of sub window
      * @param { window.SubWindowOptions } subWindowOptions - options of sub window creation
-     * @param { boolean } isHideFollowUIExt - If true then the subwindow will also hide when uiextension is hidden.
+     * @param { boolean } [isHideFollowUIExt] - If true then the subwindow will also hide when uiextension is hidden.
      * @returns { Promise<window.Window> } Promise used to return the subwindow.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @StageModelOnly
-     * @since 22 dynamic
-     * @since 22 static
+     * @stagemodelonly
+     * @since 22 dynamic&static
      */
     createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions, isHideFollowUIExt?: boolean): Promise<window.Window>;
 
