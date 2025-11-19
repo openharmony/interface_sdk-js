@@ -351,12 +351,13 @@ export declare class PickerController {
   /**
    * Update options of the PhotoPicker component.
    *
-   * @param { UpdatablePickerOptions } updateConfig - Subset of PickerOptions
+   * @param { UpdatablePickerConfigs } updateConfig - Subset of PickerOptions
+   * @returns { Promise<void> } Promise<void>
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 22 dynamic&static
    */
-  updatePickerOptions(updateConfig: UpdatablePickerOptions): Promise<void>;
+  updatePickerOptions(updateConfig: UpdatablePickerConfigs): Promise<void>;
 }
 
 /**
@@ -582,13 +583,13 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
 }
 
 /**
- * UpdatablePickerOptions
+ * UpdatablePickerConfigs
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 22 dynamic&static
  */
-export declare class UpdatablePickerOptions {
+export declare class UpdatablePickerConfigs {
 
   /**
    * The type of the file in the recent photo window.
