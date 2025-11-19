@@ -1539,24 +1539,6 @@ declare enum ComponentEventType {
    * @test
    */
   COMPONENT_TEXT_CHANGED = 5,
-  /**
-   * The mouse hoveringly enter a component.
-   * 
-   * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
-   * @since 22 dynamic&static
-   * @test
-   */
-  COMPONENT_HOVER_ENTER = 6,
-  /**
-   * The mouse hoveringly exit a component.
-   * 
-   * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
-   * @since 22 dynamic&static
-   * @test
-   */
-  COMPONENT_HOVER_EXIT = 7,
 }
 
 /**
