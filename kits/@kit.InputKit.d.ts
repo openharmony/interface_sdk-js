@@ -41,16 +41,17 @@ export {
   Action, ActionType, Axis, AxisValue, Button, FourFingersSwipe, InputEvent, IntentionCode,
   Key, KeyAction, KeyCode, KeyEvent, MouseAction, MouseEvent, MouseToolType, Pinch, Rotate,
   SourceType, ThreeFingersSwipe, ThreeFingersTap, ToolType, Touch, TouchEvent, inputConsumer,
-  inputDevice, pointer, SwipeInward, infraredEmitter
+  inputDevice, pointer, SwipeInward
 };
 import infraredEmitter from '@ohos.multimodalInput.infraredEmitter';
-/*** endif */
-
-/* 1.1 独有部分 */
-import inputDeviceCooperate from '@ohos.multimodalInput.inputDeviceCooperate';
 import inputEventClient from '@ohos.multimodalInput.inputEventClient';
 import inputMonitor from '@ohos.multimodalInput.inputMonitor';
 import shortKey from '@ohos.multimodalInput.shortKey';
 export {
-  inputDeviceCooperate, inputEventClient, inputMonitor, shortKey
+  inputEventClient, inputMonitor, shortKey, infraredEmitter
 };
+/*** endif */
+
+/* 1.1 独有部分 */
+import inputDeviceCooperate from '@ohos.multimodalInput.inputDeviceCooperate';
+export { inputDeviceCooperate };
