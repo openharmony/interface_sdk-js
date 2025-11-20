@@ -5411,7 +5411,7 @@ declare class URLRegexRule {
  * @typedef ScriptItem
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 12 dynamic
+ * @since 12
  */
 
 /**
