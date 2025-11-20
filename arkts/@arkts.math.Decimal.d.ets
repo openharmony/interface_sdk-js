@@ -109,7 +109,7 @@ type Value = string | double | Decimal;
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
- * @since 20 static
+ * @since 22 static
  */
 interface DecimalConfig {
   /**
@@ -125,12 +125,12 @@ interface DecimalConfig {
    * The maximum number of significant digits of the result of an operation.
    * Default value: 20
    *
-   * @type { double } integer, 1 to 1e+9 inclusive
+   * @type { ?double } integer, 1 to 1e+9 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   precision?: double;
   /**
@@ -150,12 +150,12 @@ interface DecimalConfig {
    * toHexadecimal, toNearest, toOctal, toPrecision and toSignificantDigits methods.
    * Default value: 4 (ROUND_HALF_UP)
    *
-   * @type { Rounding } integer, integer, 0 to 8 inclusive
+   * @type { ?Rounding } integer, integer, 0 to 8 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   rounding?: Rounding;
   /**
@@ -171,12 +171,12 @@ interface DecimalConfig {
    * The negative exponent value at and below which toString returns exponential notation.
    * Default value: -7
    *
-   * @type { double } integer, -9e15 to 0 inclusive
+   * @type { ?double } integer, -9e15 to 0 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   toExpNeg?: double;
   /**
@@ -192,12 +192,12 @@ interface DecimalConfig {
    * The positive exponent value at and above which toString returns exponential notation.
    * Default value: 20
    *
-   * @type { double } integer, 0 to 9e15 inclusive
+   * @type { ?double } integer, 0 to 9e15 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   toExpPos?: double;
   /**
@@ -213,12 +213,12 @@ interface DecimalConfig {
    * The negative exponent limit, i.e. the exponent value below which underflow to zero occurs.
    * Default value: -9e15
    *
-   * @type { double } integer, -9e15 to 0 inclusive
+   * @type { ?double } integer, -9e15 to 0 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   minE?: double;
   /**
@@ -234,12 +234,12 @@ interface DecimalConfig {
    * The positive exponent limit, i.e. the exponent value above which overflow to Infinity occurs.
    * Default value: 9e15
    *
-   * @type { double } integer, 0 to 9e15 inclusive
+   * @type { ?double } integer, 0 to 9e15 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   maxE?: double;
   /**
@@ -255,12 +255,12 @@ interface DecimalConfig {
    * The value that determines whether cryptographically-secure pseudo-random number generation is used.
    * Default value: false
    *
-   * @type { boolean }
+   * @type { ?boolean }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   crypto?: boolean;
   /**
@@ -276,12 +276,12 @@ interface DecimalConfig {
    * The modulo mode used when calculating the modulus: a mod n.
    * Default value: 1 (ROUND_DOWN)
    *
-   * @type { Modulo } integer, 0 to 9 inclusive
+   * @type { ?Modulo } integer, 0 to 9 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   modulo?: Modulo;
   /**
@@ -297,12 +297,12 @@ interface DecimalConfig {
    * If object has a 'defaults' property with value true then the new constructor will use the default configuration.
    * Default value: false
    *
-   * @type { boolean }
+   * @type { ?boolean }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   defaults?: boolean;
 }
