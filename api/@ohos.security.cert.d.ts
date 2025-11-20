@@ -6287,6 +6287,19 @@ declare namespace cert {
     trustSystemCa?: boolean;
 
     /**
+     * Indicates whether to allow attempts to download missing intermediate CAs from the network. The download address
+     * will be obtained from the certificate AIA extension.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    allowDownloadIntermediateCa?: boolean;
+
+    /**
      * The cert and CRL list to build cert chain and verify the certificate chain revocation state.
      *
      * @type { ?Array<CertCRLCollection> }
