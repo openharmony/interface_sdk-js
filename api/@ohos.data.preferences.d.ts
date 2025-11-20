@@ -80,9 +80,19 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object | bigint;
+
+  /**
+   * Indicates possible value types
+   * 
+   * @typedef {long | double | string | boolean | Array<long> | Array<double> | Array<string> | Array<boolean>
+     | Uint8Array | object | bigint}
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @since 22 static
+   */
+  type ValueType = long | double | string | boolean | Array<long> | Array<double> | Array<string> | Array<boolean>
+     | Uint8Array | object | bigint;
 
   /**
    * Indicates the maximum length of a key (80 characters).
