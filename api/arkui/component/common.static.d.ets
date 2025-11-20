@@ -1628,12 +1628,12 @@ export declare interface LinearGradientOptions {
      * Defines starting angle of linear gradient.
      *
      * Anonymous Object Rectification.
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @default 180
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    angle?: number | string;
+    angle?: double | string;
     /**
      * Defines the direction of linear gradient.
      *
@@ -1648,13 +1648,13 @@ export declare interface LinearGradientOptions {
      * Defines color description for gradients.
      *
      * Anonymous Object Rectification.
-     * @type { Array<[ResourceColor, number]> }
+     * @type { Array<[ResourceColor, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
     colors: Array<[
         ResourceColor,
-        number
+        double
     ]>;
     /**
      * Defines gradient colors with repeated coloring.
@@ -3557,11 +3557,11 @@ export declare interface PickerDialogButtonStyle {
     /**
      * Describes the button font weight.
      *
-     * @type { ?(FontWeight | number | string) }
+     * @type { ?(FontWeight | int | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    fontWeight?: FontWeight | number | string;
+    fontWeight?: FontWeight | int | string;
     /**
      * Describes the button font style.
      *
@@ -3756,12 +3756,12 @@ export declare interface MultiShadowOptions {
      * <br>A value less than or equal to 0 is handled as the default value.
      * </p>
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @default 20
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    radius?: number | Resource;
+    radius?: double | Resource;
     /**
      * Offset on the x-axis.
      * Unit: vp.

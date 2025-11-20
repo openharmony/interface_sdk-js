@@ -115,11 +115,11 @@ export declare interface TextPickerOptions {
     /**
      * Current selected subscript.
      *
-     * @type { ?(number | number[] | Bindable<number> | Bindable<number[]>) }
+     * @type { ?(int | int[] | Bindable<int> | Bindable<int[]>) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    selected?: number | number[] | Bindable<number> | Bindable<number[]>;
+    selected?: int | int[] | Bindable<int> | Bindable<int[]>;
     /**
      * Width of each column in the picker.
      *
@@ -210,19 +210,19 @@ export declare interface TextPickerTextStyle extends PickerTextStyle {
      * The default maximum number of lines is 1,
      * and the default height adaptation mode is MIN_FONT_SIZE_FIRST.
      *
-     * @type { ?(number | string | Resource) }
+     * @type { ?(double | string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    minFontSize?: number | string | Resource;
+    minFontSize?: double | string | Resource;
     /**
      * Maximum font size.
      *
-     * @type { ?(number | string | Resource) }
+     * @type { ?(double | string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    maxFontSize?: number | string | Resource;
+    maxFontSize?: double | string | Resource;
     /**
      * Display mode when the text is too long.
      *
@@ -241,31 +241,31 @@ export declare interface TextPickerTextStyle extends PickerTextStyle {
  *
  * @typedef {function} TextPickerScrollStopCallback
  * @param { string | string[] } value - Value of the selected item.
- * @param { number | number[] } index - Index of the selected item.
+ * @param { int | int[] } index - Index of the selected item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export type TextPickerScrollStopCallback = (value: string | string[], index: number | number[]) => void;
+export type TextPickerScrollStopCallback = (value: string | string[], index: int | int[]) => void;
 /**
  * Callback of TextPicker item is selected event.
  *
  * @typedef {function} OnTextPickerChangeCallback
  * @param { string | string[] } selectItem - Value of the selected item.
- * @param { number | number[] } index - Index of the selected item.
+ * @param { int | int[] } index - Index of the selected item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export type OnTextPickerChangeCallback = (selectItem: string | string[], index: number | number[]) => void;
+export type OnTextPickerChangeCallback = (selectItem: string | string[], index: int | int[]) => void;
 /**
  * Callback of the listened onEnterSelectedArea event.
  *
  * @typedef {function} TextPickerEnterSelectedAreaCallback
  * @param { string | string[] } value - Value of the selected item.
- * @param { number | number[] } index - Index of the selected item.
+ * @param { int | int[] } index - Index of the selected item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: number | number[]) => void;
+export type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: int | int[]) => void;
 /**
  * Defines the TextPicker component attributes.
  *
@@ -278,7 +278,7 @@ export declare interface TextPickerAttribute extends CommonMethod {
     /**
      * Sets the height of each item in the picker.
      *
-     * @param { number | string | undefined } value - Height of each item in the picker.
+     * @param { double | string | undefined } value - Height of each item in the picker.
      * <br>For the number type, the value range is [0, +∞]. For the string type,
      * <br>only numeric string values, for example, "56", are supported.
      * @returns { TextPickerAttribute }
@@ -286,7 +286,7 @@ export declare interface TextPickerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default defaultPickerItemHeight(value: number | string | undefined): this;
+    default defaultPickerItemHeight(value: double | string | undefined): this;
     /**
      * Sets whether scrolling is loopable.
      *
@@ -383,13 +383,13 @@ export declare interface TextPickerAttribute extends CommonMethod {
      * For a single-column picker, use a value of the number type.
      * For a multi-column (linked) picker, use a value of the number[] type.
      *
-     * @param { number | number[] | undefined } value - Index of the default selected item in the array.
+     * @param { int | int[] | undefined } value - Index of the default selected item in the array.
      * @default 0
      * @returns { TextPickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default selectedIndex(value: number | number[] | undefined): this;
+    default selectedIndex(value: int | int[] | undefined): this;
     /**
      * Sets the divider style.
      *
@@ -464,11 +464,11 @@ export declare interface TextPickerResult {
     /**
      * The subscript of the current selection.
      *
-     * @type { number | number[] }
+     * @type { int | int[] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    index: number | number[];
+    index: int | int[];
 }
 /**
  * Defines the TextPickerDialogOptions for Text Picker Dialog.
@@ -482,12 +482,12 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
     /**
      * Height of the picker item.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @default 56 vp (selected) and 36 vp (unselected)
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    defaultPickerItemHeight?: number | string;
+    defaultPickerItemHeight?: double | string;
     /**
      * Whether to support scroll looping.
      * The value true means to support scroll looping, and false means the opposite.
