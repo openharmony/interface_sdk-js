@@ -211,7 +211,6 @@ declare namespace data {
    */
   function getCellularDataState(): Promise<DataConnectState>;
 
-
   /**
    * Check whether cellular data services are enabled.
    *
