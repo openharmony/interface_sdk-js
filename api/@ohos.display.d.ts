@@ -1568,6 +1568,83 @@ declare namespace display {
   }
 
   /**
+   * Enumerates the type of round corner.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 22 dynamic&static
+   */
+  enum CornerType {
+    /**
+     * The round corner in the top left.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    TOP_LEFT = 0,
+ 
+    /**
+     * The round corner in the top right.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    TOP_RIGHT = 1,
+
+    /**
+     * The round corner in the bottom right.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    BOTTOM_RIGHT = 2,
+
+    /**
+     * The round corner in the bottom left.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    BOTTOM_LEFT = 3
+  }
+
+  /**
+   * Round corner information of display.
+   *
+   * @interface RoundedCorner
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 22 dynamic&static
+   */
+  interface RoundedCorner {
+    /**
+     * The type of round corner.
+     *
+     * @type { CornerType }
+     * @syscap  SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    type: CornerType;
+
+    /**
+     * The cneter coordinates of round corner.
+     *
+     * @type { Position }
+     * @syscap  SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    position: Position;
+
+    /**
+     * The radius of round corner.
+     *
+     * @type { int }
+     * @syscap  SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    radius: int;
+  }
+
+  /**
    * Enumerates the screen shape.
    *
    * @enum { number }
@@ -2451,6 +2528,18 @@ declare namespace display {
      * @since 22 static
      */
     supportedRefreshRates?: Array<int>;
+
+    /**
+     * Get information about all the rounded corners.
+     * 
+     * @returns { Array<RoundedCorner> } The rounded corners.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 1400001 - Invalid display or screen.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    getRoundedCorner(): Array<RoundedCorner>;
 
     /**
      * Obtain the cutout info of the display.
