@@ -2909,7 +2909,7 @@ declare namespace window {
     /**
      * The right of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -2927,7 +2927,7 @@ declare namespace window {
     /**
      * The top of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -2945,7 +2945,7 @@ declare namespace window {
     /**
      * The width of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -2963,7 +2963,7 @@ declare namespace window {
     /**
      * The height of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -11410,7 +11410,7 @@ declare namespace window {
     /**
      * Set the height of the window decor.
      *
-     * @param { number } - The height of window decor.
+     * @param { int } - The height of window decor.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -11441,7 +11441,7 @@ declare namespace window {
     /**
      * Get the height of the window decor.
      *
-     * @returns { number } - The height of window decor.
+     * @returns { int } - The height of window decor.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
