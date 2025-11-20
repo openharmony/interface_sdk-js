@@ -5372,6 +5372,32 @@ declare interface WebOptions {
 }
 
 /**
+ * Defines the regular expression rule.
+ *
+ * 
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic&static
+*/
+declare class URLRegexRule {
+  /**
+   * Exact match of the second-level domain. For example, the second-level domain of https://www.example.com is example.com,
+   * and the second-level domain of https://www.example.com.cn is example.com.cn. If the URL is an IP address, the full IP is
+   * matched against the secondLevelDomain.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic&static
+   */
+  secondLevelDomain: string;
+  /**
+   * Full URL regular expression.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic&static
+   */
+  rule: string;
+}
+
+/**
  * Defines the contents of the JavaScript to be injected.
  *
  * @interface ScriptItem
@@ -5386,6 +5412,15 @@ declare interface WebOptions {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
+ */
+
+/**
+ * Defines the contents of the JavaScript to be injected.
+ *
+ * @typedef ScriptItem
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 23 dynamic
  */
 declare interface ScriptItem {
   /**
@@ -5407,6 +5442,15 @@ declare interface ScriptItem {
    * @since 11 dynamic
    */
   scriptRules: Array<string>;
+
+  /**
+   * Set the regular expression rule that allows execution of this JavaScript.
+   *
+   * @type { Array<URLRegexRule> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic&static
+   */
+  regexRules?: Array<URLRegexRule>;
 }
 
 /**
