@@ -53,7 +53,7 @@ declare namespace pasteboard {
    */
   /**
    * Indicates the maximum number of records allowed in a PasteData object.
-   * No limit the number of records in PasteData object since API version 10.
+   * No limit the number of records in a PasteData object since API version 10.
    * @constant
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
@@ -675,7 +675,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#convertToTextV9
+     * @useinstead ohos.pasteboard.pasteboard#toPlainText
      */
     convertToText(callback: AsyncCallback<string>): void;
 
@@ -685,7 +685,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#convertToTextV9
+     * @useinstead ohos.pasteboard.pasteboard#toPlainText
      */
     convertToText(): Promise<string>;
 
@@ -1391,6 +1391,14 @@ declare namespace pasteboard {
     on(type: 'update', callback: () => void): void;
 
     /**
+     * Add a callback invoked when remote pasteboard content changes.
+     * @param { UpdateCallback } callback - the callback to add.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 22 dynamic&static
+     */
+    onRemoteUpdate(callback: UpdateCallback): void;
+
+    /**
      * Remove a callback invoked when pasteboard content changes.
      * @param { 'update' } type - indicates pasteboard content changed.
      * @param { function } [callback] - the callback to remove. If this parameter is not filled in, it indicates that all
@@ -1401,6 +1409,16 @@ declare namespace pasteboard {
      * @since 7 dynamic
      */
     off(type: 'update', callback?: () => void): void;
+
+    /**	
+     * Remove a callback invoked when remote pasteboard content changes.	
+     * @param { UpdateCallback } [callback] - the callback to remove. If this parameter is not filled in, it indicates	
+     * that all callbacks for this application will be cleared. Otherwise, it indicates that the specified callback
+     * will be cleared.
+     * @syscap SystemCapability.MiscServices.Pasteboard	
+     * @since 22 dynamic&static	
+     */	
+    offRemoteUpdate(callback?: UpdateCallback): void;
 
     /**
      * Add a callback invoked when pasteboard content changes.
