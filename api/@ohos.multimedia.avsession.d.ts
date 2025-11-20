@@ -127,6 +127,20 @@ declare namespace avSession {
   function getAllSessionDescriptors(): Promise<Array<Readonly<AVSessionDescriptor>>>;
 
   /**
+   * Get session descriptors of the system based on different session category.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { SessionCategory } category - Specifies the category of AVSession.
+   * @returns { Promise<Array<Readonly<AVSessionDescriptor>>> } Promise for an array of AVSessionDescriptors
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function getSessionDescriptors(category: SessionCategory): Promise<Array<Readonly<AVSessionDescriptor>>>;
+
+  /**
    * Get history avsession records. These sessions have been destroyed.
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { int } maxSize - Specifies the maximum size of the returned value array.
@@ -358,6 +372,39 @@ declare namespace avSession {
    * @since 22 static
    */
   function getDistributedSessionController(distributedSessionType: DistributedSessionType): Promise<Array<AVSessionController>>;
+
+    /**
+   * Session category for different scenes.
+   * @typedef SessionCategory
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  enum SessionCategory {
+    /**
+     * The active session category which can be shown on system control entrance.
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    CATEGORY_ACTIVE = 1,
+
+    /**
+     * The session category which is partially integrated with AVSession function.
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    CATEGORY_NOT_ACTIVE = 2,
+
+    /**
+     * The all session category including all the applications using AVSession.
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    CATEGORY_ALL = 3,
+  }
 
   /**
    * Session token. Used to judge the legitimacy of the session.
@@ -1386,9 +1433,15 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
-  type AVSessionType = 'audio' | 'video' | 'voice_call' | 'video_call';
+  /**
+   * Session type supports audio & video, voice_call, video_call, photo
+   * @typedef { 'audio' | 'video' | 'voice_call' | 'video_call' | 'photo'} AVSessionType
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  type AVSessionType = 'audio' | 'video' | 'voice_call' | 'video_call' | 'photo';
 
   /**
    * The general process funcation with an event and arguments.
