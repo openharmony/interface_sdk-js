@@ -25,7 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3 dynamiconly
  * @deprecated since 8
- * @useinstead ohos.prompt
+ * @useinstead ohos.promptAction/promptAction.ShowToastOptions
  */
 export interface ShowToastOptions {
   /**
@@ -33,8 +33,9 @@ export interface ShowToastOptions {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.promptAction/promptAction.ShowToastOptions#message
    */
   message: string;
 
@@ -45,8 +46,9 @@ export interface ShowToastOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.promptAction/promptAction.ShowToastOptions#duration
    */
   duration?: number;
 
@@ -55,8 +57,9 @@ export interface ShowToastOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.promptAction/promptAction.ShowToastOptions#bottom
    */
   bottom?: string | number;
 }
