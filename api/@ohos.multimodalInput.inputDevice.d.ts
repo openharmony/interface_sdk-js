@@ -425,6 +425,24 @@ declare namespace inputDevice {
      * @since 22 static
      */
     uniq: string;
+    
+    /**
+     * Indicates whether the input device is virtual.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @since 23 dynamic&static
+     */
+    isVirtual?: boolean;
+
+    /**
+     * Indicates whether the input device is local.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @since 23 dynamic&static
+     */
+    isLocal?: boolean;    
   }
 
   /**
