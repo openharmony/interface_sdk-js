@@ -8007,6 +8007,16 @@ declare interface BlankScreenDetectionEventInfo {
 type OnDetectBlankScreenCallback = (event: BlankScreenDetectionEventInfo) => void;
 
 /**
+ * Callback with the selected text after the text selection content changes.
+ *
+ * @typedef { function } TextSelectionChangeCallback
+ * @param { string } selectionText - the selected text after the text selection content changes.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+type TextSelectionChangeCallback = (selectionText: string) => void;
+
+/**
  * The methods can be chosen to detect if current page is blank or nearly blank.
  *
  * @enum { number }
@@ -11423,6 +11433,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 22 dynamic
    */
   enableSelectedDataDetector(enable: boolean): WebAttribute
+
+  /**
+   * Called when the text selection changes.
+   *
+   * @param { TextSelectionChangeCallback } callback - when the text selection changes.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  onTextSelectionChange(callback: TextSelectionChangeCallback): WebAttribute;
 
   /**
    * Set up web component to support AI image recognition capability.
