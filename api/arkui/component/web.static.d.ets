@@ -6192,6 +6192,17 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default backToTop(backToTop: boolean | undefined): this;
     /**
+    * Enable selected data detector.
+    *
+    * @param { boolean | undefined } enable - whether to enable the selected data detector.
+    *     {@code true} means enable all select data detector in Web;{@code false} otherwise.
+    *     The default value is true.
+    * @returns { WebAttribute }
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 22 static
+    */
+    default enableSelectedDataDetector(enable: boolean | undefined): this;
+    /**
     * Called when the text selection changes.
     *
     * @param { TextSelectionChangeCallback | undefined } callback - when the text selection changes.
