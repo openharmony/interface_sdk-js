@@ -4679,7 +4679,15 @@ declare namespace huks {
      * @atomicservice
      * @since 12
      */
-    HUKS_UNWRAP_SUITE_ECDH_AES_256_GCM_NOPADDING = 2
+    HUKS_UNWRAP_SUITE_ECDH_AES_256_GCM_NOPADDING = 2,
+    /**
+     * Use SM2 and then use SM4-ECB-NoPadding to encrypt the key.
+     * 
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 23
+     */
+    HUKS_UNWRAP_SUITE_SM2_SM4_ECB_NOPADDING = 5,
   }
 
   /**
@@ -6351,6 +6359,14 @@ declare namespace huks {
      * @since 22
      */
     HUKS_TAG_KEY_CLASS = HuksTagType.HUKS_TAG_TYPE_UINT | 522,
+    /**
+     * The tag indicates a group of shared keys among applications with the same developer ID.
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @atomicservice
+     * @since 23
+     */
+    HUKS_TAG_KEY_ACCESS_GROUP = HuksTagType.HUKS_TAG_TYPE_BYTES | 523,
 
     /*
      * Other reserved TAG: 601 - 1000
