@@ -5205,7 +5205,17 @@ export declare enum BlendApplyType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    OFFSCREEN = 1
+    OFFSCREEN = 1,
+    /**
+    * The content of the component and its child components are drawn on the
+    * offscreen canvas, and then blended with the existing content on the canvas.
+    * The offscreen canvas will copy background to initialize itself when created.
+    * 
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @systemapi
+    * @since 23 static
+    */
+    OFFSCREEN_WITH_BACKGROUND = 2
 }
 /**
  * DragEvent object description
@@ -10449,9 +10459,10 @@ export declare interface CommonMethod {
 
     /**
      * Add a blendMode effect to the current component.Cannot be used together with the blendMode interface.
-     * 
+     *
      * @param { BlendMode | Blender | undefined } effect - When the effect type is BlendMode type, define Different hybrid modes.
      * @param { BlendApplyType } [type] - Different blend apply type
+     *     Default value: BlendApplyType.FAST.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
