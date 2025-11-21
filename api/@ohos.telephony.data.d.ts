@@ -151,34 +151,67 @@ declare namespace data {
    * Obtain the connection state of the PS domain.
    *
    * @param { AsyncCallback<DataConnectState> } callback - Indicates the callback for getting the connection state,
-   * which can be any of the following:
-   * <ul>
-   * <li>{@code DataConnectState#DATA_STATE_UNKNOWN}
-   * <li>{@code DataConnectState#DATA_STATE_DISCONNECTED}
-   * <li>{@code DataConnectState#DATA_STATE_CONNECTING}
-   * <li>{@code DataConnectState#DATA_STATE_CONNECTED}
-   * <li>{@code DataConnectState#DATA_STATE_SUSPENDED}
-   * </ul>
+   *     which can be any of the following:
+   *     <ul>
+   *     <li>{@code DataConnectState#DATA_STATE_UNKNOWN}
+   *     <li>{@code DataConnectState#DATA_STATE_DISCONNECTED}
+   *     <li>{@code DataConnectState#DATA_STATE_CONNECTING}
+   *     <li>{@code DataConnectState#DATA_STATE_CONNECTED}
+   *     <li>{@code DataConnectState#DATA_STATE_SUSPENDED}
+   *     </ul>
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
-   * @since 22 static
+   */
+  /**
+   * Obtain the connection state of the PS domain.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { AsyncCallback<DataConnectState> } callback - Indicates the callback for getting the connection state,
+   *     which can be any of the following:
+   *     <ul>
+   *     <li>{@code DataConnectState#DATA_STATE_UNKNOWN}
+   *     <li>{@code DataConnectState#DATA_STATE_DISCONNECTED}
+   *     <li>{@code DataConnectState#DATA_STATE_CONNECTING}
+   *     <li>{@code DataConnectState#DATA_STATE_CONNECTED}
+   *     <li>{@code DataConnectState#DATA_STATE_SUSPENDED}
+   *     </ul>
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Telephony.CellularData
+   * @since 22 dynamic&static
    */
   function getCellularDataState(callback: AsyncCallback<DataConnectState>): void;
 
   /**
    * Obtain the connection state of the PS domain.
    *
-   * @returns { Promise<DataConnectState> } Returns the connection state, which can be any of the following:
-   * <ul>
-   * <li>{@code DataConnectState#DATA_STATE_UNKNOWN}
-   * <li>{@code DataConnectState#DATA_STATE_DISCONNECTED}
-   * <li>{@code DataConnectState#DATA_STATE_CONNECTING}
-   * <li>{@code DataConnectState#DATA_STATE_CONNECTED}
-   * <li>{@code DataConnectState#DATA_STATE_SUSPENDED}
-   * </ul>
+   * @returns { Promise<DataConnectState> } Returns the connection state,
+   *     which can be any of the following:
+   *     <ul>
+   *     <li>{@code DataConnectState#DATA_STATE_UNKNOWN}
+   *     <li>{@code DataConnectState#DATA_STATE_DISCONNECTED}
+   *     <li>{@code DataConnectState#DATA_STATE_CONNECTING}
+   *     <li>{@code DataConnectState#DATA_STATE_CONNECTED}
+   *     <li>{@code DataConnectState#DATA_STATE_SUSPENDED}
+   *     </ul>
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
-   * @since 22 static
+   */
+  /**
+   * Obtain the connection state of the PS domain.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @returns { Promise<DataConnectState> } Returns the connection state,
+   *     which can be any of the following:
+   *     <ul>
+   *     <li>{@code DataConnectState#DATA_STATE_UNKNOWN}
+   *     <li>{@code DataConnectState#DATA_STATE_DISCONNECTED}
+   *     <li>{@code DataConnectState#DATA_STATE_CONNECTING}
+   *     <li>{@code DataConnectState#DATA_STATE_CONNECTED}
+   *     <li>{@code DataConnectState#DATA_STATE_SUSPENDED}
+   *     </ul>
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Telephony.CellularData
+   * @since 22 dynamic&static
    */
   function getCellularDataState(): Promise<DataConnectState>;
 
