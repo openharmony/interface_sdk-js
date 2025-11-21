@@ -4116,6 +4116,45 @@ declare namespace notificationManager {
   function setAdditionalConfig(key: string, value: string): Promise<int>;
 
   /**
+   * Set priority config of bundle for intelligent identification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { string } value - config value.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function setBundlePriorityConfig(bundle: BundleOption, value: string): Promise<void>;
+
+  /**
+   * Get priority config of bundle for intelligent identification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @returns { Promise<string> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function getBundlePriorityConfig(bundle: BundleOption): Promise<string>;
+
+  /**
    * Opens the notification settings page of the application, which is displayed in semi-modal mode and can be used to set
    * the notification enabling and notification mode. This API uses a promise to return the result.
    *
@@ -4331,11 +4370,12 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
-   * @param { boolean } enable - The switch state.
+   * @param { PriorityEnableStatus } enableStatus - The switch state.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
@@ -4343,17 +4383,18 @@ declare namespace notificationManager {
    * @systemapi
    * @since 23 dynamic&static
    */
-  function setPriorityEnabledByBundle(bundle: BundleOption, enable: boolean): Promise<void>;
+  function setPriorityEnabledByBundle(bundle: BundleOption, enableStatus: PriorityEnableStatus): Promise<void>;
 
   /**
    * Get priority notification switch for bundle.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
-   * @returns { Promise<boolean> } The promise returned by the function.
+   * @returns { Promise<PriorityEnableStatus> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
@@ -4361,7 +4402,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 23 dynamic&static
    */
-  function isPriorityEnabledByBundle(bundle: BundleOption): Promise<boolean>;
+  function isPriorityEnabledByBundle(bundle: BundleOption): Promise<PriorityEnableStatus>;
 
   /**
    * Get priority notification switch.
@@ -4386,6 +4427,8 @@ declare namespace notificationManager {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
@@ -5634,7 +5677,7 @@ declare namespace notificationManager {
 
   /**
    * Priority notification type
-   * @enum { number }
+   * @enum { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 23 dynamic&static
    */
@@ -5677,6 +5720,7 @@ declare namespace notificationManager {
     /**
      * Payment due
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 23 dynamic&static
      */
     PAYMENT_DUE = 'PAYMENT_DUE',
@@ -5684,6 +5728,7 @@ declare namespace notificationManager {
     /**
      * Transaction alert
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 23 dynamic&static
      */
     TRANSACTION_ALERT = 'TRANSACTION_ALERT',
@@ -5691,6 +5736,7 @@ declare namespace notificationManager {
     /**
      * Express progress
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 23 dynamic&static
      */
     EXPRESS_PROGRESS = 'EXPRESS_PROGRESS',
@@ -5698,6 +5744,7 @@ declare namespace notificationManager {
     /**
      * Miss call
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 23 dynamic&static
      */
     MISS_CALL = 'MISS_CALL',
@@ -5705,6 +5752,7 @@ declare namespace notificationManager {
     /**
      * Travel alert
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 23 dynamic&static
      */
     TRAVEL_ALERT = 'TRAVEL_ALERT',
@@ -5712,6 +5760,7 @@ declare namespace notificationManager {
     /**
      * Account alert
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 23 dynamic&static
      */
     ACCOUNT_ALERT = 'ACCOUNT_ALERT',
@@ -5719,6 +5768,7 @@ declare namespace notificationManager {
     /**
      * Appointment reminder
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 23 dynamic&static
      */
     APPOINTMENT_REMINDER = 'APPOINTMENT_REMINDER',
@@ -5726,6 +5776,7 @@ declare namespace notificationManager {
     /**
      * Traffic notice
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 23 dynamic&static
      */
     TRAFFIC_NOTICE = 'TRAFFIC_NOTICE',
@@ -5733,6 +5784,7 @@ declare namespace notificationManager {
     /**
      * Key progress
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 23 dynamic&static
      */
     KEY_PROGRESS = 'KEY_PROGRESS',
@@ -5740,6 +5792,7 @@ declare namespace notificationManager {
     /**
      * Public event
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 23 dynamic&static
      */
     PUBLIC_EVENT = 'PUBLIC_EVENT',
@@ -5747,9 +5800,51 @@ declare namespace notificationManager {
     /**
      * Iot warning
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 23 dynamic&static
      */
-    IOT_WARNING = 'IOT_WARNING'
+    IOT_WARNING = 'IOT_WARNING',
+
+    /**
+     * Custom keyword
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    CUSTOM_KEYWORD = 'CUSTOM_KEYWORD',
+  }
+
+  /**
+   * Priority notification enable status for bundle
+   * @enum { int }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  export enum PriorityEnableStatus {
+    /**
+     * disable priority notification
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    DISABLE = 0,
+
+    /**
+     * enable priority notification by intelligent identification
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    ENABLE_BY_INTELLIGENT = 1,
+
+    /**
+     * enable priority notification
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    ENABLE = 2,
   }
 
   /**
