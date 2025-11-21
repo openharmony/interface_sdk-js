@@ -6817,6 +6817,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
+     * @since 22 static
      */
     static setAppCustomUserAgent(userAgent: string) : void;
 
@@ -6833,6 +6834,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
+     * @since 22 static
      */
     static setUserAgentForHosts(userAgent: string, hosts : Array<string>) : void;
 
@@ -6900,6 +6902,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
+     * @since 22 static
      */
     getProgress() : int;
 
