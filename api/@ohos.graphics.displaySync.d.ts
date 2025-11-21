@@ -91,21 +91,38 @@ declare namespace displaySync {
      * @param { Callback<IntervalInfo> } callback - The callback function to be called when DisplaySync dispatching.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
-     * @since 22 static
      */
     on(type: 'frame', callback: Callback<IntervalInfo>): void;
+
+    /**
+     * Registers a callback with the corresponding query condition by using the handle.
+     * This callback is triggered when DisplaySync dispatching.
+     * @param { Callback<IntervalInfo> } callback - The callback function to be called when DisplaySync dispatching.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    onFrame(callback: Callback<IntervalInfo>): void;
 
     /**
      * Deregisters a callback with the corresponding query condition by using the handle.
      * This callback is triggered when DisplaySync dispatching.
      * @param { 'frame' } type - The type of event to remove the listener for. Must be 'frame'.
-     * @param { Callback<IntervalInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-     *                                                will be removed.
+     * @param { Callback<IntervalInfo> } [callback] - The callback function to remove.
+     *     If not provided, all callbacks for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
-     * @since 22 static
      */
     off(type: 'frame', callback?: Callback<IntervalInfo>): void;
+
+    /**
+     * Deregisters a callback with the corresponding query condition by using the handle.
+     * This callback is triggered when DisplaySync dispatching.
+     * @param { Callback<IntervalInfo> } [callback] - The callback function to remove.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    offFrame(callback?: Callback<IntervalInfo>): void;
 
     /**
      * Add DisplaySync to Pipeline. It means that
