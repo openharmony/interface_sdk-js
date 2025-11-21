@@ -680,9 +680,8 @@ function collectCopyrightMessage(result, copyrightMessage, fileAndKitComment) {
   const newFileAndKitComment = getFileAndKitComment(result);
   const newCopyrightMessage = getCopyrightComment(result);
   let commentIndex = 0;
-  const useStaticRegex = /^\s*(['"])use static\1\s*;?$/gm;
-  if (useStaticRegex.test(result) && useStaticRegex.exec(result) &&
-    useStaticRegex.exec(result).index === 0) {
+  const indexStatic = result.match(/use static.*\n/);
+  if (indexStatic) {
     commentIndex = indexStatic.index + indexStatic[0].length;
   }
   if (newFileAndKitComment === '') {
