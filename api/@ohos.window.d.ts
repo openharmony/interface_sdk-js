@@ -3844,6 +3844,22 @@ declare namespace window {
   function shiftAppWindowFocus(sourceWindowId: int, targetWindowId: int): Promise<void>;
 
   /**
+   * Set specific system window zIndex
+   *
+   * @param { WindowType } windowType - Indicates window type.
+   * @param { int } zIndex - ZIndex which the focus shift to.
+   * @returns { Promise<void> } - Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300004 - Unauthorized operation.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 23 dynamic&static
+   */
+  function setSpecificSystemWindowZIndex(windowType: WindowType, zIndex: int): Promise<void>;
+
+  /**
    * Transfers an input event from one window to another within the same application, particularly in split-window scenarios.
    * It takes effect only for the main window and its child windows on 2-in-1 devices.
    *
