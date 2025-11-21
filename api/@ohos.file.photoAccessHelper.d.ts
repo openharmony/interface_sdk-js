@@ -12364,13 +12364,13 @@ declare namespace photoAccessHelper {
      */
     DEFAULT = 0,
     /**
-     * Huawei log video
+     * Log video
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic&static
      */
-    HUAWEI_LOG_VIDEO = 1,
+    LOG_VIDEO = 1,
   }
 
   /**
