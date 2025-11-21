@@ -2034,7 +2034,7 @@ declare namespace formInfo {
   /**
    * The stage of form use.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11 dynamic
