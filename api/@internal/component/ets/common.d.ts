@@ -801,7 +801,21 @@ declare enum SystemProperties {
   * @atomicservice
   * @since 22 dynamic
   */
-  BREAK_POINT = 'system.arkui.breakpoint'
+  BREAK_POINT = 'system.arkui.breakpoint',
+  /**
+   * System environmental windowsize key that is used to obtain the size of the window, measured in vp.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 dynamic
+   */
+  WINDOW_SIZE = 'system.window.size',
+  /**
+   * System environmental windowsize key that is used to obtain the size of the window, measured in px.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 dynamic
+   */
+  WINDOW_SIZE_PX = 'system.window.size.px',
 };
 
 /**

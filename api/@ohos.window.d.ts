@@ -1683,6 +1683,33 @@ declare namespace window {
   }
 
   /**
+   * Window size, measured in vp.
+   *
+   * @interface SizeInVP
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 23 dynamic&static
+   */
+  interface SizeInVP {
+    /**
+     * The width of the window, measured in vp.
+     *
+     * @type { float }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    width: float;
+
+    /**
+     * The height of the window, measured in vp.
+     *
+     * @type { float }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    height: float;
+  }
+
+  /**
    * The info of window
    *
    * @interface WindowInfo
