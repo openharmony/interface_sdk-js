@@ -30,7 +30,7 @@ declare namespace screenLockFileManager {
   /**
    * Enumerates the types of data under lock screen.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @since 12 dynamic
    * @since 22 static
@@ -58,7 +58,7 @@ declare namespace screenLockFileManager {
   /**
    * AccessStatus.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @since 12 dynamic
    * @since 22 static
@@ -86,7 +86,7 @@ declare namespace screenLockFileManager {
   /**
    * ReleaseStatus.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @since 12 dynamic
    * @since 22 static
@@ -114,7 +114,7 @@ declare namespace screenLockFileManager {
   /**
    * KeyStatus.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @since 18 dynamic
    * @since 22 static
