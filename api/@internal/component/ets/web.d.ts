@@ -5374,9 +5374,8 @@ declare interface WebOptions {
 /**
  * Defines the regular expression rule.
  *
- * 
  * @syscap SystemCapability.Web.Webview.Core
- * @since 23 dynamic&static
+ * @since 23 dynamic
 */
 declare class URLRegexRule {
   /**
@@ -5385,14 +5384,14 @@ declare class URLRegexRule {
    * matched against the secondLevelDomain.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic&static
+   * @since 23 dynamic
    */
   secondLevelDomain: string;
   /**
    * Full URL regular expression.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic&static
+   * @since 23 dynamic
    */
   rule: string;
 }
@@ -5411,16 +5410,7 @@ declare class URLRegexRule {
  * @typedef ScriptItem
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 12
- */
-
-/**
- * Defines the contents of the JavaScript to be injected.
- *
- * @typedef ScriptItem
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 23 dynamic
+ * @since 12 dynamic
  */
 declare interface ScriptItem {
   /**
@@ -5448,7 +5438,7 @@ declare interface ScriptItem {
    *
    * @type { Array<URLRegexRule> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic&static
+   * @since 23 dynamic
    */
   regexRules?: Array<URLRegexRule>;
 }

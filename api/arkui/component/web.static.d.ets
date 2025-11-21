@@ -2567,6 +2567,30 @@ export declare interface WebOptions {
     emulateTouchFromMouseEvent?: boolean;
 }
 /**
+ * Defines the regular expression rule.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 static
+*/
+export declare class URLRegexRule {
+  /**
+   * Exact match of the second-level domain. For example, the second-level domain of https://www.example.com is example.com,
+   * and the second-level domain of https://www.example.com.cn is example.com.cn. If the URL is an IP address, the full IP is
+   * matched against the secondLevelDomain.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 static
+   */
+  secondLevelDomain: string;
+  /**
+   * Full URL regular expression.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 static
+   */
+  rule: string;
+}
+/**
  * Defines the contents of the JavaScript to be injected.
  *
  * @typedef ScriptItem
@@ -2590,6 +2614,14 @@ export declare interface ScriptItem {
      * @since 22 static
      */
     scriptRules: Array<string>;
+    /**
+     * Set the regular expression rule that allows execution of this JavaScript.
+     *
+     * @type { Array<URLRegexRule> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    regexRules?: Array<URLRegexRule>;
 }
 /**
  * Defines the load committed details.
