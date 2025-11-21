@@ -129,14 +129,16 @@ declare namespace backgroundTaskManager {
      * Check whether the application can request MODE_SPECIAL_SCENARIO_PROCESSING.
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+     * @param { Context } context - App running context.
      * @returns { Promise<UserAuthResult> } The promise returns the result of user authorization.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 9800004 - System service operation failed.
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
      * @since 22 dynamic
      */
-    checkSpecialScenarioAuth(): Promise<UserAuthResult>;
+    checkSpecialScenarioAuth(context: Context): Promise<UserAuthResult>;
   }
 
   /**
