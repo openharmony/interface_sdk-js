@@ -1413,12 +1413,11 @@ export declare namespace typeNode {
    * Create a FrameNode of List type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'List' } nodeType - node type.
    * @returns { List } - Return List type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  export function createListNode(context: UIContext, nodeType: 'List'): List;
+  export function createListNode(context: UIContext): List;
 
   /**
    * Define the ListItem type of FrameNode.
@@ -1452,12 +1451,11 @@ export declare namespace typeNode {
    * Create a FrameNode of ListItem type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'ListItem' } nodeType - node type.
    * @returns { ListItem } - Return ListItem type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  export function createListItemNode(context: UIContext, nodeType: 'ListItem'): ListItem;
+  export function createListItemNode(context: UIContext): ListItem;
 
   /**
    * Define the ListItemGroup type of FrameNode.
@@ -1491,12 +1489,11 @@ export declare namespace typeNode {
    * Create a FrameNode of ListItemGroup type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'ListItemGroup' } nodeType - node type.
    * @returns { ListItemGroup } - Return ListItemGroup type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  export function createListItemGroupNode(context: UIContext, nodeType: 'ListItemGroup'): ListItemGroup;
+  export function createListItemGroupNode(context: UIContext): ListItemGroup;
 
   /**
    * Define the Progress type of FrameNode.
@@ -1568,12 +1565,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Scroll type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Scroll' } nodeType - node type.
    * @returns { Scroll } - Return Scroll type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  export function createScrollNode(context: UIContext, nodeType: 'Scroll'): Scroll;
+  export function createScrollNode(context: UIContext): Scroll;
 
   /**
    * Define the TextClock type of FrameNode.
@@ -1684,12 +1680,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Grid type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Grid' } nodeType - node type.
    * @returns { Grid } - Return Grid type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  export function createGridNode(context: UIContext, nodeType: 'Grid'): Grid;
+  export function createGridNode(context: UIContext): Grid;
 
   /**
    * Define the GridItem type of FrameNode.
@@ -1723,12 +1718,11 @@ export declare namespace typeNode {
    * Create a FrameNode of GridItem type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'GridItem' } nodeType - node type.
    * @returns { GridItem } - Return GridItem type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  export function createGridItemNode(context: UIContext, nodeType: 'GridItem'): GridItem;
+  export function createGridItemNode(context: UIContext): GridItem;
 
   /**
    * Define the WaterFlow type of FrameNode.
@@ -1762,12 +1756,11 @@ export declare namespace typeNode {
    * Create a FrameNode of WaterFlow type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'WaterFlow' } nodeType - node type.
    * @returns { WaterFlow } - Return WaterFlow type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  export function createWaterFlowNode(context: UIContext, nodeType: 'WaterFlow'): WaterFlow;
+  export function createWaterFlowNode(context: UIContext): WaterFlow;
 
   /**
    * Define the FlowItem type of FrameNode.
@@ -1800,12 +1793,11 @@ export declare namespace typeNode {
    * Create a FrameNode of FlowItem type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'FlowItem' } nodeType - node type.
    * @returns { FlowItem } - Return FlowItem type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  export function createFlowItemNode(context: UIContext, nodeType: 'FlowItem'): FlowItem;
+  export function createFlowItemNode(context: UIContext): FlowItem;
 
   /**
    * Define the Text type of FrameNode.
