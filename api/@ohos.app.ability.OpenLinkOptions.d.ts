@@ -18,9 +18,7 @@
  * @kit AbilityKit
  */
 
-/*** if arkts dynamic */
 import CompletionHandler from './@ohos.app.ability.CompletionHandler';
-/*** endif */
 /*** if arkts static */
 import { RecordData } from './@ohos.base';
 /*** endif */
@@ -78,6 +76,7 @@ export default interface OpenLinkOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 21 dynamic
+   * @since 23 static
    */
   completionHandler?: CompletionHandler;
 
