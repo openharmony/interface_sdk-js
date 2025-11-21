@@ -121,7 +121,7 @@ declare namespace backgroundTaskManager {
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     requestAuthFromUser(context: Context, callback: Callback<UserAuthResult>): void;
 
@@ -136,7 +136,7 @@ declare namespace backgroundTaskManager {
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     checkSpecialScenarioAuth(context: Context): Promise<UserAuthResult>;
   }
@@ -444,13 +444,13 @@ declare namespace backgroundTaskManager {
     bundleName: string;
     /**
      * AppIndex of the application applying for special continuous task.
-     * @type { string }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
      * @since 22 dynamic&static
      */
-    appIndex: string;
+    appIndex: int;
     /**
      * Type of user authorization status.
      * @type { ?UserAuthResult }
