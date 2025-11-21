@@ -111,16 +111,6 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
    */
-  /**
-   * Indicates that there is no uplink or downlink data.
-   *
-   * <p>It is a return value of service state query of cellular data services.
-   * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<DataFlowType> } callback - Indicates the data flow type.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @syscap SystemCapability.Telephony.CellularData
-   * @since 22 dynamic&static
-   */
   function getCellularDataFlowType(callback: AsyncCallback<DataFlowType>): void;
 
   /**
@@ -130,16 +120,6 @@ declare namespace data {
    * @returns { Promise<DataFlowType> } Returns the data flow type.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
-   */
-  /**
-   * Indicates that there is no uplink or downlink data.
-   *
-   * <p>It is a return value of service state query of cellular data services.
-   * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { Promise<DataFlowType> } Returns the data flow type.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @syscap SystemCapability.Telephony.CellularData
-   * @since 22 dynamic&static
    */
   function getCellularDataFlowType(): Promise<DataFlowType>;
 
