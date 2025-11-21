@@ -303,6 +303,25 @@ declare namespace adminManager {
   function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId?: number): Promise<void>;
 
   /**
+   * Enables the given ability as a administrator of the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_DEVICE_ADMIN
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @returns { Promise<void> } the promise returned by the enableDeviceAdmin.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
+   * @throws { BusinessError } 9200004 - Failed to activate the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function enableDeviceAdmin(admin: Want): Promise<void>;
+
+  /**
    * Disables a current normal administrator ability.
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
    *
@@ -321,6 +340,24 @@ declare namespace adminManager {
    * @since 9
    */
   function disableAdmin(admin: Want, callback: AsyncCallback<void>): void;
+
+  /**
+   * Disables a current administrator ability.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_DEVICE_ADMIN
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @returns { Promise<void> } the promise returned by the disableDeviceAdmin.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function disableDeviceAdmin(admin: Want): Promise<void>;
 
   /**
    * Disables a current normal administrator ability.
