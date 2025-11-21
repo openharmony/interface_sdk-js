@@ -2673,6 +2673,32 @@ declare namespace ble {
     writeCharacteristicValue(characteristic: BLECharacteristic, writeType: GattWriteType): Promise<void>;
 
     /**
+     * Writes the characteristic of a BLE peripheral device with context.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { BLECharacteristic } characteristic - Indicates the characteristic to write.
+     * @param { GattWriteType } writeType - Write type of the characteristic.
+     *     The interface currently only supports {@link GattWriteType#WRITE} mode.
+     * @returns { Promise<GattRspContext> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900011 - The operation is busy. The last operation is not complete.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2901001 - Write forbidden.
+     * @throws { BusinessError } 2901003 - The connection is not established.
+     * @throws { BusinessError } 2901004 - The connection is congested.
+     * @throws { BusinessError } 2901005 - The connection is not encrypted.
+     * @throws { BusinessError } 2901006 - The connection is not authenticated.
+     * @throws { BusinessError } 2901007 - The connection is not authorized.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    writeCharacteristicValueWithContext(
+      characteristic: BLECharacteristic, writeType: GattWriteType): Promise<GattRspContext>;
+
+    /**
      * Writes the descriptor of a BLE peripheral device.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -7309,6 +7335,26 @@ declare namespace ble {
      * @since 22 static
      */
     writeSignedMitm?: boolean;
+  }
+
+  /**
+   * Describe the context of GATT responses.
+   *
+   * @typedef GattRspContext
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface GattRspContext {
+    /**
+     * Timestamp of when Bluetooth received the response command.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    timestamp: long;
   }
 }
 
