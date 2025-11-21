@@ -390,6 +390,16 @@ type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
 type OnAdsBlockedCallback = (details: AdsBlockedDetails) => void;
 
 /**
+ * The callback when camera capturing state of current page has been changed.
+ *
+ * @typedef { function } OnCameraCaptureStateChangeCallback
+ * @param { CameraCaptureStateChangeInfo } event - the camera capturing state event.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+type OnCameraCaptureStateChangeCallback = (event: CameraCaptureStateChangeInfo) => void;
+
+/**
  * Defines the ads block details.
  *
  * @interface AdsBlockedDetails
@@ -11455,6 +11465,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 23 dynamic
    */
   enableImageAnalyzer(enable: boolean): WebAttribute;
+
+  /**
+   *  Triggered after camera capture state changed.
+   *
+   * @param { OnCameraCaptureStateChangeCallback } callback -  Callback triggered to
+   *    report current page camera capture state changing event.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  onCameraCaptureStateChange(callback: OnCameraCaptureStateChangeCallback): WebAttribute;
 }
 
 /**
@@ -11959,4 +11980,57 @@ declare enum CredentialType {
    * @since 22 dynamic
    */
   CREDENTIAL_UKEY = 4,
+}
+/**
+ * Defines the camera capture state change info.
+ *
+ * @typedef CameraCaptureStateChangeInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+declare interface CameraCaptureStateChangeInfo {
+  /**
+   * The original camera capture state.
+   *
+   * @type { CameraCaptureState }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  originalState: CameraCaptureState;
+
+  /**
+   * The new camera capture state. 
+   *
+   * @type { CameraCaptureState }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  newState: CameraCaptureState;
+}
+
+/**
+ * Indicates current camera capture state of current web page.
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+declare enum CameraCaptureState {
+  /**
+   * None of any cameras are in use.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  NONE = 0,
+  /**
+   * This web page is not actively using camera capturing.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  PAUSED = 1,
+  /**
+   * This web page is actively using camera capturing.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  ACTIVE = 2,
 }
