@@ -25,7 +25,8 @@ import uri from './@ohos.uri';
  *
  * @namespace fileUri
  * @syscap SystemCapability.FileManagement.AppFileService
- * @since 9
+ * @since 9 dynamic
+ * @since 22 static
  */
 
 /**
@@ -43,7 +44,8 @@ declare namespace fileUri {
    *
    * @extends uri.URI
    * @syscap SystemCapability.FileManagement.AppFileService
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   /**
    * FileUri represents the uri of the file.
@@ -64,7 +66,8 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900042 - Unknown error
      * @throws { BusinessError } 14300002 - Invalid uri
      * @syscap SystemCapability.FileManagement.AppFileService
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     /**
      * Constructor for obtaining the instance of the FileUri class.
@@ -85,24 +88,26 @@ declare namespace fileUri {
      * Obtains the file name of uri.
      *
      * @returns { string }
-     * string: Return the file name of uri.
+     * string: Return the file name of uri
      * @readonly
      * @throws { BusinessError } 13900005 - I/O error
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     /**
      * Obtains the file name of uri.
      *
      * @returns { string }
-     * string: Return the file name of uri.
+     * string: Return the file name of uri
      * @readonly
      * @throws { BusinessError } 13900005 - I/O error
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     get name(): string;
 
@@ -114,7 +119,8 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900012 - Permission denied
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     /**
      * Get the full directory uri where the file URI is located
@@ -126,6 +132,7 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     getFullDirectoryUri(): string;
 
@@ -135,7 +142,8 @@ declare namespace fileUri {
      * @returns { boolean } Return true or false
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     /**
      * Check whether the incoming URI is a remote URI
@@ -145,6 +153,7 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     isRemoteUri(): boolean;
   }
@@ -157,7 +166,8 @@ declare namespace fileUri {
    * @throws { BusinessError } 401 - The input parameter is invalidPossible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.AppFileService
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   /**
    * Get the uri from the path of file in app sandbox
