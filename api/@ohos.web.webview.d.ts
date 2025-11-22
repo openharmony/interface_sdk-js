@@ -7092,6 +7092,33 @@ declare namespace webview {
      * @since 23 dynamic
      */
     static setScrollbarMode(scrollbarMode: ScrollbarMode): void;
+
+    /**
+     * Resume current microphone.
+     *
+     * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    resumeMicrophone(): void;
+
+    /**
+     * Pause current microphone.
+     *
+     * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    pauseMicrophone(): void;
+
+    /**
+     * Stop current microphone.
+     *
+     * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    stopMicrophone(): void;
   }
 
   /**
