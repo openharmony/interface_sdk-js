@@ -7965,6 +7965,18 @@ export declare interface AttributeModifier<T> {
    * @since 22 static
    */
   default applySelectedAttribute(instance: T) : void;
+
+  /**
+   * Specifies the states to be monitored.
+   * Override this method to specify which states (Normal, Pressed, Focused, Disabled, Selected) should be
+   * monitoredby returning a bitmask of ModifierState enum values.
+   *
+   * @returns { int } - Bitmask combination of states to be monitored
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  default monitoredStates(): int;
 }
 /**
  * Defines the content modifier.
