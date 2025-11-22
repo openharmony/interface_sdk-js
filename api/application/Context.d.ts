@@ -548,6 +548,7 @@ declare class Context extends BaseContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
   createSystemHspModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
 

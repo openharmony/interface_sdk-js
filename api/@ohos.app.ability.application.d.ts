@@ -141,6 +141,7 @@ declare namespace application {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 22 static
    */
   export function createPluginModuleContextForHostBundle(context: Context, pluginBundleName: string, pluginModuleName: string, hostBundleName: string): Promise<Context>;
 
@@ -203,6 +204,7 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 22 static
    */
   export function promoteCurrentToCandidateMasterProcess(insertToHead: boolean): Promise<void>;
 
@@ -216,6 +218,7 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 22 static
    */
   export function demoteCurrentFromCandidateMasterProcess(): Promise<void>;
 
@@ -232,6 +235,7 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 21 dynamic
+   * @since 22 static
    */
    export function exitMasterProcessRole(): Promise<void>
 
