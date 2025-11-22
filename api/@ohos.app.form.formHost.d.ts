@@ -1459,11 +1459,21 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
    */
   function on(type: 'getLiveFormStatus', 
     callback: formInfo.GetLiveFormStatusCallback): void;
   
+  /**
+   * Listens to the event of get live form status.
+   *
+   * @param { formInfo.GetLiveFormStatusCallback } callback  - The callback of get live form status.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onGetLiveFormStatus(callback: formInfo.GetLiveFormStatusCallback): void;
+
   /**
    * Cancels Listening to the event of get live form status.
    *
@@ -1473,10 +1483,20 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
    */
   function off(type: 'getLiveFormStatus', 
     callback?: formInfo.GetLiveFormStatusCallback): void;
+
+  /**
+   * Cancels Listening to the event of get live form status.
+   *
+   * @param { formInfo.GetLiveFormStatusCallback } [callback]  - The callback of get live form status.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function offGetLiveFormStatus(callback?: formInfo.GetLiveFormStatusCallback): void;
 
   /**
    * Update size of the form.
