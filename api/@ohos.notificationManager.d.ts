@@ -4628,6 +4628,49 @@ declare namespace notificationManager {
   function isGeofenceEnabled(): Promise<boolean>;
 
   /**
+   * Subscribe the callback for getting the badge number.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { function } callback - The callback for getting the badge number.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function onBadgeNumberQuery(callback: (bundle: BundleOption) => Promise<long>): void;
+
+  /**
+   * Unsubscribe the callback for getting the badge number.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function offBadgeNumberQuery(): void;
+
+  /**
+   * Obtains the badge number of this application. This API uses a promise to return the result.
+   *
+   * @returns { Promise<long> } Promise used to return the badge number.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 22 dynamic&static
+   */
+  function getBadgeNumber(): Promise<long>;
+
+  /**
    * Represents the state of a switch,
    * distinguishing system defaults from user modifications.
    *
@@ -5431,7 +5474,6 @@ declare namespace notificationManager {
     /**
      * The application bundle option.
      *
-     * @permission ohos.permission.NOTIFICATION_CONTROLLER
      * @type { BundleOption }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
