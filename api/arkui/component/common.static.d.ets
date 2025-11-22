@@ -48,6 +48,7 @@ import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
 import curves from '../../@ohos.curves';
 import matrix4 from '../../@ohos.matrix4';
+import uiMaterial from '../../@ohos.arkui.uiMaterial';
 /**
  * Define the ratio of characters entered by the the percentage of InputCounterOptions.
  *
@@ -11080,6 +11081,22 @@ export declare interface CommonMethod {
      * @since 22 static
      */
     default accessibilityFocusDrawLevel(drawLevel: FocusDrawLevel | undefined): this;
+    /**
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+     * their computing power.
+     *
+     * @param { SystemUiMaterial | undefined } material - System-styled material. Undefined indicates reverting to
+     *     the effect of no system material.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default systemMaterial(material: SystemUiMaterial | undefined): this;
 }
 /**
  * CommonAttribute for ide.
@@ -11647,6 +11664,16 @@ export type VisualEffect = uiEffect.VisualEffect;
  * @since 22 static
  */
 export type Filter = uiEffect.Filter;
+/**
+ * SystemUiMaterial
+ *
+ * @typedef { uiMaterial.Material } SystemUiMaterial
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export type SystemUiMaterial = uiMaterial.Material;
 
 /**
  * Blender
