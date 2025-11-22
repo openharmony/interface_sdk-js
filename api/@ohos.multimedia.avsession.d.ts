@@ -502,6 +502,32 @@ declare namespace avSession {
   function offSessionCreate(callback?: Callback<AVSessionDescriptor>): void;
 
   /**
+   * Register active session changed callback.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { Callback<Array<AVSessionDescriptor>> } callback - Used to handle activeSessionChange event
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function onActiveSessionChanged(callback: Callback<Array<AVSessionDescriptor>>): void;
+
+  /**
+   * Unregister active session changed callback.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { Callback<Array<AVSessionDescriptor>> } [callback] - Used to handle activeSessionChange event
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function offActiveSessionChanged(callback?: Callback<Array<AVSessionDescriptor>>): void;
+
+  /**
    * Unregister session destroy callback
    * @param { 'sessionDestroy' } type - Registration Type, session deletion, 'sessionDestroy'
    * @param { function } callback - Used to unregister listener for ('sessionDestroy') command
