@@ -21,7 +21,7 @@
 /**
  * @typedef CheckPackageHasInstalledResponse
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @since 3 dynamic
+ * @since 3 dynamiconly
  * @deprecated since 9
  */
 export interface CheckPackageHasInstalledResponse {
@@ -30,7 +30,7 @@ export interface CheckPackageHasInstalledResponse {
    *
    * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 9
    */
   result: boolean;
@@ -39,7 +39,7 @@ export interface CheckPackageHasInstalledResponse {
 /**
  * @typedef CheckPackageHasInstalledOptions
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @since 3 dynamic
+ * @since 3 dynamiconly
  * @deprecated since 9
  */
 export interface CheckPackageHasInstalledOptions {
@@ -48,7 +48,7 @@ export interface CheckPackageHasInstalledOptions {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 9
    */
   bundleName: string;
@@ -58,7 +58,7 @@ export interface CheckPackageHasInstalledOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 9
    */
   success?: (data: CheckPackageHasInstalledResponse) => void;
@@ -68,7 +68,7 @@ export interface CheckPackageHasInstalledOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 9
    */
   fail?: (data: any, code: number) => void;
@@ -78,7 +78,7 @@ export interface CheckPackageHasInstalledOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 9
    */
   complete?: () => void;
@@ -86,8 +86,9 @@ export interface CheckPackageHasInstalledOptions {
 
 /**
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @since 3 dynamic
+ * @since 3 dynamiconly
  * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager/bundleManager
  */
 export default class Package {
   /**
@@ -95,8 +96,9 @@ export default class Package {
    *
    * @param { CheckPackageHasInstalledOptions } options Options
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager#canOpenLink
    */
   static hasInstalled(options: CheckPackageHasInstalledOptions): void;
 }
