@@ -1224,7 +1224,7 @@ declare namespace webview {
          * @returns { Promise<Array<WebHttpCookie>> } - A promise resolved after the cookies gotten.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static fetchAllCookies(incognito: boolean): Promise<Array<WebHttpCookie>>;
     }
@@ -6341,14 +6341,14 @@ declare namespace webview {
      *
      * @enum { number }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum WebHttpCookieSameSitePolicy {
         /**
          * Cookies marked as Secure are allowed to be carried in cross-site requests.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NONE = 0,
         
@@ -6356,7 +6356,7 @@ declare namespace webview {
          * Allow specific cross-site requests to carry cookies.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         LAX = 1,
         
@@ -6364,7 +6364,7 @@ declare namespace webview {
          * Prohibit cross-site requests from carrying cookies.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         STRICT = 2
     }
@@ -6377,7 +6377,7 @@ declare namespace webview {
      *
      * @typedef WebHttpCookie
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface WebHttpCookie {
         /**
@@ -6385,7 +6385,7 @@ declare namespace webview {
          *
          * @type { WebHttpCookieSameSitePolicy } The samesite policy.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         samesitePolicy: WebHttpCookieSameSitePolicy;
         
@@ -6394,7 +6394,7 @@ declare namespace webview {
          *
          * @type { string } The cookie's expiration date.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         expiresDate: string;
         
@@ -6403,7 +6403,7 @@ declare namespace webview {
          *
          * @type { string } The cookie's name.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         name: string;
         
@@ -6412,7 +6412,7 @@ declare namespace webview {
          *
          * @type { boolean } True if the cookie is session cookie.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isSessionCookie: boolean;
         
@@ -6421,7 +6421,7 @@ declare namespace webview {
          *
          * @type { string } The cookie's value.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         value: string;
         
@@ -6430,7 +6430,7 @@ declare namespace webview {
          *
          * @type { string } The cookie's path.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         path: string;
         
@@ -6439,7 +6439,7 @@ declare namespace webview {
          *
          * @type { boolean } True if the cookie is marked as HttpOnly.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isHttpOnly: boolean;
         
@@ -6448,7 +6448,7 @@ declare namespace webview {
          *
          * @type { boolean } Ture if the cookie is secure.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isSecure: boolean;
         
@@ -6457,7 +6457,7 @@ declare namespace webview {
          *
          * @type { string } The cookie's domain.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         domain: string;
     }

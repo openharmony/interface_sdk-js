@@ -2139,7 +2139,7 @@ declare namespace webview {
      * @returns { Promise<Array<WebHttpCookie>> } - A promise resolved after the cookies gotten.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     static fetchAllCookies(incognito: boolean): Promise<Array<WebHttpCookie>>;
   }
@@ -10323,14 +10323,14 @@ declare namespace webview {
    *
    * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 21 dynamic
+   * @since 23 dynamic
    */
   enum WebHttpCookieSameSitePolicy {
     /**
      * Cookies marked as Secure are allowed to be carried in cross-site requests.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     NONE = 0,
     
@@ -10338,7 +10338,7 @@ declare namespace webview {
      * Allow specific cross-site requests to carry cookies.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     LAX = 1,
     
@@ -10346,7 +10346,7 @@ declare namespace webview {
      * Prohibit cross-site requests from carrying cookies.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     STRICT = 2
   }
@@ -10359,7 +10359,7 @@ declare namespace webview {
    *
    * @typedef WebHttpCookie
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 21 dynamic
+   * @since 23 dynamic
    */
   interface WebHttpCookie {
     /**
@@ -10367,7 +10367,7 @@ declare namespace webview {
      *
      * @type { WebHttpCookieSameSitePolicy } The samesite policy.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     samesitePolicy: WebHttpCookieSameSitePolicy;
     
@@ -10376,7 +10376,7 @@ declare namespace webview {
      *
      * @type { string } The cookie's expiration date.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     expiresDate: string;
     
@@ -10385,7 +10385,7 @@ declare namespace webview {
      *
      * @type { string } The cookie's name.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     name: string;
     
@@ -10394,7 +10394,7 @@ declare namespace webview {
      *
      * @type { boolean } True if the cookie is session cookie.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     isSessionCookie: boolean;
     
@@ -10403,7 +10403,7 @@ declare namespace webview {
      *
      * @type { string } The cookie's value.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     value: string;
     
@@ -10412,7 +10412,7 @@ declare namespace webview {
      *
      * @type { string } The cookie's path.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     path: string;
     
@@ -10421,7 +10421,7 @@ declare namespace webview {
      *
      * @type { boolean } True if the cookie is marked as HttpOnly.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     isHttpOnly: boolean;
     
@@ -10430,7 +10430,7 @@ declare namespace webview {
      *
      * @type { boolean } Ture if the cookie is secure.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     isSecure: boolean;
     
@@ -10439,7 +10439,7 @@ declare namespace webview {
      *
      * @type { string } The cookie's domain.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     domain: string;
   }
