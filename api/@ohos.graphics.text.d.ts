@@ -2582,7 +2582,7 @@ declare namespace text {
      * @type { ?boolean }
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
-     * @since 24 dynamic&static
+     * @since 23 dynamic&static
      */
     compressHeadPunctuation?: boolean;
   }
