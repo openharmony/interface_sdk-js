@@ -33,6 +33,7 @@ import { NotificationProgress as _NotificationProgress } from './notification/no
 import { NotificationFlags as _NotificationFlags } from './notification/notificationFlags';
 import { NotificationFlagStatus as _NotificationFlagStatus } from './notification/notificationFlags';
 import { NotificationRequest as _NotificationRequest } from './notification/notificationRequest';
+import { NotificationIconButton as _NotificationIconButton } from './notification/notificationContent';
 import { UnifiedGroupInfo as _UnifiedGroupInfo } from './notification/notificationRequest';
 import { DistributedOptions as _DistributedOptions } from './notification/notificationRequest';
 import { NotificationSlot as _NotificationSlot } from './notification/notificationSlot';
@@ -52,7 +53,6 @@ import type UIAbilityContext from './application/UIAbilityContext';
 /*** if arkts static */
 import { AsyncCallback, RecordData } from '@ohos.base';
 import { NotificationLiveViewContent as _NotificationLiveViewContent } from './notification/notificationContent';
-import { NotificationIconButton as _NotificationIconButton } from './notification/notificationContent';
 import { LiveViewStatus as _LiveViewStatus } from './notification/notificationContent';
 import { LiveViewTypes as _LiveViewTypes } from './notification/notificationContent';
 import { NotificationFilter as _NotificationFilter } from './notification/notificationRequest';
@@ -6249,7 +6249,7 @@ declare namespace notificationManager {
    *
    * @typedef { _NotificationIconButton } NotificationIconButton
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 static
+   * @since 22 dynamic&static
    */
   export type NotificationIconButton = _NotificationIconButton;
 }
