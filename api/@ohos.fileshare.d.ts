@@ -93,7 +93,6 @@ declare namespace fileShare {
    * @enum { int } PolicyErrorCode
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11 dynamic
-   * @since 22 static
    */
   export enum PolicyErrorCode {
     /**
@@ -101,6 +100,7 @@ declare namespace fileShare {
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
+     * @since 22 static
      */
     PERSISTENCE_FORBIDDEN = 1,
 
@@ -109,6 +109,7 @@ declare namespace fileShare {
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
+     * @since 22 static
      */
     INVALID_MODE = 2,
 
@@ -117,6 +118,7 @@ declare namespace fileShare {
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
+     * @since 22 static
      */
     INVALID_PATH = 3,
 
@@ -125,6 +127,7 @@ declare namespace fileShare {
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 12 dynamic
+     * @since 22 static
      */
     PERMISSION_NOT_PERSISTED = 4,
   }
