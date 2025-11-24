@@ -2170,7 +2170,9 @@ export declare class DragController {
    * @param { CustomBuilder | DragItemInfo | undefined } custom - Object used for prompts displayed when the object
    * is dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @returns { Promise<dragController.DragEventParam> } A Promise with the drag event information.
+   * @returns { Promise<dragController.DragEventParam> | null } A Promise with the drag event information. Null will be returned
+   *     if the parameters' checking failed or some internal errors occur, for example: the runtime environment is
+   *     broken.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -2180,7 +2182,7 @@ export declare class DragController {
    * @since 22 static
    */
   executeDrag(custom: CustomBuilder | DragItemInfo | undefined, dragInfo: dragController.DragInfo)
-    : Promise<dragController.DragEventParam>;
+    : Promise<dragController.DragEventParam> | null;
 
   /**
    * Create one drag action object, which can be used for starting drag later or monitoring the drag status after
