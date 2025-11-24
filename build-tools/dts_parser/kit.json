@@ -209,6 +209,7 @@
     { "filePath": "@ohos.app.ability.insightIntent.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.InsightIntentContext.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.insightIntentDriver.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
+    { "filePath": "@ohos.app.ability.insightIntentProvider.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.InsightIntentExecutor.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.verticalPanelManager.d.ts", "kitName": "AbilityKit", "subSystem": "元能力"},
     {
