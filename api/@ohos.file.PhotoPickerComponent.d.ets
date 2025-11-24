@@ -580,6 +580,17 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   * @since 21 dynamic
   */
   badgeConfig?: BadgeConfig;
+
+  /**
+   * Support setting grid sliding.
+   *
+   * @type { ?boolean  }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+   isSlidingSupported?: boolean;
 }
 
 /**
@@ -730,6 +741,17 @@ export declare class UpdatablePickerConfigs {
    * @since 22 dynamic&static
    */
    uiComponentColorMode?: PickerColorMode;
+
+  /**
+   * Support setting grid sliding.
+   *
+   * @type { ?boolean  }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+   isSlidingSupported?: boolean;
 }
 
 /**
@@ -840,6 +862,16 @@ export declare class BaseItemInfo {
    * @since 22 dynamic&static
    */
   movingPhotoBadgeState?: photoAccessHelper.MovingPhotoBadgeStateType;
+
+  /**
+   * VideoMode. Mode of video.
+   *
+   * @type { ?photoAccessHelper.VideoMode }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  videoMode?: photoAccessHelper.VideoMode;
 }
 
 /**
