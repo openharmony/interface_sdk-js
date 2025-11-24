@@ -570,15 +570,15 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   preselectedInfos?: Array<PreselectedInfo>;
 
   /**
-   *
-   * Support to config special badge display.
-   * The picker component supports only one type of badge
-   *
-   * @type { ?BadgeConfig }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 21 dynamic
-   */
+  *
+  * Support to config special badge display.
+  * The picker component supports only one type of badge
+  *
+  * @type { ?BadgeConfig }
+  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+  * @atomicservice
+  * @since 21 dynamic
+  */
   badgeConfig?: BadgeConfig;
 
   /**
