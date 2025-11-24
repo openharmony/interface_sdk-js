@@ -133,49 +133,12 @@ declare namespace fileShare {
     PERMISSION_NOT_PERSISTED = 4,
   }
 
-/*** if arkts dynamic */
-  /**
-   * Failed policy result on URI.
-   *
-   * @typedef { object }
-   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11 dynamic
-   */
-  export type PolicyErrorResult = {
-    /**
-     * Indicates the failed uri of the policy information.
-     *
-     * @type { string }
-     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11 dynamic
-     */
-    uri: string;
-
-    /**
-     * Indicates the error code of the failure in the policy information.
-     *
-     * @type { PolicyErrorCode }
-     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11 dynamic
-     */
-    code: PolicyErrorCode;
-
-    /**
-     * Indicates the reason of the failure in the policy information.
-     *
-     * @type { string }
-     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11 dynamic
-     */
-    message: string;
-  };
-/*** endif */
-/*** if arkts static */
   /**
    * Failed policy result on URI.
    *
    * @interface { object }
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @since 11 dynamic
    * @since 22 static
    */
   export interface PolicyErrorResult {
@@ -184,6 +147,7 @@ declare namespace fileShare {
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @since 11 dynamic
      * @since 22 static
      */
     uri: string;
@@ -193,6 +157,7 @@ declare namespace fileShare {
      *
      * @type { PolicyErrorCode }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @since 11 dynamic
      * @since 22 static
      */
     code: PolicyErrorCode;
@@ -202,11 +167,11 @@ declare namespace fileShare {
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @since 11 dynamic
      * @since 22 static
      */
     message: string;
   }
-/*** endif */
 
   /**
    * Policy information to manager permissions on a URI.
