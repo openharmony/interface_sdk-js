@@ -814,7 +814,7 @@ declare abstract class SubscribedAbstractProperty<T> {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 7 dynamic
+     * @since 7
      *
      */
     subscribeMe?: IPropertySubscriber,
@@ -823,7 +823,7 @@ declare abstract class SubscribedAbstractProperty<T> {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 7 dynamic
+     * @since 7
      *
      */
     info?: string,

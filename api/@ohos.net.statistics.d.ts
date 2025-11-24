@@ -731,8 +731,7 @@ declare namespace statistics {
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12 dynamic
-     * @since 22 static
+     * @since 12
      */
     startTime: int;
     /**
@@ -740,8 +739,7 @@ declare namespace statistics {
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12 dynamic
-     * @since 22 static
+     * @since 12
      */
     endTime: int;
     /**
@@ -749,8 +747,7 @@ declare namespace statistics {
      * @type { NetStatsInfo }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12 dynamic
-     * @since 22 static
+     * @since 12
      */
     info: NetStatsInfo;
   }[];
