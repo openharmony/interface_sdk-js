@@ -358,9 +358,6 @@ export function handleBreakStatement(node: arkts.AstNode) {
   if (!!node.ident) {
     handleFunction(node.ident, handleIdentifier);
   }
-  if (!!node.target) {
-    handleAstNode(node.target);
-  }
 }
 
 export function handleCallExpression(node: arkts.AstNode) {
