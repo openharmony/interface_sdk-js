@@ -29,6 +29,7 @@ import { Resource } from './global/resource';
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 20 dynamic
+ * @since 22 static
  */
 export enum AccessibilityAction {
   /**
@@ -37,6 +38,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   ACCESSIBILITY_FOCUS = 0,
 
@@ -46,6 +48,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   CLEAR_ACCESSIBILITY_FOCUS = 1,
 
@@ -55,6 +58,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   FOCUS = 2,
 
@@ -64,6 +68,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   CLEAR_FOCUS = 3,
 
@@ -73,6 +78,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   CLICK = 4,
 
@@ -82,6 +88,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   LONG_CLICK = 5,
 
@@ -91,6 +98,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   CUT = 6,
 
@@ -100,6 +108,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   COPY = 7,
 
@@ -109,6 +118,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   PASTE = 8,
 
@@ -118,6 +128,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   SELECT = 9,
 
@@ -127,6 +138,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   SET_TEXT = 10,
 
@@ -136,6 +148,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   SCROLL_FORWARD = 11,
 
@@ -145,6 +158,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   SCROLL_BACKWARD = 12,
 
@@ -154,6 +168,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   SET_SELECTION = 13,
 
@@ -163,6 +178,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   SET_CURSOR_POSITION = 14,
 
@@ -172,6 +188,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   HOME = 15,
 
@@ -181,6 +198,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   BACK = 16,
 
@@ -190,6 +208,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   RECENT_TASK = 17,
 
@@ -199,6 +218,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   NOTIFICATION_CENTER = 18,
 
@@ -208,6 +228,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   CONTROL_CENTER = 19,
 
@@ -217,6 +238,7 @@ export enum AccessibilityAction {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   SPAN_CLICK = 20
 }
@@ -1910,6 +1932,25 @@ declare namespace accessibility {
   function on(type: 'touchModeChange', callback: Callback<string>): void;
 
   /**
+   * Register the observe of the touch mode changed.
+   * @param { Callback<string> } callback callback Asynchronous callback interface.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @crossplatform
+   * @form
+   * @since 22 static
+   */
+  /**
+   * Register the observe of the touch mode changed.
+   * @param { Callback<string> } callback callback Asynchronous callback interface.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 static
+   */
+  function onTouchModeChange(callback: Callback<string>): void;
+
+  /**
    * Unregister the observe of the accessibility state changed.
    *
    * @param { 'accessibilityStateChange' } type state event type
@@ -2126,6 +2167,25 @@ declare namespace accessibility {
    * @since 23 dynamic
    */
   function off(type: 'touchModeChange', callback?: Callback<string>): void;
+
+  /**
+   * Unregister the observe of the touch mode changed.
+   * @param { Callback<string> } [callback] callback Asynchronous callback interface.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @crossplatform
+   * @form
+   * @since 22 dynamic
+   */
+  /**
+   * Unregister the observe of the touch mode changed.
+   * @param { Callback<string> } [callback] callback Asynchronous callback interface.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  function offTouchModeChange(callback?: Callback<string>): void;
 
   /**
    * Get the captions manager.
