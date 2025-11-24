@@ -11722,7 +11722,6 @@ declare namespace window {
      * @param { WindowTransitionType } transitionType - Transition animation type.
      * @param { TransitionAnimation } animation - Transition animation config.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect number of parameters. Expected 2;
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:   1. Window is nullptr;
                                                                                             2. Native window is nullptr;
@@ -11747,8 +11746,6 @@ declare namespace window {
      *
      * @param { WindowTransitionType } transitionType - Transition animation type.
      * @returns { TransitionAnimation | undefined } Transition animation with transition type, or undefined if it has not been set.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Exactly one parameter is required;
-                                                                        2. Failed to convert parameter to type.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:   1. Window is nullptr;
                                                                                             2. Transition animation is not enable;
