@@ -8668,7 +8668,7 @@ declare namespace audio {
 
     /**
      * Specific model of device
-     * @type { string }
+     * @type { ?string }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 22 dynamic&static
@@ -8677,7 +8677,7 @@ declare namespace audio {
 
     /**
      * Supported audio capabilities.
-     * @type { Array<AudioSampleFormat> }
+     * @type { ?Array<AudioStreamInfo> }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 22 dynamic&static
