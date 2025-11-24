@@ -5766,6 +5766,16 @@ declare namespace osAccount {
      * @since 22 static
      */
     accountId?: int;
+
+    /**
+     * Indicates the additional information about the credential.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 23 dynamic&static
+     */
+    additionalInfo?: string;
   }
 
   /**
