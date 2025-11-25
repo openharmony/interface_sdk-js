@@ -263,24 +263,26 @@ declare namespace uiExtension {
      * @since 12 dynamic
      * @since 22 static
      */
+    createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
+
     /**
      * Creates a subwindow for this window proxy. This API uses a promise to return the result.
      *
      * @param { string } name - Name of the subwindow.
      * @param { window.SubWindowOptions } subWindowOptions - Parameters used for creating the subwindow.
-     * @param { boolean } [isHideFollowUIExt] - Whether the subwindow will be hidden when uiextension is hidden,
-     *     the subwindow will be hidden if true or not be hidden if false. Default Value:false.
+     * @param { boolean } syncLifecycleWithUIExtension - Whether the lifecycle of the subwindow is synchronized with
+     *     this uiextension. True means the subwindow goes to background when this uiextension goes to background and
+     *     returns foreground when this uiextension returns to foreground.
      * @returns { Promise<window.Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @atomicservice
      * @since 22 dynamic&static
      */
     createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions,
-        isHideFollowUIExt?: boolean): Promise<window.Window>;
+        syncLifecycleWithUIExtension: boolean): Promise<window.Window>;
 
     /**
      * Adds or deletes the watermark flag for this window. This API uses a promise to return the result.

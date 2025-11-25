@@ -226,13 +226,16 @@ declare namespace uiExtensionHost {
      * @since 12 dynamic
      * @since 22 static
      */
+    createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
+
     /**
      * Create sub window.
      *
      * @param { string } name - window name of sub window
      * @param { window.SubWindowOptions } subWindowOptions - options of sub window creation
-     * @param { boolean } [isHideFollowUIExt] - Whether the subwindow will be hidden when uiextension is hidden,
-     *     the subwindow will be hidden if true or not be hidden if false. Default Value:false.
+     * @param { boolean } syncLifecycleWithUIExtension - Whether the lifecycle of the subwindow is synchronized with
+     *     this uiextension. True means the subwindow goes to background when this uiextension goes to background and
+     *     returns foreground when this uiextension returns to foreground.
      * @returns { Promise<window.Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
@@ -243,7 +246,7 @@ declare namespace uiExtensionHost {
      * @since 22 dynamic&static
      */
     createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions,
-        isHideFollowUIExt?: boolean): Promise<window.Window>;
+        syncLifecycleWithUIExtension: boolean): Promise<window.Window>;
 
      /**
      * Set the watermark flag on the UIExtension window
