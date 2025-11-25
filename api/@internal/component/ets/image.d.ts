@@ -1666,7 +1666,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       width: number;
@@ -1701,7 +1701,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       height: number;
@@ -1736,7 +1736,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       componentWidth: number;
@@ -1771,7 +1771,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       componentHeight: number;
@@ -1814,7 +1814,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       loadingStatus: number;
@@ -1834,7 +1834,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       contentWidth: number;
@@ -1854,7 +1854,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       contentHeight: number;
@@ -1874,7 +1874,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       contentOffsetX: number;
@@ -1894,7 +1894,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       contentOffsetY: number;
