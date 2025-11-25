@@ -1230,7 +1230,7 @@ declare namespace PiPWindow {
      * window size change event.
      * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
      * @throws { BusinessError } 401 - Params error. Possible causes: 1. Invalid args count, 0 < count <= 2 is needed.
-     *                                                                2. Failed to convert parameter to string
+     *                                                                2. Failed to convert parameter to string.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
