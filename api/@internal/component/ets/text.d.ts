@@ -1795,6 +1795,30 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 23 dynamic
    */
   contentTransition(transition: Optional<ContentTransition>): TextAttribute;
+
+  /**
+   * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+   *
+   * @param { Optional<boolean> } include - Whether enable the feature, the default value is false.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  includeFontPadding(include: Optional<boolean>): TextAttribute;
+
+  /**
+   * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+   *
+   * @param { Optional<boolean> } enabled - Whether enable the feature, the default value is false.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fallbackLineSpacing(enabled: Optional<boolean>): TextAttribute;
 }
 
 /**
