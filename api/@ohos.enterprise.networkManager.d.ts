@@ -563,6 +563,93 @@ declare namespace networkManager {
   }
 
   /**
+   * Defines the configuration mode of the Ethernet connection.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  enum IpSetMode {
+    /**
+     * Static configuration
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    STATIC = 0,
+
+    /**
+     * Dynamic configuration
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    DHCP = 1,
+  }
+
+  /**
+   * Network interface configuration for the Ethernet connection.
+   *
+   * @typedef InterfaceConfig
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  interface InterfaceConfig {
+
+    /**
+     * IP set mode.
+     *
+     * @type { IpSetMode }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    ipSetMode: IpSetMode;
+
+    /**
+     * IP information.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    ipAddress?: string;
+
+    /**
+     * Gateway information.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    gateway?: string;
+
+    /**
+     * NetMask information.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    netMask?: string;
+
+    /**
+     * DNS service address.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    dnsServers?: string;
+  }
+  
+  /**
    * Gets all of the network interfaces of the device.
    * This function can be called by a super administrator.
    *
@@ -1446,6 +1533,24 @@ declare namespace networkManager {
    * @since 20
    */
   function queryApn(admin: Want, apnId: string): Record<string, string>;
+
+  /**
+   * Sets ip address of the specific network interface.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { string } networkInterface - networkInterface indicates the network interface to set ip address.
+   * @param { InterfaceConfig } config - config indicates configuration of network interface.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function setEthernetConfig(admin: Want, networkInterface: string, config: InterfaceConfig): void;
 }
 
 export default networkManager;
