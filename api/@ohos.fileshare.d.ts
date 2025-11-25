@@ -407,8 +407,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 12 dynamic
-   * @since 22 static
+   * @since 12
    */
   /**
    * Check persistent permissions for the URI.
@@ -424,7 +423,7 @@ declare namespace fileShare {
    * @since 22 static
    */
   function checkPersistentPermission(policies: Array<PolicyInfo>): Promise<Array<boolean>>;
-  
+
   /**
    * Check permissions for the path.
    * 
