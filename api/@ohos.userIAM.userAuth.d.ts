@@ -290,7 +290,6 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.userIAM.userAuth.getVersion
      */
     getVersion(): number;
 
