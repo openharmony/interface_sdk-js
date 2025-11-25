@@ -21,6 +21,7 @@ import { CommonMethod } from './common';
 import { Length, Font, ResourceColor, Dimension, BorderRadiuses, DividerStyleOptions } from './units';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
+import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
 /**
  * Declare SubMenuExpandingMode
  *
