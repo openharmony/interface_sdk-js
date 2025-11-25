@@ -11736,8 +11736,9 @@ declare interface VerifyPinEvent {
  * @interface ExpandedMenuItemOptions
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  * @deprecated since 20
+ * @useinstead EditMenuOptions
  */
 declare interface ExpandedMenuItemOptions {
   /**
@@ -11746,8 +11747,9 @@ declare interface ExpandedMenuItemOptions {
    * @type { ResourceStr }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    * @deprecated since 20
+   * @useinstead EditMenuOptions
    */
   content: ResourceStr;
 
@@ -11757,8 +11759,9 @@ declare interface ExpandedMenuItemOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    * @deprecated since 20
+   * @useinstead EditMenuOptions
    */
   startIcon?: ResourceStr;
 
@@ -11768,8 +11771,9 @@ declare interface ExpandedMenuItemOptions {
    * @type { function }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    * @deprecated since 20
+   * @useinstead EditMenuOptions
    */
   action: (selectedText: {plainText: string}) => void;
 }
@@ -12020,7 +12024,7 @@ declare interface CameraCaptureStateChangeInfo {
   originalState: CameraCaptureState;
 
   /**
-   * The new camera capture state. 
+   * The new camera capture state.
    *
    * @type { CameraCaptureState }
    * @syscap SystemCapability.Web.Webview.Core
