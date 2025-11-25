@@ -925,7 +925,16 @@ export enum AccessibilityEventType {
    * @since 20 dynamic
    * @since 22 static
    */
-  TYPE_FOUR_FINGER_SWIPE_RIGHT = 68
+  TYPE_FOUR_FINGER_SWIPE_RIGHT = 68,
+
+  /**
+   * page active type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  TYPE_PAGE_ACTIVE = 69
 }
 
 /**
@@ -1114,12 +1123,13 @@ declare namespace accessibility {
    * 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
    * 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
    * 'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' |
-   * 'announceForAccessibilityNotInterrupt' | 'scrolling' }
+   * 'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive' }
    *
    * @typedef {'accessibilityFocus' | 'accessibilityFocusClear' | 'click' | 'longClick' |
   *     'focus' | 'select' | 'hoverEnter' | 'hoverExit' | 'textUpdate' | 'textSelectionUpdate' |
   *     'scroll' | 'requestFocusForAccessibility' | 'announceForAccessibility' |
-  *     'requestFocusForAccessibilityNotInterrupt' | 'announceForAccessibilityNotInterrupt' | 'scrolling'}
+  *     'requestFocusForAccessibilityNotInterrupt' | 'announceForAccessibilityNotInterrupt' | 'scrolling' |
+  *     'pageActive'}
   * @syscap SystemCapability.BarrierFree.Accessibility.Core
   * @crossplatform
   * @form
@@ -1130,7 +1140,7 @@ declare namespace accessibility {
   'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
   'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
   'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' |
-  'announceForAccessibilityNotInterrupt' | 'scrolling';
+  'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive';
 
   /**
    * The change type of the windowsChange event.
