@@ -1936,7 +1936,6 @@ declare namespace accessibility {
    * @param { Callback<string> } callback callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
-   * @form
    * @since 22 static
    */
   /**
@@ -2173,7 +2172,6 @@ declare namespace accessibility {
    * @param { Callback<string> } [callback] callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
-   * @form
    * @since 22 static
    */
   /**
