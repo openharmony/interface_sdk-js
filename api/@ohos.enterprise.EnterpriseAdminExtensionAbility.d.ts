@@ -19,6 +19,7 @@
  */
 
 import type systemManager from './@ohos.enterprise.systemManager';
+import common from './@ohos.enterprise.common';
 
 /**
  * Class of the enterprise admin extension ability.
@@ -178,4 +179,35 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 20
    */
   onKioskModeExiting(bundleName: string, accountId: number): void;
+
+  /**
+   * Called back when the installation status of an application that installed by the application market changes.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the bundle.
+   * @param { common.InstallationResult } result - status indicates the result of application installation.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 22
+   */
+  onMarketAppInstallResult(bundleName: string, result: common.InstallationResult): void;
+
+  /**
+   * Called back when an application is enabled as a device administrator.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the enabled admin.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  onDeviceAdminEnabled(bundleName: string): void;
+
+  /**
+   * Called back when a device administrator is disabled.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the disabled admin.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  onDeviceAdminDisabled(bundleName: string): void;
 }

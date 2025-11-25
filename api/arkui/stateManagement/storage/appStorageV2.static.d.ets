@@ -26,7 +26,7 @@ import { StorageDefaultCreator } from './persistenceV2';
  * and saves database content only in memory.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare class AppStorageV2 {
   /**
@@ -40,7 +40,7 @@ export declare class AppStorageV2 {
    * @returns { T | undefined } the value of the existed key or the default value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   static connect<T extends object>(
       ttype: Type,
@@ -58,7 +58,7 @@ export declare class AppStorageV2 {
    * @returns { T | undefined } the value of the existed key or the default value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   static connect<T extends object>(
     ttype: Type,
@@ -71,7 +71,7 @@ export declare class AppStorageV2 {
    * @param { string | Type } keyOrType key or class type removing
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   static remove(keyOrType: string | Type): void;
 
@@ -81,7 +81,7 @@ export declare class AppStorageV2 {
    * @returns { Array<string> } the array of all keys
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   static keys(): Array<string>;
 }

@@ -252,8 +252,9 @@ declare namespace picker {
    * Defines the options for saving images or videos.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead save_button/SaveButtonOptions
    */
   class PhotoSaveOptions {
     /**
@@ -261,8 +262,9 @@ declare namespace picker {
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 18
+     * @useinstead save_button/SaveButtonOptions
      */
     newFileNames?: Array<string>;
   }
@@ -293,8 +295,9 @@ declare namespace picker {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 12 dynamic
+     * @since 12 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewPicker
      */
     constructor();
 
@@ -304,8 +307,9 @@ declare namespace picker {
      *
      * @param { Context } context - represents the context.
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 12 dynamic
+     * @since 12 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewPicker
      */
     constructor(context: Context);
 

@@ -35,7 +35,7 @@ import AutoFillRect from './AutoFillRect';
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export default interface PageNodeInfo {
   /**
@@ -46,7 +46,7 @@ export default interface PageNodeInfo {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   id: int;
 
@@ -58,7 +58,7 @@ export default interface PageNodeInfo {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   depth: int;
 
@@ -70,7 +70,7 @@ export default interface PageNodeInfo {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   autoFillType: AutoFillType;
 
@@ -82,7 +82,7 @@ export default interface PageNodeInfo {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   tag: string;
 
@@ -94,7 +94,7 @@ export default interface PageNodeInfo {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   value: string;
 
@@ -106,7 +106,7 @@ export default interface PageNodeInfo {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   placeholder?: string;
 
@@ -118,7 +118,7 @@ export default interface PageNodeInfo {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   passwordRules?: string;
 
@@ -130,7 +130,7 @@ export default interface PageNodeInfo {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enableAutoFill: boolean;
 
@@ -142,7 +142,7 @@ export default interface PageNodeInfo {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   rect: AutoFillRect;
 
@@ -154,7 +154,7 @@ export default interface PageNodeInfo {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isFocus: boolean;
 
@@ -166,7 +166,7 @@ export default interface PageNodeInfo {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   metadata?: string;
 }

@@ -27,7 +27,7 @@ import window from './@ohos.window';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace uiExtension {
   /**
@@ -37,7 +37,7 @@ declare namespace uiExtension {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WindowProxy {
     /**
@@ -52,7 +52,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getWindowAvoidArea(type: window.AvoidAreaType): window.AvoidArea;
 
@@ -241,7 +241,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hideNonSecureWindows(shouldHide: boolean): Promise<void>;
 
@@ -261,7 +261,7 @@ declare namespace uiExtension {
      * @StageModelOnly
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     /**
      * Creates a subwindow for this window proxy. This API uses a promise to return the result.
@@ -294,7 +294,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWaterMarkFlag(enable: boolean): Promise<void>;
 
@@ -313,7 +313,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     occupyEvents(eventFlags: int): Promise<void>;
 
@@ -324,7 +324,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     properties: WindowProxyProperties;
   }
@@ -336,7 +336,7 @@ declare namespace uiExtension {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum EventFlag {
     /**
@@ -345,7 +345,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EVENT_NONE = 0x00000000,
     /**
@@ -354,7 +354,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EVENT_PAN_GESTURE_LEFT = 0x00000001,
     /**
@@ -363,7 +363,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EVENT_PAN_GESTURE_RIGHT = 0x00000002,
     /**
@@ -372,7 +372,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EVENT_PAN_GESTURE_UP = 0x00000004,
     /**
@@ -381,7 +381,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EVENT_PAN_GESTURE_DOWN = 0x00000008,
     /**
@@ -390,7 +390,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EVENT_CLICK = 0x00000100,
     /**
@@ -399,7 +399,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EVENT_LONG_PRESS = 0x00000200,
   }
@@ -411,7 +411,7 @@ declare namespace uiExtension {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AvoidAreaInfo {
     /**
@@ -421,7 +421,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     type: window.AvoidAreaType;
 
@@ -432,7 +432,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     area: window.AvoidArea;
   }
@@ -444,7 +444,7 @@ declare namespace uiExtension {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    * 
    */
   interface WindowProxyProperties {
@@ -455,7 +455,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uiExtensionHostWindowProxyRect: window.Rect;
   }
@@ -467,7 +467,7 @@ declare namespace uiExtension {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum RectChangeReason {
     /**
@@ -476,7 +476,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HOST_WINDOW_RECT_CHANGE = 0x0001,
   }
@@ -488,7 +488,7 @@ declare namespace uiExtension {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface RectChangeOptions {
     /**
@@ -498,7 +498,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rect: window.Rect,
 
@@ -509,7 +509,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     reason: RectChangeReason
   }

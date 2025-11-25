@@ -33,11 +33,11 @@ export interface ConnectionInfo {
   /**
    * Indicates connection id
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
    */
-  connectionId: int;
+  connectionId: number;
 
   /**
    * Indicates the caller bundle name
@@ -60,20 +60,20 @@ export interface ConnectionInfo {
   /**
    * Indicates the pipe read for connection
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
    */
-  fdRead: int;
+  fdRead: number;
 
   /**
    * Indicates the pipe write for connection
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
    */
-  fdWrite: int;
+  fdWrite: number;
 }
 
 /**

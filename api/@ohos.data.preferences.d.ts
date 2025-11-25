@@ -46,7 +46,7 @@ import Context from './application/BaseContext';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  * @name preferences
  */
 declare namespace preferences {
@@ -80,7 +80,7 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object | bigint;
 
@@ -115,7 +115,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   const MAX_KEY_LENGTH: int;
 
@@ -197,7 +197,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Options {
     /**
@@ -215,7 +215,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -234,7 +234,7 @@ declare namespace preferences {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     dataGroupId?: string | null | undefined;
 
@@ -297,7 +297,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>): void;
 
@@ -340,7 +340,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getPreferences(context: Context, options: Options, callback: AsyncCallback<Preferences>): void;
 
@@ -389,7 +389,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getPreferences(context: Context, name: string): Promise<Preferences>;
 
@@ -430,7 +430,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getPreferences(context: Context, options: Options): Promise<Preferences>;
 
@@ -473,7 +473,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getPreferencesSync(context: Context, options: Options): Preferences;
 
@@ -544,7 +544,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function deletePreferences(context: Context, name: string, callback: AsyncCallback<void>): void;
 
@@ -593,7 +593,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function deletePreferences(context: Context, options: Options, callback: AsyncCallback<void>): void;
 
@@ -654,7 +654,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function deletePreferences(context: Context, name: string): Promise<void>;
 
@@ -703,7 +703,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function deletePreferences(context: Context, options: Options): Promise<void>;
 
@@ -758,7 +758,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removePreferencesFromCache(context: Context, name: string, callback: AsyncCallback<void>): void;
 
@@ -803,7 +803,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removePreferencesFromCache(context: Context, options: Options, callback: AsyncCallback<void>): void;
 
@@ -858,7 +858,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removePreferencesFromCache(context: Context, name: string): Promise<void>;
 
@@ -903,7 +903,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removePreferencesFromCache(context: Context, options: Options): Promise<void>;
 
@@ -940,7 +940,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removePreferencesFromCacheSync(context: Context, name: string): void;
 
@@ -983,7 +983,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removePreferencesFromCacheSync(context: Context, options: Options): void;
 
@@ -1022,7 +1022,7 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Preferences {
     /**
@@ -1073,7 +1073,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     get(key: string, defValue: ValueType, callback: AsyncCallback<ValueType>): void;
 
@@ -1125,7 +1125,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     get(key: string, defValue: ValueType): Promise<ValueType>;
 
@@ -1162,7 +1162,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getSync(key: string, defValue: ValueType): ValueType;
 
@@ -1193,7 +1193,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAll(callback: AsyncCallback<Object>): void;
 
@@ -1221,7 +1221,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAll(): Promise<Object>;
 
@@ -1244,7 +1244,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAllSync(): Object;
 
@@ -1290,7 +1290,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     has(key: string, callback: AsyncCallback<boolean>): void;
 
@@ -1336,7 +1336,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     has(key: string): Promise<boolean>;
 
@@ -1371,7 +1371,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hasSync(key: string): boolean;
 
@@ -1434,7 +1434,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     put(key: string, value: ValueType, callback: AsyncCallback<void>): void;
 
@@ -1501,7 +1501,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     put(key: string, value: ValueType): Promise<void>;
 
@@ -1546,7 +1546,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     putSync(key: string, value: ValueType): void;
 
@@ -1592,7 +1592,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     delete(key: string, callback: AsyncCallback<void>): void;
 
@@ -1638,7 +1638,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     delete(key: string): Promise<void>;
 
@@ -1671,7 +1671,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deleteSync(key: string): void;
 
@@ -1705,7 +1705,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     clear(callback: AsyncCallback<void>): void;
 
@@ -1736,7 +1736,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     clear(): Promise<void>;
 
@@ -1756,7 +1756,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     clearSync(): void;
 
@@ -1787,7 +1787,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     flush(callback: AsyncCallback<void>): void;
 
@@ -1815,7 +1815,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     flush(): Promise<void>;
 
@@ -1827,7 +1827,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     flushSync(): void;
 
@@ -1867,7 +1867,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'change', callback: Callback<string>): void;
 
@@ -1896,7 +1896,7 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'multiProcessChange', callback: Callback<string>): void;
 
@@ -1927,7 +1927,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     on(type: 'dataChange', keys: Array<string>, callback: Callback<Record<string, ValueType>>): void;
 
@@ -1967,7 +1968,7 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'change', callback?: Callback<string>): void;
 
@@ -1994,7 +1995,7 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'multiProcessChange', callback?: Callback<string>): void;
 
@@ -2025,7 +2026,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     off(type: 'dataChange', keys: Array<string>, callback?: Callback<Record<string, ValueType>>): void;
   }

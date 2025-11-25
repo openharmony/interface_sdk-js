@@ -84,7 +84,7 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
   /**
    * Stop the specified native connection.
    * 
-   * @param { int } connectionId - Indicates the id of the specified connection.
+   * @param { number } connectionId - Indicates the id of the specified connection.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -94,5 +94,5 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @stagemodelonly
    * @since 21 dynamic
    */
-  stopNativeConnection(connectionId: int): Promise<void>;
+  stopNativeConnection(connectionId: number): Promise<void>;
 }

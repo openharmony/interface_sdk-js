@@ -29,7 +29,7 @@ import type BackupExtensionContext from './@ohos.file.BackupExtensionContext';
  * @syscap SystemCapability.FileManagement.StorageService.Backup
  * @StageModelOnly
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface BundleVersion {
   /**
@@ -39,7 +39,7 @@ export interface BundleVersion {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   code: number;
 
@@ -50,7 +50,7 @@ export interface BundleVersion {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   name: string;
 }
@@ -61,7 +61,7 @@ export interface BundleVersion {
  * @syscap SystemCapability.FileManagement.StorageService.Backup
  * @StageModelOnly
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class BackupExtensionAbility {
   /**
@@ -89,7 +89,7 @@ declare class BackupExtensionAbility {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onBackup(): void;
 
@@ -115,7 +115,7 @@ declare class BackupExtensionAbility {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onRestore(bundleVersion: BundleVersion): void;
 
@@ -161,13 +161,14 @@ declare class BackupExtensionAbility {
    * Callback to be called before extension ability exits.
    * Developer could override this method to clean abnormal data.
    *
-   * @param { number } scenario - The value 1 indicates backup and the value 2 indicates restoration.
+   * @param { int } scenario - The value 1 indicates backup and the value 2 indicates restoration.
    * @returns { Promise<void> } the promise returned by the function
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 20 dynamic
+   * @since 22 static
    */
-  onRelease(scenario: number): Promise<void>;
+  onRelease(scenario: int): Promise<void>;
 
   /**
    * Callback to be called when getting application backup compatibilityInfo.
@@ -179,6 +180,7 @@ declare class BackupExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 20 dynamic
+   * @since 22 static
    */
   getBackupCompatibilityInfo(extInfo: string) : Promise<string>;
 
@@ -192,6 +194,7 @@ declare class BackupExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 20 dynamic
+   * @since 22 static
    */
   getRestoreCompatibilityInfo(extInfo: string) : Promise<string>;
 }

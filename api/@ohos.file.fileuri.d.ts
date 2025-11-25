@@ -35,7 +35,7 @@ import uri from './@ohos.uri';
  * @syscap SystemCapability.FileManagement.AppFileService
  * @atomicservice
  * @since 15 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace fileUri {
   /**
@@ -52,7 +52,7 @@ declare namespace fileUri {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class FileUri extends uri.URI {
     /**
@@ -77,7 +77,7 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constructor(uriOrPath: string);
 
@@ -167,7 +167,7 @@ declare namespace fileUri {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getUriFromPath(path: string): string;
 }

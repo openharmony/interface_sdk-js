@@ -1031,20 +1031,19 @@ declare enum BorderStyle {
 }
 
 /**
- * Enum for CornerApplyType.
- * Indicate how to draw rounded corners.
+ * Enum for RenderStrategy.
+ * Define Graphics Rendering Strategy.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
-
-declare enum CornerApplyType {
+declare enum RenderStrategy {
   /**
-   * The current component and its child components will be drawn directly onto the canvas with rounded corners applied.
+   * The current component and its child components will be drawn directly onto the screen canvas.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1055,8 +1054,8 @@ declare enum CornerApplyType {
   FAST = 0,
 
   /**
-   * The current component and its child components will first be rendered onto an off-screen canvas,
-   * then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
+   * The current component and its child components will first be drawn onto an off-screen canvas,
+   *     then undergo some graphic rendering operations, and finally be drawn onto the main canvas.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1064,7 +1063,7 @@ declare enum CornerApplyType {
    * @atomicservice
    * @since 22 dynamic
    */
-  OFFSCREEN = 1,
+  OFFSCREEN = 1
 }
 
 /**
@@ -10853,6 +10852,57 @@ declare enum AnimationPropertyType {
    * @since 20 dynamic
    */
   OPACITY = 3,
+}
+
+/**
+ * Defines the event tool type that support response region settings.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare enum ResponseRegionSupportedTool {
+  /**
+   * All source tool type.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  ALL = 0,
+
+  /**
+   * The finger type.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  FINGER = 1,
+
+  /**
+   * The pen type.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  PEN = 2,
+
+  /**
+   * The mouse type.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  MOUSE = 3
 }
 
 /**

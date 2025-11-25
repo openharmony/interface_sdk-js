@@ -3185,6 +3185,16 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @since 18 dynamic
    */
   getCaretRect(): RectResult | undefined;
+
+  /**
+   * Delete the last character of the input field component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  deleteBackward(): void;
 }
 
 /**
@@ -4156,6 +4166,16 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @atomicservice
    * @since 18 dynamic
    */
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   stopBackPress(isStopped: Optional<boolean>): RichEditorAttribute;
 
   /**
@@ -4181,6 +4201,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 21 dynamic
    */
   scrollBarColor(color: Optional<ColorMetrics>): RichEditorAttribute;
+
+  /**
+   * Whether to enable single line mode.
+   *
+   * @param { boolean | undefined } isEnable - Whether to enable single line mode, default is false.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  singleLine(isEnable: boolean | undefined): RichEditorAttribute;
 }
 
 /**

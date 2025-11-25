@@ -29,7 +29,7 @@ import Context from './application/Context';
  * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace application {
   /**
@@ -89,7 +89,7 @@ declare namespace application {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export function createModuleContext(context: Context, moduleName: string): Promise<Context>;
 
@@ -108,7 +108,7 @@ declare namespace application {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export function createModuleContext(context: Context, bundleName: string, moduleName: string): Promise<Context>;
 
@@ -122,6 +122,7 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 19 dynamic
+   * @since 22 static
    */
   export function createPluginModuleContext(context: Context, pluginBundleName: string, pluginModuleName: string): Promise<Context>;
 
@@ -140,6 +141,7 @@ declare namespace application {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 22 static
    */
   export function createPluginModuleContextForHostBundle(context: Context, pluginBundleName: string, pluginModuleName: string, hostBundleName: string): Promise<Context>;
 
@@ -157,7 +159,7 @@ declare namespace application {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export function createBundleContext(context: Context, bundleName: string): Promise<Context>;
 
@@ -169,10 +171,21 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14 dynamic
-   * @since 20 static
+   * @since 14 dynamiconly
    */
   export function getApplicationContext(): ApplicationContext;
+
+  /**
+   * Get application context instance.
+   *
+   * @returns { ApplicationContext } Returns the application context.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Memory operation error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+    export function getApplicationContextInstance(): ApplicationContext;
 
   /**
    * Elevate the current process to be a candidate master process.
@@ -191,6 +204,7 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 22 static
    */
   export function promoteCurrentToCandidateMasterProcess(insertToHead: boolean): Promise<void>;
 
@@ -204,6 +218,7 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 22 static
    */
   export function demoteCurrentFromCandidateMasterProcess(): Promise<void>;
 
@@ -220,6 +235,7 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 21 dynamic
+   * @since 22 static
    */
    export function exitMasterProcessRole(): Promise<void>
 

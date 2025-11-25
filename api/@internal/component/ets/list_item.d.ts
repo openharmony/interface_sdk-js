@@ -33,7 +33,7 @@ declare enum Sticky {
    * No sticky.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   None,
@@ -42,7 +42,7 @@ declare enum Sticky {
    * Normal mode
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   Normal,
@@ -51,7 +51,7 @@ declare enum Sticky {
    * Set opacity.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   Opacity,
@@ -62,7 +62,7 @@ declare enum Sticky {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7 dynamic
+ * @since 7 dynamiconly
  * @deprecated since 9
  */
 declare enum EditMode {
@@ -70,7 +70,7 @@ declare enum EditMode {
    * Unrestricted operations.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   None,
@@ -79,7 +79,7 @@ declare enum EditMode {
    * Deletable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   Deletable,
@@ -88,7 +88,7 @@ declare enum EditMode {
    * Movable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   Movable,
@@ -784,7 +784,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @param { boolean | EditMode } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   editable(value: boolean | EditMode): ListItemAttribute;

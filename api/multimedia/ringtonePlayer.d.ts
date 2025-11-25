@@ -28,7 +28,7 @@ import type media from '../@ohos.multimedia.media';
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface RingtoneOptions {
   /**
@@ -37,7 +37,7 @@ export interface RingtoneOptions {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   volume: double;
   /**
@@ -46,7 +46,7 @@ export interface RingtoneOptions {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   loop: boolean;
 }
@@ -57,7 +57,7 @@ export interface RingtoneOptions {
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface RingtonePlayer {
   /**
@@ -66,7 +66,7 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly state: media.AVPlayerState;
 
@@ -76,7 +76,7 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getTitle(callback: AsyncCallback<string>): void;
   /**
@@ -85,7 +85,7 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getTitle(): Promise<string>;
 
@@ -95,7 +95,7 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getAudioRendererInfo(callback: AsyncCallback<audio.AudioRendererInfo>): void;
   /**
@@ -104,7 +104,7 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getAudioRendererInfo(): Promise<audio.AudioRendererInfo>;
 
@@ -115,7 +115,7 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   configure(options: RingtoneOptions, callback: AsyncCallback<void>): void;
   /**
@@ -125,7 +125,7 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   configure(options: RingtoneOptions): Promise<void>;
 
@@ -135,7 +135,7 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   start(callback: AsyncCallback<void>): void;
   /**
@@ -144,7 +144,7 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   start(): Promise<void>;
 
@@ -154,7 +154,7 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   stop(callback: AsyncCallback<void>): void;
   /**
@@ -163,7 +163,7 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   stop(): Promise<void>;
 
@@ -173,7 +173,7 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   release(callback: AsyncCallback<void>): void;
   /**
@@ -182,7 +182,7 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   release(): Promise<void>;
 
@@ -198,9 +198,20 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
    */
   on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void;
+
+  /**
+   * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
+   * triggered when audio playback is interrupted.
+   * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for interrupt callback.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 6800101 - Parameter verification failed.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 22 static
+   */
+  onAudioInterrupt(callback: Callback<audio.InterruptEvent>): void;
 
   /**
    * Unsubscribes to audio interrupt events.
@@ -212,7 +223,14 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
    */
-  off(type: 'audioInterrupt'): void
+  off(type: 'audioInterrupt'): void;
+  /**
+   * Unsubscribes to audio interrupt events.
+   * @throws { BusinessError } 202 - Not system application.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 22 static
+   */
+  offAudioInterrupt(): void;
 }

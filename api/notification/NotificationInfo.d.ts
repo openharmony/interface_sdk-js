@@ -82,20 +82,10 @@ export interface NotificationInfo {
   /**
    * The publish timestamp of notification.
    *
-   * @type { ?number }
-   * @readonly
-   * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic
-   */
-  readonly deliveryTime?: number;
-
-  /**
-   * The publish timestamp of notification.
-   *
    * @type { ?long }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 static
+   * @since 22 dynamic&static
    */
   readonly deliveryTime?: long;
 
@@ -108,4 +98,14 @@ export interface NotificationInfo {
    * @since 22 dynamic&static
    */
   readonly groupName?: string;
+
+  /**
+   * The appIndex of application that creates the notification, only work in appClone mode.
+   *
+   * @type { int }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @since 22 dynamic&static
+   */
+  readonly appIndex: int;
 }

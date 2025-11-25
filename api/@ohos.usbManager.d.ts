@@ -26,7 +26,7 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace usbManager
  * @syscap SystemCapability.USB.USBManager
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace usbManager {
   /**
@@ -44,7 +44,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDevices(): Array<Readonly<USBDevice>>;
 
@@ -74,7 +74,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400012 Transmission I/O error.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function connectDevice(device: USBDevice): Readonly<USBDevicePipe>;
 
@@ -100,7 +100,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function hasRight(deviceName: string): boolean;
 
@@ -128,7 +128,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function requestRight(deviceName: string): Promise<boolean>;
 
@@ -156,7 +156,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeRight(deviceName: string): boolean;
 
@@ -238,6 +238,7 @@ declare namespace usbManager {
    * @useinstead ohos.usbManager/usbManager#getDeviceFunctions
    */
   function getCurrentFunctions(): FunctionType;
+
   /**
    * Obtains the USBPort list.
    *
@@ -317,7 +318,7 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addDeviceAccessRight(tokenId: string, deviceName: string): boolean;
 
@@ -350,7 +351,7 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getFunctionsFromString(funcs: string): int;
 
@@ -397,7 +398,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   function getStringFromFunctions(funcs: int): string;
 
@@ -450,7 +451,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400006 - Unsupported operation. The function is not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   function setDeviceFunctions(funcs: int): Promise<void>;
 
@@ -489,7 +490,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   function getDeviceFunctions(): int;
 
@@ -515,7 +516,7 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getPortList(): Array<USBPort>;
 
@@ -548,7 +549,7 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getPortSupportModes(portId: int): PortModeType;
 
@@ -587,7 +588,7 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setPortRoleTypes(portId: int, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
 
@@ -627,10 +628,10 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addAccessoryRight(tokenId: int, accessory: USBAccessory): void;
-  /* usb pipe functions begin */
+
   /**
    * Claims a USB interface.
    *
@@ -657,7 +658,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean): int;
 
@@ -685,7 +686,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function releaseInterface(pipe: USBDevicePipe, iface: USBInterface): int;
 
@@ -713,7 +714,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setConfiguration(pipe: USBDevicePipe, config: USBConfiguration): int;
 
@@ -741,7 +742,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setInterface(pipe: USBDevicePipe, iface: USBInterface): int;
 
@@ -769,7 +770,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRawDescriptor(pipe: USBDevicePipe): Uint8Array;
 
@@ -795,7 +796,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getFileDescriptor(pipe: USBDevicePipe): int;
 
@@ -845,7 +846,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function usbControlTransfer(pipe: USBDevicePipe, requestparam: USBDeviceRequestParams, timeout?: int): Promise<int>;
 
@@ -879,7 +880,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function bulkTransfer(
     pipe: USBDevicePipe,
@@ -910,7 +911,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function closePipe(pipe: USBDevicePipe): int;
 
@@ -944,7 +945,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function hasAccessoryRight(accessory: USBAccessory): boolean;
 
@@ -978,7 +979,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function requestAccessoryRight(accessory: USBAccessory): Promise<boolean>;
 
@@ -1010,7 +1011,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function cancelAccessoryRight(accessory: USBAccessory): void;
 
@@ -1032,7 +1033,7 @@ declare namespace usbManager {
    * <br>1. No accessory is plugged in.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAccessoryList(): Array<Readonly<USBAccessory>>;
 
@@ -1070,7 +1071,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14401003 - Cannot reopen the accessory.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function openAccessory(accessory: USBAccessory): USBAccessoryHandle;
 
@@ -1098,7 +1099,7 @@ declare namespace usbManager {
    * <br>1. No accessory is plugged in.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function closeAccessory(accessoryHandle: USBAccessoryHandle): void;
 
@@ -1108,7 +1109,7 @@ declare namespace usbManager {
    * @typedef USBEndpoint
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface USBEndpoint {
     /**
@@ -1117,7 +1118,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     address: int;
 
@@ -1127,7 +1128,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     attributes: int;
 
@@ -1137,7 +1138,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     interval: int;
 
@@ -1147,7 +1148,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     maxPacketSize: int;
 
@@ -1157,7 +1158,7 @@ declare namespace usbManager {
      * @type { USBRequestDirection }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     direction: USBRequestDirection;
 
@@ -1175,7 +1176,7 @@ declare namespace usbManager {
      *
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 20 static
+     * @since 22 static
      */
     endpointAddr: int;
 
@@ -1185,7 +1186,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     type: int;
 
@@ -1195,7 +1196,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     interfaceId: int;
 
@@ -1209,7 +1210,7 @@ declare namespace usbManager {
    * @typedef USBInterface
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface USBInterface {
     /**
@@ -1218,7 +1219,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     id: int;
 
@@ -1228,7 +1229,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     protocol: int;
 
@@ -1238,7 +1239,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     clazz: int;
 
@@ -1248,7 +1249,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     subClass: int;
 
@@ -1258,7 +1259,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     alternateSetting: int;
 
@@ -1268,7 +1269,7 @@ declare namespace usbManager {
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -1278,7 +1279,7 @@ declare namespace usbManager {
      * @type { Array<USBEndpoint> }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     endpoints: Array<USBEndpoint>;
   }
@@ -1289,7 +1290,7 @@ declare namespace usbManager {
    * @typedef USBConfiguration
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface USBConfiguration {
     /**
@@ -1298,7 +1299,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     id: int;
 
@@ -1308,7 +1309,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     attributes: int;
 
@@ -1318,7 +1319,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     maxPower: int;
 
@@ -1328,7 +1329,7 @@ declare namespace usbManager {
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -1338,7 +1339,7 @@ declare namespace usbManager {
      * @type { boolean }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isRemoteWakeup: boolean;
 
@@ -1348,7 +1349,7 @@ declare namespace usbManager {
      * @type { boolean }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isSelfPowered: boolean;
 
@@ -1358,7 +1359,7 @@ declare namespace usbManager {
      * @type { Array<USBInterface> }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     interfaces: Array<USBInterface>;
   }
@@ -1369,7 +1370,7 @@ declare namespace usbManager {
    * @typedef USBDevice
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface USBDevice {
     /**
@@ -1378,7 +1379,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     busNum: int;
 
@@ -1388,7 +1389,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     devAddress: int;
 
@@ -1398,7 +1399,7 @@ declare namespace usbManager {
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     serial: string;
 
@@ -1408,7 +1409,7 @@ declare namespace usbManager {
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -1418,7 +1419,7 @@ declare namespace usbManager {
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     manufacturerName: string;
 
@@ -1428,7 +1429,7 @@ declare namespace usbManager {
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     productName: string;
 
@@ -1438,7 +1439,7 @@ declare namespace usbManager {
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     version: string;
 
@@ -1448,7 +1449,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     vendorId: int;
 
@@ -1458,7 +1459,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     productId: int;
 
@@ -1468,7 +1469,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     clazz: int;
 
@@ -1478,7 +1479,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     subClass: int;
 
@@ -1488,7 +1489,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     protocol: int;
 
@@ -1498,7 +1499,7 @@ declare namespace usbManager {
      * @type { Array<USBConfiguration> }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     configs: Array<USBConfiguration>;
   }
@@ -1509,7 +1510,7 @@ declare namespace usbManager {
    * @typedef USBDevicePipe
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface USBDevicePipe {
     /**
@@ -1518,7 +1519,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     busNum: int;
 
@@ -1528,7 +1529,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     devAddress: int;
   }
@@ -1540,7 +1541,7 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum PowerRoleType {
     /**
@@ -1549,7 +1550,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NONE = 0,
 
@@ -1559,7 +1560,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SOURCE = 1,
 
@@ -1569,7 +1570,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SINK = 2
   }
@@ -1581,7 +1582,7 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum DataRoleType {
     /**
@@ -1590,7 +1591,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NONE = 0,
 
@@ -1600,7 +1601,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HOST = 1,
 
@@ -1610,7 +1611,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DEVICE = 2
   }
@@ -1622,7 +1623,7 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum PortModeType {
     /**
@@ -1631,7 +1632,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NONE = 0,
 
@@ -1641,7 +1642,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UFP = 1,
 
@@ -1651,7 +1652,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DFP = 2,
 
@@ -1661,7 +1662,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DRP = 3,
 
@@ -1671,7 +1672,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NUM_MODES = 4
   }
@@ -1683,7 +1684,7 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface USBPortStatus {
     /**
@@ -1693,7 +1694,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     currentMode: int;
 
@@ -1704,7 +1705,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     currentPowerRole: int;
 
@@ -1715,7 +1716,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     currentDataRole: int;
   }
@@ -1727,7 +1728,7 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface USBPort {
     /**
@@ -1737,7 +1738,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     id: int;
 
@@ -1748,7 +1749,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     supportedModes: PortModeType;
 
@@ -1759,7 +1760,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     status: USBPortStatus;
   }
@@ -1779,8 +1780,9 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.usbManager/usbManager.USBDeviceRequestParams
      */
     request: number;
 
@@ -1789,8 +1791,9 @@ declare namespace usbManager {
      *
      * @type { USBRequestTargetType }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.usbManager/usbManager.USBDeviceRequestParams
      */
     target: USBRequestTargetType;
 
@@ -1799,8 +1802,9 @@ declare namespace usbManager {
      *
      * @type { USBControlRequestType }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.usbManager/usbManager.USBDeviceRequestParams
      */
     reqType: USBControlRequestType;
 
@@ -1809,8 +1813,9 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.usbManager/usbManager.USBDeviceRequestParams
      */
     value: number;
 
@@ -1819,8 +1824,9 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.usbManager/usbManager.USBDeviceRequestParams
      */
     index: number;
 
@@ -1829,8 +1835,9 @@ declare namespace usbManager {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.usbManager/usbManager.USBDeviceRequestParams
      */
     data: Uint8Array;
   }
@@ -1841,7 +1848,7 @@ declare namespace usbManager {
    * @typedef USBDeviceRequestParams
    * @syscap SystemCapability.USB.USBManager
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface USBDeviceRequestParams {
     /**
@@ -1850,7 +1857,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bmRequestType: int;
 
@@ -1860,7 +1867,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bRequest: int;
 
@@ -1870,7 +1877,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     wValue: int;
 
@@ -1880,7 +1887,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     wIndex: int;
 
@@ -1890,7 +1897,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     wLength: int;
 
@@ -1900,7 +1907,7 @@ declare namespace usbManager {
      * @type { Uint8Array }
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     data: Uint8Array;
   }
@@ -1911,7 +1918,7 @@ declare namespace usbManager {
    * @enum { int }
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum USBRequestTargetType {
     /**
@@ -1919,7 +1926,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USB_REQUEST_TARGET_DEVICE = 0,
 
@@ -1928,7 +1935,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USB_REQUEST_TARGET_INTERFACE = 1,
 
@@ -1937,7 +1944,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USB_REQUEST_TARGET_ENDPOINT = 2,
 
@@ -1946,7 +1953,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USB_REQUEST_TARGET_OTHER = 3
   }
@@ -1957,7 +1964,7 @@ declare namespace usbManager {
    * @enum { int }
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum USBControlRequestType {
     /**
@@ -1965,7 +1972,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USB_REQUEST_TYPE_STANDARD = 0,
 
@@ -1974,7 +1981,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USB_REQUEST_TYPE_CLASS = 1,
 
@@ -1983,7 +1990,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USB_REQUEST_TYPE_VENDOR = 2
   }
@@ -1994,7 +2001,7 @@ declare namespace usbManager {
    * @enum { int }
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum USBRequestDirection {
     /**
@@ -2002,7 +2009,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USB_REQUEST_DIR_TO_DEVICE = 0,
 
@@ -2011,7 +2018,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USB_REQUEST_DIR_FROM_DEVICE = 0x80
   }
@@ -2023,7 +2030,7 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum FunctionType {
     /**
@@ -2032,7 +2039,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NONE = 0,
 
@@ -2042,7 +2049,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACM = 1,
 
@@ -2052,7 +2059,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ECM = 2,
 
@@ -2062,7 +2069,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HDC = 4,
 
@@ -2072,7 +2079,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MTP = 8,
 
@@ -2082,7 +2089,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PTP = 16,
 
@@ -2092,7 +2099,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RNDIS = 32,
 
@@ -2102,7 +2109,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MIDI = 64,
 
@@ -2112,7 +2119,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUDIO_SOURCE = 128,
 
@@ -2122,7 +2129,7 @@ declare namespace usbManager {
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NCM = 256
   }
@@ -2133,7 +2140,7 @@ declare namespace usbManager {
    * @typedef USBAccessory
    * @syscap SystemCapability.USB.USBManager
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface USBAccessory {
     /**
@@ -2142,7 +2149,7 @@ declare namespace usbManager {
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     manufacturer: string;
 
@@ -2152,7 +2159,7 @@ declare namespace usbManager {
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     product: string;
 
@@ -2162,7 +2169,7 @@ declare namespace usbManager {
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     description: string;
 
@@ -2172,7 +2179,7 @@ declare namespace usbManager {
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     version: string;
 
@@ -2182,7 +2189,7 @@ declare namespace usbManager {
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     serialNumber: string;
   }
@@ -2193,7 +2200,7 @@ declare namespace usbManager {
    * @typedef USBAccessoryHandle
    * @syscap SystemCapability.USB.USBManager
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface USBAccessoryHandle {
     /**
@@ -2202,7 +2209,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     accessoryFd: int;
   }
@@ -2213,7 +2220,7 @@ declare namespace usbManager {
    * @enum { int }
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum UsbTransferFlags {
     /**
@@ -2221,7 +2228,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USB_TRANSFER_SHORT_NOT_OK = 0,
 
@@ -2230,7 +2237,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USB_TRANSFER_FREE_BUFFER = 1,
 
@@ -2239,7 +2246,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USB_TRANSFER_FREE_TRANSFER = 2,
 
@@ -2248,7 +2255,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USB_TRANSFER_ADD_ZERO_PACKET = 3
   }
@@ -2259,7 +2266,7 @@ declare namespace usbManager {
    * @enum { int }
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum UsbTransferStatus {
     /**
@@ -2267,7 +2274,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TRANSFER_COMPLETED = 0,
 
@@ -2276,7 +2283,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TRANSFER_ERROR = 1,
 
@@ -2285,7 +2292,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TRANSFER_TIMED_OUT = 2,
 
@@ -2294,7 +2301,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TRANSFER_CANCELED = 3,
 
@@ -2304,7 +2311,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TRANSFER_STALL = 4,
 
@@ -2313,7 +2320,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TRANSFER_NO_DEVICE = 5,
 
@@ -2322,7 +2329,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TRANSFER_OVERFLOW = 6
   }
@@ -2333,7 +2340,7 @@ declare namespace usbManager {
    * @enum { int }
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum UsbEndpointTransferType {
     /**
@@ -2341,7 +2348,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TRANSFER_TYPE_ISOCHRONOUS = 0x1,
 
@@ -2350,7 +2357,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TRANSFER_TYPE_BULK = 0x2,
 
@@ -2359,7 +2366,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TRANSFER_TYPE_INTERRUPT = 0x3
   }
@@ -2370,7 +2377,7 @@ declare namespace usbManager {
    * @typedef UsbIsoPacketDescriptor
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface UsbIsoPacketDescriptor {
     /**
@@ -2379,7 +2386,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     length: int;
 
@@ -2389,7 +2396,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     actualLength: int;
 
@@ -2399,7 +2406,7 @@ declare namespace usbManager {
      * @type { UsbTransferStatus }
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     status: UsbTransferStatus;
   }
@@ -2410,7 +2417,7 @@ declare namespace usbManager {
    * @typedef SubmitTransferCallback
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface SubmitTransferCallback {
     /**
@@ -2420,7 +2427,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     actualLength: int;
 
@@ -2430,7 +2437,7 @@ declare namespace usbManager {
      * @type { UsbTransferStatus }
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     status: UsbTransferStatus;
 
@@ -2440,7 +2447,7 @@ declare namespace usbManager {
      * @type { Array<Readonly<UsbIsoPacketDescriptor>> }
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isoPacketDescs: Array<Readonly<UsbIsoPacketDescriptor>>;
   }
@@ -2452,7 +2459,7 @@ declare namespace usbManager {
    * @typedef UsbDataTransferParams
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface UsbDataTransferParams {
     /**
@@ -2461,7 +2468,7 @@ declare namespace usbManager {
      * @type { USBDevicePipe }
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     devPipe: USBDevicePipe;
 
@@ -2471,7 +2478,7 @@ declare namespace usbManager {
      * @type { UsbTransferFlags }
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     flags: UsbTransferFlags;
 
@@ -2481,7 +2488,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     endpoint: int;
 
@@ -2491,7 +2498,7 @@ declare namespace usbManager {
      * @type { UsbEndpointTransferType }
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     type: UsbEndpointTransferType;
 
@@ -2501,7 +2508,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     timeout: int;
 
@@ -2511,7 +2518,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     length: int;
 
@@ -2521,7 +2528,7 @@ declare namespace usbManager {
      * @type { AsyncCallback<SubmitTransferCallback> }
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     callback: AsyncCallback<SubmitTransferCallback>;
 
@@ -2532,7 +2539,7 @@ declare namespace usbManager {
      * @type { Uint8Array }
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     userData: Uint8Array;
 
@@ -2542,7 +2549,7 @@ declare namespace usbManager {
      * @type { Uint8Array }
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     buffer: Uint8Array;
 
@@ -2552,7 +2559,7 @@ declare namespace usbManager {
      * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isoPacketCount: int;
   }
@@ -2573,7 +2580,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400012 - Transmission I/O error.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function usbSubmitTransfer(transfer: UsbDataTransferParams): void;
 
@@ -2589,7 +2596,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400011 - The transfer is not in progress, or is already complete or cancelled.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function usbCancelTransfer(transfer: UsbDataTransferParams): void;
 
@@ -2609,7 +2616,8 @@ declare namespace usbManager {
    * <br>1.The input parameters fail the validation check.
    * <br>2.The call chain used to obtain the input parameters is not reasonable.
    * @syscap SystemCapability.USB.USBManager
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function resetUsbDevice(pipe: USBDevicePipe): boolean;
 
