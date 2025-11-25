@@ -25,7 +25,7 @@ import image from './@ohos.multimedia.image';
  *
  * @namespace componentSnapshot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 declare namespace componentSnapshot {
     /**
@@ -33,41 +33,41 @@ declare namespace componentSnapshot {
      *
      * @typedef SnapshotRegion
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export interface SnapshotRegion {
         /**
          * Left side position of rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
-        left: number;
+        left: double;
         /**
          * Right side position of Rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
-        right: number;
+        right: double;
         /**
          * Top side position of Rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
-        top: number;
+        top: double;
         /**
          * Bottom side position of Rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
-        bottom: number;
+        bottom: double;
     }
     /**
      * Defines the extra options for snapshot taking, if this is used, the start and end will
@@ -75,48 +75,48 @@ declare namespace componentSnapshot {
      *
      * @typedef LocalizedSnapshotRegion
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export interface LocalizedSnapshotRegion {
         /**
          * Left/Right side position of rectangle, in PX
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
-        start: number;
+        start: double;
         /**
          * End side position of Rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
-        end: number;
+        end: double;
         /**
          * Left/Right side position of rectangle, in PX
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
-        top: number;
+        top: double;
         /**
          * Bottom side position of Rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
-        bottom: number;
+        bottom: double;
     }
     /**
      * Defines the snapshot region rect type.
      *
      * @typedef { SnapshotRegion | LocalizedSnapshotRegion } SnapshotRegionType
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion;
     /**
@@ -124,23 +124,23 @@ declare namespace componentSnapshot {
      *
      * @typedef SnapshotOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export interface SnapshotOptions {
         /**
          * Defines the scale property to render the snapshot.
          *
-         * @type {?number}
+         * @type {?double}
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
-        scale?: number;
+        scale?: double;
         /**
          * Whether to wait the rendering is finished.
          *
          * @type {?boolean}
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         waitUntilRenderFinished?: boolean;
         /**
@@ -148,7 +148,7 @@ declare namespace componentSnapshot {
          *
          * @type {?SnapshotRegionType}
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         region?: SnapshotRegionType;
     }
@@ -159,16 +159,12 @@ declare namespace componentSnapshot {
      *
      * @param { string } id - Target component ID, set by developer through .id attribute.
      * @param { SnapshotOptions } [options] - Define the snapshot options.
-     * @returns { image.PixelMap } The snapshot result in PixelMap format.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     * @returns { image.PixelMap | null } - The snapshot result in PixelMap format.
      * @throws { BusinessError } 100001 - Invalid ID.
      * @throws { BusinessError } 160002 - Timeout.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
-    export function getSync(id: string, options?: SnapshotOptions): image.PixelMap;
+    export function getSync(id: string, options?: SnapshotOptions): image.PixelMap | null;
 }
 export default componentSnapshot;

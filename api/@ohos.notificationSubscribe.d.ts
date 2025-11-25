@@ -24,19 +24,17 @@ import { NotificationSubscribeInfo as _NotificationSubscribeInfo } from './notif
 import { NotificationSubscriber as _NotificationSubscriber } from './notification/notificationSubscriber';
 import { SubscribeCallbackData as _SubscribeCallbackData } from './notification/notificationSubscriber';
 import { EnabledNotificationCallbackData as _EnabledNotificationCallbackData } from './notification/notificationSubscriber';
-/*** if arkts dynamic */
+import { EnabledPriorityNotificationCallbackData as _EnabledPriorityNotificationCallbackData } from './notification/notificationSubscriber';
+import { EnabledPriorityNotificationByBundleCallbackData as _EnabledPriorityNotificationByBundleCallbackData } from './notification/notificationSubscriber';
 import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
-/*** endif */
-/*** if arkts static */
-import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
-/*** endif */
+
 
 /**
  * @namespace notificationSubscribe
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace notificationSubscribe {
   /**
@@ -46,7 +44,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface NotificationKey {
     /**
@@ -56,7 +54,7 @@ declare namespace notificationSubscribe {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     id: int;
 
@@ -67,7 +65,7 @@ declare namespace notificationSubscribe {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     label?: string;
   }
@@ -79,7 +77,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum RemoveReason {
     /**
@@ -88,7 +86,7 @@ declare namespace notificationSubscribe {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CLICK_REASON_REMOVE = 1,
 
@@ -98,7 +96,7 @@ declare namespace notificationSubscribe {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CANCEL_REASON_REMOVE = 2
   }
@@ -120,7 +118,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function subscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
@@ -139,7 +137,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function subscribeSelf(subscriber: NotificationSubscriber): Promise<void>;
 
@@ -161,7 +159,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function subscribe(
     subscriber: NotificationSubscriber,
@@ -187,7 +185,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function subscribe(subscriber: NotificationSubscriber, info?: NotificationSubscribeInfo): Promise<void>;
 
@@ -221,7 +219,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function unsubscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
@@ -255,7 +254,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function unsubscribe(subscriber: NotificationSubscriber): Promise<void>;
 
@@ -279,7 +279,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function remove(
     bundle: BundleOption,
@@ -308,7 +308,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason): Promise<void>;
 
@@ -330,7 +330,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function remove(hashCode: string, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
@@ -352,7 +352,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function remove(hashCodes: Array<String>, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
@@ -374,7 +374,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function remove(hashCode: string, reason: RemoveReason): Promise<void>;
 
@@ -395,7 +395,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function remove(hashCodes: Array<String>, reason: RemoveReason): Promise<void>;
 
@@ -416,7 +416,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeAll(bundle: BundleOption, callback: AsyncCallback<void>): void;
 
@@ -435,7 +435,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeAll(callback: AsyncCallback<void>): void;
 
@@ -456,7 +456,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeAll(userId: int, callback: AsyncCallback<void>): void;
 
@@ -477,7 +477,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeAll(userId: int): Promise<void>;
 
@@ -498,7 +498,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeAll(bundle?: BundleOption): Promise<void>;
 
@@ -518,7 +518,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
    function distributeOperation(hashcode: string, operationInfo?: OperationInfo): Promise<void>;
 
@@ -529,7 +529,7 @@ declare namespace notificationSubscribe {
     * @syscap SystemCapability.Notification.Notification
     * @systemapi
     * @since 18 dynamic
-    * @since 20 static
+    * @since 22 static
     */
    export interface OperationInfo {
      /**
@@ -539,7 +539,7 @@ declare namespace notificationSubscribe {
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
       * @since 18 dynamic
-      * @since 20 static
+      * @since 22 static
       */
      actionName?: string;
 
@@ -550,7 +550,7 @@ declare namespace notificationSubscribe {
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
       * @since 18 dynamic
-      * @since 20 static
+      * @since 22 static
       */
      userInput?: string;
 
@@ -560,7 +560,8 @@ declare namespace notificationSubscribe {
       * @type { ?int }
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
-      * @since 20 dynamic&static
+      * @since 20 dynamic
+      * @since 22 static
       */
      operationType?: int;
 
@@ -570,7 +571,8 @@ declare namespace notificationSubscribe {
       * @type { ?int }
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
-      * @since 20 dynamic&static
+      * @since 20 dynamic
+      * @since 22 static
       */
      buttonIndex?: int;
    }
@@ -582,7 +584,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type BundleOption = _BundleOption;
 
@@ -593,7 +595,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationSubscribeInfo = _NotificationSubscribeInfo;
 
@@ -605,7 +607,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationSubscriber = _NotificationSubscriber;
 
@@ -617,7 +619,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type SubscribeCallbackData = _SubscribeCallbackData;
 
@@ -628,9 +630,29 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type EnabledNotificationCallbackData = _EnabledNotificationCallbackData;
+
+  /**
+   * Describes the main switch state for priority notification.
+   *
+   * @typedef { _EnabledPriorityNotificationCallbackData } EnabledPriorityNotificationCallbackData
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  export type EnabledPriorityNotificationCallbackData = _EnabledPriorityNotificationCallbackData;
+
+  /**
+   * Describes the bundle switch state for priority notification.
+   *
+   * @typedef { _EnabledPriorityNotificationByBundleCallbackData } EnabledPriorityNotificationByBundleCallbackData
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  export type EnabledPriorityNotificationByBundleCallbackData = _EnabledPriorityNotificationByBundleCallbackData;
 
   /**
    * Describes the badge number of the application has changed.
@@ -639,7 +661,7 @@ declare namespace notificationSubscribe {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type BadgeNumberCallbackData = _BadgeNumberCallbackData;
 }

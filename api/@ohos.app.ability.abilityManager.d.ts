@@ -22,10 +22,11 @@ import { AsyncCallback } from './@ohos.base';
 import { ElementName } from './bundleManager/ElementName';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
+import { Configuration } from './@ohos.app.ability.Configuration';
 import Context from './application/Context';
+import Want from './@ohos.app.ability.Want';
 /*** if arkts dynamic */
 import { AbilityResult } from './ability/abilityResult';
-import { Configuration } from './@ohos.app.ability.Configuration';
 import * as _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
 /*** endif */
@@ -47,7 +48,8 @@ import _AbilityStateData from './application/AbilityStateData';
  * @namespace abilityManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare namespace abilityManager {
   /**
@@ -56,7 +58,7 @@ declare namespace abilityManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum AbilityState {
     /**
@@ -64,7 +66,7 @@ declare namespace abilityManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INITIAL = 0,
 
@@ -73,7 +75,7 @@ declare namespace abilityManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FOCUS = 2,
 
@@ -82,7 +84,7 @@ declare namespace abilityManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FOREGROUND = 9,
 
@@ -91,7 +93,7 @@ declare namespace abilityManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     BACKGROUND = 10,
 
@@ -100,7 +102,7 @@ declare namespace abilityManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FOREGROUNDING = 11,
 
@@ -109,7 +111,7 @@ declare namespace abilityManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     BACKGROUNDING = 12
   }
@@ -122,7 +124,7 @@ declare namespace abilityManager {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum UserStatus {
     /**
@@ -132,7 +134,7 @@ declare namespace abilityManager {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ASSERT_TERMINATE = 0,
 
@@ -143,7 +145,7 @@ declare namespace abilityManager {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ASSERT_CONTINUE = 1,
 
@@ -154,7 +156,7 @@ declare namespace abilityManager {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ASSERT_RETRY = 2
   }
@@ -167,6 +169,7 @@ declare namespace abilityManager {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
+   * @since 22 static
    */
   export interface AtomicServiceStartupRule {
     /**
@@ -176,6 +179,7 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 18 dynamic
+     * @since 22 static
      */
     isOpenAllowed: boolean;
 
@@ -186,6 +190,7 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 18 dynamic
+     * @since 22 static
      */
     isEmbeddedAllowed: boolean;
   }
@@ -204,9 +209,22 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
    */
   function on(type: 'abilityForegroundState', observer: AbilityForegroundStateObserver): void;
+
+  /**
+   * Register Ability foreground or background state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { AbilityForegroundStateObserver } observer - The ability foreground state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Connect to system server failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function onAbilityForegroundState(observer: AbilityForegroundStateObserver): void;
 
   /**
    * Unregister Ability foreground or background state observer.
@@ -222,9 +240,22 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
    */
   function off(type: 'abilityForegroundState', observer?: AbilityForegroundStateObserver): void;
+
+  /**
+   * Unregister Ability foreground or background state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { AbilityForegroundStateObserver } [observer] - The ability foreground state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Connect to system server failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function offAbilityForegroundState(observer?: AbilityForegroundStateObserver): void;
 
   /**
    * Updates the configuration by modifying the configuration.
@@ -240,6 +271,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
+   * @since 22 static
    */
   function updateConfiguration(config: Configuration, callback: AsyncCallback<void>): void;
 
@@ -257,6 +289,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
+   * @since 22 static
    */
   function updateConfiguration(config: Configuration): Promise<void>;
 
@@ -269,7 +302,7 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
 
@@ -287,7 +320,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
 
@@ -305,7 +338,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getExtensionRunningInfos(upperLimit: int): Promise<Array<ExtensionRunningInfo>>;
 
@@ -324,7 +357,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getExtensionRunningInfos(upperLimit: int, callback: AsyncCallback<Array<ExtensionRunningInfo>>): void;
 
@@ -337,7 +370,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getTopAbility(): Promise<ElementName>;
 
@@ -352,7 +385,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getTopAbility(callback: AsyncCallback<ElementName>): void;
 
@@ -373,7 +406,7 @@ declare namespace abilityManager {
   /**
    * Acquire the shared data from target ability.
    *
-   * @param { number } missionId - The missionId of target ability.
+   * @param { int } missionId - The missionId of target ability.
    * @param { AsyncCallback<Record<string, Object>> } callback - The callback is used to return the params of sharing
    *                                                             data and result code.
    * @throws { BusinessError } 202 - Not system application.
@@ -383,8 +416,9 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 22 static
    */
-  function acquireShareData(missionId: number, callback: AsyncCallback<Record<string, Object>>): void;
+  function acquireShareData(missionId: int, callback: AsyncCallback<Record<string, Object>>): void;
 
   /**
    * Acquire the shared data from target ability.
@@ -402,7 +436,7 @@ declare namespace abilityManager {
   /**
    * Acquire the shared data from target ability.
    *
-   * @param { number } missionId - The missionId of target ability.
+   * @param { int } missionId - The missionId of target ability.
    * @returns { Promise<Record<string, Object>> } The promise returned by the function.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -411,8 +445,9 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 22 static
    */
-  function acquireShareData(missionId: number): Promise<Record<string, Object>>;
+  function acquireShareData(missionId: int): Promise<Record<string, Object>>;
 
   /**
    * Notify the result of save as to target ability.
@@ -461,7 +496,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getForegroundUIAbilities(callback: AsyncCallback<Array<AbilityStateData>>): void;
 
@@ -476,7 +511,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getForegroundUIAbilities(): Promise<Array<AbilityStateData>>;
 
@@ -493,7 +528,7 @@ declare namespace abilityManager {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isEmbeddedOpenAllowed(context: Context, appId: string): Promise<boolean>;
 
@@ -513,6 +548,7 @@ declare namespace abilityManager {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
   function notifyDebugAssertResult(sessionId: string, status: UserStatus): Promise<void>;
 
@@ -530,6 +566,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
+   * @since 22 static
    */
   function setResidentProcessEnabled(bundleName: string, enable: boolean): Promise<void>;
 
@@ -547,6 +584,7 @@ declare namespace abilityManager {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
+   * @since 22 static
    */
   function queryAtomicServiceStartupRule(context: Context, appId: string): Promise<AtomicServiceStartupRule>;
 
@@ -568,12 +606,137 @@ declare namespace abilityManager {
   function restartSelfAtomicService(context: Context): void;
 
   /**
+   * The preloaded <code>UIExtensionAbility</code> instance is sent to the <code>onCreate</code> lifecycle of the
+   * UIExtensionAbility and waits to be loaded by the current application.
+   * A <code>UIExtensionAbility</code> instance can be preloaded for multiple times. Each time a preloaded
+   * <code>UIExtensionAbility</code> instance is loaded, the next preloaded <code>UIExtensionAbility</code>
+   * instance is sent to the <code>onCreate</code> lifecycle of the UIExtensionAbility.
+   *
+   * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
+   * @param { Want } want - Want information of the UIExtensionAbility.
+   * @returns { Promise<int> } Promise that returns the preload UIExtensionAbility ID.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed;
+   *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
+   *     4.Preload UIExtensionAbility timeout.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function preloadUIExtensionAbility(want: Want): Promise<int>;
+
+  /**
+   * Clears a UIExtensionAbility by the specified preload UIExtensionAbility ID.
+   *
+   * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
+   * @param { int } preloadId - The preload UIExtensionAbility ID.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist. Possible causes:
+   *     1.The specified ID is incorrect; 2.The preloaded UIExtensionAbility has been loaded;
+   *     3.The preloaded UIExtensionAbility has been destroyed;
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function clearPreloadedUIExtensionAbility(preloadId: int): Promise<void>;
+
+  /**
+   * Clears all preloaded UIExtensionAbility instances preload by current process.
+   *
+   * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function clearPreloadedUIExtensionAbilities(): Promise<void>;
+
+  /**
+   * Registers the callback for the preloaded UIExtensionAbility has been loaded.
+   *
+   * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
+   * @param { PreloadedUIExtensionAbilityLoadedFn } callback - Callback for the preloaded UIExtensionAbility has been
+   *     loaded.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Memory operation error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function onPreloadedUIExtensionAbilityLoaded(callback: PreloadedUIExtensionAbilityLoadedFn): void;
+
+  /**
+   * Unregisters the callback for the preloaded UIExtensionAbility has been loaded.
+   *
+   * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
+   * @param { PreloadedUIExtensionAbilityLoadedFn } [callback] - Callback for the preloaded UIExtensionAbility has been
+   *     loaded.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Memory operation error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function offPreloadedUIExtensionAbilityLoaded(callback?: PreloadedUIExtensionAbilityLoadedFn): void;
+
+  /**
+   * Registers the callback for the preloaded UIExtensionAbility has been destroyed.
+   *
+   * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
+   * @param { PreloadedUIExtensionAbilityDestroyedFn } callback - Callback for the preloaded UIExtensionAbility destroyed
+   *     events.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Memory operation error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function onPreloadedUIExtensionAbilityDestroyed(callback: PreloadedUIExtensionAbilityDestroyedFn): void;
+
+  /**
+   * Unregisters the callback for the preloaded UIExtensionAbility has been destroyed.
+   *
+   * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
+   * @param { PreloadedUIExtensionAbilityDestroyedFn } [callback] - Callback for the preloaded UIExtensionAbility destroyed
+   *     events.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Memory operation error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function offPreloadedUIExtensionAbilityDestroyed(callback?: PreloadedUIExtensionAbilityDestroyedFn): void;
+
+  /**
    * The class of an ability running information.
    *
    * @typedef { _AbilityRunningInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type AbilityRunningInfo = _AbilityRunningInfo;
 
@@ -591,7 +754,7 @@ declare namespace abilityManager {
    *
    * @typedef { _AbilityStateData }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 20 static
+   * @since 22 static
    */
   export type AbilityStateData = _AbilityStateData;
 
@@ -602,7 +765,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type ExtensionRunningInfo = _ExtensionRunningInfo;
 
@@ -622,9 +785,33 @@ declare namespace abilityManager {
    * @typedef { _AbilityForegroundStateObserver }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   export type AbilityForegroundStateObserver = _AbilityForegroundStateObserver;
+
+  /**
+   * The callback for the preloaded UIExtensionAbility has been destroyed.
+   *
+   * @typedef { function }
+   * @param { int } preloadId - The preload UIExtensionAbility ID.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export type PreloadedUIExtensionAbilityDestroyedFn = (preloadId: int) => void;
+
+  /**
+   * The callback for the preloaded UIExtensionAbility has been loaded.
+   *
+   * @typedef { function }
+   * @param { int } preloadId - The preload UIExtensionAbility ID.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export type PreloadedUIExtensionAbilityLoadedFn = (preloadId: int) => void;
 }
 
 export default abilityManager;

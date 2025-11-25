@@ -1060,6 +1060,21 @@ declare type TabsCustomContentTransitionCallback = (from: number, to: number) =>
 declare type OnTabsContentWillChangeCallback = (currentIndex: number, comingIndex: number) => boolean;
 
 /**
+ * Defines a tabs callback when onContentDidScroll.
+ *
+ * @typedef { function } OnTabsContentDidScrollCallback
+ * @param { number } selectedIndex - the index value of the Tabs content selected before animation start.
+ * @param { number } index - the index value of the Tabs content.
+ * @param { number } position - the moving ratio of the Tabs content from the start position of the Tabs main axis.
+ * @param { number } mainAxisLength - the Tabs main axis length for calculating position.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare type OnTabsContentDidScrollCallback = (selectedIndex: number, index: number, position: number, mainAxisLength: number) => void;
+
+/**
  * Defines the tabs attribute functions.
  *
  * @extends CommonMethod<TabsAttribute>
@@ -1925,6 +1940,28 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 18 dynamic
    */
   onSelected(event: Callback<number>): TabsAttribute;
+
+  /**
+   * Triggered when scrolling content within the Tabs component.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>During page scrolling, the OnTabContentDidScrollCallback callback is invoked for all pages in the viewport
+   * on a frame-by-frame basis.
+   * </p>
+   *
+   * @param { OnTabsContentDidScrollCallback | undefined } handler - callback of tabs,
+   *     selectedIndex is the index value of the Tabs content selected before animation start.
+   *     index is the index value of the Tabs content.
+   *     position is the moving ratio of the Tabs content from the start position of the Tabs main axis.
+   *     mainAxisLength is the Tabs main axis length for calculating position.
+   *     undefined means unbinding callback.
+   * @returns { TabsAttribute } - the attribute of the Tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onContentDidScroll(handler: OnTabsContentDidScrollCallback | undefined): TabsAttribute;
 }
 
 /**

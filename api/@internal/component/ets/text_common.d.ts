@@ -1735,6 +1735,15 @@ declare class ContentTransition {}
  * @atomicservice
  * @since 20 dynamic
  */
+/**
+ * Defines the numeric text content transition class.
+ *
+ * @extends ContentTransition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare class NumericTextTransition extends ContentTransition {
   /**
    * constructor.
@@ -1743,6 +1752,15 @@ declare class NumericTextTransition extends ContentTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20 dynamic
+   */
+  /**
+   * constructor.
+   *
+   * @param { NumericTextTransitionOptions } [options] -  The options of numeric text transition.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   constructor(options?: NumericTextTransitionOptions);
 

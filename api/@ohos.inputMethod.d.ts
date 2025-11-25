@@ -34,7 +34,7 @@ import { PanelInfo } from './@ohos.inputMethod.Panel';
  * @namespace inputMethod
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 6 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace inputMethod {
   /**
@@ -75,7 +75,7 @@ declare namespace inputMethod {
    *     create InputMethodSetting object failed.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSetting(): InputMethodSetting;
 
@@ -87,7 +87,7 @@ declare namespace inputMethod {
    *     create InputMethodController object failed.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getController(): InputMethodController;
 
@@ -99,7 +99,7 @@ declare namespace inputMethod {
    *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDefaultInputMethod(): InputMethodProperty;
 
@@ -111,7 +111,7 @@ declare namespace inputMethod {
    *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSystemInputMethodConfigAbility(): ElementName;
 
@@ -142,7 +142,7 @@ declare namespace inputMethod {
    *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function switchInputMethod(target: InputMethodProperty, callback: AsyncCallback<boolean>): void;
 
@@ -173,7 +173,7 @@ declare namespace inputMethod {
    *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function switchInputMethod(target: InputMethodProperty): Promise<boolean>;
 
@@ -183,7 +183,7 @@ declare namespace inputMethod {
    * @returns { InputMethodProperty } the property of current inputmethod.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getCurrentInputMethod(): InputMethodProperty;
 
@@ -229,7 +229,7 @@ declare namespace inputMethod {
    *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function switchCurrentInputMethodSubtype(target: InputMethodSubtype, callback: AsyncCallback<boolean>): void;
 
@@ -275,7 +275,7 @@ declare namespace inputMethod {
    *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function switchCurrentInputMethodSubtype(target: InputMethodSubtype): Promise<boolean>;
 
@@ -285,7 +285,7 @@ declare namespace inputMethod {
    * @returns { InputMethodSubtype } the subtype of the current input method.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getCurrentInputMethodSubtype(): InputMethodSubtype;
 
@@ -378,7 +378,7 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function switchInputMethod(bundleName: string, subtypeId?: string): Promise<void>;
 
@@ -390,12 +390,33 @@ declare namespace inputMethod {
    * @since 20 dynamic
    */
   function setSimpleKeyboardEnabled(enable: boolean): void;
+  
+  /**
+   * Subscribe the attachment failure event.
+   * 
+   * @param { Callback<AttachFailureReason> } callback - the callback is invoked only when the attachment
+   *     triggered by the registrant's process fails.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 dynamic
+   */
+  function onAttachmentDidFail(callback: Callback<AttachFailureReason>): void;
+
+  /**
+   * Unsubscribe the attachment failure event.
+   *
+   * @param { Callback<AttachFailureReason> } [callback] - the callback is invoked only when the attachment
+   *     triggered by the registrant's process fails. When subscriber unsubscribes all callback, this parameter
+   *     can be left blank.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 dynamic
+   */
+  function offAttachmentDidFail(callback?: Callback<AttachFailureReason>): void;
 
   /**
    * @interface InputMethodSetting
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface InputMethodSetting {
     /**
@@ -405,7 +426,7 @@ declare namespace inputMethod {
      * @param { function } callback - the callback of 'imeChange'
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(
       type: 'imeChange',
@@ -420,7 +441,7 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'imeChange', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(
       type: 'imeChange',
@@ -436,7 +457,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'imeShow', callback: (info: Array<InputWindowInfo>) => void): void;
 
@@ -449,7 +470,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'imeShow', callback?: (info: Array<InputWindowInfo>) => void): void;
 
@@ -462,7 +483,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'imeHide', callback: (info: Array<InputWindowInfo>) => void): void;
 
@@ -475,7 +496,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'imeHide', callback?: (info: Array<InputWindowInfo>) => void): void;
 
@@ -494,7 +515,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isPanelShown(panelInfo: PanelInfo): boolean;
 
@@ -510,7 +531,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     listInputMethodSubtype(
       inputMethodProperty: InputMethodProperty,
@@ -529,7 +550,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     listInputMethodSubtype(inputMethodProperty: InputMethodProperty): Promise<Array<InputMethodSubtype>>;
 
@@ -542,7 +563,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     listCurrentInputMethodSubtype(callback: AsyncCallback<Array<InputMethodSubtype>>): void;
 
@@ -555,7 +576,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     listCurrentInputMethodSubtype(): Promise<Array<InputMethodSubtype>>;
 
@@ -573,7 +594,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getInputMethods(enable: boolean, callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
@@ -591,7 +612,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getInputMethods(enable: boolean): Promise<Array<InputMethodProperty>>;
 
@@ -609,7 +630,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getInputMethodsSync(enable: boolean): Array<InputMethodProperty>;
 
@@ -622,7 +643,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAllInputMethods(callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
@@ -635,7 +656,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAllInputMethods(): Promise<Array<InputMethodProperty>>;
 
@@ -648,7 +669,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAllInputMethodsSync(): Array<InputMethodProperty>;
 
@@ -750,7 +771,7 @@ declare namespace inputMethod {
    * @interface InputMethodController
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 6 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface InputMethodController {
     /**
@@ -768,7 +789,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     attach(showKeyboard: boolean, textConfig: TextConfig, callback: AsyncCallback<void>): void;
     /**
@@ -786,7 +807,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     attach(showKeyboard: boolean, textConfig: TextConfig): Promise<void>;
     /**
@@ -805,7 +826,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason): Promise<void>;
 
@@ -835,7 +856,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     showTextInput(callback: AsyncCallback<void>): void;
     /**
@@ -850,7 +871,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     showTextInput(): Promise<void>;
     /**
@@ -866,7 +887,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     showTextInput(requestKeyboardReason: RequestKeyboardReason): Promise<void>;
     /**
@@ -881,7 +902,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hideTextInput(callback: AsyncCallback<void>): void;
 
@@ -897,7 +918,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hideTextInput(): Promise<void>;
 
@@ -912,7 +933,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     detach(callback: AsyncCallback<void>): void;
 
@@ -927,7 +948,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     detach(): Promise<void>;
 
@@ -1178,7 +1199,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hideSoftKeyboard(callback: AsyncCallback<void>): void;
 
@@ -1196,7 +1217,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hideSoftKeyboard(): Promise<void>;
 
@@ -1242,7 +1263,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'selectByRange', callback: Callback<Range>): void;
 
@@ -1254,7 +1275,7 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'selectByRange', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'selectByRange', callback?: Callback<Range>): void;
 
@@ -1270,7 +1291,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'selectByMovement', callback: Callback<Movement>): void;
 
@@ -1282,7 +1303,7 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'selectByMovement', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'selectByMovement', callback?: Callback<Movement>): void;
 
@@ -1297,7 +1318,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'insertText', callback: (text: string) => void): void;
 
@@ -1309,7 +1330,7 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'insertText', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'insertText', callback?: (text: string) => void): void;
 
@@ -1326,7 +1347,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'deleteLeft', callback: (length: int) => void): void;
 
@@ -1338,7 +1359,7 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'deleteLeft', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'deleteLeft', callback?: (length: int) => void): void;
 
@@ -1355,7 +1376,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'deleteRight', callback: (length: int) => void): void;
 
@@ -1367,7 +1388,7 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'deleteRight', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'deleteRight', callback?: (length: int) => void): void;
 
@@ -1382,7 +1403,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'sendKeyboardStatus', callback: (keyboardStatus: KeyboardStatus) => void): void;
 
@@ -1394,7 +1415,7 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'sendKeyboardStatus', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'sendKeyboardStatus', callback?: (keyboardStatus: KeyboardStatus) => void): void;
 
@@ -1410,7 +1431,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'sendFunctionKey', callback: (functionKey: FunctionKey) => void): void;
 
@@ -1422,7 +1443,7 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'sendFunctionKey', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'sendFunctionKey', callback?: (functionKey: FunctionKey) => void): void;
 
@@ -1438,7 +1459,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'moveCursor', callback: (direction: Direction) => void): void;
 
@@ -1450,7 +1471,7 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'moveCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'moveCursor', callback?: (direction: Direction) => void): void;
 
@@ -1465,7 +1486,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'handleExtendAction', callback: (action: ExtendAction) => void): void;
 
@@ -1477,7 +1498,7 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'handleExtendAction', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'handleExtendAction', callback?: (action: ExtendAction) => void): void;
 
@@ -1492,7 +1513,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'getLeftTextOfCursor', callback: (length: int) => string): void;
 
@@ -1504,7 +1525,7 @@ declare namespace inputMethod {
      *     when subscriber unsubscribes all callback functions of event 'getLeftTextOfCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'getLeftTextOfCursor', callback?: (length: int) => string): void;
 
@@ -1519,7 +1540,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'getRightTextOfCursor', callback: (length: int) => string): void;
 
@@ -1531,7 +1552,7 @@ declare namespace inputMethod {
      *     when subscriber unsubscribes all callback functions of event 'getRightTextOfCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'getRightTextOfCursor', callback?: (length: int) => string): void;
 
@@ -1546,7 +1567,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'getTextIndexAtCursor', callback: () => int): void;
 
@@ -1558,7 +1579,7 @@ declare namespace inputMethod {
      *     when subscriber unsubscribes all callback functions of event 'getTextIndexAtCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'getTextIndexAtCursor', callback?: () => int): void;
 
@@ -1615,7 +1636,7 @@ declare namespace inputMethod {
    * @interface InputMethodProperty
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface InputMethodProperty {
     /**
@@ -1647,7 +1668,7 @@ declare namespace inputMethod {
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly name: string;
 
@@ -1658,7 +1679,7 @@ declare namespace inputMethod {
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly id: string;
 
@@ -1669,7 +1690,7 @@ declare namespace inputMethod {
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly label?: string;
 
@@ -1680,7 +1701,7 @@ declare namespace inputMethod {
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly labelId?: long;
 
@@ -1691,7 +1712,7 @@ declare namespace inputMethod {
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly icon?: string;
 
@@ -1702,7 +1723,7 @@ declare namespace inputMethod {
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly iconId?: long;
 
@@ -1739,7 +1760,7 @@ declare namespace inputMethod {
    * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum Direction {
     /**
@@ -1747,7 +1768,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CURSOR_UP = 1,
 
@@ -1756,7 +1777,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CURSOR_DOWN,
 
@@ -1765,7 +1786,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CURSOR_LEFT,
 
@@ -1774,7 +1795,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CURSOR_RIGHT
   }
@@ -1785,7 +1806,7 @@ declare namespace inputMethod {
    * @typedef Range
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface Range {
     /**
@@ -1794,7 +1815,7 @@ declare namespace inputMethod {
      * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     start: int;
 
@@ -1804,7 +1825,7 @@ declare namespace inputMethod {
      * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     end: int;
   }
@@ -1815,7 +1836,7 @@ declare namespace inputMethod {
    * @typedef Movement
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface Movement {
     /**
@@ -1824,7 +1845,7 @@ declare namespace inputMethod {
      * @type { Direction }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     direction: Direction;
   }
@@ -1835,7 +1856,7 @@ declare namespace inputMethod {
    * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum TextInputType {
     /**
@@ -1843,7 +1864,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NONE = -1,
 
@@ -1852,7 +1873,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TEXT = 0,
 
@@ -1861,7 +1882,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MULTILINE,
 
@@ -1870,7 +1891,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NUMBER,
 
@@ -1879,7 +1900,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PHONE,
 
@@ -1888,7 +1909,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DATETIME,
 
@@ -1897,7 +1918,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EMAIL_ADDRESS,
 
@@ -1906,7 +1927,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     URL,
 
@@ -1915,7 +1936,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     VISIBLE_PASSWORD,
 
@@ -1924,7 +1945,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NUMBER_PASSWORD,
 
@@ -1975,7 +1996,7 @@ declare namespace inputMethod {
    * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum EnterKeyType {
     /**
@@ -1983,7 +2004,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNSPECIFIED = 0,
 
@@ -1992,7 +2013,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NONE,
 
@@ -2001,7 +2022,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     GO,
 
@@ -2010,7 +2031,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SEARCH,
 
@@ -2019,7 +2040,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SEND,
 
@@ -2028,7 +2049,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NEXT,
 
@@ -2037,7 +2058,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DONE,
 
@@ -2046,7 +2067,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PREVIOUS,
 
@@ -2055,7 +2076,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NEWLINE
   }
@@ -2066,7 +2087,7 @@ declare namespace inputMethod {
    * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum KeyboardStatus {
     /**
@@ -2074,7 +2095,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NONE = 0,
 
@@ -2083,7 +2104,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HIDE = 1,
 
@@ -2092,7 +2113,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SHOW = 2
   }
@@ -2103,7 +2124,7 @@ declare namespace inputMethod {
    * @typedef InputAttribute
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface InputAttribute {
     /**
@@ -2112,7 +2133,7 @@ declare namespace inputMethod {
      * @type { TextInputType }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     textInputType: TextInputType;
 
@@ -2122,7 +2143,7 @@ declare namespace inputMethod {
      * @type { EnterKeyType }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     enterKeyType: EnterKeyType;
 
@@ -2151,7 +2172,7 @@ declare namespace inputMethod {
    * @typedef FunctionKey
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface FunctionKey {
     /**
@@ -2160,7 +2181,7 @@ declare namespace inputMethod {
      * @type { EnterKeyType }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     enterKeyType: EnterKeyType;
   }
@@ -2171,7 +2192,7 @@ declare namespace inputMethod {
    * @typedef CursorInfo
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface CursorInfo {
     /**
@@ -2180,7 +2201,7 @@ declare namespace inputMethod {
      * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     left: double;
 
@@ -2190,7 +2211,7 @@ declare namespace inputMethod {
      * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     top: double;
 
@@ -2200,7 +2221,7 @@ declare namespace inputMethod {
      * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     width: double;
 
@@ -2210,7 +2231,7 @@ declare namespace inputMethod {
      * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     height: double;
   }
@@ -2221,7 +2242,7 @@ declare namespace inputMethod {
    * @typedef TextConfig
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface TextConfig {
     /**
@@ -2230,7 +2251,7 @@ declare namespace inputMethod {
      * @type { InputAttribute }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inputAttribute: InputAttribute;
 
@@ -2240,7 +2261,7 @@ declare namespace inputMethod {
      * @type { ?CursorInfo }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     cursorInfo?: CursorInfo;
 
@@ -2250,7 +2271,7 @@ declare namespace inputMethod {
      * @type { ?Range }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     selection?: Range;
 
@@ -2260,7 +2281,7 @@ declare namespace inputMethod {
      * @type { ?int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     windowId?: int;
 
@@ -2290,7 +2311,7 @@ declare namespace inputMethod {
    * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum ExtendAction {
     /**
@@ -2298,7 +2319,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SELECT_ALL = 0,
 
@@ -2307,7 +2328,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CUT = 3,
 
@@ -2316,7 +2337,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COPY = 4,
 
@@ -2325,7 +2346,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PASTE = 5
   }
@@ -2336,7 +2357,7 @@ declare namespace inputMethod {
    * @typedef InputWindowInfo
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface InputWindowInfo {
     /**
@@ -2345,7 +2366,7 @@ declare namespace inputMethod {
      * @type { string }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -2355,7 +2376,7 @@ declare namespace inputMethod {
      * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     left: int;
 
@@ -2365,7 +2386,7 @@ declare namespace inputMethod {
      * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     top: int;
 
@@ -2375,7 +2396,7 @@ declare namespace inputMethod {
      * @type { long }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     width: long;
 
@@ -2385,7 +2406,7 @@ declare namespace inputMethod {
      * @type { long }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     height: long;
   }
@@ -2457,35 +2478,35 @@ declare namespace inputMethod {
    * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum RequestKeyboardReason {
     /**
       * The request keyboard reason is NONE.
       * @syscap SystemCapability.MiscServices.InputMethodFramework
       * @since 15 dynamic
-      * @since 20 static
+      * @since 22 static
       */
     NONE = 0,
     /**
      * The request keyboard reason is MOUSE.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MOUSE = 1,
     /**
      * The request keyboard reason is TOUCH.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TOUCH = 2,
     /**
      * The request keyboard reason is OTHER.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     OTHER = 20
   }
@@ -2540,6 +2561,39 @@ declare namespace inputMethod {
       * @since 20 dynamic
       */
     CHARACTERS
+  }
+  
+  /**
+   * Enumerates the specific reasons for attachment failure
+   *
+   * @enum { int }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 dynamic
+   */
+  export enum AttachFailureReason {
+    /**
+     * The attachment failure reason is CALLER_NOT_FOCUSED.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 dynamic
+     */
+    CALLER_NOT_FOCUSED = 0,
+
+    /**
+     * The attachment failure reason is IME_ABNORMAL.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 dynamic
+     */
+    IME_ABNORMAL,
+
+    /**
+     * The attachment failure reason is SERVICE_ABNORMAL.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 dynamic
+     */
+    SERVICE_ABNORMAL
   }
 }
 

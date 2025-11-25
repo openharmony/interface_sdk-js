@@ -43,6 +43,7 @@ import { LengthMetrics } from './@ohos.arkui.node';
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 export declare enum ItemState {
   /**
@@ -119,6 +120,7 @@ export declare enum ItemState {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 export interface ToolBarSymbolGlyphOptions {
 
@@ -176,30 +178,31 @@ export interface ToolBarSymbolGlyphOptions {
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 @Observed
 export declare class ToolBarOption {
   /**
-  * Define text content.
-  * @type { ResourceStr }.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 10
-  */
+   * Define text content.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   /**
-  * Define text content.
-  * @type { ResourceStr }.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @atomicservice
-  * @since 11
-  */
+   * Define text content.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   /**
-  * Define text content.
-  * @type { ResourceStr }.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * Define text content.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
   content: ResourceStr;
   /**
    * Define the action event.
@@ -395,6 +398,7 @@ export declare class ToolBarOption {
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 @Observed
 export declare class ToolBarOptions extends Array<ToolBarOption> {
@@ -412,6 +416,7 @@ export declare class ToolBarOptions extends Array<ToolBarOption> {
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 export declare class ToolBarModifier {
   /**
@@ -513,6 +518,7 @@ export declare class ToolBarModifier {
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 @Component
 export declare struct ToolBar {

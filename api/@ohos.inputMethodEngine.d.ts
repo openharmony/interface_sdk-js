@@ -484,7 +484,9 @@ declare namespace inputMethodEngine {
   /**
    * @interface InputMethodEngine
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
+   * @deprecated since 23
+   * @useinstead inputMethodEngine#InputMethodAbility
    */
   interface InputMethodEngine {
     /**
@@ -493,7 +495,9 @@ declare namespace inputMethodEngine {
      * @param { 'inputStart' } type - indicates the type of subscribe event.
      * @param { function } callback - indicates the callback of on('inputStart').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
+     * @deprecated since 23
+     * @useinstead inputMethodEngine.InputMethodAbility#on
      */
     on(
       type: 'inputStart',
@@ -506,7 +510,9 @@ declare namespace inputMethodEngine {
      * @param { 'inputStart' } type - indicates the type of subscribe event.
      * @param { function } callback - optional, indicates the callback of off('inputStart').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
+     * @deprecated since 23
+     * @useinstead inputMethodEngine.InputMethodAbility#off
      */
     off(
       type: 'inputStart',
@@ -519,7 +525,9 @@ declare namespace inputMethodEngine {
      * @param { 'keyboardShow' | 'keyboardHide' } type - indicates the type of subscribe event.
      * @param { function } callback - indicates the callback of on('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
+     * @deprecated since 23
+     * @useinstead inputMethodEngine.InputMethodAbility#on
      */
     on(type: 'keyboardShow' | 'keyboardHide', callback: () => void): void;
 
@@ -529,7 +537,9 @@ declare namespace inputMethodEngine {
      * @param { 'keyboardShow' | 'keyboardHide' } type - indicates the type of subscribe event.
      * @param { function } [callback] - optional, indicates the callback of off('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
+     * @deprecated since 23
+     * @useinstead inputMethodEngine.InputMethodAbility#off
      */
     off(type: 'keyboardShow' | 'keyboardHide', callback?: () => void): void;
   }

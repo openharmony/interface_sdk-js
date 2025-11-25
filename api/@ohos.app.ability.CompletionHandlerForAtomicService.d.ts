@@ -25,7 +25,8 @@
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @stagemodelonly
   * @atomicservice
-  * @since 20 dynamic&static
+  * @since 20 dynamic
+  * @since 22 static
 */
 declare enum FailureCode {
   /**
@@ -34,7 +35,8 @@ declare enum FailureCode {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   FAILURE_CODE_SYSTEM_MALFUNCTION = 0,
 
@@ -44,7 +46,8 @@ declare enum FailureCode {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   FAILURE_CODE_USER_CANCEL = 1,
 
@@ -54,7 +57,8 @@ declare enum FailureCode {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   FAILURE_CODE_USER_REFUSE = 2,
 }

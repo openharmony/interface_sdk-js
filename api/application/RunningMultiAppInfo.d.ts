@@ -29,7 +29,7 @@ import { RunningMultiInstanceInfo } from './RunningMultiInstanceInfo';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface RunningMultiAppInfo {
 
@@ -41,7 +41,7 @@ export interface RunningMultiAppInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   bundleName: string;
 
@@ -52,7 +52,7 @@ export interface RunningMultiAppInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   mode: MultiAppMode;
 
@@ -63,7 +63,7 @@ export interface RunningMultiAppInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   runningMultiInstances?: Array<RunningMultiInstanceInfo>;
 
@@ -74,7 +74,7 @@ export interface RunningMultiAppInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   runningAppClones?: Array<RunningAppClone>;
 }

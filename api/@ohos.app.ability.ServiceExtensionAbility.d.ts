@@ -30,7 +30,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @systemapi
  * @StageModelOnly
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class ServiceExtensionAbility {
   /**
@@ -41,7 +41,7 @@ declare class ServiceExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   context: ServiceExtensionContext;
 
@@ -53,7 +53,7 @@ declare class ServiceExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onCreate(want: Want): void;
 
@@ -64,7 +64,7 @@ declare class ServiceExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onDestroy(): void;
 
@@ -79,7 +79,7 @@ declare class ServiceExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onRequest(want: Want, startId: int): void;
 
@@ -93,7 +93,7 @@ declare class ServiceExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onConnect(want: Want): rpc.RemoteObject | Promise<rpc.RemoteObject>;
 
@@ -113,26 +113,13 @@ declare class ServiceExtensionAbility {
    * Called back when all abilities connected to a service extension are disconnected.
    *
    * @param { Want } want - Indicates disconnection information about the service extension.
-   * @returns { void } the promise returned by the function.
+   * @returns { Promise<void> | undefined } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 20 static
+   * @since 22 static
    */
-  onDisconnect(want: Want): void;
-
-  /**
-   * Asynchronous callback when all abilities connected to a service extension are disconnected.
-   * The next lifecycle callback onDestroy() will be triggered when the returned Promise object resolves.
-   *
-   * @param { Want } want - Indicates disconnection information about the service extension.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @StageModelOnly
-   * @since 20 static
-   */
-  onDisconnectAsync(want: Want): Promise<void>;
+  onDisconnect(want: Want): Promise<void> | undefined;
 
   /**
    * Called when a new client attempts to connect to a service extension after all previous client connections to it
@@ -154,7 +141,7 @@ declare class ServiceExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
@@ -168,7 +155,7 @@ declare class ServiceExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onDump(params: Array<string>): Array<string>;
 }

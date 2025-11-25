@@ -26,6 +26,6 @@ import { PolygonAttribute } from '@ohos.arkui.component';
  *
  * @implements PolygonAttribute, AttributeModifier<PolygonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare class PolygonModifier implements PolygonAttribute, AttributeModifier<PolygonAttribute> {}

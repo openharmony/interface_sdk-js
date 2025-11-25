@@ -40,7 +40,7 @@ import type _PermissionRequestResult from './security/PermissionRequestResult';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace abilityAccessCtrl {
   /**
@@ -66,7 +66,7 @@ declare namespace abilityAccessCtrl {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createAtManager(): AtManager;
 
@@ -84,7 +84,7 @@ declare namespace abilityAccessCtrl {
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AtManager {
     /**
@@ -95,7 +95,7 @@ declare namespace abilityAccessCtrl {
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @syscap SystemCapability.Security.AccessToken
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     verifyAccessToken(tokenID: int, permissionName: Permissions): Promise<GrantStatus>;
 
@@ -122,7 +122,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, or the permissionName exceeds 256 characters.
      * @syscap SystemCapability.Security.AccessToken
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     verifyAccessTokenSync(tokenID: int, permissionName: Permissions): GrantStatus;
 
@@ -163,7 +163,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     checkAccessToken(tokenID: int, permissionName: Permissions): Promise<GrantStatus>;
 
@@ -193,7 +193,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     checkAccessTokenSync(tokenID: int, permissionName: Permissions): GrantStatus;
 
@@ -256,7 +256,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     requestPermissionsFromUser(
       context: Context,
@@ -310,7 +310,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     requestPermissionsFromUser(context: Context, permissionList: Array<Permissions>): Promise<PermissionRequestResult>;
 
@@ -318,9 +318,9 @@ declare namespace abilityAccessCtrl {
      * Grants a specified user_grant permission to the given application.
      *
      * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS
-     * @param { number } tokenID - Token ID of the application.
+     * @param { int } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be granted.
-     * @param { number } permissionFlags - Flags of permission state. This parameter can be 1 or 2 or 64.
+     * @param { int } permissionFlags - Flags of permission state. This parameter can be 1 or 2 or 64.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GRANT_SENSITIVE_PERMISSIONS".
@@ -335,16 +335,17 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 8 dynamic
+     * @since 22 static
      */
-    grantUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlags: number): Promise<void>;
+    grantUserGrantedPermission(tokenID: int, permissionName: Permissions, permissionFlags: int): Promise<void>;
 
     /**
      * Grants a specified user_grant permission to the given application.
      *
      * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS
-     * @param { number } tokenID - Token ID of the application.
+     * @param { int } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be granted.
-     * @param { number } permissionFlags - Flags of permission state. This parameter can be 1 or 2 or 64.
+     * @param { int } permissionFlags - Flags of permission state. This parameter can be 1 or 2 or 64.
      * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GRANT_SENSITIVE_PERMISSIONS".
@@ -359,21 +360,23 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 8 dynamic
+     * @since 22 static
      */
     grantUserGrantedPermission(
-      tokenID: number,
+      tokenID: int,
       permissionName: Permissions,
-      permissionFlags: number,
+      permissionFlags: int,
       callback: AsyncCallback<void>
     ): void;
+
 
     /**
      * Revoke a specified user_grant permission to the given application.
      *
      * @permission ohos.permission.REVOKE_SENSITIVE_PERMISSIONS
-     * @param { number } tokenID - Token ID of the application.
+     * @param { int } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be revoked.
-     * @param { number } permissionFlags - Flags of permission state. This parameter can be 1 or 2 or 64.
+     * @param { int } permissionFlags - Flags of permission state. This parameter can be 1 or 2 or 64.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.REVOKE_SENSITIVE_PERMISSIONS".
@@ -388,16 +391,17 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 8 dynamic
+     * @since 22 static
      */
-    revokeUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlags: number): Promise<void>;
+    revokeUserGrantedPermission(tokenID: int, permissionName: Permissions, permissionFlags: int): Promise<void>;
 
     /**
      * Revoke a specified user_grant permission to the given application.
      *
      * @permission ohos.permission.REVOKE_SENSITIVE_PERMISSIONS
-     * @param { number } tokenID - Token ID of the application.
+     * @param { int } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be revoked.
-     * @param { number } permissionFlags - Flags of permission state. This parameter can be 1 or 2 or 64.
+     * @param { int } permissionFlags - Flags of permission state. This parameter can be 1 or 2 or 64.
      * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.REVOKE_SENSITIVE_PERMISSIONS".
@@ -412,11 +416,12 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 8 dynamic
+     * @since 22 static
      */
     revokeUserGrantedPermission(
-      tokenID: number,
+      tokenID: int,
       permissionName: Permissions,
-      permissionFlags: number,
+      permissionFlags: int,
       callback: AsyncCallback<void>
     ): void;
 
@@ -424,9 +429,9 @@ declare namespace abilityAccessCtrl {
      * Queries specified permission flags of the given application.
      *
      * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS or ohos.permission.GRANT_SENSITIVE_PERMISSIONS or ohos.permission.REVOKE_SENSITIVE_PERMISSIONS
-     * @param { number } tokenID - Token ID of the application.
+     * @param { int } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be get.
-     * @returns { Promise<number> } Return permission flags.
+     * @returns { Promise<int> } Return permission flags.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
@@ -438,8 +443,9 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 8 dynamic
+     * @since 22 static
      */
-    getPermissionFlags(tokenID: number, permissionName: Permissions): Promise<number>;
+    getPermissionFlags(tokenID: int, permissionName: Permissions): Promise<int>;
 
     /**
      * Set the toggle status of one permission flag.
@@ -459,6 +465,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     setPermissionRequestToggleStatus(permissionName: Permissions, status: PermissionRequestToggleStatus): Promise<void>;
 
@@ -477,25 +484,27 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     getPermissionRequestToggleStatus(permissionName: Permissions): Promise<PermissionRequestToggleStatus>;
 
     /**
      * Queries permission management version.
      *
-     * @returns { Promise<number> } Return permission version.
+     * @returns { Promise<int> } Return permission version.
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
+     * @since 22 static
      */
-    getVersion(): Promise<number>;
+    getVersion(): Promise<int>;
 
     /**
      * Queries permissions status of the given application.
      *
      * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
-     * @param { number } tokenID - Token ID of the application.
+     * @param { int } tokenID - Token ID of the application.
      * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be queried. This parameter cannot be null or empty.
      * @returns { Promise<Array<PermissionStatus>> } Return permission status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -507,15 +516,16 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
-    getPermissionsStatus(tokenID: number, permissionList: Array<Permissions>): Promise<Array<PermissionStatus>>;
+    getPermissionsStatus(tokenID: int, permissionList: Array<Permissions>): Promise<Array<PermissionStatus>>;
 
     /**
      * Registers a permission state callback so that the application can be notified upon specified permission state of specified applications changes.
      *
      * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
      * @param { 'permissionStateChange' } type - Event type.
-     * @param { Array<number> } tokenIDList - A list of permissions that specify the permissions to be listened on. The value in the list can be:
+     * @param { Array<int> } tokenIDList - A list of permissions that specify the permissions to be listened on. The value in the list can be:
      * <br> {@code empty} - Indicates that the application can be notified if the specified permission state of any applications changes.
      * <br> {@code non-empty} - Indicates that the application can only be notified if the specified permission state of the specified applications change.
      * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be listened on. The value in the list can be:
@@ -536,7 +546,43 @@ declare namespace abilityAccessCtrl {
      */
     on(
       type: 'permissionStateChange',
-      tokenIDList: Array<number>,
+      tokenIDList: Array<int>,
+      permissionList: Array<Permissions>,
+      callback: Callback<PermissionStateChangeInfo>
+    ): void;
+
+    /**
+     * Registers a permission state callback so that the application can be notified upon specified permission
+     * state of specified applications changes.
+     *
+     * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
+     * @param { Array<int> } tokenIDList - A list of permissions that specify the permissions to be listened on.
+     *     The value in the list can be:
+     *     <br> {@code empty} - Indicates that the application can be notified if the specified permission state of
+     *     any applications changes.
+     *     <br> {@code non-empty} - Indicates that the application can only be notified if the specified permission
+     *     state of the specified applications change.
+     * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be
+     *     listened on. The value in the list can be:
+     *     <br> {@code empty} - Indicates that the application can be notified if any permission state of the specified
+     *     applications changes.
+     *     <br> {@code non-empty} - Indicates that the application can only be notified if the specified permission
+     *     state of the specified applications changes.
+     * @param { Callback<PermissionStateChangeInfo> } callback - Callback for the result from registering permissions.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+     *     "ohos.permission.GET_SENSITIVE_PERMISSIONS".
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 12100001 - Invalid parameter. Possible causes: 1. The tokenIDList or permissionList
+     *     exceeds the size limit; 2. The tokenIDs or permissionNames in the list are all invalid.
+     * @throws { BusinessError } 12100005 - The registration time has exceeded the limit.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @throws { BusinessError } 12100008 - Out of memory.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 22 static
+     */
+    onPermissionStateChange(
+      tokenIDList: Array<int>,
       permissionList: Array<Permissions>,
       callback: Callback<PermissionStateChangeInfo>
     ): void;
@@ -570,11 +616,35 @@ declare namespace abilityAccessCtrl {
     ): void;
 
     /**
+     * Subscribes to the permission changes of this application.
+     *
+     * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be
+     *     listened on. The value in the list can be:
+     *     <br> {@code empty} - Indicates that the application can be notified if any permission state
+     *     changes.
+     *     <br> {@code non-empty} - Indicates that the application can only be notified if the specified
+     *     permission state changes.
+     * @param { Callback<PermissionStateChangeInfo> } callback - Callback for the result from registering
+     *     permissions.
+     * @throws { BusinessError } 12100001 - Invalid parameter. Possible causes: 1. The permissionList exceeds
+     *     the size limit; 2. The permissionNames in the list are all invalid.
+     * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
+     * @throws { BusinessError } 12100005 - The registration time has exceeded the limit.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @syscap SystemCapability.Security.AccessToken
+     * @since 22 static
+     */
+    onSelfPermissionStateChange(
+      permissionList: Array<Permissions>,
+      callback: Callback<PermissionStateChangeInfo>
+    ): void;
+
+    /**
      * Unregisters a permission state callback so that the specified applications cannot be notified upon specified permissions state changes anymore.
      *
      * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
      * @param { 'permissionStateChange' } type - Event type.
-     * @param { Array<number> } tokenIDList - A list of permissions that specify the permissions to be listened on.
+     * @param { Array<int> } tokenIDList - A list of permissions that specify the permissions to be listened on.
      *  It should correspond to the value registered by function of "on", whose type is "permissionStateChange".
      * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be listened on.
      *  It should correspond to the value registered by function of "on", whose type is "permissionStateChange".
@@ -590,7 +660,36 @@ declare namespace abilityAccessCtrl {
      */
     off(
       type: 'permissionStateChange',
-      tokenIDList: Array<number>,
+      tokenIDList: Array<int>,
+      permissionList: Array<Permissions>,
+      callback?: Callback<PermissionStateChangeInfo>
+    ): void;
+
+    /**
+     * Unregisters a permission state callback so that the specified applications cannot be notified upon specified
+     * permissions state changes anymore.
+     *
+     * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
+     * @param { 'permissionStateChange' } type - Event type.
+     * @param { Array<int> } tokenIDList - A list of permissions that specify the permissions to be listened on.
+     *     It should correspond to the value registered by function of "on", whose type is "permissionStateChange".
+     * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be
+     *     listened on. It should correspond to the value registered by function of "on", whose type is
+     *     "permissionStateChange".
+     * @param { Callback<PermissionStateChangeInfo> } [callback] - Callback for the result from unregistering
+     *     permissions.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+     *     "ohos.permission.GET_SENSITIVE_PERMISSIONS".
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenIDList or permissionList is
+     *     not in the listening list.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 22 static
+     */
+    offPermissionStateChange(
+      tokenIDList: Array<int>,
       permissionList: Array<Permissions>,
       callback?: Callback<PermissionStateChangeInfo>
     ): void;
@@ -615,6 +714,24 @@ declare namespace abilityAccessCtrl {
      */
     off(
       type: 'selfPermissionStateChange',
+      permissionList: Array<Permissions>,
+      callback?: Callback<PermissionStateChangeInfo>
+    ): void;
+
+    /**
+     * Unsubscribes from the permission changes of this application.
+     *
+     * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be
+     *     listened on. It should correspond to the value registered by function of "on", whose type is
+     *     "selfPermissionStateChange".
+     * @param { Callback<PermissionStateChangeInfo> } [callback] - Callback for the result from unregistering
+     *     permissions.
+     * @throws { BusinessError } 12100004 - The API is not used in pair with 'on'.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @syscap SystemCapability.Security.AccessToken
+     * @since 22 static
+     */
+    offSelfPermissionStateChange(
       permissionList: Array<Permissions>,
       callback?: Callback<PermissionStateChangeInfo>
     ): void;
@@ -667,7 +784,8 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
      * @atomicservice
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     requestPermissionOnSetting(context: Context, permissionList: Array<Permissions>): Promise<Array<GrantStatus>>;
 
@@ -690,13 +808,14 @@ declare namespace abilityAccessCtrl {
      * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     requestGlobalSwitch(context: Context, type: SwitchType): Promise<boolean>;
 
     /**
      * Starts the permission manager page of an application.
      *
-     * @param { number } tokenID - Token ID of the application.
+     * @param { int } tokenID - Token ID of the application.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
@@ -705,8 +824,9 @@ declare namespace abilityAccessCtrl {
      * @systemapi
      * @stagemodelonly
      * @since 18 dynamic
+     * @since 22 static
      */
-    requestPermissionOnApplicationSetting(tokenID: number): Promise<void>;
+    requestPermissionOnApplicationSetting(tokenID: int): Promise<void>;
 
     /**
      * Queries permission status of the application synchronously.
@@ -718,6 +838,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     getSelfPermissionStatus(permissionName: Permissions): PermissionStatus;
 
@@ -744,7 +865,8 @@ declare namespace abilityAccessCtrl {
      *     user_grant or manual_settings permission.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     grantPermission(tokenID: int, permissionName: Permissions, permissionFlags: int): Promise<void>;
 
@@ -772,7 +894,8 @@ declare namespace abilityAccessCtrl {
      *     user_grant or manual_settings permission.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     revokePermission(tokenID: int, permissionName: Permissions, permissionFlags: int): Promise<void>;
 
@@ -821,7 +944,7 @@ declare namespace abilityAccessCtrl {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum GrantStatus {
     /**
@@ -844,7 +967,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PERMISSION_DENIED = -1,
     /**
@@ -867,7 +990,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PERMISSION_GRANTED = 0
   }
@@ -875,10 +998,11 @@ declare namespace abilityAccessCtrl {
   /**
    * Enum for permission state change type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
    * @since 18 dynamic
+   * @since 22 static
    */
   export enum PermissionStateChangeType {
     /**
@@ -887,6 +1011,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     PERMISSION_REVOKED_OPER = 0,
     /**
@@ -895,6 +1020,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     PERMISSION_GRANTED_OPER = 1
   }
@@ -902,10 +1028,11 @@ declare namespace abilityAccessCtrl {
   /**
    * Enum for permission request toggle status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 12 dynamic
+   * @since 22 static
    */
   export enum PermissionRequestToggleStatus {
     /**
@@ -914,6 +1041,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     CLOSED = 0,
     /**
@@ -922,6 +1050,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     OPEN = 1,
   }
@@ -933,6 +1062,7 @@ declare namespace abilityAccessCtrl {
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
    * @since 18 dynamic
+   * @since 22 static
    * @name PermissionStateChangeInfo
    */
   interface PermissionStateChangeInfo {
@@ -943,18 +1073,20 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     change: PermissionStateChangeType;
 
     /**
      * Indicates the application whose permission state has been changed.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
-    tokenID: number;
+    tokenID: int;
 
     /**
      * Indicates the permission whose state has been changed.
@@ -963,6 +1095,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     permissionName: Permissions;
   }
@@ -970,10 +1103,11 @@ declare namespace abilityAccessCtrl {
   /**
    * PermissionStatus.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
   export enum PermissionStatus {
     /**
@@ -982,6 +1116,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     DENIED = -1,
     /**
@@ -990,6 +1125,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     GRANTED = 0,
     /**
@@ -998,6 +1134,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     NOT_DETERMINED = 1,
     /**
@@ -1006,6 +1143,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     INVALID = 2,
     /**
@@ -1014,6 +1152,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     RESTRICTED = 3
   }
@@ -1021,10 +1160,11 @@ declare namespace abilityAccessCtrl {
   /**
    * SwitchType.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
    * @since 12 dynamic
+   * @since 22 static
    */
     export enum SwitchType {
       /**
@@ -1033,6 +1173,7 @@ declare namespace abilityAccessCtrl {
        * @syscap SystemCapability.Security.AccessToken
        * @atomicservice
        * @since 12 dynamic
+       * @since 22 static
        */
       CAMERA = 0,
       /**
@@ -1041,6 +1182,7 @@ declare namespace abilityAccessCtrl {
        * @syscap SystemCapability.Security.AccessToken
        * @atomicservice
        * @since 12 dynamic
+       * @since 22 static
        */
       MICROPHONE = 1,
       /**
@@ -1049,6 +1191,7 @@ declare namespace abilityAccessCtrl {
        * @syscap SystemCapability.Security.AccessToken
        * @atomicservice
        * @since 12 dynamic
+       * @since 22 static
        */
       LOCATION = 2,
     }
@@ -1105,7 +1248,7 @@ export { Permissions };
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type PermissionRequestResult = _PermissionRequestResult;
 /**
@@ -1126,6 +1269,6 @@ export type PermissionRequestResult = _PermissionRequestResult;
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type Context = _Context;

@@ -30,7 +30,7 @@ import formInfo from './@ohos.app.form.formInfo';
  * @syscap SystemCapability.Ability.Form
  * @systemapi
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace formHost {
   /**
@@ -51,7 +51,7 @@ declare namespace formHost {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addForm(want: Want): Promise<formInfo.RunningFormInfo>;
 
@@ -75,7 +75,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function deleteForm(formId: string, callback: AsyncCallback<void>): void;
 
@@ -99,7 +99,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function deleteForm(formId: string): Promise<void>;
 
@@ -124,7 +124,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function releaseForm(formId: string, callback: AsyncCallback<void>): void;
 
@@ -150,7 +150,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function releaseForm(formId: string, isReleaseCache: boolean, callback: AsyncCallback<void>): void;
 
@@ -176,7 +176,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function releaseForm(formId: string, isReleaseCache?: boolean): Promise<void>;
 
@@ -202,7 +202,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function requestForm(formId: string, callback: AsyncCallback<void>): void;
 
@@ -228,7 +228,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function requestForm(formId: string): Promise<void>;
 
@@ -255,7 +255,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function requestFormWithParams(formId: string, wantParams?: Record<string, Object>): Promise<void>;
 
@@ -277,7 +277,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function castToNormalForm(formId: string, callback: AsyncCallback<void>): void;
 
@@ -299,7 +299,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function castToNormalForm(formId: string): Promise<void>;
 
@@ -321,7 +321,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function notifyVisibleForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -343,7 +343,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function notifyVisibleForms(formIds: Array<string>): Promise<void>;
 
@@ -365,7 +365,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function notifyInvisibleForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -387,7 +387,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function notifyInvisibleForms(formIds: Array<string>): Promise<void>;
 
@@ -410,7 +410,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -433,7 +433,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableFormsUpdate(formIds: Array<string>): Promise<void>;
 
@@ -457,7 +457,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function disableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -481,7 +481,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function disableFormsUpdate(formIds: Array<string>): Promise<void>;
 
@@ -496,7 +496,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isSystemReady(callback: AsyncCallback<void>): void;
 
@@ -509,7 +509,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isSystemReady(): Promise<void>;
 
@@ -528,7 +528,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
@@ -545,7 +545,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllFormsInfo(): Promise<Array<formInfo.FormInfo>>;
 
@@ -566,7 +566,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getFormsInfo(bundleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
@@ -588,7 +588,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getFormsInfo(
     bundleName: string,
@@ -614,7 +614,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
 
@@ -635,7 +635,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getFormsInfo(filter: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;
 
@@ -657,7 +657,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function deleteInvalidForms(formIds: Array<string>, callback: AsyncCallback<int>): void;
 
@@ -678,7 +678,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function deleteInvalidForms(formIds: Array<string>): Promise<int>;
 
@@ -700,7 +700,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function acquireFormState(want: Want, callback: AsyncCallback<formInfo.FormStateInfo>): void;
 
@@ -722,7 +722,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function acquireFormState(want: Want): Promise<formInfo.FormStateInfo>;
 
@@ -738,9 +738,22 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
    */
   function on(type: 'formUninstall', callback: Callback<string>): void;
+
+  /**
+   * Listens to the event of uninstall form.
+   * <p>You can use this method to listen to the event of uninstall form.</p>
+   *
+   * @param { Callback<string> } callback - The callback of formUninstall.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onFormUninstall(callback: Callback<string>): void;
 
   /**
    * Cancels listening to the event of uninstall form.
@@ -754,9 +767,22 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
    */
   function off(type: 'formUninstall', callback?: Callback<string>): void;
+
+  /**
+   * Cancels listening to the event of uninstall form.
+   * <p>You can use this method to cancel listening to the event of uninstall form.</p>
+   *
+   * @param { Callback<string> } [callback] - The callback of formUninstall.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function offFormUninstall(callback?: Callback<string>): void;
 
   /**
    * Listens to the event of form's overflow.
@@ -935,7 +961,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function notifyFormsVisible(formIds: Array<string>, isVisible: boolean, callback: AsyncCallback<void>): void;
 
@@ -958,7 +984,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function notifyFormsVisible(formIds: Array<string>, isVisible: boolean): Promise<void>;
 
@@ -981,7 +1007,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function notifyFormsEnableUpdate(
     formIds: Array<string>,
@@ -1008,7 +1034,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean): Promise<void>;
 
@@ -1030,7 +1056,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function shareForm(formId: string, deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -1052,7 +1078,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function shareForm(formId: string, deviceId: string): Promise<void>;
 
@@ -1073,7 +1099,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function notifyFormsPrivacyProtected(
     formIds: Array<string>,
@@ -1098,7 +1124,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolean): Promise<void>;
 
@@ -1139,7 +1165,7 @@ declare namespace formHost {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function acquireFormData(formId: string, callback: AsyncCallback<Record<string, Object>>): void;
 
@@ -1180,7 +1206,7 @@ declare namespace formHost {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function acquireFormData(formId: string): Promise<Record<string, Object>>;
 
@@ -1204,7 +1230,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setRouterProxy(formIds: Array<string>, proxy: Callback<Want>, callback: AsyncCallback<void>): void;
 
@@ -1228,7 +1254,7 @@ declare namespace formHost {
     * @syscap SystemCapability.Ability.Form
     * @systemapi
     * @since 11 dynamic
-    * @since 20 static
+    * @since 22 static
     */
   function setRouterProxy(formIds: Array<string>, proxy: Callback<Want>): Promise<void>;
 
@@ -1249,7 +1275,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function clearRouterProxy(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1270,7 +1296,7 @@ declare namespace formHost {
     * @syscap SystemCapability.Ability.Form
     * @systemapi
     * @since 11 dynamic
-    * @since 20 static
+    * @since 22 static
     */
   function clearRouterProxy(formIds: Array<string>): Promise<void>;
 
@@ -1292,7 +1318,7 @@ declare namespace formHost {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setPublishFormResult(formId: string, result: formInfo.PublishFormResult): void;
 
@@ -1313,7 +1339,7 @@ declare namespace formHost {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setFormsRecyclable(formIds: Array<string>): Promise<void>;
 
@@ -1334,7 +1360,7 @@ declare namespace formHost {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setFormsRecyclable(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1355,7 +1381,7 @@ declare namespace formHost {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function recycleForms(formIds: Array<string>): Promise<void>;
 
@@ -1376,7 +1402,7 @@ declare namespace formHost {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function recoverForms(formIds: Array<string>): Promise<void>;
 
@@ -1397,7 +1423,7 @@ declare namespace formHost {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function recoverForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1420,7 +1446,7 @@ declare namespace formHost {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function updateFormLocation(formId: string, location: formInfo.FormLocation): void;
 
@@ -1432,7 +1458,8 @@ declare namespace formHost {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function on(type: 'getLiveFormStatus', 
     callback: formInfo.GetLiveFormStatusCallback): void;
@@ -1445,7 +1472,8 @@ declare namespace formHost {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function off(type: 'getLiveFormStatus', 
     callback?: formInfo.GetLiveFormStatusCallback): void;
@@ -1464,7 +1492,8 @@ declare namespace formHost {
    * @throws { BusinessError } 16501012 - The dimension parameter is incorrect
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function updateFormSize(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void;
 

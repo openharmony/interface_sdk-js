@@ -26,7 +26,7 @@ import { AsyncCallback } from './@ohos.base';
  *
  * @namespace deviceStandby
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace deviceStandby {
 
@@ -48,7 +48,7 @@ declare namespace deviceStandby {
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getExemptedApps(resourceTypes: int, callback: AsyncCallback<Array<ExemptedAppInfo>>): void;
 
@@ -70,7 +70,7 @@ declare namespace deviceStandby {
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getExemptedApps(resourceTypes: int): Promise<Array<ExemptedAppInfo>>;
 
@@ -91,7 +91,7 @@ declare namespace deviceStandby {
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function requestExemptionResource(request: ResourceRequest): void;
 
@@ -112,7 +112,7 @@ declare namespace deviceStandby {
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function releaseExemptionResource(request: ResourceRequest): void;
 
@@ -123,7 +123,7 @@ declare namespace deviceStandby {
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum ResourceType {
     /**
@@ -132,7 +132,7 @@ declare namespace deviceStandby {
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NETWORK = 1,
 
@@ -142,7 +142,7 @@ declare namespace deviceStandby {
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RUNNING_LOCK = 1 << 1,
 
@@ -152,7 +152,7 @@ declare namespace deviceStandby {
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TIMER = 1 << 2,
 
@@ -162,7 +162,7 @@ declare namespace deviceStandby {
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WORK_SCHEDULER = 1 << 3,
 
@@ -172,7 +172,7 @@ declare namespace deviceStandby {
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUTO_SYNC = 1 << 4,
 
@@ -182,7 +182,7 @@ declare namespace deviceStandby {
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PUSH = 1 << 5,
 
@@ -192,7 +192,7 @@ declare namespace deviceStandby {
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FREEZE = 1 << 6
   }
@@ -204,7 +204,7 @@ declare namespace deviceStandby {
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface ExemptedAppInfo {
     /**
@@ -214,7 +214,7 @@ declare namespace deviceStandby {
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     resourceTypes: int;
 
@@ -225,7 +225,7 @@ declare namespace deviceStandby {
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -236,7 +236,7 @@ declare namespace deviceStandby {
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     duration: int;
   }
@@ -248,7 +248,7 @@ declare namespace deviceStandby {
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface ResourceRequest {
     /**
@@ -258,7 +258,7 @@ declare namespace deviceStandby {
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     resourceTypes: int;
 
@@ -269,7 +269,7 @@ declare namespace deviceStandby {
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uid: int;
 
@@ -280,7 +280,7 @@ declare namespace deviceStandby {
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -291,7 +291,7 @@ declare namespace deviceStandby {
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     duration: int;
 
@@ -302,7 +302,7 @@ declare namespace deviceStandby {
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     reason: string;
   }

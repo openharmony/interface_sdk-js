@@ -18,6 +18,10 @@
  * @kit BasicServicesKit
  */
 
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
+
 /**
  * The CommonEventPublishData module provides APIs for defining common event content and attributes.
  *
@@ -41,7 +45,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface CommonEventPublishData {
   /**
@@ -58,7 +62,7 @@ export interface CommonEventPublishData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   bundleName?: string;
 
@@ -78,7 +82,7 @@ export interface CommonEventPublishData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   code?: int;
 
@@ -105,7 +109,7 @@ export interface CommonEventPublishData {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   data?: string;
 
@@ -123,7 +127,7 @@ export interface CommonEventPublishData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   subscriberPermissions?: Array<string>;
 
@@ -134,7 +138,7 @@ export interface CommonEventPublishData {
    * @default false
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isOrdered?: boolean;
 
@@ -146,7 +150,7 @@ export interface CommonEventPublishData {
    * @default false
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isSticky?: boolean;
 
@@ -170,9 +174,9 @@ export interface CommonEventPublishData {
   /**
    * The description of the parameters in a common event.
    *
-   * @type { ?Record<string, Object> }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 20 static
+   * @since 22 static
    */
-  parameters?: Record<string, Object>;
+  parameters?: Record<string, RecordData>;
 }

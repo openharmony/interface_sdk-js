@@ -13,13 +13,13 @@
  * limitations under the License.
  */
 
- /**
+/**
  * @file Defines the inner fullScreen launch component for system applications
  * @kit ArkUI
  */
 
 import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
-import Callback from '@ohos.base';
+import { Callback, ErrorCallback } from '@ohos.base';
 
 /**
  * Declare component InnerFullScreenLaunchComponent
@@ -42,7 +42,7 @@ export declare struct InnerFullScreenLaunchComponent {
    * Sets the component Controller.
    * @type { LaunchController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi  
+   * @systemapi
    * @since 12 dynamiconly
    */
   controller: LaunchController;
@@ -55,6 +55,26 @@ export declare struct InnerFullScreenLaunchComponent {
    * @since 20 dynamiconly
    */
   onReceive?: Callback<Record<string, Object>>;
+  /**
+   * Callback triggered when an error occurs during running of the started ExtensionAbility.
+   * It is supported only when the atomic service runs in embedded mode,
+   * with the parameter being of type BusinessError.
+   * @type { ?ErrorCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 23 dynamiconly
+   */
+  onError?: ErrorCallback;
+  /**
+   * Callback triggered when the EmbeddableUIAbility is terminated to receive the information
+   * about the termination. It is supported only when the atomic service runs in embedded mode,
+   * with the parameter being of type TerminationInfo.
+   * @type { ?Callback<TerminationInfo> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 23 dynamiconly
+   */
+  onTerminated?: Callback<TerminationInfo>;
 }
 
 /**

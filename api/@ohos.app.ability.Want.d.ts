@@ -18,6 +18,10 @@
  * @kit AbilityKit
  */
 
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
+
 /**
  * Want is the basic communication component of the system.
  *
@@ -43,7 +47,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export default class Want {
   /**
@@ -68,7 +72,7 @@ export default class Want {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   bundleName?: string;
 
@@ -99,7 +103,7 @@ export default class Want {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   abilityName?: string;
 
@@ -121,7 +125,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   deviceId?: string;
 
@@ -142,7 +146,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   uri?: string;
 
@@ -174,7 +178,7 @@ export default class Want {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type?: string;
 
@@ -190,12 +194,13 @@ export default class Want {
    * For example, wantConstant.Flags.FLAG_ABILITY_CONTINUATION specifies whether to start the ability in cross-device
    * migration scenarios.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
-  flags?: number;
+  flags?: int;
 
   /**
    * The description of an action in an want.
@@ -213,7 +218,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   action?: string;
 
@@ -299,9 +304,17 @@ export default class Want {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   parameters?: Record<string, Object>;
+
+  /**
+   * The description of the WantParams object in an Want
+   * 
+   * @type { ?Record<string, RecordData> }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 22 static
+   */
+  parameters?: Record<string, RecordData>;
 
   /**
    * The description of a entities in a Want.
@@ -318,7 +331,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   entities?: Array<string>;
 
@@ -349,7 +362,7 @@ export default class Want {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   moduleName?: string;
 
@@ -363,7 +376,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly fds?: Record<string, int>;
 }

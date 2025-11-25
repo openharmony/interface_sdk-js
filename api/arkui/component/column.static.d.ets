@@ -18,39 +18,39 @@
  */
 import { HorizontalAlign, FlexAlign } from './enums';
 import { Resource } from './../../global/resource';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
- * Defines the space property with string, number and resource unit.
+ * Defines the space property with string, double and resource unit.
  *
- * @typedef { string | number | Resource } SpaceType
+ * @typedef { string | double | Resource } SpaceType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
-export type SpaceType = string | number | Resource;
+export type SpaceType = string | double | Resource;
 /**
  * Column constructor options.
  *
  * @interface ColumnOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export interface ColumnOptions {
     /**
      * Vertical layout element spacing.
      *
-     * @type { ?(string | number) }
+     * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
-    space?: string | number;
+    space?: string | double;
 }
 /**
  * Column constructor options.
  *
  * @interface ColumnOptionsV2
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export interface ColumnOptionsV2 {
     /**
@@ -58,7 +58,7 @@ export interface ColumnOptionsV2 {
      *
      * @type { ?SpaceType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     space?: SpaceType;
 }
@@ -69,45 +69,45 @@ export interface ColumnOptionsV2 {
  * @extends CommonMethod
  * @interface ColumnAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare interface ColumnAttribute extends CommonMethod {
     /**
      * Sets the alignment format of the subassembly in the horizontal direction.
      *
-     * @param { HorizontalAlign } value
+     * @param { HorizontalAlign | undefined } value
      * @returns { ColumnAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default alignItems(value: HorizontalAlign | undefined): this;
     /**
      * Sets the alignment format of the subassembly in the vertical direction.
      *
-     * @param { FlexAlign } value
+     * @param { FlexAlign | undefined } value
      * @returns { ColumnAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default justifyContent(value: FlexAlign | undefined): this;
     /**
     * Defines the PointLight
     *
-    * @param { PointLightStyle } value - The point light style.
+    * @param { PointLightStyle | undefined } value - The point light style.
     * @returns { ColumnAttribute } The attribute of the column.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @systemapi
-    * @since 20 static
+    * @since 22 static
     */
-    default pointLight(value: PointLightStyle): ColumnAttribute;
+    default pointLight(value: PointLightStyle | undefined): ColumnAttribute;
     /**
      * Called when the Main-Axis's direction is set reversed or not
      *
      * @param { boolean | undefined } isReversed - If the main axis is reversed.
      * @returns { ColumnAttribute } The attribute of the column.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default reverse(isReversed: boolean | undefined): this;
     /**
@@ -116,7 +116,7 @@ export declare interface ColumnAttribute extends CommonMethod {
      * @param { AttributeModifier<ColumnAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { ColumnAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<ColumnAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -125,16 +125,14 @@ export declare interface ColumnAttribute extends CommonMethod {
  * Defines Column Component.
  *
  * @param { ColumnOptions | ColumnOptions | ColumnOptionsV2 } [options] - Column options.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ColumnAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Column(
     options?: ColumnOptions | ColumnOptions | ColumnOptionsV2,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ColumnAttribute

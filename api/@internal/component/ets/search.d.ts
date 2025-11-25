@@ -749,6 +749,7 @@ interface CancelButtonOptions {
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
+ * @noninterop
  */
 interface CancelButtonSymbolOptions {
   /**
@@ -2083,6 +2084,16 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 15 dynamic
    */
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   stopBackPress(isStopped: Optional<boolean>): SearchAttribute;
 
   /**
@@ -2148,6 +2159,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 20 dynamic
    */
   enableAutoSpacing(enabled: Optional<boolean>): SearchAttribute;
+
+  /**
+   * Set the divider color.
+   * 
+   * @param { Optional<ColorMetrics> } color - Color of the divider.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  dividerColor(color: Optional<ColorMetrics>): SearchAttribute;
 }
 
 /**

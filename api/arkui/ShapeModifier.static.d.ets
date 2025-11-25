@@ -26,6 +26,6 @@ import { ShapeAttribute } from '@ohos.arkui.component';
  *
  * @implements ShapeAttribute, AttributeModifier<ShapeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare class ShapeModifier implements ShapeAttribute, AttributeModifier<ShapeAttribute> {}
