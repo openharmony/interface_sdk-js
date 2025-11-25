@@ -437,6 +437,20 @@ export declare interface SelectAttribute extends CommonMethod {
      */
     default menuOutline(outline: MenuOutlineOptions | undefined): this;
     /**
+     * Sets whether to display menu in the sub window.
+     *
+     * Device Behavior Differences:Setting to display in sub windows is only supported on 2-in-1 devices.
+     *
+     * @param { boolean | undefined } showInSubWindow - Set whether the Select menu is displayed in the sub window.
+     *     true means the Select menu is displayed in the sub window, and this setting is only takes effect on 2-in-1 devices.
+     *     false means the select menu is not displayed in the sub window.
+     *     <br>Default value:2-in-1 device is true, other devices are false.
+     * @returns { SelectAttribute } - The attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default showInSubWindow(showInSubWindow: boolean | undefined): this;
+    /**
      * Set the attribute modifier of select.
      *
      * @param { AttributeModifier<SelectAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
