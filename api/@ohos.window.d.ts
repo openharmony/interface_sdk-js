@@ -33,7 +33,6 @@ import bundleManager from './@ohos.bundle.bundleManager';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 import { UIContext } from '@ohos.arkui.UIContext';
 import { ColorMetrics } from '@ohos.arkui.node';
-import { Callback } from './@ohos.base';
 /*** endif */
 
 /*** if arkts dynamic */
@@ -58,6 +57,16 @@ declare interface Callback<T, V = void> {
   (data: T): V;
 }
 /*** endif */
+
+/**
+ * Defines the window callback.
+ *
+ * @typedef {function}
+ * @syscap SystemCapability.Window.SessionManager
+ * @atomicservice
+ * @since 22 static
+ */
+type Callback<T, V = void> = (data: T) => V; 
 
 /**
    * Defines the window animation curve param.
@@ -2205,58 +2214,64 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     colorMode?: ConfigurationConstant.ColorMode;
 
     /**
      * button background size when hover.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
-    buttonBackgroundSize? : number;
+    buttonBackgroundSize? : int;
 
     /**
      * button spacing.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
-    spacingBetweenButtons? : number;
+    spacingBetweenButtons? : int;
 
     /**
      * close button right Margin.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
-    closeButtonRightMargin? : number;
+    closeButtonRightMargin? : int;
 
     /**
      * button icon size.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
-    buttonIconSize? : number;
+    buttonIconSize? : int;
 
     /**
      * corner radius of button background when hover.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
-    buttonBackgroundCornerRadius? : number;
+    buttonBackgroundCornerRadius? : int;
   }
 
   /**
@@ -2894,71 +2909,74 @@ declare namespace window {
     /**
      * The right of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
      * The right of the Rect.
      *
-     * @type { number }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    right: number;
-
-    /**
-     * The top of the Rect.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 11
-     */
-    /**
-     * The top of the Rect.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    top: number;
-
-    /**
-     * The width of the Rect.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 11
-     */
-    /**
-     * The width of the Rect.
-     *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
      * @since 22 static
      */
-    width: number;
+    right: int;
+
+    /**
+     * The top of the Rect.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    /**
+     * The top of the Rect.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 22 static
+     */
+    top: int;
+
+    /**
+     * The width of the Rect.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    /**
+     * The width of the Rect.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 22 static
+     */
+    width: int;
 
     /**
      * The height of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
      * The height of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
-    height: number;
+    height: int;
   }
 
   /**
@@ -8883,6 +8901,24 @@ declare namespace window {
     on(type: 'windowWillClose', callback: Callback<void, Promise<boolean>>): void;
 
     /**
+     * Subscribes to the event indicating that the main window or child window will be closed.
+     * This event is triggered only when the user clicks the close button in the system-provided title bar to close the window.
+     * It is not triggered when the window is closed in other ways.
+     *
+     * @param { Callback<void, Promise<boolean>> } callback - Callback used to when the close button in the upper right corner of the window is clicked.
+     *    The internal logic of the callback function requires a return value of the Promise type.
+     *    In the returned Promise function, resolve(true) means not to close the window,
+     *    and resolve(false) or reject means to continue to close the window.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onWindowWillClose(callback: Callback<void, Promise<boolean>>): void;
+
+    /**
      * Unsubscribes from the event indicating that the main window or child window will be closed.
      *
      * @param { 'windowWillClose' } type - Event type. The value is fixed at 'windowWillClose', indicating the window close event.
@@ -8901,6 +8937,20 @@ declare namespace window {
      * @since 15 dynamic
      */
     off(type: 'windowWillClose', callback?: Callback<void, Promise<boolean>>): void;
+
+    /**
+     * Unsubscribes from the event indicating that the main window or child window will be closed.
+     *
+     * @param { Callback<void, Promise<boolean>> } [callback] - Unregister the callback function.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offWindowWillClose(callback?: Callback<void, Promise<boolean>>): void;
 
     /**
      * Register the callback of window highlight state change
@@ -11331,6 +11381,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     getWindowDecorVisible(): boolean;
 
@@ -11347,6 +11398,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     setWindowTitleMoveEnabled(enabled: boolean): void;
 
@@ -11362,6 +11414,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     setWindowTitle(titleName: string): Promise<void>;
 
@@ -11438,7 +11491,7 @@ declare namespace window {
     /**
      * Set the height of the window decor.
      *
-     * @param { number } - The height of window decor.
+     * @param { int } - The height of window decor.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -11451,7 +11504,7 @@ declare namespace window {
      * Sets the height of the title bar of this window.
      * This API takes effect for the window that has a title bar or a three-button area on 2-in-1 devices.
      *
-     * @param { number } height - Height of the title bar. It takes effect only for the window with the title bar.
+     * @param { int } height - Height of the title bar. It takes effect only for the window with the title bar.
      *                            The value is an integer in the range [37,112]. The unit is vp. If a floating point number is passed in,
      *                            the value is rounded down. A value outside the range is invalid.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
@@ -11464,12 +11517,12 @@ declare namespace window {
      * @since 12 dynamic
      * @since 22 static
      */
-    setWindowDecorHeight(height: number): void;
+    setWindowDecorHeight(height: int): void;
 	
     /**
      * Get the height of the window decor.
      *
-     * @returns { number } - The height of window decor.
+     * @returns { int } - The height of window decor.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -11479,7 +11532,7 @@ declare namespace window {
      * Obtains the height of the title bar of this window.
      * This API takes effect for the window that has a title bar or a three-button area on 2-in-1 devices.
      *
-     * @returns { number } - Height of the title bar. The value is an integer in the range [37,112]. The unit is vp.
+     * @returns { int } - Height of the title bar. The value is an integer in the range [37,112]. The unit is vp.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -11487,7 +11540,7 @@ declare namespace window {
      * @since 12 dynamic
      * @since 22 static
      */
-    getWindowDecorHeight(): number;
+    getWindowDecorHeight(): int;
 
     /**
      * Sets the button style of the decoration bar. The setting takes effect only for the main window and the child window with the window title enabled.
@@ -11501,6 +11554,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     setDecorButtonStyle(dectorStyle: DecorButtonStyle): void;
 
@@ -11516,6 +11570,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     getDecorButtonStyle(): DecorButtonStyle;
     
@@ -11556,6 +11611,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     getTitleButtonRect(): TitleButtonRect;
 
@@ -11574,6 +11630,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     setTitleButtonVisible(isMaximizeVisible: boolean, isMinimizeVisible: boolean, isSplitVisible: boolean): void;
     
@@ -11592,6 +11649,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     setWindowTitleButtonVisible(isMaximizeButtonVisible: boolean, isMinimizeButtonVisible: boolean, isCloseButtonVisible?: boolean): void;
 
@@ -11776,6 +11834,18 @@ declare namespace window {
     on(type: 'windowTitleButtonRectChange', callback: Callback<TitleButtonRect>): void;
 
     /**
+     * Subscribes to the change event of the rectangle that holds the minimize, maximize, and close buttons on the title bar of the window.
+     *
+     * @param { Callback<TitleButtonRect> } callback - Callback used to return the new rectangle.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onWindowTitleButtonRectChange(callback: Callback<TitleButtonRect>): void;
+
+    /**
      * Unregister the callback of title buttons area change.
      *
      * @param { 'windowTitleButtonRectChange' } type - The value is fixed at 'windowTitleButtonRectChange', indicating the title buttons area change event.
@@ -11803,6 +11873,19 @@ declare namespace window {
      * @since 12 dynamic
      */
     off(type: 'windowTitleButtonRectChange', callback?: Callback<TitleButtonRect>): void;
+
+    /**
+     * Unsubscribes from the change event of the rectangle that holds the minimize, maximize, and close buttons on the title bar of the window.
+     *
+     * @param { Callback<TitleButtonRect> } [callback] - Unregister the callback function.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offWindowTitleButtonRectChange(callback?: Callback<TitleButtonRect>): void;
 
     /**
      *  Set the window mask of window
@@ -12344,6 +12427,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     setTitleAndDockHoverShown(isTitleHoverShown?: boolean, isDockHoverShown?: boolean): Promise<void>;
 
@@ -13683,6 +13767,22 @@ declare namespace window {
     on(eventType: 'windowStageClose', callback: Callback<void>): void;
 
     /**
+     * Subscribes to the click event on the close button in the three-button navigation bar of the main window.
+     * This event is triggered when the close button in the three-button navigation bar of the main window is clicked.
+     *
+     * @param { Callback<void, boolean> } callback - Callback invoked when the close button in the upper right corner of the main window is clicked.
+     *    The return value determines whether to continue to close the main window.
+     *    The value true means not to close the main window, and false means to continue to close the main window.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 22 static
+     */
+    onWindowStageClose(callback: Callback<void, boolean>): void;
+
+    /**
      * Unsubscribes from the event indicating that the main window is closed.
      *
      * @param { 'windowStageClose' } eventType - Event type. The value is fixed at 'windowStageClose',
@@ -13701,6 +13801,20 @@ declare namespace window {
      * @since 14 dynamic
      */
     off(eventType: 'windowStageClose', callback?: Callback<void>): void;
+
+    /**
+     * Unsubscribes from the event indicating that the main window is closed.
+     *
+     * @param { Callback<void, boolean> } [callback] - Unregister the callback function.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 22 static
+     */
+    offWindowStageClose(callback?: Callback<void, boolean>): void;
 
     /**
      * Disable window decoration. It must be called before loadContent.
@@ -13873,6 +13987,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     setWindowRectAutoSave(enabled: boolean): Promise<void>;
 
@@ -13892,6 +14007,7 @@ declare namespace window {
      * @stagemodelonly
      * @atomicservice
      * @since 17 dynamic
+     * @since 22 static
      */
     setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise<void>;
 
@@ -13918,6 +14034,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     isWindowRectAutoSave(): Promise<boolean>;
 
