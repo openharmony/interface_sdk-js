@@ -2174,7 +2174,7 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @form
-   * @since 22 dynamic
+   * @since 22 static
    */
   /**
    * Unregister the observe of the touch mode changed.
@@ -2183,7 +2183,7 @@ declare namespace accessibility {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 23 dynamic
+   * @since 23 static
    */
   function offTouchModeChange(callback?: Callback<string>): void;
 
