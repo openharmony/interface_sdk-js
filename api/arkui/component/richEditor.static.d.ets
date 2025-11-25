@@ -31,6 +31,7 @@ import { LengthMetrics, ColorMetrics } from '../Graphics';
 import { TextBackgroundStyle } from './span';
 import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
+import { ComponentContent } from '../ComponentContent';
 /**
  * Defines delete text direction.
  *
@@ -1909,9 +1910,20 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @param { KeyboardOptions | undefined } [options] - Indicates the custom keyboard options of RichEditor
      * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 20 static
      */
-    default customKeyboard(value: CustomBuilder | undefined, options?: KeyboardOptions | undefined): this;
+    /**
+     * Set custom keyboard of the rich editor.
+     *
+     * @param { CustomBuilder | ComponentContent | undefined } value - The custom keyboard of RichEditor
+     *     If undefined is set, current custom keyboard will be unbound from rich editor.
+     * @param { KeyboardOptions | undefined } [options] - Indicates the custom keyboard options of RichEditor
+     * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default customKeyboard(value: CustomBuilder | ComponentContent | undefined,
+                           options?: KeyboardOptions | undefined): this;
     /**
      * Defines onPaste callback.
      *
