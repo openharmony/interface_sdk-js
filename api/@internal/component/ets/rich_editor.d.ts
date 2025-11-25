@@ -2248,6 +2248,18 @@ declare interface RichEditorBuilderSpanOptions {
    * @since 18 dynamic
    */
   isDragShadowNeeded?: boolean;
+
+  /**
+   * Set accessibility options for builder span.
+   *
+   * @type { ?AccessibilitySpanOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  accessibilitySpanOptions?: AccessibilitySpanOptions;
 }
 
 /**
