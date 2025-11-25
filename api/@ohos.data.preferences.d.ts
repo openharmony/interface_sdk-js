@@ -53,21 +53,21 @@ declare namespace preferences {
   /**
    * Indicates possible value types
    *
-   * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean>}
+   * @typedef {long | double | string | boolean | Array<long>| Array<double> | Array<string> | Array<boolean>}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
    */
   /**
    * Indicates possible value types
    *
-   * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean>}
+   * @typedef {long | double | string | boolean | Array<long>| Array<double> | Array<string> | Array<boolean>}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 10
    */
   /**
    * Indicates possible value types
    *
-   * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array}
+   * @typedef {long | double | string | boolean | Array<long>| Array<double> | Array<string> | Array<boolean> | Uint8Array}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 11
@@ -75,24 +75,14 @@ declare namespace preferences {
   /**
    * Indicates possible value types
    *
-   * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object |
+   * @typedef {long | double | string | boolean | Array<long>| Array<double> | Array<string> | Array<boolean> | Uint8Array | object |
    * bigint}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 12 dynamic
-   */
-  type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object | bigint;
-
-  /**
-   * Indicates possible value types
-   * 
-   * @typedef {long | double | string | boolean | Array<long> | Array<double> | Array<string> | Array<boolean>
-     | Uint8Array | object | bigint}
-   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 22 static
    */
-  type ValueType = long | double | string | boolean | Array<long> | Array<double> | Array<string> | Array<boolean>
-     | Uint8Array | object | bigint;
+  type ValueType = long | double | string | boolean | Array<long>| Array<double> | Array<string> | Array<boolean> | Uint8Array | object | bigint;
 
   /**
    * Indicates the maximum length of a key (80 characters).
