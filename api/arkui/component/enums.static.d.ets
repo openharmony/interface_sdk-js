@@ -3927,14 +3927,16 @@ declare enum EventQueryType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
-declare enum TipsAnchorType {
+export declare enum TipsAnchorType {
   /**
    * Tips display position based on bound component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   TARGET = 0,
 
@@ -3942,9 +3944,10 @@ declare enum TipsAnchorType {
    * Tips display position based on cursor position.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  CURSOR = 1,
+  CURSOR = 1
 }
 
 /**
