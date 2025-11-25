@@ -1819,6 +1819,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 23 dynamic
    */
   fallbackLineSpacing(enabled: Optional<boolean>): TextAttribute;
+
+  /**
+   * Whether to compress punctuation at the beginning of line.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { TextAttribute } - returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  compressLeadingPunctuation(enabled: Optional<boolean>): TextAttribute;
 }
 
 /**

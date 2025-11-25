@@ -699,6 +699,16 @@ export declare interface TextAttribute extends CommonMethod {
      * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<TextAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Whether to compress punctuation at the beginning of line.
+     *
+     * @param { boolean | undefined } enabled - Whether to enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAttribute } - returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default compressLeadingPunctuation(enabled: boolean | undefined): this;
 }
 /**
  * Defines span type.

@@ -1014,6 +1014,16 @@ export declare interface SearchAttribute extends CommonMethod {
      */
     default keyboardAppearance(appearance: KeyboardAppearance | undefined): this;
     /**
+     * Whether to compress punctuation at the beginning of line.
+     *
+     * @param { boolean | undefined } enabled - Whether to enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { SearchAttribute } - returns the instance of the SearchAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default compressLeadingPunctuation(enabled: boolean | undefined): this;
+    /**
      * Set the divider color.
      * 
      * @param { ColorMetrics | undefined } color - Color of the divider.
