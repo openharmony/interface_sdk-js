@@ -6028,9 +6028,12 @@ declare namespace window {
      * @param { int } width - Indicates the width of the window. The width should be greater than 0.
      * @param { int } height - Indicates the height of the window. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: Invalid parameter range;
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     1. The window is not created or destroyed.
+     *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @syscap SystemCapability.Window.SessionManager
@@ -6187,13 +6190,16 @@ declare namespace window {
     getProperties(callback: AsyncCallback<WindowProperties>): void;
 
     /**
-     * Get the window rectangular area quadruple {left,top,weight,height}, left and top represent relative to screen coordinates 
-     * and are affected by parent window scaling, weight and height are the scaling width and height.
+     * Get the window rectangular area quadruple {left,top,width,height}, left and top represent relative to screen
+     * coordinates and are affected by parent window scaling, width and height are the scaling width and height.
      * 
-     * @returns { Rect } The quadruple {left,top,weight,height} represents respectively the X-coordinate
+     * @returns { Rect } The quadruple {left,top,width,height} represents respectively the X-coordinate
      * and Y-coordinate of the window relative to current screen, the scaled window width and scaled window height.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     1. The window is not created or destroyed.
+     *     2. Failed to convert result into JS value object.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -14043,10 +14049,11 @@ declare namespace window {
      *
      * @param { Array<bundleManager.SupportWindowMode> } supportedWindowModes - The supported modes of window.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *  Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     1. The window is not created or destroyed.
+     *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
@@ -14060,12 +14067,19 @@ declare namespace window {
      * Sets the supported window modes of the main window.
      *
      * @param { Array<bundleManager.SupportWindowMode> } supportedWindowModes - The supported modes of window.
-     * @param { boolean } grayOutMaximizeButton - Whether to gray out the window maximize button. The value true means to gray out the button, and false means the opposite.
+     * @param { boolean } grayOutMaximizeButton - Whether to gray out the window maximize button.
+     *  The value true means to gray out the button, and false means the opposite.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 801 - Capability not supported. Function setSupportedWindowModes can not work correctly due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *  Function setSupportedWindowModes can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     1. The window is not created or destroyed.
+     *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 2. Invalid parameter length. 3. Incorrect parameter format.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
+     *     1. Invalid parameter range.
+     *     2. Invalid parameter length.
+     *     3. Incorrect parameter format.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 20 dynamic
