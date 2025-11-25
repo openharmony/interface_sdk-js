@@ -170,7 +170,7 @@ declare class TreeSet<T> {
    */
   isEmpty(): boolean;
   /**
-   * Returns whether the Set object contain s the elements
+   * Returns whether the Set object contains the elements
    *
    * @param { T } value - value value need to determine whether to include the element
    * @returns { boolean } the boolean type
@@ -179,7 +179,7 @@ declare class TreeSet<T> {
    * @since 8
    */
   /**
-   * Returns whether the Set object contain s the elements
+   * Returns whether the Set object contains the elements
    *
    * @param { T } value - value value need to determine whether to include the element
    * @returns { boolean } the boolean type
@@ -189,7 +189,7 @@ declare class TreeSet<T> {
    * @since 10
    */
   /**
-   * Returns whether the Set object contain s the elements
+   * Returns whether the Set object contains the elements
    *
    * @param { T } value - value value need to determine whether to include the element
    * @returns { boolean } the boolean type
