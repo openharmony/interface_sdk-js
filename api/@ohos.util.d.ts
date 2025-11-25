@@ -1633,7 +1633,7 @@ declare namespace util {
     /**
      * Obtains a list of all values in the current buffer.
      *
-     * @returns { V[] } Returns the list of all values in the current buffer in ascending order, from the most recently accessed to least recently accessed.
+     * @returns { V[] } Returns the list of all values in the current buffer in ascending order, from the least recently accessed to most recently accessed.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1644,7 +1644,7 @@ declare namespace util {
     /**
      * Obtains a list of keys for the values in the current buffer.
      *
-     * @returns { K[] } Returns a list of keys sorted from most recently accessed to least recently accessed.
+     * @returns { K[] } Returns the list of all keys in the current buffer in ascending order, from the least recently accessed to most recently accessed.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
