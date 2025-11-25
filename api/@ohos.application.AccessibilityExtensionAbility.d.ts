@@ -282,6 +282,7 @@ declare class AccessibilityExtensionAbility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   onAccessibilityKeyEvent(keyEvent: KeyEvent): boolean;
 }
