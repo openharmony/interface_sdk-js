@@ -11793,27 +11793,30 @@ export declare interface Layoutable {
     /**
      * Obtains the margin of the child component.
      *
-     * @returns { DirectionalEdgesT<double> } the margin of sub component, unit is vp
+     * @returns { DirectionalEdgesT<double> | undefined } the margin of sub component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getMargin(): DirectionalEdgesT<double>;
+    getMargin(): DirectionalEdgesT<double> | undefined;
     /**
      * Call this method to get the padding of sub component.
      *
-     * @returns { DirectionalEdgesT<double> } Padding of the child component, unit is vp.
+     * @returns { DirectionalEdgesT<double> | undefined } Padding of the child component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getPadding(): DirectionalEdgesT<double>;
+    getPadding(): DirectionalEdgesT<double> | undefined;
     /**
      * Obtains the border width of the child component.
      *
-     * @returns { DirectionalEdgesT<double> } the borderWidth of sub component, unit is vp
+     * @returns { DirectionalEdgesT<double> | undefined } the borderWidth of sub component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getBorderWidth(): DirectionalEdgesT<double>;
+    getBorderWidth(): DirectionalEdgesT<double> | undefined;
 }
 /**
  * Sub component info passed from framework when measure happens.
@@ -11835,35 +11838,39 @@ export declare interface Measurable {
      * Applies the size constraint to the child component.
      *
      * @param { ConstraintSizeOptions } constraint
-     * @returns { MeasureResult } Provides the measurement result of the component.
+     * @returns { MeasureResult | undefined } Provides the measurement result of the component. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    measure(constraint: ConstraintSizeOptions): MeasureResult;
+    measure(constraint: ConstraintSizeOptions): MeasureResult | undefined;
     /**
      * Obtains the margin of the child component.
      *
-     * @returns { DirectionalEdgesT<double> } Margin of the child component, unit is vp.
+     * @returns { DirectionalEdgesT<double> | undefined } Margin of the child component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getMargin(): DirectionalEdgesT<double>;
+    getMargin(): DirectionalEdgesT<double> | undefined;
     /**
      * Obtains the padding of the child component.
      *
-     * @returns { DirectionalEdgesT<double> } the padding of sub component, unit is vp
+     * @returns { DirectionalEdgesT<double> | undefined } the padding of sub component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getPadding(): DirectionalEdgesT<double>;
+    getPadding(): DirectionalEdgesT<double> | undefined;
     /**
      * Obtains the border width of the child component.
      *
-     * @returns { DirectionalEdgesT<double> } Border width of the child component, unit is vp.
+     * @returns { DirectionalEdgesT<double> | undefined } Border width of the child component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getBorderWidth(): DirectionalEdgesT<double>;
+    getBorderWidth(): DirectionalEdgesT<double> | undefined;
 }
 /**
  * Provides the component size information.
