@@ -357,6 +357,33 @@ export declare enum BorderStyle {
 }
 
 /**
+ * Enum for RenderStrategy.
+ * Define Graphics Rendering Strategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare enum RenderStrategy {
+  /**
+   * The current component and its child components will be drawn directly onto the screen canvas.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  FAST = 0,
+
+  /**
+   * The current component and its child components will first be drawn onto an off-screen canvas,
+   *     then undergo some graphic rendering operations, and finally be drawn onto the main canvas.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  OFFSCREEN = 1
+}
+
+/**
  * Line Join Style
  *
  * @enum { number }
@@ -1101,7 +1128,7 @@ export declare enum Alignment {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-declare enum LocalizedAlignment {
+export declare enum LocalizedAlignment {
   /**
    * Top Start.
    *
