@@ -55,6 +55,7 @@ import ExtensionAbility from '@ohos.app.ability.ExtensionAbility';
 import insightIntent from '@ohos.app.ability.insightIntent';
 import InsightIntentContext from '@ohos.app.ability.InsightIntentContext';
 import insightIntentDriver from '@ohos.app.ability.insightIntentDriver';
+import insightIntentProvider from '@ohos.app.ability.insightIntentProvider';
 import verticalPanelManager from '@ohos.app.ability.verticalPanelManager';
 import InsightIntentExecutor from '@ohos.app.ability.InsightIntentExecutor';
 import { InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction,
@@ -129,7 +130,7 @@ export {
   bundleMonitor, bundleResourceManager, businessAbilityRouter, childProcessManager, common, contextConstant,
   continuationManager, continueManager, dataUriUtils, defaultAppManager, dialogRequest, dialogSession, distributedBundle,
   distributedBundleManager, distributedMissionManager, errorManager, featureAbility, freeInstall,
-  innerBundleManager, insightIntent, insightIntentDriver, verticalPanelManager, installer, launcherBundleManager, missionManager,
+  innerBundleManager, insightIntent, insightIntentDriver, insightIntentProvider, verticalPanelManager, installer, launcherBundleManager, missionManager,
   overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
@@ -181,6 +182,7 @@ import dataUriUtils from '@ohos.app.ability.dataUriUtils';
 import dialogSession from '@ohos.app.ability.dialogSession';
 import insightIntent from '@ohos.app.ability.insightIntent';
 import insightIntentDriver from '@ohos.app.ability.insightIntentDriver';
+import insightIntentProvider from '@ohos.app.ability.insightIntentProvider';
 import missionManager from '@ohos.app.ability.missionManager';
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import Ability from '@ohos.app.ability.Ability';
@@ -204,7 +206,7 @@ export {
   AbilityConstant, UIExtensionContentSession, wantConstant, AbilityStage, UIExtensionAbility,
   uriPermissionManager, ServiceExtensionAbility, AtomicServiceOptions, InsightIntentContext,
   InsightIntentExecutor, OpenLinkOptions, abilityManager, appManager,
-  application, appRecovery, autoFillManager, dataUriUtils, dialogSession, insightIntent, insightIntentDriver,
+  application, appRecovery, autoFillManager, dataUriUtils, dialogSession, insightIntent, insightIntentDriver, insightIntentProvider,
   missionManager, wantAgent, WantAgent, UIAbility, Callee, CalleeCallback, Caller,
   OnReleaseCallback, OnRemoteStateChangeCallback, Ability, AbilityLifecycleCallback, ApplicationStateChangeCallback,
   EnvironmentCallback, abilityDelegatorRegistry, TestRunner, ExtensionAbility, ShareExtensionAbility, dialogRequest,
