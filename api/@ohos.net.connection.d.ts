@@ -1143,6 +1143,45 @@ declare namespace connection {
   function factoryReset(): Promise<void>;
 
   /**
+   * Obtains the data network that is activated by default.
+   * You can only call this method in VPN application.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { ProtocolType } protocol - Protocol type.
+   * @param { NetAddress } local - Local net address.
+   * @param { NetAddress } remote - Remote net address.
+   * @returns { Promise<int> } The owner uid of the specified connection.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100301 - Incorrect usage in non-VPN application.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 23 dynamic&static
+   */
+  function getConnectOwnerUid(protocol: ProtocolType, local: NetAddress, remote: NetAddress): Promise<int>;
+
+  /**
+   * Obtains the data network that is activated by default.
+   * You can only call this method in VPN application.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { ProtocolType } protocol - Protocol type.
+   * @param { NetAddress } local - Local net address.
+   * @param { NetAddress } remote - Remote net address.
+   * @returns { int } The owner uid of the specified connection.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100301 - Incorrect usage in non-VPN application.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getConnectOwnerUidSync(protocol: ProtocolType, local: NetAddress, remote: NetAddress): int;
+
+  /**
    * Obtain the IP and MAC address correspondence table of the neighboring network.
    * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.GET_IP_MAC_INFO
    * @returns { Promise<Array<NetIpMacInfo>> } The promise returned by the function.
@@ -2372,6 +2411,27 @@ declare namespace connection {
      * @since 22 dynamic&static
      */
     iface: string;
+  }
+
+  /**
+   * Defines the protocol type.
+   * @enum { int }
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 23 dynamic&static
+   */
+  export enum ProtocolType {
+    /**
+     * Indicates that protocol type is TCP.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 23 dynamic&static
+     */
+    PROTO_TYPE_TCP = 6,
+    /**
+     * Indicates that protocol type is UDP.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 23 dynamic&static
+     */
+    PROTO_TYPE_UDP = 17
   }
   
 }
