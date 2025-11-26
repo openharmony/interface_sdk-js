@@ -11660,7 +11660,8 @@ export interface Options {
  */
 export interface ReadOptions {
   /**
-   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
+   * Start position of the file to read (current filePointer plus offset), in bytes. This parameter is optional.
+   * By default, data is read from the filePointer.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -11668,7 +11669,8 @@ export interface ReadOptions {
    * @since 11
    */
   /**
-   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
+   * Start position of the file to read (current filePointer plus offset), in bytes. This parameter is optional.
+   * By default, data is read from the filePointer.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -11678,8 +11680,7 @@ export interface ReadOptions {
    */
   offset?: number;
   /**
-   * Start position of the file to read (current filePointer plus offset), in bytes. This parameter is optional.
-   * By default, data is read from the filePointer.
+   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -11687,8 +11688,7 @@ export interface ReadOptions {
    * @since 11
    */
   /**
-   * Start position of the file to read (current filePointer plus offset), in bytes. This parameter is optional.
-   * By default, data is read from the filePointer.
+   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
