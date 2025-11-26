@@ -53,21 +53,21 @@ declare namespace preferences {
   /**
    * Indicates possible value types
    *
-   * @typedef {long | double | string | boolean | Array<long>| Array<double> | Array<string> | Array<boolean>}
+   * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean>}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
    */
   /**
    * Indicates possible value types
    *
-   * @typedef {long | double | string | boolean | Array<long>| Array<double> | Array<string> | Array<boolean>}
+   * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean>}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 10
    */
   /**
    * Indicates possible value types
    *
-   * @typedef {long | double | string | boolean | Array<long>| Array<double> | Array<string> | Array<boolean> | Uint8Array}
+   * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 11
@@ -75,14 +75,30 @@ declare namespace preferences {
   /**
    * Indicates possible value types
    *
-   * @typedef {long | double | string | boolean | Array<long>| Array<double> | Array<string> | Array<boolean> | Uint8Array | object |
+   * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object |
    * bigint}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 12 dynamic
+   */
+  type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object | bigint;
+
+  /**
+   * RrcordData is used for input parameter obj of the equal function
+   * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 22 static
    */
-  type ValueType = long | double | string | boolean | Array<long>| Array<double> | Array<string> | Array<boolean> | Uint8Array | object | bigint;
+  type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
+
+  /**
+   * Indicates possible value types
+   * 
+   * @typedef {long | double | string | boolean | Array<long> | Array<double> | Array<string> | Array<boolean> | Uint8Array | RecordData | bigint}
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @since 22 static
+   */
+  type ValueType = long | double | string | boolean | Array<long> | Array<double> | Array<string> | Array<boolean> | Uint8Array | RecordData | bigint;
 
   /**
    * Indicates the maximum length of a key (80 characters).
