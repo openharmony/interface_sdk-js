@@ -869,6 +869,16 @@ export declare class FrameNode {
    * @since 23 static
    */
   isInRenderState(): boolean;
+
+  /**
+   * Get if the FrameNode is attached to the root node tree.
+   *
+   * @returns { boolean } - Returns if the FrameNode is attached to the root node tree. True indicates it is attached
+   *     to the root node tree, while false indicates it is not.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  isOnMainTree(): boolean;
 }
 
 /**
