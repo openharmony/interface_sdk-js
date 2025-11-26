@@ -502,42 +502,42 @@ export declare interface LayoutManager {
     /**
      * Get the line count.
      *
-     * @returns { int } The line count value returned to the caller.
+     * @returns { int | undefined } The line count value returned to the caller.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getLineCount(): int;
+    getLineCount(): int | undefined;
     /**
      * Get the glyph position at coordinate.
      *
      * @param { double } x - the positionX of typography.
      * @param { double } y - the positionY of typography.
-     * @returns { PositionWithAffinity } TextBlob object.
+     * @returns { PositionWithAffinity | undefined } TextBlob object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getGlyphPositionAtCoordinate(x: double, y: double): PositionWithAffinity;
+    getGlyphPositionAtCoordinate(x: double, y: double): PositionWithAffinity | undefined;
 
     /**
      * Get LineMetrics.
      * 
      * @param { int } lineNumber - the number of line.
-     * @returns { LineMetrics } The line Metrics.
+     * @returns { LineMetrics | undefined } The line Metrics.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getLineMetrics(lineNumber: int): LineMetrics;
+    getLineMetrics(lineNumber: int): LineMetrics | undefined;
 
     /**
      * Get the rects for range.
      * @param { TextRange } range - The range to set.
      * @param { RectWidthStyle } widthStyle - Width style to set.
      * @param { RectHeightStyle } heightStyle - Height style to set.
-     * @returns { Array<TextBox> } The rects for range.
+     * @returns { Array<TextBox> | undefined } The rects for range.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>;
+    getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox> | undefined;
 }
 /**
  * Position and affinity.
