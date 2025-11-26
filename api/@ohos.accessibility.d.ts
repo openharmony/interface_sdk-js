@@ -2207,6 +2207,126 @@ declare namespace accessibility {
   function getCaptionsManager(): CaptionsManager;
 
   /**
+   * Register the observe of the animationReduce state changed.
+   *
+   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function onAnimationReduceStateChange(callback: Callback<boolean>): void;
+
+  /**
+   * Unregister the observe of the animationReduce state changed.
+   *
+   * @param { Callback<boolean> } [callback] Asynchronous callback interface.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function offAnimationReduceStateChange(callback?: Callback<boolean>): void;
+
+  /**
+   * Checks whether animationReduce is enabled.
+   *
+   * @returns { boolean } Returns true if the animationReduce is enabled; returns false otherwise.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function isAnimationReduceEnabledSync(): boolean;
+
+  /**
+   * Checks whether animationReduce is enabled.
+   *
+   * @returns { Promise<boolean> } Returns {@code true} if the animationReduce is enabled; returns {@code false} otherwise.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function isAnimationReduceEnabled(): Promise<boolean>;
+
+  /**
+   * Register the observe of the flash reminder state changed.
+   *
+   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function onFlashReminderStateChange(callback: Callback<boolean>): void;
+
+  /**
+   * Unregister the observe of the flash reminder state changed.
+   *
+   * @param { Callback<boolean> } [callback] Asynchronous callback interface.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function offFlashReminderStateChange(callback?: Callback<boolean>): void;
+
+  /**
+   * Checks whether flash reminder is enabled.
+   *
+   * @returns { boolean } Returns true if the flash reminder is enabled; returns false otherwise.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function isFlashReminderEnabledSync(): boolean;
+
+  /**
+   * Checks whether flash reminder is enabled.
+   *
+   * @returns { Promise<boolean> } Returns {@code true} if the flash reminder is enabled; returns {@code false} otherwise.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function isFlashReminderEnabled(): Promise<boolean>;
+
+  /**
+   * Register the observe of the audioMono state changed.
+   *
+   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function onAudioMonoStateChange(callback: Callback<boolean>): void;
+
+  /**
+   * Unregister the observe of the audioMono state changed.
+   *
+   * @param { Callback<boolean> } [callback] Asynchronous callback interface.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function offAudioMonoStateChange(callback?: Callback<boolean>): void;
+
+  /**
+   * Checks whether audioMono is enabled.
+   *
+   * @returns { boolean } Returns true if the audioMono is enabled; returns false otherwise.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function isAudioMonoEnabledSync(): boolean;
+
+  /**
+   * Checks whether audioMono is enabled.
+   *
+   * @returns { Promise<boolean> } Returns {@code true} if the audioMono is enabled; returns {@code false} otherwise.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function isAudioMonoEnabled(): Promise<boolean>;
+
+  /**
    * Indicates the captions manager.
    *
    * @typedef CaptionsManager
