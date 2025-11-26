@@ -2050,6 +2050,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   enableAutoSpacing(enabled: Optional<boolean>): TextAreaAttribute;
 
   /**
+   * Whether to compress punctuation at the beginning of line.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { TextAreaAttribute } - returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  compressLeadingPunctuation(enabled: Optional<boolean>): TextAreaAttribute;
+
+  /**
    * Called before the text input component attach the InputMethod.
    *
    * @param { Callback<IMEClient> | undefined } callback - The triggered function before attach the InputMethod.
