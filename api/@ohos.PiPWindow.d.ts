@@ -1045,7 +1045,7 @@ declare namespace PiPWindow {
      * @param { number } height - Indicate the height of the content. The height can consist of only digits and above 0.
      * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
      *                                                                2. Incorrect parameter types.
-     *                                                                3. Controller is nullptr.
+     *                                                                3. The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -1058,7 +1058,7 @@ declare namespace PiPWindow {
      * @param { PiPControlStatus } status - Describe picture-in-picture control Status.
      * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
      *                                                                2. Incorrect parameter types.
-     *                                                                3. Controller is nullptr.
+     *                                                                3. The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -1086,7 +1086,7 @@ declare namespace PiPWindow {
      * @param { boolean } enabled - Describe picture-in-picture control enable Status.
      * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
      *                                                                2. Incorrect parameter types.
-     *                                                                3. Controller is nullptr.
+     *                                                                3. The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
