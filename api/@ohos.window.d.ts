@@ -6866,7 +6866,7 @@ declare namespace window {
      *                                                                  2. Failed to convert parameter to Orientation;
      *                                                                  3. Invalid parameter value range.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:   1. Window is nullptr;
-                                                                                            2. Send event failed.
+     *                                                                                      2. Send event failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
