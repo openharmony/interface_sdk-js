@@ -458,6 +458,15 @@ export default AccessibilityExtensionContext;
  * @since 9 dynamic
  * @since 22 static
  */
+/**
+ * Indicates an accessibility element.
+ * Supports querying element attributes, requesting execution actions, and finding child elements by condition.
+ *
+ * @typedef AccessibilityElement
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @stagemodelonly
+ * @since 23 dynamic&static
+ */
 export declare interface AccessibilityElement {
   /**
    * Get a list of attribute names.
@@ -1292,6 +1301,16 @@ export declare interface AccessibilityElement {
   accessibilityText?: string;
 
   /**
+   * Indicates the custom state of component.
+   * @type { ?string }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  accessibilityStateDescription?: string;
+
+  /**
    * Indicates the hot area of the element.
    *
    * @type { ?Rect }
@@ -1797,6 +1816,14 @@ export declare class Parameter {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 11 dynamiconly
  */
+/**
+ * Indicates the possible attributes of the element and the type of the attribute value.
+ *
+ * @typedef ElementAttributeValues
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @stagemodelonly
+ * @since 23 dynamiconly
+ */
 export interface ElementAttributeValues {
   /**
    * Indicates accessibility focus state.
@@ -2198,6 +2225,16 @@ export interface ElementAttributeValues {
    * @since 12 dynamiconly
    */
   accessibilityText: string;
+  /**
+   * Indicates the custom state of component.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamiconly
+   */
+  accessibilityStateDescription?: string;
   /**
    * Indicates the hot area of the element.
    *
