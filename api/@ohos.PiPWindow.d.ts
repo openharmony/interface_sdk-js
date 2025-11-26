@@ -79,7 +79,6 @@ declare namespace PiPWindow {
    * @returns { Promise<PiPController> } - The promise returned by the function
    * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
    *                                                                2. Incorrect parameter types.
-   *                                                                3. Parameter verification failed
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -98,7 +97,6 @@ declare namespace PiPWindow {
    * @returns { Promise<PiPController> } - The promise returned by the function
    * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
    *                                                                2. Incorrect parameter types.
-   *                                                                3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -1045,10 +1043,9 @@ declare namespace PiPWindow {
      * Update source content size to adjust PiP window aspect ratio.
      * @param { number } width - Indicate the width of the content. The width can consist of only digits and above 0.
      * @param { number } height - Indicate the height of the content. The height can consist of only digits and above 0.
-     * @throws { BusinessError } 401 - Params error.
-     *     Possible causes: 1. Invalid args count, 2 args is needed.
-     *                      2. Failed to convert parameter to int or width <= 0.
-     *                      3. Controller is nullptr.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.	
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Controller is nullptr.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -1059,10 +1056,9 @@ declare namespace PiPWindow {
      * Set dashboard control status.
      * @param { PiPControlType } controlType - Describe picture-in-picture control type.
      * @param { PiPControlStatus } status - Describe picture-in-picture control Status.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Invalid args count, 2 args is needed.
-     *                                                                2. Failed to convert parameter to int or controlType < 0.
-     *                                                                3. Failed to convert parameter to int.
-     *                                                                4. Controller is nullptr.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.	
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Controller is nullptr.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -1088,10 +1084,9 @@ declare namespace PiPWindow {
      * Set Dashboard control enable status.
      * @param { PiPControlType } controlType - Describe picture-in-picture control type.
      * @param { boolean } enabled - Describe picture-in-picture control enable Status.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Invalid args count, 2 args is needed.
-     *                                                                2. Failed to convert parameter to int.
-     *                                                                3. Failed to convert parameter to bool.
-     *                                                                4. Controller is nullptr.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.	
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Controller is nullptr.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -1212,9 +1207,9 @@ declare namespace PiPWindow {
      * @param { 'pipWindowSizeChange' } type - The value is fixed at 'pipWindowSizeChange', indicating the picture-in-picture
      * window size change event.
      * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Invalid args count, count >= 2 is needed.
-     *                                                                2. Failed to convert parameter to callbackType.
-     *                                                                3. Callback is nullptr or not callable.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.	
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Callback is not callable.
      *                                                                4. RegisterCallback failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
@@ -1230,8 +1225,8 @@ declare namespace PiPWindow {
      * @param { 'pipWindowSizeChange' } type - The value is fixed at 'pipWindowSizeChange', indicating the picture-in-picture
      * window size change event.
      * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Invalid args count, 0 < count <= 2 is needed.
-     *                                                                2. Failed to convert parameter to string.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.	
+     *                                                                2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
