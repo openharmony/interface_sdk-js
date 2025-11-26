@@ -6925,7 +6925,6 @@ declare namespace window {
      * This API can be called only by the main window.
      *
      * @returns { Orientation } orientation - The orientation config of the window
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: Unexpected parameters.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: Window is nullptr.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
