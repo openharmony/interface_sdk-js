@@ -2619,7 +2619,7 @@ export declare interface ScriptItem {
     /**
      * Set the regular expression rule that allows execution of this JavaScript.
      *
-     * @type { Array<UrlRegexRule> }
+     * @type { ?Array<UrlRegexRule> }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
