@@ -1629,7 +1629,7 @@ declare namespace update {
    * @param { EventInfo } eventInfo - Event information.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 20 dynamic
+   * @since 22 dynamic
    * @since 22 static
    */
   export type UpgradeTaskCallback = (eventInfo: EventInfo) => void;
