@@ -10557,7 +10557,7 @@ declare namespace window {
      *                                  The value is a floating point number greater than or equal to 0.0.
      *                                  The value 0.0 means that the window does not use rounded corners.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. MExactly one parameter is required;
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Exactly one parameter is required;
                                                                         2. Failed to convert parameter to radius;
                                                                         3. The corner radius is less than zero.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
