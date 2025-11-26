@@ -24,7 +24,7 @@ import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 import { ElementName } from './bundleManager/ElementName';
 import image from './@ohos.multimedia.image';
 import audio from './@ohos.multimedia.audio';
-import { AVCastPickerState, AVCastPickerColorMode } from './@ohos.multimedia.avCastPickerParam';
+import { AVCastPickerState, AVCastPickerColorMode, AVCastPickerStyle } from './@ohos.multimedia.avCastPickerParam';
 import type media from './@ohos.multimedia.media';
 import type Context from './application/BaseContext';
 import type hdrCapability from './@ohos.graphics.hdrCapability';
@@ -5502,6 +5502,52 @@ declare namespace avSession {
   }
 
   /**
+   * Position definition of one component on which the menu will bind and popup.
+   *
+   * @typedef MenuPosition
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  interface MenuPosition {
+    /**
+     * Coordinate x of the position of the component.
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    x: int;
+
+    /**
+     * Coordinate y of the position of the component.
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    y: int;
+
+    /**
+     * Component width.
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    width: int;
+
+    /**
+     * Component height.
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    height: int;
+  }
+
+  /**
    * An option to make different picker usage
    *
    * @typedef AVCastPickerOptions
@@ -5522,6 +5568,24 @@ declare namespace avSession {
      * @since 22 static
      */
     sessionType?: AVSessionType;
+
+    /**
+     * Set the picker style.
+     *
+     * @type { ? AVCastPickerStyle }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 22 dynamic&static
+     */
+    pickerStyle?: AVCastPickerStyle;
+
+    /**
+     * Set the popup menu position if pickerstyple is set to STYLE_MENU.
+     *
+     * @type { ? MenuPosition }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 22 dynamic&static
+     */
+    menuPosition?: MenuPosition;
   }
 
   /**
