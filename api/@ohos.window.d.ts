@@ -9527,8 +9527,8 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.Possible cause: WindowToken is nullptr.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.Possible cause: Not allowed since window is not main window.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: WindowToken is nullptr.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Not allowed since window is not main window.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
@@ -9751,7 +9751,7 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: Window is nullptr;
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: Window is nullptr.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -12473,7 +12473,7 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Function setSubWindowZLevel can not work correctly due to limited device capabilities. 
      * @throws { BusinessError } 1300002 - This window state is abnormal.Possible cause: Window is nullptr.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.Possible cause: Not allowed since window is not sub window.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Not allowed since window is not sub window.
      * @throws { BusinessError } 1300009 - The parent window is invalid.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -13963,7 +13963,7 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300005 - This window stage is abnormal.Possible cause: 1. WindowScene is null;
+     * @throws { BusinessError } 1300005 - This window stage is abnormal. Possible cause: 1. WindowScene is null;
      *                                                                                   2. Window is nullptr.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
