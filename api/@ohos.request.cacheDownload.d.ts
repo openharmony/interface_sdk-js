@@ -128,6 +128,17 @@ declare namespace cacheDownload {
          * @since 22 static
          */
         readonly dnsServers: string[];
+        /**
+         * The IP address of a specific URL is used when downloading resources.
+         * If the value is undefined, it means that the DNS resolution fails
+         * and the IP address cannot be obtained.
+         *
+         * @type { ?string }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 23 dynamic&static
+         */
+        readonly ip?: string;
     }
 
     /**
