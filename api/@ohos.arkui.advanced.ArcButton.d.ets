@@ -148,6 +148,47 @@ export declare enum ArcButtonStatus {
 }
 
 /**
+ * The class for ArcButtonProgressOptions.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export declare class ArcButtonProgressOptions {
+  /**
+   * Sets the value of Progress.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  value: number;
+  /**
+   * Sets the total of Progress.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  total?: number;
+  /**
+   * Sets the foreground color of Progress.
+   *
+   * @type { ?ColorMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  color?: ColorMetrics;
+}
+
+/**
  * Defines the arc button options.
  *
  * @interface CommonArcButtonOptions
@@ -297,6 +338,17 @@ interface CommonArcButtonOptions {
      * @since 18 dynamic
      */
     fontMargin?: LocalizedMargin;
+    
+    /**
+     * The options for ArcButton progress value.
+     *
+     * @type { ?ArcButtonProgressOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Circle
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    progressOptions?: ArcButtonProgressOptions;
     
     /**
      * Describes the arc button touch event.
@@ -469,6 +521,17 @@ export declare class ArcButtonOptions {
      * @since 18 dynamic
      */
     fontMargin: LocalizedMargin;
+
+    /**
+     * The options for ArcButton progress value.
+     *
+     * @type { ?ArcButtonProgressOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Circle
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    progressOptions?: ArcButtonProgressOptions;
     
     /**
      * Describes the arc button touch event.
