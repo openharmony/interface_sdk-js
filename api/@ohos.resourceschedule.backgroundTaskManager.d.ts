@@ -1999,14 +1999,14 @@ declare namespace backgroundTaskManager {
    *
    * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   export enum UserAuthResult {
     /**
      * Request is not supported.
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     NOT_SUPPORTED = 0,
 
@@ -2014,7 +2014,7 @@ declare namespace backgroundTaskManager {
      * Permission is not determined.
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     NOT_DETERMINED = 1,
 
@@ -2022,7 +2022,7 @@ declare namespace backgroundTaskManager {
      * Permission has been denied, only can change it in settings.
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     DENIED = 2,
 
@@ -2030,7 +2030,7 @@ declare namespace backgroundTaskManager {
      * The permission was granted once.
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     GRANTED_ONCE = 3,
 
@@ -2038,7 +2038,7 @@ declare namespace backgroundTaskManager {
      * Permissions are always granted.
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     GRANTED_ALWAYS = 4
   }
