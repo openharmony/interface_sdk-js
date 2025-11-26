@@ -6077,8 +6077,8 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Function setRelativePositionToParentWindowEnabled can not work correctly due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. Window is nullptr;
-     *                                                                                    2. Send event failed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is not created or destroyed;
+     *                                                                                    2. Internal napi error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Only sub window is valid.
      * @syscap SystemCapability.Window.SessionManager
@@ -11365,8 +11365,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. Window is nullptr;
-     *                                                                                    2. WindowToken is nullptr.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
@@ -11396,8 +11395,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Exactly one parameter is required;
      *                                                                  2. Failed to convert parameter to enable.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. Window is nullptr;
-     *                                                                                    2. WindowToken is nullptr.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -11414,8 +11412,8 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Exactly one parameter is required; 
      *                                                                  2. Failed to convert parameter to title.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. Window is nullptr;
-     *                                                                                    2. Send event failed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is not created or destroyed;
+     *                                                                                    2. Internal napi error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
@@ -11516,8 +11514,7 @@ declare namespace window {
      *                                                                  2. Failed to convert parameter to height;
      *                                                                  3. Height should greater than 37 or smaller than 112.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. Window is nullptr;
-     *                                                                                    2. WindowToken is nullptr.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -11540,7 +11537,7 @@ declare namespace window {
      *
      * @returns { int } - Height of the title bar. The value is an integer in the range [37,112]. The unit is vp.
      * @throws { BusinessError } 801 - Capability not supported. Possible cause: Device not support.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. Window is nullptr;
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is not created or destroyed;
      *                                                                                    2. Get window decor height failed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -11557,7 +11554,7 @@ declare namespace window {
      *                                                                  2. Argc is invalid;
      *                                                                  3. Out of range params.
      * @throws { BusinessError } 801 - Capability not supported. Possible cause: Device not support.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: Window is nullptr.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Called by invalid window type.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -11572,7 +11569,7 @@ declare namespace window {
      * @returns { DecorButtonStyle } - Button style on the decoration bar of the current window.
      *                                 The decoration button area is located in the upper right corner of the window.
      * @throws { BusinessError } 801 - Capability not supported. Possible cause: Device not support.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: Window is nullptr.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause: DecorButtonStyle format failed.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -11615,7 +11612,7 @@ declare namespace window {
      *
      * @returns { TitleButtonRect } - Rectangle obtained, which is located in the upper right corner of the window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. Window is nullptr;
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is not created or destroyed;
      *                                                                                    2. TitleButtonRect convert Failed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -11655,8 +11652,7 @@ declare namespace window {
      *                                                                  3. Failed to convert parameter to isMinimizeVisible;
      *                                                                  4. Failed to convert parameter to isCloseVisible.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. Window is nullptr;
-     *                                                                                    2. WindowToken is nullptr.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -13993,10 +13989,9 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect number of parameters. Expected 2; 
      *                                                                  2. Failed to convert parameter to enabled.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1001 - Window is nullptr.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: 1. Window is nullptr;
-     *                                                                                     2. WindowScene is null;
-     *                                                                                     3. Send event failed
+     * @throws { BusinessError } 1001 - The window is not created or destroyed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: 1. The window is not created or destroyed;
+     *                                                                                     2. Internal napi error
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
@@ -14016,10 +14011,9 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect number of parameters. Expected 2; 
      *                                                                   2. Failed to convert parameter to enabled.
      * @throws { BusinessError } 801 - Capability not supported. Function setWindowRectAutoSave can not work correctly due to limited device capabilities.
-     * @throws { BusinessError } 1001 - Window is nullptr.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: 1. Window is nullptr;
-     *                                                                                     2. WindowScene is null;
-     *                                                                                     3. Send event failed
+     * @throws { BusinessError } 1001 - The window is not created or destroyed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes: 1. The window is not created or destroyed;
+     *                                                                                     2. Internal napi error
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -14046,9 +14040,8 @@ declare namespace window {
      *
      * @returns { Promise<boolean> } Promise used to return the result. The value true means that the auto-save feature is enabled, and false means the opposite.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. Window is nullptr;
-     *                                                                                    2. WindowScene is null;
-     *                                                                                    3. Send event failed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is not created or destroyed;
+     *                                                                                    2. Internal napi error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
