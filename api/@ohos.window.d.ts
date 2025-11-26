@@ -12616,6 +12616,73 @@ declare namespace window {
      * @since 22 dynamic&static
      */
     getRotationLocked(): boolean;
+
+    /**
+     * Set whether the window supports event separation capability.
+     * When the window doesn't support event separation capability:
+     *    After the first finger touch the window,
+     *        subsequent fingers' events will be sent to that window regardless of whether they click on it.
+     *    If the first finger does not touch the window,
+     *        the system will discard the events when subsequent fingers touch the window.
+     *
+     * @param { boolean } enabled - Whether the window supports event separation capability.
+     *     True - means default state, the event will be sent to the window that the finger taps.
+     *     False - means the window doesn't support event separation capability.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+     *     not support this ability.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setSeparationTouchEnabled(enabled: boolean): Promise<void>;
+
+    /**
+     * Get whether the window supports event separation status.
+     *
+     * @returns { boolean } - The value true means the window supports event separation, and false means the opposite.
+     * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+     *     not support this ability.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isSeparationTouchEnabled(): boolean;
+
+    /**
+     * Set whether the window receive drag event.
+     *
+     * @param { boolean } enabled - Whether the window receive drag event.
+     *     True - means default state, the window can receive drag event.
+     *     False - means the window can't receive drag event.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+     *     not support this ability.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setReceiveDragEventEnabled(enabled: boolean): Promise<void>;
+
+    /**
+     * Get whether the window can receive drag event status.
+     *
+     * @returns { boolean } - The value true means the window can receive drag event, and false means the opposite.
+     * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+     *     not support this ability.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isReceiveDragEventEnabled(): boolean;
   }
 
   /**
