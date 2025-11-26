@@ -2572,12 +2572,13 @@ export declare interface WebOptions {
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
 */
-export declare class URLRegexRule {
+export declare class UrlRegexRule {
   /**
-   * Exact match of the second-level domain. For example, the second-level domain of https://www.example.com is example.com,
-   * and the second-level domain of https://www.example.com.cn is example.com.cn. If the URL is an IP address, the full IP is
-   * matched against the secondLevelDomain.
+   * Exact match of the second-level domain. For example, the second-level domain of https://www.example.com
+   * is example.com, and the second-level domain of https://www.example.com.cn is example.com.cn. If the URL
+   * is an IP address, the full IP is matched against the secondLevelDomain.
    *
+   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
@@ -2585,6 +2586,7 @@ export declare class URLRegexRule {
   /**
    * Full URL regular expression.
    *
+   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
@@ -2617,11 +2619,11 @@ export declare interface ScriptItem {
     /**
      * Set the regular expression rule that allows execution of this JavaScript.
      *
-     * @type { Array<URLRegexRule> }
+     * @type { Array<UrlRegexRule> }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
-    regexRules?: Array<URLRegexRule>;
+    regexRules?: Array<UrlRegexRule>;
 }
 /**
  * Defines the load committed details.
