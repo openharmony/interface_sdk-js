@@ -891,6 +891,28 @@ declare interface EventLocationInfo {
    * @since 20 dynamic
    */
   displayY: number;
+
+  /**
+   * X position of the point relative to the global display coordinate.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y position of the point relative to the global display coordinate.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  globalDisplayY?: number;
 }
 
 /**
