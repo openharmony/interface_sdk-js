@@ -11378,8 +11378,7 @@ declare namespace window {
      *
      * @returns { boolean } - Check result. The value true means that the title bar is visible, and false means the opposite.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. Window is nullptr;
-     *                                                                                    2. WindowToken is nullptr.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
@@ -11551,7 +11550,7 @@ declare namespace window {
      *
      * @param { DecorButtonStyle } dectorStyle - Button style of the decoration bar.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Exactly one parameter is required;
-     *                                                                  2. Argc is invalid;
+     *                                                                  2. Parameter is invalid;
      *                                                                  3. Out of range params.
      * @throws { BusinessError } 801 - Capability not supported. Possible cause: Device not support.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
