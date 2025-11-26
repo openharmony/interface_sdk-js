@@ -378,6 +378,15 @@ declare class UIAbility extends Ability {
   callee: Callee;
 
   /**
+   * Get the string returned by `AbilityStage.onAcceptWant(want: Want)` for the current specified UIAbility.
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  specifiedId?: string;
+
+  /**
    * Called back when an ability is started for initialization.
    *
    * @param { Want } want - Indicates the want info of the created ability.
