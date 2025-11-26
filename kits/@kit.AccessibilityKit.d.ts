@@ -36,7 +36,7 @@ import config from '@ohos.accessibility.config';
 import accessibility from '@ohos.accessibility';
 import AccessibilityExtensionAbility, {
   AccessibilityElement, AccessibilityExtensionContext, FocusDirection, Rect, WindowType, AccessibilityEventInfo,
-  FocusRule, FocusCondition, FocusMoveResult
+  Parameter, FocusRule, FocusCondition, FocusMoveResult
 } from '@ohos.application.AccessibilityExtensionAbility';
 import { AccessibilityEventType, AccessibilityAction } from '@ohos.accessibility';
 /*** endif */
@@ -55,6 +55,6 @@ export {
 export {
   AccessibilityElement, AccessibilityExtensionAbility, AccessibilityExtensionContext, FocusDirection, Rect,
   WindowType, accessibility, config, AccessibilityEventInfo, AccessibilityAction, AccessibilityEventType,
-  FocusRule, FocusCondition, FocusMoveResult, FocusMoveResultCode
+  Parameter, FocusRule, FocusCondition, FocusMoveResult, FocusMoveResultCode
 };
 /*** endif */
