@@ -290,7 +290,6 @@ declare namespace uiExtension {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      * <br> 1. The window is nullptr.
      * <br> 2. Send event failed.
