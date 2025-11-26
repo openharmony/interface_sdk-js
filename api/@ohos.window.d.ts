@@ -6863,8 +6863,8 @@ declare namespace window {
      * @param { Orientation } orientation - The orientation config of the window
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-                                                                        2. Failed to convert parameter to Orientation;
-                                                                        3. Invalid parameter value range.
+     *                                                                  2. Failed to convert parameter to Orientation;
+     *                                                                  3. Invalid parameter value range.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:   1. Window is nullptr;
                                                                                             2. Send event failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -10509,10 +10509,10 @@ declare namespace window {
      *                                                                  3. The shadow radius is less than zero.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:   1. Window is nullptr;
-                                                                                            2. Native window is nullptr;
-                                                                                            3. Send event failed.
+     *                                                                                      2. Native window is nullptr;
+     *                                                                                      3. Send event failed.
      * @throws { BusinessError } 1300004 - Possible cause:  1. Unauthorized operation;
-                                                            2. This is not sub window or float window.
+     *                                                      2. This is not sub window or float window.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
@@ -10561,9 +10561,8 @@ declare namespace window {
                                                                         2. Failed to convert parameter to radius;
                                                                         3. The corner radius is less than zero.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1001 - Native window is nullptr.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:   1. Window is nullptr;
-                                                                                            2. Send event failed.
+     *                                                                                      2. Send event failed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -10577,10 +10576,9 @@ declare namespace window {
      * Obtains the radius of rounded corners of a child window or floating window.
      *
      * @returns { double } - Radius of the rounded corner of the child window or floating window, measured in vp.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: Unexpected parameters.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:   1. Window is nullptr;
-                                                                                            2. Send event failed.
+     *                                                                                      2. Send event failed.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -11724,14 +11722,14 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:   1. Window is nullptr;
-                                                                                            2. Native window is nullptr;
-                                                                                            3. Window instance not exist;
-                                                                                            4. Send event failed.
+     *                                                                                      2. Native window is nullptr;
+     *                                                                                      3. Window instance not exist;
+     *                                                                                      4. Send event failed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range;
-                                                                            2. Invalid parameter length;
-                                                                            3. Failed to convert parameter to type.
+     *                                                                      2. Invalid parameter length;
+     *                                                                      3. Failed to convert parameter to type.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @atomicservice
@@ -11748,8 +11746,8 @@ declare namespace window {
      * @returns { TransitionAnimation | undefined } Transition animation with transition type, or undefined if it has not been set.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:   1. Window is nullptr;
-                                                                                            2. Transition animation is not enable;
-                                                                                            3. Send event failed.
+     *                                                                                      2. Transition animation is not enable;
+     *                                                                                      3. Send event failed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
