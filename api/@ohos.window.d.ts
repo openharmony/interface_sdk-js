@@ -3653,6 +3653,23 @@ declare namespace window {
   function minimizeAll(id: long): Promise<void>;
 
   /**
+   * Minimize all app windows, exclude the specified main window.
+   *
+   * @param { long } displayId - ID of the display.
+   * @param { int } excludeWindowId - ID of the main window will be excluded.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   *     Possible casue: 1. Winodw is nullptr;
+   *                     2. Failed to find specified window by id.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 23 dynamic&static
+   */
+  function minimizeAll(displayId: long, excludeWindowId: int): Promise<void>;
+
+  /**
    * Toggle shown state for all app windows. Minimize or restore all app windows.
    *
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
