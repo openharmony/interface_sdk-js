@@ -195,6 +195,7 @@
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.Multimedia.Media.Core",
     "SystemCapability.Communication.SoftBus.Core",
-    "SystemCapability.Security.CertificateManager"
+    "SystemCapability.Security.CertificateManager",
+    "SystemCapability.MiscServices.Pasteboard"
   ]
 }
