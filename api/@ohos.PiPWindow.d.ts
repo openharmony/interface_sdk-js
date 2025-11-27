@@ -1203,8 +1203,7 @@ declare namespace PiPWindow {
      * @param { 'pipWindowSizeChange' } type - The value is fixed at 'pipWindowSizeChange', indicating the picture-in-picture
      * window size change event.
      * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Callback is not callable.
-     *                                                                2. Register failed.
+     * @throws { BusinessError } 401 - Params error. Possible causes: Callback is already registered.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
