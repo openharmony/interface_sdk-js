@@ -19,8 +19,10 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
+/*** if arkts dynamic */
 import type relationalStore from './@ohos.data.relationalStore';
 import commonType from './@ohos.data.commonType';
+/*** endif */
 
 /**
  * Provides methods for cloud capabilities.
