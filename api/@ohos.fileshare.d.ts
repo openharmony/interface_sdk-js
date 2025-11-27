@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -38,7 +38,7 @@ declare namespace fileShare {
   /**
    * Enumerates the uri operate mode types.
    *
-   * @enum { number } OperationMode
+   * @enum { int } OperationMode
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11 dynamic
    * @since 22 static
@@ -90,9 +90,10 @@ declare namespace fileShare {
   /**
    * Enumerates the error code of the permission policy for the URI operation.
    *
-   * @enum { number } PolicyErrorCode
+   * @enum { int } PolicyErrorCode
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11 dynamic
+   * @since 22 static
    */
   export enum PolicyErrorCode {
     /**
@@ -100,6 +101,7 @@ declare namespace fileShare {
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
+     * @since 22 static
      */
     PERSISTENCE_FORBIDDEN = 1,
 
@@ -108,6 +110,7 @@ declare namespace fileShare {
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
+     * @since 22 static
      */
     INVALID_MODE = 2,
 
@@ -116,6 +119,7 @@ declare namespace fileShare {
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
+     * @since 22 static
      */
     INVALID_PATH = 3,
 
@@ -124,6 +128,7 @@ declare namespace fileShare {
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 12 dynamic
+     * @since 22 static
      */
     PERMISSION_NOT_PERSISTED = 4,
   }
@@ -131,17 +136,19 @@ declare namespace fileShare {
   /**
    * Failed policy result on URI.
    *
-   * @typedef { object }
+   * @interface { object }
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11 dynamic
+   * @since 22 static
    */
-  export type PolicyErrorResult = {
+  export interface PolicyErrorResult {
     /**
      * Indicates the failed uri of the policy information.
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
+     * @since 22 static
      */
     uri: string;
 
@@ -151,6 +158,7 @@ declare namespace fileShare {
      * @type { PolicyErrorCode }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
+     * @since 22 static
      */
     code: PolicyErrorCode;
 
@@ -160,9 +168,10 @@ declare namespace fileShare {
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
+     * @since 22 static
      */
     message: string;
-  };
+  }
 
   /**
    * Policy information to manager permissions on a URI.
@@ -186,12 +195,12 @@ declare namespace fileShare {
     /**
      * Indicates the mode of operation for the URI, example { OperationMode.READ_MODE } or { OperationMode.READ_MODE | OperationMode.WRITE_MODE }
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
      * @since 22 static
      */
-    operationMode: number;
+    operationMode: int;
   }
 
   /**
@@ -224,9 +233,10 @@ declare namespace fileShare {
   /**
    * Indicates the policy type of the path.
    *
-   * @enum { number } policyType
+   * @enum { int } policyType
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 15 dynamic
+   * @since 22 static
    */
   export enum PolicyType {
     /**
@@ -234,6 +244,7 @@ declare namespace fileShare {
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 15 dynamic
+     * @since 22 static
      */
     TEMPORARY_TYPE = 0,
  
@@ -242,6 +253,7 @@ declare namespace fileShare {
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 15 dynamic
+     * @since 22 static
      */
     PERSISTENT_TYPE = 1,
   }
@@ -297,7 +309,7 @@ declare namespace fileShare {
    * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @param { Array<PolicyInfo> } policies - Policy information for the user to grant permissions on URIs.
    * @param { string } targetBundleName - Name of the target bundle to authorize.
-   * @param { number } appCloneIndex - Clone index of the target application.
+   * @param { int } appCloneIndex - Clone index of the target application.
    * @returns { Promise<void> } Returns void.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -307,8 +319,9 @@ declare namespace fileShare {
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
-  function grantUriPermission(policies: Array<PolicyInfo>, targetBundleName: string, appCloneIndex: number): Promise<void>;
+  function grantUriPermission(policies: Array<PolicyInfo>, targetBundleName: string, appCloneIndex: int): Promise<void>;
 
   /**
    * Set persistence permissions for the URI
@@ -324,6 +337,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11 dynamic
+   * @since 22 static
    */
   function persistPermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -341,6 +355,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11 dynamic
+   * @since 22 static
    */
   function revokePermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -358,6 +373,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11 dynamic
+   * @since 22 static
    */
   function activatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -375,6 +391,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11 dynamic
+   * @since 22 static
    */
   function deactivatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -403,6 +420,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 17 dynamic
+   * @since 22 static
    */
   function checkPersistentPermission(policies: Array<PolicyInfo>): Promise<Array<boolean>>;
 
