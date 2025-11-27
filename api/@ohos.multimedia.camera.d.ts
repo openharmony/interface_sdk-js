@@ -13630,6 +13630,7 @@ declare namespace camera {
      * Enable bandwidth compression.
      *
      * @param { boolean } enabled - Target state for bandwidth compression.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
