@@ -2069,8 +2069,8 @@ declare namespace text {
      * In this API, name specifies the alias of the font, and the custom font effect can be displayed only when
      * the value of name is set in fontFamilies in TextStyle. The supported font file formats are .ttf, .otf and .ttc.
      * @param { string } name - the font name.
-     * @param { string | Resource } path - Path of the font file to import. The value must be
-     * **file://**absolute path of the font file or **rawfile/**directory or file name.
+     * @param { string | Resource } path - Path of the font file to load.
+     * The value must be **"file:// + absolute path of the font file"** or **$rawfile("path of the font file")**.
      * @param { int } [index] - The index of the font file.
      * @throws { BusinessError } 25900001 - Parameter error.
      * @throws { BusinessError } 25900002 - File not found.
@@ -2093,7 +2093,7 @@ declare namespace text {
      * the value of name is set in fontFamilies in TextStyle. The supported font file formats are .ttf, .otf and .ttc.
      * @param { string } name - Name of the font. Any string is acceptable.
      * @param { string | Resource } path - Path of the font file to load.
-     * The value must be **file://**absolute path of the font file or **rawfile/**directory or file name.
+     * The value must be **"file:// + absolute path of the font file"** or **$rawfile("path of the font file")**.
      * @param { int } [index] - The index of the font file.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 25900001 - Parameter error.
