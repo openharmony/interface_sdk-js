@@ -5440,6 +5440,7 @@ declare interface ScriptItem {
    *
    * @type { ?Array<UrlRegexRule> }
    * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
    * @since 23 dynamic
    */
   regexRules?: Array<UrlRegexRule>;

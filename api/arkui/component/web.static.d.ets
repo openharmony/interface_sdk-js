@@ -2621,6 +2621,7 @@ export declare interface ScriptItem {
      *
      * @type { ?Array<UrlRegexRule> }
      * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
      * @since 23 static
      */
     regexRules?: Array<UrlRegexRule>;
