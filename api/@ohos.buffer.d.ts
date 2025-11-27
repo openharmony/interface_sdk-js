@@ -434,6 +434,7 @@ declare namespace buffer {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
   function from(array: double[]): Buffer;
 
@@ -489,6 +490,22 @@ declare namespace buffer {
    * @since 11 dynamic
    */
   function from(arrayBuffer: ArrayBuffer | SharedArrayBuffer, byteOffset?: number, length?: number): Buffer;
+  
+  /**
+   * This creates a view of the ArrayBuffer without copying the underlying memory.
+   *
+   * @param { ArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer,
+   * @param { int } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
+   * @param { int } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
+   * @returns { Buffer } Return a view of the ArrayBuffer
+   * @throws { BusinessError } 10200001 - The value of "[byteOffset/length]" is out of range.
+   * It must be >= [left range] and <= [right range]. Received value is: [byteOffset/length]
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 22 static
+   */
+  function from(arrayBuffer: ArrayBuffer, byteOffset?: int, length?: int): Buffer;
 
   /**
    * Copies the passed buffer data onto a new Buffer instance.
@@ -525,6 +542,7 @@ declare namespace buffer {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
   function from(buffer: Buffer | Uint8Array): Buffer;
 
@@ -570,6 +588,7 @@ declare namespace buffer {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
   function from(object: Object, offsetOrEncoding: int | string, length: int): Buffer;
 
@@ -612,81 +631,9 @@ declare namespace buffer {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
   function from(string: String, encoding?: BufferEncoding): Buffer;
-
-  /**
-   * Creates a Buffer instance with the specified array.
-   *
-   * @param { double[] } array - Array to create a Buffer instance.
-   * @returns { Buffer } Return a new allocated Buffer
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  function fromWithArray(array: double[]): Buffer;
-
-  /**
-   * This creates a view of the ArrayBuffer without copying the underlying memory.
-   *
-   * @param { ArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer,
-   * @param { int } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
-   * @param { int } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
-   * @returns { Buffer } Return a view of the ArrayBuffer
-   * @throws { BusinessError } 10200001 - The value of "[byteOffset/length]" is out of range.
-   * It must be >= [left range] and <= [right range]. Received value is: [byteOffset/length]
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  function fromWithArrayBufferByteOffsetLength(arrayBuffer: ArrayBuffer, byteOffset?: int, length?: int): Buffer;
-
-  /**
-   * Copies the data of a passed Buffer instance to create a new Buffer instance and returns the new one.
-   *
-   * @param { Buffer | Uint8Array } buffer - Buffer or Uint8Array instance.
-   * @returns { Buffer } Return a new allocated Buffer
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  function fromWithBuffer(buffer: Buffer | Uint8Array): Buffer;
-
-  /**
-   * Creates a Buffer instance based on the specified object.
-   *
-   * @param { Object } input - Object that supports Symbol.toPrimitive or valueOf().
-   * @param { int | string } offsetOrEncoding - Byte offset or encoding format.
-   * @param { int } length - Length of the Buffer instance to create, in bytes.
-   * @returns { Buffer } Return a new allocated Buffer
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  function fromWithObjectTypedInputOffsetOrEncodingLength(input: Object, offsetOrEncoding: int | string, length: int): Buffer;
-
-  /**
-   * Creates a Buffer instance based on various types.
-   *
-   * @param { string } input - string.
-   * @param { BufferEncoding } [encoding] - Encoding format of the string. The default value is 'utf8'.
-   * @returns { Buffer } Return a new Buffer containing string
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  function fromWithStringTypedInputEncoding(input: string, encoding?: BufferEncoding): Buffer;
-
-  /**
-   * @since 22 static
-   */
-  export overload from { fromWithArray, fromWithArrayBufferByteOffsetLength, fromWithBuffer,
-                  fromWithObjectTypedInputOffsetOrEncodingLength, fromWithStringTypedInputEncoding }
 
   /**
    * Returns true if obj is a Buffer, false otherwise
