@@ -27,8 +27,9 @@ import type { ChildProcessArgs } from './@ohos.app.ability.ChildProcessArgs';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 11 dynamic
+ * @since 22 static
  */
-export default class ChildProcess {
+declare class ChildProcess {
 
   /**
    * Called when the child process is started.
@@ -44,6 +45,9 @@ export default class ChildProcess {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
   */
   onStart(args?: ChildProcessArgs): void;
 }
+
+export default ChildProcess;

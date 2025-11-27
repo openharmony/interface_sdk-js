@@ -168,7 +168,6 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
    */
   on(type: 'release', callback: OnReleaseCallback): void;
 
@@ -377,6 +376,15 @@ declare class UIAbility extends Ability {
    * @since 22 static
    */
   callee: Callee;
+
+  /**
+   * Get the string returned by `AbilityStage.onAcceptWant(want: Want)` for the current specified UIAbility.
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  specifiedId?: string;
 
   /**
    * Called back when an ability is started for initialization.

@@ -157,6 +157,21 @@ declare class StyledString {
      * @atomicservice
      * @since 12 dynamic
      */
+    /**
+     * Returns StyledString from the provided HTML string.
+     *
+     * @param { string } html - the html text will be converted to a StyledString.
+     * @returns { Promise<StyledString> }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 170001 - Convert Error.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
     static fromHtml(html: string): Promise<StyledString>;
 
     /**

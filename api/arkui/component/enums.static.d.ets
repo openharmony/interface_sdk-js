@@ -357,6 +357,33 @@ export declare enum BorderStyle {
 }
 
 /**
+ * Enum for RenderStrategy.
+ * Define Graphics Rendering Strategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare enum RenderStrategy {
+  /**
+   * The current component and its child components will be drawn directly onto the screen canvas.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  FAST = 0,
+
+  /**
+   * The current component and its child components will first be drawn onto an off-screen canvas,
+   *     then undergo some graphic rendering operations, and finally be drawn onto the main canvas.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  OFFSCREEN = 1
+}
+
+/**
  * Line Join Style
  *
  * @enum { number }
@@ -1101,7 +1128,7 @@ export declare enum Alignment {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-declare enum LocalizedAlignment {
+export declare enum LocalizedAlignment {
   /**
    * Top Start.
    *
@@ -2674,7 +2701,7 @@ export declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  BASELINE = 0,
+  BASELINE = 4,
 
   /**
    * Indicating that the bottom of the ImageSpan should be aligned with the bottom of the surrounding text.
@@ -2682,7 +2709,7 @@ export declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  BOTTOM = 1,
+  BOTTOM = 3,
 
   /**
    * Indicating that the center of the ImageSpan should be aligned with the center of the surrounding text.
@@ -2698,7 +2725,7 @@ export declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  TOP = 3,
+  TOP = 1,
 
   /**
    * Indicating that the ImageSpan should be aligned by the paragraph's textVerticalAlign.
@@ -2706,7 +2733,7 @@ export declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  FOLLOW_PARAGRAPH = 4
+  FOLLOW_PARAGRAPH = 5
 }
 
 /**

@@ -27,6 +27,7 @@ import { WantAgent } from '../@ohos.wantAgent';
 /*** endif */
 /*** if arkts static */
 import { WantAgent } from '../@ohos.app.ability.wantAgent';
+import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
@@ -329,9 +330,18 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
    */
   extraInfo?: Record<string, Object>;
+
+  /**
+   * Additional information of the live view notification.
+   *
+   * @type { ?Record<string, RecordData>}
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 static
+   */
+  extraInfo?: Record<string, RecordData>;
 
   /**
    * The picture information list of the live view notification.

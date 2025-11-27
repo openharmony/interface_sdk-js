@@ -319,7 +319,7 @@ declare class LightWeightSet<T> {
    */
   increaseCapacityTo(minimumCapacity: int): void;
   /**
-   * Obtains the index of s key of a specified Object type in an LightWeightSet container
+   * Obtains the index of the key of a specified Object type in an LightWeightSet container
    *
    * @param { T } key - key key Looking for goals
    * @returns { number } Subscript corresponding to target
@@ -328,7 +328,7 @@ declare class LightWeightSet<T> {
    * @since 8
    */
   /**
-   * Obtains the index of s key of a specified Object type in an LightWeightSet container
+   * Obtains the index of the key of a specified Object type in an LightWeightSet container
    *
    * @param { T } key - key key Looking for goals
    * @returns { number } Subscript corresponding to target
@@ -338,7 +338,7 @@ declare class LightWeightSet<T> {
    * @since 10
    */
   /**
-   * Obtains the index of s key of a specified Object type in an LightWeightSet container
+   * Obtains the index of the key of a specified Object type in an LightWeightSet container
    *
    * @param { T } key - key key Looking for goals
    * @returns { int } Subscript corresponding to target

@@ -42,12 +42,14 @@ import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
 import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics } from "./units";
 import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
 import { ScrollState } from "./list";
-import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool } from "./enums";
+import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool } from "./enums";
 import { TextRange } from "./textCommon";
 import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
 import curves from '../../@ohos.curves';
 import matrix4 from '../../@ohos.matrix4';
+import { AvoidanceMode } from './select';
+import uiMaterial from '../../@ohos.arkui.uiMaterial';
 /**
  * Define the ratio of characters entered by the the percentage of InputCounterOptions.
  *
@@ -110,7 +112,7 @@ export declare interface TextDecorationOptions {
     /**
      * The decoration type.
      *
-     * @type { TextDecorationType }
+     * @type { TextDecorationType | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
@@ -1628,12 +1630,12 @@ export declare interface LinearGradientOptions {
      * Defines starting angle of linear gradient.
      *
      * Anonymous Object Rectification.
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @default 180
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    angle?: number | string;
+    angle?: double | string;
     /**
      * Defines the direction of linear gradient.
      *
@@ -1648,13 +1650,13 @@ export declare interface LinearGradientOptions {
      * Defines color description for gradients.
      *
      * Anonymous Object Rectification.
-     * @type { Array<[ResourceColor, number]> }
+     * @type { Array<[ResourceColor, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
     colors: Array<[
         ResourceColor,
-        number
+        double
     ]>;
     /**
      * Defines gradient colors with repeated coloring.
@@ -3557,11 +3559,11 @@ export declare interface PickerDialogButtonStyle {
     /**
      * Describes the button font weight.
      *
-     * @type { ?(FontWeight | number | string) }
+     * @type { ?(FontWeight | int | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    fontWeight?: FontWeight | number | string;
+    fontWeight?: FontWeight | int | string;
     /**
      * Describes the button font style.
      *
@@ -3756,12 +3758,12 @@ export declare interface MultiShadowOptions {
      * <br>A value less than or equal to 0 is handled as the default value.
      * </p>
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @default 20
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    radius?: number | Resource;
+    radius?: double | Resource;
     /**
      * Offset on the x-axis.
      * Unit: vp.
@@ -3887,7 +3889,42 @@ export declare enum LayoutSafeAreaEdge {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    BOTTOM = 1
+    BOTTOM = 1,
+    /**
+     * Start edge of the safe area.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    START = 2,
+    /**
+     * End edge of the safe area.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    END = 3,
+    /**
+     * Vertical edge of the safe area.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    VERTICAL = 4,
+    /**
+     * Horizontal edge of the safe area.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    HORIZONTAL = 5,
+    /**
+     * All edges of the safe area.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    ALL = 6
 }
 /**
  * Defines sheet size type.
@@ -4132,6 +4169,29 @@ export declare class LayoutPolicy {
      * @since 22 static
      */
     static readonly matchParent: LayoutPolicy;
+
+    /**
+     * The component fills its content which means its size is as large as its children but it is constained by its
+     *     parent.
+     *
+     * @type { LayoutPolicy }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    static readonly wrapContent: LayoutPolicy;
+
+    /**
+     * The component fills its content which means its size is as large as its children.
+     *
+     * @type { LayoutPolicy }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    static readonly fixAtIdealSize: LayoutPolicy;
 }
 /**
  * The tap action triggers this method invocation.
@@ -5205,7 +5265,17 @@ export declare enum BlendApplyType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    OFFSCREEN = 1
+    OFFSCREEN = 1,
+    /**
+    * The content of the component and its child components are drawn on the
+    * offscreen canvas, and then blended with the existing content on the canvas.
+    * The offscreen canvas will copy background to initialize itself when created.
+    * 
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @systemapi
+    * @since 23 static
+    */
+    OFFSCREEN_WITH_BACKGROUND = 2
 }
 /**
  * DragEvent object description
@@ -6563,35 +6633,32 @@ export declare interface PopupMaskType {
      */
     color: ResourceColor;
 }
-
 /**
  * Popup border LinearGradient
  *
  * @interface PopupBorderLinearGradient
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface PopupBorderLinearGradient {
-  /**
-   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
-   *
-   * @type { ?GradientDirection }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  direction?: GradientDirection;
-
-  /**
-   * Defines color description for gradients.
-   * number: The position of the color stop. The value range is 0 to 1.
-   *
-   * @type { Array<[ResourceColor, double]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  colors: Array<[ResourceColor, double]>;
+    /**
+     * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
+     *
+     * @type { ?GradientDirection }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    direction?: GradientDirection;
+    /**
+     * Defines color description for gradients.
+     * double: The position of the color stop. The value range is 0 to 1.
+     *
+     * @type { Array<[ResourceColor, double]> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    colors: Array<[ResourceColor, double]>;
 }
-
 /**
  * Popup common options
  *
@@ -6790,6 +6857,47 @@ export declare interface PopupCommonOptions {
      * @since 22 static
      */
     followTransformOfTarget?: boolean;
+    /**
+     * Determine if popup can avoid the target when the display space is insufficient.
+     *
+     * @type { ?AvoidanceMode }
+     * @default AvoidanceMode.COVER_TARGET
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    avoidTarget?: AvoidanceMode;
+    /**
+     * The width of popup's outline.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineWidth?: Dimension;
+    /**
+     * The width of popup's border.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderWidth?: Dimension;
+    /**
+     * The LinearGradient of popup's outline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineLinearGradient?: PopupBorderLinearGradient;
+    /**
+     * The LinearGradient of popup's innerline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
    * Define the popup theme color mode.
@@ -7168,6 +7276,47 @@ export declare interface PopupOptions {
      * @since 22 static
      */
     keyboardAvoidMode?: KeyboardAvoidMode;
+    /**
+     * Determine if popup can avoid the target when the display space is insufficient.
+     *
+     * @type { ?AvoidanceMode }
+     * @default AvoidanceMode.COVER_TARGET
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    avoidTarget?: AvoidanceMode;
+    /**
+     * The width of popup's outline.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineWidth?: Dimension;
+    /**
+     * The width of popup's border.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderWidth?: Dimension;
+    /**
+     * The LinearGradient of popup's outline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineLinearGradient?: PopupBorderLinearGradient;
+    /**
+     * The LinearGradient of popup's innerline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
    * Define the popup theme color mode.
@@ -7470,6 +7619,47 @@ export declare interface CustomPopupOptions {
      * @since 22 static
      */
     keyboardAvoidMode?: KeyboardAvoidMode;
+    /**
+     * Determine if popup can avoid the target when the display space is insufficient.
+     *
+     * @type { ?AvoidanceMode }
+     * @default AvoidanceMode.COVER_TARGET
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    avoidTarget?: AvoidanceMode;
+    /**
+     * The width of popup's outline.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineWidth?: Dimension;
+    /**
+     * The width of popup's border.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderWidth?: Dimension;
+    /**
+     * The LinearGradient of popup's outline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineLinearGradient?: PopupBorderLinearGradient;
+    /**
+     * The LinearGradient of popup's innerline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
    * Define the popup theme color mode.
@@ -7585,39 +7775,46 @@ export interface ContextMenuAnimationOptions {
      * @since 22 static
      */
     hoverScale?: AnimationNumberRange;
+    /**
+     * Sets whether support to interrupt the process of hover scale.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    hoverScaleInterruption?: boolean;
 }
-
 /**
  * Defines the scaling mode for custom preview of contextMenu.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum PreviewScaleMode {
-  /**
-   * Automatically resize preview based on the layout area.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  AUTO = 0,
-
-  /**
-   * Maintain original size of preview content without scaling.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  CONSTANT = 1,
-
-  /**
-   * Maintain aspect ratio to scale preview.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  MAINTAIN = 2
+    /**
+     * Automatically resize preview based on the layout area.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    AUTO = 0,
+    /**
+     * Maintain original size of preview content without scaling.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    CONSTANT = 1,
+    /**
+     * Maintain aspect ratio to scale preview.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    MAINTAIN = 2
 }
 /**
  * Defines the type of border radius.
@@ -7889,21 +8086,118 @@ export declare interface ContextMenuOptions {
       */
     enableHoverMode?: boolean;
     /**
-      * The color of menu's outer border.
-      *
-      * @type { ?(ResourceColor | EdgeColors) }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 22 static
-      */
+     * Defines the haptic feedback mode of menu.
+     *
+     * @type { ?HapticFeedbackMode }
+     * @default HapticFeedbackMode.DISABLED
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    hapticFeedbackMode?: HapticFeedbackMode;
+    /**
+     * The color of menu's outer border.
+     *
+     * @type { ?(ResourceColor | EdgeColors) }
+     * @default '#19ffffff'
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
     outlineColor?: ResourceColor | EdgeColors;
     /**
-      * The width of menu's outer border.
-      *
-      * @type { ?(Dimension | EdgeOutlineWidths) }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 22 static
-      */
+     * The width of menu's outer border.
+     * If outline effects are required, outlineWidth is required.
+     *
+     * @type { ?(Dimension | EdgeOutlineWidths) }
+     * @default 0vp - Percentage values are not supported.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
     outlineWidth?: Dimension | EdgeOutlineWidths;
+    /**
+     * Whether it is a menu without mask.
+     *
+     * @type { ?(boolean | MenuMaskType) }
+     * @default true when preview is enabled, or is false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    mask?: boolean | MenuMaskType;
+    /**
+     * Defines modal mode of menu.
+     *
+     * @type { ?ModalMode }
+     * @default ModalMode.AUTO
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    modalMode?: ModalMode;
+    /**
+     * Callback function when the menu appears.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onDidAppear?: VoidCallback;
+    /**
+     * Callback function when the menu disappears.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onDidDisappear?: VoidCallback;
+    /**
+     * Callback function before the menu openAnimation starts.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onWillAppear?: VoidCallback;
+    /**
+     * Callback function before the menu closeAnimation starts.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onWillDisappear?: VoidCallback;
+    /**
+     * Defines the scaling mode for custom preview of contextMenu.
+     *
+     * @type { ?PreviewScaleMode }
+     * @default PreviewScaleMode.AUTO
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    previewScaleMode?: PreviewScaleMode;
+    /**
+     * Defines the available layout area of preview.
+     *
+     * @type { ?AvailableLayoutArea }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    availableLayoutArea?: AvailableLayoutArea;
+    /**
+     * Defines the menu position.
+     *
+     * @type { ?Position }
+     * @default { x: 0, y: 0 }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    anchorPosition?: Position;
 
   /**
    * Defines the max height of menu.
@@ -7923,16 +8217,6 @@ export declare interface ContextMenuOptions {
    * @since 23 static
    */
   colorMode?: AnchoredColorMode;
-
-    /**
-     * Defines the haptic feedback mode of menu.
-     *
-     * @type { ?HapticFeedbackMode }
-     * @default HapticFeedbackMode.DISABLED
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    hapticFeedbackMode?: HapticFeedbackMode;
 
   /**
    * Determine if preview scale maintain aspect ratio.
@@ -8714,84 +8998,78 @@ export type Optional<T> = T | undefined;
  * @since 22 static
  */
 export type TipsMessageType = ResourceStr | StyledString;
-
 /**
- * Define the modal mode of menu
+ * Define the modal mode of menu.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ModalMode {
-  /**
-   * Modal modal automatically.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  AUTO = 0,
-
-  /**
-   * Operation takes effect around menu.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  NONE = 1,
-
-  /**
-   * Operation takes no effect around menu in target window
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  TARGET_WINDOW = 2
+    /**
+     * Modal modal automatically.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    AUTO = 0,
+    /**
+     * Operation takes effect around menu.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    NONE = 1,
+    /**
+     * Operation takes no effect around menu in target window.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    TARGET_WINDOW = 2
 }
-
 /**
  * Menu mask type
  *
  * @interface MenuMaskType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface MenuMaskType {
-  /**
-   * Mask color of menu.
-   *
-   * @type { ?ResourceColor }
-   * @default Color.Transparent
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  color?: ResourceColor;
-
-  /**
-   * Set menu mask background blur Style.
-   *
-   * @type { ?BlurStyle }
-   * @default BlurStyle.COMPONENT_ULTRA_THICK
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  backgroundBlurStyle?: BlurStyle;
+    /**
+     * Mask color of menu.
+     *
+     * @type { ?ResourceColor }
+     * @default Color.Transparent
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    color?: ResourceColor;
+    /**
+     * Set menu mask background blur Style.
+     *
+     * @type { ?BlurStyle }
+     * @default BlurStyle.COMPONENT_ULTRA_THICK
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    backgroundBlurStyle?: BlurStyle;
 }
-
 /**
  * Defines the available layout area.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum AvailableLayoutArea {
-  /**
-   * Size of safe area.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  SAFE_AREA = 0
+    /**
+     * Size of safe area.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    SAFE_AREA = 0
 }
 /**
  * Define the options for background image.
@@ -8914,6 +9192,18 @@ export declare interface CommonMethod {
      */
     default expandSafeArea(types?: Array<SafeAreaType>, edges?: Array<SafeAreaEdge>): this;
     /**
+     * Expands the layout safe area of a component.
+     *
+     * @param { Array<LayoutSafeAreaType> | undefined } [types] - The region type to expand the component's layout safe area into.
+     *     The default value is LayoutSafeAreaType.SYSTEM.
+     * @param { Array<LayoutSafeAreaEdge> | undefined } [edges] - The set of edges for which to ignore layout safe area.
+     *     The default value is LayoutSafeAreaEdge.ALL.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType> | undefined, edges?: Array<LayoutSafeAreaEdge> | undefined): this;
+    /**
      * Sets the response region of the current component.
      *
      * @param { Array<Rectangle> | Rectangle | undefined } value
@@ -8984,12 +9274,12 @@ export declare interface CommonMethod {
      * along the main axis of its parent container (Row, Column, or Flex) based on its specified weight.
      * Default value: **0**.
      *
-     * @param { number | string | undefined } value
+     * @param { double | string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default layoutWeight(value: number | string | undefined): this;
+    default layoutWeight(value: double | string | undefined): this;
     /**
      * Sets the weight of the component in a chain, which is used to re-lay out components that form the chain.
      * <br>This API has effect only when the parent container is RelativeContainer.
@@ -9249,14 +9539,20 @@ export declare interface CommonMethod {
     default borderColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors | undefined): this;
     /**
      * Sets the radius of the border rounded corners.
-     * <br>The radius is restricted by the component size. The maximum value is half of the component width or height.
-     *
+     *     The radius is restricted by the component size. The maximum value is half of the component width or height.
+     * NOTE
+     *    1. **RenderStrategy.FAST**: The current component and its child components will be drawn directly
+     *        onto the canvas with rounded corners applied.
+     *    2. **RenderStrategy.OFFSCREEN**: The current component and its child components will first be rendered onto
+     *        an off-screen canvas, then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
      * @param { Length | BorderRadiuses | LocalizedBorderRadiuses | undefined } value
+     * @param { RenderStrategy | undefined } [type] - Application types for drawing rounded corners.
+     *     Default value: **RenderStrategy.FAST**.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    default borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses | undefined): this;
+    default borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses | undefined, type?: RenderStrategy | undefined): this;
     /**
      * Sets the border image of the component.
      *
@@ -10030,32 +10326,32 @@ export declare interface CommonMethod {
      * Sets the percentage of the parent container's remaining space that is allocated to the component.
      * Default value: **0**.
      *
-     * @param { number | undefined } value
+     * @param { double | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default flexGrow(value: number | undefined): this;
+    default flexGrow(value: double | undefined): this;
     /**
      * Sets the percentage of the parent container's shrink size that is allocated to the component.
      * Default value: 0 when the parent container is Column or Row, 1 when the parent container is Flex..
      *
-     * @param { number | undefined } value
+     * @param { double | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default flexShrink(value: number | undefined): this;
+    default flexShrink(value: double | undefined): this;
     /**
      * Sets the base size of the component in the main axis of the parent container.
      * Default value: **'auto'**.
      *
-     * @param { number | string | undefined } value
+     * @param { double | string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default flexBasis(value: number | string | undefined): this;
+    default flexBasis(value: double | string | undefined): this;
     /**
      * Sets the alignment mode of the child components along the cross axis of the parent container.
      * Default value: **ItemAlign.Auto**.
@@ -10067,15 +10363,24 @@ export declare interface CommonMethod {
      */
     default alignSelf(value: ItemAlign | undefined): this;
     /**
+     * Defines the align rules of child component in Stack container.
+     *
+     * @param { LocalizedAlignment | undefined } alignment
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default layoutGravity(alignment: LocalizedAlignment | undefined): this;
+    /**
      * Sets the display priority for the component in the layout container.
      * <br>This parameter is only effective in Row, Column, and Flex (single-line) container components.
      *
-     * @param { number | undefined } value
+     * @param { double | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default displayPriority(value: number | undefined): this;
+    default displayPriority(value: double | undefined): this;
     /**
      * The sibling components in the same container are hierarchically displayed. A larger value of z indicates a higher display level.
      *
@@ -10115,12 +10420,12 @@ export declare interface CommonMethod {
      * Sets the alignment mode of the component content in the drawing area.
      * Default value: **Alignment.Center**.
      *
-     * @param { Alignment | undefined } value
+     * @param { Alignment | LocalizedAlignment | undefined } alignment
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    default align(value: Alignment | undefined): this;
+    default align(alignment: Alignment | LocalizedAlignment | undefined): this;
     /**
      * Sets the absolute position of the component relative to the position of the parent component.
      * <br>The attribute is not available for a layout container whose width and height are zero.
@@ -10197,12 +10502,12 @@ export declare interface CommonMethod {
      * calculated using the following formula: width/aspectRatio.
      * <br>This parameter takes effect only when a valid value greater than 0 is specified.
      *
-     * @param { number | undefined } value
+     * @param { double | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default aspectRatio(value: number | undefined): this;
+    default aspectRatio(value: double | undefined): this;
     /**
      * The click effect level and scale number.
      *
@@ -10285,12 +10590,12 @@ export declare interface CommonMethod {
     /**
      * Allowed drop uniformData type for this node.
      *
-     * @param { Array<UniformDataType> | null | undefined } value - the uniformData type for this node.
-     * @returns { this } return the component attribute.
+     * @param { Array<UniformDataType> | null | Array<string> | undefined } value - the uniformData type for this node.
+     * @returns { this } - return the component attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    default allowDrop(value: Array<UniformDataType> | null | undefined): this;
+    default allowDrop(value: Array<UniformDataType> | null | Array<string> | undefined): this;
     /**
      * Enable the selectable area can be dragged.
      *
@@ -10449,9 +10754,10 @@ export declare interface CommonMethod {
 
     /**
      * Add a blendMode effect to the current component.Cannot be used together with the blendMode interface.
-     * 
+     *
      * @param { BlendMode | Blender | undefined } effect - When the effect type is BlendMode type, define Different hybrid modes.
      * @param { BlendApplyType } [type] - Different blend apply type
+     *     Default value: BlendApplyType.FAST.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -11069,6 +11375,22 @@ export declare interface CommonMethod {
      * @since 22 static
      */
     default accessibilityFocusDrawLevel(drawLevel: FocusDrawLevel | undefined): this;
+    /**
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+     * their computing power.
+     *
+     * @param { SystemUiMaterial | undefined } material - System-styled material. Undefined indicates reverting to
+     *     the effect of no system material.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default systemMaterial(material: SystemUiMaterial | undefined): this;
 }
 /**
  * CommonAttribute for ide.
@@ -11471,27 +11793,30 @@ export declare interface Layoutable {
     /**
      * Obtains the margin of the child component.
      *
-     * @returns { DirectionalEdgesT<number> } the margin of sub component, unit is vp
+     * @returns { DirectionalEdgesT<double> | undefined } the margin of sub component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getMargin(): DirectionalEdgesT<number>;
+    getMargin(): DirectionalEdgesT<double> | undefined;
     /**
      * Call this method to get the padding of sub component.
      *
-     * @returns { DirectionalEdgesT<number> } Padding of the child component, unit is vp.
+     * @returns { DirectionalEdgesT<double> | undefined } Padding of the child component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getPadding(): DirectionalEdgesT<number>;
+    getPadding(): DirectionalEdgesT<double> | undefined;
     /**
      * Obtains the border width of the child component.
      *
-     * @returns { DirectionalEdgesT<number> } the borderWidth of sub component, unit is vp
+     * @returns { DirectionalEdgesT<double> | undefined } the borderWidth of sub component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getBorderWidth(): DirectionalEdgesT<number>;
+    getBorderWidth(): DirectionalEdgesT<double> | undefined;
 }
 /**
  * Sub component info passed from framework when measure happens.
@@ -11504,44 +11829,48 @@ export declare interface Measurable {
     /**
      * Unique ID that the system assigns to the child component.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    uniqueId?: number;
+    uniqueId?: long;
     /**
      * Applies the size constraint to the child component.
      *
      * @param { ConstraintSizeOptions } constraint
-     * @returns { MeasureResult } Provides the measurement result of the component.
+     * @returns { MeasureResult | undefined } Provides the measurement result of the component. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    measure(constraint: ConstraintSizeOptions): MeasureResult;
+    measure(constraint: ConstraintSizeOptions): MeasureResult | undefined;
     /**
      * Obtains the margin of the child component.
      *
-     * @returns { DirectionalEdgesT<number> } Margin of the child component, unit is vp.
+     * @returns { DirectionalEdgesT<double> | undefined } Margin of the child component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getMargin(): DirectionalEdgesT<number>;
+    getMargin(): DirectionalEdgesT<double> | undefined;
     /**
      * Obtains the padding of the child component.
      *
-     * @returns { DirectionalEdgesT<number> } the padding of sub component, unit is vp
+     * @returns { DirectionalEdgesT<double> | undefined } the padding of sub component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getPadding(): DirectionalEdgesT<number>;
+    getPadding(): DirectionalEdgesT<double> | undefined;
     /**
      * Obtains the border width of the child component.
      *
-     * @returns { DirectionalEdgesT<number> } Border width of the child component, unit is vp.
+     * @returns { DirectionalEdgesT<double> | undefined } Border width of the child component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getBorderWidth(): DirectionalEdgesT<number>;
+    getBorderWidth(): DirectionalEdgesT<double> | undefined;
 }
 /**
  * Provides the component size information.
@@ -11554,19 +11883,19 @@ export declare interface SizeResult {
     /**
      * Width obtained from the measurement result. Unit: vp.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    width: number;
+    width: double;
     /**
      * Height obtained from the measurement result. Unit: vp.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    height: number;
+    height: double;
 }
 /**
  * Provides the measurement result of the component.
@@ -11636,6 +11965,16 @@ export type VisualEffect = uiEffect.VisualEffect;
  * @since 22 static
  */
 export type Filter = uiEffect.Filter;
+/**
+ * SystemUiMaterial
+ *
+ * @typedef { uiMaterial.Material } SystemUiMaterial
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export type SystemUiMaterial = uiMaterial.Material;
 
 /**
  * Blender
@@ -12372,13 +12711,13 @@ export declare interface PointLightStyle {
   /**
    * Defines the PointLight bloom.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 22 static
    */
-  bloom?: number;
+  bloom?: double;
 }
 
 /**
@@ -12420,12 +12759,12 @@ declare interface LightSource {
   /**
    * Defines the PointLight light intensity.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 22 static
    */
-  intensity: number;
+  intensity: double;
   /**
    * Defines the PointLight light color.
    *
@@ -12933,6 +13272,7 @@ export declare interface TerminationInfo {
  * @since 22 static
  */
 export type DateTimeOptions = intl.DateTimeOptions;
+
 /**
  * Defines a bindable property
  * @interface Bindable<T>
@@ -12949,7 +13289,7 @@ export declare interface Bindable<T> {
      */
     readonly value: T;
     /**
-     * Defines the callback of the bindable property which will be invork when the property is changed..
+     * Defines the callback of the bindable property which will be invoked when the property is changed.
      * @type { Callback<T> }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -12957,6 +13297,18 @@ export declare interface Bindable<T> {
      */
     readonly onChange: Callback<T>;
 }
+
+/**
+ * Create a bindable property instance.
+ *
+ * @param { T } value - indicates the value of a state property.
+ * @param { Callback<T> } onChange - indicates the invoked callback when the property is changed.
+ * @returns { Bindable<T> } bindable property instance.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare function makeBindable<T>(value: T, onChange: Callback<T>): Bindable<T>;
 
 /**
  * Defines the Two-way binding type of ResourceStr.

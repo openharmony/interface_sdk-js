@@ -24,7 +24,7 @@ import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 import { ElementName } from './bundleManager/ElementName';
 import image from './@ohos.multimedia.image';
 import audio from './@ohos.multimedia.audio';
-import { AVCastPickerState, AVCastPickerColorMode } from './@ohos.multimedia.avCastPickerParam';
+import { AVCastPickerState, AVCastPickerColorMode, AVCastPickerStyle } from './@ohos.multimedia.avCastPickerParam';
 import type media from './@ohos.multimedia.media';
 import type Context from './application/BaseContext';
 import type hdrCapability from './@ohos.graphics.hdrCapability';
@@ -125,6 +125,20 @@ declare namespace avSession {
    * @since 22 static
    */
   function getAllSessionDescriptors(): Promise<Array<Readonly<AVSessionDescriptor>>>;
+
+  /**
+   * Get session descriptors of the system based on different session category.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { SessionCategory } category - Specifies the category of AVSession.
+   * @returns { Promise<Array<Readonly<AVSessionDescriptor>>> } Promise for an array of AVSessionDescriptors
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function getSessionDescriptors(category: SessionCategory): Promise<Array<Readonly<AVSessionDescriptor>>>;
 
   /**
    * Get history avsession records. These sessions have been destroyed.
@@ -358,6 +372,39 @@ declare namespace avSession {
    * @since 22 static
    */
   function getDistributedSessionController(distributedSessionType: DistributedSessionType): Promise<Array<AVSessionController>>;
+
+    /**
+   * Session category for different scenes.
+   * @typedef SessionCategory
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  enum SessionCategory {
+    /**
+     * The active session category which can be shown on system control entrance.
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    CATEGORY_ACTIVE = 1,
+
+    /**
+     * The session category which is partially integrated with AVSession function.
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    CATEGORY_NOT_ACTIVE = 2,
+
+    /**
+     * The all session category including all the applications using AVSession.
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    CATEGORY_ALL = 3,
+  }
 
   /**
    * Session token. Used to judge the legitimacy of the session.
@@ -1386,9 +1433,15 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
-  type AVSessionType = 'audio' | 'video' | 'voice_call' | 'video_call';
+  /**
+   * Session type supports audio & video, voice_call, video_call, photo
+   * @typedef { 'audio' | 'video' | 'voice_call' | 'video_call' | 'photo'} AVSessionType
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  type AVSessionType = 'audio' | 'video' | 'voice_call' | 'video_call' | 'photo';
 
   /**
    * The general process funcation with an event and arguments.
@@ -5449,6 +5502,52 @@ declare namespace avSession {
   }
 
   /**
+   * Position definition of one component on which the menu will bind and popup.
+   *
+   * @typedef MenuPosition
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  interface MenuPosition {
+    /**
+     * Coordinate x of the position of the component.
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    x: int;
+
+    /**
+     * Coordinate y of the position of the component.
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    y: int;
+
+    /**
+     * Component width.
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    width: int;
+
+    /**
+     * Component height.
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    height: int;
+  }
+
+  /**
    * An option to make different picker usage
    *
    * @typedef AVCastPickerOptions
@@ -5469,6 +5568,24 @@ declare namespace avSession {
      * @since 22 static
      */
     sessionType?: AVSessionType;
+
+    /**
+     * Set the picker style.
+     *
+     * @type { ? AVCastPickerStyle }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 22 dynamic&static
+     */
+    pickerStyle?: AVCastPickerStyle;
+
+    /**
+     * Set the popup menu position if pickerstyple is set to STYLE_MENU.
+     *
+     * @type { ? MenuPosition }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 22 dynamic&static
+     */
+    menuPosition?: MenuPosition;
   }
 
   /**

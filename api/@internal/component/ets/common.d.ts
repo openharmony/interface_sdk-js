@@ -1162,6 +1162,25 @@ declare interface IMonitorValue<T> {
 }
 
 /**
+ * Define SyncMonitor MethodDecorator. Decorator path parameters are the same as defined for Monitor.
+ * The function decorator is functionally equivalent to the UIUtils.addMonitor API with isSynchronous enabled.
+ * SyncMonitor must contain at least one path item, with multiple path items separated by commas.
+ * Path items are either observed attribute names or array item indices.The path in SyncMonitor
+ * supports wildcard at the end of a path item, but path items must never appear at the beginning or
+ * in the middle of a path. All other paths using one or more wildcard are invalid.
+ *
+ * Functions decorated with @SyncMonitor can be used in @ObservedV2 objects and @ComponentV2.
+ *
+ * @type { MonitorDecorator }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare const SyncMonitor: MonitorDecorator;
+
+/**
  * The **AnimatableArithmetic** API defines the animation operation rules for
  * non-number data types. To animate non-number data (such as arrays, structs,
  * and colors), implement the addition, subtraction, multiplication, and
@@ -10189,6 +10208,16 @@ declare enum ShadowStyle {
  * @atomicservice
  * @since 11 dynamic
  */
+/**
+ * Defines the options of Shadow.
+ *
+ * @interface MultiShadowOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare interface MultiShadowOptions {
   /**
    * Shadow blur radius.
@@ -10217,6 +10246,21 @@ declare interface MultiShadowOptions {
    * @atomicservice
    * @since 11 dynamic
    */
+  /**
+   * Shadow blur radius.
+   * Unit: vp.
+   * <p>**NOTE**:
+   * <br>A value less than or equal to 0 is handled as the default value.
+   * </p>
+   *
+   * @type { ?(number | Resource) }
+   * @default 20
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
   radius?: number | Resource;
 
   /**
@@ -10240,6 +10284,18 @@ declare interface MultiShadowOptions {
    * @atomicservice
    * @since 11 dynamic
    */
+  /**
+   * Offset on the x-axis.
+   * Unit: vp.
+   *
+   * @type { ?(number | Resource) }
+   * @default 5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
   offsetX?: number | Resource;
 
   /**
@@ -10262,6 +10318,18 @@ declare interface MultiShadowOptions {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Offset on the y-axis.
+   * Unit: vp.
+   * 
+   * @type { ?(number | Resource) }
+   * @default 5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   offsetY?: number | Resource;
 }
@@ -13713,7 +13781,19 @@ declare enum BlendApplyType {
    * @atomicservice
    * @since 12 dynamic
    */
-  OFFSCREEN = 1
+  OFFSCREEN = 1,
+
+  /**
+   * The content of the component and its child components are drawn on the
+   * offscreen canvas, and then blended with the existing content on the canvas.
+   * The offscreen canvas will copy background to initialize itself when created.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 23 dynamic
+   */
+  OFFSCREEN_WITH_BACKGROUND = 2
 }
 
 /**
@@ -16964,7 +17044,7 @@ declare interface PopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      */
     value: string;
 
@@ -16990,7 +17070,7 @@ declare interface PopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      */
     action: () => void;
   };
@@ -17042,7 +17122,7 @@ declare interface PopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      */
     value: string;
 
@@ -17068,7 +17148,7 @@ declare interface PopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      */
     action: () => void;
   };
@@ -17113,7 +17193,7 @@ declare interface PopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      */
     isVisible: boolean
   }) => void;
@@ -17796,7 +17876,7 @@ declare interface CustomPopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      */
     isVisible: boolean
   }) => void;
@@ -20812,6 +20892,17 @@ declare type TipsMessageType = ResourceStr | StyledString;
  * @since 20 dynamic
  */
 declare type Matrix4Transit = import('../api/@ohos.matrix4').default.Matrix4Transit;
+
+/**
+ * Import the Material type from uiMaterial namespace for common method.
+ *
+ * @typedef { import('../api/@ohos.arkui.uiMaterial').default.Material } SystemUiMaterial
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic
+ */
+declare type SystemUiMaterial = import('../api/@ohos.arkui.uiMaterial').default.Material;
 
 /**
  * Define the options for background image.
@@ -25932,7 +26023,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   allowDrop(value: Array<UniformDataType> | null | Array<string>): T;
 
@@ -26699,6 +26790,7 @@ declare class CommonMethod<T> {
    * @param { BlendMode | Blender } effect - When the effect type is BlendMode type, define Different hybrid modes.
    * When the effect type is Blender type, Define the corresponding blending effect.
    * @param { BlendApplyType } [type] - Different blend apply type
+   *     Default value: BlendApplyType.FAST.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -26952,6 +27044,17 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   * @test
+   */
+  /**
+   * Key. User can set an key to the component to identify it.
+   *
+   * @param { string } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    * @test
    */
   key(value: string): T;
@@ -28397,6 +28500,23 @@ declare class CommonMethod<T> {
    * @since 21 dynamic
    */
   allowForceDark(value: boolean): T;
+
+  /**
+   * Set system-styled materials for the component. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   *
+   * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+   * their computing power.
+   *
+   * @param { SystemUiMaterial | undefined } material - System-styled material. Undefined indicates reverting to
+   *     the effect of no system material.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  systemMaterial(material: SystemUiMaterial | undefined): T;
 }
 
 /**
@@ -31497,6 +31617,14 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 17 dynamic
+   */
+  /**
+   * Clear the content of preview.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   clearPreviewText(): void;
 

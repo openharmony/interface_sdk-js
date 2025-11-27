@@ -33,7 +33,6 @@ import bundleManager from './@ohos.bundle.bundleManager';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 import { UIContext } from '@ohos.arkui.UIContext';
 import { ColorMetrics } from '@ohos.arkui.node';
-import { Callback } from './@ohos.base';
 /*** endif */
 
 /*** if arkts dynamic */
@@ -60,6 +59,16 @@ declare interface Callback<T, V = void> {
 /*** endif */
 
 /**
+ * Defines the window callback.
+ *
+ * @typedef {function}
+ * @syscap SystemCapability.Window.SessionManager
+ * @atomicservice
+ * @since 22 static
+ */
+type Callback<T, V = void> = (data: T) => V; 
+
+/**
    * Defines the window animation curve param.
    *
    * @typedef { Array<double> } AnimationCurveParam
@@ -69,6 +78,17 @@ declare interface Callback<T, V = void> {
    * @since 22 static
    */
 declare type WindowAnimationCurveParam = Array<double>;
+
+/**
+ * Callback function for transition controller
+ * 
+ * @typedef { function } TransitionControllerCallback
+ * @param { window.TransitionContext } context - The transition context
+ * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @systemapi Hide this for inner system use.
+ * @since 22 static
+ */
+declare type TransitionControllerCallback = (context: window.TransitionContext) => void;
 
 /**
  * Window manager.
@@ -1016,6 +1036,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 18 dynamic
+   * @since 22 static
    */
   interface StatusBarProperty {
     /**
@@ -1025,6 +1046,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     contentColor: string;
   }
@@ -1683,6 +1705,7 @@ declare namespace window {
    * @interface WindowInfo
    * @syscap SystemCapability.Window.SessionManager
    * @since 18 dynamic
+   * @since 22 static
    */
   interface WindowInfo {
     /**
@@ -1726,6 +1749,7 @@ declare namespace window {
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
      * @since 18 dynamic
+     * @since 22 static
      */
     bundleName: string;
 
@@ -1743,6 +1767,7 @@ declare namespace window {
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
      * @since 18 dynamic
+     * @since 22 static
      */
     abilityName: string;
 
@@ -1760,6 +1785,7 @@ declare namespace window {
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 18 dynamic
+     * @since 22 static
      */
     windowId: int;
 
@@ -1785,6 +1811,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @since 20 dynamic
+     * @since 22 static
      */
     windowStatusType: WindowStatusType;
 
@@ -1802,6 +1829,7 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @since 18 dynamic
+     * @since 22 static
      */
     isFocused?: boolean;
   }
@@ -2186,58 +2214,64 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     colorMode?: ConfigurationConstant.ColorMode;
 
     /**
      * button background size when hover.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
-    buttonBackgroundSize? : number;
+    buttonBackgroundSize? : int;
 
     /**
      * button spacing.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
-    spacingBetweenButtons? : number;
+    spacingBetweenButtons? : int;
 
     /**
      * close button right Margin.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
-    closeButtonRightMargin? : number;
+    closeButtonRightMargin? : int;
 
     /**
      * button icon size.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
-    buttonIconSize? : number;
+    buttonIconSize? : int;
 
     /**
      * corner radius of button background when hover.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
-    buttonBackgroundCornerRadius? : number;
+    buttonBackgroundCornerRadius? : int;
   }
 
   /**
@@ -2554,9 +2588,20 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     animationForShown(context: TransitionContext): void;
+
+    /**
+     * Animation configuration when showing window
+     *
+     * @type { ?TransitionControllerCallback }
+     * @default undefined
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    animationForShown?: TransitionControllerCallback;
+
     /**
      * Animation configuration when hiding window
      *
@@ -2577,9 +2622,19 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
      */
     animationForHidden(context: TransitionContext): void;
+
+    /**
+     * Animation configuration when hiding window
+     *
+     * @type { ?TransitionControllerCallback }
+     * @default undefined
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    animationForHidden?: TransitionControllerCallback;
   }
 
   /**
@@ -2854,71 +2909,74 @@ declare namespace window {
     /**
      * The right of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
      * The right of the Rect.
      *
-     * @type { number }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    right: number;
-
-    /**
-     * The top of the Rect.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 11
-     */
-    /**
-     * The top of the Rect.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    top: number;
-
-    /**
-     * The width of the Rect.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 11
-     */
-    /**
-     * The width of the Rect.
-     *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
      * @since 22 static
      */
-    width: number;
+    right: int;
+
+    /**
+     * The top of the Rect.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    /**
+     * The top of the Rect.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 22 static
+     */
+    top: int;
+
+    /**
+     * The width of the Rect.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    /**
+     * The width of the Rect.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 22 static
+     */
+    width: int;
 
     /**
      * The height of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
      * The height of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
-    height: number;
+    height: int;
   }
 
   /**
@@ -3613,6 +3671,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 22 static
    */
   function toggleShownStateForAllAppWindows(callback: AsyncCallback<void>): void;
 
@@ -3635,6 +3694,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 22 static
    */
   function toggleShownStateForAllAppWindows(): Promise<void>;
 
@@ -3745,6 +3805,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
   function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean): Promise<void>;
 
@@ -3761,6 +3822,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
   function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -3800,11 +3862,27 @@ declare namespace window {
   function shiftAppWindowFocus(sourceWindowId: int, targetWindowId: int): Promise<void>;
 
   /**
+   * Set specific system window zIndex
+   *
+   * @param { WindowType } windowType - Indicates window type.
+   * @param { int } zIndex - ZIndex which the focus shift to.
+   * @returns { Promise<void> } - Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300004 - Unauthorized operation.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 23 dynamic&static
+   */
+  function setSpecificSystemWindowZIndex(windowType: WindowType, zIndex: int): Promise<void>;
+
+  /**
    * Transfers an input event from one window to another within the same application, particularly in split-window scenarios.
    * It takes effect only for the main window and its child windows on 2-in-1 devices.
    *
-   * @param { number } sourceWindowId - ID of the source window. You are advised to call getWindowProperties() to obtain the window ID.
-   * @param { number } targetWindowId - ID of the target window. You are advised to call getWindowProperties() to obtain the window ID.
+   * @param { int } sourceWindowId - ID of the source window. You are advised to call getWindowProperties() to obtain the window ID.
+   * @param { int } targetWindowId - ID of the target window. You are advised to call getWindowProperties() to obtain the window ID.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
    *                                                                  2. Incorrect parameter types.
@@ -3815,8 +3893,9 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 15 dynamic
+   * @since 22 static
    */
-  function shiftAppWindowPointerEvent(sourceWindowId: number, targetWindowId: number): Promise<void>;
+  function shiftAppWindowPointerEvent(sourceWindowId: int, targetWindowId: int): Promise<void>;
 
   /**
    * Shift window touch event within the same application. And the window type contains only main window and subwindow.
@@ -3857,6 +3936,7 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 18 dynamic
+   * @since 22 static
    */
   function getVisibleWindowInfo(): Promise<Array<WindowInfo>>;
 
@@ -3874,6 +3954,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 22 static
    */
   function getSnapshot(windowId: int): Promise<image.PixelMap>;
 
@@ -3895,6 +3976,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 14 dynamic
+   * @since 22 static
    */
   function getWindowsByCoordinate(displayId: long, windowNumber?: int, x?: int, y?: int):
       Promise<Array<Window>>;
@@ -3927,6 +4009,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 19 dynamic
+   * @since 22 static
    */
   function getAllWindowLayoutInfo(displayId: long): Promise<Array<WindowLayoutInfo>>;
 
@@ -3998,6 +4081,17 @@ declare namespace window {
   function on(type: 'systemBarTintChange', callback: Callback<SystemBarTintState>): void;
 
   /**
+   * Register the callback of systemBarTintChange
+   *.
+   * @param { Callback<SystemBarTintState> } callback - Callback used to return the properties of the system bar.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onSystemBarTintChange(callback: Callback<SystemBarTintState>): void;
+
+  /**
    * Unregister the callback of systemBarTintChange
    *
    * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
@@ -4011,6 +4105,18 @@ declare namespace window {
    * @since 22 static
    */
   function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
+
+   /**
+   * Unregister the callback of systemBarTintChange
+   *
+   * @param { Callback<SystemBarTintState> } [callback] - Callback used to return the properties of the system bar.
+   *    If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offSystemBarTintChange(callback?: Callback<SystemBarTintState>): void;
 
   /**
    * Register the callback for gesture navigation enabled changes.
@@ -4031,6 +4137,19 @@ declare namespace window {
   function on(type: 'gestureNavigationEnabledChange', callback: Callback<boolean>): void;
 
   /**
+   * Register the callback for gesture navigation enabled changes.
+   *
+   * @param { Callback<boolean> } callback Callback used to return the result whether gesture navigation enabled or not.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onGestureNavigationEnabledChange(callback: Callback<boolean>): void;
+
+  /**
    * Unregister the callback for gesture navigation enabled changes.
    *
    * @param { 'gestureNavigationEnabledChange' } type the event of gesture navigation enabled changes.
@@ -4046,6 +4165,21 @@ declare namespace window {
    * @since 22 static
    */
   function off(type: 'gestureNavigationEnabledChange', callback?: Callback<boolean>): void;
+
+  /**
+   * Unregister the callback for gesture navigation enabled changes.
+   *
+   * @param { Callback<boolean> } [callback] Callback used to return the result whether gesture navigation enabled or
+   *    not.
+   *    If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offGestureNavigationEnabledChange(callback?: Callback<boolean>): void;
 
   /**
    * Register the callback for watermark flag change.
@@ -4065,6 +4199,19 @@ declare namespace window {
   function on(type: 'waterMarkFlagChange', callback: Callback<boolean>): void;
 
   /**
+   * Register the callback for watermark flag change.
+   *
+   * @param { Callback<boolean> } callback Callback used to return the result whether watermark flag change or not.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onWaterMarkFlagChange(callback: Callback<boolean>): void;
+
+  /**
    * Unregister the callback for watermark flag change.
    *
    * @param { 'waterMarkFlagChange' } type the event of watermark flag change.
@@ -4080,6 +4227,20 @@ declare namespace window {
    * @since 22 static
    */
   function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
+
+  /**
+   * Unregister the callback for watermark flag change.
+   *
+   * @param { Callback<boolean> } [callback] Callback used to return the result whether watermark flag change or not.
+   *    If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offWaterMarkFlagChange(callback?: Callback<boolean>): void;
 
   /**
    * Sets starting window background color
@@ -5098,6 +5259,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     hide(callback: AsyncCallback<void>): void;
 
@@ -5119,6 +5281,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     hide(): Promise<void>;
 
@@ -6089,6 +6252,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     getWindowDensityInfo(): WindowDensityInfo;
 
@@ -6238,6 +6402,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     setSystemAvoidAreaEnabled(enabled: boolean): Promise<void>;
 
@@ -6252,6 +6417,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     isSystemAvoidAreaEnabled(): boolean;
 
@@ -6614,6 +6780,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     getWindowSystemBarProperties(): SystemBarProperties;
 
@@ -6631,6 +6798,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     setStatusBarColor(color: ColorMetrics): Promise<void>;
 
@@ -6643,6 +6811,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     getStatusBarProperty(): StatusBarProperty;
 
@@ -6660,6 +6829,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 13 dynamic
+     * @since 22 static
      */
     setGestureBackEnabled(enabled: boolean): Promise<void>;
 
@@ -6674,6 +6844,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 13 dynamic
+     * @since 22 static
      */
     isGestureBackEnabled(): boolean;
 
@@ -6774,6 +6945,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     getPreferredOrientation(): Orientation;
 
@@ -7064,6 +7236,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
@@ -7084,6 +7257,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     loadContentByName(name: string, callback: AsyncCallback<void>): void;
 
@@ -7105,6 +7279,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
 
@@ -7200,6 +7375,16 @@ declare namespace window {
     on(type: 'windowSizeChange', callback: Callback<Size>): void;
 
     /**
+     * Register the callback of windowSizeChange
+     *
+     * @param { Callback<Size> } callback - Callback used to return the window size.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    onWindowSizeChange(callback: Callback<Size>): void;
+
+    /**
      * Unregister the callback of windowSizeChange
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
@@ -7236,6 +7421,17 @@ declare namespace window {
     off(type: 'windowSizeChange', callback?: Callback<Size>): void;
 
     /**
+     * Unregister the callback of windowSizeChange
+     *
+     * @param { Callback<Size> } [callback] - Callback used to return the window size.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    offWindowSizeChange(callback?: Callback<Size>): void;
+
+    /**
      * Register the callback of systemAvoidAreaChange
      *
      * @param { 'systemAvoidAreaChange' } type - The value is fixed at 'systemAvoidAreaChange', indicating the event of changes to the avoid area.
@@ -7248,6 +7444,16 @@ declare namespace window {
     on(type: 'systemAvoidAreaChange', callback: Callback<AvoidArea>): void;
 
     /**
+     * Register the callback of avoidAreaChange
+     *
+     * @param { Callback<AvoidAreaOptions> } callback - Callback used to return the area.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    onAvoidAreaChange(callback: Callback<AvoidAreaOptions>): void;
+
+    /**
      * Unregister the callback of systemAvoidAreaChange
      *
      * @param { 'systemAvoidAreaChange' } type - The value is fixed at 'systemAvoidAreaChange', indicating the event of changes to the avoid area.
@@ -7258,6 +7464,17 @@ declare namespace window {
      * @useinstead ohos.window.Window#off_avoidAreaChange
      */
     off(type: 'systemAvoidAreaChange', callback?: Callback<AvoidArea>): void;
+
+    /**
+     * Unregister the callback of avoidAreaChange
+     *
+     * @param { Callback<AvoidAreaOptions> } [callback] - Callback used to return the area.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    offAvoidAreaChange(callback?: Callback<AvoidAreaOptions>): void;
 
     /**
      * Register the callback of avoidAreaChange
@@ -7384,6 +7601,15 @@ declare namespace window {
     on(type: 'keyboardHeightChange', callback: Callback<int>): void;
 
     /**
+     * Register the callback of keyboard height change
+     *
+     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    onKeyboardHeightChange(callback: Callback<int>): void;
+
+    /**
      * Unregister the callback of keyboardHeightChange
      *
      * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
@@ -7412,7 +7638,17 @@ declare namespace window {
     off(type: 'keyboardHeightChange', callback?: Callback<int>): void;
 
     /**
-     * Register the callback of keyboardWillShow
+     * Unregister the callback of keyboard height change
+     *
+     * @param { Callback<int> } [callback] - Unregister the callback function. If not provided,
+     *     all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    offKeyboardHeightChange(callback?: Callback<int>): void;
+
+    /**
+     * Register the callback of keyboard will show
      *
      * @param { 'keyboardWillShow' } type - The value is fixed at 'keyboardWillShow', indicating the start of the keyboard show animation event.
      * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard show animation start.
@@ -7430,7 +7666,7 @@ declare namespace window {
      *
      * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard show animation start.
      * @throws { BusinessError } 801 - Capability not supported.
-     *     Function keyboardDidHide can not work correctly due to limited device capabilities.
+     *     Function keyboardWillShow can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 static
@@ -7438,7 +7674,7 @@ declare namespace window {
     onKeyboardWillShow(callback: Callback<KeyboardInfo>): void;
 
     /**
-     * Unregister the callback of keyboardWillShow
+     * Unregister the callback of keyboard will show
      *
      * @param { 'keyboardWillShow' } type - The value is fixed at 'keyboardWillShow', indicating the start of the keyboard show animation event.
      * @param { Callback<KeyboardInfo> } [callback] - Unregister the callback function. If not provided,
@@ -7458,7 +7694,7 @@ declare namespace window {
      * @param { Callback<KeyboardInfo> } [callback] - Unregister the callback function. If not provided,
      *     all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported.
-     *     Function keyboardDidHide can not work correctly due to limited device capabilities.
+     *     Function keyboardWillShow can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 static
@@ -7466,7 +7702,7 @@ declare namespace window {
     offKeyboardWillShow(callback?: Callback<KeyboardInfo>): void;
 
     /**
-     * Register the callback of keyboardWillHide
+     * Register the callback of keyboard will hide
      *
      * @param { 'keyboardWillHide' } type - The value is fixed at 'keyboardWillHide', indicating the start of the keyboard hide animation event.
      * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard hide animation start.
@@ -7484,7 +7720,7 @@ declare namespace window {
      *
      * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard hide animation start.
      * @throws { BusinessError } 801 - Capability not supported.
-     *     Function keyboardDidHide can not work correctly due to limited device capabilities.
+     *     Function keyboardWillHide can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 static
@@ -7492,7 +7728,7 @@ declare namespace window {
     onKeyboardWillHide(callback: Callback<KeyboardInfo>): void;
 
     /**
-     * Unregister the callback of keyboardWillHide
+     * Unregister the callback of keyboard will hide
      *
      * @param { 'keyboardWillHide' } type - The value is fixed at 'keyboardWillHide', indicating the start of the keyboard hide animation event.
      * @param { Callback<KeyboardInfo> } [callback] - Unregister the callback function. If not provided,
@@ -7512,7 +7748,7 @@ declare namespace window {
      * @param { Callback<KeyboardInfo> } [callback] - Unregister the callback function. If not provided,
      *     all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported.
-     *     Function keyboardDidHide can not work correctly due to limited device capabilities.
+     *     Function keyboardWillHide can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 static
@@ -7534,6 +7770,18 @@ declare namespace window {
     on(type: 'keyboardDidShow', callback: Callback<KeyboardInfo>): void;
 
     /**
+     * Register the callback of keyboard did show
+     *
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard show animation is completed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Function keyboardDidShow can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onKeyboardDidShow(callback: Callback<KeyboardInfo>): void;
+
+    /**
      * Unregister the callback of keyboardDidShow
      *
      * @param { 'keyboardDidShow' } type - The value is fixed at 'keyboardDidShow', indicating the completion of the keyboard show animation event.
@@ -7546,6 +7794,19 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'keyboardDidShow', callback?: Callback<KeyboardInfo>): void;
+
+    /**
+     * Unregister the callback of keyboard did show
+     *
+     * @param { Callback<KeyboardInfo> } [callback] - Unregister the callback function. If not provided,
+     *     all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Function keyboardDidShow can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offKeyboardDidShow(callback?: Callback<KeyboardInfo>): void;
 
     /**
      * Register the callback of keyboardDidHide
@@ -7562,6 +7823,18 @@ declare namespace window {
     on(type: 'keyboardDidHide', callback: Callback<KeyboardInfo>): void;
 
     /**
+     * Register the callback of keyboard did hide
+     *
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard hide animation is completed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Function keyboardDidHide can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onKeyboardDidHide(callback: Callback<KeyboardInfo>): void;
+
+    /**
      * Unregister the callback of keyboardDidHide
      *
      * @param { 'keyboardDidHide' } type - The value is fixed at 'keyboardDidHide', indicating the completion of the keyboard hide animation event.
@@ -7574,6 +7847,19 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'keyboardDidHide', callback?: Callback<KeyboardInfo>): void;
+
+    /**
+     * Unregister the callback of keyboard did hide
+     *
+     * @param { Callback<KeyboardInfo> } [callback] - Unregister the callback function. If not provided,
+     *     all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Function keyboardDidHide can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offKeyboardDidHide(callback?: Callback<KeyboardInfo>): void;
 
     /**
      * Subscribes to the touch event outside this window.
@@ -7591,6 +7877,15 @@ declare namespace window {
     on(type: 'touchOutside', callback: Callback<void>): void;
 
     /**
+     * Subscribes to the touch event outside this window.
+     *
+     * @param { Callback<void> } callback - Callback used to return the click event outside this window.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    onTouchOutside(callback: Callback<void>): void;
+
+    /**
      * Unsubscribes from the touch event outside this window.
      *
      * @param { 'touchOutside' } type - The value is fixed at 'touchOutside', indicating the click event outside this window.
@@ -7603,6 +7898,16 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'touchOutside', callback?: Callback<void>): void;
+
+    /**
+     * Unsubscribes from the touch event outside this window.
+     *
+     * @param { Callback<void> } [callback] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    offTouchOutside(callback?: Callback<void>): void;
 
     /**
      * Window displayId change callback on.
@@ -7622,6 +7927,20 @@ declare namespace window {
     on(type: 'displayIdChange', callback: Callback<long>): void;
 
     /**
+     * Window displayId change callback on.
+     *
+     * @param { Callback<long> } callback - Callback used to notify the Display this window is current showing has
+     *    changed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *    capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */   
+    onDisplayIdChange(callback: Callback<long>): void;
+
+
+    /**
      * Window displayId change callback off.
      *
      * @param { 'displayIdChange' } type - The value is fixed at 'displayIdChange', indicating the Display this window is current showing has changed.
@@ -7636,6 +7955,20 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'displayIdChange', callback?: Callback<long>): void;
+
+    /**
+     * Window displayId change callback off.
+     *
+     * @param { Callback<long> } [callback] - Callback used to notify the Display this window is current showing has
+     *    changed.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *    capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offDisplayIdChange(callback?: Callback<long>): void;
 
     /**
      * Window visibility change callback on.
@@ -7671,6 +8004,21 @@ declare namespace window {
     on(type: 'windowVisibilityChange', callback: Callback<boolean>): void;
 
     /**
+     * Subscribes to the visibility status change event of this window.
+     *
+     * @param { Callback<boolean> } callback - Callback used to return the visibility status of the window,
+     *    which is a Boolean value.
+     *    The value true means that the window is visible, and false means the opposite.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *    capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onWindowVisibilityChange(callback: Callback<boolean>): void;
+
+    /**
      * Window visibility change callback off.
      *
      * @param { 'windowVisibilityChange' } type - The value is fixed at 'windowVisibilityChange', indicating the window visibility change.
@@ -7701,6 +8049,22 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'windowVisibilityChange', callback?: Callback<boolean>): void;
+
+    /**
+     * Unsubscribes from the visibility status change event of this window.
+     *
+     * @param { Callback<boolean> } [callback] - Callback used to return the visibility status of the window.
+     *     If a value is passed in, the corresponding subscription is canceled.
+     *     If no value is passed in, all subscriptions to the specified event are canceled.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offWindowVisibilityChange(callback?: Callback<boolean>): void;
 
     /**
      * Register the callback for occlusion state changed.
@@ -7828,6 +8192,18 @@ declare namespace window {
     on(type: 'systemDensityChange', callback: Callback<double>): void;
 
     /**
+     * System density change callback on.
+     *
+     * @param { Callback<double> } callback - Callback used to notify the system density is current has changed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *    capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onSystemDensityChange(callback: Callback<double>): void;
+
+    /**
      * System density change callback off.
      *
      * @param { 'systemDensityChange' } type - The value is fixed at 'systemDensityChange', indicating the system density is current showing has changed.
@@ -7842,6 +8218,19 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'systemDensityChange', callback?: Callback<double>): void;
+
+    /**
+     * System density change callback off.
+     *
+     * @param { Callback<double> } [callback] - Callback used to notify the system density is current has changed.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *    capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offSystemDensityChange(callback?: Callback<double>): void;
 
     /**
      *  Register Callback for window spans multiple screens and displays in full screen mode changed.
@@ -7938,6 +8327,22 @@ declare namespace window {
     on(type: 'noInteractionDetected', timeout: long, callback: Callback<void>): void;
 
     /**
+     * Subscribes to non-interaction events in a window within the specified period.
+     *     Interaction events include physical keyboard input events and screen touch/click events,
+     *     but not soft keyboard input events.
+     *
+     * @param { long } timeout - The timeout(in seconds) of no interaction detection.
+     * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onNoInteractionDetected(timeout: long, callback: Callback<void>): void;
+
+    /**
      * Unsubscribes from non-interaction events in a window within the specified period.
      * Interaction events include physical keyboard input events and screen touch/click events, but not soft keyboard input events.
      *
@@ -7954,6 +8359,22 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'noInteractionDetected', callback?: Callback<void>): void;
+
+    /**
+     * Unsubscribes from non-interaction events in a window within the specified period.
+     *     Interaction events include physical keyboard input events and screen touch/click events,
+     *     but not soft keyboard input events.
+     *
+     * @param { Callback<void> } [callback] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offNoInteractionDetected(callback?: Callback<void>): void;
 
     /**
      * Register the callback of screenshot, only the focused window called back
@@ -7982,6 +8403,15 @@ declare namespace window {
     on(type: 'screenshot', callback: Callback<void>): void;
 
     /**
+     * Register the callback of screenshot, only the focused window called back
+     *
+     * @param { Callback<void> } callback - Callback invoked when a screenshot event occurs.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    onScreenshot(callback: Callback<void>): void;
+
+    /**
      * Unregister the callback of screenshot
      *
      * @param { 'screenshot' } type - The value is fixed at 'screenshot', indicating the screenshot event.
@@ -8004,6 +8434,16 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'screenshot', callback?: Callback<void>): void;
+
+    /**
+     * Unregister the callback of screenshot
+     *
+     * @param { Callback<void> } [callback] - Callback invoked when a screenshot event occurs.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    offScreenshot(callback?: Callback<void>): void;
 
     /**
      * Register the callback of screenshot app event
@@ -8084,6 +8524,17 @@ declare namespace window {
     on(type: 'dialogTargetTouch', callback: Callback<void>): void;
 
     /**
+     * Subscribes to click or touch events in a window covered by a modal window.
+     *     This API takes effect only when it is called by a modal window.
+     *
+     * @param { Callback<void> } callback
+     *     - Callback invoked when the click event occurs in the target window of the modal window mode.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    onDialogTargetTouch(callback: Callback<void>): void;
+
+    /**
      * Unregister the callback of dialogTargetTouch
      *
      * @param { 'dialogTargetTouch' } type - The value is fixed at 'dialogTargetTouch',
@@ -8108,6 +8559,16 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'dialogTargetTouch', callback?: Callback<void>): void;
+
+    /**
+     * Unsubscribes from the touch event of the target window in the modal window mode.
+     *
+     * @param { Callback<void> } [callback] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    offDialogTargetTouch(callback?: Callback<void>): void;
 
     /**
      * Register the callback of windowEvent
@@ -8137,6 +8598,16 @@ declare namespace window {
     on(type: 'windowEvent', callback: Callback<WindowEventType>): void;
 
     /**
+     * Subscribes to the window lifecycle change event.
+     *
+     * @param { Callback<WindowEventType> } callback - Callback used to return the window lifecycle state.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    onWindowEvent(callback: Callback<WindowEventType>): void;
+
+    /**
      * Unregister the callback of windowEvent
      *
      * @param { 'windowEvent' } type - The value is fixed at 'windowEvent', indicating the window lifecycle change event.
@@ -8162,6 +8633,17 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
+
+    /**
+     * Unsubscribes from the window lifecycle change event.
+     *
+     * @param { Callback<WindowEventType> } [callback] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    offWindowEvent(callback?: Callback<WindowEventType>): void;
 
     /**
      * Register the callback of windowStatusChange
@@ -8206,6 +8688,18 @@ declare namespace window {
     on(type: 'windowStatusChange', callback: Callback<WindowStatusType>): void;
 
     /**
+     * Register the callback of windowStatusChange
+     *
+     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *  Failed to call the API due to limited device capabilities.
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @since 22 static
+     */
+    onWindowStatusChange(callback: Callback<WindowStatusType>): void;
+
+    /**
      * Unregister the callback of windowStatusChange
      *
      * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
@@ -8243,6 +8737,19 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'windowStatusChange', callback?: Callback<WindowStatusType>): void;
+
+    /**
+     * Unregister the callback of window status change
+     *
+     * @param { Callback } [callback] - Callback used to return the window status.
+     * If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * Failed to call the API due to limited device capabilities.
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @since 22 static
+     */
+    offWindowStatusChange(callback?: Callback<WindowStatusType>): void;
 
     /**
      * Register the callback of windowStatusDidChange. The windowRect has been updated when this callback is triggered.
@@ -8317,6 +8824,26 @@ declare namespace window {
     on(type: 'subWindowClose', callback: Callback<void>): void;
 
     /**
+     * Subscribes to the event indicating that the child window is closed.
+     * This event is triggered only when the user clicks the system-provided
+     * close button in the upper right corner to close the child window.
+     * It is not triggered when the child window is closed in other ways.
+     *
+     * @param { Callback<void> } callback - Callback invoked when the close
+     *     button in the upper right corner of the child window is clicked.
+     *     The internal logic of the callback function requires a return value of the Boolean type.
+     *     The return value determines whether to continue to close the child window.
+     *     The value true means not to close the child window, and false means to continue to close the child window.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onSubWindowClose(callback: Callback<void>): void;
+
+    /**
      * Unsubscribes from the event indicating that the child window is closed.
      *
      * @param { 'subWindowClose' } type - Event type. The value is fixed at 'subWindowClose', indicating the child window close event.
@@ -8337,6 +8864,20 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'subWindowClose', callback?: Callback<void>): void;
+
+    /**
+     * Unsubscribes from the event indicating that the child window is closed.
+     *
+     * @param { Callback<void> } [callback ] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offSubWindowClose(callback?: Callback<void>): void;
 
     /**
      * Subscribes to the event indicating that the main window or child window will be closed.
@@ -8360,6 +8901,24 @@ declare namespace window {
     on(type: 'windowWillClose', callback: Callback<void, Promise<boolean>>): void;
 
     /**
+     * Subscribes to the event indicating that the main window or child window will be closed.
+     * This event is triggered only when the user clicks the close button in the system-provided title bar to close the window.
+     * It is not triggered when the window is closed in other ways.
+     *
+     * @param { Callback<void, Promise<boolean>> } callback - Callback used to when the close button in the upper right corner of the window is clicked.
+     *    The internal logic of the callback function requires a return value of the Promise type.
+     *    In the returned Promise function, resolve(true) means not to close the window,
+     *    and resolve(false) or reject means to continue to close the window.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onWindowWillClose(callback: Callback<void, Promise<boolean>>): void;
+
+    /**
      * Unsubscribes from the event indicating that the main window or child window will be closed.
      *
      * @param { 'windowWillClose' } type - Event type. The value is fixed at 'windowWillClose', indicating the window close event.
@@ -8380,6 +8939,20 @@ declare namespace window {
     off(type: 'windowWillClose', callback?: Callback<void, Promise<boolean>>): void;
 
     /**
+     * Unsubscribes from the event indicating that the main window or child window will be closed.
+     *
+     * @param { Callback<void, Promise<boolean>> } [callback] - Unregister the callback function.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offWindowWillClose(callback?: Callback<void, Promise<boolean>>): void;
+
+    /**
      * Register the callback of window highlight state change
      *
      * @param { 'windowHighlightChange' } type - The value is fixed at 'windowHighlightChange', indicating the window highlight state change event.
@@ -8398,6 +8971,19 @@ declare namespace window {
     on(type: 'windowHighlightChange', callback: Callback<boolean>): void;
 
     /**
+     * Register the callback of window highlight state change
+     *
+     * @param { Callback<boolean> } callback - Callback used to return the highlight status of the window.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onWindowHighlightChange(callback: Callback<boolean>): void;
+
+    /**
      * Unregister the callback of window highlight state change
      *
      * @param { 'windowHighlightChange' } type - The value is fixed at 'windowHighlightChange', indicating the window highlight change event.
@@ -8414,6 +9000,20 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'windowHighlightChange', callback?: Callback<boolean>): void;
+
+    /**
+     * Unregister the callback of window highlight state change
+     *
+     * @param { Callback<boolean> } [callback] - Callback used to return the highlight status of the window.
+     *     if not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offWindowHighlightChange(callback?: Callback<boolean>): void;
   
     /**
      * Bind dialog to the target window.
@@ -8441,6 +9041,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     bindDialogTarget(token: rpc.RemoteObject, deathCallback: Callback<void>): Promise<void>;
 
@@ -8470,6 +9071,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     bindDialogTarget(token: rpc.RemoteObject, deathCallback: Callback<void>, callback: AsyncCallback<void>): void;
 
@@ -8499,6 +9101,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     bindDialogTarget(requestInfo: dialogRequest.RequestInfo, deathCallback: Callback<void>): Promise<void>;
 
@@ -8528,6 +9131,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     bindDialogTarget(
       requestInfo: dialogRequest.RequestInfo,
@@ -8550,6 +9154,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     setDialogBackGestureEnabled(enabled: boolean): Promise<void>;
 
@@ -8773,6 +9378,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     getWindowColorSpace(): ColorSpace;
 
@@ -8906,6 +9512,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     setTopmost(isTopmost: boolean): Promise<void>;
 
@@ -8925,6 +9532,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     setWindowTopmost(isWindowTopmost: boolean): Promise<void>;
 
@@ -8966,6 +9574,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     setWindowBrightness(brightness: double): Promise<void>;
 
@@ -9007,6 +9616,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     setWindowBrightness(brightness: double, callback: AsyncCallback<void>): void;
 
@@ -9126,6 +9736,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 13 dynamic
+     * @since 22 static
      */
     requestFocus(isFocused: boolean): Promise<void>;
 
@@ -9146,6 +9757,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     setExclusivelyHighlighted(exclusivelyHighlighted: boolean): Promise<void>;
 
@@ -9158,6 +9770,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     isWindowHighlighted(): boolean;
 
@@ -9293,6 +9906,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     setWakeUpScreen(wakeUp: boolean): void;
 
@@ -9454,6 +10068,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     setSnapshotSkip(isSkip: boolean): void;
 
@@ -9651,6 +10266,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     snapshotIgnorePrivacy(): Promise<image.PixelMap>;
 
@@ -9798,13 +10414,14 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     getTransitionController(): TransitionController;
 
     /**
      * Sets the window blur radius.
      *
-     * @param { number } radius the blur radius.
+     * @param { double } radius the blur radius.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -9817,7 +10434,7 @@ declare namespace window {
     /**
      * Sets the window blur radius.
      *
-     * @param { number } radius the blur radius.
+     * @param { double } radius the blur radius.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -9827,13 +10444,14 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
-    setBlur(radius: number): void;
+    setBlur(radius: double): void;
 
     /**
      * Sets the window backdrop blur radius.
      *
-     * @param { number } radius the blur radius.
+     * @param { double } radius the blur radius.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -9848,7 +10466,7 @@ declare namespace window {
      * The window background refers to the lower-layer area covered by the window, which is the same as the window size.
      * To make the blur effect visible, you must set the window background transparent by calling setWindowBackgroundColor.
      *
-     * @param { number } radius the blur radius.
+     * @param { double } radius the blur radius.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -9858,8 +10476,9 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
-    setBackdropBlur(radius: number): void;
+    setBackdropBlur(radius: double): void;
 
     /**
      * Sets the window backdrop blur style.
@@ -9887,6 +10506,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     setBackdropBlurStyle(blurStyle: BlurStyle): void;
 
@@ -9929,7 +10549,7 @@ declare namespace window {
     /**
      * Sets the blur radius of the shadow on the edges of a child window or floating window.
      *
-     * @param { number } radius - Radius of the shadow, measured in px.
+     * @param { double } radius - Radius of the shadow, measured in px.
      *                            The value is a floating point number greater than or equal to 0.0,
      *                            and the value 0.0 means that the shadow is disabled for the window borders.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
@@ -9941,8 +10561,9 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
+     * @since 22 static
      */
-    setWindowShadowRadius(radius: number): void;
+    setWindowShadowRadius(radius: double): void;
 
     /**
      * Sets corner radius.
@@ -9970,13 +10591,14 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     setCornerRadius(cornerRadius: number): void;
 
     /**
      * Sets the radius of the rounded corners for a child window or floating window.
      *
-     * @param { number } cornerRadius - Radius of the rounded corners, measured in vp.
+     * @param { double } cornerRadius - Radius of the rounded corners, measured in vp.
      *                                  The value is a floating point number greater than or equal to 0.0.
      *                                  The value 0.0 means that the window does not use rounded corners.
      * @returns { Promise<void> } Promise that returns no value.
@@ -9990,21 +10612,23 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
+     * @since 22 static
      */
-    setWindowCornerRadius(cornerRadius: number): Promise<void>;
+    setWindowCornerRadius(cornerRadius: double): Promise<void>;
 
     /**
      * Obtains the radius of rounded corners of a child window or floating window.
      *
-     * @returns { number } - Radius of the rounded corner of the child window or floating window, measured in vp.
+     * @returns { double } - Radius of the rounded corner of the child window or floating window, measured in vp.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
+     * @since 22 static
      */
-    getWindowCornerRadius(): number;
+    getWindowCornerRadius(): double;
 
     /**
      * Raise app sub window to app top
@@ -10018,6 +10642,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 22 static
      */
     raiseToAppTop(callback: AsyncCallback<void>): void;
 
@@ -10031,6 +10656,7 @@ declare namespace window {
      * @throws { BusinessError } 1300009 - The parent window is invalid.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 14 dynamic
+     * @since 22 static
      */
     raiseToAppTop(): Promise<void>;
 
@@ -10263,6 +10889,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 22 static
      */
     raiseAboveTarget(windowId: int, callback: AsyncCallback<void>): void;
 
@@ -10281,6 +10908,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 22 static
      */
     raiseAboveTarget(windowId: int): Promise<void>;
 
@@ -10320,6 +10948,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 22 static
      */
     setRaiseByClickEnabled(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -10337,6 +10966,7 @@ declare namespace window {
      * @throws { BusinessError } 1300009 - The parent window is invalid.
      * @syscap SystemCapability.Window.SessionManager
      * @since 14 dynamic
+     * @since 22 static
      */
     setRaiseByClickEnabled(enable: boolean): Promise<void>;
 
@@ -10629,6 +11259,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     setSingleFrameComposerEnabled(enable: boolean): Promise<void>;
 
@@ -10697,6 +11328,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     restore(): Promise<void>;
 
@@ -10749,6 +11381,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     getWindowDecorVisible(): boolean;
 
@@ -10765,6 +11398,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     setWindowTitleMoveEnabled(enabled: boolean): void;
 
@@ -10780,6 +11414,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     setWindowTitle(titleName: string): Promise<void>;
 
@@ -10813,6 +11448,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     setSubWindowModal(isModal: boolean): Promise<void>;
 
@@ -10848,13 +11484,14 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     setSubWindowModal(isModal: boolean, modalityType: ModalityType): Promise<void>;
 
     /**
      * Set the height of the window decor.
      *
-     * @param { number } - The height of window decor.
+     * @param { int } - The height of window decor.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -10867,7 +11504,7 @@ declare namespace window {
      * Sets the height of the title bar of this window.
      * This API takes effect for the window that has a title bar or a three-button area on 2-in-1 devices.
      *
-     * @param { number } height - Height of the title bar. It takes effect only for the window with the title bar.
+     * @param { int } height - Height of the title bar. It takes effect only for the window with the title bar.
      *                            The value is an integer in the range [37,112]. The unit is vp. If a floating point number is passed in,
      *                            the value is rounded down. A value outside the range is invalid.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
@@ -10880,12 +11517,12 @@ declare namespace window {
      * @since 12 dynamic
      * @since 22 static
      */
-    setWindowDecorHeight(height: number): void;
+    setWindowDecorHeight(height: int): void;
 	
     /**
      * Get the height of the window decor.
      *
-     * @returns { number } - The height of window decor.
+     * @returns { int } - The height of window decor.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -10895,7 +11532,7 @@ declare namespace window {
      * Obtains the height of the title bar of this window.
      * This API takes effect for the window that has a title bar or a three-button area on 2-in-1 devices.
      *
-     * @returns { number } - Height of the title bar. The value is an integer in the range [37,112]. The unit is vp.
+     * @returns { int } - Height of the title bar. The value is an integer in the range [37,112]. The unit is vp.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -10903,7 +11540,7 @@ declare namespace window {
      * @since 12 dynamic
      * @since 22 static
      */
-    getWindowDecorHeight(): number;
+    getWindowDecorHeight(): int;
 
     /**
      * Sets the button style of the decoration bar. The setting takes effect only for the main window and the child window with the window title enabled.
@@ -10917,6 +11554,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     setDecorButtonStyle(dectorStyle: DecorButtonStyle): void;
 
@@ -10932,6 +11570,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     getDecorButtonStyle(): DecorButtonStyle;
     
@@ -10950,6 +11589,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     setTouchableAreas(rects: Array<Rect>): void;
 	
@@ -10971,6 +11611,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     getTitleButtonRect(): TitleButtonRect;
 
@@ -10989,6 +11630,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     setTitleButtonVisible(isMaximizeVisible: boolean, isMinimizeVisible: boolean, isSplitVisible: boolean): void;
     
@@ -11007,6 +11649,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     setWindowTitleButtonVisible(isMaximizeButtonVisible: boolean, isMinimizeButtonVisible: boolean, isCloseButtonVisible?: boolean): void;
 
@@ -11035,6 +11678,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     startMoving(): Promise<void>;
 
@@ -11042,10 +11686,10 @@ declare namespace window {
      * Specifies the cursor position within the window and moves the window. It first adjusts the window to the cursor position before starting to move the window.
      * The window moves along with the cursor only when this API is called in the callback function of onTouch, where the event type is TouchType.Down.
      *
-     * @param { number } offsetX - X-axis offset of the cursor position relative to the upper left corner of the window during movement, measured in px.
+     * @param { int } offsetX - X-axis offset of the cursor position relative to the upper left corner of the window during movement, measured in px.
      *                             This parameter only accepts integer values; any floating-point input will be rounded down.
      *                             Negative values or values exceeding the window width are invalid. The window width can be obtained from WindowProperties.
-     * @param { number } offsetY - Y-axis offset of the cursor position relative to the upper left corner of the window during movement, measured in px.
+     * @param { int } offsetY - Y-axis offset of the cursor position relative to the upper left corner of the window during movement, measured in px.
      *                             This parameter only accepts integer values; any floating-point input will be rounded down.
      *                             Negative values or values exceeding the window height are invalid. The window height can be obtained from WindowProperties.
      * @returns { Promise<void> } Promise that returns no value.
@@ -11059,8 +11703,9 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
-    startMoving(offsetX: number, offsetY: number): Promise<void>;
+    startMoving(offsetX: int, offsetY: int): Promise<void>;
 
     /**
      * Stops window movement when a window is being dragged. This API uses a promise to return the result.
@@ -11189,6 +11834,18 @@ declare namespace window {
     on(type: 'windowTitleButtonRectChange', callback: Callback<TitleButtonRect>): void;
 
     /**
+     * Subscribes to the change event of the rectangle that holds the minimize, maximize, and close buttons on the title bar of the window.
+     *
+     * @param { Callback<TitleButtonRect> } callback - Callback used to return the new rectangle.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onWindowTitleButtonRectChange(callback: Callback<TitleButtonRect>): void;
+
+    /**
      * Unregister the callback of title buttons area change.
      *
      * @param { 'windowTitleButtonRectChange' } type - The value is fixed at 'windowTitleButtonRectChange', indicating the title buttons area change event.
@@ -11218,6 +11875,19 @@ declare namespace window {
     off(type: 'windowTitleButtonRectChange', callback?: Callback<TitleButtonRect>): void;
 
     /**
+     * Unsubscribes from the change event of the rectangle that holds the minimize, maximize, and close buttons on the title bar of the window.
+     *
+     * @param { Callback<TitleButtonRect> } [callback] - Unregister the callback function.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offWindowTitleButtonRectChange(callback?: Callback<TitleButtonRect>): void;
+
+    /**
      *  Set the window mask of window
      *
      * @param { Array<Array<long>> } windowMask - The mask of window. The value of the array is 0 and 1, the other number is illegal value.
@@ -11231,6 +11901,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
      setWindowMask(windowMask: Array<Array<long>>): Promise<void>;
 
@@ -11253,6 +11924,19 @@ declare namespace window {
     on(type: 'windowRectChange', callback: Callback<RectChangeOptions>): void;
 
     /**
+     * Register the callback of window rect change
+     *
+     * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onWindowRectChange(callback: Callback<RectChangeOptions>): void;
+
+    /**
      * Unregister the callback of windowRectChange
      *
      * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
@@ -11268,6 +11952,20 @@ declare namespace window {
      * @since 22 static
      */
     off(type: 'windowRectChange', callback?: Callback<RectChangeOptions>): void;
+
+    /**
+     * Unregister the callback of window rect change
+     *
+     * @param { Callback<RectChangeOptions> } [callback] - Callback used to return the RectChangeOptions.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offWindowRectChange(callback?: Callback<RectChangeOptions>): void;
 
     /**
      * Register the callback of rectChangeInGlobalDisplay
@@ -11422,6 +12120,20 @@ declare namespace window {
       void;
 
     /**
+     * Register the callback of rotation change
+     *
+     * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined> } callback -
+     *     Register the callback function.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onRotationChange(callback: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined>): void;
+
+    /**
      * Unregister the callback of rotationChange
      *
      * @param { 'rotationChange' } type - The value is fixed at 'rotationChange',
@@ -11456,6 +12168,21 @@ declare namespace window {
      */
     off(type: 'rotationChange',
       callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined>): void;
+
+    /**
+     * Unregister the callback of rotation change
+     *
+     * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined> } [callback] -
+     *     Unregister the callback function. If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offRotationChange(callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined>):
+      void;
 
     /**
      * UIExtension in window secure limit change callback on.
@@ -11528,6 +12255,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     setWindowGrayScale(grayScale: double): Promise<void>;
 
@@ -11557,6 +12285,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     getImmersiveModeEnabledState(): boolean;
 
@@ -11583,6 +12312,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     getWindowStatus(): WindowStatusType;
 
@@ -11594,6 +12324,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     isFocused(): boolean;
 
@@ -11612,6 +12343,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Window>;
 
@@ -11695,6 +12427,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     setTitleAndDockHoverShown(isTitleHoverShown?: boolean, isDockHoverShown?: boolean): Promise<void>;
 
@@ -11745,6 +12478,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     setSubWindowZLevel(zLevel: int): Promise<void>;
 
@@ -11758,6 +12492,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     getSubWindowZLevel(): int;
 
@@ -11881,6 +12616,73 @@ declare namespace window {
      * @since 22 dynamic&static
      */
     getRotationLocked(): boolean;
+
+    /**
+     * Set whether the window supports event separation capability.
+     * When the window doesn't support event separation capability:
+     *    After the first finger touch the window,
+     *        subsequent fingers' events will be sent to that window regardless of whether they click on it.
+     *    If the first finger does not touch the window,
+     *        the system will discard the events when subsequent fingers touch the window.
+     *
+     * @param { boolean } enabled - Whether the window supports event separation capability.
+     *     True - means default state, the event will be sent to the window that the finger taps.
+     *     False - means the window doesn't support event separation capability.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+     *     not support this ability.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setSeparationTouchEnabled(enabled: boolean): Promise<void>;
+
+    /**
+     * Get whether the window supports event separation status.
+     *
+     * @returns { boolean } - The value true means the window supports event separation, and false means the opposite.
+     * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+     *     not support this ability.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isSeparationTouchEnabled(): boolean;
+
+    /**
+     * Set whether the window receive drag event.
+     *
+     * @param { boolean } enabled - Whether the window receive drag event.
+     *     True - means default state, the window can receive drag event.
+     *     False - means the window can't receive drag event.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+     *     not support this ability.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setReceiveDragEventEnabled(enabled: boolean): Promise<void>;
+
+    /**
+     * Get whether the window can receive drag event status.
+     *
+     * @returns { boolean } - The value true means the window can receive drag event, and false means the opposite.
+     * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+     *     not support this ability.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isReceiveDragEventEnabled(): boolean;
   }
 
   /**
@@ -12503,6 +13305,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Window>;
     /**
@@ -12534,6 +13337,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     getSubWindow(): Promise<Array<Window>>;
     /**
@@ -12565,6 +13369,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     getSubWindow(callback: AsyncCallback<Array<Window>>): void;
 
@@ -12866,6 +13671,20 @@ declare namespace window {
      * @since 22 static
      */
     on(eventType: 'windowStageEvent', callback: Callback<WindowStageEventType>): void;
+
+    /**
+     * Subscribes to the window stage lifecycle change event.
+     *
+     * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 22 static
+     */
+    onWindowStageEvent(callback: Callback<WindowStageEventType>): void;
+
     /**
      * Window stage event callback off.
      *
@@ -12912,6 +13731,20 @@ declare namespace window {
      * @since 22 static
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
+
+    /**
+     * Unsubscribes from the window stage lifecycle change event.
+     *
+     * @param { Callback<WindowStageEventType> } [callback] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 22 static
+     */
+    offWindowStageEvent(callback?: Callback<WindowStageEventType>): void;
 
     /**
      * Subscribes to the window stage lifecycle change event.
@@ -13001,6 +13834,22 @@ declare namespace window {
     on(eventType: 'windowStageClose', callback: Callback<void>): void;
 
     /**
+     * Subscribes to the click event on the close button in the three-button navigation bar of the main window.
+     * This event is triggered when the close button in the three-button navigation bar of the main window is clicked.
+     *
+     * @param { Callback<void, boolean> } callback - Callback invoked when the close button in the upper right corner of the main window is clicked.
+     *    The return value determines whether to continue to close the main window.
+     *    The value true means not to close the main window, and false means to continue to close the main window.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 22 static
+     */
+    onWindowStageClose(callback: Callback<void, boolean>): void;
+
+    /**
      * Unsubscribes from the event indicating that the main window is closed.
      *
      * @param { 'windowStageClose' } eventType - Event type. The value is fixed at 'windowStageClose',
@@ -13019,6 +13868,20 @@ declare namespace window {
      * @since 14 dynamic
      */
     off(eventType: 'windowStageClose', callback?: Callback<void>): void;
+
+    /**
+     * Unsubscribes from the event indicating that the main window is closed.
+     *
+     * @param { Callback<void, boolean> } [callback] - Unregister the callback function.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 22 static
+     */
+    offWindowStageClose(callback?: Callback<void, boolean>): void;
 
     /**
      * Disable window decoration. It must be called before loadContent.
@@ -13137,6 +14000,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     removeStartingWindow(): Promise<void>;
 
@@ -13171,6 +14035,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     setWindowModal(isModal: boolean): Promise<void>;
 
@@ -13189,6 +14054,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     setWindowRectAutoSave(enabled: boolean): Promise<void>;
 
@@ -13208,6 +14074,7 @@ declare namespace window {
      * @stagemodelonly
      * @atomicservice
      * @since 17 dynamic
+     * @since 22 static
      */
     setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise<void>;
 
@@ -13234,6 +14101,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     isWindowRectAutoSave(): Promise<boolean>;
 
@@ -13323,7 +14191,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     removeImageForRecent(): Promise<void>;
   }
@@ -13465,6 +14333,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 15 dynamic
+   * @since 22 static
    */
   interface WindowLayoutInfo {
     /**
@@ -13474,6 +14343,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     windowRect: Rect;
   }

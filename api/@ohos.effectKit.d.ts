@@ -410,6 +410,17 @@ declare namespace effectKit {
     getTopProportionColorsAndPercentage(colorCount: int): Map<Color | null, double | null>;
 
     /**
+     * Get the proportion of transparent pixels with alpha=0 in the image
+     * @returns { double } proportion of transparent pixels with alpha=0
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @form
+     * @since 23 dynamic&static
+     */
+    getAlphaZeroTransparentProportion(): double;
+
+    /**
      * Get shade degree of an image
      * @returns { PictureShadeDegree } shade degree of an image
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.

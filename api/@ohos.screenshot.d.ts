@@ -216,6 +216,7 @@ declare namespace screenshot {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12 dynamic
+   * @since 22 static
    */
   function pick(): Promise<PickInfo>;
 
@@ -226,6 +227,7 @@ declare namespace screenshot {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12 dynamic
+   * @since 22 static
    */
   interface PickInfo {
     /**
@@ -235,6 +237,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     pickRect: Rect;
 
@@ -245,6 +248,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     pixelMap: image.PixelMap;
   }
@@ -344,6 +348,7 @@ declare namespace screenshot {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 14 dynamic
+   * @since 22 static
    */
   interface CaptureOption {
     /**
@@ -353,6 +358,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     displayId?: long;
 

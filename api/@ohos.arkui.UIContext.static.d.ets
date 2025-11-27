@@ -1300,52 +1300,46 @@ export declare class UIObserver {
   offNavDestinationUpdateByUniqueId(navigationUniqueId: int, callback?: Callback<observer.NavDestinationInfo>): void;
 
   /**
-   * Registers a callback function to be called when the scroll event start or stop.
+   * Registers a callback function to be called when the scroll event starts or stops.
    *
-   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
    * @param { observer.ObserverOptions } options - The options object.
    * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event
    * start or stop.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  on(type: 'scrollEvent', options: observer.ObserverOptions, callback: Callback<observer.ScrollEventInfo>): void;
-
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'scrollEvent' } type - The type of event to remove the listener for. Must be 'scrollEvent'.
-   * @param { observer.ObserverOptions } options - The options object.
-   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to remove. If not provided, all
-   * callbacks for the given event type and
-   *                                                    scroll ID will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  off(type: 'scrollEvent', options: observer.ObserverOptions, callback?: Callback<observer.ScrollEventInfo>): void;
-
-  /**
-   * Registers a callback function to be called when the scroll event start or stop.
-   *
-   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
-   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event
-   * start or stop.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  on(type: 'scrollEvent', callback: Callback<observer.ScrollEventInfo>): void;
+  onScrollEvent(options: observer.ObserverOptions, callback: Callback<observer.ScrollEventInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
    * @param { 'scrollEvent'} type - The type of event to remove the listener for. Must be 'scrollEvent'.
    * @param { Callback<observer.ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all
-   * callbacks for the given event type
-   *                                                      will be removed.
+   * callbacks for the given event type and scroll ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  off(type: 'scrollEvent', callback?: Callback<observer.ScrollEventInfo>): void;
+  offScrollEvent(options: observer.ObserverOptions, callback?: Callback<observer.ScrollEventInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the scroll event starts or stops.
+   *
+   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event
+   * start or stop.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  onScrollEvent(callback: Callback<observer.ScrollEventInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `onScrollEvent()`.
+   *
+   * @param { Callback<observer.ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all
+   * callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  offScrollEvent(callback?: Callback<observer.ScrollEventInfo>): void;
 
   /**
    * Registers a callback function to be called when the router page in a ui context is updated.
@@ -2681,7 +2675,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  getFilteredInspectorTreeById(id: string, depth: number, filters?: Array<string>): string;
+  getFilteredInspectorTreeById(id: string, depth: int, filters?: Array<string>): string;
 
   /**
    * get object router.
@@ -3130,6 +3124,19 @@ export declare class UIContext {
    * @since 22 static
    */
   getWindowName(): string | undefined;
+
+  /**
+   * Get window id to which the current UIContext belongs.
+   * <p>**NOTE**:
+   * If the current UIContext is in a UIExtensionAbility running within the host process,
+   * this method returns the top-level window ID of the host application.
+   * </p>
+   *
+   * @returns { int | undefined } - Window id. If the current UIContext is unavailable, return undefined.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  getWindowId(): int | undefined;
 
   /**
    * Get the width breakpoint of current window.

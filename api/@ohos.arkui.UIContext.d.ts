@@ -3380,12 +3380,26 @@ export class MeasureUtils {
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * class FocusController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
 export class FocusController {
   /**
    * clear focus to the root container.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * clear focus to the root container.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   clearFocus(): void;
 
@@ -3398,6 +3412,17 @@ export class FocusController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * request focus to the specific component.
+   * @param { string } key - the inspector key of the component.
+   * @throws { BusinessError } 150001 - the component cannot be focused.
+   * @throws { BusinessError } 150002 - This component has an unfocusable ancestor.
+   * @throws { BusinessError } 150003 - the component is not on tree or does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   requestFocus(key: string): void;
 
@@ -4481,6 +4506,14 @@ export class UIContext {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Get FocusController.
+   * @returns { FocusController } the FocusController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   getFocusController(): FocusController;
 
   /**
@@ -4618,6 +4651,14 @@ export class UIContext {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Get ComponentSnapshot.
+   * @returns { ComponentSnapshot } the ComponentSnapshot
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   getComponentSnapshot(): ComponentSnapshot;
 
   /**
@@ -4627,6 +4668,15 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Converts a value in vp units to a value in px.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   vp2px(value: number): number;
 
@@ -4638,6 +4688,15 @@ export class UIContext {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Converts a value in px units to a value in vp.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   px2vp(value: number): number;
 
   /**
@@ -4647,6 +4706,15 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Converts a value in fp units to a value in px.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   fp2px(value: number): number;
 
@@ -4658,6 +4726,15 @@ export class UIContext {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Converts a value in px units to a value in fp.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   px2fp(value: number): number;
 
   /**
@@ -4668,6 +4745,15 @@ export class UIContext {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Converts a value in lpx units to a value in px.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   lpx2px(value: number): number;
 
   /**
@@ -4677,6 +4763,15 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Converts a value in px units to a value in lpx.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   px2lpx(value: number): number;
 
@@ -4714,6 +4809,20 @@ export class UIContext {
    * @since 12 dynamic
    */
   getWindowName(): string | undefined;
+
+  /**
+   * Get window id to which the current UIContext belongs.
+   * <p>**NOTE**:
+   * If the current UIContext is in a UIExtensionAbility running within the host process,
+   * this method returns the top-level window ID of the host application.
+   * </p>
+   *
+   * @returns { number | undefined } - Window id. If the current UIContext is unavailable, return undefined.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  getWindowId(): number | undefined;
   
   /**
    * Get the width breakpoint of current window.
@@ -4722,6 +4831,15 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 13 dynamic
+   */
+  /**
+   * Get the width breakpoint of current window.
+   *
+   * @returns { WidthBreakpoint } The width breakpoint of current window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   getWindowWidthBreakpoint(): WidthBreakpoint;
   
@@ -4732,6 +4850,15 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice 
    * @since 13 dynamic
+   */
+  /**
+   * Get the height breakpoint of current window.
+   *
+   * @returns { HeightBreakpoint } The height breakpoint of current window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice 
+   * @since 23 dynamic
    */
   getWindowHeightBreakpoint(): HeightBreakpoint;
 

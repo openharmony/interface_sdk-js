@@ -35,15 +35,15 @@ import { ComponentBuilder } from './builder';
  */
 export declare interface TextOverflowOptions {
     /**
-     * Text overflow option.
+     * Text overflow option. Use TextOverflow::NONE when the value is undefined.
      *
      * Anonymous Object Rectification.
-     * @type { TextOverflow }
+     * @type { TextOverflow | undefined }
      * @default TextOverflow.Clip
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    overflow: TextOverflow;
+    overflow: TextOverflow | undefined;
 }
 /**
  * TextAttribute.
@@ -671,6 +671,26 @@ export declare interface TextAttribute extends CommonMethod {
      */
     default enableHapticFeedback(isEnabled: boolean | undefined): this;
     /**
+     * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+     *
+     * @param { boolean | undefined } include - Whether enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAttribute } returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default includeFontPadding(include: boolean | undefined): this;
+    /**
+     * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+     *
+     * @param { boolean | undefined } enabled - Whether enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAttribute } returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default fallbackLineSpacing(enabled: boolean | undefined): this;
+    /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<TextAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
@@ -679,6 +699,16 @@ export declare interface TextAttribute extends CommonMethod {
      * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<TextAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Whether to compress punctuation at the beginning of line.
+     *
+     * @param { boolean | undefined } enabled - Whether to enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAttribute } - returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default compressLeadingPunctuation(enabled: boolean | undefined): this;
 }
 /**
  * Defines span type.

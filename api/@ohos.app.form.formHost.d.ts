@@ -738,9 +738,22 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
    */
   function on(type: 'formUninstall', callback: Callback<string>): void;
+
+  /**
+   * Listens to the event of uninstall form.
+   * <p>You can use this method to listen to the event of uninstall form.</p>
+   *
+   * @param { Callback<string> } callback - The callback of formUninstall.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onFormUninstall(callback: Callback<string>): void;
 
   /**
    * Cancels listening to the event of uninstall form.
@@ -754,9 +767,22 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
    */
   function off(type: 'formUninstall', callback?: Callback<string>): void;
+
+  /**
+   * Cancels listening to the event of uninstall form.
+   * <p>You can use this method to cancel listening to the event of uninstall form.</p>
+   *
+   * @param { Callback<string> } [callback] - The callback of formUninstall.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function offFormUninstall(callback?: Callback<string>): void;
 
   /**
    * Listens to the event of form's overflow.
