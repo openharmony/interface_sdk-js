@@ -941,6 +941,23 @@ declare namespace statistics {
    * @since 22 dynamic&static
    */
   function getSelfTrafficStats(networkInfo: NetworkInfo): Promise<NetStatsInfo>;
+
+  /**
+   * Get this month traffic data of the cellular network.
+   *
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { int } simId - The id of the specified sim card.
+   * @returns { Promise<long> } The statistics of the simId in this month.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  function getMonthTrafficStats(simId: int): Promise<long>;
 }
 
 export default statistics;
