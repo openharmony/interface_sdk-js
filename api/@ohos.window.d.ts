@@ -12700,6 +12700,22 @@ declare namespace window {
      * @since 23 dynamic&static
      */
     isReceiveDragEventEnabled(): boolean;
+
+    /**
+     * Convert orientation and rotation between window and display.
+     * @param { RotationInfoType } from - The type of the value to be converted.
+     * @param { RotationInfoType } to - The target type of conversion.
+     * @param { int } value - The value to be converted.
+     * @returns { int } - The converted value.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *                                          1. The window is not created or destroyed;
+     *                                          2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    convertOrientationAndRotation(from: RotationInfoType, to: RotationInfoType, value: int): int;
   }
 
   /**
@@ -14560,6 +14576,37 @@ declare namespace window {
      * @since 22 static
      */
     SCROLL_SHOT_ABORT = 4,
+  }
+
+  /**
+   * Rotation Info Type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 23 dynamic&static
+   */
+  enum RotationInfoType {
+    /**
+     * Window orientation
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    WINDOW_ORIENTATION = 0,
+    /**
+     * Display orientation
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    DISPLAY_ORIENTATION = 1,
+    /**
+     * Display rotation
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    DISPLAY_ROTATION = 2
   }
 
   /**
