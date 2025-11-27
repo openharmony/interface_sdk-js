@@ -292,7 +292,7 @@ declare namespace uiExtension {
      * <br> 2. Incorrect parameters types.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      * <br> 1. The window is not created or destroyed.
-     * <br> 2. Internal napi error.
+     * <br> 2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
