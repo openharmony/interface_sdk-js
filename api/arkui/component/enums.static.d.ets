@@ -4096,3 +4096,68 @@ export declare enum AxisType {
    */
   PINCH_AXIS = 2,
 }
+
+/**
+ * Defines the state types that can be monitored by AttributeModifiers.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
+ * @since 23 staticonly
+ */
+export enum AttributeModifierState {
+
+  /**
+   * Normal state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  NORMAL = 0,
+
+  /**
+   * Pressed state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  PRESSED = 1,
+
+  /**
+   * Focused state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  FOCUSED = 1 << 1,
+
+  /**
+   * Disabled state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  DISABLED = 1 << 2,
+
+  /**
+   * Selected state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  SELECTED = 1 << 3,
+
+  /**
+   * All states.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  ALL = (1 << 4) - 1
+}
