@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1260,7 +1260,7 @@ declare namespace osAccount {
     getForegroundOsAccountLocalId(displayId: long): Promise<int>;
 
     /**
-     * Gets the disyplay ID of the foreground OS account by local ID.
+     * Gets the display ID of the foreground OS account by local ID.
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { int } localId - Indicates the local ID of the target foreground OS account.
@@ -2195,10 +2195,7 @@ declare namespace osAccount {
     getBundleIdForUidSync(uid: int): int;
 
     /**
-     * Subscribes to the change events of accounts.
-     * <p>
-     * When user change the account, the subscriber will receive a notification
-     * about the account change event.
+     * Subscribes to the event indicating the completion of an OS account activation.
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
      * @param { string } name - Indicates the name of subscriber.
@@ -2214,10 +2211,7 @@ declare namespace osAccount {
     onActivate(name: string, callback: Callback<int>): void;
 
     /**
-     * Subscribes to the change events of accounts.
-     * <p>
-     * When user change the account, the subscriber will receive a notification
-     * about the account change event.
+     * Subscribes to the event indicating that an OS account is being activated.
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
      * @param { string } name - Indicates the name of subscriber.
@@ -2233,7 +2227,7 @@ declare namespace osAccount {
     onActivating(name: string, callback: Callback<int>): void;
 
     /**
-     * Unsubscribes from account events.
+     * Unsubscribes from the event indicating the completion of an OS account activation.
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
      * @param { string } name - Indicates the name of subscriber.
@@ -2249,7 +2243,7 @@ declare namespace osAccount {
     offActivate(name: string, callback?: Callback<int>): void;
 
     /**
-     * Unsubscribes from account events.
+     * Unsubscribes to the event indicating that an OS account is being activated.
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
      * @param { string } name - Indicates the name of subscriber.
@@ -5101,7 +5095,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300106 - The authentication type is not supported.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Gets the credential enrolled identifier of the specified authentication type.
@@ -5120,8 +5114,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300106 - The authentication type is not supported.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic
-     * @since 22 static
+     * @since 22 dynamic&static
      */
     getEnrolledId(authType: AuthType, accountId?: int): Promise<Uint8Array>;
   }
@@ -5180,7 +5173,7 @@ declare namespace osAccount {
     UNLOCK = 1,
 
     /**
-     * Indicates the intent of slient authentication.
+     * Indicates the intent of silent authentication.
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
