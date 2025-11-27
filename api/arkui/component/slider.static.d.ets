@@ -373,14 +373,16 @@ export declare interface SliderConfiguration extends CommonConfiguration<SliderC
  *
  * @interface SliderStepItemAccessibility
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-declare interface SliderStepItemAccessibility {
+export declare interface SliderStepItemAccessibility {
     /**
      * Set the accessibility text of the slider step point. The default value is an empty string.
      *
      * @param { ?ResourceStr } value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     text?: ResourceStr;
@@ -390,15 +392,17 @@ declare interface SliderStepItemAccessibility {
  *
  * @interface SliderShowStepOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-declare interface SliderShowStepOptions {
+export declare interface SliderShowStepOptions {
     /**
      * Map key value range: [0, INT32_MAX]. When the key value is set to a negative number or a decimal,
      * the setting does not take effect.
      *
      * @param { ?Map<number, SliderStepItemAccessibility> } value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     stepsAccessibility?: Map<number, SliderStepItemAccessibility>;
