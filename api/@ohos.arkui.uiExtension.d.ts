@@ -270,9 +270,10 @@ declare namespace uiExtension {
      *
      * @param { string } name - Name of the subwindow.
      * @param { window.SubWindowOptions } subWindowOptions - Parameters used for creating the subwindow.
-     * @param { boolean } syncLifecycleWithUIExtension - Whether the lifecycle of the subwindow is synchronized with
-     *     this uiextension. True means the subwindow goes to background when this uiextension goes to background and
-     *     returns foreground when this uiextension returns to foreground.
+     * @param { boolean } isFollowCreatorLifecycle - Whether the lifecycle of the subwindow follows creator of
+     *     subwindow. If true, when the creator goes to background, the subwindow will also go to background, when the
+     *     creator returns to foreground, the subwindow will also return to foreground. If false, the subwindow will
+     *     not change when the creator goes to background or returns to foreground.
      * @returns { Promise<window.Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
@@ -282,7 +283,7 @@ declare namespace uiExtension {
      * @since 22 dynamic&static
      */
     createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions,
-        syncLifecycleWithUIExtension: boolean): Promise<window.Window>;
+        isFollowCreatorLifecycle: boolean): Promise<window.Window>;
 
     /**
      * Adds or deletes the watermark flag for this window. This API uses a promise to return the result.
