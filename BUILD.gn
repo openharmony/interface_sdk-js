@@ -137,7 +137,7 @@ template("ohos_handle_declaration_template") {
   _module_info_target = "${target_name}_info"
 
   action_with_pydeps(target_name) {
-    deps = [ 
+    deps = [
       ":ohos_ets_dynamic",
       ":ohos_ets_static" ]
     deps += [ ":${_module_info_target}" ]
@@ -433,13 +433,14 @@ group("build_ohos_ets") {
     ohos_ets_dependency_analyzer_deps,
     ohos_ets_build_system_deps,
     ohos_ets_stdlib_deps,
-    ohos_ets_koala_wrapper_deps
+    ohos_ets_koala_wrapper_deps,
+    ohos_ets_etsstdlib_deps
   ]
   deps = [
     ":ohos_base_split",
     ":ohos_ets_api",
     ":ohos_ets_arkts",
-    ":ohos_ets_kits", 
+    ":ohos_ets_kits",
     ohos_ets_ark_link_deps,
     ohos_ets_es2panda_deps,
     ohos_ets_libes2panda_public_deps
