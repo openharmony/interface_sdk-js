@@ -5033,6 +5033,70 @@ declare namespace image {
   }
 
   /**
+   * Describes ImageReceiver creation options.
+   *
+   * @typedef ImageReceiverOptions
+   * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+   * @since 23 dynamic&static
+   */
+  interface ImageReceiverOptions {
+    /**
+     * Image size.
+     *
+     * @type { Size }
+     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+     * @since 23 dynamic&static
+     */
+    size: Size;
+
+    /**
+     * The maximum nuber of images the user wants to access simultaneously.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+     * @since 23 dynamic&static
+     */
+    capacity: int;
+  }
+
+  /**
+   * Describes image buffer data.
+   *
+   * @typedef ImageBufferData
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 23 dynamic&static
+   */
+  interface ImageBufferData {
+    /**
+     * Row stride of each component.
+     *
+     * @type { Array<int> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 23 dynamic&static
+     */
+    readonly rowStride: Array<int>;
+
+    /**
+     * Pixel stride of each component.
+     * @readonly
+     * @type { Array<int> }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 23 dynamic&static
+     */
+    readonly pixelStride: Array<int>;
+
+    /**
+     * Image data buffer.
+     * @readonly
+     * @type { ArrayBuffer }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 23 dynamic&static
+     */
+    readonly byteBuffer: ArrayBuffer;
+  }
+
+  /**
    * Defines the hdr metadata value.
    *
    * @typedef {HdrMetadataType | HdrStaticMetadata | ArrayBuffer | HdrGainmapMetadata} HdrMetadataValue
@@ -5787,6 +5851,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @since 22 static
    */
   function createImageReceiver(size: Size, format: ImageFormat, capacity: int): ImageReceiver | undefined;
+
+  /**
+   * Creates an ImageReceiver instance.
+   *
+   * @param { ImageReceiverOptions } options The parameters for ImageReceiver creation.
+   * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 7900201 - Invalid parameter.
+   * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+   * @since 23 dynamic&static
+   */
+  function createImageReceiver(options: ImageReceiverOptions): ImageReceiver;
 
   /**
    * Creates an ImageCreator instance.
@@ -10221,6 +10296,37 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 22 static
      */
     readonly timestamp: long;
+
+    /**
+     * Image colorspace.
+     *
+     * @type { colorSpaceManager.ColorSpace }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 23 dynamic&static
+     */
+    readonly colorspace: colorSpaceManager.ColorSpace;
+
+    /**
+     * Get image buffer data.
+     *
+     * @returns { ImageBufferData } Return the instance if the operation is successfunl; returns null otherwise.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 23 dynamic&static
+     */
+    getBufferData(): ImageBufferData;
+
+    /**
+     * Get HDR metadata for speficied HDR metadata key.
+     * 
+     * @param { HdrMetadataKey } key The key for HDR metadata query.
+     * @returns { HdrMetadataValue } Return the HDR metadata for the key.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600302 - Memory copy failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 23 dynamic&static
+     */
+    getMetadata(key: HdrMetadataKey): HdrMetadataValue;
 
     /**
      * Get component buffer from image and uses a callback to return the result.
