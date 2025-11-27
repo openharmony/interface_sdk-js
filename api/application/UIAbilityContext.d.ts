@@ -1452,6 +1452,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 23 static
    */
   startAbilityByCallWithAccount(want: Want, accountId: number): Promise<Caller>;
 
@@ -5059,15 +5060,16 @@ declare class UIAbilityContext extends Context {
    * The onNewWant callback is not triggered when a UIAbility's lifecycle is driven by scenarios.
    * For scenarios, refer to {@link contextConstant.Scenarios}.
    *
-   * @param { number } scenarios - The number code of the scenarios.
+   * @param { int } scenarios - The number code of the scenarios.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: Connection to service failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
-  setOnNewWantSkipScenarios(scenarios: number): Promise<void>;
+  setOnNewWantSkipScenarios(scenarios: int): Promise<void>;
 
   /**
   * Launch the application's own UIAbility in the current process.
