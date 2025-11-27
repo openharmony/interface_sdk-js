@@ -10503,6 +10503,7 @@ declare namespace window {
      * @param { double } radius - Radius of the shadow, measured in px.
      *                            The value is a floating point number greater than or equal to 0.0,
      *                            and the value 0.0 means that the shadow is disabled for the window borders.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: The shadow radius is less than zero.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *                                          1. The window is not created or destroyed;
