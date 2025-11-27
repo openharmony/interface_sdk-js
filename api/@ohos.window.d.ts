@@ -6862,7 +6862,7 @@ declare namespace window {
      *
      * @param { Orientation } orientation - The orientation config of the window
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: Failed to convert parameter to Orientation.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: Invalid parameter value range.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *                                          1. The window is not created or destroyed;
      *                                          2. Internal task error.
@@ -6906,7 +6906,7 @@ declare namespace window {
      *
      * @param { Orientation } orientation - The orientation config of the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: Failed to convert parameter to Orientation.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: Invalid parameter value range.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *                                          1. The window is not created or destroyed;
      *                                          2. Internal task error.
