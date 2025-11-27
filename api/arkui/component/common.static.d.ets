@@ -12555,6 +12555,7 @@ export declare interface TerminationInfo {
  * @since 22 static
  */
 export type DateTimeOptions = intl.DateTimeOptions;
+
 /**
  * Defines a bindable property
  * @interface Bindable<T>
@@ -12571,7 +12572,7 @@ export declare interface Bindable<T> {
      */
     readonly value: T;
     /**
-     * Defines the callback of the bindable property which will be invork when the property is changed..
+     * Defines the callback of the bindable property which will be invoked when the property is changed.
      * @type { Callback<T> }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -12579,6 +12580,18 @@ export declare interface Bindable<T> {
      */
     readonly onChange: Callback<T>;
 }
+
+/**
+ * Create a bindable property instance.
+ *
+ * @param { T } value - indicates the value of a state property.
+ * @param { Callback<T> } onChange - indicates the invoked callback when the property is changed.
+ * @returns { Bindable<T> } bindable property instance.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare function makeBindable<T>(value: T, onChange: Callback<T>): Bindable<T>;
 
 /**
  * Defines the Two-way binding type of ResourceStr.
