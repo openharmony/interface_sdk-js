@@ -47,6 +47,7 @@ declare namespace cloudData {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     CLEAR_CLOUD_INFO,
 
@@ -56,6 +57,7 @@ declare namespace cloudData {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     CLEAR_CLOUD_DATA_AND_INFO
   }
@@ -244,6 +246,7 @@ declare namespace cloudData {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   class Config {
     /**
