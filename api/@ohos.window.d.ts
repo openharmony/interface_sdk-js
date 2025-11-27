@@ -6081,7 +6081,8 @@ declare namespace window {
      *     Possible cause: 1. The window is not created or destroyed;
      *                     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Invalid window type.Only sub windows are supported.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     *     Possible cause: Invalid window type.Only sub windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      * @since 22 static
@@ -11514,7 +11515,8 @@ declare namespace window {
      * @param { int } height - Height of the title bar. It takes effect only for the window with the title bar.
      *                            The value is an integer in the range [37,112]. The unit is vp. If a floating point number is passed in,
      *                            the value is rounded down. A value outside the range is invalid.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: Invalid parameter range.
+     * @throws { BusinessError } 401 - Parameter error.
+     *     Possible cause: Invalid parameter range.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
@@ -11554,9 +11556,8 @@ declare namespace window {
      * Sets the button style of the decoration bar. The setting takes effect only for the main window and the child window with the window title enabled.
      *
      * @param { DecorButtonStyle } dectorStyle - Button style of the decoration bar.
-     * @throws { BusinessError } 401 - Parameter error.
-     *     Possible cause: 1. Mandatory parameters are left unspecified;
-     *                     2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
@@ -11656,7 +11657,7 @@ declare namespace window {
      * @param { boolean } isMinimizeButtonVisible - Whether to show the minimize button. The value true means to show the button, and false means the opposite.
      * @param { boolean } isCloseButtonVisible - Whether to show the close button. The value true means to show the button, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
@@ -14017,8 +14018,7 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
      *                                                                   2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
-     *     Function setWindowRectAutoSave can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Function setWindowRectAutoSave can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible causes: 1. The window is not created or destroyed;
      *                      2. Internal task error.
