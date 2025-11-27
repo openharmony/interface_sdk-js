@@ -13998,7 +13998,7 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *   Possible causes: 1. The window is not created or destroyed;
+     *   Possible cause: 1. The window is not created or destroyed;
      *                    2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -14020,7 +14020,7 @@ declare namespace window {
      *                                                                   2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Function setWindowRectAutoSave can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible causes: 1. The window is not created or destroyed;
+     *     Possible cause: 1. The window is not created or destroyed;
      *                      2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
