@@ -11556,8 +11556,8 @@ declare namespace window {
      * Sets the button style of the decoration bar. The setting takes effect only for the main window and the child window with the window title enabled.
      *
      * @param { DecorButtonStyle } dectorStyle - Button style of the decoration bar.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;	
+     *                                                                  2. Incorrect parameter types;
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
