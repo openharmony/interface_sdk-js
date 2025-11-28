@@ -3027,7 +3027,6 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     poi?: PoiInfo;
   }
@@ -3307,7 +3306,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
    */
   export interface Poi {
     /**
@@ -3317,7 +3315,6 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     id: string;
 
@@ -3328,7 +3325,6 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     confidence: double;
 
@@ -3339,7 +3335,6 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     name: string;
 
@@ -3350,7 +3345,6 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     latitude: double;
 
@@ -3361,7 +3355,6 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     longitude: double;
 
@@ -3372,7 +3365,6 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     administrativeArea: string;
 
@@ -3383,7 +3375,6 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     subAdministrativeArea: string;
 
@@ -3394,7 +3385,6 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     locality: string;
 
@@ -3405,7 +3395,6 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     subLocality: string;
 
@@ -3416,7 +3405,6 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     address: string;
   }
@@ -3429,7 +3417,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
    */
   export interface PoiInfo {
     /**
@@ -3439,7 +3426,6 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     poiArray: Array<Poi>;
 
@@ -3450,7 +3436,6 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
      */
     timestamp: long;
   }
