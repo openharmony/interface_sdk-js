@@ -6654,6 +6654,70 @@ declare namespace photoAccessHelper {
     off(type: 'trashedAlbumChange', callback?: Callback<AlbumChangeInfos>): void;
 
     /**
+    * Subscribes to single album changes.
+    *
+    * @permission ohos.permission.READ_IMAGEVIDEO
+    * @param { Album } album Album to be listened.
+    * @param { Callback<AlbumChangeInfos> } callback Callback used to notify the application of the changes.
+    * @throws { BusinessError } 201 - Permission denied
+    * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes：
+    *     1. The same callback is registered repeatedly. 2. Album has been removed. 3. The uri of the a invalid.
+    * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+    *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @since 23 dynamic&static
+    */
+    onSinglePhotoAlbumChange(album: Album, callback: Callback<AlbumChangeInfos>): void;
+
+    /**
+    * Unsubscribes from single album changes.
+    *
+    * @permission ohos.permission.READ_IMAGEVIDEO
+    * @param { Album } [album] Album to be listened.
+    * @param { Callback<AlbumChangeInfos> } [callback] Callback used for unsubscriptions.
+    * @throws { BusinessError } 201 - Permission denied
+    * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes：
+    *     1. The same callback is unregistered repeatedly. 2. The uri of the album invalid.
+    * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+    *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @since 23 dynamic&static
+    */
+    offSinglePhotoAlbumChange(album?: Album, callback?: Callback<AlbumChangeInfos>): void;
+
+    /**
+    * Subscribes to changes of single photos and videos.
+    *
+    * @permission ohos.permission.READ_IMAGEVIDEO
+    * @param { PhotoAsset } asset Asset to be listened.
+    * @param { Callback<PhotoAssetChangeInfos> } callback Callback used to notify the application of the changes.
+    * @throws { BusinessError } 201 - Permission denied
+    * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes：
+    *     1. The same callback is registered repeatedly. 2. Asset has been removed. 3. The uri of the asset invalid.
+    * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+    *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @since 23 dynamic&static
+    */
+    onSinglePhotoChange(asset: PhotoAsset, callback: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
+    * Unsubscribes from changes of single photos and videos.
+    *
+    * @permission ohos.permission.READ_IMAGEVIDEO
+    * @param { PhotoAsset } [asset] Asset to be listened.
+    * @param { Callback<PhotoAssetChangeInfos> } [callback] Callback used for unsubscription.
+    * @throws { BusinessError } 201 - Permission denied
+    * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes：
+    *     1. The same callback is unregistered repeatedly. 2. The uri of the asset invalid.
+    * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+    *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @since 23 dynamic&static
+    */
+    offSinglePhotoChange(asset?: PhotoAsset, callback?: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
      * Get the PhotoPickerComponent default album name.
      *
      * @returns { Promise<string> } - Returns the default album name.
@@ -7049,6 +7113,7 @@ declare namespace photoAccessHelper {
    * @interface PhotoAssetChangeInfos
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20 dynamic
+   * @since 22 static
    */
   interface PhotoAssetChangeInfos {
     /**
@@ -7306,6 +7371,7 @@ declare namespace photoAccessHelper {
    * @interface AlbumChangeInfos
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20 dynamic
+   * @since 22 static
    */
   interface AlbumChangeInfos {
     /**
