@@ -18,11 +18,11 @@
  * @file
  * @kit ArkUI
  */
-import { ImageAttribute } from "./image";
-import { ResourceStr } from "./units";
+import { ImageAttribute } from './image';
+import { ResourceStr } from './units';
 import { DrawableDescriptor } from '../../@ohos.arkui.drawableDescriptor';
 import { ComponentBuilder, CustomBuilder } from './builder';
-import { PixelMap } from "./common";
+import { PixelMap } from './common';
 
 /**
  * Defines the resource which can use ASTC.
