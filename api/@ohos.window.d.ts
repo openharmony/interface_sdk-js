@@ -11738,7 +11738,7 @@ declare namespace window {
      *
      * @param { WindowTransitionType } transitionType - Transition animation type.
      * @returns { TransitionAnimation | undefined } Transition animation with transition type, or undefined if it has not been set.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities. 
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *                                          1. The window is not created or destroyed;
      *                                          2. Internal task error.
