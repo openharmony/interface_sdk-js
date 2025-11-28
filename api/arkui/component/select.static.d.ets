@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { CommonConfiguration, CommonMethod, ContentModifier, Optional, BlurStyle, Bindable } from './common';
+import { CommonConfiguration, CommonMethod, ContentModifier, BlurStyle, Bindable } from './common';
 import { ControlSize } from './button';
 import { DividerOptions } from './textPicker';
 import { ResourceStr, Dimension, EdgeOutlineWidths, ResourceColor, EdgeColors, Resource, Font, Length, Offset, DividerStyleOptions } from './units';

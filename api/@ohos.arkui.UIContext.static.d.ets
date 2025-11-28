@@ -37,7 +37,7 @@ import type pointer from './@ohos.multimodalInput.pointer';
 import { ComponentContent, FrameNode, Frame } from '@ohos.arkui.node';
 import { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import { ClickEvent, ExpectedFrameRateRange, DragItemInfo, AnimateParam, KeyframeAnimateParam, KeyframeState,
-  SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent, Optional,
+  SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent,
   ContentCoverOptions } from '@ohos.arkui.component';
 import { CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 import { GestureEvent, GestureRecognizer } from '@ohos.arkui.component';
@@ -2618,6 +2618,7 @@ export declare class ComponentSnapshot {
  * class UIContext
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 22 static
  */
 export declare class UIContext {
@@ -3320,11 +3321,12 @@ export declare class UIContext {
   /**
    * whether to enable or disable swipe to back event.
    *
-   * @param { Optional<boolean> } enabled - enable or disable swipe to back event.
+   * @param { boolean | undefined } enabled - enable or disable swipe to back event.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @stagemodelonly
    * @since 22 static
    */
-  enableSwipeBack(enabled: Optional<boolean>): void;
+  enableSwipeBack(enabled: boolean | undefined): void;
 
   /**
    * Open the BindContentCover.

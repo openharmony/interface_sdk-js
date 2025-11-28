@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { TextContentControllerBase, SelectionOptions, Callback, CommonMethod, Optional, TextDecorationOptions, Bindable, AttributeModifier } from "./common";
+import { TextContentControllerBase, SelectionOptions, Callback, CommonMethod, TextDecorationOptions, Bindable, AttributeModifier } from "./common";
 import { CustomBuilder } from './builder';
 import { ResourceStr, Length, ResourceColor, Dimension, Font, ColorMetrics } from "./units";
 import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions, KeyboardAppearance, EditableTextChangeValue, AutoCapitalizationMode } from "./textCommon";

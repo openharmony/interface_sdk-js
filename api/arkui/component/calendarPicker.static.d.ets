@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 import { Resource } from '../../global/resource';
-import { CommonMethod, PickerTextStyle, Callback, BlurStyle, PickerDialogButtonStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, DateRange, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional } from './common';
+import { CommonMethod, PickerTextStyle, Callback, BlurStyle, PickerDialogButtonStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, DateRange, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
 import { Offset, ResourceColor, VoidCallback } from "./units";
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
