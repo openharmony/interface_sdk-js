@@ -12378,10 +12378,9 @@ declare namespace photoAccessHelper {
    */
   enum VideoMode {
     /**
-     * Default type.
+     * Default type
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
      * @since 22 dynamic&static
      */
     DEFAULT = 0,
@@ -12389,7 +12388,6 @@ declare namespace photoAccessHelper {
      * Log video
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
      * @since 22 dynamic&static
      */
     LOG_VIDEO = 1,
