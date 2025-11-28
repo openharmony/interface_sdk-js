@@ -4704,11 +4704,12 @@ export declare interface TouchEvent extends BaseEvent {
     /**
      * Obtains all historical points of the current frame.
      *
-     * @returns { Array<HistoricalPoint> } - return all historical points.
+     * @returns { Array<HistoricalPoint> | undefined } - return all historical points. Undefined will be returned
+     *     if the internal runtime environment is broken.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getHistoricalPoints(): Array<HistoricalPoint>;
+    getHistoricalPoints(): Array<HistoricalPoint> | undefined;
     /**
      * Blocks the default event.
      *
@@ -5344,21 +5345,21 @@ export declare interface DragEvent {
     /**
      * Get dragData from DragEvent.
      *
-     * @returns { UnifiedData } - get dragData.
+     * @returns { UnifiedData | undefined } - get dragData, undefined will be returned if the internal runtime environment is broken.
      * @throws { BusinessError } 190001 - Data not found.
      * @throws { BusinessError } 190002 - Data error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getData(): UnifiedData;
+    getData(): UnifiedData | undefined;
     /**
      * Get dragData summary from DragEvent.
      *
-     * @returns { Summary } - get Summary Data.
+     * @returns { Summary | undefined } - get Summary Data, undefined will be returned if the internal runtime environment is broken.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getSummary(): Summary;
+    getSummary(): Summary | undefined;
     /**
      * Set dragEvent result to DragEvent.
      *
@@ -9940,35 +9941,35 @@ export declare interface CommonMethod {
      * Bind gesture recognition.
      * gesture:Bound Gesture Type,mask:GestureMask;
      *
-     * @param { GestureType | undefined } gesture
+     * @param { GestureType } gesture
      * @param { GestureMask } [mask]
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default gesture(gesture: GestureType | undefined, mask?: GestureMask): this;
+    default gesture(gesture: GestureType, mask?: GestureMask): this;
     /**
      * Binding Preferential Recognition Gestures
      * gesture:Bound Gesture Type,mask:GestureMask;
      *
-     * @param { GestureType | undefined } gesture
+     * @param { GestureType } gesture
      * @param { GestureMask } [mask]
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default priorityGesture(gesture: GestureType | undefined, mask?: GestureMask): this;
+    default priorityGesture(gesture: GestureType, mask?: GestureMask): this;
     /**
      * Binding gestures that can be triggered simultaneously with internal component gestures
      * gesture:Bound Gesture Type,mask:GestureMask;
      *
-     * @param { GestureType | undefined } gesture
+     * @param { GestureType } gesture
      * @param { GestureMask } [mask]
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default parallelGesture(gesture: GestureType | undefined, mask?: GestureMask): this;
+    default parallelGesture(gesture: GestureType, mask?: GestureMask): this;
     /**
      * Adds the content blurring effect for the current component. The input parameter is the blurring radius.
      * The larger the blurring radius, the more blurring the content.
