@@ -6347,7 +6347,7 @@ declare namespace photoAccessHelper {
     /**
      * Provides the capability of stop generating thumbnails.
      *
-     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @permission ohos.permission.READ_IMAGEVIDEO`
      * @param { int } taskId - Stop generating thumbnail task id.
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
@@ -8183,6 +8183,17 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic&static
      */
     isMovingPhotoBadgeShown?: boolean
+
+    /**
+     * Media asset filtering configuration.
+     *
+     * @type { ?Array<OperationItem> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    assetFilter?: Array<OperationItem>;   
   }
 
   /**
@@ -8369,39 +8380,39 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic&static
      */
     export class OperationItem {
-    /**
-     * The type of the operation
-     * 
-     * @type { OperationType }
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 22 dynamic&static
-     */
-    operationType: OperationType;
+      /**
+       * The type of the operation
+       * 
+       * @type { OperationType }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @stagemodelonly
+       * @atomicservice
+       * @since 22 dynamic&static
+       */
+      operationType: OperationType;
 
-    /**
-     * The fidle of the operation
-     * 
-     * @type { ?PhotoKeys }
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 22 dynamic&static
-     */
-    field: PhotoKeys;
+      /**
+       * The field of the operation.
+       * 
+       * @type { ?PhotoKeys }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @stagemodelonly
+       * @atomicservice
+       * @since 22 dynamic&static
+       */
+      field?: PhotoKeys;
 
-    /**
-     * The value of the operation. The value length follows operationType-specific limit N(max 10),
-     * truncated to first N if exceeded.
-     * 
-     * @type { ?Array<OperationValueType> }
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 22 dynamic&static
-     */
-    value: Array<OperationValueType>;
+      /**
+       * The value of the operation. The value length follows operationType-specific limit N (max 10),
+       * truncated to first N if exceeded.
+       * 
+       * @type { ?Array<OperationValueType> }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @stagemodelonly
+       * @atomicservice
+       * @since 22 dynamic&static
+       */
+      value?: Array<OperationValueType>;
   }
 
   /**
@@ -9082,7 +9093,7 @@ declare namespace photoAccessHelper {
    */
   export enum OperationType {
     /**
-     * Matches fields that are euqal to the specified value. The value length is limited to 1.
+     * Matches fields that are equal to the specified value. The value length is limited to 1.
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
@@ -9092,7 +9103,7 @@ declare namespace photoAccessHelper {
     EQUAL_TO = 1,
 
     /**
-     * Matches fields that are not euqal to the specified value. The value length is limited to 1.
+     * Matches fields that are not equal to the specified value. The value length is limited to 1.
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
@@ -9142,7 +9153,7 @@ declare namespace photoAccessHelper {
     LESS_THAN_OR_EQUAL_TO = 6,
 
     /**
-     * Equivalent to the "AND" operator in SQL. No filed or value parameters required.
+     * Equivalent to the "AND" operator in SQL. No field or value parameters required.
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
@@ -9152,7 +9163,7 @@ declare namespace photoAccessHelper {
     AND = 7,
     
     /**
-     * Equivalent to the "OR" operator in SQL. No filed or value parameters required.
+     * Equivalent to the "OR" operator in SQL. No field or value parameters required.
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
@@ -9182,7 +9193,7 @@ declare namespace photoAccessHelper {
     NOT_IN = 10,
 
     /**
-     * Used to add a left parenthesis to th predicate, equivalent to the "(" in SQL.
+     * Used to add a left parenthesis to the predicate, equivalent to the "(" in SQL.
      * Must be used together with a right parenthesis. No field or value parameters required.
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -9193,7 +9204,7 @@ declare namespace photoAccessHelper {
     BEGIN_WRAP = 11,
 
     /**
-     * Used to add a right parenthesis to th predicate, equivalent to the ")" in SQL.
+     * Used to add a right parenthesis to the predicate, equivalent to the ")" in SQL.
      * Must be used together with a left parenthesis. No field or value parameters required.
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -9205,7 +9216,7 @@ declare namespace photoAccessHelper {
 
     /**
      * Matches fields within the specified range. The interval is inclusive of both endpoints (closed interval).
-     * The value length is limited to 2, representing the left and tight boundaries.
+     * The value length is limited to 2, representing the left and right boundaries.
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
@@ -9216,14 +9227,14 @@ declare namespace photoAccessHelper {
 
     /**
      * Matches fields outside the specified range. The interval is exclusive of both endpoints (open interval).
-     * The value length is limited to 2, representing the left and tight boundaries.
+     * The value length is limited to 2, representing the left and right boundaries.
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
      * @since 22 dynamic&static
      */
-    NOT_BETWEEN = 13,
+    NOT_BETWEEN = 14,
   }
 
   /**
