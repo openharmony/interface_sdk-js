@@ -637,7 +637,7 @@ declare namespace promptAction {
          */
         INITIALIZED = 1,
         /**
-         * Indicates it is appearig.
+         * Indicates it is appearing.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 23 static
