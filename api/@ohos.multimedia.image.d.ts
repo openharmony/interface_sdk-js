@@ -5855,13 +5855,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Creates an ImageReceiver instance.
    *
-   * @param { ImageReceiverOptions } options The parameters for ImageReceiver creation.
-   * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
+   * @param { ImageReceiverOptions } [options] The parameters for ImageReceiver creation.
+   * @returns { ImageReceiver | undefined } Returns the ImageReceiver instance if the operation is successful;
+   *     returns undefined otherwise.
    * @throws { BusinessError } 7900201 - Invalid parameter.
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+   * @stagemodelonly
    * @since 23 dynamic&static
    */
-  function createImageReceiver(options: ImageReceiverOptions): ImageReceiver;
+  function createImageReceiver(options?: ImageReceiverOptions): ImageReceiver | undefined;
 
   /**
    * Creates an ImageCreator instance.
@@ -10303,30 +10305,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @type { colorSpaceManager.ColorSpace }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
     readonly colorspace: colorSpaceManager.ColorSpace;
-
-    /**
-     * Get image buffer data.
-     *
-     * @returns { ImageBufferData } Return the instance if the operation is successfunl; returns null otherwise.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 23 dynamic&static
-     */
-    getBufferData(): ImageBufferData;
-
-    /**
-     * Get HDR metadata for speficied HDR metadata key.
-     * 
-     * @param { HdrMetadataKey } key The key for HDR metadata query.
-     * @returns { HdrMetadataValue } Return the HDR metadata for the key.
-     * @throws { BusinessError } 7600206 - Invalid parameter.
-     * @throws { BusinessError } 7600302 - Memory copy failed.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 23 dynamic&static
-     */
-    getMetadata(key: HdrMetadataKey): HdrMetadataValue;
 
     /**
      * Get component buffer from image and uses a callback to return the result.
@@ -10369,6 +10351,29 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 22 static
      */
     release(): Promise<void>;
+
+    /**
+     * Get image buffer data.
+     *
+     * @returns { ImageBufferData | null } Return the instance if the operation is successful; returns null otherwise.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getBufferData(): ImageBufferData | null;
+
+    /**
+     * Get HDR metadata for speficied HDR metadata key.
+     * 
+     * @param { HdrMetadataKey } key The key for HDR metadata query.
+     * @returns { HdrMetadataValue } Return the HDR metadata for the key.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600302 - Memory copy failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getMetadata(key: HdrMetadataKey): HdrMetadataValue;
   }
 
   /**
