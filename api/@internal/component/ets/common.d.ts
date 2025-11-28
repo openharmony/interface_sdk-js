@@ -31649,6 +31649,18 @@ declare abstract class TextContentControllerBase {
    * @since 23 dynamic
    */
   deleteBackward(): void;
+
+  /**
+   * Scroll the input field component to make the specified content visible.
+   *
+   * @param { TextRange } [range] - The visible range.
+   *     If the parameter is invalid, this method will have no effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  scrollToVisible(range?: TextRange): void;
 }
 
 /**

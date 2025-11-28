@@ -12196,6 +12196,15 @@ export declare abstract class TextContentControllerBase {
      * @since 23 static
      */
     deleteBackward(): void;
+
+    /**
+     * Scroll the input field component to make the specified content visible.
+     * @param { TextRange } [range] - The visible range.
+     *     If the parameter is invalid, this method will have no effect.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    scrollToVisible(range?: TextRange): void
 }
 /**
  * Enum of scrollable containers' content clip mode.
