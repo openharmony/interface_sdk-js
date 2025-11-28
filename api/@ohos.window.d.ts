@@ -10509,7 +10509,7 @@ declare namespace window {
      *                                          1. The window is not created or destroyed;
      *                                          2. Internal task error.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *                                          Invalid window type. Only subWindow or appFloatingWindow are supported.
+     *                                          Invalid window type. Only sub windows and float windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
