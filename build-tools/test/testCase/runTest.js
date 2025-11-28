@@ -21,6 +21,7 @@ const {
 const BUILD_TOOLS_PATH = path.resolve(__dirname, '../../');
 const DELETE_SYSTEMAPI_PLUGIN_PATH = path.resolve(BUILD_TOOLS_PATH, 'delete_systemapi_plugin.js');
 const HANDLE_API_FILES_PATH = path.resolve(BUILD_TOOLS_PATH, 'handleApiFiles.js');
+const INT_TO_NUMBER_PATH = path.resolve(BUILD_TOOLS_PATH, 'intToNumber.js')
 const TEST_EXPECT_PATH = path.resolve(BUILD_TOOLS_PATH, 'test', 'expect');
 const TEST_OUTPUT_PATH = path.resolve(BUILD_TOOLS_PATH, 'test', 'output');
 const TEST_UT_PATH = path.resolve(BUILD_TOOLS_PATH, 'test', 'ut');
@@ -88,6 +89,28 @@ describe('handleApiFiles', function () {
     });
   });
 });
+
+/**
+ * int转number测试用例
+ */
+describe('intToNumber', function () {
+  const utName = this.title;
+  const inputDir = path.resolve(TEST_UT_PATH, utName);
+  const outputDir = path.resolve(TEST_OUTPUT_PATH, utName);
+  deleteDir(outputDir);
+  const result = execFileSync('node', [INT_TO_NUMBER_PATH, '--path', inputDir, '--output', outputDir]);
+  const outputFiles = [];
+  readFile(outputDir, outputFiles); // 读取文件
+    outputFiles.forEach(filePath => {
+    const relativeFilePath = path.relative(TEST_OUTPUT_PATH, filePath);
+    const expectFilePath = path.resolve(TEST_EXPECT_PATH, relativeFilePath);
+    it('\ntestFile#' + relativeFilePath + '\noutput:' + filePath + '\nexpect:' + expectFilePath, function () {
+      const outputContent = fs.readFileSync(filePath, 'utf-8').replace(/\r\n/g, '\n');
+      const expectFileContent = fs.readFileSync(expectFilePath, 'utf-8').replace(/\r\n/g, '\n');
+      assert.equal(outputContent, expectFileContent);
+    });
+  });
+})
 
 
 describe('testmocha', function () {
