@@ -6879,7 +6879,7 @@ declare namespace window {
      *
      * @param { Orientation } orientation - The orientation config of the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
