@@ -292,7 +292,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 23 dynamic&static
      */
-     dnInfo: Record<string, DBSwitchInfo>;
+     dbInfo: Record<string, DBSwitchInfo>;
   }
 
   /**
@@ -342,7 +342,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 23 dynamic&static
      */
-     dnInfo: Record<string, DBActionInfo>;
+     dbInfo: Record<string, DBActionInfo>;
   }
 
   /**
