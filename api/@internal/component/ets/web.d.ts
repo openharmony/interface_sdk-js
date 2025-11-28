@@ -5443,7 +5443,7 @@ declare interface ScriptItem {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  regexRules?: Array<UrlRegexRule>;
+  urlRegexRules?: Array<UrlRegexRule>;
 }
 
 /**

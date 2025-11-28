@@ -2624,7 +2624,7 @@ export declare interface ScriptItem {
      * @stagemodelonly
      * @since 23 static
      */
-    regexRules?: Array<UrlRegexRule>;
+    urlRegexRules?: Array<UrlRegexRule>;
 }
 /**
  * Defines the load committed details.
