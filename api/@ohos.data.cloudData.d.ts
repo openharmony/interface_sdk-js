@@ -335,11 +335,12 @@ declare namespace cloudData {
    */
   interface ClearConfig {
     /**
-     * Cleanup configuration of database.
+     * Cleanup action of database.
      *
-     * @type { Record<string, DBSwitchInfo> }
+     * @type { Record<string, DBActionInfo> }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
      dbInfo: Record<string, DBActionInfo>;
