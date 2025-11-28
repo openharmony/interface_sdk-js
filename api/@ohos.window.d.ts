@@ -10428,6 +10428,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     minimize(callback: AsyncCallback<void>): void;
 
@@ -10452,6 +10453,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     minimize(): Promise<void>;
 
