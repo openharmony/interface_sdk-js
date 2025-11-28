@@ -64,7 +64,7 @@ export { SceneResourceType, SceneResource, Shader, MaterialType, Material, Shade
 /**
  * Export scene resources
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 22 dynamic&static
+ * @since 23 dynamic&static
  */
 export { PolygonMode, UnlitMaterial } from './graphics3d/SceneResources';
 

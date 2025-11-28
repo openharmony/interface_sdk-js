@@ -237,7 +237,7 @@ export enum MaterialType {
    * The material is an unlit material.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   UNLIT = 3,
 }
@@ -284,14 +284,14 @@ export enum CullMode {
  * 
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 22 dynamic&static
+ * @since 23 dynamic&static
  */
 export enum PolygonMode {
   /**
    * Render the whole polygon
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   FILL = 0,
 
@@ -299,7 +299,7 @@ export enum PolygonMode {
    * Render only edges(wireframe) of the polygon
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   LINE = 1,
 
@@ -307,7 +307,7 @@ export enum PolygonMode {
    * Render only vertices of the polygon
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   POINT = 2
 }
@@ -448,7 +448,7 @@ export interface Material extends SceneResource {
    * @type { ?PolygonMode}
    * @default PolygonMode.FILL
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   polygonMode?: PolygonMode;
 }
@@ -621,7 +621,7 @@ export interface MetallicRoughnessMaterial extends Material {
  * @extends Material
  * @interface UnlitMaterial
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 22 dynamic&static
+ * @since 23 dynamic&static
  */
 export interface UnlitMaterial extends Material {
   /**
@@ -630,7 +630,7 @@ export interface UnlitMaterial extends Material {
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   baseColor: MaterialProperty
 }
@@ -1169,7 +1169,7 @@ export interface Environment extends SceneResource {
    * @type { ?Quaternion }
    * @default Quaternion {x:0, y:0, z:0, w:1}
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   environmentRotation?: Quaternion
 }
