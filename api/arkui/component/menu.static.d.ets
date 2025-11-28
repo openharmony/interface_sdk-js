@@ -119,6 +119,18 @@ export declare interface MenuAttribute extends CommonMethod {
      */
     default subMenuExpandingMode(mode: SubMenuExpandingMode | undefined): this;
     /**
+     * Set the expand symbol of sub-menu.
+     *
+     * @param { SymbolGlyphModifier | undefined } symbol
+     * @param { SymbolGlyphModifier | undefined } symbol - Use SymbolGlyphModifier to display symbol.
+     *     Use undefined to display default symbol.
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default subMenuExpandSymbol(symbol: SymbolGlyphModifier | undefined): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<MenuAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
