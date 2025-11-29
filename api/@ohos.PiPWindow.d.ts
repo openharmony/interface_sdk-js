@@ -1043,12 +1043,13 @@ declare namespace PiPWindow {
      */
     /**
      * Update source content size to adjust PiP window aspect ratio.
-     * @param { number } width - Indicate the width of the content. The width can consist of only digits and above 0.
-     * @param { number } height - Indicate the height of the content. The height can consist of only digits and above 0.
+     * @param { int } width - Indicate the width of the content. The width can consist of only digits and above 0.
+     * @param { int } height - Indicate the height of the content. The height can consist of only digits and above 0.
      * @throws { BusinessError } 401 - Params error. Possible causes: The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 dynamic
      */
     updateContentSize(width: number, height: number): void;
 
@@ -1060,6 +1061,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 dynamic
      */
     updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
 
@@ -1086,6 +1088,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 dynamic
      */
     setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
 
