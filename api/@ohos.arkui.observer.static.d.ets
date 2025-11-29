@@ -535,11 +535,11 @@ declare namespace uiObserver {
         /**
          * The changed screen density.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        density: number;
+        density: double;
     }
     /**
      * NavDestination switch info
