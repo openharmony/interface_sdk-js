@@ -5117,6 +5117,160 @@ declare namespace osAccount {
      * @since 22 dynamic&static
      */
     getEnrolledId(authType: AuthType, accountId?: int): Promise<Uint8Array>;
+
+    /**
+     * Subscribes to one or more types of credential change events.
+     * Currently, the following types of credential change events are supported for subscription:
+     * 1. AuthType.PIN; 2. AuthType.FACE; 3. AuthType.FINGERPRINT; 4. AuthType.PRIVATE_PIN;
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { AuthType[] } credentialTypes - Indicates the credential types to be subscribed.
+     * @param { Callback<CredentialChangeInfo> } callback - Indicates callback for receiving
+     *     the credential change information.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - One or more credential types are invalid.
+     * @throws { BusinessError } 12300106 - One or more credential types are not supported.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    onCredentialChanged(credentialTypes: AuthType[], callback: Callback<CredentialChangeInfo>): void;
+
+   /**
+    * Unsubscribes from the credential change events.
+    *
+    * @permission ohos.permission.USE_USER_IDM
+    * @param { Callback<CredentialChangeInfo> } [callback] - Indicates callback for receiving
+    *     the credential change information.
+    * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application.
+    * @throws { BusinessError } 12300001 - The system service works abnormally.
+    * @syscap SystemCapability.Account.OsAccount
+    * @systemapi
+    * @since 23 dynamic&static
+    */
+   offCredentialChanged(callback?: Callback<CredentialChangeInfo>): void;
+  }
+
+  /**
+   * Enumerates the credential change types.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  enum CredentialChangeType {
+    /**
+     * Indicates that a credential has been added.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    ADD_CREDENTIAL = 1,
+
+    /**
+     * Indicates that a credential has been updated.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    UPDATE_CREDENTIAL = 2,
+
+    /**
+     * Indicates that a credential has been deleted.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    DELETE_CREDENTIAL = 3
+  }
+
+  /**
+   * Defines the credential change information.
+   *
+   * @typedef CredentialChangeInfo
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  interface CredentialChangeInfo {  
+    /**
+     * Indicates credential change type.
+     *
+     * @type { CredentialChangeType }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    changeType: CredentialChangeType;
+
+    /**
+     * Indicates the identifier of the OS account which the credential belongs.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    accountId: int;
+
+    /**
+     * Indicates whether the change is silent,
+     * i.e., whether the change is automatically performed by system in the backgroud.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    isSilent: boolean;
+
+    /**
+     * Indicate the type of the changed credential.
+     *
+     * @type { AuthType }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    credentialType: AuthType;
+
+    /**
+     * Indicate the identifier of the added credential.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    addedCredentialId?: Uint8Array;
+
+    /**
+     * Indicate the identifier of the deleted credential.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    deletedCredentialId?: Uint8Array;
   }
 
   /**
