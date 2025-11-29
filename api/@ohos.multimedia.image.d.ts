@@ -5043,20 +5043,22 @@ declare namespace image {
     /**
      * Image size.
      *
-     * @type { Size }
+     * @type { ?Size }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    size: Size;
+    size?: Size;
 
     /**
-     * The maximum nuber of images the user wants to access simultaneously.
+     * The maximum number of images the user wants to access simultaneously.
      *
-     * @type { int }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    capacity: int;
+    capacity?: int;
   }
 
   /**
@@ -5064,33 +5066,37 @@ declare namespace image {
    *
    * @typedef ImageBufferData
    * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
    * @since 23 dynamic&static
    */
   interface ImageBufferData {
     /**
      * Row stride of each component.
      *
-     * @type { Array<int> }
+     * @type { int[] }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    readonly rowStride: Array<int>;
+    readonly rowStride: int[];
 
     /**
      * Pixel stride of each component.
      * @readonly
-     * @type { Array<int> }
+     * @type { int[] }
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    readonly pixelStride: Array<int>;
+    readonly pixelStride: int[];
 
     /**
      * Image data buffer.
      * @readonly
      * @type { ArrayBuffer }
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
     readonly byteBuffer: ArrayBuffer;
