@@ -3250,7 +3250,6 @@ export declare class UIContext {
    * of repeatedly loading resources. Clearing this cache may slow down the loading speed of resources during page
    * overload.
    *
-   * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 22 static
