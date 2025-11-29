@@ -1049,7 +1049,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 dynamic
+     * @since 22 static
      */
     updateContentSize(width: number, height: number): void;
 
@@ -1061,7 +1061,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 dynamic
+     * @since 22 static
      */
     updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
 
@@ -1088,7 +1088,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 dynamic
+     * @since 22 static
      */
     setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
 
