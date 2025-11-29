@@ -6347,7 +6347,7 @@ declare namespace photoAccessHelper {
     /**
      * Provides the capability of stop generating thumbnails.
      *
-     * @permission ohos.permission.READ_IMAGEVIDEO`
+     * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { int } taskId - Stop generating thumbnail task id.
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
@@ -9085,7 +9085,7 @@ declare namespace photoAccessHelper {
   /**
    * Enumeration type of operation.
    * 
-   * @enum { int } SceneType
+   * @enum { int } OperationType 
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @Stagemodelonly
    * @atomicservice
