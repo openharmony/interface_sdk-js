@@ -17,6 +17,8 @@
  * @kit ArkUI
  */
 
+import type image from './@ohos.multimedia.image';
+import type matrix4 from './@ohos.matrix4';
 
 /**
  * This module provides functionality for component coordinates and sizes.
@@ -324,7 +326,7 @@ declare namespace componentUtils {
     /**
     * The matrix is column-first fourth-order matrix.
     * @typedef { [double, double, double, double, double, double, double, double, double, double, double, double,
-    * double, double, double, double,] } Matrix4Result
+    * double, double, double, double] } Matrix4Result
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 22 static
     */
@@ -346,5 +348,106 @@ declare namespace componentUtils {
         double,
         double
     ];
+
+    /**
+     * Image object with layout information.
+     *
+     * @interface ImageItem
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    interface ImageItem {    
+        /**
+         * Image Decoding Information.
+         *
+         * @type { image.PixelMap }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 23 static
+         */
+        image: image.PixelMap;
+        /**
+         * Information about graphic transformations, such as the position of the image,
+         * scaling factors for width and height, and rotation angle.
+         *
+         * @type { matrix4.Matrix4Transit }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 23 static
+         */
+        transform: matrix4.Matrix4Transit;
+
+        /**
+         * Information about image rendering hierarchy.
+         *
+         * @type { int }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 23 static
+         */
+        zIndex: int;
+    }
+
+    /**
+     * Image options setted when need to get the image objects.
+     *
+     * @interface GetItemsInShapePathParams
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    interface GetItemsInShapePathParams {    
+        /**
+         * image information.
+         *
+         * @type { Array<ImageItem> }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 23 static
+         */
+        images: Array<ImageItem>;
+
+        /**
+         * Indicates the path string that compiles with the SVG path description specifications.
+         *
+         * @type { string }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 23 static
+         */
+        shapePath: string;
+
+        /**
+         * The proportion of non-transparent blank pixels in the selected area
+         * relative to the total pixels of the image. Default value is 0.15.
+         *
+         * @type { ?double }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 23 static
+         */
+        ratio?: double;
+    }
+
+    /**
+     * Get the image objects located within the selected area.
+     *
+     * @param { GetItemsInShapePathParams } value - options to get images in shapePath.
+     * @returns { Array<ImageItem> } Returns the image objects located within the selected area.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    function getItemsInShapePath(value: GetItemsInShapePathParams): Array<ImageItem>;
 }
 export default componentUtils;
