@@ -411,6 +411,20 @@ declare namespace backgroundTaskManager {
      * @since 22 static
      */
     suspendState: boolean;
+    /**
+     * The bundleName of apply continuous task.
+     * @type { ?string }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 23 dynamic&static
+     */
+    bundleName?: string;
+    /**
+     * The appIndex of apply continuous task.
+     * @type { ?int }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 23 dynamic&static
+     */
+    appIndex?: int;
   }
 
   /**
@@ -500,6 +514,50 @@ declare namespace backgroundTaskManager {
      * @since 22 static
      */
     suspendReason: ContinuousTaskSuspendReason;
+  }
+
+  /**
+   * The continuous task state change subscriber.
+   *
+   * @typedef BackgroundTaskSubscriber
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export interface BackgroundTaskSubscriber {  
+    /**
+     * Callback of continuous task start.
+     *
+     * @param { ContinuousTaskInfo } info - The continuous task info.
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onContinuousTaskStart(info: ContinuousTaskInfo): void;
+
+    /**
+     * Callback of continuous task update.
+     *
+     * @param { ContinuousTaskInfo } info - The continuous task info.
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onContinuousTaskUpdate(info: ContinuousTaskInfo): void;
+
+    /**
+     * Callback of continuous task stop.
+     *
+     * @param { ContinuousTaskInfo } info - The continuous task info.
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onContinuousTaskStop(info: ContinuousTaskInfo): void;
   }
 
   /**
@@ -1066,6 +1124,55 @@ declare namespace backgroundTaskManager {
    * @since 22 dynamic&static
    */
   function getBackgroundTaskState(stateInfo: BackgroundTaskStateInfo): UserAuthResult;
+
+  /**
+   * Obtains information about all continuous tasks in the system.
+   *
+   * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
+   * @returns { Promise<ContinuousTaskInfo[]> } The promise returns the continuous task info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function obtainAllContinuousTasks(): Promise<ContinuousTaskInfo[]>;
+
+  /**
+   * Subscribe to continuous task state change.
+   *
+   * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
+   * @param { BackgroundTaskSubscriber } subscriber - The continuous task state change subscriber.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function subscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): Promise<void>;
+
+  /**
+   * Unsubscribe to continuous task state change.
+   *
+   * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
+   * @param { BackgroundTaskSubscriber } subscriber - The continuous task state change subscriber.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function unsubscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): Promise<void>;
 
   /**
    * Apply or unapply efficiency resources.
