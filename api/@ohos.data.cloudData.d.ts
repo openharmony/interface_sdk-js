@@ -19,8 +19,10 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
+/*** if arkts dynamic */
 import type relationalStore from './@ohos.data.relationalStore';
 import commonType from './@ohos.data.commonType';
+/*** endif */
 
 /**
  * Provides methods for cloud capabilities.
@@ -28,15 +30,17 @@ import commonType from './@ohos.data.commonType';
  * @namespace cloudData
  * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
  * @since 10 dynamic
+ * @since 22 static
  */
 declare namespace cloudData {
   /**
    * Describes the clear action type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   enum ClearAction {
     /**
@@ -45,6 +49,7 @@ declare namespace cloudData {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     CLEAR_CLOUD_INFO,
 
@@ -54,6 +59,7 @@ declare namespace cloudData {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     CLEAR_CLOUD_DATA_AND_INFO
   }
@@ -242,6 +248,7 @@ declare namespace cloudData {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   class Config {
     /**
@@ -374,6 +381,7 @@ declare namespace cloudData {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     static changeAppCloudSwitch(
       accountId: string,
@@ -398,6 +406,7 @@ declare namespace cloudData {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     static changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean): Promise<void>;
 
@@ -575,6 +584,7 @@ declare namespace cloudData {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11 dynamic
+     * @since 22 static
      */
     static clear(
       accountId: string,
@@ -613,6 +623,7 @@ declare namespace cloudData {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11 dynamic
+     * @since 22 static
      */
     static clear(accountId: string, appActions: Record<string, ClearAction>): Promise<void>;
 
