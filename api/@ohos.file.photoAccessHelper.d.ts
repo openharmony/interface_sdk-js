@@ -8189,7 +8189,7 @@ declare namespace photoAccessHelper {
      *
      * @type { ?Array<OperationItem> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @crossplatform
+     * @stagemodelonly
      * @atomicservice
      * @since 22 dynamic&static
      */
