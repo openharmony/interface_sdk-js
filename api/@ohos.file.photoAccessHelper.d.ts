@@ -3053,7 +3053,12 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     */
+    /**
+     * Owner album id of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 22 dynamic&static
      */
     OWNER_ALBUM_ID = 'owner_album_id',
     /**
@@ -3148,6 +3153,14 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic&static
      */
     VIDEO_MODE = 'video_mode',
+    /**
+     * width/height of a photo
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    ASPECT_RATIO = 'aspect_ratio',
   }
 
   /**
@@ -6863,6 +6876,39 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic&static
      */
     releaseDebugDatabase(betaIssueId: string, dbFd: int): Promise<void>;
+
+    /**
+     * Get the corresponding albumId of a bundleName.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } bundleName - The app bundleName.
+     * @returns { Promise<int> } - Return the corresponding albumId of the a bundleName.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The bundleName is invalid, such as null, undefined and empty.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stageModelOnly
+     * @since 22 dynamic&static
+     */
+    getAlbumIdByBundleName(bundleName: string): Promise<int>;
+
+    /**
+     * Get the corresponding albumId of an album's lpath, which only supports camera album, screenshot album
+     *     and screen recording album.
+     *
+     * @param { string } lpath - The album's lpath.
+     * @returns { Promise<int> } - Return the corresponding albumId of an album's lpath.
+     * @throws { BusinessError } 23800151 - The lpath is invalid, such as null, undefined and empty.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stageModelOnly
+     * @since 22 dynamic&static
+     */
+    getAlbumIdByLpath(lpath: string): Promise<int>;
   }
 
   /**
