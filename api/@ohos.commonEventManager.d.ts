@@ -1649,6 +1649,16 @@ declare namespace commonEventManager {
         'usual.event.bluetooth.host.SCAN_MODE_UPDATE',
 
     /**
+     * Indicates the action of a common event that bluetooth scan mode change.
+     * To subscribe to this protected common event, your application must have the ohos.permission.ACCESS_BLUETOOTH
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 23 dynamic&static
+     */
+    COMMON_EVENT_BLUETOOTH_HOST_SCAN_MODE_CHANGE =
+        'usual.event.bluetooth.host.SCAN_MODE_CHANGE',
+
+    /**
      * Bluetooth.host.discovery.stated.
      *
      * @syscap SystemCapability.Notification.CommonEvent

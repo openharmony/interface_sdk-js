@@ -1806,6 +1806,32 @@ declare namespace connection {
   function offBatteryChange(callback?: Callback<BatteryInfo>): void;
 
   /**
+   * Subscribe to an event indicating that the scanning mode of the local device has changed.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<ScanMode> } callback - Callback used to listen.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 23 dynamic&static
+   */
+  function onScanModeChange(callback: Callback<ScanMode>): void;
+
+  /**
+   * Unsubscribe to an event indicating that the scanning mode of the local device has changed.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<ScanMode> } [callback] - Callback used to listen.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 23 dynamic&static
+   */
+  function offScanModeChange(callback?: Callback<ScanMode>): void;
+
+  /**
    * Describes the class of a bluetooth device.
    *
    * @typedef BondStateParam
