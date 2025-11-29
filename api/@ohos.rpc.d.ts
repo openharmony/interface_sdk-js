@@ -293,8 +293,9 @@ declare namespace rpc {
      *
      * @returns { MessageParcel } Return the object created.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#create
      */
     static create(): MessageParcel;
 
@@ -302,8 +303,9 @@ declare namespace rpc {
      * Reclaim the {@link MessageParcel} object.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#reclaim	 
      */
     reclaim(): void;
 
@@ -313,8 +315,9 @@ declare namespace rpc {
      * @param { IRemoteObject } object - Remote object to serialize.
      * @returns { boolean } Return {@code true} if it is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeRemoteObject	
      */
     writeRemoteObject(object: IRemoteObject): boolean;
 
@@ -323,8 +326,9 @@ declare namespace rpc {
      *
      * @returns { IRemoteObject } Return the remote object.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readRemoteObject
      */
     readRemoteObject(): IRemoteObject;
 
@@ -335,8 +339,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the interface token has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeInterfaceToken
      */
     writeInterfaceToken(token: string): boolean;
 
@@ -345,8 +350,9 @@ declare namespace rpc {
      *
      * @returns { string } Return a string value.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readInterfaceToken
      */
     readInterfaceToken(): string;
 
@@ -355,8 +361,9 @@ declare namespace rpc {
      *
      * @returns { number } Return the size of data contained in the {@link MessageParcel} object.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#getSize
      */
     getSize(): number;
 
@@ -365,8 +372,9 @@ declare namespace rpc {
      *
      * @returns { number } Return the storage capacity of the {@link MessageParcel} object.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#getCapacity
      */
     getCapacity(): number;
 
@@ -378,8 +386,9 @@ declare namespace rpc {
      * @param { number } size - Indicates the data size of the {@link MessageParcel} object.
      * @returns { boolean } Return {@code true} if the setting is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#setSize
      */
     setSize(size: number): boolean;
 
@@ -391,8 +400,9 @@ declare namespace rpc {
      * @param { number } size - Indicates the storage capacity of the {@link MessageParcel} object.
      * @returns { boolean } Return {@code true} if the setting is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#setCapacity
      */
     setCapacity(size: number): boolean;
 
@@ -403,8 +413,9 @@ declare namespace rpc {
      *
      * @returns { number } Return the writable data space of the {@link MessageParcel} object.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#getWritableBytes
      */
     getWritableBytes(): number;
 
@@ -414,8 +425,9 @@ declare namespace rpc {
      *
      * @returns { number } Return the readable data space of the {@link MessageParcel} object.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#getReadableBytes
      */
     getReadableBytes(): number;
 
@@ -424,8 +436,9 @@ declare namespace rpc {
      *
      * @returns { number } Return the current read position in the {@link MessageParcel} object.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#getReadPosition
      */
     getReadPosition(): number;
 
@@ -434,8 +447,9 @@ declare namespace rpc {
      *
      * @returns { number } Return the current write position in the {@link MessageParcel} object.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#getWritePosition
      */
     getWritePosition(): number;
 
@@ -447,8 +461,9 @@ declare namespace rpc {
      * @param { number } pos - Indicates the target position to start data reading.
      * @returns { boolean } Return {@code true} if the read position is changed; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#rewindRead
      */
     rewindRead(pos: number): boolean;
 
@@ -460,8 +475,9 @@ declare namespace rpc {
      * @param { number } pos - Indicates the target position to start data writing.
      * @returns { boolean } Return {@code true} if the write position is changed; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#rewindWrite
      */
     rewindWrite(pos: number): boolean;
 
@@ -470,8 +486,9 @@ declare namespace rpc {
      * <p>After handling requests, you should call this method before writing any data to reply {@link MessageParcel}.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeNoException
      */
     writeNoException(): void;
 
@@ -482,8 +499,9 @@ declare namespace rpc {
      * if {@link writeNoException} was invoked in server side.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readException
      */
     readException(): void;
 
@@ -494,8 +512,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeByte
      */
     writeByte(val: number): boolean;
 
@@ -506,8 +525,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeShort
      */
     writeShort(val: number): boolean;
 
@@ -518,8 +538,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeInt
      */
     writeInt(val: number): boolean;
 
@@ -530,8 +551,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeLong
      */
     writeLong(val: number): boolean;
 
@@ -544,8 +566,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeFloat
      */
     writeFloat(val: number): boolean;
 
@@ -556,8 +579,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeDouble
      */
     writeDouble(val: number): boolean;
 
@@ -568,8 +592,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeBoolean
      */
     writeBoolean(val: boolean): boolean;
 
@@ -580,8 +605,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeChar
      */
     writeChar(val: number): boolean;
 
@@ -592,8 +618,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeString
      */
     writeString(val: string): boolean;
 
@@ -604,8 +631,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the {@link Sequenceable} object has been written into
      *                      the {@link MessageParcel}; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeParcelable
      */
     writeSequenceable(val: Sequenceable): boolean;
 
@@ -616,8 +644,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the array has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeByteArray
      */
     writeByteArray(byteArray: number[]): boolean;
 
@@ -630,8 +659,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the array has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeShortArray
      */
     writeShortArray(shortArray: number[]): boolean;
 
@@ -644,8 +674,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the array has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeIntArray
      */
     writeIntArray(intArray: number[]): boolean;
 
@@ -658,8 +689,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the array has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeLongArray
      */
     writeLongArray(longArray: number[]): boolean;
 
@@ -674,8 +706,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the array has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeFloatArray
      */
     writeFloatArray(floatArray: number[]): boolean;
 
@@ -688,8 +721,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the array has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeDoubleArray
      */
     writeDoubleArray(doubleArray: number[]): boolean;
 
@@ -702,8 +736,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the array has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeBooleanArray
      */
     writeBooleanArray(booleanArray: boolean[]): boolean;
 
@@ -716,8 +751,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the array has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeCharArray
      */
     writeCharArray(charArray: number[]): boolean;
 
@@ -730,8 +766,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the array has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeStringArray
      */
     writeStringArray(stringArray: string[]): boolean;
 
@@ -742,8 +779,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the array has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeParcelableArray
      */
     writeSequenceableArray(sequenceableArray: Sequenceable[]): boolean;
 
@@ -756,8 +794,9 @@ declare namespace rpc {
      *                      return {@code false} if the {@link IRemoteObject} array is null or fails to be written
      *                      to the {@link MessageParcel}.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeRemoteObjectArray
      */
     writeRemoteObjectArray(objectArray: IRemoteObject[]): boolean;
 
@@ -766,8 +805,9 @@ declare namespace rpc {
      *
      * @returns { number } Return a byte value.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readByte
      */
     readByte(): number;
 
@@ -776,8 +816,9 @@ declare namespace rpc {
      *
      * @returns { number } Return a short integer value.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readShort
      */
     readShort(): number;
 
@@ -786,8 +827,9 @@ declare namespace rpc {
      *
      * @returns { number } Return an integer value.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readInt
      */
     readInt(): number;
 
@@ -796,8 +838,9 @@ declare namespace rpc {
      *
      * @returns { number } Return a long integer value.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readLong
      */
     readLong(): number;
 
@@ -808,8 +851,9 @@ declare namespace rpc {
      *
      * @returns { number } Return a double-precision floating point value.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readFloat
      */
     readFloat(): number;
 
@@ -818,8 +862,9 @@ declare namespace rpc {
      *
      * @returns { number } Return a double-precision floating point value.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readDouble
      */
     readDouble(): number;
 
@@ -828,8 +873,9 @@ declare namespace rpc {
      *
      * @returns { boolean } Return a boolean value.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readBoolean
      */
     readBoolean(): boolean;
 
@@ -838,8 +884,9 @@ declare namespace rpc {
      *
      * @returns { number } Return a single character value.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readChar
      */
     readChar(): number;
 
@@ -848,8 +895,9 @@ declare namespace rpc {
      *
      * @returns { string } Return a string value.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readString
      */
     readString(): string;
 
@@ -860,8 +908,9 @@ declare namespace rpc {
      *                         the {@code unmarshalling} operation using the {@link MessageParcel}.
      * @returns { boolean } Return {@code true} if the unmarshalling is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readParcelable
      */
     readSequenceable(dataIn: Sequenceable): boolean;
 
@@ -870,8 +919,9 @@ declare namespace rpc {
      *
      * @param { number[] } dataIn - Indicates the byte array read from MessageParcel.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readByteArray
      */
     readByteArray(dataIn: number[]): void;
 
@@ -880,8 +930,9 @@ declare namespace rpc {
      *
      * @returns { number[] } Return a byte array.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readByteArray
      */
     readByteArray(): number[];
 
@@ -890,8 +941,9 @@ declare namespace rpc {
      *
      * @param { number[] } dataIn - Indicates the short integer array read from MessageParcel.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readShortArray
      */
     readShortArray(dataIn: number[]): void;
 
@@ -900,8 +952,9 @@ declare namespace rpc {
      *
      * @returns { number[] } Return a short integer array.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readShortArray
      */
     readShortArray(): number[];
 
@@ -910,8 +963,9 @@ declare namespace rpc {
      *
      * @param { number[] } dataIn - Indicates the integer array to read.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readIntArray
      */
     readIntArray(dataIn: number[]): void;
 
@@ -920,8 +974,9 @@ declare namespace rpc {
      *
      * @returns { number[] } Return an integer array.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readIntArray
      */
     readIntArray(): number[];
 
@@ -930,8 +985,9 @@ declare namespace rpc {
      *
      * @param { number[] } dataIn - Indicates the long integer array to read.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readLongArray
      */
     readLongArray(dataIn: number[]): void;
 
@@ -940,8 +996,9 @@ declare namespace rpc {
      *
      * @returns { number[] } Return a long integer array.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readLongArray
      */
     readLongArray(): number[];
 
@@ -952,8 +1009,9 @@ declare namespace rpc {
      * 
      * @param { number[] } dataIn - Indicates the double-precision floating point array to read.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readFloatArray
      */
     readFloatArray(dataIn: number[]): void;
 
@@ -964,8 +1022,9 @@ declare namespace rpc {
      *
      * @returns { number[] } Return a double-precision floating point array.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readFloatArray
      */
     readFloatArray(): number[];
 
@@ -974,8 +1033,9 @@ declare namespace rpc {
      *
      * @param { number[] } dataIn - Indicates the double-precision floating point array to read.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readDoubleArray
      */
     readDoubleArray(dataIn: number[]): void;
 
@@ -984,8 +1044,9 @@ declare namespace rpc {
      *
      * @returns { number[] } Return a double-precision floating point array.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readDoubleArray
      */
     readDoubleArray(): number[];
 
@@ -994,8 +1055,9 @@ declare namespace rpc {
      *
      * @param { boolean[] } dataIn - Indicates the boolean array to read.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readBooleanArray
      */
     readBooleanArray(dataIn: boolean[]): void;
 
@@ -1004,8 +1066,9 @@ declare namespace rpc {
      *
      * @returns { boolean[] } Return a boolean array.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readBooleanArray
      */
     readBooleanArray(): boolean[];
 
@@ -1014,8 +1077,9 @@ declare namespace rpc {
      *
      * @param { number[] } dataIn - Indicates the single character array to read.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readCharArray
      */
     readCharArray(dataIn: number[]): void;
 
@@ -1024,8 +1088,9 @@ declare namespace rpc {
      *
      * @returns { number[] } Return a single character array.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readCharArray
      */
     readCharArray(): number[];
 
@@ -1034,8 +1099,9 @@ declare namespace rpc {
      *
      * @param { string[] } dataIn - Indicates the string array to read.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readStringArray
      */
     readStringArray(dataIn: string[]): void;
 
@@ -1044,8 +1110,9 @@ declare namespace rpc {
      *
      * @returns { string[] } Return a string array.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readStringArray
      */
     readStringArray(): string[];
 
@@ -1054,8 +1121,9 @@ declare namespace rpc {
      *
      * @param { Sequenceable[] } sequenceableArray - Sequenceable array to read.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readParcelableArray
      */
     readSequenceableArray(sequenceableArray: Sequenceable[]): void;
 
@@ -1065,8 +1133,9 @@ declare namespace rpc {
      * @param { IRemoteObject[] } objects - Reads data from this {@link MessageParcel} object to the specified
      *                            {@link IRemoteObject} array.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readRemoteObjectArray
      */
     readRemoteObjectArray(objects: IRemoteObject[]): void;
 
@@ -1075,8 +1144,9 @@ declare namespace rpc {
      *
      * @returns { IRemoteObject[] } An array of {@link IRemoteObject} objects obtained.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readRemoteObjectArray
      */
     readRemoteObjectArray(): IRemoteObject[];
 
@@ -1085,8 +1155,9 @@ declare namespace rpc {
      *
      * @param { number } fd - File descriptor to be closed.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#closeFileDescriptor
      */
     static closeFileDescriptor(fd: number): void;
 
@@ -1096,8 +1167,9 @@ declare namespace rpc {
      * @param { number } fd - File descriptor to be duplicated.
      * @returns { number } Return a duplicated file descriptor.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#dupFileDescriptor
      */
     static dupFileDescriptor(fd: number): number;
 
@@ -1107,8 +1179,9 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the {@link MessageParcel} object contains a file descriptor;
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#containFileDescriptors
      */
     containFileDescriptors(): boolean;
 
@@ -1118,8 +1191,9 @@ declare namespace rpc {
      * @param { number } fd - File descriptor to wrote.
      * @returns { boolean } Return {@code true} if the operation is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeFileDescriptor
      */
     writeFileDescriptor(fd: number): boolean;
 
@@ -1128,8 +1202,9 @@ declare namespace rpc {
      *
      * @returns { number } Return a file descriptor obtained.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readFileDescriptor
      */
     readFileDescriptor(): number;
 
@@ -1139,8 +1214,9 @@ declare namespace rpc {
      * @param { Ashmem } ashmem - Anonymous shared memory object to wrote.
      * @returns { boolean } Return {@code true} if the operation is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeAshmem
      */
     writeAshmem(ashmem: Ashmem): boolean;
 
@@ -1149,8 +1225,9 @@ declare namespace rpc {
      *
      * @returns { Ashmem } Anonymous share object obtained.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readAshmem
      */
     readAshmem(): Ashmem;
 
@@ -1159,8 +1236,9 @@ declare namespace rpc {
      *
      * @returns { number } 128 MB.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#getRawDataCapacity
      */
     getRawDataCapacity(): number;
 
@@ -1171,8 +1249,9 @@ declare namespace rpc {
      * @param { number } size - Size of the raw data, in bytes.
      * @returns { boolean } Return {@code true} if the operation is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#writeRawData
      */
     writeRawData(rawData: number[], size: number): boolean;
 
@@ -1182,8 +1261,9 @@ declare namespace rpc {
      * @param { number } size - Size of the raw data to read.
      * @returns { number[] } Return the raw data obtained, in bytes.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+	 * @useinstead ohos.rpc.MessageSequence#readRawData
      */
     readRawData(size: number): number[];
   }
@@ -2406,8 +2486,9 @@ declare namespace rpc {
      *                          object will be marshalled.
      * @returns { boolean } Return {@code true} if the marshalling is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.rpc.Parcelable#marshalling
      */
     marshalling(dataOut: MessageParcel): boolean;
 
@@ -2418,8 +2499,9 @@ declare namespace rpc {
      *                          object has been marshalled.
      * @returns { boolean } Return {@code true} if the unmarshalling is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.rpc.Parcelable#unmarshalling
      */
     unmarshalling(dataIn: MessageParcel): boolean;
   }
@@ -2481,8 +2563,9 @@ declare namespace rpc {
      *
      * @type { number }
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.rpc.RequestResult#errCode
      */
     errCode: number;
 
@@ -2491,8 +2574,9 @@ declare namespace rpc {
      *
      * @type { number }
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.rpc.RequestResult#code
      */
     code: number;
 
@@ -2502,8 +2586,9 @@ declare namespace rpc {
      *
      * @type { MessageParcel }
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.rpc.RequestResult#data
      */
     data: MessageParcel;
 
@@ -2513,8 +2598,9 @@ declare namespace rpc {
      *
      * @type { MessageParcel }
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.rpc.RequestResult#reply
      */
     reply: MessageParcel;
   }
@@ -2634,8 +2720,9 @@ declare namespace rpc {
      * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
      * @returns { boolean } Return {@code true} if the method is called successfully; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.rpc.IRemoteObject#sendMessageRequest
      */
     sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
@@ -3274,8 +3361,9 @@ declare namespace rpc {
      * @param { MessageOption } options - Indicates a synchronous (default) or asynchronous request.
      * @returns { boolean } Return {@code true} if the operation succeeds; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 8
+     * @useinstead ohos.rpc.RemoteObject#sendRequest
      */
     sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
@@ -3691,8 +3779,9 @@ declare namespace rpc {
      * @param { MessageOption } options - Indicates a synchronous (default) or asynchronous request.
      * @returns { boolean } Return {@code true} if the operation succeeds; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 8
+     * @useinstead ohos.rpc.RemoteProxy#sendRequest
      */
     sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
