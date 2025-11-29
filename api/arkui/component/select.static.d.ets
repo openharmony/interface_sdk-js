@@ -451,6 +451,24 @@ export declare interface SelectAttribute extends CommonMethod {
      */
     default showInSubWindow(showInSubWindow: boolean | undefined): this;
     /**
+    * Set whether to display the default selected icon.
+    *
+    * @param { boolean | undefined } show - Set whether to display the default selection icon.
+    *     true means display the default selected icon
+    *     false or undefined means do not display the default selected icon, instead indicate selection by
+    *     highlighting the background color.
+    *     <br> show is set to true, if the background color of the selected option is set using
+    *     selectedOptionBgColor, both the background color of the selected item and the default
+    *     selection icon will be displayed. If the background color of the selected option is not set
+    *     using selectedOptionBgColor, the background color will1 not be highlighted, and only the default
+    *     selection icon will be displayed.
+    * @returns { SelectAttribute } - the attribute of the select.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    */
+    default showDefaultSelectedIcon(show:boolean | undefined): this
+    /**
      * Set the attribute modifier of select.
      *
      * @param { AttributeModifier<SelectAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
