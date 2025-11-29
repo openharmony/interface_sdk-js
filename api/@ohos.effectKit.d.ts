@@ -258,6 +258,7 @@ declare namespace effectKit {
     * @form
     * @atomicservice
     * @since 20 dynamic
+	* @since 22 static
     */
     getEffectPixelMap(useCpuRender : boolean): Promise<image.PixelMap>;
   }
