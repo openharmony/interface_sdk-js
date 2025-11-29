@@ -3425,7 +3425,7 @@ declare namespace sensor {
      * Is virtual sensor or real sensor
      * @type { ?boolean }
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 22 dynamic
+     * @since 23 dynamic&static
      */
     isMockSensor?: boolean;
   }
