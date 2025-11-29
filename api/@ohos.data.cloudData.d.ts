@@ -518,7 +518,7 @@ declare namespace cloudData {
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
      * @param { string } bundleName -  Indicates the name of application.
      * @param { boolean } status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
-     * @param { SwitchConfig } config - Indicates the configuration of cloud sync switch.
+     * @param { SwitchConfig } [config] - Indicates the configuration of cloud sync switch.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -526,6 +526,7 @@ declare namespace cloudData {
      * @static
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
     static changeAppCloudSwitch(
