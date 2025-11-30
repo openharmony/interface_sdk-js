@@ -3544,7 +3544,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
    */
   type DelayDataLoadHandler = (acceptableInfo?: DataLoadInfo) => Promise<UnifiedData | null>;
 
@@ -3585,7 +3585,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
      */
     delayDataLoadHandler?: DelayDataLoadHandler;
   }
