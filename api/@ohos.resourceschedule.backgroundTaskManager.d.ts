@@ -1695,7 +1695,7 @@ declare namespace backgroundTaskManager {
   /**
    * The type of CPU level.
    *
-   * @enum { int } The type of resource
+   * @enum { int } The type of resource.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
