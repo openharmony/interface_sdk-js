@@ -582,6 +582,17 @@ declare namespace backgroundTaskManager {
      * @since 22 static
      */
     pid: int;
+   /**
+     * Specify CPU resources. The system will allocate the specified CPU resources
+     *     to the application during idle load times.
+     *
+     * @type { ?EfficiencyResourcesCpuLevel }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    cpuLevel?: EfficiencyResourcesCpuLevel;
   }
 
   /**
@@ -1682,6 +1693,47 @@ declare namespace backgroundTaskManager {
   }
 
   /**
+   * The type of CPU level.
+   *
+   * @enum { int } The type of resource
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export enum EfficiencyResourcesCpuLevel {
+    /**
+     * Runs up to small cores.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SMALL_CPU = 0,
+
+    /**
+     * Runs up to medium cores.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    MEDIUM_CPU = 1,
+
+    /**
+     * Runs up to large cores.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    LARGE_CPU = 2
+  }
+
+  /**
    * The request of efficiency resources.
    *
    * @interface EfficiencyResourcesRequest
@@ -1756,6 +1808,18 @@ declare namespace backgroundTaskManager {
      * @since 22 static
      */
     reason: string;
+
+   /**
+     * Specify CPU resources. The system will allocate the specified CPU resources
+     *     to the application during idle load times.
+     *
+     * @type { ?EfficiencyResourcesCpuLevel }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    cpuLevel?: EfficiencyResourcesCpuLevel;
   }
 
   /**
