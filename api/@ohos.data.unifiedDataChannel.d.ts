@@ -3546,7 +3546,7 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 22 dynamic
    */
-  type DelayDataLoadHandler = (acceptableInfo?: DataLoadInfo) => Promise<UnifiedData | null>;
+  type DelayedDataLoadHandler = (acceptableInfo?: DataLoadInfo) => Promise<UnifiedData | null>;
 
   /**
    * Indicates data loading params.
@@ -3587,7 +3587,7 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 22 dynamic
      */
-    delayDataLoadHandler?: DelayDataLoadHandler;
+    delayedDataLoadHandler?: DelayedDataLoadHandler;
   }
 
   /**
