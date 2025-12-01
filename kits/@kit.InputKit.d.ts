@@ -18,7 +18,6 @@
  * @kit InputKit
  */
 
-/* 共用部分*/
 /*** if arkts dynamic&static */
 import {
   ActionType, FourFingersSwipe, Pinch, Rotate, ThreeFingersSwipe, ThreeFingersTap, SwipeInward
@@ -52,6 +51,5 @@ export {
 };
 /*** endif */
 
-/* 1.1 独有部分 */
 import inputDeviceCooperate from '@ohos.multimodalInput.inputDeviceCooperate';
 export { inputDeviceCooperate };
