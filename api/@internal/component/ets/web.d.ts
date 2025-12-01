@@ -10875,7 +10875,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute } the attribute of the scroll.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 14 dynamic
+   * @since 14
    */
   /**
    * Called to setting the nested scroll options.
