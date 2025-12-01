@@ -783,7 +783,7 @@ declare namespace inputMethod {
      */
     getInputMethodState(): Promise<EnabledState>;
 	
-	 /**
+	  /**
      * 
      * Change inputmethod enabled status.
      *
@@ -801,7 +801,6 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 20 dynamic
-     * @since 23 static
      */
     enableInputMethod(bundleName: string, extensionName: string, enabledState: EnabledState): Promise<void>;
 
@@ -1209,7 +1208,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateAttribute(attribute: InputAttribute): Promise<void>;
     /**
@@ -2980,7 +2979,7 @@ declare namespace inputMethod {
       *
       * @syscap SystemCapability.MiscServices.InputMethodFramework
       * @since 20 dynamic
-      * @since 22 static
+      * @since 23 static
       */
     WORDS,
 
