@@ -1033,6 +1033,7 @@ declare namespace effectKit {
  * specifying where the ellipse mask is anchored in function 'ellipticalGradientBlur'.
  * @typedef { [double, double] } EllipticalMaskCenter
  * @syscap SystemCapability.Multimedia.Image.Core
+ * @stagemodelonly
  * @systemapi
  * @since 23 dynamic&static
  */
@@ -1046,6 +1047,7 @@ type EllipticalMaskCenter = [
  * used in function 'ellipticalGradientBlur'.
  * @typedef { [double, double] } EllipticalMaskRadius
  * @syscap SystemCapability.Multimedia.Image.Core
+ * @stagemodelonly
  * @systemapi
  * @since 23 dynamic&static
  */
