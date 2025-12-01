@@ -816,7 +816,6 @@ declare class ArrayList<T> {
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    * @since 22 static
