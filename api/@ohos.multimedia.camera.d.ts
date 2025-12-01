@@ -1468,6 +1468,20 @@ declare namespace camera {
     getCameraDevice(position: CameraPosition, type: CameraType): CameraDevice;
 
     /**
+     * Queries specified devices based on camera position, camera type and connection type.
+     * 
+     * @param { CameraPosition } position - Camera position.
+     * @param { Array<CameraType> } types - Camera type array.
+     * @param { ConnectionType } connectType - Camera connection type.
+     * @returns { Array<CameraDevice> } camera device list queried base on position, type and connection type.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getCameraDevices(position: CameraPosition, types: Array<CameraType>, connectType: ConnectionType): Array<CameraDevice>;
+
+    /**
      * Obtains the concurrent information of specified cameras,
      * the empty return means concurrency is not supported.
      *
