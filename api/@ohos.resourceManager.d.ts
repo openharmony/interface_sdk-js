@@ -754,8 +754,9 @@ declare namespace resourceManager {
    *
    * @interface AsyncCallback
    * @syscap SystemCapability.Global.ResourceManager
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.base/AsyncCallback
    */
   export interface AsyncCallback<T> {
     /**
@@ -764,8 +765,9 @@ declare namespace resourceManager {
      * @param { Error } err - Indicates the error info.
      * @param { T } data - Indicates the return data.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.base/AsyncCallback
     */
     (err: Error, data: T): void;
   }
