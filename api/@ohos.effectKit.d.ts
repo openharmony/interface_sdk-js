@@ -28,8 +28,6 @@ import image from './@ohos.multimedia.image';
 import { FractionStop } from './arkui/component/common';
 /*** endif */
 
-
-
 /**
  * @namespace effectKit
  * @since 9
