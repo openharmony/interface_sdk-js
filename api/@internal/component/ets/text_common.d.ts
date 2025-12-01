@@ -1213,6 +1213,18 @@ declare class TextMenuItemId {
    * @since 20 dynamic
    */
   static readonly askAI: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to auto fill.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23
+   */
+  static readonly autoFill: TextMenuItemId;
 }
  
 /**

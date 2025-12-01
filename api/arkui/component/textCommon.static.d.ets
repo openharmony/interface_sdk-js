@@ -759,6 +759,17 @@ export declare class TextMenuItemId {
      * @since 22 static
      */
     static readonly SHARE: TextMenuItemId;
+
+    /**
+     * Indicates the TextMenuItemId for auto fill.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    static readonly autoFill: TextMenuItemId;
 }
 /**
  * TextMenuItem
