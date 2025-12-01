@@ -274,7 +274,7 @@ declare namespace wallpaper {
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @param { AsyncCallback<Array<RgbaColor>> } callback - the callback of getColors.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getColors(wallpaperType: WallpaperType, callback: AsyncCallback<Array<RgbaColor>>): void;
@@ -285,7 +285,7 @@ declare namespace wallpaper {
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @returns { Promise<Array<RgbaColor>> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getColors(wallpaperType: WallpaperType): Promise<Array<RgbaColor>>;
@@ -312,7 +312,7 @@ declare namespace wallpaper {
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @param { AsyncCallback<number> } callback - the callback of getId.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getId(wallpaperType: WallpaperType, callback: AsyncCallback<number>): void;
@@ -324,7 +324,7 @@ declare namespace wallpaper {
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @returns { Promise<number> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getId(wallpaperType: WallpaperType): Promise<number>;
@@ -337,7 +337,7 @@ declare namespace wallpaper {
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @param { AsyncCallback<number> } callback - the callback of getFile.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   function getFile(wallpaperType: WallpaperType, callback: AsyncCallback<number>): void;
@@ -350,7 +350,7 @@ declare namespace wallpaper {
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @returns { Promise<number> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   function getFile(wallpaperType: WallpaperType): Promise<number>;
@@ -360,7 +360,7 @@ declare namespace wallpaper {
    *
    * @param { AsyncCallback<number> } callback - the callback of getMinHeight.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getMinHeight(callback: AsyncCallback<number>): void;
@@ -370,7 +370,7 @@ declare namespace wallpaper {
    *
    * @returns { Promise<number> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getMinHeight(): Promise<number>;
@@ -392,7 +392,7 @@ declare namespace wallpaper {
    *
    * @param { AsyncCallback<number> } callback - the callback of getMinWidth.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getMinWidth(callback: AsyncCallback<number>): void;
@@ -402,7 +402,7 @@ declare namespace wallpaper {
    *
    * @returns { Promise<number> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getMinWidth(): Promise<number>;
@@ -425,7 +425,7 @@ declare namespace wallpaper {
    *
    * @param { AsyncCallback<boolean> } callback - the callback of isChangePermitted.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function isChangePermitted(callback: AsyncCallback<boolean>): void;
@@ -436,7 +436,7 @@ declare namespace wallpaper {
    *
    * @returns { Promise<boolean> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function isChangePermitted(): Promise<boolean>;
@@ -447,7 +447,7 @@ declare namespace wallpaper {
    *
    * @param { AsyncCallback<boolean> } callback - the callback of isOperationAllowed.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function isOperationAllowed(callback: AsyncCallback<boolean>): void;
@@ -458,7 +458,7 @@ declare namespace wallpaper {
    *
    * @returns { Promise<boolean> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function isOperationAllowed(): Promise<boolean>;
@@ -470,7 +470,7 @@ declare namespace wallpaper {
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @param { AsyncCallback<void> } callback - the callback of reset.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function reset(wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
@@ -482,7 +482,7 @@ declare namespace wallpaper {
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function reset(wallpaperType: WallpaperType): Promise<void>;
@@ -529,7 +529,7 @@ declare namespace wallpaper {
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @param { AsyncCallback<void> } callback - the callback of setWallpaper.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function setWallpaper(
@@ -546,7 +546,7 @@ declare namespace wallpaper {
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function setWallpaper(source: string | image.PixelMap, wallpaperType: WallpaperType): Promise<void>;
@@ -595,7 +595,7 @@ declare namespace wallpaper {
    * @param { AsyncCallback<image.PixelMap> } callback - the callback of getPixelMap.
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getPixelMap(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;
@@ -608,7 +608,7 @@ declare namespace wallpaper {
    * @returns { Promise<image.PixelMap> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getPixelMap(wallpaperType: WallpaperType): Promise<image.PixelMap>;
@@ -725,7 +725,7 @@ declare namespace wallpaper {
    * @param { 'colorChange' } type - the incoming colorChange table open receiver pick a color change wallpaper wallpaper color changes.
    * @param { function } callback - provides dominant colors of the wallpaper.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function on(type: 'colorChange', callback: (colors: Array<RgbaColor>, wallpaperType: WallpaperType) => void): void;
@@ -779,7 +779,7 @@ declare namespace wallpaper {
    * @param { 'colorChange' } type - incoming colorChange table delete receiver to pick up a color change wallpaper wallpaper color changes
    * @param { function } callback - provides dominant colors of the wallpaper.
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function off(type: 'colorChange', callback?: (colors: Array<RgbaColor>, wallpaperType: WallpaperType) => void): void;
@@ -797,7 +797,6 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 22 static
    */
   function off(
     type: 'wallpaperChange',
