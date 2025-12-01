@@ -3536,10 +3536,10 @@ declare namespace unifiedDataChannel {
   /**
    * Indicates the callback function for deferred and non-blocking data loading.
    * 
-   * @typedef { function } DelayDataLoadHandler
+   * @typedef { function } DelayedDataLoadHandler
    * @param { DataLoadInfo } [acceptableInfo] - Indicates the type and number of data
    *    that can be accepted by the receiver.
-   * @returns { Promise<UnifiedData | null> } - Asynchronously returns the {@link UnifiedData} object
+   * @returns { Promise<UnifiedData | null> } - Asynchronously return the {@link UnifiedData} object
    *    that needs to be loaded.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
@@ -3579,9 +3579,9 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the callback function for deferred and non-blocking data loading.
      * This handler is optional. If it is provided, it will take precedence over
-     *    the synchronous DataLoadHandler. (i.e., DataLoadHandler will be ignored.)
+     *    the synchronous DataLoadHandler. (i.e., DataLoadHandler will be ignored).
      * 
-     * @type { DelayDataLoadHandler }
+     * @type { ?DelayedDataLoadHandler }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice
