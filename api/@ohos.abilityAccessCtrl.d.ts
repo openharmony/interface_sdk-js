@@ -693,10 +693,9 @@ declare namespace abilityAccessCtrl {
      * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
      * @param { 'permissionStateChange' } type - Event type.
      * @param { Array<int> } tokenIDList - A list of permissions that specify the permissions to be listened on.
-     *     It should correspond to the value registered by function of "on", whose type is "permissionStateChange".
+     *     It should correspond to the value registered by function of "onPermissionStateChange".
      * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be
-     *     listened on. It should correspond to the value registered by function of "on", whose type is
-     *     "permissionStateChange".
+     *     listened on. It should correspond to the value registered by function of "onPermissionStateChange".
      * @param { Callback<PermissionStateChangeInfo> } [callback] - Callback for the result from unregistering
      *     permissions.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
@@ -727,7 +726,7 @@ declare namespace abilityAccessCtrl {
      * permissions.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100004 - The API is not used in pair with 'on'.
+     * @throws { BusinessError } 12100004 - The API is not used in pair with "on".
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
@@ -743,11 +742,10 @@ declare namespace abilityAccessCtrl {
      * Unsubscribes from the permission changes of this application.
      *
      * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be
-     *     listened on. It should correspond to the value registered by function of "on", whose type is
-     *     "selfPermissionStateChange".
+     *     listened on. It should correspond to the value registered by function of "onSelfPermissionStateChange".
      * @param { Callback<PermissionStateChangeInfo> } [callback] - Callback for the result from unregistering
      *     permissions.
-     * @throws { BusinessError } 12100004 - The API is not used in pair with 'on'.
+     * @throws { BusinessError } 12100004 - The API is not used in pair with "onSelfPermissionStateChange".
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @since 22 static

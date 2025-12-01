@@ -377,7 +377,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The permissionList is not in the listening list.
-   * @throws { BusinessError } 12100004 - The API is not used in pair with 'on'.
+   * @throws { BusinessError } 12100004 - The API is not used in pair with "on".
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
@@ -401,7 +401,7 @@ declare namespace privacyManager {
    * "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The permissionList is not in the listening list.
-   * @throws { BusinessError } 12100004 - The API is not used in pair with 'on'.
+   * @throws { BusinessError } 12100004 - The API is not used in pair with "onActiveStateChange".
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
