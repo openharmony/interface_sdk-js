@@ -28,6 +28,8 @@ import image from './@ohos.multimedia.image';
 import { FractionStop } from './arkui/component/common';
 /*** endif */
 
+
+
 /**
  * @namespace effectKit
  * @since 9
@@ -122,10 +124,10 @@ declare namespace effectKit {
     * Adds the elliptical gradient blur effect to the filter linked list, and returns the head node of the linked list.
     * @param { double } blurRadius - Blur radius, in pixels. The blur effect is proportional to the configured value.
     *     A larger value indicates a more obvious effect.
-    * @param { Array<double> } center - Set the center point of the ellipse. [0, 0] represents the top-left corner of 
+    * @param { MaskCenter } center - Set the center point of the ellipse. [0, 0] represents the top-left corner of 
     *     the component, and floating-point numbers are allowed. Values exceeding the boundary will be automatically 
     *     truncated during implementation. 
-    * @param { Array<double> } maskRadius - Set the major axis and minor axis of the ellipse. 
+    * @param { MaskRadius } maskRadius - Set the major axis and minor axis of the ellipse. 
     *     A radius of 1 is equal to the height of the component. The value range is [0, 10], 
     *     and floating-point numbers are allowed. Values exceeding the boundary 
     *     will be automatically truncated during implementation. 
@@ -141,7 +143,7 @@ declare namespace effectKit {
     * @systemapi
     * @since 23 dynamic&static
     */
-    ellipticalGradientBlur(blurRadius: double, center: Array<double>, maskRadius: Array<double>, fractionStops: FractionStop[]): Filter;
+    ellipticalGradientBlur(blurRadius: double, center: MaskCenter, maskRadius: MaskRadius, fractionStops: FractionStop[]): Filter;
 
     /**
     * A Brightness effect is added to the image.
@@ -1027,6 +1029,30 @@ declare namespace effectKit {
      */
     VERY_FLOWERY_PICTURE = 3,
   }
+
+/**
+ * The center of the elliptical mask. 
+ * @typedef { [double, double] } MaskCenter
+ * @syscap SystemCapability.Multimedia.Image.Core
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+type MaskCenter = [
+  double,
+  double
+];
+
+/**
+ * The major axis and minor axis of the elliptical mask. 
+ * @typedef { [double, double] } MaskRadius
+ * @syscap SystemCapability.Multimedia.Image.Core
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+type MaskRadius = [
+  double,
+  double
+];
 }
 
 export default effectKit;
