@@ -418,6 +418,38 @@ declare namespace inputMethod {
   function offAttachmentDidFail(callback?: Callback<AttachFailureReason>): void;
 
   /**
+   * The callback of 'imeChange' event.
+   *
+   * @typedef { function } ImeChangeCallback.
+   * @param { InputMethodProperty } inputMethodProperty - the property of current inputmethod.
+   * @param { InputMethodSubtype } inputMethodsubtype - the subtype of current inputmethod.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 static
+   */
+  export type ImeChangeCallback = (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void;
+
+  /**
+   * The callback of 'getLeftTextOfCursor' or 'getRightTextOfCursor' event.
+   *
+   * @typedef { function } GetTextCallback.
+   * @param { int } length - the length of text.
+   * @returns { string } represents the text in edit box.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 static
+   */
+  export type GetTextCallback = (length: int) => string;
+
+  /**
+    * The callback of 'getTextIndexAtCursor' event.
+    *
+    * @typedef { function } GetTextIndexAtCursorCallback.
+    * @returns { int } represents theindex number of text at cursor.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @since 23 static
+    */
+  export type GetTextIndexAtCursorCallback = () => int;
+
+  /**
    * @interface InputMethodSetting
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -772,38 +804,6 @@ declare namespace inputMethod {
      * @since 23 static
      */
     enableInputMethod(bundleName: string, extensionName: string, enabledState: EnabledState): Promise<void>;
-
-    /**
-     * The callback of 'imeChange' event.
-     *
-     * @typedef { function } ImeChangeCallback.
-     * @param { InputMethodProperty } inputMethodProperty - the property of current inputmethod.
-     * @param { InputMethodSubtype } inputMethodsubtype - the subtype of current inputmethod.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 23 static
-     */
-    export type ImeChangeCallback = (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void;
-
-    /**
-     * The callback of 'getLeftTextOfCursor' or 'getRightTextOfCursor' event.
-     *
-     * @typedef { function } GetTextCallback.
-     * @param { int } length - the length of text.
-     * @returns { string } represents the text in edit box.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 23 static
-     */
-    export type GetTextCallback = (length: int) => string;
-
-    /**
-      * The callback of 'getTextIndexAtCursor' event.
-      *
-      * @typedef { function } GetTextIndexAtCursorCallback.
-      * @returns { int } represents theindex number of text at cursor.
-      * @syscap SystemCapability.MiscServices.InputMethodFramework
-      * @since 23 static
-      */
-    export type GetTextIndexAtCursorCallback = () => int;
 
     /**
      * Subscribe input method or subtype change.
