@@ -122,10 +122,10 @@ declare namespace effectKit {
     * Adds the elliptical gradient blur effect to the filter linked list, and returns the head node of the linked list.
     * @param { double } blurRadius - Blur radius, in pixels. The blur effect is proportional to the configured value.
     *     A larger value indicates a more obvious effect.
-    * @param { MaskCenter } center - Set the center point of the ellipse. [0, 0] represents the top-left corner of 
+    * @param { EllipticalMaskCenter } center - Set the center point of the ellipse. [0, 0] represents the top-left corner of 
     *     the component, and floating-point numbers are allowed. Values exceeding the boundary will be automatically 
     *     truncated during implementation. 
-    * @param { MaskRadius } maskRadius - Set the major axis and minor axis of the ellipse. 
+    * @param { EllipticalMaskRadius } maskRadius - Set the major axis and minor axis of the ellipse. 
     *     A radius of 1 is equal to the height of the component. The value range is [0, 10], 
     *     and floating-point numbers are allowed. Values exceeding the boundary 
     *     will be automatically truncated during implementation. 
@@ -141,7 +141,7 @@ declare namespace effectKit {
     * @systemapi
     * @since 23 dynamic&static
     */
-    ellipticalGradientBlur(blurRadius: double, center: MaskCenter, maskRadius: MaskRadius, fractionStops: FractionStop[]): Filter;
+    ellipticalGradientBlur(blurRadius: double, center: EllipticalMaskCenter, maskRadius: EllipticalMaskRadius, fractionStops: FractionStop[]): Filter;
 
     /**
     * A Brightness effect is added to the image.
@@ -1031,12 +1031,12 @@ declare namespace effectKit {
 /**
  * The center of the elliptical mask, 
  * specifying where the ellipse mask is anchored in function 'ellipticalGradientBlur'.
- * @typedef { [double, double] } MaskCenter
+ * @typedef { [double, double] } EllipticalMaskCenter
  * @syscap SystemCapability.Multimedia.Image.Core
  * @systemapi
  * @since 23 dynamic&static
  */
-type MaskCenter = [
+type EllipticalMaskCenter = [
   double,
   double
 ];
@@ -1044,12 +1044,12 @@ type MaskCenter = [
 /**
  * The major axis and minor axis of the elliptical mask
  * used in function 'ellipticalGradientBlur'.
- * @typedef { [double, double] } MaskRadius
+ * @typedef { [double, double] } EllipticalMaskRadius
  * @syscap SystemCapability.Multimedia.Image.Core
  * @systemapi
  * @since 23 dynamic&static
  */
-type MaskRadius = [
+type EllipticalMaskRadius = [
   double,
   double
 ];
