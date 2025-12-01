@@ -5330,6 +5330,34 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createPixelMapFromSurfaceSync(surfaceId: string): PixelMap;
 
   /**
+   * Creates a PixelMap object from Surface ID and rotates it according to the rotate angle carried by the Surface.
+   *
+   * @param { string } surfaceId - ID of the Surface.
+   * @param { boolean } rotate - Whether to rotate the PixelMap or not. If true, the PixelMap will be rotated by the same
+   *     rotate angle carried by the Surface but in a reversed direction; if false, the PixelMap will not be rotated.
+   * @returns { Promise<PixelMap> } A Promise of PixelMap instance if the operation is successful. Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 62980105 - Failed to get the data from Surface.
+   * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 23 dynamic&static
+   */
+  function createPixelMapFromSurface(surfaceId: string, rotate: boolean): Promise<PixelMap>;
+
+  /**
+   * Creates a PixelMap object from Surface ID and rotates it according to the rotate angle carried by the Surface.
+   *
+   * @param { string } surfaceId - ID of the Surface.
+   * @param { boolean } rotate - Whether to rotate the PixelMap or not. If true, the PixelMap will be rotated by the same
+   *     rotate angle carried by the Surface but in a reversed direction; if false, the PixelMap will not be rotated.
+   * @returns { PixelMap } A PixelMap instance if the operation is successful. Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 62980105 - Failed to get the data from Surface.
+   * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 23 dynamic&static
+   */
+  function createPixelMapFromSurfaceSync(surfaceId: string, rotate: boolean): PixelMap;
+
+  /**
    * Creates an ImageSource instance based on the URI.
    *
    * @param { string } uri Image source URI.
