@@ -125,7 +125,7 @@ declare namespace effectKit {
     * @param { Array<double> } center - Set the center point of the ellipse. [0, 0] represents the top-left corner of 
     *     the component, and floating-point numbers are allowed. Values exceeding the boundary will be automatically 
     *     truncated during implementation. 
-    * @param { Array<double, double> } maskRadius - Set the major axis and minor axis of the ellipse. 
+    * @param { Array<double> } maskRadius - Set the major axis and minor axis of the ellipse. 
     *     A radius of 1 is equal to the height of the component. The value range is [0, 10], 
     *     and floating-point numbers are allowed. Values exceeding the boundary 
     *     will be automatically truncated during implementation. 
