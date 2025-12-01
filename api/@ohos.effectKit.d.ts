@@ -1029,7 +1029,8 @@ declare namespace effectKit {
   }
 
 /**
- * The center of the elliptical mask. 
+ * The center of the elliptical mask, 
+ * specifying where the ellipse mask is anchored in function 'ellipticalGradientBlur'.
  * @typedef { [double, double] } MaskCenter
  * @syscap SystemCapability.Multimedia.Image.Core
  * @systemapi
@@ -1041,7 +1042,8 @@ type MaskCenter = [
 ];
 
 /**
- * The major axis and minor axis of the elliptical mask. 
+ * The major axis and minor axis of the elliptical mask
+ * used in function 'ellipticalGradientBlur'.
  * @typedef { [double, double] } MaskRadius
  * @syscap SystemCapability.Multimedia.Image.Core
  * @systemapi
