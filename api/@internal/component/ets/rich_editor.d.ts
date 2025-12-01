@@ -4250,6 +4250,19 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   singleLine(isEnable: boolean | undefined): RichEditorAttribute;
 
   /**
+   * Used to set the selected drag preview style.
+   *
+   * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+   *     If set undefined will reset the style.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): RichEditorAttribute;
+
+  /**
    * Whether to compress punctuation at the beginning of line.
    *
    * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.

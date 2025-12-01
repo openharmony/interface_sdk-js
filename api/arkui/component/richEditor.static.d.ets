@@ -24,7 +24,7 @@ import { FontStyle, FontWeight, TextAlign, WordBreak, LineBreakStrategy, ImageSp
 import { DecorationStyleInterface, StyledString, MutableStyledString } from './styledString';
 import { Resource } from './../../../api/global/resource';
 import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
-import { DecorationStyleResult, TextRange, MenuType, TextEditControllerEx, LayoutManager, PreviewText, StyledStringController, StyledStringChangedListener, TextDataDetectorConfig, OnDidChangeCallback, EditMenuOptions, KeyboardAppearance, AccessibilitySpanOptions, TextDirection } from './textCommon';
+import { DecorationStyleResult, TextRange, MenuType, TextEditControllerEx, LayoutManager, PreviewText, StyledStringController, StyledStringChangedListener, TextDataDetectorConfig, OnDidChangeCallback, EditMenuOptions, KeyboardAppearance, AccessibilitySpanOptions, TextDirection, SelectedDragPreviewStyle } from './textCommon';
 import { GestureEvent } from './gesture';
 import { EnterKeyType, SubmitEvent } from './textInput';
 import { LengthMetrics, ColorMetrics } from '../Graphics';
@@ -2185,6 +2185,16 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */    
     default attributeModifier(modifier: AttributeModifier<RichEditorAttribute> | AttributeModifier<CommonMethod> |
         undefined): this;
+    /**
+     * Used to set the selected drag preview style.
+     *
+     * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+     *     If set undefined will reset the style.
+     * @returns { RichEditorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): this;
 }
 /**
  * the callback of cut event.
