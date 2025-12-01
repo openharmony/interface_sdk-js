@@ -2196,6 +2196,13 @@ export declare class WebContextMenuResult {
      * @since 22 static
      */
     pasteAndMatchStyle(): void;
+    /**
+     * Request to fill the password vault contents into the input field.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    requestPasswordAutoFill(): void;
 }
 /**
  * Encompassed message information as parameters to {@link onConsole} method.
