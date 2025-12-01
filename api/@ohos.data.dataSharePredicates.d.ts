@@ -763,9 +763,22 @@ declare namespace dataSharePredicates {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     in(field: string, value: Array<ValueType>): DataSharePredicates;
+
+    /**
+     * Configure {@code DataSharePredicates} to match the specified field whose data type is ValueType array and values
+     * are within a given range.
+     * Currently only used for RDB and KVDB(schema).
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
+     * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @stagemodelonly
+     * @since 22 static
+     */
+    inValues(field: string, value: Array<ValueType>): DataSharePredicates;
 
     /**
      * Configure {@code DataSharePredicates} to match the specified field whose data type is String array and values
@@ -793,6 +806,33 @@ declare namespace dataSharePredicates {
      * @since 23 dynamic
      */
     notIn(field: string, value: Array<ValueType>): DataSharePredicates;
+
+    /**
+     * Configure {@code DataSharePredicates} to match the specified field whose data type is String array and values
+     * are out of a given range.
+     * Currently only used for RDB and KVDB(schema).
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
+     * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 22 static
+     */
+    /**
+     * Configure {@code DataSharePredicates} to match the specified field whose data type is String array and values
+     * are out of a given range.
+     * Currently only used for RDB and KVDB(schema).
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
+     * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    notInValues(field: string, value: Array<ValueType>): DataSharePredicates;
 
     /**
      * Configure {@code DataSharePredicates} Creates a query condition using the specified key prefix.
