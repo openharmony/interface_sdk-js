@@ -1345,6 +1345,51 @@ declare namespace window {
   }
 
   /**
+   * The position and size of the window rectangle, measured in vp.
+   *
+   * @interface RectInVP
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 23 dynamic&static
+   */
+  interface RectInVP {
+    /**
+     * The left of the window rectangle, measured in vp.
+     *
+     * @type { float }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    left: float;
+
+    /**
+     * The top of the window rectangle, measured in vp.
+     *
+     * @type { float }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    top: float;
+
+    /**
+     * The width of the window rectangle, measured in vp.
+     *
+     * @type { float }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    width: float;
+
+    /**
+     * The height of the window rectangle, measured in vp.
+     *
+     * @type { float }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    height: float;
+  }
+
+  /**
    * Describes the location of a window or component.
    *
    * @interface Position
@@ -1609,6 +1654,60 @@ declare namespace window {
      * @since 22 static
      */
     bottomRect: Rect;
+  }
+
+  /**
+   * Avoid area for arkUI environment variable, measured in vp.
+   *
+   * @interface UIEnvAvoidAreaVP
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 23 dynamic&static
+   */
+  interface UIEnvAvoidAreaVP {
+    /**
+     * Whether avoidArea is visible on screen
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    visible: boolean;
+
+    /**
+     * Rectangle on the left of the screen, measured in vp.
+     *
+     * @type { RectInVP }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    leftRect: RectInVP;
+
+    /**
+     * Rectangle on the top of the screen, measured in vp.
+     *
+     * @type { RectInVP }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    topRect: RectInVP;
+
+    /**
+     * Rectangle on the right of the screen, measured in vp.
+     *
+     * @type { RectInVP }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    rightRect: RectInVP;
+
+    /**
+     * Rectangle on the bottom of the screen, measured in vp.
+     *
+     * @type { RectInVP }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    bottomRect: RectInVP;
   }
 
   /**
@@ -3070,6 +3169,96 @@ declare namespace window {
      * @since 22 static
      */
     area: AvoidArea
+  }
+
+  /**
+   * Avoid area info for arkUI environment variable, measured in px.
+   *
+   * @interface UIEnvWindowAvoidAreaInfoPX
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 23 dynamic&static
+   */
+  interface UIEnvWindowAvoidAreaInfoPX {
+    /**
+     * Avoid area of statusBar, measured in px.
+     *
+     * @type { AvoidArea }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    statusBar: AvoidArea;
+
+    /**
+     * Avoid area of cutout, measured in px.
+     *
+     * @type { AvoidArea }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    cutout: AvoidArea;
+
+    /**
+     * Avoid area of keyboard, measured in px.
+     *
+     * @type { AvoidArea }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    keyboard: AvoidArea;
+
+    /**
+     * Avoid area of navigation indicator, measured in px.
+     *
+     * @type { AvoidArea }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    navigationIndicator: AvoidArea;
+  }
+
+  /**
+   * Avoid area info for arkUI environment variable, measured in vp.
+   *
+   * @interface UIEnvWindowAvoidAreaInfoVP
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 23 dynamic&static
+   */
+  interface UIEnvWindowAvoidAreaInfoVP {
+    /**
+     * Avoid area of statusBar, measured in vp.
+     *
+     * @type { UIEnvAvoidAreaVP }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    statusBar: UIEnvAvoidAreaVP;
+
+    /**
+     * Avoid area of cutout, measured in vp.
+     *
+     * @type { UIEnvAvoidAreaVP }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    cutout: UIEnvAvoidAreaVP;
+
+    /**
+     * Avoid area of keyboard, measured in vp.
+     *
+     * @type { UIEnvAvoidAreaVP }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    keyboard: UIEnvAvoidAreaVP;
+
+    /**
+     * Avoid area of navigation indicator, measured in vp.
+     *
+     * @type { UIEnvAvoidAreaVP }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    navigationIndicator: UIEnvAvoidAreaVP;
   }
 
   /**

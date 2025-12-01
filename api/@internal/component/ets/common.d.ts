@@ -801,7 +801,21 @@ declare enum SystemProperties {
   * @atomicservice
   * @since 22 dynamic
   */
-  BREAK_POINT = 'system.arkui.breakpoint'
+  BREAK_POINT = 'system.arkui.breakpoint',
+  /**
+   * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in vp.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 dynamic
+   */
+  WINDOW_AVOID_AREA = 'system.window.avoidarea',
+  /**
+   * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in px.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 dynamic
+   */
+  WINDOW_AVOID_AREA_PX = 'system.window.avoidarea.px',
 };
 
 /**
