@@ -34,10 +34,10 @@ declare namespace mindSporeLite {
    * @param { string } model - model indicates model path to be loaded
    * @param { Context } context - context indicates model context information
    * @returns { Promise<Model> } the promise returned by the function.
-   * @throws { BusinessError} 1000000 - Model path error. Possible causes: 1. The model path is null; 2. The model path does not exist.
-   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
-   * @throws { BusinessError} 1000002 - Failed to create native model. Possible causes: 1. Insufficient permission to access the model path; 2. The model file is corrupted.
-   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd.
+   * @throws { BusinessError} 1000000 - Model path error. Possible causes: 1. The model path is null; 2. The model path does not exist. [staticonly]
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect. [staticonly]
+   * @throws { BusinessError} 1000002 - Failed to create native model. Possible causes: 1. Insufficient permission to access the model path; 2. The model file is corrupted. [staticonly]
+   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd. [staticonly]
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
@@ -51,10 +51,10 @@ declare namespace mindSporeLite {
    * Create a Model instance from file path.
    * @param { string } model - model indicates model path to be loaded
    * @param { Callback<Model> } callback - the callback of model
-   * @throws { BusinessError} 1000000 - Model path error. Possible causes: 1. The model path is null; 2. The model path does not exist.
-   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
-   * @throws { BusinessError} 1000002 - Failed to create native model. Possible causes: 1. Insufficient permission to access the model path; 2. The model file is corrupted.
-   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd.
+   * @throws { BusinessError} 1000000 - Model path error. Possible causes: 1. The model path is null; 2. The model path does not exist. [staticonly]
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect. [staticonly]
+   * @throws { BusinessError} 1000002 - Failed to create native model. Possible causes: 1. Insufficient permission to access the model path; 2. The model file is corrupted. [staticonly]
+   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd. [staticonly]
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
@@ -68,10 +68,10 @@ declare namespace mindSporeLite {
    * @param { string } model - model indicates model path to be loaded
    * @param { Context } context - context indicates model context information
    * @param { Callback<Model> } callback - the callback of model
-   * @throws { BusinessError} 1000000 - Model path error. Possible causes: 1. The model path is null; 2. The model path does not exist.
-   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
-   * @throws { BusinessError} 1000002 - Failed to create native model. Possible causes: 1. Insufficient permission to access the model path; 2. The model file is corrupted.
-   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd.
+   * @throws { BusinessError} 1000000 - Model path error. Possible causes: 1. The model path is null; 2. The model path does not exist. [staticonly]
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect. [staticonly]
+   * @throws { BusinessError} 1000002 - Failed to create native model. Possible causes: 1. Insufficient permission to access the model path; 2. The model file is corrupted. [staticonly]
+   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd. [staticonly]
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
@@ -86,10 +86,10 @@ declare namespace mindSporeLite {
    * @param { ArrayBuffer } model - model indicates model buffer to be loaded
    * @param { Context } [context] - context indicates model context information
    * @returns { Promise<Model> } the promise returned by the function.
-   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
-   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd.
-   * @throws { BusinessError} 1000004 - Model buffer error. Possible causes: 1. The buffer size is 0; 2. The buffer is a null pointer.
-   * @throws { BusinessError} 1000005 - Failed to create native model from buffer. Possible causes: 1. The buffer size is incorrect; 2. The buffer file is damaged.
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect. [staticonly]
+   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd. [staticonly]
+   * @throws { BusinessError} 1000004 - Model buffer error. Possible causes: 1. The buffer size is 0; 2. The buffer is a null pointer. [staticonly]
+   * @throws { BusinessError} 1000005 - Failed to create native model from buffer. Possible causes: 1. The buffer size is incorrect; 2. The buffer file is damaged. [staticonly]
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
@@ -103,10 +103,10 @@ declare namespace mindSporeLite {
    * Create a Model instance from buffer
    * @param { ArrayBuffer } model - model indicates model buffer to be loaded
    * @param { Callback<Model> } callback - the callback of model
-   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
-   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd.
-   * @throws { BusinessError} 1000004 - Model buffer error. Possible causes: 1. The buffer size is 0; 2. The buffer is a null pointer.
-   * @throws { BusinessError} 1000005 - Failed to create native model from buffer. Possible causes: 1. The buffer size is incorrect; 2. The buffer file is damaged.
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect. [staticonly]
+   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd. [staticonly]
+   * @throws { BusinessError} 1000004 - Model buffer error. Possible causes: 1. The buffer size is 0; 2. The buffer is a null pointer. [staticonly]
+   * @throws { BusinessError} 1000005 - Failed to create native model from buffer. Possible causes: 1. The buffer size is incorrect; 2. The buffer file is damaged. [staticonly]
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
@@ -120,10 +120,10 @@ declare namespace mindSporeLite {
    * @param { ArrayBuffer } model - model indicates model buffer to be loaded
    * @param { Context } context - context indicates model context information
    * @param { Callback<Model> } callback - the callback of model
-   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
-   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd.
-   * @throws { BusinessError} 1000004 - Model buffer error. Possible causes: 1. The buffer size is 0; 2. The buffer is a null pointer.
-   * @throws { BusinessError} 1000005 - Failed to create native model from buffer. Possible causes: 1. The buffer size is incorrect; 2. The buffer file is damaged.
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect. [staticonly]
+   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd. [staticonly]
+   * @throws { BusinessError} 1000004 - Model buffer error. Possible causes: 1. The buffer size is 0; 2. The buffer is a null pointer. [staticonly]
+   * @throws { BusinessError} 1000005 - Failed to create native model from buffer. Possible causes: 1. The buffer size is incorrect; 2. The buffer file is damaged. [staticonly]
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
@@ -138,8 +138,8 @@ declare namespace mindSporeLite {
    * @param { int } model - model indicates model file description to be loaded
    * @param { Context } [context] - context indicates model context information
    * @returns { Promise<Model> } the promise returned by the function.
-   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
-   * @throws { BusinessError} 1000007 - Failed to create native model from file descriptor (fd). Possible causes: 1. The file descriptor (fd) is incorrect; 2. The model file is damaged.
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect. [staticonly]
+   * @throws { BusinessError} 1000007 - Failed to create native model from file descriptor (fd). Possible causes: 1. The file descriptor (fd) is incorrect; 2. The model file is damaged. [staticonly]
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
@@ -153,8 +153,8 @@ declare namespace mindSporeLite {
    * Create a Model instance from file description
    * @param { int } model - model indicates model file description to be loaded
    * @param { Callback<Model> } callback - the callback of model
-   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
-   * @throws { BusinessError} 1000007 - Failed to create native model from file descriptor (fd). Possible causes: 1. The file descriptor (fd) is incorrect; 2. The model file is damaged.
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect. [staticonly]
+   * @throws { BusinessError} 1000007 - Failed to create native model from file descriptor (fd). Possible causes: 1. The file descriptor (fd) is incorrect; 2. The model file is damaged. [staticonly]
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
@@ -168,8 +168,8 @@ declare namespace mindSporeLite {
    * @param { int } model - model indicates model file description to be loaded
    * @param { Context } context - context indicates model context information
    * @param { Callback<Model> } callback - the callback of model
-   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
-   * @throws { BusinessError} 1000007 - Failed to create native model from file descriptor (fd). Possible causes: 1. The file descriptor (fd) is incorrect; 2. The model file is damaged.
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect. [staticonly]
+   * @throws { BusinessError} 1000007 - Failed to create native model from file descriptor (fd). Possible causes: 1. The file descriptor (fd) is incorrect; 2. The model file is damaged. [staticonly]
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
@@ -185,9 +185,9 @@ declare namespace mindSporeLite {
    * @param { TrainCfg } [trainCfg] - model train configuration
    * @param { Context } [context] - model build context
    * @returns { Promise<Model> } the promise of the built model
-   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
-   * @throws { BusinessError} 1000008 - Invalid model path in training. Possible causes: 1. The model path is null; 2. The model path does not exist.
-   * @throws { BusinessError} 1000009 - Failed to create native training model from path. Possible causes: 1. The model file is incorrect; 2. The training configuration is incorrect.
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect. [staticonly]
+   * @throws { BusinessError} 1000008 - Invalid model path in training. Possible causes: 1. The model path is null; 2. The model path does not exist. [staticonly]
+   * @throws { BusinessError} 1000009 - Failed to create native training model from path. Possible causes: 1. The model file is incorrect; 2. The training configuration is incorrect. [staticonly]
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
@@ -204,9 +204,9 @@ declare namespace mindSporeLite {
    * @param { TrainCfg } [trainCfg] - model train configuration
    * @param { Context } [context] - model build context
    * @returns { Promise<Model> } the promise of the built model
-   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
-   * @throws { BusinessError} 1000010 - Invalid model buffer in training. Possible causes: 1. The model buffer size is incorrect; 2. The model buffer is null.
-   * @throws { BusinessError} 1000011 - Failed to create native training model from buffer. Possible causes: 1. The model buffer is incorrect; 2. The training configuration is incorrect.
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect. [staticonly]
+   * @throws { BusinessError} 1000010 - Invalid model buffer in training. Possible causes: 1. The model buffer size is incorrect; 2. The model buffer is null. [staticonly]
+   * @throws { BusinessError} 1000011 - Failed to create native training model from buffer. Possible causes: 1. The model buffer is incorrect; 2. The training configuration is incorrect. [staticonly]
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
@@ -223,8 +223,8 @@ declare namespace mindSporeLite {
    * @param { TrainCfg } [trainCfg] - model train configuration
    * @param { Context } [context] - model build context
    * @returns { Promise<Model> } the promise of the built model
-   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
-   * @throws { BusinessError} 1000012 - Failed to create native training model from file descriptor (fd). Possible causes: 1. The model file or file descriptor (fd) is incorrect; 2. The training configuration is incorrect.
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect. [staticonly]
+   * @throws { BusinessError} 1000012 - Failed to create native training model from file descriptor (fd). Possible causes: 1. The model file or file descriptor (fd) is incorrect; 2. The training configuration is incorrect. [staticonly]
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
@@ -966,7 +966,7 @@ declare namespace mindSporeLite {
     /**
      * Set MSTensor data
      * @param { ArrayBuffer } inputArray - indicates the buffer of tensor
-     * @throws { BusinessError} 1000013 - Failed to set MSTensor data. Possible causes: 1. The input array buffer size is incorrect.
+     * @throws { BusinessError} 1000013 - Failed to set MSTensor data. Possible causes: 1. The input array buffer size is incorrect. [staticonly]
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
