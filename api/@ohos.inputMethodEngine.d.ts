@@ -488,6 +488,7 @@ declare namespace inputMethodEngine {
    * @param { KeyboardController } kbController - key board controller.
    * @param { InputClient } inputClient - input client.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @stagemodelonly
    * @since 23 static
    */
   export type IMAInputStartCallback = (kbController: KeyboardController, inputClient: InputClient) => void;
@@ -3694,10 +3695,10 @@ declare namespace inputMethodEngine {
    * Callback function on receiving a custom message.
    * 
    * @typedef { function } OnMessageCallback.
-   * @param { string } msgId - the identifier of the custom message.
+   * @param { string } msgId - the identifier of the message.
    * @param { ArrayBuffer } [msgParam] - the parameter of the custom message.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   type OnMessageCallback = (msgId: string, msgParam?: ArrayBuffer) => void;
 
