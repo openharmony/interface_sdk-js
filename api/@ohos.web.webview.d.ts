@@ -10455,7 +10455,7 @@ declare namespace webview {
     /**
      * Gets whether the current cookie is marked as Secure.
      *
-     * @type { boolean } Ture if the cookie is secure.
+     * @type { boolean } True if the cookie is secure.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */
