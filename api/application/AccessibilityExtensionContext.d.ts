@@ -1510,6 +1510,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   executeAction(action: AccessibilityAction, parameters?: Parameter): Promise<void>;
 
@@ -1736,6 +1737,7 @@ interface AccessibilitySpan {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 20 dynamic
+ * @since 22 static
  */
 export declare class Parameter {
   /**
@@ -1745,6 +1747,7 @@ export declare class Parameter {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   setText?: string;
   /**
@@ -1754,6 +1757,7 @@ export declare class Parameter {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   selectTextBegin?: string;
   /**
@@ -1763,6 +1767,7 @@ export declare class Parameter {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   selectTextEnd?: string;
   /**
@@ -1772,6 +1777,7 @@ export declare class Parameter {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   selectTextInForWard?: boolean;
   /**
@@ -1781,6 +1787,7 @@ export declare class Parameter {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   offset?: string;
   /**
@@ -1790,6 +1797,7 @@ export declare class Parameter {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   spanId?: string;
   /**
@@ -1799,6 +1807,7 @@ export declare class Parameter {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   scrollType?: string;
 }
