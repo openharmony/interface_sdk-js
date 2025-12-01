@@ -622,7 +622,15 @@ export interface NotificationRequest {
    * @since 8 dynamic
    * @since 22 static
    */
-  readonly notificationFlags?: NotificationFlags;
+  /**
+   * Notification flags.
+   *
+   * @type { ?NotificationFlags }
+   * @syscap SystemCapability.Notification.Notification
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  notificationFlags?: NotificationFlags;
 
   /**
    * WantAgent instance to which the notification will be redirected when it is removed.
