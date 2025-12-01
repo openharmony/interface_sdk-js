@@ -6643,22 +6643,26 @@ export declare interface PopupMaskType {
  */
 export declare interface PopupBorderLinearGradient {
     /**
-     * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
+     * direction: Direction of Linear Gradient.
      *
      * @type { ?GradientDirection }
+     * @default GradientDirection.Bottom
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
     direction?: GradientDirection;
     /**
-     * Defines color description for gradients.
-     * double: The position of the color stop. The value range is 0 to 1.
+     * Sets the colors and positions of the gradient.
      *
-     * @type { Array<[ResourceColor, double]> }
+     * When the color setting is undefined, use the default value Color.Black.
+     * The position setting ranges from 0 to 1.
+     *
+     * @type { Array<[ResourceColor | undefined, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    colors: Array<[ResourceColor, double]>;
+    colors: Array<[ResourceColor | undefined, double]>;
 }
 /**
  * Popup common options
