@@ -70,6 +70,53 @@ declare namespace bundleManager {
   }
 
   /**
+   * Used to query the enumeration value of bundleInfo. Multiple values can be passed in the form.
+   * Multiple value input, such as DEFAULT | WITH_APPLICATION_INFO.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  export enum BundleInfoGetFlag {
+    /**
+     * Used to obtain the default info
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    DEFAULT = 0,
+
+    /**
+     * Used to obtain application info
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    WITH_APPLICATION_INFO = 1 << 0,
+
+    /**
+     * Used to obtain the signature info
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    WITH_SIGNATURE_INFO = 1 << 1,
+
+    /**
+     * Used to obtained the application icon info
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    WITH_APPLICATION_ICON_INFO = 1 << 2
+  }
+
+  /**
    * Contains resource descriptor information.
    *
    * @typedef Resource
@@ -404,6 +451,17 @@ declare namespace bundleManager {
      * @since 20
      */
     readonly iconId: number;
+
+    /**
+     * Indicates the iconData of the application
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    readonly iconData: string;
 
     /**
      * Process of application, if user do not set it ,the value equal bundleName
@@ -2330,6 +2388,24 @@ declare namespace bundleManager {
    * @since 20
    */
   function getInstalledBundleList(admin: Want, accountId: number): Promise<Array<BundleInfo>>;
+
+  /**
+   * Get the list of install bundles in the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { int } accountId - accountId indicates the local ID of the OS account.
+   * @param { int } bundleInfoGetFlag - {@link BundleInfoGetFlag} - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
+   * @returns { Promise<Array<BundleInfo>> } The result of getting the bundle info.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function getInstalledBundleList(admin: Want, accountId: int, bundleInfoGetFlag: int): Promise<Array<BundleInfo>>;
   
   /**
    * Add the list of app distribution types can be installed in the device.
