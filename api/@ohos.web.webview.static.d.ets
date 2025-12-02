@@ -230,7 +230,7 @@ declare namespace webview {
         /**
          * ArkWeb auto use the newest ArkWeb Engine version.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         ARKWEB_EVERGREEN = 99999
     }
@@ -2199,6 +2199,15 @@ declare namespace webview {
          * @since 22 static
          */
         static getActiveWebEngineVersion(): ArkWebEngineVersion;
+
+        /**
+        * Check if the currently active ArkWeb engine is Evergreen.
+        * @returns {boolean} true means the application is using the Evergreen Web Engine, false means not.
+        * @static
+        * @syscap SystemCapability.Web.Webview.Core
+        * @since 23 static
+        */
+        static isActiveWebEngineEvergreen(): boolean;
 
         /**
          * Checks whether the web page can go forward.

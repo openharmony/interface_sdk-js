@@ -336,7 +336,7 @@ declare namespace webview {
     /**
      * ArkWeb auto use the newest ArkWeb Engine version.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     ARKWEB_EVERGREEN = 99999
   }
@@ -3845,7 +3845,7 @@ declare namespace webview {
      * @returns {boolean} true means the application is using the Evergreen Web Engine, false means not.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     static isActiveWebEngineEvergreen(): boolean;
 
