@@ -269,7 +269,7 @@ declare namespace uiExtension {
      * Creates a subwindow for this window proxy. This API uses a promise to return the result.
      *
      * @param { string } name - Name of the subwindow.
-     * @param { window.SubWindowOptions } subWindowOptions - Parameters used for creating the subwindow.
+     * @param { window.SubWindowOptions } subWindowConfig - Configuration parameters for creating the subwindow.
      * @param { boolean } isFollowCreatorLifecycle - Whether the lifecycle of the subwindow follows creator of
      *     subwindow. If true, when the creator goes to background, the subwindow will also go to background, when the
      *     creator returns to foreground, the subwindow will also return to foreground. If false, the subwindow will
@@ -284,7 +284,7 @@ declare namespace uiExtension {
      * @stagemodelonly
      * @since 22 dynamic&static
      */
-    createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions,
+    createSubWindowWithOptions(name: string, subWindowConfig: window.SubWindowOptions,
         isFollowCreatorLifecycle: boolean): Promise<window.Window>;
 
     /**
