@@ -1131,9 +1131,24 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
    */
   function getAVCastController(sessionId: string, callback: AsyncCallback<AVCastController>): void;
+
+    /**
+   * Register a callback to retrieve an avsession cast controller.
+   * This function can be used at both side to get the same controller to do the playback control.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { string } sessionId Specifies the sessionId to get controller.
+   * @param { AsyncCallback<AVCastController | undefined> } callback - async callback for the AVCastController.
+   * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws {BusinessError} 6600101 - Session service exception
+   * @throws {BusinessError} 6600102 - session does not exist
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 22 static
+   */
+  function getAVCastController(sessionId: string, callback: AsyncCallback<AVCastController | undefined>): void;
 
   /**
    * Get the current session's remote controller client.
@@ -1150,9 +1165,24 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
    */
   function getAVCastController(sessionId: string): Promise<AVCastController>;
+
+  /**
+   * Get the current session's remote controller client.
+   * If the avsession is not under casting state, the controller will return undefined.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { string } sessionId Specifies the sessionId to get controller.
+   * @returns { Promise<AVCastController | undefined> } Promise for the AVCastController
+   * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws {BusinessError} 6600101 - server exception
+   * @throws {BusinessError} 6600102 - session does not exist
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 22 static
+   */
+  function getAVCastController(sessionId: string): Promise<AVCastController | undefined>;
 
   /**
    * Cast resource to remote device.
@@ -1982,9 +2012,19 @@ declare namespace avSession {
      * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10 dynamic
-     * @since 22 static
      */
     getAVCastController(callback: AsyncCallback<AVCastController>): void;
+
+    /**
+     * Get the cast controller when the session is casted to remote device.
+     * If the avsession is not under casting state, the controller will return undefined.
+     * @param { AsyncCallback<AVCastController | undefined> } callback - async callback for the AVCastController.
+     * @throws {BusinessError} 6600102 - The session does not exist
+     * @throws {BusinessError} 6600109 - The remote connection is not established
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 22 static
+     */
+    getAVCastController(callback: AsyncCallback<AVCastController | undefined>): void;
 
     /**
      * Get the cast controller when the session is casted to remote device.
@@ -2004,9 +2044,20 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     getAVCastController(): Promise<AVCastController>;
+
+    /**
+     * Get the cast controller when the session is casted to remote device.
+     * If the avsession is not under casting state, the controller will return undefined.
+     * @returns { Promise<AVCastController | undefined> } Promise for the AVCastController
+     * @throws {BusinessError} 6600102 - The session does not exist
+     * @throws {BusinessError} 6600109 - The remote connection is not established
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 22 static
+     */
+    getAVCastController(): Promise<AVCastController | undefined>;
 
     /**
      * Get output device information
