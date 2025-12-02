@@ -1682,7 +1682,7 @@ declare namespace backgroundTaskManager {
     SUBMODE_VOICE_CHAT_NORMAL_NOTIFICATION = 8,
 
     /**
-     * submode of 'MODE_SPECIAL_SCENARIO_PROCESSING'.
+     * submode of 'MODE_SPECIAL_SCENARIO_PROCESSING', used for background media process scenarios.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
@@ -1690,7 +1690,7 @@ declare namespace backgroundTaskManager {
     SUBMODE_MEDIA_PROCESS_NORMAL_NOTIFICATION = 9,
 
     /**
-     * submode of 'MODE_MULTI_DEVICE_CONNECTION'.
+     * submode of 'MODE_SPECIAL_SCENARIO_PROCESSING', used for background video broadcast scenarios.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
