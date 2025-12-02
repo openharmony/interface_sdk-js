@@ -565,11 +565,11 @@ declare enum ColoringStrategy {
    * Child components can use this color through Color('foreground').
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
    * @systemapi
+   * @stagemodelonly
    * @since 23 dynamic
    */
-  CONTRAST = 'contrast',
+  CONTRAST = 'contrast'
 }
 
 /**
