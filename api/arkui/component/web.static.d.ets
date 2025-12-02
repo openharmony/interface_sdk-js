@@ -3965,6 +3965,141 @@ export declare interface OnWindowNewEvent {
     handler: ControllerHandler;
 }
 /**
+ * Enum type for navigationPolicy in OnWindowNewExtEvent.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 static
+ */
+export declare enum NavigationPolicy {
+    /**
+     * NEW POPUP window.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    NEW_POPUP = 0,
+    /**
+     * Shift key when clicking.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    NEW_WINDOW = 1,
+    /**
+     * Middle mouse button or meta/ctrl key when clicking.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    NEW_BACKGROUND_TAB = 2,
+    /**
+     * Shift key + Middle mouse button or meta/ctrl key when clicking.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    NEW_FOREGROUND_TAB = 3
+}
+/**
+ * Defines the window features info for window.open.
+ *
+ * @interface WindowFeatures
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 static
+ */
+export declare interface WindowFeatures {
+    /**
+     * The requested height of the containing window.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    height: double;
+    /**
+     * The requested width of the containing window.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    width: double;
+    /**
+     * The requested x-coordinate of the containing window.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    x: double;
+    /**
+     * The requested y-coordinate of the containing window.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    y: double;
+}
+/**
+ * Defines the triggered callback when web page requires the user to create a window.
+ *
+ * @typedef OnWindowNewExtEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 static
+ */
+export declare interface OnWindowNewExtEvent {
+    /**
+     * true indicates the request to create a dialog and false indicates a new tab.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    isAlert: boolean;
+    /**
+     * true indicates that it is triggered by the user, and false indicates that it is triggered by a non-user.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    isUserTrigger: boolean;
+    /**
+     * Destination URL.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    targetUrl: string;
+    /**
+     * Lets you set the WebviewController instance for creating a new window.
+     *
+     * @type { ControllerHandler }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    handler: ControllerHandler;
+    /**
+     * Contains the attributes that a webpage requests from its containing web view.
+     *
+     * @type { WindowFeatures }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    windowFeatures: WindowFeatures;
+    /**
+     * The navigation policy causing the new web view to be created.
+     *
+     * @type { NavigationPolicy }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    navigationPolicy: NavigationPolicy;
+}
+/**
  * Defines the triggered callback when the application receive an new url of an apple-touch-icon.
  *
  * @typedef OnTouchIconUrlReceivedEvent
@@ -5294,6 +5429,25 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 22 static
      */
     default onWindowNew(callback: Callback<OnWindowNewEvent> | undefined): this;
+    /**
+     * Triggered when web page requires the user to create a window.
+     * If the {@link setWebController} interface is not called, the render process will be blocked.
+     * If no new window is created, it is set to null when calling the {@link setWebController} interface,
+     * informing the Web that no new window is created.
+     * The new window should avoid being directly overlaid on the original Web component,
+     * and its URL (such as address bar) should be clearly displayed in the same form as the main page to
+     * prevent users from being confused. If credible URL visualization management cannot be achieved,
+     * it is necessary to consider prohibiting the creation of new windows. It should be noted that the source of
+     * the new window request cannot be traced reliably, and it may be initiated by a third party iframe.
+     * The application needs to take defensive measures such as sandbox isolation and permission restriction
+     * by default to ensure security.
+     * @param { Callback<OnWindowNewExtEvent> | undefined } callback The triggered callback when web page requires
+     *     the user to create a window.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    default onWindowNewExt(callback: Callback<OnWindowNewExtEvent> | undefined): this;
     /**
      * Notifies the user of the window closing request.
      * Like {@link onWindowNew}, from a security perspective, applications should ensure that users can know that
