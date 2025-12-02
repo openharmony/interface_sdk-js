@@ -436,7 +436,13 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   */
+  /**
+   * Overlay notification icon.
+   *
+   * @type { ?image.PixelMap }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 23 dynamic&static
    */
   overlayIcon?: image.PixelMap;
 
