@@ -1690,7 +1690,7 @@ declare namespace backgroundTaskManager {
     SUBMODE_MEDIA_PROCESS_NORMAL_NOTIFICATION = 9,
 
     /**
-     * submode of 'MODE_SPECIAL_SCENARIO_PROCESSING'.
+     * submode of 'MODE_MULTI_DEVICE_CONNECTION'.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
