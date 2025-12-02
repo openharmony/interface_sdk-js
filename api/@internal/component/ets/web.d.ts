@@ -5524,10 +5524,12 @@ declare interface WebOptions {
 /**
  * Defines the regular expression rule.
  *
+ * @typedef UrlRegexRule
  * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
  * @since 23 dynamic
 */
-declare class UrlRegexRule {
+declare interface UrlRegexRule {
   /**
    * Exact match of the second-level domain. For example, the second-level domain of https://www.example.com
    * is example.com, and the second-level domain of https://www.example.com.cn is example.com.cn. If the URL
@@ -5535,6 +5537,7 @@ declare class UrlRegexRule {
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
    * @since 23 dynamic
    */
   secondLevelDomain: string;
@@ -5543,6 +5546,7 @@ declare class UrlRegexRule {
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
    * @since 23 dynamic
    */
   rule: string;
