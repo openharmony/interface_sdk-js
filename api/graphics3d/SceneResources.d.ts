@@ -240,6 +240,17 @@ export enum MaterialType {
    * @since 22 dynamic&static
    */
   UNLIT = 3,
+
+  /**
+   * Only render the shadows received on the material surface,
+   *     the material is transparent.
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  UNLIT_SHADOW_ALPHA = 100
 }
 
 /**
@@ -633,6 +644,30 @@ export interface UnlitMaterial extends Material {
    * @since 22 dynamic&static
    */
   baseColor: MaterialProperty
+}
+
+/**
+ * Unlit shadow alpha material resource
+ * 
+ * @extends Material
+ * @interface UnlitShadowAlphaMaterial
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic&static
+ */
+export interface UnlitShadowAlphaMaterial extends Material {
+  /**
+   * Base color factor of UnlitShadowAlphaMaterial.
+   * Value of factor.xyzw defines rgba color
+   * 
+   * @type { MaterialProperty }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  baseColor: MaterialProperty;
 }
 
 /**
