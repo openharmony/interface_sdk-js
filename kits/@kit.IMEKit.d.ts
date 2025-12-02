@@ -34,10 +34,15 @@ export {
 
 /*** if arkts static */
 import inputMethod from '@ohos.inputMethod';
+import inputMethodEngine from '@ohos.inputMethodEngine';
+import InputMethodExtensionAbility from '@ohos.InputMethodExtensionAbility';
+import InputMethodExtensionContext from '@ohos.InputMethodExtensionContext';
 import InputMethodSubtype from '@ohos.InputMethodSubtype';
 import { PanelInfo, PanelType, PanelFlag } from '@ohos.inputMethod.Panel';
 
 export {
-  inputMethod, InputMethodSubtype, PanelInfo, PanelType, PanelFlag
+  InputMethodExtensionAbility, InputMethodExtensionContext, InputMethodSubtype, inputMethod, inputMethodEngine,
+  PanelInfo, PanelType, PanelFlag
+
 };
 /*** endif */
