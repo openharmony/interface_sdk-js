@@ -358,6 +358,22 @@ declare namespace avSession {
   function startAVPlayback(bundleName: string, assetId: string): Promise<void>;
 
   /**
+   * Start an application for media playback with command info.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { string } bundleName - Specifies the bundleName which to be started.
+   * @param { string } assetId - Specifies the assetId to be started.
+   * @param { CommandInfo } info - Specifies the specified command information.
+   * @returns { Promise<void> } void promise when executed successfully
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function startAVPlayback(bundleName: string, assetId: string, info: CommandInfo): Promise<void>;
+
+  /**
    * Get distributed avsession controller
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { DistributedSessionType } distributedSessionType - Specifies the distributed session type.
@@ -782,6 +798,17 @@ declare namespace avSession {
    * @since 22 dynamic&static
    */
   type NoParamCallback = () => void;
+
+  /**
+   * Defines the callback type including two parameters.
+   *
+   * @typedef { function } TwoParamCallbackTwoParamCallback<T, G>
+   * @param { T } data1
+   * @param { G } data2
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 22 dynamic&static
+   */
+  type TwoParamCallback<T, G> = (data1: T, data2: G) => void;
 
   /**
    * Define different protocol capability
@@ -2081,18 +2108,14 @@ declare namespace avSession {
 
     /**
      * Register play command callback.
-     * As long as it is registered, it means that the ability supports this command.
-     * If you cancel the callback, you need to call off {@link off}
-     * When canceling the callback, need to update the supported commands list.
-     * Each playback command only supports registering one callback,
-     * and the new callback will replace the previous one.
-     * @param { NoParamCallback } callback - Used to handle ('play') command
+     * The application will receive {@link CommandInfo} from a controller.
+     * @param { Callback<CommandInfo> } callback - Used to handle ('play') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    onPlay(callback: NoParamCallback): void;
+    onPlay(callback: Callback<CommandInfo>): void;
 
     /**
      * Register pause command callback.
@@ -2231,18 +2254,14 @@ declare namespace avSession {
 
     /**
      * Register playNext command callback.
-     * As long as it is registered, it means that the ability supports this command.
-     * If you cancel the callback, you need to call off {@link off}
-     * When canceling the callback, need to update the supported commands list.
-     * Each playback command only supports registering one callback,
-     * and the new callback will replace the previous one.
-     * @param { NoParamCallback } callback - Used to handle ('playNext') command
+     * The application will receive {@link CommandInfo} from a controller.
+     * @param { Callback<CommandInfo> } callback - Used to handle ('playNext') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    onPlayNext(callback: NoParamCallback): void;
+    onPlayNext(callback: Callback<CommandInfo>): void;
 
     /**
      * Register playPrevious command callback.
@@ -2281,19 +2300,15 @@ declare namespace avSession {
 
     /**
      * Register playPrevious command callback.
-     * As long as it is registered, it means that the ability supports this command.
-     * If you cancel the callback, you need to call off {@link off}
-     * When canceling the callback, need to update the supported commands list.
-     * Each playback command only supports registering one callback,
-     * and the new callback will replace the previous one.
-     * @param { NoParamCallback } callback - Used to handle ('playPrevious') command
+     * The application will receive {@link CommandInfo} from a controller.
+     * @param { Callback<CommandInfo> } callback - Used to handle ('playPrevious') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    onPlayPrevious(callback: NoParamCallback): void;
+    onPlayPrevious(callback: Callback<CommandInfo>): void;
 
     /**
      * Register fastForward command callback.
@@ -2332,18 +2347,14 @@ declare namespace avSession {
 
     /**
      * Register fastForward command callback.
-     * As long as it is registered, it means that the ability supports this command.
-     * If you cancel the callback, you need to call off {@link off}
-     * When canceling the callback, need to update the supported commands list.
-     * Each playback command only supports registering one callback,
-     * and the new callback will replace the previous one.
-     * @param { Callback<long> } callback - Used to handle ('fastForward') command
+     * The application will receive forward time and {@link CommandInfo} from a controller.
+     * @param { TwoParamCallback<long, CommandInfo> } callback - Used to handle ('fastForward') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    onFastForward(callback: Callback<long>): void;
+    onFastForward(callback: TwoParamCallback<long, CommandInfo>): void;
 
     /**
      * Register rewind command callback.
@@ -2382,18 +2393,14 @@ declare namespace avSession {
 
     /**
      * Register rewind command callback.
-     * As long as it is registered, it means that the ability supports this command.
-     * If you cancel the callback, you need to call off {@link off}
-     * When canceling the callback, need to update the supported commands list.
-     * Each playback command only supports registering one callback,
-     * and the new callback will replace the previous one.
-     * @param { Callback<long> } callback - Used to handle ('rewind') command
+     * The application will receive rewind time and {@link CommandInfo} from a controller.
+     * @param { TwoParamCallback<long, CommandInfo> } callback - Used to handle ('rewind') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    onRewind(callback: Callback<long>): void;
+    onRewind(callback: TwoParamCallback<long, CommandInfo>): void;
 
     /**
      * Unregister play command callback.
@@ -2425,13 +2432,13 @@ declare namespace avSession {
     /**
      * Unregister play command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { NoParamCallback } [callback] - Used to handle ('play') command
+     * @param { Callback<CommandInfo> } [callback] - Used to handle ('play') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    offPlay(callback?: NoParamCallback): void;
+    offPlay(callback?: Callback<CommandInfo>): void;
 
     /**
      * Unregister pause command callback.
@@ -2539,13 +2546,13 @@ declare namespace avSession {
     /**
      * Unregister playNext command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { NoParamCallback } [callback] - Used to handle ('playNext') command
+     * @param { Callback<CommandInfo> } [callback] - Used to handle ('playNext') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    offPlayNext(callback?: NoParamCallback): void;
+    offPlayNext(callback?: Callback<CommandInfo>): void;
 
     /**
      * Unregister playPrevious command callback.
@@ -2577,13 +2584,13 @@ declare namespace avSession {
     /**
      * Unregister playPrevious command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { NoParamCallback } [callback] - Used to handle ('playPrevious') command
+     * @param { Callback<CommandInfo> } [callback] - Used to handle ('playPrevious') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    offPlayPrevious(callback?: NoParamCallback): void;
+    offPlayPrevious(callback?: Callback<CommandInfo>): void;
 
     /**
      * Unregister fastForward command callback.
@@ -2615,13 +2622,13 @@ declare namespace avSession {
     /**
      * Unregister fastForward command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { NoParamCallback } [callback] - Used to handle ('fastForward') command
+     * @param { TwoParamCallback<long, CommandInfo> } [callback] - Used to handle ('fastForward') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    offFastForward(callback?: NoParamCallback): void;
+    offFastForward(callback?: TwoParamCallback<long, CommandInfo>): void;
 
     /**
      * Unregister rewind command callback.
@@ -2653,13 +2660,13 @@ declare namespace avSession {
     /**
      * Unregister rewind command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { NoParamCallback } [callback] - Used to handle ('rewind') command
+     * @param { TwoParamCallback<long, CommandInfo> } [callback] - Used to handle ('rewind') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    offRewind(callback?: NoParamCallback): void;
+    offRewind(callback?: TwoParamCallback<long, CommandInfo>): void;
 
     /**
      * Register playFromAssetId command callback.
@@ -10117,6 +10124,91 @@ declare namespace avSession {
      * @since 22 static
      */
     parameter?: LoopMode | string | double;
+
+    /**
+     * The command value {@link CommandInfo}
+     * @type { ?CommandInfo }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 dynamic&static
+     */
+    commandInfo?: CommandInfo;
+  }
+
+  /**
+   * The definition of command information to be sent to the session
+   * @typedef CommandInfo
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 22 dynamic&static
+   */
+  interface CommandInfo {
+    /**
+     * Caller bundle name.
+     * @type { ? string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 dynamic&static
+     */
+    callerBundleName?: string;
+
+    /**
+     * Caller module name.
+     * @type { ? string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 dynamic&static
+     */
+    callerModuleName?: string;
+
+    /**
+     * Caller device id.
+     * @type { ? string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 dynamic&static
+     */
+    callerDeviceId?: string;
+
+    /**
+     * Caller type.
+     * @type { ? CallerType }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 dynamic&static
+     */
+    callerType?: CallerType;
+  }
+
+  /**
+   * Enumerates CallerType including caller source type.
+   * @enum { string }
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 22 dynamic&static
+   */
+  enum CallerType {
+    /**
+     * The control command comes from cast service.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 dynamic&static
+     */
+    TYPE_CAST = 'cast',
+
+    /**
+     * The control command comes from bluetooth.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 dynamic&static
+     */
+    TYPE_BLUETOOTH = 'bluetooth',
+
+    /**
+     * The control command comes from nearlink device.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    TYPE_NEARLINK = 'nearlink',
+
+    /**
+     * The control command comes from an application.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 dynamic&static
+     */
+    TYPE_APP = 'app',
   }
 
   /**
