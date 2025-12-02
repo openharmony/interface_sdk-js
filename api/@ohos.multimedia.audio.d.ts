@@ -8767,6 +8767,18 @@ declare namespace audio {
      * @since 21 dynamic
      */
     readonly highQualityRecordingSupported?: boolean;
+
+    /**
+     * Extended information for distributed device, includes whether the device supports
+     * stereo, Device SN, etc.
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly dmDeviceInfo?: string;
   }
 
   /**
