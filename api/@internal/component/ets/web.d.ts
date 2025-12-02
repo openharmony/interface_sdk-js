@@ -5527,6 +5527,7 @@ declare interface UrlRegexRule {
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
    * @since 23 dynamic
    */
   secondLevelDomain: string;
@@ -5535,6 +5536,7 @@ declare interface UrlRegexRule {
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
    * @since 23 dynamic
    */
   rule: string;

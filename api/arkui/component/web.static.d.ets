@@ -2689,6 +2689,7 @@ export declare interface UrlRegexRule {
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
    * @since 23 static
    */
   secondLevelDomain: string;
@@ -2697,6 +2698,7 @@ export declare interface UrlRegexRule {
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
    * @since 23 static
    */
   rule: string;
