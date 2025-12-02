@@ -639,6 +639,7 @@ declare namespace request {
    * @syscap SystemCapability.MiscServices.Upload
    * @crossplatform
    * @since 10 dynamic
+   * @since 22 static
    */
   function uploadFile(context: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
 
@@ -685,6 +686,7 @@ declare namespace request {
    * @syscap SystemCapability.MiscServices.Upload
    * @crossplatform
    * @since 10 dynamic
+   * @since 22 static
    */
   function uploadFile(context: BaseContext, config: UploadConfig): Promise<UploadTask>;
 
@@ -1685,6 +1687,7 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12 dynamic
+     * @since 22 static
      */
     suspend(callback: AsyncCallback<boolean>): void;
 
@@ -1718,6 +1721,7 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12 dynamic
+     * @since 22 static
      */
     suspend(): Promise<boolean>;
 
@@ -5760,6 +5764,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 20 dynamic
+       * @since 22 static
        */
       pause(callback: AsyncCallback<void>): void;
       /**
@@ -5790,6 +5795,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 20 dynamic
+       * @since 22 static
        */
       pause(): Promise<void>;
       /**
@@ -5826,6 +5832,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 20 dynamic
+       * @since 22 static
        */
       resume(callback: AsyncCallback<void>): void;
       /**
@@ -5862,6 +5869,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 20 dynamic
+       * @since 22 static
        */
       resume(): Promise<void>;
       /**
@@ -6057,6 +6065,7 @@ declare namespace request {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     function remove(id: string, callback: AsyncCallback<void>): void;
 
@@ -6087,6 +6096,7 @@ declare namespace request {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     function remove(id: string): Promise<void>;
 
@@ -6116,6 +6126,7 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @since 11 dynamic
+     * @since 22 static
      */
     function show(id: string, callback: AsyncCallback<TaskInfo>): void;
 
@@ -6145,6 +6156,7 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @since 11 dynamic
+     * @since 22 static
      */
     function show(id: string): Promise<TaskInfo>;
 
@@ -6232,6 +6244,7 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @since 11 dynamic
+     * @since 22 static
      */
     function search(callback: AsyncCallback<Array<string>>): void;
 
@@ -6259,6 +6272,7 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @since 11 dynamic
+     * @since 22 static
      */
     function search(filter: Filter, callback: AsyncCallback<Array<string>>): void;
 
@@ -6286,6 +6300,7 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @since 11 dynamic
+     * @since 22 static
      */
     function search(filter?: Filter): Promise<Array<string>>;
 
