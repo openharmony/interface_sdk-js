@@ -70,14 +70,15 @@ declare namespace bundleManager {
   }
 
   /**
-   * BundleInfo flag
+   * Used to query the enumeration value of bundleInfo. Multiple values can be passed in the form.
+   * Multiple value input, such as DEFAULT | WITH_APPLICATION_INFO.
    *
    * @enum { int }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 23
    */
-  enum BundleInfoGetFlag {
+  export enum BundleInfoGetFlag {
     /**
      * Used to obtain the default info
      *
