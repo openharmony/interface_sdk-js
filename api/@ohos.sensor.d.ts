@@ -4254,7 +4254,7 @@ declare namespace sensor {
     /**
      * Acceleration sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_ACCELEROMETER = 1,
@@ -4262,7 +4262,7 @@ declare namespace sensor {
     /**
      * Gyroscope sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_GYROSCOPE = 2,
@@ -4270,7 +4270,7 @@ declare namespace sensor {
     /**
      * Ambient light sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_AMBIENT_LIGHT = 5,
@@ -4278,7 +4278,7 @@ declare namespace sensor {
     /**
      * Magnetic field sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_MAGNETIC_FIELD = 6,
@@ -4286,7 +4286,7 @@ declare namespace sensor {
     /**
      * Barometric pressure sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_BAROMETER = 8,
@@ -4294,7 +4294,7 @@ declare namespace sensor {
     /**
      * Hall effect sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_HALL = 10,
@@ -4302,7 +4302,7 @@ declare namespace sensor {
     /**
      * Proximity sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_PROXIMITY = 12,
@@ -4310,7 +4310,7 @@ declare namespace sensor {
     /**
      * Humidity sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_HUMIDITY = 13,
@@ -4318,7 +4318,7 @@ declare namespace sensor {
     /**
      * Orientation sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_ORIENTATION = 256,
@@ -4326,7 +4326,7 @@ declare namespace sensor {
     /**
      * Gravity sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_GRAVITY = 257,
@@ -4334,7 +4334,7 @@ declare namespace sensor {
     /**
      * Linear acceleration sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_LINEAR_ACCELERATION = 258,
@@ -4342,7 +4342,7 @@ declare namespace sensor {
     /**
      * Rotation vector sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_ROTATION_VECTOR = 259,
@@ -4350,7 +4350,7 @@ declare namespace sensor {
     /**
      * Ambient temperature sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_AMBIENT_TEMPERATURE = 260,
@@ -4358,7 +4358,7 @@ declare namespace sensor {
     /**
      * Uncalibrated magnetic field sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED = 261,
@@ -4366,7 +4366,7 @@ declare namespace sensor {
     /**
      * Uncalibrated gyroscope sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED = 263,
@@ -4374,7 +4374,7 @@ declare namespace sensor {
     /**
      * Significant motion sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_SIGNIFICANT_MOTION = 264,
@@ -4382,7 +4382,7 @@ declare namespace sensor {
     /**
      * Pedometer detection sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_PEDOMETER_DETECTION = 265,
@@ -4390,7 +4390,7 @@ declare namespace sensor {
     /**
      * Pedometer sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_PEDOMETER = 266,
@@ -4398,7 +4398,7 @@ declare namespace sensor {
     /**
      * Heart rate sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_HEART_RATE = 278,
@@ -4406,7 +4406,7 @@ declare namespace sensor {
     /**
      * Wear detection sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_WEAR_DETECTION = 280,
@@ -4414,7 +4414,7 @@ declare namespace sensor {
     /**
      * Uncalibrated acceleration sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED = 281
