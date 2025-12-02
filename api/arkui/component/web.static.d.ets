@@ -2678,7 +2678,9 @@ export declare interface WebOptions {
 /**
  * Defines the regular expression rule.
  *
+ * @typedef UrlRegexRule
  * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
  * @since 23 static
 */
 export declare interface UrlRegexRule {
