@@ -3103,7 +3103,7 @@ export class MarqueeDynamicSyncScene extends DynamicSyncScene {
  * @atomicservice
  * @since 18 dynamic
  */
-export declare class DragController {
+export class DragController {
   /**
    * Execute a drag event.
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
@@ -3581,7 +3581,7 @@ export type Context = common.Context;
  * @atomicservice
  * @since 12 dynamic
  */
-export declare class ComponentSnapshot {
+export class ComponentSnapshot {
   /**
      * Get a component snapshot by component id.
      *
