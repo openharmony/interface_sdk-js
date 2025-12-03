@@ -8912,6 +8912,21 @@ declare enum XComponentType {
    * @atomicservice
    * @since 11 dynamic
    */
+  /**
+   * Texture type.
+   * Supports EGL/OpenGLES and media data rendering.
+   * Custom drawing content is composited with XComponent’s native content before display.
+   * Key features:
+   * 1. Maintains frame synchronization between GPU textures and ArkUI drawing commands.
+   * 2. Supports unified animation with built-in components.
+   * 3. Utilizes GPU composition, which may have higher power consumption than the SURFACE type
+   *    using the display subsystem (DSS).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   TEXTURE,
 
   /**
