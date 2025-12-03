@@ -1222,7 +1222,7 @@ declare class TextMenuItemId {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 23
+   * @since 23 dynamic
    */
   static readonly autoFill: TextMenuItemId;
 }
