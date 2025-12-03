@@ -508,6 +508,15 @@ declare const BuilderParam: PropertyDecorator;
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * Defining Local PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare const Local: PropertyDecorator;
 
 /**
@@ -517,6 +526,15 @@ declare const Local: PropertyDecorator;
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ */
+/**
+ * Defining Param PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
  */
 declare const Param: PropertyDecorator;
 
@@ -528,6 +546,15 @@ declare const Param: PropertyDecorator;
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * Defining Once PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare const Once: PropertyDecorator;
 
 /**
@@ -537,6 +564,15 @@ declare const Once: PropertyDecorator;
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ */
+/**
+ * Defining Event PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
  */
 declare const Event: PropertyDecorator;
 
@@ -756,11 +792,22 @@ declare interface ProvideOptions {
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
 /**
- * Defining Provider PropertyDecorator, aliasName is the only matching key and if aliasName is the default, the default attribute name is regarded as aliasName.
+ * Defining Provider PropertyDecorator, aliasName is the only matching key and if 
+ * aliasName is the default, the default attribute name is regarded as aliasName.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ */
+/**
+ * Defining Provider PropertyDecorator, aliasName is the only matching key and if
+ * aliasName is the default, the default attribute name is regarded as aliasName.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
  */
 declare const Provider: (aliasName?: string) => PropertyDecorator;
 
@@ -837,23 +884,44 @@ declare enum SystemProperties {
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
 
 /**
-* Defining Consumer PropertyDecorator, aliasName is the only matching key and if aliasName is the default, the default attribute name is regarded as aliasName.
-* And @Consumer will find the nearest @Provider.
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @crossplatform
-* @atomicservice
-* @since 12 dynamic
-*/
+ * Defining Consumer PropertyDecorator, aliasName is the only matching key and 
+ * if aliasName is the default, the default attribute name is regarded as aliasName.
+ * And @Consumer will find the nearest @Provider.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12 dynamic
+ */
+/**
+ * Defining Consumer PropertyDecorator, aliasName is the only matching key and
+ * if aliasName is the default, the default attribute name is regarded as aliasName.
+ * And @Consumer will find the nearest @Provider.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare const Consumer: (aliasName?: string) => PropertyDecorator;
 
 /**
-* Defining Computed MethodDecorator.
-*
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @crossplatform
-* @atomicservice
-* @since 12 dynamic
-*/
+ * Defining Computed MethodDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12 dynamic
+ */
+/**
+ * Defining Computed MethodDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare const Computed: MethodDecorator;
 
 /**
@@ -1066,6 +1134,15 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * Define Monitor MethodDecorator
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare const Monitor: MonitorDecorator;
 
 /**
@@ -1080,6 +1157,19 @@ declare const Monitor: MonitorDecorator;
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * Define Monitor Decorator type
+ *
+ * @typedef { function } MonitorDecorator
+ * @param { string } value - Monitored path input by the user
+ * @param { string[] } args - Monitored path(s) input by the user
+ * @returns { MethodDecorator } Monitor decorator
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare type MonitorDecorator = (value: string, ...args: string[]) => MethodDecorator;
 
 /**
@@ -1091,6 +1181,16 @@ declare type MonitorDecorator = (value: string, ...args: string[]) => MethodDeco
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * Define IMonitor interface
+ *
+ * @interface IMonitor
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare interface IMonitor {
   /**
    * Array of changed paths(keys)
@@ -1100,6 +1200,16 @@ declare interface IMonitor {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Array of changed paths(keys)
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   dirty: Array<string>;
 
@@ -1114,6 +1224,19 @@ declare interface IMonitor {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Return the pair of the value before the most recent change and current value for given path.
+   * If path does not exist, return undefined; If path is not specified, return the value pair
+   * corresponding to the first path in dirty.
+   *
+   * @param { string } [path]
+   * @returns { IMonitorValue<T> | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
   value<T>(path?: string): IMonitorValue<T> | undefined;
 }
 
@@ -1126,6 +1249,16 @@ declare interface IMonitor {
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * Define IMonitorValue interface
+ *
+ * @interface IMonitorValue<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare interface IMonitorValue<T> {
   /**
    * Get the previous value.
@@ -1135,6 +1268,16 @@ declare interface IMonitorValue<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Get the previous value.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   before: T;
 
@@ -1147,6 +1290,16 @@ declare interface IMonitorValue<T> {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Get current value.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
   now: T;
 
   /**
@@ -1157,6 +1310,16 @@ declare interface IMonitorValue<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Monitored path input by the user.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   path: string;
 }
