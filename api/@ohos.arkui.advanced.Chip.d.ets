@@ -361,14 +361,14 @@ export interface CloseOptions extends AccessibilityOptions {
   /**
    * Set font size for the close icon.
    *
-   * @type { ?(number | Resource) }
+   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
    */
-  fontSize?: number | Resource;
+  fontSize?: Dimension;
 }
 
 /**
@@ -1023,14 +1023,14 @@ export interface ChipOptions {
   /**
    * Set font size for the label text and the close icon.
    *
-   * @type { ?(number | Resource) }
+   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
    */
-  fontSize?: number | Resource;
+  fontSize?: Dimension;
 }
 
 /**

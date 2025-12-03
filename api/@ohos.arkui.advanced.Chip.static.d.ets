@@ -270,12 +270,12 @@ export interface CloseOptions extends AccessibilityOptions {
   /**
    * Set font size for the close icon.
    *
-   * @type { ?(number | Resource) }
+   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  fontSize?: number | Resource;
+  fontSize?: Dimension;
 }
 
 /**
@@ -705,22 +705,22 @@ export interface ChipOptions {
   /**
    * Maximum font scale for Chip.
    *
-   * @type { ?(number | Resource) }
+   * @type { ?(double | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  maxFontScale?: number | Resource;
+  maxFontScale?: double | Resource;
 
   /**
    * Minimum font scale for Chip.
    *
-   * @type { ?(number | Resource) }
+   * @type { ?(double | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  minFontScale?: number | Resource;
+  minFontScale?: double | Resource;
 
   /**
    * Chip padding.
@@ -735,12 +735,12 @@ export interface ChipOptions {
   /**
    * Set font size for the label text and the close icon.
    *
-   * @type { ?(number | Resource) }
+   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  fontSize?: number | Resource;
+  fontSize?: Dimension;
 }
 
  /**
