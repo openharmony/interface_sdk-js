@@ -32,6 +32,15 @@
  * @atomicservice
  * @since 11 dynamic
  */
+/**
+ * Use the DrawableDescriptor class to get drawable image.
+ *
+ * @typedef { import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor } DrawableDescriptor
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor;
 
 /**
