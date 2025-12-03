@@ -1170,8 +1170,8 @@ declare interface IMonitorValue<T> {
  * in the middle of a path. All other paths using one or more wildcard are invalid.
  *
  * Functions decorated with @SyncMonitor can be used in @ObservedV2 objects and @ComponentV2.
- *
  * @type { MonitorDecorator }
+ * @throws { BusinessError } 130001 - The path is invalid.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
