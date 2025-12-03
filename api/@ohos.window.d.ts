@@ -7009,7 +7009,8 @@ declare namespace window {
      *
      * @returns { Orientation } orientation - The orientation config of the window
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
-     *                                          The window is not created or destroyed.
+     *                                          1. The window is not created or destroyed;
+     *                                          2. Internal task error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
@@ -10669,7 +10670,7 @@ declare namespace window {
      *                                          1. The window is not created or destroyed;
      *                                          2. Internal task error.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *                                          Invalid window type. Only sub windows and float windows are supported.
+     *                                          Invalid window type. Only subwindows and float windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
@@ -10737,7 +10738,7 @@ declare namespace window {
      *                                          1. The window is not created or destroyed;
      *                                          2. Internal task error.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     Invalid window type. Only sub windows and float windows are supported.
+     *     Invalid window type. Only subwindows and float windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
