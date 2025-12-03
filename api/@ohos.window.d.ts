@@ -147,16 +147,17 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 11
      */
-    TYPE_SYSTEM_ALERT,
+    TYPE_SYSTEM_ALERT = 1,
     /**
      * Input method.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 13
      */
     TYPE_INPUT_METHOD,
@@ -403,8 +404,9 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 22 static
      */
-    TYPE_DYNAMIC,
+    TYPE_DYNAMIC = 25,
     /**
      * TYPE_MUTISCREEN_COLLABORATION.
      *
@@ -412,6 +414,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 22 static
      */
     TYPE_MUTISCREEN_COLLABORATION = 26,
     /**
@@ -419,6 +422,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 18 dynamic
+     * @since 22 static
      */
     TYPE_MAIN = 32
   }
@@ -1732,6 +1736,7 @@ declare namespace window {
      * @type { ?Rect } 
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
+     * @since 22 static
      */
     globalDisplayRect?: Rect;
 
@@ -1955,6 +1960,7 @@ declare namespace window {
      * @type { ?Rect } 
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
+     * @since 22 static
      */
     globalDisplayRect?: Rect;
     
@@ -1973,8 +1979,20 @@ declare namespace window {
      * @atomicservice
      * @since 12 dynamic
      * @since 22 static
+     * @deprecated since 22
+     * @useinstead ohos.window#WindowProperties.windowType
      */
     type: WindowType;
+
+    /**
+     * Window type
+     *
+     * @type { WindowType }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    windowType: WindowType;
 
     /**
      * Whether the window is displayed in full screen mode. The default value is false.
@@ -2079,7 +2097,7 @@ declare namespace window {
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     dimBehindValue: number;
@@ -2133,7 +2151,7 @@ declare namespace window {
      *
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     isRoundCorner: boolean;
@@ -6094,7 +6112,7 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     setWindowType(type: WindowType): Promise<void>;
@@ -6106,7 +6124,7 @@ declare namespace window {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     setWindowType(type: WindowType, callback: AsyncCallback<void>): void;
@@ -9626,7 +9644,7 @@ declare namespace window {
      * @param { number } dimBehindValue - The specified dimBehind.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     setDimBehind(dimBehindValue: number, callback: AsyncCallback<void>): void;
@@ -9637,7 +9655,7 @@ declare namespace window {
      * @param { number } dimBehindValue - The specified dimBehind.
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     setDimBehind(dimBehindValue: number): Promise<void>;
@@ -9916,7 +9934,7 @@ declare namespace window {
      * @param { boolean } touchable outside can be touch if true, or not if false.
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     setOutsideTouchable(touchable: boolean): Promise<void>;
@@ -9927,7 +9945,7 @@ declare namespace window {
      * @param { boolean } touchable outside can be touch if true, or not if false.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     setOutsideTouchable(touchable: boolean, callback: AsyncCallback<void>): void;
