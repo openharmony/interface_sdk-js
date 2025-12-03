@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,9 +25,8 @@ import { ButtonAttribute } from './component/button';
 /**
  * Defines Button Modifier
  *
- * @implements ButtonAttribute, AttributeModifier<ButtonAttribute>
+ * @implements { ButtonAttribute, AttributeModifier<ButtonAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
  * @since 22 static
 */
 export declare class ButtonModifier implements ButtonAttribute, AttributeModifier<ButtonAttribute> {}
