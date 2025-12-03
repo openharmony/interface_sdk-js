@@ -4346,7 +4346,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead sensor.SensorId#LINEAR_ACCELERATION
+     * @useinstead sensor.SensorId#LINEAR_ACCELEROMETER
      */
     SENSOR_TYPE_ID_LINEAR_ACCELERATION = 258,
 
