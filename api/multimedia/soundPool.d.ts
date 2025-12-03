@@ -74,20 +74,20 @@ export interface ErrorInfo<T extends Error = BusinessError> {
   errorType?: ErrorType;
   /**
    * Sound id, returned from SoundPool.load function.
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
    * @since 22 static
    */
-  soundId?: int;
+  soundId?: number;
   /**
    * Stream id, returned from SoundPool.play function.
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
    * @since 22 static
    */
-  streamId?: int;
+  streamId?: number;
 }
 
 /**
