@@ -266,11 +266,13 @@ declare namespace relationalStore {
   /**
    * The type of the priority key can be number or string
    *
-   * @typedef { number | string } PRIKeyType
+   * @typedef { long | double | string } PRIKeyType
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @FaAndStageModel
    * @since 10 dynamic
+   * @since 23 static
    */
-  type PRIKeyType = number | string;
+  type PRIKeyType = long | double | string;
 
   /**
    * The time is in UTC format.
@@ -278,6 +280,7 @@ declare namespace relationalStore {
    * @typedef { Date } UTCTime
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
+   * @since 23 static
    */
   type UTCTime = Date;
 
@@ -287,6 +290,7 @@ declare namespace relationalStore {
    * @typedef { Map<PRIKeyType, UTCTime> } ModifyTime
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
+   * @since 23 static
    */
   type ModifyTime = Map<PRIKeyType, UTCTime>;
 
@@ -396,6 +400,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
+     * @since 23 static
      */
     rootDir?: string;
 
@@ -506,6 +511,7 @@ declare namespace relationalStore {
      * @type { ?Tokenizer }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 17 dynamic
+     * @since 23 static
      */
 
     tokenizer?: Tokenizer;
@@ -524,6 +530,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
 
     persist?: boolean;
@@ -904,9 +911,10 @@ declare namespace relationalStore {
   /**
    * Enumerates the supported tokenizer when opening a database.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 17 dynamic
+   * @since 23 static
    */
   enum Tokenizer {
     /**
@@ -914,6 +922,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 17 dynamic
+     * @since 23 static
      */
     NONE_TOKENIZER = 0,
     /**
@@ -921,6 +930,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 17 dynamic
+     * @since 23 static
      */
     ICU_TOKENIZER,
     /**
@@ -928,6 +938,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 18 dynamic
+     * @since 23 static
      */
     CUSTOM_TOKENIZER
   }
@@ -935,9 +946,10 @@ declare namespace relationalStore {
   /**
    * The cloud sync progress
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
+   * @since 23 static
    */
   enum Progress {
     /**
@@ -945,6 +957,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     SYNC_BEGIN,
 
@@ -953,6 +966,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     SYNC_IN_PROGRESS,
 
@@ -961,6 +975,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     SYNC_FINISH
   }
@@ -971,43 +986,48 @@ declare namespace relationalStore {
    * @interface Statistic
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
+   * @since 23 static
    */
   interface Statistic {
     /**
      * Describes the total number of data to sync.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
-    total: number;
+    total: int;
 
     /**
      * Describes the number of successfully synced data.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
-    successful: number;
+    successful: int;
 
     /**
      * Describes the number of data failed to sync.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
-    failed: number;
+    failed: int;
 
     /**
      * Describes the number of data remained to sync.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
-    remained: number;
+    remained: int;
   }
 
   /**
@@ -1016,6 +1036,7 @@ declare namespace relationalStore {
    * @interface TableDetails
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
+   * @since 23 static
    */
   interface TableDetails {
     /**
@@ -1024,6 +1045,7 @@ declare namespace relationalStore {
      * @type { Statistic }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     upload: Statistic;
 
@@ -1033,6 +1055,7 @@ declare namespace relationalStore {
      * @type { Statistic }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     download: Statistic;
   }
@@ -1040,9 +1063,10 @@ declare namespace relationalStore {
   /**
    * Describes the status of {@code Progress}.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
+   * @since 23 static
    */
   enum ProgressCode {
     /**
@@ -1050,6 +1074,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     SUCCESS,
 
@@ -1058,6 +1083,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     UNKNOWN_ERROR,
 
@@ -1066,6 +1092,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     NETWORK_ERROR,
 
@@ -1074,6 +1101,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     CLOUD_DISABLED,
 
@@ -1082,6 +1110,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     LOCKED_BY_OTHERS,
 
@@ -1090,6 +1119,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     RECORD_LIMIT_EXCEEDED,
 
@@ -1098,6 +1128,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     NO_SPACE_FOR_ASSET,
 
@@ -1106,6 +1137,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     BLOCKED_BY_NETWORK_STRATEGY
   }
@@ -1116,6 +1148,7 @@ declare namespace relationalStore {
    * @interface ProgressDetails
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
+   * @since 23 static
    */
   interface ProgressDetails {
     /**
@@ -1124,6 +1157,7 @@ declare namespace relationalStore {
      * @type { Progress }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     schedule: Progress;
 
@@ -1133,6 +1167,7 @@ declare namespace relationalStore {
      * @type { ProgressCode }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     code: ProgressCode;
 
@@ -1148,6 +1183,7 @@ declare namespace relationalStore {
      * @type { Record<string, TableDetails> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11 dynamic
+     * @since 23 static
      */
     details: Record<string, TableDetails>;
   }
@@ -1166,6 +1202,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20 dynamic
+   * @since 23 static
    */
   interface SqlExecutionInfo {
     /**
@@ -1182,6 +1219,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     sql: Array<string>;
 
@@ -1195,12 +1233,13 @@ declare namespace relationalStore {
     /**
      * Total time used for executing the SQL statements, in μs.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
-    totalTime: number;
+    totalTime: long;
 
     /**
      * Maximum time allowed to obtain the SQL file handle, in μs.
@@ -1212,12 +1251,13 @@ declare namespace relationalStore {
     /**
      * Maximum time allowed to obtain the SQL file handle, in μs.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
-    waitTime: number;
+    waitTime: long;
 
     /**
      * Time used to prepare SQL and args, in μs.
@@ -1229,12 +1269,13 @@ declare namespace relationalStore {
     /**
      * Time used to prepare SQL and args, in μs.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
-    prepareTime: number;
+    prepareTime: long;
 
     /**
      * Time used to execute the SQL statements, in μs.
@@ -1246,12 +1287,13 @@ declare namespace relationalStore {
     /**
      * Time used to execute the SQL statements, in μs.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
-    executeTime: number;
+    executeTime: long;
   }
 
   /**
@@ -1261,17 +1303,19 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20 dynamic
+   * @since 23 static
    */
   interface ExceptionMessage {
     /**
      * Error code returned by SQLite, see {@link https://www.sqlite.org/rescode.html}.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
-    code: number;
+    code: int;
 
     /**
      * Error message.
@@ -1280,6 +1324,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     message: string;
 
@@ -1290,6 +1335,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     sql: string;
   }
@@ -1382,9 +1428,10 @@ declare namespace relationalStore {
   /**
    * Indicates the database synchronization mode.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9 dynamic
+   * @since 23 static
    */
   enum SyncMode {
     /**
@@ -1392,6 +1439,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     SYNC_MODE_PUSH = 0,
 
@@ -1400,6 +1448,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     SYNC_MODE_PULL = 1,
 
@@ -1408,6 +1457,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10 dynamic
+     * @since 23 static
      */
     SYNC_MODE_TIME_FIRST,
 
@@ -1416,6 +1466,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10 dynamic
+     * @since 23 static
      */
     SYNC_MODE_NATIVE_FIRST,
 
@@ -1424,6 +1475,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10 dynamic
+     * @since 23 static
      */
     SYNC_MODE_CLOUD_FIRST
   }
@@ -1431,9 +1483,10 @@ declare namespace relationalStore {
   /**
    * Describes the subscription type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9 dynamic
+   * @since 23 static
    */
   enum SubscribeType {
     /**
@@ -1441,6 +1494,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     SUBSCRIBE_TYPE_REMOTE = 0,
 
@@ -1456,6 +1510,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12 dynamic
+     * @since 23 static
      */
     SUBSCRIBE_TYPE_CLOUD,
 
@@ -1471,6 +1526,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12 dynamic
+     * @since 23 static
      */
     SUBSCRIBE_TYPE_CLOUD_DETAILS,
 
@@ -1479,6 +1535,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     SUBSCRIBE_TYPE_LOCAL_DETAILS
   }
@@ -1486,9 +1543,10 @@ declare namespace relationalStore {
   /**
    * Describes the change type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
+   * @since 23 static
    */
   enum ChangeType {
     /**
@@ -1503,6 +1561,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     DATA_CHANGE,
 
@@ -1518,6 +1577,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     ASSET_CHANGE
   }
@@ -1528,6 +1588,7 @@ declare namespace relationalStore {
    * @interface ChangeInfo
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
+   * @since 23 static
    */
   interface ChangeInfo {
     /**
@@ -1536,6 +1597,7 @@ declare namespace relationalStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     table: string;
 
@@ -1545,6 +1607,7 @@ declare namespace relationalStore {
      * @type { ChangeType }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     type: ChangeType;
 
@@ -1552,39 +1615,43 @@ declare namespace relationalStore {
      * Indicates if there is a string primary key, the inserted will keep data's primary keys
      * otherwise it will keep the data's rowid.
      *
-     * @type { Array<string> | Array<number> }
+     * @type { Array<string> | Array<long> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
-    inserted: Array<string> | Array<number>;
+    inserted: Array<string> | Array<long>;
 
     /**
      * Indicates if there is a string primary key, the updated will keep data's primary keys
      * otherwise it will keep the data's rowid.
      *
-     * @type { Array<string> | Array<number> }
+     * @type { Array<string> | Array<long> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
-    updated: Array<string> | Array<number>;
+    updated: Array<string> | Array<long>;
 
     /**
      * Indicates if there is a string primary key, the deleted will keep data's primary keys
      * otherwise it will keep the data's rowid.
      *
-     * @type { Array<string> | Array<number> }
+     * @type { Array<string> | Array<long> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
-    deleted: Array<string> | Array<number>;
+    deleted: Array<string> | Array<long>;
   }
 
   /**
    * Describes the distribution type of the tables.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
+   * @since 23 static
    */
   enum DistributedType {
     /**
@@ -1592,6 +1659,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     DISTRIBUTED_DEVICE,
 
@@ -1607,6 +1675,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12 dynamic
+     * @since 23 static
      */
     DISTRIBUTED_CLOUD
   }
@@ -1618,6 +1687,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 23 static
    */
   interface Reference {
     /**
@@ -1627,6 +1697,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 11 dynamic
+     * @since 23 static
      */
     sourceTable: string;
 
@@ -1637,6 +1708,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 11 dynamic
+     * @since 23 static
      */
     targetTable: string;
 
@@ -1647,6 +1719,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 11 dynamic
+     * @since 23 static
      */
     refFields: Record<string, string>
   }
@@ -1657,6 +1730,7 @@ declare namespace relationalStore {
    * @interface DistributedConfig
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10 dynamic
+   * @since 23 static
    */
   interface DistributedConfig {
     /**
@@ -1665,6 +1739,7 @@ declare namespace relationalStore {
      * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     autoSync: boolean;
 
@@ -1675,6 +1750,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 11 dynamic
+     * @since 23 static
      */
     references?: Array<Reference>;
 
@@ -1684,6 +1760,7 @@ declare namespace relationalStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 18 dynamic
+     * @since 23 static
      */
     asyncDownloadAsset?: boolean;
 
@@ -1693,6 +1770,7 @@ declare namespace relationalStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 18 dynamic
+     * @since 23 static
      */
     enableCloud?: boolean;
 
@@ -1805,9 +1883,10 @@ declare namespace relationalStore {
   /**
    * Describes the data origin sources.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 11 dynamic
+   * @since 23 static
    */
   enum Origin {
     /**
@@ -1815,6 +1894,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11 dynamic
+     * @since 23 static
      */
     LOCAL,
 
@@ -1823,6 +1903,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11 dynamic
+     * @since 23 static
      */
     CLOUD,
 
@@ -1831,6 +1912,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11 dynamic
+     * @since 23 static
      */
     REMOTE,
   }
@@ -1849,6 +1931,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @crossplatform
    * @since 20 dynamic
+   * @since 23 static
    */
   enum Field {
     /**
@@ -1863,6 +1946,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     CURSOR_FIELD = '#_cursor',
 
@@ -1878,6 +1962,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     ORIGIN_FIELD = '#_origin',
 
@@ -1895,6 +1980,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     DELETED_FLAG_FIELD = '#_deleted_flag',
 
@@ -1912,6 +1998,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     DATA_STATUS_FIELD = '#_data_status',
 
@@ -1927,6 +2014,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     OWNER_FIELD = '#_cloud_owner',
 
@@ -1942,6 +2030,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     PRIVILEGE_FIELD = '#_cloud_privilege',
 
@@ -1957,6 +2046,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     SHARING_RESOURCE_FIELD = '#_sharing_resource_field'
   }
@@ -2103,11 +2193,11 @@ declare namespace relationalStore {
   /**
    * Enumerates the data types of a column.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ColumnType {
     /**
@@ -2116,6 +2206,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
+     * @since 23 static
      */
     NULL,
 
@@ -2127,6 +2218,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
+     * @since 23 static
      */
     INTEGER,
 
@@ -2136,6 +2228,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
+     * @since 23 static
      */
     REAL,
 
@@ -2145,6 +2238,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
+     * @since 23 static
      */
     TEXT,
 
@@ -2154,6 +2248,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
+     * @since 23 static
      */
     BLOB,
 
@@ -2163,6 +2258,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
+     * @since 23 static
      */
     ASSET,
 
@@ -2172,6 +2268,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
+     * @since 23 static
      */
     ASSETS,
 
@@ -2181,6 +2278,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
+     * @since 23 static
      */
     FLOAT_VECTOR,
 
@@ -2190,6 +2288,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
+     * @since 23 static
      */
     UNLIMITED_INT,
   }
@@ -2304,6 +2403,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     inDevices(devices: Array<string>): RdbPredicates;
 
@@ -2314,6 +2414,7 @@ declare namespace relationalStore {
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     inAllDevices(): RdbPredicates;
 
@@ -3101,6 +3202,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     notContains(field: string, value: string): RdbPredicates;
 
@@ -3130,6 +3232,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     notLike(field: string, value: string): RdbPredicates;
 
@@ -3471,7 +3574,7 @@ declare namespace relationalStore {
      * Obtains the column data type based on the specified column index.
      * The column index is passed as an input parameter.
      *
-     * @param { number | string } columnIdentifier - Index or name of the column.
+     * @param { int | string } columnIdentifier - Index or name of the column.
      * @returns { Promise<ColumnType> } Promise used to return the data type obtained,
      * in an {@link ColumnType} instance.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3500,13 +3603,14 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
+     * @since 23 static
      */
-    getColumnType(columnIdentifier: number | string): Promise<ColumnType>;
+    getColumnType(columnIdentifier: int | string): Promise<ColumnType>;
 
     /**
      * Obtains the column data type based on the specified column index. This API returns the result synchronously.
      *
-     * @param { number | string } columnIdentifier - Index or name of the column.
+     * @param { int | string } columnIdentifier - Index or name of the column.
      * @returns { ColumnType } Column data type obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -3534,8 +3638,9 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
+     * @since 23 static
      */
-    getColumnTypeSync(columnIdentifier: number | string): ColumnType;
+    getColumnTypeSync(columnIdentifier: int | string): ColumnType;
 
     /**
      * Go to the specified row of the result set forwards or backwards by an offset relative to its current position.
@@ -4450,7 +4555,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getRows(maxCount: int, position?: int): Promise<Array<ValuesBucket>>;
 
@@ -5580,7 +5685,7 @@ declare namespace relationalStore {
      * @param { Array<ValuesBucket> } values -
      * Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { Promise<number> } The number of values that were inserted if the operation is successful.
+     * @returns { Promise<long> } The number of values that were inserted if the operation is successful.
      * returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -5607,8 +5712,9 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
+     * @since 23 static
      */
-    batchInsertWithConflictResolution(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): Promise<number>;
+    batchInsertWithConflictResolution(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): Promise<long>;
 
     /**
      * Inserts a batch of data into the target table.
@@ -6926,6 +7032,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     getModifyTime(table: string, columnName: string, primaryKeys: PRIKeyType[]): Promise<ModifyTime>;
 
@@ -7112,7 +7219,7 @@ declare namespace relationalStore {
      * otherwise clean all.
      *
      * @param { string } table - Indicates the name of the table to check.
-     * @param { number } [cursor] - Indicates the cursor.
+     * @param { long } [cursor] - Indicates the cursor.
      * @returns { Promise<void> } -The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
@@ -7139,8 +7246,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12 dynamic
+     * @since 23 static
      */
-    cleanDirtyData(table: string, cursor?: number): Promise<void>;
+    cleanDirtyData(table: string, cursor?: long): Promise<void>;
 
     /**
      * Obtains sharing resource of rows corresponding to the predicates.
@@ -7193,6 +7301,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     querySharingResource(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
 
@@ -7582,6 +7691,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     executeSync(sql: string, args?: Array<ValueType>): ValueType;
 
@@ -7922,6 +8032,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     backup(destName: string): Promise<void>;
 
@@ -8032,6 +8143,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     restore(srcName: string): Promise<void>;
 
@@ -8064,6 +8176,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     restore(): Promise<void>;
 
@@ -8122,6 +8235,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     setDistributedTables(tables: Array<string>): Promise<void>;
 
@@ -8240,6 +8354,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     setDistributedTables(tables: Array<string>, type?: DistributedType, config?: DistributedConfig): Promise<void>;
 
@@ -8306,6 +8421,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     obtainDistributedTableName(device: string, table: string): Promise<string>;
 
@@ -8371,7 +8487,7 @@ declare namespace relationalStore {
      * @param { SyncMode } mode - Indicates the database synchronization mode.
      * @param { RdbPredicates } predicates -
      * The specified sync condition by the instance object of {@link RdbPredicates}.
-     * @returns { Promise<Array<[string, number]>> }
+     * @returns { Promise<Array<[string, int]>> }
      * {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -8380,8 +8496,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
-    sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>>;
+    sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, int]>>;
 
     /**
      * Sync data to cloud.
@@ -8446,6 +8563,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12 dynamic
+     * @since 23 static
      */
     cloudSync(mode: SyncMode, progress: Callback<ProgressDetails>): Promise<void>;
 
@@ -8523,6 +8641,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12 dynamic
+     * @since 23 static
      */
     cloudSync(mode: SyncMode, tables: string[], progress: Callback<ProgressDetails>): Promise<void>;
 
@@ -8614,6 +8733,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     cloudSync(mode: SyncMode, predicates: RdbPredicates, progress: Callback<ProgressDetails>): Promise<void>;
 
@@ -8694,6 +8814,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     remoteQuery(device: string, table: string, predicates: RdbPredicates, columns: Array<string>): Promise<ResultSet>;
 
@@ -8773,6 +8894,24 @@ declare namespace relationalStore {
     on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
 
     /**
+     * Subscribes to data changes of this RDB store.
+     * The registered callback will be called when data in a distributed RDB store changes.
+     *
+     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer
+     * {Array<string>}: The observer of data change events in the distributed database.
+     * {Array<ChangeInfo>}: The change info of data change events in the distributed database.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 23 static
+     */
+    onDataChange(type: SubscribeType, observer: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
+
+    /**
      * Registers an observer for the database.
      *
      * @param { string } event - Event type, which must match the event type in {@link emit}.
@@ -8802,6 +8941,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     on(event: string, interProcess: boolean, observer: Callback<void>): void;
 
@@ -8834,6 +8974,18 @@ declare namespace relationalStore {
     on(event: 'autoSyncProgress', progress: Callback<ProgressDetails>): void;
 
     /**
+     * Register an automatic synchronization callback to the database.
+     *
+     * @param { Callback<ProgressDetails> } progress -
+     * Callback used to return the {@link ProgressDetails} result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 23 static
+     */
+    onAutoSyncProgress(progress: Callback<ProgressDetails>): void;
+
+    /**
      * Subscribes to the SQL statistics.
      * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
      * @param { Callback<SqlExecutionInfo> } observer -
@@ -8863,6 +9015,21 @@ declare namespace relationalStore {
     on(event: 'statistics', observer: Callback<SqlExecutionInfo> ): void;
 
     /**
+     * Subscribes to the SQL statistics.
+     * @param { Callback<SqlExecutionInfo> } observer -
+     * Indicates the callback used to return the SQL execution statistics {@link SqlExeInfo} in the database.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 23 static
+     */
+    onStatistics(observer: Callback<SqlExecutionInfo> ): void;
+
+    /**
      * Subscribes to the SQL execution error logs.
      * @param { 'sqliteErrorOccurred' } event - Event type, which must be 'sqliteErrorOccurred'.
      * @param { Callback<ExceptionMessage> } observer - Callback used to return the SQL execution error log {@link ExceptionMessage}.
@@ -8875,6 +9042,17 @@ declare namespace relationalStore {
     on(event: 'sqliteErrorOccurred', observer: Callback<ExceptionMessage> ): void;
 
     /**
+     * Subscribes to the SQL execution error logs.
+     * @param { Callback<ExceptionMessage> } observer - Callback used to return the SQL execution error log {@link ExceptionMessage}.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 23 static
+     */
+    onSqliteErrorOccurred(observer: Callback<ExceptionMessage> ): void;
+
+    /**
      * Subscribes to the SQL performance statistics.
      * @param { 'perfStat' } event - Event type, which must be 'perfStat'.
      * @param { Callback<SqlExecutionInfo> } observer - Callback used to return the SQL execution statistics {@link SqlExecutionInfo}.
@@ -8885,6 +9063,17 @@ declare namespace relationalStore {
      * @since 20 dynamic
      */
     on(event: 'perfStat', observer: Callback<SqlExecutionInfo>): void;
+
+    /**
+     * Subscribes to the SQL performance statistics.
+     * @param { Callback<SqlExecutionInfo> } observer - Callback used to return the SQL execution statistics {@link SqlExecutionInfo}.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 23 static
+     */
+    onPerfStat(observer: Callback<SqlExecutionInfo>): void;
 
     /**
      * Remove specified observer of specified type from the database.
@@ -8959,6 +9148,23 @@ declare namespace relationalStore {
     /**
      * Remove specified observer of specified type from the database.
      *
+     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } [observer] -
+     * {Array<string>}: the data change observer already registered.
+     * {Array<ChangeInfo>}: the change info already registered.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 23 static
+     */
+    offDataChange(type: SubscribeType, observer?: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
+
+    /**
+     * Remove specified observer of specified type from the database.
+     *
      * @param { string } event - Indicates the subscription event.
      * @param { boolean } interProcess -
      * Indicates whether it is an interprocess subscription or an in-process subscription.
@@ -8977,7 +9183,7 @@ declare namespace relationalStore {
      * @param { string } event - Indicates the subscription event.
      * @param { boolean } interProcess -
      * Indicates whether it is an interprocess subscription or an in-process subscription.
-     * @param { Callback<void> } observer - The data change observer already registered.
+     * @param { Callback<void> } [observer] - The data change observer already registered.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -8986,6 +9192,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     off(event: string, interProcess: boolean, observer?: Callback<void>): void;
 
@@ -9019,6 +9226,18 @@ declare namespace relationalStore {
     off(event: 'autoSyncProgress', progress?: Callback<ProgressDetails>): void;
 
     /**
+     * Unregister the database auto synchronization callback.
+     *
+     * @param { Callback<ProgressDetails> } [progress] -
+     * Callback used to return the {@link ProgressDetails} result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 23 static
+     */
+    offAutoSyncProgress(progress?: Callback<ProgressDetails>): void;
+
+    /**
      * Unsubscribes from the SQL statistics.
      * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
      * @param { Callback<SqlExecutionInfo> } observer - Indicates the callback to unregister.
@@ -9046,6 +9265,17 @@ declare namespace relationalStore {
     off(event: 'statistics', observer?: Callback<SqlExecutionInfo> ): void;
 
     /**
+     * Unsubscribes from the SQL statistics.
+     * @param { Callback<SqlExecutionInfo> } [observer] - Indicates the callback to unregister.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 23 static
+     */
+    offStatistics(observer?: Callback<SqlExecutionInfo> ): void;
+
+    /**
      * Unsubscribes from the SQL execution error logs.
      * @param { 'sqliteErrorOccurred' } event - Indicates the event type, which must be 'sqliteErrorOccurred'.
      * @param { Callback<ExceptionMessage> } observer - Callback to unregister.
@@ -9058,6 +9288,17 @@ declare namespace relationalStore {
     off(event: 'sqliteErrorOccurred', observer?: Callback<ExceptionMessage> ): void;
 
     /**
+     * Unsubscribes from the SQL execution error logs.
+     * @param { Callback<ExceptionMessage> } [observer] - Callback to unregister.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 23 static
+     */
+    offSqliteErrorOccurred(observer?: Callback<ExceptionMessage> ): void;
+
+    /**
      * Unsubscribes from the SQL performance statistics.
      * @param { 'perfStat' } event - Event type, which must be 'perfStat'.
      * @param { Callback<SqlExecutionInfo> } observer - Callback to unregister.
@@ -9068,6 +9309,17 @@ declare namespace relationalStore {
      * @since 20 dynamic
      */
     off(event: 'perfStat', observer?: Callback<SqlExecutionInfo>): void;
+
+    /**
+     * Unsubscribes from the SQL performance statistics.
+     * @param { Callback<SqlExecutionInfo> } [observer] - Callback to unregister.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 23 static
+     */
+    offPerfStat(observer?: Callback<SqlExecutionInfo>): void;
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
@@ -9093,6 +9345,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     emit(event: string): void;
 
@@ -9123,8 +9376,8 @@ declare namespace relationalStore {
      *
      * @param { string } fullPath - Indicates the path of the database file to attach.
      * @param { string } attachName - Indicates the alias of the database.
-     * @param { number } waitTime - Indicates the maximum time allowed for attaching the database file.
-     * @returns { Promise<number> } Promise used to return the number of attached databases.
+     * @param { int } [waitTime] - Indicates the maximum time allowed for attaching the database file.
+     * @returns { Promise<int> } Promise used to return the number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -9150,9 +9403,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @since 12 dynamic
+     * @since 23 static
      */
-    attach(fullPath: string, attachName: string, waitTime?: number) : Promise<number>;
+    attach(fullPath: string, attachName: string, waitTime?: int) : Promise<int>;
 
     /**
      * Attaches a database file to the currently linked database.
@@ -9161,8 +9416,8 @@ declare namespace relationalStore {
      * @param { StoreConfig } config -
      * Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
      * @param { string } attachName - Indicates the alias of the database.
-     * @param { number } waitTime - Indicates the maximum time allowed for attaching the database file.
-     * @returns { Promise<number> } Promise used to return the number of attached databases.
+     * @param { int } [waitTime] - Indicates the maximum time allowed for attaching the database file.
+     * @returns { Promise<int> } Promise used to return the number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -9190,16 +9445,18 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @since 12 dynamic
+     * @since 23 static
      */
-    attach(context: Context, config: StoreConfig, attachName: string, waitTime?: number) : Promise<number>;
+    attach(context: Context, config: StoreConfig, attachName: string, waitTime?: int) : Promise<int>;
 
     /**
      * Detaches a database from this database.
      *
      * @param { string } attachName - Indicates the alias of the database.
-     * @param { number } waitTime - Indicates the maximum time allowed for detaching the database.
-     * @returns { Promise<number> } Return the current number of attached databases.
+     * @param { int } [waitTime] - Indicates the maximum time allowed for detaching the database.
+     * @returns { Promise<int> } Return the current number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -9222,9 +9479,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @since 12 dynamic
+     * @since 23 static
      */
-    detach(attachName: string, waitTime?: number) : Promise<number>;
+    detach(attachName: string, waitTime?: int) : Promise<int>;
 
     /**
      * Locks data from the database based on a specified instance object of RdbPredicates.
@@ -9257,6 +9516,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     lockRow(predicates: RdbPredicates): Promise<void>;
 
@@ -9291,6 +9551,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     unlockRow(predicates: RdbPredicates): Promise<void>;
 
@@ -9299,7 +9560,7 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates -
      * The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
+     * @param { Array<string> } [columns] - The columns to query. If the value is null, the query applies to all columns.
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -9325,20 +9586,22 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     queryLockedRow(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
 
     /**
      * Lock cloud container before non-auto cloud sync.
      *
-     * @returns { Promise<number> } The expired time of the lock.
+     * @returns { Promise<int> } The expired time of the lock.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
-    lockCloudContainer(): Promise<number>;
+    lockCloudContainer(): Promise<int>;
 
     /**
      * Unlock cloud container.
@@ -9349,6 +9612,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     unlockCloudContainer(): Promise<void>;
 
@@ -9845,7 +10109,7 @@ declare namespace relationalStore {
      * @param { Array<ValuesBucket> } values -
      * Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { Promise<number> } The number of values that were inserted if the operation is successful.
+     * @returns { Promise<long> } The number of values that were inserted if the operation is successful.
      * returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -9870,8 +10134,9 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
+     * @since 23 static
      */
-    batchInsertWithConflictResolution(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): Promise<number>;
+    batchInsertWithConflictResolution(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): Promise<long>;
 
     /**
      * Inserts a batch of data into the target table.
@@ -9880,7 +10145,7 @@ declare namespace relationalStore {
      * @param { Array<ValuesBucket> } values -
      * Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { number } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @returns { long } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -9904,8 +10169,9 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 18 dynamic
+     * @since 23 static
      */
-    batchInsertWithConflictResolutionSync(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): number;
+    batchInsertWithConflictResolutionSync(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): long;
 
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -10118,7 +10384,7 @@ declare namespace relationalStore {
      * Queries data in the database based on SQL statement with sync interface.
      *
      * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement.
+     * @param { Array<ValueType> } [args] - Indicates the {@link ValueType} values of the parameters in the SQL statement.
      * The values are strings.
      * @returns { ResultSet } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -10137,6 +10403,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 14 dynamic
+     * @since 23 static
      */
     querySqlSync(sql: string, args?: Array<ValueType>): ResultSet;
 
@@ -10236,7 +10503,7 @@ declare namespace relationalStore {
      * Executes a SQL statement that contains specified parameters and returns a value of ValueType.
      *
      * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement.
+     * @param { Array<ValueType> } [args] - Indicates the {@link ValueType} values of the parameters in the SQL statement.
      * The values are strings.
      * @returns { Promise<ValueType> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -10260,6 +10527,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     execute(sql: string, args?: Array<ValueType>): Promise<ValueType>;
 
@@ -10267,7 +10535,7 @@ declare namespace relationalStore {
      * Executes a SQL statement that contains specified parameters and returns a value of ValueType with sync interface.
      *
      * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement.
+     * @param { Array<ValueType> } [args] - Indicates the {@link ValueType} values of the parameters in the SQL statement.
      * The values are strings.
      * @returns { ValueType } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -10291,6 +10559,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 14 dynamic
+     * @since 23 static
      */
     executeSync(sql: string, args?: Array<ValueType>): ValueType;
 
@@ -10586,7 +10855,6 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 14 dynamic
-   * @since 22 static
    */
   function getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void;
 
@@ -10830,6 +11098,7 @@ declare namespace relationalStore {
    * @returns { boolean } Returns {@code true} if the vector database is supported; returns {@code false} otherwise.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 18 dynamic
+   * @since 23 static
    */
   function isVectorSupported(): boolean;
 
@@ -10841,6 +11110,7 @@ declare namespace relationalStore {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 18 dynamic
+   * @since 23 static
    */
   function isTokenizerSupported(tokenizer: Tokenizer): boolean;
 
