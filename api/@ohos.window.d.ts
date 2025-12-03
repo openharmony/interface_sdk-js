@@ -11918,8 +11918,9 @@ declare namespace window {
      *                                          2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @throws { BusinessError } 1300016 - Parameter error.
-     *     Possible cause: 1. Invalid parameter range. 2. Invalid parameter length.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
+     *                                          1. Invalid parameter range;
+     *                                          2. Invalid parameter length.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @atomicservice
