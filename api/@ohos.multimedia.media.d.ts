@@ -591,7 +591,7 @@ declare namespace media {
   /**
    * get Configurations which user can changes from AVScreenCapture server
    * 
-   * @param { number } sessionId The AVScreenCapture server session ID.
+   * @param { int } sessionId The AVScreenCapture server session ID.
    * @returns { Promise<string> } Returns a configurable configuration item string.
    * @throws { BusinessError } 202 Called from Non-System applications. Return by promise.
    * @throws { BusinessError } 5400109 - Sessions not exist. Return by promise.
@@ -600,7 +600,7 @@ declare namespace media {
    * @since 20 dynamic
    * @since 22 static
    */
-  function getAVScreenCaptureConfigurableParameters(sessionId: number): Promise<string>;
+  function getAVScreenCaptureConfigurableParameters(sessionId: int): Promise<string>;
   
   /**
    * Creates an **AVTranscoder** instance. This API uses a promise to return the result.
@@ -2429,13 +2429,13 @@ declare namespace media {
    * Defines the OnPlaybackRateDone callback.
    *
    * @typedef { function } OnPlaybackRateDone
-   * @param { number } rate - playback rate.
+   * @param { double } rate - playback rate.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
    * @since 20 dynamic
    * @since 22 static
    */
-  type OnPlaybackRateDone = (rate: number) => void;
+  type OnPlaybackRateDone = (rate: double) => void;
 
   /**
    * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
@@ -3501,7 +3501,7 @@ declare namespace media {
     /**
      * Set playback rate.
      * Supported states: prepared/playing/paused/completed.
-     * @param { number } rate - playback rate, valid range is 0.125 ~ 4.
+     * @param { double } rate - playback rate, valid range is 0.125 ~ 4.
      * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
      * @throws { BusinessError } 5400102 - Operation not allowed, if invalid state or live stream.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3509,7 +3509,7 @@ declare namespace media {
      * @since 20 dynamic
      * @since 22 static
      */
-    setPlaybackRate(rate: number): void;
+    setPlaybackRate(rate: double): void;
 
     /**
      * select a specified bitrate to playback, only valid for HLS protocol network stream. By default, the
