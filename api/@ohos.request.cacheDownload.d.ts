@@ -26,6 +26,7 @@ import { BusinessError } from './@ohos.base';
  * @namespace cacheDownload
  * @syscap SystemCapability.Request.FileTransferAgent
  * @since 18 dynamic
+ * @since 22 static
  */
 declare namespace cacheDownload {
     /**
