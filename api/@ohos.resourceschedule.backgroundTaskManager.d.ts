@@ -1702,7 +1702,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 23 dynamic
+     * @since 23 dynamic&static
      */
     SUBMODE_WORK_OUT_NORMAL_NOTIFICATION = 11
   }
