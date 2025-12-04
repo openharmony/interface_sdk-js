@@ -40,10 +40,12 @@ declare namespace inputMethod {
   /**
    * Keyboard max number
    *
+   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
+   * @since 23 static
    */
-  const MAX_TYPE_NUM: number;
+  const MAX_TYPE_NUM: int;
 
   /**
    * Input method setting
@@ -318,6 +320,7 @@ declare namespace inputMethod {
    *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
+   * @since 23 static
    */
   function switchCurrentInputMethodAndSubtype(
     inputMethodProperty: InputMethodProperty,
@@ -354,6 +357,7 @@ declare namespace inputMethod {
    *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
+   * @since 23 static
    */
   function switchCurrentInputMethodAndSubtype(
     inputMethodProperty: InputMethodProperty,
@@ -388,6 +392,7 @@ declare namespace inputMethod {
    * @param { boolean } enable - indicates enable simple keyboard or not.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20 dynamic
+   * @since 23 static
    */
   function setSimpleKeyboardEnabled(enable: boolean): void;
   
@@ -411,6 +416,38 @@ declare namespace inputMethod {
    * @since 23 dynamic
    */
   function offAttachmentDidFail(callback?: Callback<AttachFailureReason>): void;
+
+  /**
+   * The callback of 'imeChange' event.
+   *
+   * @typedef { function } ImeChangeCallback.
+   * @param { InputMethodProperty } inputMethodProperty - the property of current inputmethod.
+   * @param { InputMethodSubtype } inputMethodsubtype - the subtype of current inputmethod.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 static
+   */
+  export type ImeChangeCallback = (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void;
+
+  /**
+   * The callback of 'getLeftTextOfCursor' or 'getRightTextOfCursor' event.
+   *
+   * @typedef { function } GetTextCallback.
+   * @param { int } length - the length of text.
+   * @returns { string } represents the text in edit box.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 static
+   */
+  export type GetTextCallback = (length: int) => string;
+
+  /**
+    * The callback of 'getTextIndexAtCursor' event.
+    *
+    * @typedef { function } GetTextIndexAtCursorCallback.
+    * @returns { int } represents theindex number of text at cursor.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @since 23 static
+    */
+  export type GetTextIndexAtCursorCallback = () => int;
 
   /**
    * @interface InputMethodSetting
@@ -742,10 +779,11 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
+     * @since 23 static
      */
     getInputMethodState(): Promise<EnabledState>;
 	
-	/**
+	  /**
      * 
      * Change inputmethod enabled status.
      *
@@ -765,6 +803,69 @@ declare namespace inputMethod {
      * @since 20 dynamic
      */
     enableInputMethod(bundleName: string, extensionName: string, enabledState: EnabledState): Promise<void>;
+
+    /**
+     * Subscribe input method or subtype change.
+     *
+     * @param { ImeChangeCallback } callback - the callback called when the current input method changes.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 static
+     */
+    onImeChange(callback: ImeChangeCallback): void;
+
+    /**
+     * Unsubscribe input method or subtype change.
+     *
+     * @param { ImeChangeCallback } [callback] - the callback called when the current input method changes,
+     *     when subscriber unsubscribes all callback functions, this parameter can be left blank.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 static
+     */
+    offImeChange(callback?: ImeChangeCallback): void;
+
+    /**
+     * Subscribes to input window show events.
+     *
+     * @param { Callback<Array<InputWindowInfo>> } callback - the callback called when input method shows.
+     * @throws { BusinessError } 202 - not system application.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 23 static
+     */
+    onImeShow(callback: Callback<Array<InputWindowInfo>>):void;
+
+    /**
+     * Unsubscribe input window show event.
+     *
+     * @param { Callback<Array<InputWindowInfo>> } [callback] - the callback called when input method shows,
+     *     when subscriber unsubscribes all callback functions, this parameter can be left blank.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 23 static
+     */
+    offImeShow(callback?: Callback<Array<InputWindowInfo>>):void;
+
+    /**
+     * Subscribes to input window hidden events.
+     *
+     * @param { Callback<Array<InputWindowInfo>>} callback - the callback called when input method hides.
+     * @throws { BusinessError } 202 - not system application.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 23 static
+     */
+    onImeHide(callback: Callback<Array<InputWindowInfo>>): void;
+
+    /**
+     * Unsubscribe input window hide event.
+     *
+     * @param { Callback<Array<InputWindowInfo>> } [callback] - the callback called when input method hides,
+     *     when subscriber unsubscribes all callback functions, this parameter can be left blank.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 23 static
+     */
+    offImeHide(callback?: Callback<Array<InputWindowInfo>>): void;
   }
 
   /**
@@ -841,6 +942,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800015 - the other side does not accept the request.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
+     * @since 23 static
      */
     discardTypingText(): Promise<void>;
 
@@ -956,7 +1058,7 @@ declare namespace inputMethod {
      * Inform the system of the window ID of the application currently bound to the input method.
      * After the correct setting, the window where the client is located can avoid the input method window.
      *
-     * @param { number } windowId - the window ID of the application currently bound to the input method.
+     * @param { int } windowId - the window ID of the application currently bound to the input method.
      * @param { AsyncCallback<void> } callback - the callback of setCallingWindow.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -968,14 +1070,15 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
+     * @since 23 static
      */
-    setCallingWindow(windowId: number, callback: AsyncCallback<void>): void;
+    setCallingWindow(windowId: int, callback: AsyncCallback<void>): void;
 
     /**
      * Inform the system of the window ID of the application currently bound to the input method.
      * After the correct setting, the window where the client is located can avoid the input method window.
      *
-     * @param { number } windowId - the window ID of the application currently bound to the input method.
+     * @param { int } windowId - the window ID of the application currently bound to the input method.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -987,8 +1090,9 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
+     * @since 23 static
      */
-    setCallingWindow(windowId: number): Promise<void>;
+    setCallingWindow(windowId: int): Promise<void>;
 
     /**
      * Update Cursor and notify the input method that the current application cursor has changed.
@@ -1005,6 +1109,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
+     * @since 23 static
      */
     updateCursor(cursorInfo: CursorInfo, callback: AsyncCallback<void>): void;
 
@@ -1023,6 +1128,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
+     * @since 23 static
      */
     updateCursor(cursorInfo: CursorInfo): Promise<void>;
 
@@ -1030,8 +1136,8 @@ declare namespace inputMethod {
      * Notify the input method the selected text and the selection range of the current application text has changed.
      *
      * @param { string } text - the whole input text.
-     * @param { number } start - start position of selected text.
-     * @param { number } end - end position of selected text.
+     * @param { int } start - start position of selected text.
+     * @param { int } end - end position of selected text.
      * @param { AsyncCallback<void> } callback - the callback of changeSelection.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -1043,15 +1149,16 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
+     * @since 23 static
      */
-    changeSelection(text: string, start: number, end: number, callback: AsyncCallback<void>): void;
+    changeSelection(text: string, start: int, end: int, callback: AsyncCallback<void>): void;
 
     /**
      * Notify the input method the selected text and the selection range of the current application text has changed.
      *
      * @param { string } text - the selected text.
-     * @param { number } start - start position of selected text.
-     * @param { number } end - end position of selected text.
+     * @param { int } start - start position of selected text.
+     * @param { int } end - end position of selected text.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -1063,8 +1170,9 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
+     * @since 23 static
      */
-    changeSelection(text: string, start: number, end: number): Promise<void>;
+    changeSelection(text: string, start: int, end: int): Promise<void>;
 
     /**
      * Update InputAttribute information of input text.
@@ -1081,6 +1189,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
+     * @since 23 static
      */
     updateAttribute(attribute: InputAttribute, callback: AsyncCallback<void>): void;
 
@@ -1099,6 +1208,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
+     * @since 23 static
      */
     updateAttribute(attribute: InputAttribute): Promise<void>;
     /**
@@ -1112,6 +1222,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
+     * @since 23 static
      */
     stopInputSession(callback: AsyncCallback<boolean>): void;
 
@@ -1126,6 +1237,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
+     * @since 23 static
      */
     stopInputSession(): Promise<boolean>;
 
@@ -1165,6 +1277,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
+     * @since 23 static
      */
     showSoftKeyboard(callback: AsyncCallback<void>): void;
 
@@ -1182,6 +1295,7 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
+     * @since 23 static
      */
     showSoftKeyboard(): Promise<void>;
 
@@ -1238,6 +1352,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800016 - input method client is not editable.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
+     * @since 23 static
      */
     sendMessage(msgId: string, msgParam?: ArrayBuffer): Promise<void>;
 
@@ -1248,6 +1363,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
+     * @since 23 static
      */
     recvMessage(msgHandler?: MessageHandler): void;
 
@@ -1628,6 +1744,285 @@ declare namespace inputMethod {
      * @since 17 dynamic
      */
     off(type: 'finishTextPreview', callback?: Callback<void>): void;
+
+    /**
+     * Register a callback and when IME sends select event with range of selection,
+     * the callback will be invoked.
+     *
+     * @param { Callback<Range> } callback - the callback called when the input method selects text by range.
+     *     The range of selection is provided for this callback, and subscribers are expected to select
+     *     corresponding text in callback according to the range.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 static
+     */
+    onSelectByRange(callback: Callback<Range>): void;
+    /**
+     * Unregister the callback of selectedByRange.
+     *
+     * @param { Callback<Range> } [callback] - the callback called when the input method selects text by range.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 static
+     */
+    offSelectByRange(callback?: Callback<Range>): void;
+
+    /**
+     * Register a callback and when IME sends select event witch movement of cursor,
+     * the callbackwiii be invoked.
+     *
+     * @param { Callback<Movement> } callback - the callback called when the input method selects text by movement.
+     *     The movement of the cursor is provided for this callback, and subscribers are expected to select
+     *     corresponding text in callback according to themovement.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 static
+     */
+    onSelectByMovement(callback: Callback<Movement>): void;
+    /**
+     * Unregister the callback of selectedByMovement
+     *
+     * @param { Callback<Movement> } [callback] - the callback called when the input method selects text by movement.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 static
+     */
+    offSelectByMovement(callback?: Callback<Movement>): void;
+
+   /**
+    * Register a callback and when IME sends insert text event, the callback will be invoked.
+    *
+    * @param { Callback<string> } callback - the callback called when the input method inserts text.
+    *     Subscribers are expected to process the inserted text and update changes in editor by
+    *     changeSelection and updateCursor as needed.
+    * @throws  { BusinessError } 12800009 - input method client detached.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @since 23 static
+    */
+    onInsertText(callback: Callback<string>): void;
+  /**
+   * Unregister the callback of insertText.
+   *
+   * @param { Callback<string> } [callback] - the callback called when the input method inserts text.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 static
+   */
+    offInsertText(callback?: Callback<string>): void;
+
+   /**
+    * Register a callback and when IME sends delete left event with length,
+    * the callback will be invoked.
+    *
+    * @param { Callback<int> } callback - the callback called when the input method deletes text
+    *     to the left of the cursor. The length of delete is provided for this callback.
+    *     Subscribers are expected to delete specified length of text to the left of the cursor and
+    *     update changes in editor by changeSelection and updateCursor as needed.
+    * @throws { BusinessError } 12800009 - input method client detached.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @since 23 static
+    */
+    onDeleteLeft(callback: Callback<int>): void;
+   /**
+    * Unregister the callback of deleteLeft.
+    *
+    * @param { Callback<int> } [callback] - the callback called when the input method deletes text
+    *     to the left of the cursor.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @since 23 static
+    */
+    offDeleteLeft(callback?: Callback<int>): void;
+
+    /**
+     * Register a callback and when IME sends delete right event with length,
+     * the callback will beinvoked.
+     *
+     * @param { Callback<int> } callback - the callback called whenthe input method deletes text
+     *     to theright of the cursor. The length of delete is provided for this callback.
+     *     Subscribers are expected to delete specified length of text to the right of the cursor and
+     *     update changes in editor by changeSelection and updateCursor as needed.
+     * @throws { BusinessError } 12800009 - input method client detached.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 static
+     */
+    onDeleteRight(callback: Callback<int>): void;
+  /**
+   * Unreister the callback of deleteRight.
+   *
+   * @param { Callback<int> } [callback] - the callback called when the input method deletes text
+   *     to the right of the cursor.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 static
+   */
+    offDeleteRight(callback?: Callback<int>): void;
+
+    /**
+     * Register a callback and when IME sends keyboard status, the callback will be invoked.
+     *
+     * @param { Callback<KeyboardStatus> } callback - the callback called when the input method send keyboard's status.
+     * @throws { BusinessError } 12800009 - input method client detached.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 static
+     */
+    onSendKeyboardStatus(callback: Callback<KeyboardStatus>): void;
+   /**
+    * Unregister the callback of sendKeyboardStatus.
+    *
+    * @param { Callback<Keyboardstatus> } [callback] - the callback called when the inputmethod
+    *     keyboard's status.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @since 23 static
+    */
+    offSendKeyboardStatus(callback?: Callback<KeyboardStatus>): void;
+
+   /**
+    * Register a callback and whenIME sends functionKey, the callback will be invoked.
+    *
+    * @param { Callback<FunctionKey> } callback - the callback called when the input method send function key.
+    *     The functionKey is provided for this callback. Subscribers are expected to complete the
+    *     corresponding task based on the value of functionKey.
+    * @throws { BusinessError } 12800009 - input method client detached.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @since 23 static
+    */
+    onSendFunctionKey(callback: Callback<FunctionKey>): void;
+    /**
+     * Unregister the callback of sendFunctionKey.
+     *
+     * @param { Callback<FunctionKey> } [callback] - the callback called when the input method send function key.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 static
+     */
+    offSendFunctionKey(callback?: Callback<FunctionKey>): void;
+
+    /**
+     * Register a callback and when IME sends move cursor, the callback will be invoked.
+     *
+     * @param { Callback<Direction> } callback - the callback called when the input method moves cursor.
+     *     The direction of cursor is provided for this callback. Subscribers are expected to move the cursor and
+     *     update changes in editor by changeSelection and updateCursor.
+     * @throws { BusinessError } 12800009 - input method client detached.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 static
+     */
+    onMoveCursor(callback: Callback<Direction>): void;
+  /**
+   * Unregister the callback of moveCursor.
+   *
+   * @param { Callback<Direction> } [callback] - the callback called when the input method moves cursor.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 static
+   */
+    offMoveCursor(callback?: Callback<Direction>): void;
+
+  /**
+   * Register a callback and when IME sends extend action code, the callback will be invoked.
+   *
+   * @param { Callback<ExtendAction> } callback - the callback called when the input method sends extend action.
+   * @throws { BusinessError } 12800009 - input method client detached.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 static
+   */
+    onHandleExtendAction(callback: Callback<ExtendAction>): void;
+  /**
+   * Unregister the callback of handleExtendAction.
+   *
+   * @param { Callback<ExtendAction> } [callback] - the callback called when the input method sends extend action.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 static
+   */
+    offHandleExtendAction(callback?: Callback<ExtendAction>): void;
+
+  /**
+   * Register a callback and when input method ability gets left text of cursor, the callback will be invoked.
+   *
+   * @param { GetTextCallback } callback - the callback called when the input method gets text to the left
+   *     of the cursor. The callback must be a synchronization method and will block the input method application.
+   * @throws { BusinessError } 12800009 - input method client detached.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 static
+   */
+    onGetLeftTextOfCursor(callback: GetTextCallback): void;
+   /**
+    * Unregister the callback of getLeftTextofCursor event.
+    * 
+    * @param { GetTextCallback } [callback] - the callback called when the input method gets text to the left
+    *     of the cursor. The callback must be a synchronization method and will block the input method application.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @since 23 static
+    */
+    offGetLeftTextOfCursor(callback?: GetTextCallback): void;
+
+   /**
+    * Register a callback and when input method ability gets right text of cursor, the callback will be invoked.
+    * 
+    * @param { GetTextCallback } callback - the callback called when the input method gets text to the right
+    *     of the cursor. The callback must be a synchronization method and will block the input method application.
+    * @throws { BusinessError } 12800009 - input method client detached.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @since 23 static
+    */
+    onGetRightTextOfCursor(callback: GetTextCallback): void;
+   /**
+    * Unregister the callback of getRightTextOfCursor event.
+    * 
+    * @param { GetTextCallback } [callback] - the callback called when the input method gets text to the right
+    *     of the cursor. The callback must be a synchronization method and will block the input method application.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @since 23 static
+    */
+    offGetRightTextOfCursor(callback?: GetTextCallback): void;
+
+   /**
+    * Register a callback and when input method ability gets the text index at cursor, the callback will be invoked.
+    * 
+    * @param { GetTextIndexAtCursorCallback } callback - the callback called when input method the gets cursor index.
+    *     The callback must be a synchronization method, and should return the text index at the cursor.
+    * @throws { BusinessError } 12800009 - input method client detached.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @since 23 static
+    */
+    onGetTextIndexAtCursor(callback: GetTextIndexAtCursorCallback): void;
+   /**
+    * Unregister the callback of getTextIndexAtCursor.
+    * 
+    * @param { GetTextIndexAtCursorCallback } [callback] - the callback called when the input method gets cursor index.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @since 23 static
+    */
+    offGetTextIndexAtCursor(callback?:GetTextIndexAtCursorCallback): void;
+
+   /**
+    * <p>Subscribe 'setPreviewText' event.</p>
+    * <p>To support the preview text feature, developers should subscribe to this event before calling attach.</p>
+    * 
+    * @param { SetPreviewTextCallback } callback - the callback called when the input method setspreview text.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @since 23 static
+    */
+    onSetPreviewText(callback: SetPreviewTextCallback): void;
+   /**
+    * Unsubscribe 'setPreviewText' event.
+    * 
+    * @param { SetPreviewTextCallback } [callback] - optional, the callback called when the input method
+    *     sets preview text.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @since 23 static
+    */
+    offSetPreviewText(callback?:SetPreviewTextCallback): void;
+
+   /**
+    * <p>Subscribe 'finishTextPreview' event.</p>
+    * <p>To support the preview text feature, developers should subscribe to this event before calling attach.</p>
+    * 
+    * @param { Callback<void> } callback - the callback called when the input method finishes text preview.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @since 23 static
+    */
+    onFinishTextPreview(callback: Callback<void>): void;
+    /**
+     * Unsubscribe 'finishTextPreview' event.
+     * 
+     * @param { Callback<void> } [callback] - optional, the callback called when the input method finishes text preview.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 static
+     */
+    offFinishTextPreview(callback?: Callback<void>): void;
   }
 
   /**
@@ -1734,6 +2129,7 @@ declare namespace inputMethod {
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly enabledState?: EnabledState;
 
@@ -1750,6 +2146,7 @@ declare namespace inputMethod {
      * @type { ?object }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
+     * @since 23 static
      */
     extra?: object;
   }
@@ -1954,6 +2351,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
+     * @since 23 static
      */
     SCREEN_LOCK_PASSWORD,
 
@@ -1962,6 +2360,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
+     * @since 23 static
      */
     USER_NAME,
 
@@ -1970,6 +2369,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
+     * @since 23 static
      */
     NEW_PASSWORD,
 
@@ -1978,6 +2378,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
+     * @since 23 static
      */
     NUMBER_DECIMAL,
 
@@ -1986,6 +2387,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
+     * @since 23 static
      */
     ONE_TIME_CODE
   }
@@ -2071,7 +2473,7 @@ declare namespace inputMethod {
      */
     PREVIOUS,
 
-      /**
+    /**
      * The enter key type is NEWLINE.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2153,6 +2555,7 @@ declare namespace inputMethod {
      * @type { ?string }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
+     * @since 23 static
      */
     placeholder?: string;
 
@@ -2162,6 +2565,7 @@ declare namespace inputMethod {
      * @type { ?string }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
+     * @since 23 static
      */
     abilityName?: string;
   }
@@ -2291,6 +2695,7 @@ declare namespace inputMethod {
      * @type { ?boolean }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
+     * @since 23 static
      */
     newEditBox?: boolean;
 
@@ -2301,6 +2706,7 @@ declare namespace inputMethod {
      * @default CapitalizeMode.NONE
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20 dynamic
+     * @since 23 static
      */
     capitalizeMode?: CapitalizeMode;
   }
@@ -2412,39 +2818,54 @@ declare namespace inputMethod {
   }
 
   /**
+   * Callback function on receiveing a custom message.
+   * 
+   * @typedef { function } OnMessageCallback.
+   * @param { string } msgId - the identifier of the message.
+   * @param { ArrayBuffer } [msgParam] - the parameter of the custom message.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 dynamic&static
+   */
+  type OnMessageCallback = (msgId: string, msgParam?: ArrayBuffer) => void;
+
+  /**
    * <p>Custom message handler.</p>
    * <p>Implement this interface to respond to custem messages.</p>
    * 
    * @interface MessageHandler
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
+   * @since 23 static
    */
   interface MessageHandler {
     /**
      * This method is called when a custom message is received.
      * 
-     * @param { string } msgId - the identifier of the message.
-     * @param { ?ArrayBuffer } [msgParam] - the parameter of the custom message.
+     * @type { OnMessageCallback }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
+     * @since 23 static
      */
-    onMessage(msgId: string, msgParam?: ArrayBuffer): void;
+    onMessage: OnMessageCallback;
 
     /**
      * This method is called when a new message handler is set.
      * 
+     * @type { Callback<void> }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
+     * @since 23 static
      */
-    onTerminated(): void;
+    onTerminated: Callback<void>;
   }
 
   /**
    * Enumerates the enabled state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 15 dynamic
+   * @since 23 static
    */
   export enum EnabledState {
     /**
@@ -2452,6 +2873,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
+     * @since 23 static
      */
     DISABLED = 0,
 
@@ -2460,6 +2882,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
+     * @since 23 static
      */
     BASIC_MODE,
 
@@ -2468,6 +2891,7 @@ declare namespace inputMethod {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
+     * @since 23 static
      */
     FULL_EXPERIENCE_MODE
   }
@@ -2519,15 +2943,17 @@ declare namespace inputMethod {
    * @param { range } Range - the range of the text to be replaced by the preview text.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 17 dynamic
+   * @since 23 static
    */
   export type SetPreviewTextCallback = (text: string, range: Range) => void;
 
  /**
   * Enumerates the capitalization mode.
   *
-  * @enum { number }
+  * @enum { int }
   * @syscap SystemCapability.MiscServices.InputMethodFramework
   * @since 20 dynamic
+  * @since 23 static
   */
   export enum CapitalizeMode {
     /**
@@ -2535,6 +2961,7 @@ declare namespace inputMethod {
       *
       * @syscap SystemCapability.MiscServices.InputMethodFramework
       * @since 20 dynamic
+      * @since 23 static
       */
     NONE = 0,
 
@@ -2543,6 +2970,7 @@ declare namespace inputMethod {
       *
       * @syscap SystemCapability.MiscServices.InputMethodFramework
       * @since 20 dynamic
+      * @since 23 static
       */
     SENTENCES,
 
@@ -2551,6 +2979,7 @@ declare namespace inputMethod {
       *
       * @syscap SystemCapability.MiscServices.InputMethodFramework
       * @since 20 dynamic
+      * @since 23 static
       */
     WORDS,
 
@@ -2559,6 +2988,7 @@ declare namespace inputMethod {
       *
       * @syscap SystemCapability.MiscServices.InputMethodFramework
       * @since 20 dynamic
+      * @since 23 static
       */
     CHARACTERS
   }

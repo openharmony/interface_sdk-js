@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { Callback, Optional, CommonMethod, Bindable } from './common';
+import { Callback, CommonMethod, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceStr } from './units';
 import { ComponentContentBase } from '../ComponentContent';

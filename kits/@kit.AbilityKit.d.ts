@@ -198,6 +198,26 @@ import privacyManager from '@ohos.privacyManager';
 import ExtensionAbility from '@ohos.app.ability.ExtensionAbility';
 import ShareExtensionAbility from '@ohos.app.ability.ShareExtensionAbility';
 import dialogRequest from '@ohos.app.ability.dialogRequest';
+import ability from '@ohos.ability.ability';
+import ActionExtensionAbility from '@ohos.app.ability.ActionExtensionAbility';
+import AutoFillExtensionAbility from '@ohos.app.ability.AutoFillExtensionAbility';
+import autoStartupManager from '@ohos.app.ability.autoStartupManager';
+import ChildProcess from '@ohos.app.ability.ChildProcess';
+import childProcessManager from '@ohos.app.ability.childProcessManager';
+import { ChildProcessArgs } from '@ohos.app.ability.ChildProcessArgs';
+import { ChildProcessOptions } from '@ohos.app.ability.ChildProcessOptions';
+import quickFixManager from '@ohos.app.ability.quickFixManager';
+import businessAbilityRouter from '@ohos.app.businessAbilityRouter';
+import EmbeddedUIExtensionAbility from '@ohos.app.ability.EmbeddedUIExtensionAbility';
+import UIServiceExtensionAbility from '@ohos.app.ability.UIServiceExtensionAbility';
+import CompletionHandler from '@ohos.app.ability.CompletionHandler';
+import AppServiceExtensionAbility from '@ohos.app.ability.AppServiceExtensionAbility';
+import kioskManager from '@ohos.app.ability.kioskManager';
+import StartupConfig from '@ohos.app.appstartup.StartupConfig';
+import StartupConfigEntry from '@ohos.app.appstartup.StartupConfigEntry';
+import StartupListener from '@ohos.app.appstartup.StartupListener';
+import StartupTask from '@ohos.app.appstartup.StartupTask';
+import startupManager from '@ohos.app.appstartup.startupManager';
 
 export {
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
@@ -210,6 +230,10 @@ export {
   missionManager, wantAgent, WantAgent, UIAbility, Callee, CalleeCallback, Caller,
   OnReleaseCallback, OnRemoteStateChangeCallback, Ability, AbilityLifecycleCallback, ApplicationStateChangeCallback,
   EnvironmentCallback, abilityDelegatorRegistry, TestRunner, ExtensionAbility, ShareExtensionAbility, dialogRequest,
-  Context, abilityAccessCtrl, PermissionRequestResult, Permissions, privacyManager
+  Context, abilityAccessCtrl, PermissionRequestResult, Permissions, privacyManager,
+  ability, ActionExtensionAbility, AutoFillExtensionAbility, autoStartupManager, ChildProcess, childProcessManager,
+  ChildProcessArgs, ChildProcessOptions, quickFixManager, businessAbilityRouter, EmbeddedUIExtensionAbility,
+  UIServiceExtensionAbility, CompletionHandler, AppServiceExtensionAbility, kioskManager,
+  StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager
 };
 /*** endif */

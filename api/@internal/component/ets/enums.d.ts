@@ -559,6 +559,17 @@ declare enum ColoringStrategy {
    * @since 12 dynamic
    */
   PRIMARY = 'primary',
+
+  /**
+   * Extract the average color from the component background and convert to a contrasting black or white color.
+   * Child components can use this color through Color('foreground').
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  CONTRAST = 'contrast'
 }
 
 /**
@@ -8901,6 +8912,21 @@ declare enum XComponentType {
    * @atomicservice
    * @since 11 dynamic
    */
+  /**
+   * Texture type.
+   * Supports EGL/OpenGLES and media data rendering.
+   * Custom drawing content is composited with XComponent’s native content before display.
+   * Key features:
+   * 1. Maintains frame synchronization between GPU textures and ArkUI drawing commands.
+   * 2. Supports unified animation with built-in components.
+   * 3. Utilizes GPU composition, which may have higher power consumption than the SURFACE type
+   *    using the display subsystem (DSS).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   TEXTURE,
 
   /**
@@ -10419,6 +10445,105 @@ declare enum AxisModel {
    * @since 15 dynamic
    */
   ABS_HAT0Y = 7,
+
+  /**
+   * ABS_RX axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  ABS_RX = 8,
+
+  /**
+   * ABS_RY axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  ABS_RY = 9,
+
+  /**
+   * ABS_THROTTLE axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  ABS_THROTTLE = 10,
+
+  /**
+   * ABS_RUDDER axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  ABS_RUDDER = 11,
+
+  /**
+   * ABS_WHEEL axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  ABS_WHEEL = 12,
+
+  /**
+   * ABS_HAT1X axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  ABS_HAT1X = 13,
+
+  /**
+   * ABS_HAT1Y axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  ABS_HAT1Y = 14,
+
+  /**
+   * ABS_HAT2X axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  ABS_HAT2X = 15,
+
+  /**
+   * ABS_HAT2Y axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  ABS_HAT2Y = 16,
+
+  /**
+   * ABS_HAT3X axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  ABS_HAT3X = 17,
+
+  /**
+   * ABS_HAT3Y axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  ABS_HAT3Y = 18
 }
 
 /**

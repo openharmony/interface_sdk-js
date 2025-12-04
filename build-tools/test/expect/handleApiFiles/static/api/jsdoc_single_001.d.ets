@@ -49,7 +49,7 @@ export enum ErrorCode {
     /**
      * No error.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core.static    
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.static
      * @since 20
      */
     NO_ERROR = 0

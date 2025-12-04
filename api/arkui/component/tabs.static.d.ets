@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 
-import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, Optional, TranslateOptions, DividerStyle, Bindable } from './common';
+import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, TranslateOptions, DividerStyle, Bindable } from './common';
 import { EdgeEffect, PageFlipMode, Curve } from "./enums";
 import { Dimension, Length, ResourceColor } from "./units";
 import { ComponentBuilder, CustomBuilder } from './builder';
@@ -206,16 +206,17 @@ export declare class TabsController {
     /**
      * Called when need to preload specified tab content.
      *
-     * @param { Optional<Array<int>> } indices - Indices of tab content to be preloaded.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { Array<int> | undefined } indices - Indices of tab content to be preloaded.
+     * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter invalid. Possible causes:
-     * <br> 1. The parameter type is not Array<int>.
-     * <br> 2. The parameter is an empty array.
-     * <br> 3. The parameter contains an invalid index.
+     *     <br> 1. The parameter type is not Array<int>.
+     *     <br> 2. The parameter is an empty array.
+     *     <br> 3. The parameter contains an invalid index.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 22 static
      */
-    preloadItems(indices: Optional<Array<int>>): Promise<void>;
+    preloadItems(indices: Array<int> | undefined): Promise<void>;
     /**
      * Set tab bar translate.
      *

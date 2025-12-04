@@ -70,7 +70,7 @@ import { ImageAIOptions } from '@ohos.arkui.component';
 import { ResourceStr } from '@ohos.arkui.component';
 import { LoadingProgressAttribute } from '@ohos.arkui.component';
 import { CheckboxGroupOptions, CheckboxGroupAttribute } from '@ohos.arkui.component';
-import { AnimateParam, Optional } from '@ohos.arkui.component';
+import { AnimateParam } from '@ohos.arkui.component';
 import { AnimationPropertyType } from '@ohos.arkui.component';
 
 /**
@@ -165,6 +165,7 @@ export enum ExpandMode {
  * Defines FrameNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 22 static
  */
 export declare class FrameNode {
@@ -488,11 +489,11 @@ export declare class FrameNode {
   /**
    * Get the unique id of the FrameNode.
    *
-   * @returns { number } - Returns the unique id of the FrameNode.
+   * @returns { int } - Returns the unique id of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  getUniqueId(): number;
+  getUniqueId(): int;
 
   /**
    * Get the type of the FrameNode. The type is the name of component, for example, the nodeType of Button is "Button",
@@ -797,7 +798,7 @@ export declare class FrameNode {
    * create property animation in FrameNode.
    *
    * @param { AnimationPropertyType } property - enumeration of property that produces the animation.
-   * @param { Optional<double[]> } startValue - start value of animation.
+   * @param { double[] | undefined } startValue - start value of animation.
    *     Undefined means that the last final value is used as the starting value of the animation,
    *     and it is recommended to set undefined if the property already has a value.
    * @param { double[] } endValue - end value of animation.
@@ -806,9 +807,10 @@ export declare class FrameNode {
    *     if the array lengths of startValue and endValue do not match the data lengths required by type,
    *     creating animation fails.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 22 static
    */
-  createAnimation(property: AnimationPropertyType, startValue: Optional<double[]>, endValue: double[], param: AnimateParam): boolean;
+  createAnimation(property: AnimationPropertyType, startValue: double[] | undefined, endValue: double[], param: AnimateParam): boolean;
 
   /**
    * request to cancel all animations on specified properties. It blocks synchronously to wait for the cancellation result.

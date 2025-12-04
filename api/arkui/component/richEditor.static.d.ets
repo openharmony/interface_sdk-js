@@ -2166,6 +2166,16 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */
     default singleLine(isEnable: boolean | undefined): this;
     /**
+    * Whether to compress punctuation at the beginning of line.
+    *
+    * @param { boolean | undefined } enabled - Whether to enable the feature, the default value is false.
+    *     Passing `undefined` resets it to the default value.
+    * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    default compressLeadingPunctuation(enabled: boolean | undefined): this;
+    /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<RichEditorAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.

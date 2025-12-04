@@ -34,6 +34,31 @@ import { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
+ * Sets the callback for the ui extension to receive data from an ui extension component.
+ *
+ * @typedef { function } OnReceiveDataCallback
+ * @param { Record<string, RecordData> } data - Indicates the receive data callback to set.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @systemapi
+ * @stagemodelonly
+ * @since 22 staticonly
+ */
+export type OnReceiveDataCallback = (data: Record<string, RecordData>) => void;
+
+/**
+ * Sets the callback with return value for the ui extension to receive data from an ui extension component.
+ *
+ * @typedef { function } OnReceiveDataForResultCallback
+ * @param { Record<string, RecordData> } data - Indicates the receive data callback to set.
+ * @returns { Record<string, RecordData> } Returns the custom data.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 22 staticonly
+ */
+export type OnReceiveDataForResultCallback = (data: Record<string, RecordData>) => Record<string, RecordData>;
+
+/**
  * class of ui extension content session.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -95,9 +120,21 @@ declare class UIExtensionContentSession {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
    */
   setReceiveDataCallback(callback: (data: Record<string, Object>) => void): void;
+
+  /**
+   * Sets the callback for the ui extension to receive data from an ui extension component.
+   *
+   * @param { OnReceiveDataCallback } callback - Indicates the receive data callback to set.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 22 static
+   */
+  setReceiveDataCallback(callback: OnReceiveDataCallback): void;
 
   /**
    * Sets the callback with return value for the ui extension to receive data from an ui extension component.
@@ -111,9 +148,21 @@ declare class UIExtensionContentSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
    */
   setReceiveDataForResultCallback(callback: (data: Record<string, Object>) => Record<string, Object>): void;
+
+  /**
+   * Sets the callback with return value for the ui extension to receive data from an ui extension component.
+   *
+   * @param { OnReceiveDataForResultCallback } callback - Indicates the receive data callback to set.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 22 static
+   */
+  setReceiveDataForResultCallback(callback: OnReceiveDataForResultCallback): void;
 
   /**
    * Loads an UI extension content.

@@ -1848,11 +1848,11 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } y - The Y-axis coordinates of the center of an arc (center of a circle).
    * @param { number } startAngle - The starting point of the arc, in the X-axis direction, is calculated in radians.
    * @param { number } endAngle - The end point of an arc, expressed in radians.
-   * @param { boolean } [anticlockwise] - An optional Boolean value. If true, the arc is drawn counterclockwise, and otherwise clockwise.
+   * @param { boolean } [counterclockwise] - An optional Boolean value. If true, the arc is drawn counterclockwise, and otherwise clockwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    */
-  arc(radius: number, x: number, y: number, startAngle: number, endAngle: number, anticlockwise?: boolean): void;
+  arc(radius: number, x: number, y: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void;
 
   /**
    * Draws an arc from the beginning to the end.
@@ -1909,7 +1909,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param { number } rotation - The Angle of rotation of an ellipse, expressed in radians.
    * @param { number } startAngle - The starting point Angle to be plotted, measured from the X-axis, is expressed in radians.
    * @param { number } endAngle - The Angle, expressed in radians, at which the ellipse will be drawn.
-   * @param { boolean } [anticlockwise] - If true, the ellipse is drawn counterclockwise (counterclockwise) and clockwise otherwise.
+   * @param { boolean } [counterclockwise] - If true, the ellipse is drawn counterclockwise (counterclockwise) and clockwise otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    */
@@ -1921,7 +1921,7 @@ export interface OffscreenCanvasRenderingContext2D {
     rotation: number,
     startAngle: number,
     endAngle: number,
-    anticlockwise?: boolean,
+    counterclockwise?: boolean,
   ): void;
 
   /**
@@ -2458,12 +2458,12 @@ export interface CanvasRenderingContext2D {
    * @param { number } y - Y-coordinate of the center point of the arc.
    * @param { number } radius - Radius of the arc.
    * @param { number } startAngle - Start radian of the arc.
-   * @param { number } endAngel - End radian of the arc.
-   * @param { boolean } [anticlockwise] - Whether to draw the arc counterclockwise.
+   * @param { number } endAngle - End radian of the arc.
+   * @param { boolean } [counterclockwise] - Whether to draw the arc counterclockwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4 dynamiconly
    */
-  arc(x: number, y: number, radius: number, startAngle: number, endAngel: number, anticlockwise?: boolean): void;
+  arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void;
 
   /**
    * Draws an arc based on the radius and points on the arc.
@@ -2488,7 +2488,7 @@ export interface CanvasRenderingContext2D {
    * @param { number } rotation - The rotation angle of the ellipse, in radians.
    * @param { number } startAngle - Angle of the start point for ellipse drawing.
    * @param { number } endAngle - End Point Angle for Ellipse Drawing.
-   * @param { number } anticlockwise - Indicates whether to draw an ellipse counterclockwise.
+   * @param { number } [counterclockwise] - Indicates whether to draw an ellipse counterclockwise.
    * 0: clockwise; 1: counterclockwise. The default value is 0.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4 dynamiconly
@@ -2501,7 +2501,7 @@ export interface CanvasRenderingContext2D {
     rotation: number,
     startAngle: number,
     endAngle: number,
-    anticlockwise?: number,
+    counterclockwise?: number,
   ): void;
 
   /**
@@ -3004,12 +3004,12 @@ export interface Path2D {
    * @param { number } y - Y-coordinate of the center point of the arc.
    * @param { number } radius - Radius of the arc.
    * @param { number } startAngle - Start radian of the arc.
-   * @param { number } endAngel - End radian of the arc.
-   * @param { boolean } [anticlockwise] - Whether to draw the arc counterclockwise.
+   * @param { number } endAngle - End radian of the arc.
+   * @param { boolean } [counterclockwise] - Whether to draw the arc counterclockwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4 dynamiconly
    */
-  arc(x: number, y: number, radius: number, startAngle: number, endAngel: number, anticlockwise?: boolean): void;
+  arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void;
 
   /**
    * Draws an arc based on the radius and points on the arc.
@@ -3034,7 +3034,7 @@ export interface Path2D {
    * @param { number } rotation - The rotation angle of the ellipse, in radians.
    * @param { number } startAngle - Angle of the start point for ellipse drawing.
    * @param { number } endAngle - End Point Angle for Ellipse Drawing.
-   * @param { number } anticlockwise - Indicates whether to draw an ellipse counterclockwise.
+   * @param { number } [counterclockwise] - Indicates whether to draw an ellipse counterclockwise.
    * 0: clockwise; 1: counterclockwise. The default value is 0.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4 dynamiconly
@@ -3047,7 +3047,7 @@ export interface Path2D {
     rotation: number,
     startAngle: number,
     endAngle: number,
-    anticlockwise?: number,
+    counterclockwise?: number,
   ): void;
 
   /**

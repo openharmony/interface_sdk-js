@@ -42,7 +42,7 @@ import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
 import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics } from "./units";
 import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
 import { ScrollState } from "./list";
-import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool } from "./enums";
+import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType } from "./enums";
 import { TextRange } from "./textCommon";
 import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
@@ -4704,11 +4704,12 @@ export declare interface TouchEvent extends BaseEvent {
     /**
      * Obtains all historical points of the current frame.
      *
-     * @returns { Array<HistoricalPoint> } - return all historical points.
+     * @returns { Array<HistoricalPoint> | undefined } - return all historical points. Undefined will be returned
+     *     if the internal runtime environment is broken.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getHistoricalPoints(): Array<HistoricalPoint>;
+    getHistoricalPoints(): Array<HistoricalPoint> | undefined;
     /**
      * Blocks the default event.
      *
@@ -5344,21 +5345,21 @@ export declare interface DragEvent {
     /**
      * Get dragData from DragEvent.
      *
-     * @returns { UnifiedData } - get dragData.
+     * @returns { UnifiedData | undefined } - get dragData, undefined will be returned if the internal runtime environment is broken.
      * @throws { BusinessError } 190001 - Data not found.
      * @throws { BusinessError } 190002 - Data error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getData(): UnifiedData;
+    getData(): UnifiedData | undefined;
     /**
      * Get dragData summary from DragEvent.
      *
-     * @returns { Summary } - get Summary Data.
+     * @returns { Summary | undefined } - get Summary Data, undefined will be returned if the internal runtime environment is broken.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getSummary(): Summary;
+    getSummary(): Summary | undefined;
     /**
      * Set dragEvent result to DragEvent.
      *
@@ -6642,22 +6643,26 @@ export declare interface PopupMaskType {
  */
 export declare interface PopupBorderLinearGradient {
     /**
-     * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
+     * direction: Direction of Linear Gradient.
      *
      * @type { ?GradientDirection }
+     * @default GradientDirection.Bottom
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
     direction?: GradientDirection;
     /**
-     * Defines color description for gradients.
-     * double: The position of the color stop. The value range is 0 to 1.
+     * Sets the colors and positions of the gradient.
      *
-     * @type { Array<[ResourceColor, double]> }
+     * When the color setting is undefined, use the default value Color.Black.
+     * The position setting ranges from 0 to 1.
+     *
+     * @type { Array<[ResourceColor | undefined, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    colors: Array<[ResourceColor, double]>;
+    colors: Array<[ResourceColor | undefined, double]>;
 }
 /**
  * Popup common options
@@ -7020,6 +7025,16 @@ export declare interface TipsOptions {
      * @since 22 static
      */
     arrowHeight?: Dimension;
+    /**
+     * Set the display location mode for tips. Tips can be shown around the component or follow the mouse cursor.
+     *
+     * @type { ?TipsAnchorType }
+     * @default TipsAnchorType.TARGET
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    showAtAnchor?: TipsAnchorType;
 }
 /**
  * Defines the popup button.
@@ -8624,6 +8639,18 @@ export declare interface AttributeModifier<T> {
    * @since 22 static
    */
   default applySelectedAttribute(instance: T) : void;
+
+  /**
+   * Specifies the states to be monitored.
+   * Override this method to specify which states (Normal, Pressed, Focused, Disabled, Selected) should be
+   * monitoredby returning a bitmask of ModifierState enum values.
+   *
+   * @returns { int } - Bitmask combination of states to be monitored
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  default monitoredStates(): int;
 }
 /**
  * Defines the content modifier.
@@ -9127,9 +9154,10 @@ export declare type CustomProperty = undefined | null | Object | Record<string, 
 
 /**
  * CommonMethod
- * 
+ *
  * @interface CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 22 static
  */
 export declare interface CommonMethod {
@@ -9334,12 +9362,13 @@ export declare interface CommonMethod {
     /**
      * Background color
      *
-     * @param { Optional<ResourceColor | ColorMetrics> } value
+     * @param { ResourceColor | ColorMetrics | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 22 static
      */
-    default backgroundColor(value: Optional<ResourceColor | ColorMetrics>): this;
+    default backgroundColor(value: ResourceColor | ColorMetrics | undefined): this;
     /**
      * Sets the pixel rounding policy for the current component in the specified direction.
      * <br>If a direction is not set, the pixels are rounded to the nearest whole number in that direction.
@@ -9928,35 +9957,35 @@ export declare interface CommonMethod {
      * Bind gesture recognition.
      * gesture:Bound Gesture Type,mask:GestureMask;
      *
-     * @param { GestureType | undefined } gesture
+     * @param { GestureType } gesture
      * @param { GestureMask } [mask]
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default gesture(gesture: GestureType | undefined, mask?: GestureMask): this;
+    default gesture(gesture: GestureType, mask?: GestureMask): this;
     /**
      * Binding Preferential Recognition Gestures
      * gesture:Bound Gesture Type,mask:GestureMask;
      *
-     * @param { GestureType | undefined } gesture
+     * @param { GestureType } gesture
      * @param { GestureMask } [mask]
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default priorityGesture(gesture: GestureType | undefined, mask?: GestureMask): this;
+    default priorityGesture(gesture: GestureType, mask?: GestureMask): this;
     /**
      * Binding gestures that can be triggered simultaneously with internal component gestures
      * gesture:Bound Gesture Type,mask:GestureMask;
      *
-     * @param { GestureType | undefined } gesture
+     * @param { GestureType } gesture
      * @param { GestureMask } [mask]
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default parallelGesture(gesture: GestureType | undefined, mask?: GestureMask): this;
+    default parallelGesture(gesture: GestureType, mask?: GestureMask): this;
     /**
      * Adds the content blurring effect for the current component. The input parameter is the blurring radius.
      * The larger the blurring radius, the more blurring the content.
@@ -12103,11 +12132,11 @@ export declare abstract class TextContentControllerBase {
      * <br>The location information in the return value is the location of the caret relative to the editable component.
      * </p>
      *
-     * @returns { CaretOffset } index and relative position of the CaretOffset.
+     * @returns { CaretOffset | undefined } index and relative position of the CaretOffset.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getCaretOffset(): CaretOffset;
+    getCaretOffset(): CaretOffset | undefined;
     /**
      * Get the start and end positions of the text content.
      *
@@ -12119,30 +12148,30 @@ export declare abstract class TextContentControllerBase {
      * <br>If there is input, the width in the return value is the fixed width of the editable area.
      * </p>
      *
-     * @returns { RectResult } Text content rect.The unit of the return value is pixel.
+     * @returns { RectResult | undefined } Text content rect.The unit of the return value is pixel.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getTextContentRect(): RectResult;
+    getTextContentRect(): RectResult | undefined;
     /**
      * Get the lines number of the text content.
      * The getTextContentLineCount type is used to obtain the number of lines of the edited text.
      *
-     * @returns { int } Text content line count
+     * @returns { int | undefined } Text content line count
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getTextContentLineCount(): int;
+    getTextContentLineCount(): int | undefined;
     /**
      * Add a text.
      *
      * @param { string } text - text value.
      * @param { TextContentControllerOptions } [textOperationOptions] - operation info.
-     * @returns { int } caret index
+     * @returns { int | undefined } caret index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    addText(text: string, textOperationOptions?: TextContentControllerOptions): int;
+    addText(text: string, textOperationOptions?: TextContentControllerOptions): int | undefined;
     /**
      * Delete text in TextRange.
      *
@@ -12154,11 +12183,11 @@ export declare abstract class TextContentControllerBase {
     /**
      * Gets the selected range of text content.
      *
-     * @returns { TextRange } range for selecting.
+     * @returns { TextRange | undefined } range for selecting.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getSelection(): TextRange;
+    getSelection(): TextRange | undefined;
     /**
      * Clear the content of preview.
      *
@@ -12170,12 +12199,12 @@ export declare abstract class TextContentControllerBase {
      * Gets the text content of the selected range.
      *
      * @param { TextRange } [range] - selected range.
-     * @returns { string } text content of the selected range.
+     * @returns { string | undefined } text content of the selected range.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
-    getText(range?: TextRange): string;
+    getText(range?: TextRange): string | undefined;
 
     /**
      * Delete the last character of the input field component.
@@ -12504,32 +12533,35 @@ export declare interface ItemDragEventHandler {
     onDrop?: Callback<int>;
 }
 /**
-* Define DynamicNode.
-*
-* @typedef DynamicNode
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 22 static
-*/
+ * Define DynamicNode.
+ *
+ * @typedef DynamicNode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 22 static
+ */
 export declare interface DynamicNode {
     /**
      * Set the move action.
      *
-     * @param { Optional<OnMoveHandler> } handler
+     * @param { OnMoveHandler | undefined } handler
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 22 static
      */
-    onMove(handler: Optional<OnMoveHandler>): this;
+    onMove(handler: OnMoveHandler | undefined): this;
     /**
      * Set the move action.
      *
-     * @param { Optional<OnMoveHandler> } handler
+     * @param { OnMoveHandler | undefined } handler
      * @param { ItemDragEventHandler } eventHandler
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 22 static
      */
-    onMove(handler: Optional<OnMoveHandler>, eventHandler: ItemDragEventHandler): this;
+    onMove(handler: OnMoveHandler | undefined, eventHandler: ItemDragEventHandler): this;
 }
 /**
  * Define EdgeEffect Options.

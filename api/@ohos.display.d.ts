@@ -91,7 +91,7 @@ declare namespace display {
    * Obtain the default display.
    *
    * @returns { Display } the result of display
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400001 - Invalid display or screen. Possible cause: Display is not created or destroyed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
@@ -105,7 +105,7 @@ declare namespace display {
    * For 2in1 devices with an external screen, the Display object obtained is the primary screen. For 2in1 devices without an external screen, the Display object obtained is the built-in screen.
    *
    * @returns { Display } the result of primary display
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400001 - Invalid display or screen. Possible cause: Invalid display id.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
@@ -122,7 +122,8 @@ declare namespace display {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *                                                                   2. Incorrect parameter types.
    *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally. Possible causes:
+   *    Display is null, display id corresponding display does not exist.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12 dynamic
@@ -2646,7 +2647,9 @@ declare namespace display {
      * Obtain the cutout info of the display.
      *
      * @param { AsyncCallback<CutoutInfo> } callback
-     * @throws { BusinessError } 1400001 - Invalid display or screen.
+     * @throws { BusinessError } 1400001 - Invalid display or screen. Possible cause:
+     *      1. This display is abnormal.
+     *      2. Internal task error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
@@ -2709,7 +2712,9 @@ declare namespace display {
      *
      * @returns { Promise<Rect> }
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1400001 - Invalid display or screen.
+     * @throws { BusinessError } 1400001 - Invalid display or screen. Possible cause:
+     *      1. This display is abnormal.
+     *      2. Internal task error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic

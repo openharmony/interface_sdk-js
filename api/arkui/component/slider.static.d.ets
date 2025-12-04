@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod, CommonConfiguration, ContentModifier, Optional, Bindable } from './common';
+import { CommonMethod, CommonConfiguration, ContentModifier, Bindable } from './common';
 import { Axis, CrownSensitivity } from './enums';
 import { ResourceStr, ResourceColor, Length, Dimension, SizeOptions } from './units';
 import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
@@ -25,6 +25,7 @@ import { LinearGradient } from './dataPanel';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { ComponentContent } from '../ComponentContent';
+import { ColorMetrics } from '../Graphics';
 /**
  * Style of the slider thumb and track.
  *
@@ -368,19 +369,75 @@ export declare interface SliderConfiguration extends CommonConfiguration<SliderC
      */
     triggerChange: SliderTriggerChangeCallback;
 }
+
+/**
+ * ColorMetricsStop type
+ * 
+ * @typedef { object } ColorMetricsStop
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface ColorMetricsStop {
+  /**
+   * Color property.
+   * 
+   * @type { ColorMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  color: ColorMetrics;
+
+  /**
+   * the color offset. value range [0, 1].
+   * 
+   * **NOTE**
+   * If the value specified is less than 0, the value **0** is used.
+   * If the value specified is greater than 1, the value **1** is used.
+   * 
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  offset: Length;
+}
+
+/**
+ * ColorMetricsLinearGradient class
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare class ColorMetricsLinearGradient {
+    /**
+     * Constructor.
+     *
+     * @param { ColorMetricsStop[] } colorStops - the LinearGradient constructor parameter.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    constructor(colorStops: ColorMetricsStop[]);
+}
+
 /**
  * Defines the accessibility information of slider step point.
  *
  * @interface SliderStepItemAccessibility
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-declare interface SliderStepItemAccessibility {
+export declare interface SliderStepItemAccessibility {
     /**
      * Set the accessibility text of the slider step point. The default value is an empty string.
      *
      * @param { ?ResourceStr } value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     text?: ResourceStr;
@@ -390,15 +447,17 @@ declare interface SliderStepItemAccessibility {
  *
  * @interface SliderShowStepOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-declare interface SliderShowStepOptions {
+export declare interface SliderShowStepOptions {
     /**
      * Map key value range: [0, INT32_MAX]. When the key value is set to a negative number or a decimal,
      * the setting does not take effect.
      *
      * @param { ?Map<number, SliderStepItemAccessibility> } value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     stepsAccessibility?: Map<number, SliderStepItemAccessibility>;
@@ -742,6 +801,18 @@ export declare interface SliderAttribute extends CommonMethod {
      * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<SliderAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set the track color of the slider using the color metrics.
+     *
+     * @param { ColorMetricsLinearGradient | undefined } color - Track color of the slider using the color metrics.
+     *     Undefined indicates using the default color.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default trackColorMetrics(color: ColorMetricsLinearGradient | undefined): this;
 }
 
 /**

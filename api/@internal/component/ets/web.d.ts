@@ -3951,6 +3951,14 @@ declare class WebContextMenuResult {
    * @since 20 dynamic
    */
   pasteAndMatchStyle(): void;
+
+  /**
+   * Request to fill the password vault contents into the input field.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  requestPasswordAutoFill(): void;
 }
 
 /**
@@ -5514,6 +5522,37 @@ declare interface WebOptions {
 }
 
 /**
+ * Defines the regular expression rule.
+ *
+ * @typedef UrlRegexRule
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 23 dynamic
+*/
+declare interface UrlRegexRule {
+  /**
+   * Exact match of the second-level domain. For example, the second-level domain of https://www.example.com
+   * is example.com, and the second-level domain of https://www.example.com.cn is example.com.cn. If the URL
+   * is an IP address, the full IP is matched against the secondLevelDomain.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  secondLevelDomain: string;
+  /**
+   * Full URL regular expression.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  rule: string;
+}
+
+/**
  * Defines the contents of the JavaScript to be injected.
  *
  * @interface ScriptItem
@@ -5549,6 +5588,16 @@ declare interface ScriptItem {
    * @since 11 dynamic
    */
   scriptRules: Array<string>;
+
+  /**
+   * Set the regular expression rule that allows execution of this JavaScript.
+   *
+   * @type { ?Array<UrlRegexRule> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  urlRegexRules?: Array<UrlRegexRule>;
 }
 
 /**
@@ -8468,8 +8517,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } password - {@code true} means the Web can save the password; {@code false} otherwise.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead ohos.web.WebAttribute#enableAutofill
    */
   password(password: boolean): WebAttribute;
 
@@ -8583,8 +8633,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } tableData {@code true} means the Web can save the table data; {@code false} otherwise.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead ohos.web.WebAttribute#enableAutofill
    */
   tableData(tableData: boolean): WebAttribute;
 
@@ -10875,7 +10926,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute } the attribute of the scroll.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 14 dynamic
+   * @since 14
    */
   /**
    * Called to setting the nested scroll options.

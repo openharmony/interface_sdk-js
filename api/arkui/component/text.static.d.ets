@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod, ShadowOptions, Optional, Callback, AttributeModifier, SelectionOptions } from "./common";
+import { CommonMethod, ShadowOptions, Callback, AttributeModifier, SelectionOptions } from "./common";
 import { CustomBuilder } from './builder';
 import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode } from "./enums";
 import { Resource, ResourceColor, Font, Length, LengthMetrics } from "./units";
@@ -870,6 +870,32 @@ export declare enum MarqueeStartPolicy {
      */
     ON_FOCUS = 1
 }
+
+/**
+ * Marquee scrolling policy after text update.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare enum MarqueeUpdatePolicy {
+  /**
+   * Reset scroll position and restart scroll.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  DEFAULT = 0,
+
+  /**
+   * Preserve scroll position, just change to new text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  PRESERVE_POSITION = 1
+}
+
 /**
  * Defines the options of Text.
  *
@@ -912,6 +938,18 @@ export declare interface TextMarqueeOptions {
      */
     step?: double;
     /**
+     * The spacing between two rounds of marquee.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>Default value is 48vp.
+     * </p>
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    spacing?: LengthMetrics;
+    /**
      * The rounds of the marquee.
      *
      * @type { ?int }
@@ -951,6 +989,20 @@ export declare interface TextMarqueeOptions {
      * @since 22 static
      */
     marqueeStartPolicy?: MarqueeStartPolicy;
+    /**
+     * Marquee scrolling policy after text update.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>This attribute takes effect when the marquee is in the playing state
+     *     and the text content width exceeds the width of the marquee component.
+     *     Default value is MarqueeUpdatePolicy.DEFAULT.
+     * </p>
+     *
+     * @type { ?MarqueeUpdatePolicy }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    marqueeUpdatePolicy?: MarqueeUpdatePolicy;
 }
 /**
  * Defines the controller of Text.
@@ -981,11 +1033,11 @@ export declare class TextController {
     /**
      * Get LayoutManager.
      *
-     * @returns { LayoutManager } - Return the LayoutManager.
+     * @returns { LayoutManager | undefined } - Return the LayoutManager.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getLayoutManager(): LayoutManager;
+    getLayoutManager(): LayoutManager | undefined;
     /**
      * Text selection is achieved by specifying the start and end positions of the text.
      *

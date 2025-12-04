@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1260,7 +1260,7 @@ declare namespace osAccount {
     getForegroundOsAccountLocalId(displayId: long): Promise<int>;
 
     /**
-     * Gets the disyplay ID of the foreground OS account by local ID.
+     * Gets the display ID of the foreground OS account by local ID.
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { int } localId - Indicates the local ID of the target foreground OS account.
@@ -2195,10 +2195,7 @@ declare namespace osAccount {
     getBundleIdForUidSync(uid: int): int;
 
     /**
-     * Subscribes to the change events of accounts.
-     * <p>
-     * When user change the account, the subscriber will receive a notification
-     * about the account change event.
+     * Subscribes to the event indicating the completion of an OS account activation.
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
      * @param { string } name - Indicates the name of subscriber.
@@ -2214,10 +2211,7 @@ declare namespace osAccount {
     onActivate(name: string, callback: Callback<int>): void;
 
     /**
-     * Subscribes to the change events of accounts.
-     * <p>
-     * When user change the account, the subscriber will receive a notification
-     * about the account change event.
+     * Subscribes to the event indicating that an OS account is being activated.
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
      * @param { string } name - Indicates the name of subscriber.
@@ -2233,7 +2227,7 @@ declare namespace osAccount {
     onActivating(name: string, callback: Callback<int>): void;
 
     /**
-     * Unsubscribes from account events.
+     * Unsubscribes from the event indicating the completion of an OS account activation.
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
      * @param { string } name - Indicates the name of subscriber.
@@ -2249,7 +2243,7 @@ declare namespace osAccount {
     offActivate(name: string, callback?: Callback<int>): void;
 
     /**
-     * Unsubscribes from account events.
+     * Unsubscribes to the event indicating that an OS account is being activated.
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
      * @param { string } name - Indicates the name of subscriber.
@@ -5101,7 +5095,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300106 - The authentication type is not supported.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Gets the credential enrolled identifier of the specified authentication type.
@@ -5120,10 +5114,163 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300106 - The authentication type is not supported.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic
-     * @since 22 static
+     * @since 22 dynamic&static
      */
     getEnrolledId(authType: AuthType, accountId?: int): Promise<Uint8Array>;
+
+    /**
+     * Subscribes to one or more types of credential change events.
+     * Currently, the following types of credential change events are supported for subscription:
+     * 1. AuthType.PIN; 2. AuthType.FACE; 3. AuthType.FINGERPRINT; 4. AuthType.PRIVATE_PIN;
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { AuthType[] } credentialTypes - Indicates the credential types to be subscribed.
+     * @param { Callback<CredentialChangeInfo> } callback - Indicates callback for receiving
+     *     the credential change information.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - One or more credential types are invalid.
+     * @throws { BusinessError } 12300106 - One or more credential types are not supported.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    onCredentialChanged(credentialTypes: AuthType[], callback: Callback<CredentialChangeInfo>): void;
+
+   /**
+    * Unsubscribes from the credential change events.
+    *
+    * @permission ohos.permission.USE_USER_IDM
+    * @param { Callback<CredentialChangeInfo> } [callback] - Indicates callback for receiving
+    *     the credential change information.
+    * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application.
+    * @throws { BusinessError } 12300001 - The system service works abnormally.
+    * @syscap SystemCapability.Account.OsAccount
+    * @systemapi
+    * @since 23 dynamic&static
+    */
+   offCredentialChanged(callback?: Callback<CredentialChangeInfo>): void;
+  }
+
+  /**
+   * Enumerates the credential change types.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  enum CredentialChangeType {
+    /**
+     * Indicates that a credential has been added.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    ADD_CREDENTIAL = 1,
+
+    /**
+     * Indicates that a credential has been updated.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    UPDATE_CREDENTIAL = 2,
+
+    /**
+     * Indicates that a credential has been deleted.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    DELETE_CREDENTIAL = 3
+  }
+
+  /**
+   * Defines the credential change information.
+   *
+   * @typedef CredentialChangeInfo
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  interface CredentialChangeInfo {  
+    /**
+     * Indicates credential change type.
+     *
+     * @type { CredentialChangeType }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    changeType: CredentialChangeType;
+
+    /**
+     * Indicates the identifier of the OS account which the credential belongs.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    accountId: int;
+
+    /**
+     * Indicates whether the change is silent,
+     * i.e., whether the change is automatically performed by system in the backgroud.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    isSilent: boolean;
+
+    /**
+     * Indicate the type of the changed credential.
+     *
+     * @type { AuthType }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    credentialType: AuthType;
+
+    /**
+     * Indicate the identifier of the added credential.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    addedCredentialId?: Uint8Array;
+
+    /**
+     * Indicate the identifier of the deleted credential.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    deletedCredentialId?: Uint8Array;
   }
 
   /**
@@ -5180,7 +5327,7 @@ declare namespace osAccount {
     UNLOCK = 1,
 
     /**
-     * Indicates the intent of slient authentication.
+     * Indicates the intent of silent authentication.
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi

@@ -37,7 +37,7 @@ import type pointer from './@ohos.multimodalInput.pointer';
 import { ComponentContent, FrameNode, Frame } from '@ohos.arkui.node';
 import { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import { ClickEvent, ExpectedFrameRateRange, DragItemInfo, AnimateParam, KeyframeAnimateParam, KeyframeState,
-  SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent, Optional,
+  SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent,
   ContentCoverOptions } from '@ohos.arkui.component';
 import { CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 import { GestureEvent, GestureRecognizer } from '@ohos.arkui.component';
@@ -46,7 +46,7 @@ import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRou
 import { TimePickerDialogOptions } from '@ohos.arkui.component';
 import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogParamWithOptions } from '@ohos.arkui.component';
 import { ActionSheetOptions } from '@ohos.arkui.component';
-import { TextPickerDialogOptions } from '@ohos.arkui.component';
+import { TextPickerDialogOptions, TextPickerDialogOptionsExt } from '@ohos.arkui.component';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 import { DatePickerDialogOptions } from '@ohos.arkui.component';
 import { TabsController } from '@ohos.arkui.component';
@@ -2170,7 +2170,9 @@ export declare class DragController {
    * @param { CustomBuilder | DragItemInfo | undefined } custom - Object used for prompts displayed when the object
    * is dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @returns { Promise<dragController.DragEventParam> } A Promise with the drag event information.
+   * @returns { Promise<dragController.DragEventParam> | null } A Promise with the drag event information. Null will be returned
+   *     if the parameters' checking failed or some internal errors occur, for example: the runtime environment is
+   *     broken.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -2180,7 +2182,7 @@ export declare class DragController {
    * @since 22 static
    */
   executeDrag(custom: CustomBuilder | DragItemInfo | undefined, dragInfo: dragController.DragInfo)
-    : Promise<dragController.DragEventParam>;
+    : Promise<dragController.DragEventParam> | null;
 
   /**
    * Create one drag action object, which can be used for starting drag later or monitoring the drag status after
@@ -2616,6 +2618,7 @@ export declare class ComponentSnapshot {
  * class UIContext
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 22 static
  */
 export declare class UIContext {
@@ -2806,11 +2809,11 @@ export declare class UIContext {
   /**
    * textPickerDialog display.
    *
-   * @param { TextPickerDialogOptions } options - Options.
+   * @param { TextPickerDialogOptions | TextPickerDialogOptionsExt } style - Dialog style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  showTextPickerDialog(options: TextPickerDialogOptions): void;
+  showTextPickerDialog(style: TextPickerDialogOptions | TextPickerDialogOptionsExt): void;
 
   /**
    * Set image cache capacity of decoded image count.
@@ -2974,35 +2977,35 @@ export declare class UIContext {
   /**
    * Get FrameNode by uniqueId.
    *
-   * @param { number } id - The uniqueId of the FrameNode.
+   * @param { int } id - The uniqueId of the FrameNode.
    * @returns { FrameNode | null } - The FrameNode with the target uniqueId, or null if the frameNode is not existed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  getFrameNodeByUniqueId(id: number): FrameNode | null;
+  getFrameNodeByUniqueId(id: int): FrameNode | null;
 
   /**
    * Get page information of the frameNode with uniqueId.
    *
-   * @param { number } id - The uniqueId of the target FrameNode.
+   * @param { int } id - The uniqueId of the target FrameNode.
    * @returns { PageInfo } - The page information of the frameNode with the target uniqueId, includes
    * navDestination and router page information. If the frame node does not have navDestination and
    * router page information, it will return an empty object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  getPageInfoByUniqueId(id: number): PageInfo;
+  getPageInfoByUniqueId(id: int): PageInfo;
 
   /**
    * Get navigation information of the frameNode with uniqueId.
    *
-   * @param { number } id - The uniqueId of the target FrameNode.
+   * @param { int } id - The uniqueId of the target FrameNode.
    * @returns { observer.NavigationInfo | undefined } - The navigation information of the frameNode with the
    * target uniqueId, or undefined if the frameNode is not existed or does not have navigation information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  getNavigationInfoByUniqueId(id: number): observer.NavigationInfo | undefined;
+  getNavigationInfoByUniqueId(id: int): observer.NavigationInfo | undefined;
 
   /**
    * Dynamic dimming.
@@ -3247,7 +3250,6 @@ export declare class UIContext {
    * of repeatedly loading resources. Clearing this cache may slow down the loading speed of resources during page
    * overload.
    *
-   * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 22 static
@@ -3318,11 +3320,12 @@ export declare class UIContext {
   /**
    * whether to enable or disable swipe to back event.
    *
-   * @param { Optional<boolean> } enabled - enable or disable swipe to back event.
+   * @param { boolean | undefined } enabled - enable or disable swipe to back event.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @stagemodelonly
    * @since 22 static
    */
-  enableSwipeBack(enabled: Optional<boolean>): void;
+  enableSwipeBack(enabled: boolean | undefined): void;
 
   /**
    * Open the BindContentCover.

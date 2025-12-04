@@ -2065,6 +2065,53 @@ declare namespace text {
     loadFont(name: string, path: string | Resource): Promise<void>;
 
     /**
+     * Loads a custom font with enhanced error checking. This API returns the result synchronously.
+     * In this API, name specifies the alias of the font, and the custom font effect can be displayed only when
+     * the value of name is set in fontFamilies in TextStyle. The supported font file formats are .ttf, .otf and .ttc.
+     * @param { string } name - the font name.
+     * @param { string | Resource } path - Path of the font file to load.
+     * The value must be **"file:// + absolute path of the font file"** or **$rawfile("path of the font file")**.
+     * @param { int } [index] - The index of the font file.
+     * @throws { BusinessError } 25900001 - Parameter error.
+     * @throws { BusinessError } 25900002 - File not found.
+     * @throws { BusinessError } 25900003 - Failed to open the file.
+     * @throws { BusinessError } 25900004 - File seek failed.
+     * @throws { BusinessError } 25900005 - Failed to get the file size.
+     * @throws { BusinessError } 25900006 - Failed to read the file.
+     * @throws { BusinessError } 25900007 - Empty file.
+     * @throws { BusinessError } 25900008 - Corrupt file.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @form
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    loadFontSyncWithCheck(name: string, path: string | Resource, index?: int): void;
+
+    /**
+     * Loads a custom font with enhanced error checking. This API uses a promise to return the result.
+     * In this API, name specifies the alias of the font, and the custom font effect can be displayed only when
+     * the value of name is set in fontFamilies in TextStyle. The supported font file formats are .ttf, .otf and .ttc.
+     * @param { string } name - Name of the font. Any string is acceptable.
+     * @param { string | Resource } path - Path of the font file to load.
+     * The value must be **"file:// + absolute path of the font file"** or **$rawfile("path of the font file")**.
+     * @param { int } [index] - The index of the font file.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 25900001 - Parameter error.
+     * @throws { BusinessError } 25900002 - File not found.
+     * @throws { BusinessError } 25900003 - Failed to open the file.
+     * @throws { BusinessError } 25900004 - File seek failed.
+     * @throws { BusinessError } 25900005 - Failed to get the file size.
+     * @throws { BusinessError } 25900006 - Failed to read the file.
+     * @throws { BusinessError } 25900007 - Empty file.
+     * @throws { BusinessError } 25900008 - Corrupt file.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @form
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    loadFontWithCheck(name: string, path: string | Resource, index?: int): Promise<void>;
+
+    /**
      * Unloads a custom font synchronously. This API returns the result synchronously.
      * After unloading a font alias through this API, the corresponding custom font will no longer be available.
      * All typography using the font alias should be destroyed and re-created.
@@ -2576,6 +2623,15 @@ declare namespace text {
      * @since 22 dynamic
      */
     lineSpacing?: double;
+
+    /**
+     * Whether to enable compression of leading punctuation.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    compressHeadPunctuation?: boolean;
   }
 
   /**

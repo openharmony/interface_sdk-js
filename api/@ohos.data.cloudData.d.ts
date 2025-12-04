@@ -19,8 +19,10 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
+/*** if arkts dynamic */
 import type relationalStore from './@ohos.data.relationalStore';
 import commonType from './@ohos.data.commonType';
+/*** endif */
 
 /**
  * Provides methods for cloud capabilities.
@@ -28,15 +30,17 @@ import commonType from './@ohos.data.commonType';
  * @namespace cloudData
  * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
  * @since 10 dynamic
+ * @since 22 static
  */
 declare namespace cloudData {
   /**
    * Describes the clear action type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   enum ClearAction {
     /**
@@ -45,6 +49,7 @@ declare namespace cloudData {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     CLEAR_CLOUD_INFO,
 
@@ -54,8 +59,18 @@ declare namespace cloudData {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
-    CLEAR_CLOUD_DATA_AND_INFO
+    CLEAR_CLOUD_DATA_AND_INFO,
+
+    /**
+     * Indicates clearing nothing.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    CLEAR_CLOUD_NONE
   }
 
   /**
@@ -237,11 +252,113 @@ declare namespace cloudData {
   }
 
   /**
+   * Switches information of database.
+   *
+   * @interface DBSwitchInfo
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface DBSwitchInfo {
+    /**
+     * Indicates switches information of database.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    enable: boolean;
+
+    /**
+     * Indicates switches information of tables.
+     *
+     * @type { ?Record<string, boolean> }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    tableInfo?: Record<string, boolean>;
+  }
+
+  /**
+   * Switch configuration.
+   *
+   * @interface SwitchConfig
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface SwitchConfig {
+    /**
+     * Switch configuration of database.
+     *
+     * @type { Record<string, DBSwitchInfo> }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+     dbInfo: Record<string, DBSwitchInfo>;
+  }
+
+  /**
+   * Action information of database.
+   *
+   * @interface DBActionInfo
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface DBActionInfo {
+    /**
+     * Indicates the way in which the database is to be cleared.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    action: ClearAction;
+
+    /**
+     * Indicates actions information of tables.
+     *
+     * @type { ?Record<string, ClearAction> }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    tableInfo?: Record<string, ClearAction>;
+  }
+
+  /**
+   * Cleanup configuration.
+   *
+   * @interface ClearConfig
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface ClearConfig {
+    /**
+     * Cleanup action of database.
+     *
+     * @type { Record<string, DBActionInfo> }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+     dbInfo: Record<string, DBActionInfo>;
+  }
+
+  /**
    * Provides methods to set CloudSync config.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   class Config {
     /**
@@ -374,6 +491,7 @@ declare namespace cloudData {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     static changeAppCloudSwitch(
       accountId: string,
@@ -398,8 +516,34 @@ declare namespace cloudData {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     static changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean): Promise<void>;
+
+    /**
+     * Changes the cloud switch of a single application.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
+     * @param { string } bundleName -  Indicates the name of application.
+     * @param { boolean } status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
+     * @param { SwitchConfig } [config] - Indicates the configuration of cloud sync switch.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @static
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    static changeAppCloudSwitch(
+      accountId: string,
+      bundleName: string,
+      status: boolean,
+      config?: SwitchConfig
+    ): Promise<void>;
 
     /**
      * Notifies changes of the cloud records.
@@ -575,6 +719,7 @@ declare namespace cloudData {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11 dynamic
+     * @since 22 static
      */
     static clear(
       accountId: string,
@@ -613,8 +758,32 @@ declare namespace cloudData {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11 dynamic
+     * @since 22 static
      */
     static clear(accountId: string, appActions: Record<string, ClearAction>): Promise<void>;
+
+    /**
+     * deletes cloud information from local data.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
+     * @param { Record<string, ClearAction> } appActions - Indicates the way in which the application data is to be cleared.
+     * @param { Record<string, ClearConfig> } [config] - Indicates configuration in which the database or table data is to be cleared.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @static
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    static clear(
+      accountId: string,
+      appActions: Record<string, ClearAction>,
+      config?: Record<string, ClearConfig>
+    ): Promise<void>;
 
     /**
      * Sets global cloud strategy.

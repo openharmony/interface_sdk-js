@@ -400,7 +400,7 @@ function replaceSinceDynamicStatic(fileContent) {
  * @returns 
  */
 function replaceJsDocDynamicStatic(fileContent) {
-  const jsdocTagRegx = /\s*\*\s*@\S*(?:(?!\s*\*\s*@\S*)[\s\S])*?\s\[(dynamiconly|staticonly)\]\s*(?=\r|\n)/g;
+  const jsdocTagRegx = /\s*\*\s*@\S*(?:(?!\s*\*\s*@\S*)[\s\S])*\s*\[(dynamiconly|staticonly)\]\s*(?=\r|\n)/g;
   // 处理jsDoc中使用[dynamiconly]/[staticonly]格式标签文本
   return fileContent.replace(jsdocTagRegx, (substring, p1) => {
     if (dirType === DirType.dynamicApi && p1 === 'staticonly') {
@@ -408,7 +408,7 @@ function replaceJsDocDynamicStatic(fileContent) {
     } else if ((dirType === DirType.staticApi || dirType === DirType.staticFile) && p1 === 'dynamiconly') {
       substring = '';
     } else {
-      substring = substring.replace(/\s\[(dynamiconly|staticonly)\]\s*/g, '');
+      substring = substring.replace(/\s*\[(dynamiconly|staticonly)\]\s*$/g, '');
       substring = substring.replace(/\s*\*\s*$/g, '');
     }
     return substring;

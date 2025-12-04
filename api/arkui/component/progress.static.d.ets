@@ -20,7 +20,7 @@
  */
 import { ResourceColor, Length, PX, VP, LPX, Font, ResourceStr } from "./units";
 import { Resource } from '../../global/resource';
-import { CommonMethod, Optional, ContentModifier, CommonConfiguration } from './common';
+import { CommonMethod, ContentModifier, CommonConfiguration } from './common';
 import { LinearGradient } from "./dataPanel";
 import { LengthMetrics } from '../Graphics';
 import { ComponentBuilder, CustomBuilder } from './builder';

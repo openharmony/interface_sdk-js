@@ -3420,6 +3420,14 @@ declare namespace sensor {
      * @since 19 dynamic
      */
     isLocalSensor?: boolean;
+
+    /**
+     * Is the device a mock device or a real device
+     * @type { ?boolean }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 23 dynamic&static
+     */
+    isMockSensor?: boolean;
   }
 
   /**
