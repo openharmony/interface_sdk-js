@@ -95,8 +95,6 @@ declare namespace deviceStatus {
    * Subscribe to detect the steady standing status
    * @param { 'steadyStandingDetect' } type - Indicates the event type.
    * @param { Callback<SteadyStandingStatus> } callback - Indicates the callback for getting the event data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
-   * <br> 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 32500001 - Service exception.
@@ -109,9 +107,7 @@ declare namespace deviceStatus {
   /**
    * Unsubscribe to detect the steady standing status
    * @param { 'steadyStandingDetect' } type - Indicates the event type.
-   * @param { Callback<SteadyStandingStatus> } callback - Indicates the callback for getting the event data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
-   * <br> 2. Incorrect parameter types. 3.Parameter verification failed.
+   * @param { Callback<SteadyStandingStatus> } [callback] - Indicates the callback for getting the event data.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 32500001 - Service exception.
