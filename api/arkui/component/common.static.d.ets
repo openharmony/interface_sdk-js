@@ -10925,6 +10925,18 @@ export declare interface CommonMethod {
      */
     default bindContextMenu(content: CustomBuilder | undefined, responseType: ResponseType | undefined, options?: ContextMenuOptions): this;
     /**
+     * Binds a context menu to this component, which is displayed when the user long-presses or right-clicks the
+     * component. Only custom menu items are supported. Long pressing with a mouse device is not supported.
+     *
+     * @param { CustomBuilderT<ResponseType> | undefined } content - Indicates the content of context menu. Undefined
+     *     means unbinding.
+     * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default bindContextMenu(content: CustomBuilderT<ResponseType> | undefined, options?: ContextMenuOptions): this;
+    /**
      * Binds a context menu to the component, whose visibility is subject to the isShown settings.
      *
      * @param { boolean | undefined } isShown - true means display content, false means hide content, default is false.
