@@ -21,6 +21,7 @@ import { CommonMethod } from './common';
 import { Length, Font, ResourceColor, Dimension, BorderRadiuses, DividerStyleOptions } from './units';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
+import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
 /**
  * Declare SubMenuExpandingMode
  *
@@ -117,6 +118,18 @@ export declare interface MenuAttribute extends CommonMethod {
      * @since 22 static
      */
     default subMenuExpandingMode(mode: SubMenuExpandingMode | undefined): this;
+    /**
+     * Set the expand symbol of sub-menu.
+     *
+     * @param { SymbolGlyphModifier | undefined } symbol
+     * @param { SymbolGlyphModifier | undefined } symbol - Use SymbolGlyphModifier to display symbol.
+     *     Use undefined to display default symbol.
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default subMenuExpandSymbol(symbol: SymbolGlyphModifier | undefined): this;
     /**
      * Set the attribute modifier
      *

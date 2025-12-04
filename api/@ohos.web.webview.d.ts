@@ -336,7 +336,7 @@ declare namespace webview {
     /**
      * ArkWeb auto use the newest ArkWeb Engine version.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     ARKWEB_EVERGREEN = 99999
   }
@@ -2131,6 +2131,17 @@ declare namespace webview {
      * @since 23 dynamic
      */
     static setLazyInitializeWebEngine(lazy: boolean): void;
+
+    /**
+     * Fetches all stored cookies asynchronously.
+     *
+     * @param { boolean } incognito - {@code true} Gets all cookies in incognito context; {@code false} otherwise.
+     * @returns { Promise<Array<WebHttpCookie>> } - A promise resolved after the cookies gotten.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    static fetchAllCookies(incognito: boolean): Promise<Array<WebHttpCookie>>;
   }
 
   /**
@@ -3834,7 +3845,7 @@ declare namespace webview {
      * @returns {boolean} true means the application is using the Evergreen Web Engine, false means not.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     static isActiveWebEngineEvergreen(): boolean;
 
@@ -7092,6 +7103,33 @@ declare namespace webview {
      * @since 23 dynamic
      */
     static setScrollbarMode(scrollbarMode: ScrollbarMode): void;
+
+    /**
+     * Resume current microphone.
+     *
+     * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    resumeMicrophone(): void;
+
+    /**
+     * Pause current microphone.
+     *
+     * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    pauseMicrophone(): void;
+
+    /**
+     * Stop current microphone.
+     *
+     * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    stopMicrophone(): void;
   }
 
   /**
@@ -10304,6 +10342,133 @@ declare namespace webview {
      * @since 23 dynamic
      */
     FORCE_DISPLAY_SCROLLBAR = 1
+  }
+
+  /**
+   * Indicates whether to restrict cookies so that only requests sent back to the same site that
+   * created them can carry them.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  enum WebHttpCookieSameSitePolicy {
+    /**
+     * Cookies marked as Secure are allowed to be carried in cross-site requests.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    NONE = 0,
+    
+    /**
+     * Allow specific cross-site requests to carry cookies.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    LAX = 1,
+    
+    /**
+     * Prohibit cross-site requests from carrying cookies.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    STRICT = 2
+  }
+  
+  /**
+   * Defines the Web's HTTPCookie.
+   * <p><strong>API Note</strong>:<br>
+   * The maximum length allowed for each attribute value in a cookie string is 1024.
+   * </p>
+   *
+   * @typedef WebHttpCookie
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  interface WebHttpCookie {
+    /**
+     * Gets the cookie's samesite policy.
+     *
+     * @type { WebHttpCookieSameSitePolicy } The samesite policy.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    samesitePolicy: WebHttpCookieSameSitePolicy;
+    
+    /**
+     * Gets the cookie's expiration date.
+     *
+     * @type { string } The cookie's expiration date.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    expiresDate: string;
+    
+    /**
+     * Gets the cookie's name.
+     *
+     * @type { string } The cookie's name.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    name: string;
+    
+    /**
+     * Gets if the cookie is session cookie.
+     *
+     * @type { boolean } True if the cookie is session cookie.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    isSessionCookie: boolean;
+    
+    /**
+     * Gets the cookie's value.
+     *
+     * @type { string } The cookie's value.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    value: string;
+    
+    /**
+     * Gets the cookie's path.
+     *
+     * @type { string } The cookie's path.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    path: string;
+    
+    /**
+     * Gets whether the current cookie is marked as HttpOnly.
+     *
+     * @type { boolean } True if the cookie is marked as HttpOnly.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    isHttpOnly: boolean;
+    
+    /**
+     * Gets whether the current cookie is marked as Secure.
+     *
+     * @type { boolean } True if the cookie is secure.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    isSecure: boolean;
+    
+    /**
+     * Gets the domain of the cookie.
+     *
+     * @type { string } The cookie's domain.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic
+     */
+    domain: string;
   }
 }
 

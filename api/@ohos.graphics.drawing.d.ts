@@ -2599,6 +2599,21 @@ declare namespace drawing {
      * @since 20 dynamic
      */
     isInterpolate(other: Path): boolean;
+
+    /**
+     * Checks if the fill type is one of the INVERSE variants.
+     * @returns { boolean } Returns true if  the fill type is one of the INVERSE variants; return false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 23 dynamic&static
+     */
+    isInverseFillType(): boolean;
+
+    /**
+     * Toggles the INVERSE state of the filltype.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 23 dynamic&static
+     */
+    toggleInverseFillType(): void;
   }
 
   /**
@@ -5018,6 +5033,22 @@ declare namespace drawing {
      * @since 22 dynamic
      */
     static makeFromRawFileWithArguments(rawfile: Resource, typefaceArguments: TypefaceArguments): Typeface;
+
+    /**
+     * Checks if the typeface is bold.
+     * @returns { boolean } Returns true if the typeface is bold; return false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 23 dynamic&static
+     */
+    isBold(): boolean;
+
+    /**
+     * Checks if the typeface is italic.
+     * @returns { boolean } Returns true if the typeface is italic; return false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 23 dynamic&static
+     */
+    isItalic(): boolean;
   }
 
   /**

@@ -390,6 +390,26 @@ type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
 type OnAdsBlockedCallback = (details: AdsBlockedDetails) => void;
 
 /**
+ * The callback when camera capturing state of current page has been changed.
+ *
+ * @typedef { function } OnCameraCaptureStateChangeCallback
+ * @param { CameraCaptureStateChangeInfo } event - the camera capturing state event.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+type OnCameraCaptureStateChangeCallback = (event: CameraCaptureStateChangeInfo) => void;
+
+/**
+ * The callback when microphone capturing state of current page has been changed.
+ *
+ * @typedef { function } OnMicrophoneCaptureStateChangeCallback
+ * @param { MicrophoneCaptureStateChangeInfo } event - the microphone capturing state event.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+type OnMicrophoneCaptureStateChangeCallback = (event: MicrophoneCaptureStateChangeInfo) => void;
+
+/**
  * Defines the ads block details.
  *
  * @interface AdsBlockedDetails
@@ -3931,6 +3951,14 @@ declare class WebContextMenuResult {
    * @since 20 dynamic
    */
   pasteAndMatchStyle(): void;
+
+  /**
+   * Request to fill the password vault contents into the input field.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  requestPasswordAutoFill(): void;
 }
 
 /**
@@ -5494,6 +5522,37 @@ declare interface WebOptions {
 }
 
 /**
+ * Defines the regular expression rule.
+ *
+ * @typedef UrlRegexRule
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 23 dynamic
+*/
+declare interface UrlRegexRule {
+  /**
+   * Exact match of the second-level domain. For example, the second-level domain of https://www.example.com
+   * is example.com, and the second-level domain of https://www.example.com.cn is example.com.cn. If the URL
+   * is an IP address, the full IP is matched against the secondLevelDomain.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  secondLevelDomain: string;
+  /**
+   * Full URL regular expression.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  rule: string;
+}
+
+/**
  * Defines the contents of the JavaScript to be injected.
  *
  * @interface ScriptItem
@@ -5529,6 +5588,16 @@ declare interface ScriptItem {
    * @since 11 dynamic
    */
   scriptRules: Array<string>;
+
+  /**
+   * Set the regular expression rule that allows execution of this JavaScript.
+   *
+   * @type { ?Array<UrlRegexRule> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  urlRegexRules?: Array<UrlRegexRule>;
 }
 
 /**
@@ -8448,8 +8517,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } password - {@code true} means the Web can save the password; {@code false} otherwise.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead ohos.web.WebAttribute#enableAutofill
    */
   password(password: boolean): WebAttribute;
 
@@ -8563,8 +8633,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } tableData {@code true} means the Web can save the table data; {@code false} otherwise.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead ohos.web.WebAttribute#enableAutofill
    */
   tableData(tableData: boolean): WebAttribute;
 
@@ -10855,7 +10926,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute } the attribute of the scroll.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 14 dynamic
+   * @since 14
    */
   /**
    * Called to setting the nested scroll options.
@@ -11435,6 +11506,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableSelectedDataDetector(enable: boolean): WebAttribute
 
   /**
+   * Sets whether enable auto fill or not.
+   *
+   * @param { boolean } value - Indicates the flag whether autofill is enabled.
+   *      Default value is true.true: enable, false: disable.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  enableAutoFill(value: boolean): WebAttribute;
+
+  /**
    * Called when the text selection changes.
    *
    * @param { TextSelectionChangeCallback } callback - when the text selection changes.
@@ -11455,6 +11537,28 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 23 dynamic
    */
   enableImageAnalyzer(enable: boolean): WebAttribute;
+
+  /**
+   *  Triggered after camera capture state changed.
+   *
+   * @param { OnCameraCaptureStateChangeCallback } callback -  Callback triggered to
+   *    report current page camera capture state changing event.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  onCameraCaptureStateChange(callback: OnCameraCaptureStateChangeCallback): WebAttribute;
+
+  /**
+   *  Triggered after microphone capture state changed.
+   *
+   * @param { OnMicrophoneCaptureStateChangeCallback } callback -  callback triggered to
+   *    report current page microphone capture state changing event.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  onMicrophoneCaptureStateChange(callback: OnMicrophoneCaptureStateChangeCallback): WebAttribute;
 }
 
 /**
@@ -11694,8 +11798,9 @@ declare interface VerifyPinEvent {
  * @interface ExpandedMenuItemOptions
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  * @deprecated since 20
+ * @useinstead EditMenuOptions
  */
 declare interface ExpandedMenuItemOptions {
   /**
@@ -11704,8 +11809,9 @@ declare interface ExpandedMenuItemOptions {
    * @type { ResourceStr }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    * @deprecated since 20
+   * @useinstead EditMenuOptions
    */
   content: ResourceStr;
 
@@ -11715,8 +11821,9 @@ declare interface ExpandedMenuItemOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    * @deprecated since 20
+   * @useinstead EditMenuOptions
    */
   startIcon?: ResourceStr;
 
@@ -11726,8 +11833,9 @@ declare interface ExpandedMenuItemOptions {
    * @type { function }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    * @deprecated since 20
+   * @useinstead EditMenuOptions
    */
   action: (selectedText: {plainText: string}) => void;
 }
@@ -11959,4 +12067,110 @@ declare enum CredentialType {
    * @since 22 dynamic
    */
   CREDENTIAL_UKEY = 4,
+}
+/**
+ * Defines the camera capture state change info.
+ *
+ * @typedef CameraCaptureStateChangeInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+declare interface CameraCaptureStateChangeInfo {
+  /**
+   * The original camera capture state.
+   *
+   * @type { CameraCaptureState }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  originalState: CameraCaptureState;
+
+  /**
+   * The new camera capture state.
+   *
+   * @type { CameraCaptureState }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  newState: CameraCaptureState;
+}
+
+/**
+ * Indicates current camera capture state of current web page.
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+declare enum CameraCaptureState {
+  /**
+   * None of any cameras are in use.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  NONE = 0,
+  /**
+   * This web page is not actively using camera capturing.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  PAUSED = 1,
+  /**
+   * This web page is actively using camera capturing.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  ACTIVE = 2,
+}
+
+/**
+ * Defines the microphone capture state change info.
+ *
+ * @typedef MicrophoneCaptureStateChangeInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+declare interface MicrophoneCaptureStateChangeInfo {
+  /**
+   * the original microphone capture state.
+   * @type { MicrophoneCaptureState}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  originalState: MicrophoneCaptureState;
+
+  /**
+   * the new microphone capture state.
+   *
+   * @type { MicrophoneCaptureState }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  newState: MicrophoneCaptureState;
+}
+
+/**
+ * Indicates current microphone capture state of current web page.
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+declare enum MicrophoneCaptureState {
+  /**
+   * None of any microphone are in use.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  NONE = 0,
+  /**
+   * This web page is not actively using microphone capturing.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  PAUSED = 1,
+  /**
+   * This web page is actively using microphone capturing.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  ACTIVE = 2,
 }

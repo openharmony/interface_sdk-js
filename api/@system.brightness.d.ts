@@ -23,6 +23,7 @@
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamic
  * @deprecated since 7
+ * @reserved ["liteWearable"]
  */
 export interface BrightnessResponse {
   /**
@@ -32,6 +33,7 @@ export interface BrightnessResponse {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   value: number;
 }
@@ -41,6 +43,7 @@ export interface BrightnessResponse {
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamic
  * @deprecated since 7
+ * @reserved ["liteWearable"]
  */
 export interface GetBrightnessOptions {
   /**
@@ -50,6 +53,7 @@ export interface GetBrightnessOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   success?: (data: BrightnessResponse) => void;
 
@@ -60,6 +64,7 @@ export interface GetBrightnessOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -70,6 +75,7 @@ export interface GetBrightnessOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -79,6 +85,7 @@ export interface GetBrightnessOptions {
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamic
  * @deprecated since 7
+ * @reserved ["liteWearable"]
  */
 export interface SetBrightnessOptions {
   /**
@@ -92,6 +99,7 @@ export interface SetBrightnessOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   value: number;
 
@@ -102,6 +110,7 @@ export interface SetBrightnessOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   success?: () => void;
 
@@ -112,6 +121,7 @@ export interface SetBrightnessOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -122,6 +132,7 @@ export interface SetBrightnessOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -131,6 +142,7 @@ export interface SetBrightnessOptions {
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamic
  * @deprecated since 7
+ * @reserved ["liteWearable"]
  */
 export interface BrightnessModeResponse {
   /**
@@ -142,6 +154,7 @@ export interface BrightnessModeResponse {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   mode: number;
 }
@@ -151,6 +164,7 @@ export interface BrightnessModeResponse {
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamic
  * @deprecated since 7
+ * @reserved ["liteWearable"]
  */
 export interface GetBrightnessModeOptions {
   /**
@@ -160,6 +174,7 @@ export interface GetBrightnessModeOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   success?: (data: BrightnessModeResponse) => void;
 
@@ -170,6 +185,7 @@ export interface GetBrightnessModeOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -180,6 +196,7 @@ export interface GetBrightnessModeOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -189,6 +206,7 @@ export interface GetBrightnessModeOptions {
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamic
  * @deprecated since 7
+ * @reserved ["liteWearable"]
  */
 export interface SetBrightnessModeOptions {
   /**
@@ -200,6 +218,7 @@ export interface SetBrightnessModeOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   mode: number;
 
@@ -210,6 +229,7 @@ export interface SetBrightnessModeOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   success?: () => void;
 
@@ -220,6 +240,7 @@ export interface SetBrightnessModeOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -230,6 +251,7 @@ export interface SetBrightnessModeOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -239,6 +261,7 @@ export interface SetBrightnessModeOptions {
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamic
  * @deprecated since 7
+ * @reserved ["liteWearable"]
  */
 export interface SetKeepScreenOnOptions {
   /**
@@ -248,6 +271,7 @@ export interface SetKeepScreenOnOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   keepScreenOn: boolean;
 
@@ -258,6 +282,7 @@ export interface SetKeepScreenOnOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   success?: () => void;
 
@@ -268,6 +293,7 @@ export interface SetKeepScreenOnOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -278,6 +304,7 @@ export interface SetKeepScreenOnOptions {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -286,6 +313,7 @@ export interface SetKeepScreenOnOptions {
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamic
  * @deprecated since 7
+ * @reserved ["liteWearable"]
  */
 export default class Brightness {
   /**
@@ -295,6 +323,7 @@ export default class Brightness {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   static getValue(options?: GetBrightnessOptions): void;
 
@@ -305,6 +334,7 @@ export default class Brightness {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    * @useinstead ohos.brightness/brightness#setValue
    */
   static setValue(options?: SetBrightnessOptions): void;
@@ -316,6 +346,7 @@ export default class Brightness {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   static getMode(options?: GetBrightnessModeOptions): void;
 
@@ -326,6 +357,7 @@ export default class Brightness {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamic
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    */
   static setMode(options?: SetBrightnessModeOptions): void;
 
@@ -336,6 +368,7 @@ export default class Brightness {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
+   * @reserved ["liteWearable"]
    * @useinstead ohos.window/Window#setWindowKeepScreenOn
    */
   static setKeepScreenOn(options?: SetKeepScreenOnOptions): void;

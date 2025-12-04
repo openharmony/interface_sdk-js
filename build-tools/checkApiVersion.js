@@ -149,7 +149,7 @@ function apiLevelCheck(context, node, apiVersion, url) {
   };
   function processAllNodesJSDoc(jsDocNode) {
     if (jsDocNode.length === 0) {
-        return;
+      return;
     }
     const latesJsDoc = jsDocNode[jsDocNode.length - 1];
     if (!latesJsDoc.tags) {
@@ -161,27 +161,70 @@ function apiLevelCheck(context, node, apiVersion, url) {
   }
   function checkVersion(tag) {
     if (tag.tagName.getText() === 'since') {
-      const versionNumber = tag.getFullText().replace('@' + tag.tagName.getText(), '');
+      const versionNumber = tag.comment ? tag.comment : tag.getFullText().replace('@' + tag.tagName.getText(), '');
       if (versionNumber > Number(apiVersion)) {
-        const errVersionStr = recursionParentNode(tag);
+        const errVersionStr = recursionParentNode(tag, url);
         errVersionArr.push(errVersionStr);
       }
     }
   }
-  function recursionParentNode(tag) {
-    let errVersionStr = '';
-    let parent = tag.parent;
-    while (parent) {
-      if (parent.name) {
-        errVersionStr = errVersionStr + '#' + parent.name.getText();
-      } else if (parent.expression) {
-        errVersionStr = errVersionStr + '#' + parent.expression.getText();
+}
+
+/**
+ * 处理告警信息
+ * @param {ts.Node} tag TypeScript节点
+ * @returns {string} 不符合版本要求的API信息
+ */
+function recursionParentNode(tag, url) {
+  let errVersionStr = '';
+  let parent = tag.parent;
+  while (parent) {
+    if (getApiNodeName(parent)) {
+      if (errVersionStr === '') {
+        errVersionStr = getApiNodeName(parent);
+      } else {
+        errVersionStr = getApiNodeName(parent) + '#' + errVersionStr;
       }
-      parent = parent.parent;
+    } else if (parent.expression) {
+      errVersionStr = parent.expression.getText() + '#' + errVersionStr;
     }
-    errVersionStr = url + errVersionStr;
-    return errVersionStr;
+    parent = parent.parent;
   }
+  errVersionStr = url + '#' + errVersionStr;
+  return errVersionStr;
+}
+
+/**
+ * 获取api节点名称，VariableStatement需要特殊处理
+ * @param {ts.Node} node TypeScript节点
+ * @returns {string} API名称或null
+ */
+function getApiNodeName(node) {
+  let apiName = '';
+  if (ts.isVariableStatement(node)) {
+    apiName = variableStatementGetEscapedText(node);
+  } else if (ts.isConstructorDeclaration(node)) {
+    apiName = 'constructor';
+  } else {
+    apiName = node.name?.getText();
+  }
+  return apiName || null;
+}
+
+/**
+ * 获取 variableStatement节点名称
+ * @param {ts.Node} statement 
+ * @returns {string}
+ */
+function variableStatementGetEscapedText(statement) {
+  let name = '';
+  if (statement && statement?.declarationList?.declarations?.length > 0) {
+    const declaration = statement.declarationList.declarations[0];
+    if (declaration?.name?.escapedText !== undefined) {
+      name = declaration.name.escapedText.toString();
+    }
+  }
+  return name;
 }
 
 main();

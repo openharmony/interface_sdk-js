@@ -2050,6 +2050,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   enableAutoSpacing(enabled: Optional<boolean>): TextAreaAttribute;
 
   /**
+   * Whether to compress punctuation at the beginning of line.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { TextAreaAttribute } - returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  compressLeadingPunctuation(enabled: Optional<boolean>): TextAreaAttribute;
+
+  /**
    * Called before the text input component attach the InputMethod.
    *
    * @param { Callback<IMEClient> | undefined } callback - The triggered function before attach the InputMethod.
@@ -2061,6 +2073,30 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 22 dynamic
    */
   onWillAttachIME(callback: Callback<IMEClient> | undefined): TextAreaAttribute;
+
+  /**
+   * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+   *
+   * @param { Optional<boolean> } include - Whether enable the feature, the default value is false.
+   * @returns { TextAreaAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  includeFontPadding(include: Optional<boolean>): TextAreaAttribute;
+
+  /**
+   * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+   *
+   * @param { Optional<boolean> } enabled - Whether enable the feature, the default value is false.
+   * @returns { TextAreaAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fallbackLineSpacing(enabled: Optional<boolean>): TextAreaAttribute;
 }
 
 /**

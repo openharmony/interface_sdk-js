@@ -23,6 +23,7 @@
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
  * @since 3 dynamic
  * @deprecated since 6
+ * @reserved ["liteWearable"]
  */
 export interface BatteryResponse {
   /**
@@ -32,6 +33,7 @@ export interface BatteryResponse {
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamic
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   charging: boolean;
 
@@ -42,6 +44,7 @@ export interface BatteryResponse {
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamic
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   level: number;
 }
@@ -51,6 +54,7 @@ export interface BatteryResponse {
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
  * @since 3 dynamic
  * @deprecated since 6
+ * @reserved ["liteWearable"]
  */
 export interface GetStatusOptions {
   /**
@@ -60,6 +64,7 @@ export interface GetStatusOptions {
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamic
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   success?: (data: BatteryResponse) => void;
 
@@ -70,6 +75,7 @@ export interface GetStatusOptions {
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamic
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -80,6 +86,7 @@ export interface GetStatusOptions {
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamic
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -88,6 +95,7 @@ export interface GetStatusOptions {
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
  * @since 3 dynamic
  * @deprecated since 6
+ * @reserved ["liteWearable"]
  */
 export default class Battery {
   /**
@@ -97,6 +105,7 @@ export default class Battery {
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamic
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   static getStatus(options?: GetStatusOptions): void;
 }

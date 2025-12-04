@@ -190,4 +190,24 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 22
    */
   onMarketAppInstallResult(bundleName: string, result: common.InstallationResult): void;
+
+  /**
+   * Called back when an application is enabled as a device administrator.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the enabled admin.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  onDeviceAdminEnabled(bundleName: string): void;
+
+  /**
+   * Called back when a device administrator is disabled.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the disabled admin.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  onDeviceAdminDisabled(bundleName: string): void;
 }

@@ -28,6 +28,7 @@ import type UIServiceHostProxy from './application/UIServiceHostProxy';
 import Want from './@ohos.app.ability.Want';
 import UIServiceExtensionContext from './application/UIServiceExtensionContext';
 import UIServiceHostProxy from './application/UIServiceHostProxy';
+import { RecordData } from './@ohos.base';
 /*** endif */
 import window from './@ohos.window';
 
@@ -140,9 +141,20 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
    */
   onData(proxy: UIServiceHostProxy, data: Record<string, Object>): void;
+
+  /**
+   * Called back when data is sent.
+   *
+   * @param { UIServiceHostProxy } proxy - Indicates the UI service host proxy.
+   * @param { Record<string, RecordData> } data - Indicates the received data.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onData(proxy: UIServiceHostProxy, data: Record<string, RecordData>): void;
 
   /**
    * Called back before a UI service extension is destroyed.

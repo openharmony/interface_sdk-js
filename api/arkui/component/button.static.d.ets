@@ -21,7 +21,7 @@ import { CustomBuilder } from './builder';
 import { ComponentBuilder } from './builder';
 import { Resource } from '../../global/resource';
 import { ResourceStr, ResourceColor, Length, Font } from './units';
-import { TextOverflow, FontWeight, FontStyle, TextHeightAdaptivePolicy } from './enums';
+import { TextAlign, TextOverflow, FontWeight, FontStyle, TextHeightAdaptivePolicy } from './enums';
 import { CommonConfiguration, CommonMethod, ContentModifier, AttributeModifier } from './common';
 
 /**
@@ -289,6 +289,17 @@ export declare interface ButtonLabelStyle {
      * @since 22 static
      */
     font?: Font;
+    /**
+     * Set the horizontal center mode of the content.
+     *
+     * Device Behavior Differences:Default value is TextAlign.Start.
+     * The default value on wearable devices is TextAlign.Center.
+     *
+     * @type { ?TextAlign }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    textAlign?: TextAlign;
 }
 
 /**

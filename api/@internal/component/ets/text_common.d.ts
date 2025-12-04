@@ -1213,6 +1213,18 @@ declare class TextMenuItemId {
    * @since 20 dynamic
    */
   static readonly askAI: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to auto fill.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23
+   */
+  static readonly autoFill: TextMenuItemId;
 }
  
 /**
@@ -2299,4 +2311,55 @@ declare interface TextLayoutOptions {
    * @since 20 dynamic
    */
   constraintWidth?: LengthMetrics;
+}
+
+/**
+ * Configuration for Accessibility .
+ *
+ * @interface AccessibilitySpanOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare interface AccessibilitySpanOptions {
+  /**
+   * Indicates the accessibility text of component.
+   *
+   * @type { ?ResourceStr } - accessibility text, Default value is "".
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  accessibilityText?: ResourceStr;
+  /**
+   * Indicates more detailed description text of component,
+   *     which is used to further describe the component.
+   *
+   * @type { ?ResourceStr } - accessibility description, Default value is "".
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  accessibilityDescription?: ResourceStr;
+  /**
+   * Set accessibility level.
+   *
+   * @type { ?string } - The accessibility level for component. The options are as follows:<br/>
+   *     "auto":The value is converted to "yes" or "no" based on the component.
+   *     "yes": the current component is selectable for the accessibility service.
+   *     "no": The current component is not selectable for the accessibility service.
+   * @default "auto".
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  accessibilityLevel?:string;
 }

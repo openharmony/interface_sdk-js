@@ -33,6 +33,7 @@ import * as _AbilityStateData from './application/AbilityStateData';
 /*** if arkts static */
 import _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
 import _AbilityStateData from './application/AbilityStateData';
+import { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
@@ -416,9 +417,23 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
    */
   function acquireShareData(missionId: int, callback: AsyncCallback<Record<string, Object>>): void;
+
+  /**
+   * Acquire the shared data from target ability.
+   *
+   * @param { int } missionId - The missionId of target ability.
+   * @param { AsyncCallback<Record<string, RecordData>> } callback - The callback is used to return the params of sharing
+   *     data and result code.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Connect to system service failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @FaAndStageModel
+   * @since 22 static
+   */
+  function acquireShareData(missionId: int, callback: AsyncCallback<Record<string, RecordData>>): void;
 
   /**
    * Acquire the shared data from target ability.
@@ -445,9 +460,22 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
    */
   function acquireShareData(missionId: int): Promise<Record<string, Object>>;
+
+  /**
+   * Acquire the shared data from target ability.
+   *
+   * @param { int } missionId - The missionId of target ability.
+   * @returns { Promise<Record<string, RecordData>> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Connect to system server failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @FaAndStageModel
+   * @since 22 static
+   */
+  function acquireShareData(missionId: int): Promise<Record<string, RecordData>>;
 
   /**
    * Notify the result of save as to target ability.

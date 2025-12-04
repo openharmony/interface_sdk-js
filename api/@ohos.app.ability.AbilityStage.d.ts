@@ -132,7 +132,7 @@ declare class AbilityStage {
    * </p>
    *
    * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
-   * @returns { string } Ability ID. If the ability with this ID has been started, no new instance is created and the
+   * @returns { string } Specified ID. If the ability with this ID has been started, no new instance is created and the
    * ability is placed at the top of the stack. Otherwise, a new instance is created and started.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

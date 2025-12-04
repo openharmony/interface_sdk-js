@@ -276,6 +276,30 @@ declare namespace config {
   ): void;
 
   /**
+   * Enable the accessibility extension ability with connect callback.
+   *
+   * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
+   * @param { string } name Indicates the accessibility extension name, in "bundleName/abilityName" format.
+   * @param { Array<accessibility.Capability> } capability Indicates the capability of ability.
+   * @param { ConnectCallback } connectCallback Indicates the connect callback when state change.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 9300001 - Invalid bundle name or ability name.
+   * @throws { BusinessError } 9300002 - Target ability already enabled.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function enableAbilityWithCallback(
+    name: string,
+    capability: Array<accessibility.Capability>,
+    connectCallback: ConnectCallback
+  ): Promise<void>;
+
+  /**
    * Disable the accessibility extension ability.
    *
    * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
@@ -572,6 +596,40 @@ declare namespace config {
      */
     off(callback?: Callback<T>): void;
   }
+
+  /**
+   * As an input parameter when enable AccessibilityExtensionAbility, it is used to receive
+   * state changes during the connection.
+   *
+   * @interface ConnectCallback
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export interface ConnectCallback {
+    /**
+     * The callback function that is invoked when AccessibilityExtensionAbility disconnects.
+     *
+     * @type { OnDisconnectCallback }
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onDisconnect: OnDisconnectCallback;
+  }
+
+  /**
+   * The callback interface for AccessibilityExtensionAbility disconnected.
+   *
+   * @typedef { function } OnDisconnectCallback
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  type OnDisconnectCallback = () => void;
 
   /**
    * Indicates the type of daltonization color filter.

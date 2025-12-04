@@ -315,6 +315,27 @@ declare namespace abilityAccessCtrl {
     requestPermissionsFromUser(context: Context, permissionList: Array<Permissions>): Promise<PermissionRequestResult>;
 
     /**
+     * Requests user permissions based on the window ID.
+     *
+     * @param { Context } context Context of the ability that initiates the permission request.
+     * @param { int } windowId Window ID.
+     * @param { Array<Permissions> } permissionList - Array of permissions to request.
+     *     <br>The value cannot be null or empty.
+     * @returns { Promise<PermissionRequestResult> } Promise used to return the results of requested permissions.
+     * @throws { BusinessError } 12100001 - Invalid parameter. windowId is invalid.
+     * @throws { BusinessError } 12100009 - Common inner error. An error occurs when creating the popup window or
+     *     obtaining the user operation result.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    requestPermissionsFromUserWithWindowId(
+      context: Context,
+      windowId: int,
+      permissionList: Array<Permissions>) : Promise<PermissionRequestResult>;
+
+    /**
      * Grants a specified user_grant permission to the given application.
      *
      * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS

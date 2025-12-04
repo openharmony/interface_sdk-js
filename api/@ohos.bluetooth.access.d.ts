@@ -139,6 +139,7 @@ declare namespace access {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
   function enableBluetoothAsync(): Promise<void>;
 
@@ -157,6 +158,7 @@ declare namespace access {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
   function disableBluetoothAsync(): Promise<void>;
 
@@ -174,6 +176,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   function notifyDialogResult(notifyDialogResultParams: NotifyDialogResultParams): Promise<void>;
 
@@ -249,6 +252,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 22 static
    */
   function factoryReset(callback: AsyncCallback<void>): void;
 
@@ -265,6 +269,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 22 static
    */
   function factoryReset(): Promise<void>;
 
@@ -281,6 +286,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 22 static
    */
   function getLocalAddress(): string;
 
@@ -342,9 +348,20 @@ declare namespace access {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
    */
   function on(type: 'stateChange', callback: Callback<BluetoothState>): void;
+
+  /**
+   * Subscribe the event reported when the Bluetooth state changes.
+   *
+   * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function onStateChange(callback: Callback<BluetoothState>): void;
 
   /**
    * Unsubscribe the event reported when the Bluetooth state changes.
@@ -404,9 +421,20 @@ declare namespace access {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
    */
   function off(type: 'stateChange', callback?: Callback<BluetoothState>): void;
+
+  /**
+   * Unsubscribe the event reported when the Bluetooth state changes.
+   *
+   * @param { Callback<BluetoothState> } [callback] - Callback used to listen for the Bluetooth state event.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function offStateChange(callback?: Callback<BluetoothState>): void;
 
   /**
    * Add a persistent random device address. Once the randomized address is successfully added,
@@ -425,6 +453,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
    * @since 16 dynamic
+   * @since 22 static
    */
   function addPersistentDeviceId(deviceId: string): Promise<void>;
 
@@ -443,6 +472,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
    * @since 16 dynamic
+   * @since 22 static
    */
   function deletePersistentDeviceId(deviceId: string): Promise<void>;
 
@@ -458,6 +488,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
    * @since 16 dynamic
+   * @since 22 static
    */
   function getPersistentDeviceIds(): string[];
 
@@ -476,6 +507,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
    * @since 16 dynamic
+   * @since 22 static
    */
   function isValidRandomDeviceId(deviceId: string): boolean;
 
@@ -690,7 +722,7 @@ declare namespace access {
   /**
    * The enum of bluetooth dialog type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 20 dynamic

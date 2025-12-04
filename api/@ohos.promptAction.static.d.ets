@@ -615,6 +615,57 @@ declare namespace promptAction {
         levelOrder?: LevelOrder;
     }
     /**
+     * Enum for state.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    enum CommonState {
+        /**
+         * Indicates it is uninitialized.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        UNINITIALIZED = 0,
+        /**
+         * Indicates it is initialized.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        INITIALIZED = 1,
+        /**
+         * Indicates it is appearing.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        APPEARING = 2,
+        /**
+         * Indicates it is appeared.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        APPEARED = 3,
+        /**
+         * Indicates it is disappearing.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        DISAPPEARING = 4,
+        /**
+         * Indicates it is disappeared.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        DISAPPEARED = 5
+    }
+    /**
      * The class used to control common dialog.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -635,6 +686,14 @@ declare namespace promptAction {
          * @since 20 static
          */
         close(): void;
+        /**
+         * Get the state.
+         *
+         * @returns { CommonState } return the state.
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        getState(): CommonState;
     }
     /**
      * The class used to control dialog.
@@ -1191,6 +1250,38 @@ declare namespace promptAction {
          * @since 20 static
          */
         immersiveMode?: ImmersiveMode;
+         /**
+         * Callback function when the menu appears.
+         *
+         * @type { ?VoidCallback }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        onDidAppear?: VoidCallback;
+        /**
+         * Callback function when the menu disappears.
+         *
+         * @type { ?VoidCallback }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        onDidDisappear?: VoidCallback;
+        /**
+         * Callback function before the menu openAnimation starts.
+         *
+         * @type { ?VoidCallback }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        onWillAppear?: VoidCallback;
+        /**
+         * Callback function before the menu closeAnimation starts.
+         *
+         * @type { ?VoidCallback }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        onWillDisappear?: VoidCallback;
     }
     /**
      * Displays the notification text.

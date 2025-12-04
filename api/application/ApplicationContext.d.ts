@@ -23,6 +23,7 @@ import { AsyncCallback } from '../@ohos.base';
 import { ProcessInformation } from './ProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import Want from '../@ohos.app.ability.Want';
+import window from '../@ohos.window';
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
 import InteropAbilityLifecycleCallback from '../@ohos.app.ability.InteropAbilityLifecycleCallback';
@@ -960,6 +961,21 @@ declare class ApplicationContext extends Context {
    * @since 22 static
    */
     getAllRunningInstanceKeys(): Promise<Array<string>>;
+
+  /**
+   * Obtains all windowstage of current process.
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @returns { Promise<Array<window.WindowStage>> } Promise used to return the windowStages of current process.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  getAllWindowStages(): Promise<Array<window.WindowStage>>;
 }
 
 export default ApplicationContext;

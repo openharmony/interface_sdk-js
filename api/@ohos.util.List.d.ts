@@ -756,7 +756,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic
+   * @since 22 dynamic
    * @since 22 static
    */
   sort(comparator: ListComparatorFn<T>): void;

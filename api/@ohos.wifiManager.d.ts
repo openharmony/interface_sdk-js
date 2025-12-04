@@ -3423,10 +3423,16 @@ declare namespace wifiManager {
 
     /**
      * Allocated networkId
+     * @type { ?number }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 9 dynamic
+     */
+    /**
+     * Allocated networkId
      * @type { ?int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9 dynamic
-     * @since 22 static
+     * @since 22 dynamic&static
      */
     netId?: int;
 

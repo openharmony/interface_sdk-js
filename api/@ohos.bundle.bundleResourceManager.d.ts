@@ -21,12 +21,14 @@
 /*** if arkts dynamic */
 import bundleManager from './@ohos.bundle.bundleManager';
 import type { AsyncCallback } from './@ohos.base';
+import { BundleOptions } from './bundleManager/BundleInfo';
 import type { BundleResourceInfo as _BundleResourceInfo } from './bundleManager/BundleResourceInfo';
 import type { LauncherAbilityResourceInfo as _LauncherAbilityResourceInfo } from './bundleManager/LauncherAbilityResourceInfo';
 /*** endif */
 /*** if arkts static */
 import bundleManager from './@ohos.bundle.bundleManager';
 import { AsyncCallback } from './@ohos.base';
+import { BundleOptions } from './bundleManager/BundleInfo';
 import { BundleResourceInfo as _BundleResourceInfo } from './bundleManager/BundleResourceInfo';
 import { LauncherAbilityResourceInfo as _LauncherAbilityResourceInfo } from './bundleManager/LauncherAbilityResourceInfo';
 import bundleManager from './@ohos.bundle.bundleManager';
@@ -291,6 +293,27 @@ declare namespace bundleResourceManager {
    * @since 21 dynamic
    */
   function getAllUninstalledBundleResourceInfo(resourceFlags: int): Promise<Array<BundleResourceInfo>>;
+
+  /**
+   * Obtains LauncherAbilityResourceInfo of all launcher abilities by optionsList in the system.
+   *
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
+   * @param { Array<BundleOptions> } optionsList - Indicates the bundle options list.
+   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information
+   *     contained in the LauncherAbilityResourceInfo that will be returned.
+   * @returns { Promise<Array<LauncherAbilityResourceInfo>> } Returns a list of LauncherAbilityResourceInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
+   * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range or not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getLauncherAbilityResourceInfoList(optionsList: Array<BundleOptions>, resourceFlags: int): Promise<Array<LauncherAbilityResourceInfo>>;
 
   /**
    * Obtains resource info of a bundle.

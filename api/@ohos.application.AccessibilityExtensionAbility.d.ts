@@ -41,6 +41,7 @@ import type {
   FocusDirection as _FocusDirection,
   WindowType as _WindowType,
   Rect as _Rect,
+  Parameter as _Parameter,
   FocusRule as _FocusRule,
   FocusCondition as _FocusCondition,
   FocusMoveResult as _FocusMoveResult,
@@ -124,6 +125,7 @@ export type Rect = _Rect;
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 20 dynamic
+ * @since 22 static
  */
 export type Parameter = _Parameter;
 
@@ -282,6 +284,7 @@ declare class AccessibilityExtensionAbility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   onAccessibilityKeyEvent(keyEvent: KeyEvent): boolean;
 }
