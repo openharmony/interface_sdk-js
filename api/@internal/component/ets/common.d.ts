@@ -276,6 +276,16 @@ declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassD
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * Defining ComponentV2 ClassDecorator
+ *
+ * ComponentV2 is a ClassDecorator and it supports ComponentOptions as parameters.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare const ComponentV2: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
@@ -818,10 +828,11 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
  * @returns { PropertyDecorator } Env decorator
  * @throws { BusinessError } 140000 - Invalid key for @Env
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 22 dynamic
  */
-declare type EnvDecorator = (value: string) => PropertyDecorator;
+declare type EnvDecorator = (value: SystemProperties) => PropertyDecorator;
 
 /**
  * Defining Env PropertyDecorator.
@@ -30954,7 +30965,7 @@ declare class BaseCustomComponent extends CommonAttribute {
 
   /**
    * The aboutToInit function is executed when a custom component initialization is about to be completed.
-   * Developers can modify state variables at this stage.
+   * Developers can modify non-state variable data at this stage.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -30996,7 +31007,7 @@ declare class BaseCustomComponent extends CommonAttribute {
   aboutToDelete?(): void;
 
   /**
-   * The aboutToAttach function is executed when a custom component is about to be attached to the main tree.
+   * The aboutToAttach function is executed when a custom component is attached to the main tree.
    * Developers can implement functions that do not affect the actual UI, such as event data reporting at this stage.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31008,7 +31019,7 @@ declare class BaseCustomComponent extends CommonAttribute {
   aboutToAttach?(): void;
 
   /**
-   * The aboutToDetach function executes when a custom component is about to be detached from the main tree.
+   * The aboutToDetach function executes when a custom component is detached from the main tree.
    * Developers can implement functions that do not affect the actual UI, such as initialization of non-state
    * variable data at this stage.
    *
@@ -31049,7 +31060,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 23 dynamic
    */
-  aboutToCover?(params?: Record<string, Object | undefined | null>): void;
+  aboutToRecover?(params?: Record<string, Object | undefined | null>): void;
 
   /**
    * The getLifecycle function get the lifecycle instance of the class CustomComponent.
