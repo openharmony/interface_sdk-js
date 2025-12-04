@@ -1115,17 +1115,20 @@ declare namespace PiPWindow {
      getPiPSettingSwitch(): Promise<boolean>;
 
     /**
-     * Get the active status of PiP window.
-     * 
+     * Returns a Boolean value that indicates whether picture-in-picture is active
+     *
+     * Device Behavior Differences:Not supported on PC devices, will return error code 801.
      * @returns { Promise<boolean> } - The promise used to return the PIP window active status.
      *     True if PIP window is onscreen, otherwise false.
-     * @throws { BusinessError } 801 - Capability not supported. Filaed to call the API due to
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to
      *     limited device capabilities.
-     * @syscap SystemCapability.Window.SessionManager.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 23 static
      */
-    getPiPActiveStatus(): Promise<boolean>;
+    isPiPActive(): Promise<boolean>;
 
     /**
      * Register picture-in-picture control event listener.
