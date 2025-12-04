@@ -591,7 +591,7 @@ declare namespace media {
   /**
    * get Configurations which user can changes from AVScreenCapture server
    * 
-   * @param { number } sessionId The AVScreenCapture server session ID.
+   * @param { int } sessionId The AVScreenCapture server session ID.
    * @returns { Promise<string> } Returns a configurable configuration item string.
    * @throws { BusinessError } 202 Called from Non-System applications. Return by promise.
    * @throws { BusinessError } 5400109 - Sessions not exist. Return by promise.
@@ -600,7 +600,7 @@ declare namespace media {
    * @since 20 dynamic
    * @since 22 static
    */
-  function getAVScreenCaptureConfigurableParameters(sessionId: number): Promise<string>;
+  function getAVScreenCaptureConfigurableParameters(sessionId: int): Promise<string>;
   
   /**
    * Creates an **AVTranscoder** instance. This API uses a promise to return the result.
@@ -1100,6 +1100,24 @@ declare namespace media {
      * @since 20 dynamic
      */
     fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>;
+
+    /**
+     * It will decode the given video resource. Then fetch a picture
+     * at @timeUs according the given @options and @param .
+     * @param { long } timeUs - The time expected to fetch picture from the video resource.
+     * The unit is microsecond(us).
+     * @param { AVImageQueryOptions } options - The time options about the relationship
+     * between the given timeUs and a key frame, see @AVImageQueryOptions .
+     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams .
+     * @returns { Promise<image.PixelMap | undefined> } A Promise instance used to return the pixel map
+     * when fetchFrameByTime completed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 22 static
+     */
+    fetchFrameByTime(timeUs: long, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap | undefined>;
 
     /**
      * Obtains the video timestamp corresponding to a video frame number. Only MP4 video files are supported.
@@ -2429,13 +2447,13 @@ declare namespace media {
    * Defines the OnPlaybackRateDone callback.
    *
    * @typedef { function } OnPlaybackRateDone
-   * @param { number } rate - playback rate.
+   * @param { double } rate - playback rate.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
    * @since 20 dynamic
    * @since 22 static
    */
-  type OnPlaybackRateDone = (rate: number) => void;
+  type OnPlaybackRateDone = (rate: double) => void;
 
   /**
    * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
@@ -3501,7 +3519,7 @@ declare namespace media {
     /**
      * Set playback rate.
      * Supported states: prepared/playing/paused/completed.
-     * @param { number } rate - playback rate, valid range is 0.125 ~ 4.
+     * @param { double } rate - playback rate, valid range is 0.125 ~ 4.
      * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
      * @throws { BusinessError } 5400102 - Operation not allowed, if invalid state or live stream.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3509,7 +3527,7 @@ declare namespace media {
      * @since 20 dynamic
      * @since 22 static
      */
-    setPlaybackRate(rate: number): void;
+    setPlaybackRate(rate: double): void;
 
     /**
      * select a specified bitrate to playback, only valid for HLS protocol network stream. By default, the
