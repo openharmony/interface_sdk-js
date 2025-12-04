@@ -4622,6 +4622,48 @@ export declare interface BlankScreenDetectionConfig {
     contentfulNodesCountThreshold?: int;
 }
 /**
+ * Defines the first screen paint info.
+ *
+ * @typedef FirstScreenPaint
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 static
+ */
+export declare interface FirstScreenPaint {
+    /**
+     * The url of first screen paint info.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    url: string;
+    /**
+     * The navigation start time of the url.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    navigationStartTime: long;
+    /**
+     * The first screen paint time of the url.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    firstScreenPaintTime: long;
+}
+/**
+ * The callback reports the time required for the first screen painting of the current web page.
+ *
+ * @typedef { function } OnFirstScreenPaintCallback
+ * @param { FirstScreenPaint } firstScreenPaint - the first screen paint info.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 static
+ */
+export type OnFirstScreenPaintCallback = (firstScreenPaint: FirstScreenPaint) => void;
+/**
  * Defines the Web attribute functions.
  *
  * @extends CommonMethod<WebAttribute>
@@ -6244,6 +6286,20 @@ export declare interface WebAttribute extends CommonMethod {
     * @since 22 static
     */
     default enableSelectedDataDetector(enable: boolean | undefined): this;
+    /**
+     * Triggered after the first screen of the web page has been painted.
+     * The first screen contains the images, videos and texts in the viewport of the current navigation.
+     * The callback will not be triggered immediately when the first screen has been painted,
+     * but in a few seconds according to the current network condition.
+     * However, if the user scrolls or inputs before the first screen has been painted,
+     * the callback will be triggered immediately.
+     * @param { OnFirstScreenPaintCallback | undefined } callback - callback triggered to 
+     *     report the info for the first screen painting of the current web page.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    default onFirstScreenPaint(callback: OnFirstScreenPaintCallback | undefined): this;
     /**
     * Sets whether enable auto fill or not.
     *
