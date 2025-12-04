@@ -8410,7 +8410,7 @@ export class TaskSignal {
    * @param { Callback<string> } callback - callback of progress callback
    * @throws { BusinessError } 13900020 - Invalid argument
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   onCancel(callback: Callback<string>): void;
 }

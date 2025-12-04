@@ -18,7 +18,7 @@
  * @kit CoreFileKit
  */
 
-import { AsyncCallback, Callback} from './@ohos.base';
+import { AsyncCallback } from './@ohos.base';
 import stream from './@ohos.util.stream';
 
 /**
@@ -3200,16 +3200,6 @@ class TaskSignal {
    * @since 22 static
    */
   onCancel(): Promise<string>;
-
-  /**
-   * Defines the callback for listening for the copy canceled.
-   *
-   * @param { Callback<string> } callback - callback of progress callback
-   * @throws { BusinessError } 13900020 - Invalid argument
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 22 dynamic&static
-   */
-  onCancel(callback: Callback<string>): void;
 }
 
 /**
