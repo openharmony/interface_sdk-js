@@ -3581,6 +3581,14 @@ export type Context = common.Context;
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * class ComponentSnapshot
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
 export class ComponentSnapshot {
   /**
      * Get a component snapshot by component id.
