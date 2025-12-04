@@ -9659,6 +9659,26 @@ declare namespace camera {
      * @since 22 static
      */
     offLightStatusChange(callback?: AsyncCallback<LightStatus>): void;
+
+    /**
+     * Subscribes ISO info change event callback.
+     *
+     * @param { Callback<IsoInfo> } callback - Callback used to get the ISO info change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    onIsoInfoChange(callback: Callback<IsoInfo>): void
+
+    /**
+     * Unsubscribes from ISO info change event callback.
+     *
+     * @param { Callback<IsoInfo> } [callback] - Callback used to get the ISO info change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    offIsoInfoChange(callback?: Callback<IsoInfo>): void
   }
 
   /**
