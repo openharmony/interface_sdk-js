@@ -603,6 +603,106 @@ parameters are left unspecified;
    * @since 15 dynamic
    */
   function getFreeSizeSync(): number;
+
+  /**
+   * Space occupancy information of the business.
+   *
+   * @interface ExtBundleStats
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export interface ExtBundleStats { 
+    /**
+    * The business name.
+    *
+    * @type { string }
+    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+    * @systemapi
+    * @stagemodelonly
+    * @since 23 dynamic&static
+    */
+    businessName: string;
+
+    /**
+    * The business size.
+    *
+    * @type { long }
+    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+    * @systemapi
+    * @stagemodelonly
+    * @since 23 dynamic&static
+    */
+    size: long;
+
+    /**
+    * The business flag. Whether it is displayed independently on the interface.
+    *
+    * @type { boolean }
+    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+    * @systemapi
+    * @stagemodelonly
+    * @since 23 dynamic&static
+    */
+    flag: boolean;
+  }
+
+  /**
+   * Applications actively report the amount of space occupied by their respective services.
+   *
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @param { int } userId - The id of the user
+   * @param { ExtBundleStats } stats - Space occupancy information of the business.
+   * @returns { Promise<void> } return Promise
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
+   * @throws { BusinessError } 13600011 - Failed to report the specified business space usage.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function setExtBundleStats(userId: int, stats: ExtBundleStats): Promise<void>;
+
+   /**
+   * Querying the usage of a specified business space.
+   *
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @param { int } userId - The id of the user
+   * @param { string } businessName - Space occupancy information of the business.
+   * @returns { Promise<ExtBundleStats> } return Promise
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
+   * @throws { BusinessError } 13600012 - Failed to query the specified business space usage.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getExtBundleStats(userId: int, businessName: string): Promise<ExtBundleStats>;
+
+    /**
+   * Querying the Space Usage of All Business.
+   *
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @param { int } userId - The id of the user
+   * @returns { Promise<Array<ExtBundleStats>> } return Promise
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
+   * @throws { BusinessError } 13600013 - Failed to query all business space usage.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getAllExtBundleStats(userId: int): Promise<Array<ExtBundleStats>>;
 }
 
 export default storageStatistics;
