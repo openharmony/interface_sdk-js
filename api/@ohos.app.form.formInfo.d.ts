@@ -1257,7 +1257,7 @@ declare namespace formInfo {
      * @atomicservice
      * @since 22 dynamic&static
      */
-     EDIT_FORM_KEY = 'ohos.extra.param.key.edit_form_id',
+    EDIT_FORM_KEY = 'ohos.extra.param.key.edit_form_id',
   }
 
   /**
