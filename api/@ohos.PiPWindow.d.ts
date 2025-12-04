@@ -1115,6 +1115,19 @@ declare namespace PiPWindow {
      getPiPSettingSwitch(): Promise<boolean>;
 
     /**
+     * Get the active status of PiP window.
+     * 
+     * @returns { Promise<boolean> } - The promise used to return the PIP window active status.
+     *     True if PIP window is onscreen, otherwise false.
+     * @throws { BusinessError } 801 - Capability not supported. Filaed to call the API due to
+     *     limited device capabilities.
+     * @syscap SystemCapability.Window.SessionManager.
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getPiPActiveStatus(): Promise<boolean>;
+
+    /**
      * Register picture-in-picture control event listener.
      * @param { 'stateChange' } type - Registration type, PiP lifecycle state change, 'stateChange'
      * @param { function } callback - Used to handle {'stateChange'} command
