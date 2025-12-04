@@ -434,6 +434,7 @@ group("build_ohos_ets") {
     ohos_ets_build_system_deps,
     ohos_ets_stdlib_deps,
     ohos_ets_koala_wrapper_deps,
+    ohos_ets_libarkts_deps,
     ohos_ets_etsstdlib_deps
   ]
   deps = [

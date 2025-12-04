@@ -174,7 +174,7 @@ export const nodeHandleFunctionMap = new Map<arkts.Es2pandaAstNodeType, (node: a
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_ARRAY_EXPRESSION, handleArrayExpression]
 ])
 
-type NodeTuple = [string, number];
+type NodeTuple = [string, arkts.KNativePointer];
 const items: NodeTuple[] = [];
 const isDebug = false;
 const nodeMap = new Map();
@@ -184,7 +184,7 @@ let exporssionCount = 0;
  * 根节点处理
  * @param { arkts.AstNode } node 
  */
-export function traverseProgram(node: arkts.AstNode):void {
+export function traverseProgram(node: arkts.ETSModule):void {
   // 处理Identifier
   if (!!node.statements) {
     node.statements.forEach((item: arkts.AstNode) => handleAstNode(item));
@@ -197,7 +197,9 @@ export function traverseProgram(node: arkts.AstNode):void {
  * @returns { string } jsdoc 字符串
  */
 export function getJSDocInformation(node: arkts.AstNode): string {
-  return arkts.getJsdocStringFromDeclaration(node);
+  const jsDoc = arkts.getJsDoc(node);
+  if (jsDoc == undefined) throw "No JSDoc for node"
+  return jsDoc;
 }
 
 /**
@@ -208,7 +210,7 @@ export function getJSDocInformation(node: arkts.AstNode): string {
  */
 function handleFunction(node: arkts.AstNode, func: (node: any, ...args: any[]) => void):void {
   if (isDebug) {
-    items.push([func.name, node.peer.toString()]);
+    items.push([func.name, node.peer]);
   }
   // Expression 下的identifier才会提示告警
   if (node instanceof arkts.Expression) {
@@ -246,17 +248,17 @@ export function handleAstNode(node: arkts.AstNode) {
   }
 }
 
-export function handleAnnotatedAstNode(node: arkts.AstNode) { }
+export function handleAnnotatedAstNode(node: arkts.AnnotatedAstNode) { }
 
-export function handleAnnotatedExpression(node: arkts.AstNode) {
+export function handleAnnotatedExpression(node: arkts.AnnotatedExpression) {
   if (!!node.typeAnnotation) {
     handleAstNode(node.typeAnnotation);
   }
 }
 
-export function handleAnnotatedStatement(node: arkts.AstNode) { }
+export function handleAnnotatedStatement(node: arkts.AnnotatedStatement) { }
 
-export function handleAnnotationDeclaration(node: arkts.AstNode) {
+export function handleAnnotationDeclaration(node: arkts.AnnotationDeclaration) {
   if (!!node.expr) {
     handleAstNode(node.expr);
   }
@@ -268,7 +270,7 @@ export function handleAnnotationDeclaration(node: arkts.AstNode) {
   }
 }
 
-export function handleAnnotationUsage(node: arkts.AstNode) {
+export function handleAnnotationUsage(node: arkts.AnnotationUsage) {
   if (!!node.expr) {
     handleAstNode(node.expr);
   }
@@ -277,7 +279,7 @@ export function handleAnnotationUsage(node: arkts.AstNode) {
   }
 }
 
-export function handleArrayExpression(node: arkts.AstNode) {
+export function handleArrayExpression(node: arkts.ArrayExpression) {
   if (!!node.elements) {
     node.elements.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
@@ -289,16 +291,16 @@ export function handleArrayExpression(node: arkts.AstNode) {
   }
 }
 
-export function handleArrowFunctionExpression(node: arkts.AstNode) {
+export function handleArrowFunctionExpression(node: arkts.ArrowFunctionExpression) {
   if (!!node.annotations) {
     node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
-  if (!!node.scriptFunction) {
-    handleAstNode(node.scriptFunction);
+  if (!!node.function) {
+    handleAstNode(node.function);
   }
 }
 
-export function handleAssertStatement(node: arkts.AstNode) {
+export function handleAssertStatement(node: arkts.AssertStatement) {
   if (!!node.test) {
     handleAstNode(node.test);
   }
@@ -307,7 +309,7 @@ export function handleAssertStatement(node: arkts.AstNode) {
   }
 }
 
-export function handleAssignmentExpression(node: arkts.AstNode) {
+export function handleAssignmentExpression(node: arkts.AssignmentExpression) {
   if (!!node.left) {
     handleAstNode(node.left);
   }
@@ -316,19 +318,19 @@ export function handleAssignmentExpression(node: arkts.AstNode) {
   }
 }
 
-export function handleAstDumper(node: arkts.AstNode) {
+export function handleAstDumper(node: arkts.AstDumper) {
   return;
 }
 
-export function handleAwaitExpression(node: arkts.AstNode) {
+export function handleAwaitExpression(node: arkts.AwaitExpression) {
   if (!!node.argument) {
     handleAstNode(node.argument);
   }
 }
 
-export function handleBigIntLiteral(node: arkts.AstNode) { }
+export function handleBigIntLiteral(node: arkts.BigIntLiteral) { }
 
-export function handleBinaryExpression(node: arkts.AstNode) {
+export function handleBinaryExpression(node: arkts.BinaryExpression) {
   if (!!node.left) {
     handleAstNode(node.left);
   }
@@ -340,45 +342,42 @@ export function handleBinaryExpression(node: arkts.AstNode) {
   }
 }
 
-export function handleBlockExpression(node: arkts.AstNode) {
+export function handleBlockExpression(node: arkts.BlockExpression) {
   if (!!node.statements) {
     node.statements.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
-export function handleBlockStatement(node: arkts.AstNode) {
+export function handleBlockStatement(node: arkts.BlockStatement) {
   if (!!node.statements) {
     node.statements.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
-export function handleBooleanLiteral(node: arkts.AstNode) { }
+export function handleBooleanLiteral(node: arkts.BooleanLiteral) { }
 
-export function handleBreakStatement(node: arkts.AstNode) {
+export function handleBreakStatement(node: arkts.BreakStatement) {
   if (!!node.ident) {
     handleFunction(node.ident, handleIdentifier);
   }
 }
 
-export function handleCallExpression(node: arkts.AstNode) {
+export function handleCallExpression(node: arkts.CallExpression) {
   if (!!node.trailingBlock) {
     handleAstNode(node.trailingBlock);
   }
-  if (!!node.expression) {
-    handleAstNode(node.expression);
+  if (!!node.callee) {
+    handleAstNode(node.callee);
   }
-  if (!!node.typeArguments) {
-    node.typeArguments.forEach((item: arkts.TypeNode) => handleAstNode(item));
+  if (!!node.typeParams) {
+    node.typeParams.params.forEach((item: arkts.TypeNode) => handleAstNode(item));
   }
   if (!!node.arguments) {
     node.arguments.forEach((item: arkts.Expression) => handleAstNode(item));
   }
-  if (!!node.params) {
-    node.params.forEach((item: arkts.TypeNode) => handleAstNode(item));
-  }
 }
 
-export function handleCatchClause(node: arkts.AstNode) {
+export function handleCatchClause(node: arkts.CatchClause) {
   if (!!node.param) {
     handleAstNode(node.param);
   }
@@ -387,15 +386,15 @@ export function handleCatchClause(node: arkts.AstNode) {
   }
 }
 
-export function handleChainExpression(node: arkts.AstNode) {
-  if (!!node.getExpression) {
-    handleAstNode(node.getExpression);
+export function handleChainExpression(node: arkts.ChainExpression) {
+  if (!!node.expression) {
+    handleAstNode(node.expression);
   }
 }
 
-export function handleCharLiteral(node: arkts.AstNode) { }
+export function handleCharLiteral(node: arkts.CharLiteral) { }
 
-export function handleClassDeclaration(node: arkts.AstNode) {
+export function handleClassDeclaration(node: arkts.ClassDeclaration) {
   if (!!node.definition) {
     handleFunction(node.definition, handleClassDefinition);
   }
@@ -404,7 +403,7 @@ export function handleClassDeclaration(node: arkts.AstNode) {
   }
 }
 
-export function handleClassDefinition(node: arkts.AstNode) {
+export function handleClassDefinition(node: arkts.ClassDefinition) {
   if (!!node.ident) {
     handleFunction(node.ident, handleIdentifier);
   }
@@ -426,12 +425,12 @@ export function handleClassDefinition(node: arkts.AstNode) {
   if (!!node.origEnumDecl) {
     handleFunction(node.origEnumDecl, handleTSEnumDeclaration);
   }
-  if (!!node.getAnonClass) {
-    handleAstNode(node.getAnonClass);
+  if (!!node.anonClass) {
+    handleAstNode(node.anonClass);
   }
 }
 
-export function handleClassElement(node: arkts.AstNode) {
+export function handleClassElement(node: arkts.ClassElement) {
   if (!!node.key) {
     handleAstNode(node.key);
   }
@@ -443,13 +442,13 @@ export function handleClassElement(node: arkts.AstNode) {
   }
 }
 
-export function handleClassExpression(node: arkts.AstNode) {
+export function handleClassExpression(node: arkts.ClassExpression) {
   if (!!node.definition) {
     handleFunction(node.definition, handleClassDefinition);
   }
 }
 
-export function handleClassProperty(node: arkts.AstNode) {
+export function handleClassProperty(node: arkts.ClassProperty) {
   if (!!node.typeAnnotation) {
     handleAstNode(node.typeAnnotation);
   }
@@ -467,7 +466,7 @@ export function handleClassProperty(node: arkts.AstNode) {
   }
 }
 
-export function handleClassStaticBlock(node: arkts.AstNode) {
+export function handleClassStaticBlock(node: arkts.ClassStaticBlock) {
   if (!!node.key) {
     handleAstNode(node.key);
   }
@@ -479,7 +478,7 @@ export function handleClassStaticBlock(node: arkts.AstNode) {
   }
 }
 
-export function handleConditionalExpression(node: arkts.AstNode) {
+export function handleConditionalExpression(node: arkts.ConditionalExpression) {
   if (!!node.test) {
     handleAstNode(node.test);
   }
@@ -491,45 +490,42 @@ export function handleConditionalExpression(node: arkts.AstNode) {
   }
 }
 
-export function handleContext(node: arkts.AstNode) { }
+export function handleContext(node: arkts.Context) { }
 
 /**
  * target重复节点，不遍历
  * @param { arkts.AstNode } node 
  */
-export function handleContinueStatement(node: arkts.AstNode) {
+export function handleContinueStatement(node: arkts.ContinueStatement) {
   if (!!node.ident) {
     handleFunction(node.ident, handleIdentifier);
   }
 }
 
-export function handleDebuggerStatement(node: arkts.AstNode) { }
+export function handleDebuggerStatement(node: arkts.DebuggerStatement) { }
 
-export function handleDecorator(node: arkts.AstNode) {
+export function handleDecorator(node: arkts.Decorator) {
   if (!!node.expr) {
     handleAstNode(node.expr);
   }
 }
 
-export function handleDirectEvalExpression(node: arkts.AstNode) {
+export function handleDirectEvalExpression(node: arkts.DirectEvalExpression) {
   if (!!node.trailingBlock) {
     handleAstNode(node.trailingBlock);
   }
   if (!!node.expression) {
     handleAstNode(node.expression);
   }
-  if (!!node.typeArguments) {
-    node.typeArguments.forEach((item: arkts.TypeNode) => handleAstNode(item));
+  if (!!node.typeParams) {
+    handleFunction(node.typeParams, handleTSTypeParameterDeclaration);
   }
   if (!!node.arguments) {
     node.arguments.forEach((item: arkts.Expression) => handleAstNode(item));
   }
-  if (!!node.params) {
-    node.params.forEach((item: arkts.TypeNode) => handleAstNode(item));
-  }
 }
 
-export function handleDoWhileStatement(node: arkts.AstNode) {
+export function handleDoWhileStatement(node: arkts.DoWhileStatement) {
   if (!!node.test) {
     handleAstNode(node.test);
   }
@@ -538,13 +534,13 @@ export function handleDoWhileStatement(node: arkts.AstNode) {
   }
 }
 
-export function handleETSClassLiteral(node: arkts.AstNode) {
+export function handleETSClassLiteral(node: arkts.ETSClassLiteral) {
   if (!!node.expr) {
     handleAstNode(node.expr);
   }
 }
 
-export function handleETSDynamicFunctionType(node: arkts.AstNode) {
+export function handleETSDynamicFunctionType(node: arkts.ETSDynamicFunctionType) {
   if (!!node.typeParams) {
     handleFunction(node.typeParams, handleTSTypeParameterDeclaration);
   }
@@ -559,7 +555,7 @@ export function handleETSDynamicFunctionType(node: arkts.AstNode) {
   }
 }
 
-export function handleETSFunctionType(node: arkts.AstNode) {
+export function handleETSFunctionType(node: arkts.ETSFunctionType) {
   if (!!node.typeParams) {
     handleFunction(node.typeParams, handleTSTypeParameterDeclaration);
   }
@@ -569,14 +565,14 @@ export function handleETSFunctionType(node: arkts.AstNode) {
   if (!!node.returnType) {
     handleAstNode(node.returnType);
   }
-  if (!!node.functionInterface) {
-    handleAstNode(node.functionInterface);
+  if (!!node.functionalInterface) {
+    handleAstNode(node.functionalInterface);
   }
 }
 
-export function handleETSImportDeclaration(node: arkts.AstNode) { }
+export function handleETSImportDeclaration(node: arkts.ETSImportDeclaration) { }
 
-export function handleETSModule(node: arkts.AstNode) {
+export function handleETSModule(node: arkts.ETSModule) {
   if (!!node.ident) {
     handleFunction(node.ident, handleIdentifier);
   }
@@ -588,7 +584,7 @@ export function handleETSModule(node: arkts.AstNode) {
   }
 }
 
-export function handleETSNewArrayInstanceExpression(node: arkts.AstNode) {
+export function handleETSNewArrayInstanceExpression(node: arkts.ETSNewArrayInstanceExpression) {
   if (!!node.typeReference) {
     handleAstNode(node.typeReference);
   }
@@ -597,16 +593,16 @@ export function handleETSNewArrayInstanceExpression(node: arkts.AstNode) {
   }
 }
 
-export function handleETSNewClassInstanceExpression(node: arkts.AstNode) {
-  if (!!node.getTypeRef) {
-    handleAstNode(node.getTypeRef);
+export function handleETSNewClassInstanceExpression(node: arkts.ETSNewClassInstanceExpression) {
+  if (!!node.typeRef) {
+    handleAstNode(node.typeRef);
   }
-  if (!!node.getArgments) {
-    node.getArgments.forEach((item: arkts.AstNode) => handleAstNode(item));
+  if (!!node.arguments) {
+    node.arguments.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
-export function handleETSNewMultiDimArrayInstanceExpression(node: arkts.AstNode) {
+export function handleETSNewMultiDimArrayInstanceExpression(node: arkts.ETSNewMultiDimArrayInstanceExpression) {
   if (!!node.dimensions) {
     node.dimensions.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
@@ -615,35 +611,35 @@ export function handleETSNewMultiDimArrayInstanceExpression(node: arkts.AstNode)
   }
 }
 
-export function handleETSNullType(node: arkts.AstNode) { }
+export function handleETSNullType(node: arkts.ETSNullType) { }
 
-export function handleETSPackageDeclaration(node: arkts.AstNode) { }
+export function handleETSPackageDeclaration(node: arkts.ETSPackageDeclaration) { }
 
-export function handleETSParameterExpression(node: arkts.AstNode) {
+export function handleETSParameterExpression(node: arkts.ETSParameterExpression) {
   if (!!node.annotations) {
     node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
-  if (!!node.type) {
-    handleAstNode(node.type);
+  if (!!node.typeAnnotation) {
+    handleAstNode(node.typeAnnotation);
   }
   if (!!node.initializer) {
     handleAstNode(node.initializer);
   }
-  if (!!node.identifier) {
-    handleFunction(node.identifier, handleIdentifier);
+  if (!!node.ident) {
+    handleFunction(node.ident, handleIdentifier);
   }
 }
 
-export function handleETSPrimitiveType(node: arkts.AstNode) {
+export function handleETSPrimitiveType(node: arkts.ETSPrimitiveType) {
 }
 
-export function handleETSReExportDeclaration(node: arkts.AstNode) {
-  if (!!node.getETSImportDeclarations) {
-    handleFunction(node.getETSImportDeclarations, handleETSImportDeclaration);
+export function handleETSReExportDeclaration(node: arkts.ETSReExportDeclaration) {
+  if (!!node.eTSImportDeclarations) {
+    handleFunction(node.eTSImportDeclarations, handleETSImportDeclaration);
   }
 }
 
-export function handleETSStructDeclaration(node: arkts.AstNode) {
+export function handleETSStructDeclaration(node: arkts.ETSStructDeclaration) {
   if (!!node.definition) {
     handleFunction(node.definition, handleClassDefinition);
   }
@@ -652,19 +648,19 @@ export function handleETSStructDeclaration(node: arkts.AstNode) {
   }
 }
 
-export function handleETSTuple(node: arkts.AstNode) {
-  if (!!node.getTupleTypeAnnotationsList) {
-    node.getTupleTypeAnnotationsList.forEach((item: arkts.AstNde) => handleAstNode(item));
+export function handleETSTuple(node: arkts.ETSTuple) {
+  if (!!node.tupleTypeAnnotationsList) {
+    node.tupleTypeAnnotationsList.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
-export function handleETSTypeReference(node: arkts.AstNode) {
+export function handleETSTypeReference(node: arkts.ETSTypeReference) {
   if (!!node.part) {
     handleFunction(node.part, handleETSTypeReferencePart);
   }
 }
 
-export function handleETSTypeReferencePart(node: arkts.AstNode) {
+export function handleETSTypeReferencePart(node: arkts.ETSTypeReferencePart) {
   if (!!node.previous) {
     handleFunction(node.previous, handleETSTypeReferencePart);
   }
@@ -676,23 +672,23 @@ export function handleETSTypeReferencePart(node: arkts.AstNode) {
   }
 }
 
-export function handleETSUndefinedType(node: arkts.AstNode) { }
+export function handleETSUndefinedType(node: arkts.ETSUndefinedType) { }
 
-export function handleETSUnionType(node: arkts.AstNode) {
+export function handleETSUnionType(node: arkts.ETSUnionType) {
   if (!!node.types) {
-    node.types.forEach((item: arkts.AstNde) => handleAstNode(item));
+    node.types.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
-export function handleETSWildcardType(node: arkts.AstNode) {
+export function handleETSWildcardType(node: arkts.ETSWildcardType) {
   if (!!node.typeReference) {
     handleFunction(node.typeReference, handleETSTypeReference);
   }
 }
 
-export function handleEmptyStatement(node: arkts.AstNode) { }
+export function handleEmptyStatement(node: arkts.EmptyStatement) { }
 
-export function handleExportAllDeclaration(node: arkts.AstNode) {
+export function handleExportAllDeclaration(node: arkts.ExportAllDeclaration) {
   if (!!node.source) {
     handleFunction(node.source, handleStringLiteral);
   }
@@ -701,13 +697,13 @@ export function handleExportAllDeclaration(node: arkts.AstNode) {
   }
 }
 
-export function handleExportDefaultDeclaration(node: arkts.AstNode) {
+export function handleExportDefaultDeclaration(node: arkts.ExportDefaultDeclaration) {
   if (!!node.decl) {
     handleAstNode(node.decl);
   }
 }
 
-export function handleExportNamedDeclaration(node: arkts.AstNode) {
+export function handleExportNamedDeclaration(node: arkts.ExportNamedDeclaration) {
   if (!!node.decl) {
     handleAstNode(node.decl);
   }
@@ -719,7 +715,7 @@ export function handleExportNamedDeclaration(node: arkts.AstNode) {
   }
 }
 
-export function handleExportSpecifier(node: arkts.AstNode) {
+export function handleExportSpecifier(node: arkts.ExportSpecifier) {
   if (!!node.local) {
     handleFunction(node.local, handleIdentifier);
   }
@@ -728,15 +724,15 @@ export function handleExportSpecifier(node: arkts.AstNode) {
   }
 }
 
-export function handleExpression(node: arkts.AstNode) { }
+export function handleExpression(node: arkts.Expression) { }
 
-export function handleExpressionStatement(node: arkts.AstNode) {
+export function handleExpressionStatement(node: arkts.ExpressionStatement) {
   if (!!node.expression) {
     handleAstNode(node.expression);
   }
 }
 
-export function handleForInStatement(node: arkts.AstNode) {
+export function handleForInStatement(node: arkts.ForInStatement) {
   if (!!node.left) {
     handleAstNode(node.left);
   }
@@ -748,7 +744,7 @@ export function handleForInStatement(node: arkts.AstNode) {
   }
 }
 
-export function handleForOfStatement(node: arkts.AstNode) {
+export function handleForOfStatement(node: arkts.ForOfStatement) {
   if (!!node.left) {
     handleAstNode(node.left);
   }
@@ -760,7 +756,7 @@ export function handleForOfStatement(node: arkts.AstNode) {
   }
 }
 
-export function handleForUpdateStatement(node: arkts.AstNode) {
+export function handleForUpdateStatement(node: arkts.ForUpdateStatement) {
   if (!!node.init) {
     handleAstNode(node.init);
   }
@@ -775,7 +771,7 @@ export function handleForUpdateStatement(node: arkts.AstNode) {
   }
 }
 
-export function handleFunctionDecl(node: arkts.AstNode) {
+export function handleFunctionDecl(node: arkts.FunctionDecl) {
   if (!!node.id) {
     handleFunction(node.id, handleIdentifier);
   }
@@ -795,16 +791,16 @@ export function handleFunctionDecl(node: arkts.AstNode) {
     handleAstNode(node.returnTypeAnnotation);
   }
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNde) => handleFunction(item, handleAnnotationUsage));
+    node.annotations.forEach((item: arkts.AnnotationUsage) => handleFunction(item, handleAnnotationUsage));
   }
 }
 
-export function handleFunctionDeclaration(node: arkts.AstNode) {
+export function handleFunctionDeclaration(node: arkts.FunctionDeclaration) {
   if (!!node.annotations) {
     node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
-  if (!!node.scriptFunction) {
-    handleAstNode(node.scriptFunction);
+  if (!!node.function) {
+    handleAstNode(node.function);
   }
   if (!!node.parameters) {
     node.parameters.forEach((item: arkts.AstNode) => handleAstNode(item));
@@ -823,14 +819,14 @@ export function handleFunctionDeclaration(node: arkts.AstNode) {
   }
 }
 
-export function handleFunctionExpression(node: arkts.AstNode) {
-  if (!!node.scriptFunction) {
-    handleAstNode(node.scriptFunction);
+export function handleFunctionExpression(node: arkts.FunctionExpression) {
+  if (!!node.function) {
+    handleAstNode(node.function);
   }
 
 }
 
-export function handleFunctionSignature(node: arkts.AstNode) {
+export function handleFunctionSignature(node: arkts.FunctionSignature) {
   if (!!node.params) {
     node.params.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
@@ -842,7 +838,7 @@ export function handleFunctionSignature(node: arkts.AstNode) {
   }
 }
 
-export function handleIdentifier(node: arkts.AstNode) {
+export function handleIdentifier(node: arkts.Identifier) {
   if (exporssionCount > 1) {
     checkIdentifier(node);
   }
@@ -855,7 +851,7 @@ export function handleIdentifier(node: arkts.AstNode) {
   }
 }
 
-export function handleIfStatement(node: arkts.AstNode) {
+export function handleIfStatement(node: arkts.IfStatement) {
   if (!!node.test) {
     handleAstNode(node.test);
   }
@@ -867,29 +863,29 @@ export function handleIfStatement(node: arkts.AstNode) {
   }
 }
 
-export function handleImportDeclaration(node: arkts.AstNode) {
+export function handleImportDeclaration(node: arkts.ImportDeclaration) {
 }
 
-export function handleImportDefaultSpecifier(node: arkts.AstNode) {
+export function handleImportDefaultSpecifier(node: arkts.ImportDefaultSpecifier) {
   if (!!node.local) {
     handleFunction(node.local, handleIdentifier);
   }
 }
 
-export function handleImportExpression(node: arkts.AstNode) {
+export function handleImportExpression(node: arkts.ImportExpression) {
   if (!!node.source) {
     handleFunction(node.source, handleStringLiteral);
   }
 }
 
-export function handleImportNamespaceSpecifier(node: arkts.AstNode) {
+export function handleImportNamespaceSpecifier(node: arkts.ImportNamespaceSpecifier) {
   if (!!node.local) {
     handleFunction(node.local, handleIdentifier);
   }
 
 }
 
-export function handleImportSource(node: arkts.AstNode) {
+export function handleImportSource(node: arkts.ImportSource) {
   if (!!node.source) {
     handleFunction(node.source, handleStringLiteral);
   }
@@ -898,7 +894,7 @@ export function handleImportSource(node: arkts.AstNode) {
   }
 }
 
-export function handleImportSpecifier(node: arkts.AstNode) {
+export function handleImportSpecifier(node: arkts.ImportSpecifier) {
   if (!!node.imported) {
     handleFunction(node.imported, handleIdentifier);
   }
@@ -908,7 +904,7 @@ export function handleImportSpecifier(node: arkts.AstNode) {
 
 }
 
-export function handleInterfaceDecl(node: arkts.AstNode) {
+export function handleInterfaceDecl(node: arkts.TSInterfaceDeclaration) {
   if (!!node.id) {
     handleFunction(node.id, handleIdentifier);
   }
@@ -916,23 +912,23 @@ export function handleInterfaceDecl(node: arkts.AstNode) {
     handleFunction(node.body, handleTSInterfaceBody);
   }
   if (!!node.typeParams) {
-    handleFunction(node.typeParam, handleTSTypeParameterDeclaration);
+    handleFunction(node.typeParams, handleTSTypeParameterDeclaration);
   }
   if (!!node.extends) {
-    node.extends.forEach((item: arkts.TypeNode) => handleFunction(item, handleTSInterfaceHeritage));
+    node.extends.forEach((item: arkts.TSInterfaceHeritage) => handleFunction(item, handleTSInterfaceHeritage));
   }
   if (!!node.decorators) {
     node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator));
   }
-  if (!!node.getAnonClass) {
-    handleAstNode(node.getAnonClass);
+  if (!!node.anonClass) {
+    handleAstNode(node.anonClass);
   }
   if (!!node.annotations) {
     node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
 }
 
-export function handleLabelPair(node: arkts.AstNode) {
+export function handleLabelPair(node: arkts.LabelPair) {
   if (!!node.ident) {
     handleFunction(node.ident, handleIdentifier);
   }
@@ -941,15 +937,15 @@ export function handleLabelPair(node: arkts.AstNode) {
   }
 }
 
-export function handleLabelledStatement(node: arkts.AstNode) { }
+export function handleLabelledStatement(node: arkts.LabelledStatement) { }
 
-export function handleLiteral(node: arkts.AstNode) { }
+export function handleLiteral(node: arkts.Literal) { }
 
-export function handleLoopStatement(node: arkts.AstNode) { }
+export function handleLoopStatement(node: arkts.LoopStatement) { }
 
-export function handleMaybeOptionalExpression(node: arkts.AstNode) { }
+export function handleMaybeOptionalExpression(node: arkts.MaybeOptionalExpression) { }
 
-export function handleMemberExpression(node: arkts.AstNode) {
+export function handleMemberExpression(node: arkts.MemberExpression) {
   if (!!node.object) {
     handleAstNode(node.object);
   }
@@ -958,17 +954,17 @@ export function handleMemberExpression(node: arkts.AstNode) {
   }
 }
 
-export function handleMetaProperty(node: arkts.AstNode) { }
+export function handleMetaProperty(node: arkts.MetaProperty) { }
 
-export function handleMethodDefinition(node: arkts.AstNode) {
+export function handleMethodDefinition(node: arkts.MethodDefinition) {
   if (!!node.overloads) {
     node.overloads.forEach((item: arkts.AstNode) => handleFunction(item, handleMethodDefinition));
   }
-  if (!!node.scriptFunction) {
-    handleAstNode(node.scriptFunction);
+  if (!!node.function) {
+    handleAstNode(node.function);
   }
-  if (!!node.name) {
-    handleFunction(node.name, handleIdentifier);
+  if (!!node.id) {
+    handleFunction(node.id, handleIdentifier);
   }
   if (!!node.key) {
     handleAstNode(node.key);
@@ -981,7 +977,7 @@ export function handleMethodDefinition(node: arkts.AstNode) {
   }
 }
 
-export function handleNamedType(node: arkts.AstNode) {
+export function handleNamedType(node: arkts.NamedType) {
   if (!!node.name) {
     handleFunction(node.name, handleIdentifier);
   }
@@ -990,7 +986,7 @@ export function handleNamedType(node: arkts.AstNode) {
   }
 }
 
-export function handleNewExpression(node: arkts.AstNode) {
+export function handleNewExpression(node: arkts.NewExpression) {
   if (!!node.callee) {
     handleAstNode(node.callee);
   }
@@ -999,11 +995,11 @@ export function handleNewExpression(node: arkts.AstNode) {
   }
 }
 
-export function handleNullLiteral(node: arkts.AstNode) { }
+export function handleNullLiteral(node: arkts.NullLiteral) { }
 
-export function handleNumberLiteral(node: arkts.AstNode) { }
+export function handleNumberLiteral(node: arkts.NumberLiteral) { }
 
-export function handleObjectExpression(node: arkts.AstNode) {
+export function handleObjectExpression(node: arkts.ObjectExpression) {
   if (!!node.properties) {
     node.properties.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
@@ -1015,11 +1011,11 @@ export function handleObjectExpression(node: arkts.AstNode) {
   }
 }
 
-export function handleOmittedExpression(node: arkts.AstNode) { }
+export function handleOmittedExpression(node: arkts.OmittedExpression) { }
 
-export function handleOpaqueTypeNode(node: arkts.AstNode) { }
+export function handleOpaqueTypeNode(node: arkts.OpaqueTypeNode) { }
 
-export function handlePrefixAssertionExpression(node: arkts.AstNode) {
+export function handlePrefixAssertionExpression(node: arkts.PrefixAssertionExpression) {
   if (!!node.expr) {
     handleAstNode(node.expr);
   }
@@ -1028,7 +1024,7 @@ export function handlePrefixAssertionExpression(node: arkts.AstNode) {
   }
 }
 
-export function handleProperty(node: arkts.AstNode) {
+export function handleProperty(node: arkts.Property) {
   if (!!node.key) {
     handleAstNode(node.key);
   }
@@ -1037,15 +1033,15 @@ export function handleProperty(node: arkts.AstNode) {
   }
 }
 
-export function handleRegExpLiteral(node: arkts.AstNode) { }
+export function handleRegExpLiteral(node: arkts.RegExpLiteral) { }
 
-export function handleReturnStatement(node: arkts.AstNode) {
+export function handleReturnStatement(node: arkts.ReturnStatement) {
   if (!!node.argument) {
     handleAstNode(node.argument);
   }
 }
 
-export function handleScriptFunction(node: arkts.AstNode) {
+export function handleScriptFunction(node: arkts.ScriptFunction) {
   if (!!node.id) {
     handleFunction(node.id, handleIdentifier);
   }
@@ -1065,17 +1061,17 @@ export function handleScriptFunction(node: arkts.AstNode) {
     handleAstNode(node.returnTypeAnnotation);
   }
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNde) => handleFunction(item, handleAnnotationUsage));
+    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
 }
 
-export function handleSequenceExpression(node: arkts.AstNode) {
+export function handleSequenceExpression(node: arkts.SequenceExpression) {
   if (!!node.sequence) {
     node.sequence.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
-export function handleSpreadElement(node: arkts.AstNode) {
+export function handleSpreadElement(node: arkts.SpreadElement) {
   if (!!node.argument) {
     handleAstNode(node.argument);
   }
@@ -1087,22 +1083,22 @@ export function handleSpreadElement(node: arkts.AstNode) {
   }
 }
 
-export function handleSrcDumper(node: arkts.AstNode) {
+export function handleSrcDumper(node: arkts.SrcDumper) {
   return;
 }
 
-export function handleStatement(node: arkts.AstNode) {
+export function handleStatement(node: arkts.Statement) {
 }
 
-export function handleStringLiteral(node: arkts.AstNode) { }
+export function handleStringLiteral(node: arkts.StringLiteral) { }
 
-export function handleSuperExpression(node: arkts.AstNode) {
+export function handleSuperExpression(node: arkts.SuperExpression) {
   if (!!node.id) {
     handleFunction(node.id, handleIdentifier);
   }
 }
 
-export function handleSwitchCaseStatement(node: arkts.AstNode) {
+export function handleSwitchCaseStatement(node: arkts.SwitchCaseStatement) {
   if (!!node.test) {
     handleAstNode(node.test);
   }
@@ -1111,7 +1107,7 @@ export function handleSwitchCaseStatement(node: arkts.AstNode) {
   }
 }
 
-export function handleSwitchStatement(node: arkts.AstNode) {
+export function handleSwitchStatement(node: arkts.SwitchStatement) {
   if (!!node.discriminant) {
     handleAstNode(node.discriminant);
   }
@@ -1120,16 +1116,16 @@ export function handleSwitchStatement(node: arkts.AstNode) {
   }
 }
 
-export function handleTSAnyKeyword(node: arkts.AstNode) {
+export function handleTSAnyKeyword(node: arkts.TSAnyKeyword) {
 }
 
-export function handleTSArrayType(node: arkts.AstNode) {
+export function handleTSArrayType(node: arkts.TSArrayType) {
   if (!!node.elementType) {
     handleAstNode(node.elementType);
   }
 }
 
-export function handleTSAsExpression(node: arkts.AstNode) {
+export function handleTSAsExpression(node: arkts.TSAsExpression) {
   if (!!node.expr) {
     handleAstNode(node.expr);
   }
@@ -1138,11 +1134,11 @@ export function handleTSAsExpression(node: arkts.AstNode) {
   }
 }
 
-export function handleTSBigintKeyword(node: arkts.AstNode) { }
+export function handleTSBigintKeyword(node: arkts.TSBigintKeyword) { }
 
-export function handleTSBooleanKeyword(node: arkts.AstNode) { }
+export function handleTSBooleanKeyword(node: arkts.TSBooleanKeyword) { }
 
-export function handleTSClassImplements(node: arkts.AstNode) {
+export function handleTSClassImplements(node: arkts.TSClassImplements) {
   if (!!node.expr) {
     handleAstNode(node.expr);
   }
@@ -1151,7 +1147,7 @@ export function handleTSClassImplements(node: arkts.AstNode) {
   }
 }
 
-export function handleTSConditionalType(node: arkts.AstNode) {
+export function handleTSConditionalType(node: arkts.TSConditionalType) {
   if (!!node.checkType) {
     handleAstNode(node.checkType);
   }
@@ -1166,9 +1162,9 @@ export function handleTSConditionalType(node: arkts.AstNode) {
   }
 }
 
-export function handleTSConstructorType(node: arkts.AstNode) {
+export function handleTSConstructorType(node: arkts.TSConstructorType) {
   if (!!node.typeParams) {
-    handleFunction(node.typeParameters, handleTSTypeParameterInstantiation);
+    handleFunction(node.typeParams, handleTSTypeParameterInstantiation);
   }
   if (!!node.params) {
     node.params.forEach((item: arkts.AstNode) => handleAstNode(item));
@@ -1178,12 +1174,12 @@ export function handleTSConstructorType(node: arkts.AstNode) {
   }
 }
 
-export function handleTSEnumDeclaration(node: arkts.AstNode) {
+export function handleTSEnumDeclaration(node: arkts.TSEnumDeclaration) {
   if (!!node.key) {
     handleFunction(node.key, handleIdentifier);
   }
   if (!!node.members) {
-    node.members.forEach((item: arkts.AstNde) => handleAstNode(item));
+    node.members.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.boxedClass) {
     handleFunction(node.boxedClass, handleClassDefinition);
@@ -1193,7 +1189,7 @@ export function handleTSEnumDeclaration(node: arkts.AstNode) {
   }
 }
 
-export function handleTSEnumMember(node: arkts.AstNode) {
+export function handleTSEnumMember(node: arkts.TSEnumMember) {
   if (!!node.key) {
     handleAstNode(node.key);
   }
@@ -1202,25 +1198,25 @@ export function handleTSEnumMember(node: arkts.AstNode) {
   }
 }
 
-export function handleTSExternalModuleReference(node: arkts.AstNode) {
+export function handleTSExternalModuleReference(node: arkts.TSExternalModuleReference) {
   if (!!node.expr) {
     handleAstNode(node.expr);
   }
 }
 
-export function handleTSFunctionType(node: arkts.AstNode) {
+export function handleTSFunctionType(node: arkts.TSFunctionType) {
   if (!!node.typeParams) {
     handleFunction(node.typeParams, handleTSTypeParameterInstantiation);
   }
   if (!!node.params) {
-    node.params.forEach((item: arkts.TypeNode) => handleAstNode(item));
+    node.params.forEach((item: arkts.Expression) => handleAstNode(item));
   }
   if (!!node.returnType) {
     handleAstNode(node.returnType);
   }
 }
 
-export function handleTSImportEqualsDeclaration(node: arkts.AstNode) {
+export function handleTSImportEqualsDeclaration(node: arkts.TSImportEqualsDeclaration) {
   if (!!node.id) {
     handleFunction(node.id, handleIdentifier);
   }
@@ -1229,19 +1225,19 @@ export function handleTSImportEqualsDeclaration(node: arkts.AstNode) {
   }
 }
 
-export function handleTSImportType(node: arkts.AstNode) {
+export function handleTSImportType(node: arkts.TSImportType) {
   if (!!node.typeParams) {
     handleFunction(node.typeParams, handleTSTypeParameterInstantiation);
   }
-  if (!!node.params) {
-    handleAstNode(node.params);
+  if (!!node.param) {
+    handleAstNode(node.param);
   }
   if (!!node.qualifier) {
     handleAstNode(node.qualifier);
   }
 }
 
-export function handleTSIndexSignature(node: arkts.AstNode) {
+export function handleTSIndexSignature(node: arkts.TSIndexSignature) {
   if (!!node.objectType) {
     handleAstNode(node.objectType);
   }
@@ -1250,7 +1246,7 @@ export function handleTSIndexSignature(node: arkts.AstNode) {
   }
 }
 
-export function handleTSIndexedAccessType(node: arkts.AstNode) {
+export function handleTSIndexedAccessType(node: arkts.TSIndexedAccessType) {
   if (!!node.param) {
     handleAstNode(node.param);
   }
@@ -1259,19 +1255,19 @@ export function handleTSIndexedAccessType(node: arkts.AstNode) {
   }
 }
 
-export function handleTSInferType(node: arkts.AstNode) {
+export function handleTSInferType(node: arkts.TSInferType) {
   if (!!node.typeParam) {
     handleFunction(node.typeParam, handleTSTypeParameter);
   }
 }
 
-export function handleTSInterfaceBody(node: arkts.AstNode) {
+export function handleTSInterfaceBody(node: arkts.TSInterfaceBody) {
   if (!!node.body) {
-    node.body.forEach((item: arkts.TypeNode) => handleAstNode(item));
+    node.body.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
-export function handleTSInterfaceDeclaration(node: arkts.AstNode) {
+export function handleTSInterfaceDeclaration(node: arkts.TSInterfaceDeclaration) {
   if (!!node.id) {
     handleFunction(node.id, handleIdentifier);
   }
@@ -1279,41 +1275,41 @@ export function handleTSInterfaceDeclaration(node: arkts.AstNode) {
     handleFunction(node.body, handleTSInterfaceBody);
   }
   if (!!node.typeParams) {
-    handleFunction(node.typeParam, handleTSTypeParameterDeclaration);
+    handleFunction(node.typeParams, handleTSTypeParameterDeclaration);
   }
   if (!!node.extends) {
-    node.extends.forEach((item: arkts.TypeNode) => handleFunction(item, handleTSInterfaceHeritage));
+    node.extends.forEach((item: arkts.TSInterfaceHeritage) => handleFunction(item, handleTSInterfaceHeritage));
   }
   if (!!node.decorators) {
     node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator));
   }
-  if (!!node.getAnonClass) {
-    handleAstNode(node.getAnonClass);
+  if (!!node.anonClass) {
+    handleAstNode(node.anonClass);
   }
   if (!!node.annotations) {
     node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
 }
 
-export function handleTSInterfaceHeritage(node: arkts.AstNode) {
+export function handleTSInterfaceHeritage(node: arkts.TSInterfaceHeritage) {
   if (!!node.expr) {
     handleAstNode(node.expr);
   }
 }
 
-export function handleTSIntersectionType(node: arkts.AstNode) {
+export function handleTSIntersectionType(node: arkts.TSIntersectionType) {
   if (!!node.types) {
     node.types.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
-export function handleTSLiteralType(node: arkts.AstNode) {
+export function handleTSLiteralType(node: arkts.TSLiteralType) {
   if (!!node.literal) {
     handleAstNode(node.literal);
   }
 }
 
-export function handleTSMappedType(node: arkts.AstNode) {
+export function handleTSMappedType(node: arkts.TSMappedType) {
   if (!!node.typeParameter) {
     handleFunction(node.typeParameter, handleTSTypeParameter);
   }
@@ -1322,7 +1318,7 @@ export function handleTSMappedType(node: arkts.AstNode) {
   }
 }
 
-export function handleTSMethodSignature(node: arkts.AstNode) {
+export function handleTSMethodSignature(node: arkts.TSMethodSignature) {
   if (!!node.key) {
     handleAstNode(node.key);
   }
@@ -1337,13 +1333,13 @@ export function handleTSMethodSignature(node: arkts.AstNode) {
   }
 }
 
-export function handleTSModuleBlock(node: arkts.AstNode) {
+export function handleTSModuleBlock(node: arkts.TSModuleBlock) {
   if (!!node.statements) {
     node.statements.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
-export function handleTSModuleDeclaration(node: arkts.AstNode) {
+export function handleTSModuleDeclaration(node: arkts.TSModuleDeclaration) {
   if (!!node.name) {
     handleAstNode(node.name);
   }
@@ -1352,7 +1348,7 @@ export function handleTSModuleDeclaration(node: arkts.AstNode) {
   }
 }
 
-export function handleTSNamedTupleMember(node: arkts.AstNode) {
+export function handleTSNamedTupleMember(node: arkts.TSNamedTupleMember) {
   if (!!node.label) {
     handleAstNode(node.label);
   }
@@ -1361,33 +1357,33 @@ export function handleTSNamedTupleMember(node: arkts.AstNode) {
   }
 }
 
-export function handleTSNeverKeyword(node: arkts.AstNode) { }
+export function handleTSNeverKeyword(node: arkts.TSNeverKeyword) { }
 
-export function handleTSNonNullExpression(node: arkts.AstNode) {
+export function handleTSNonNullExpression(node: arkts.TSNonNullExpression) {
   if (!!node.expr) {
     handleAstNode(node.expr);
   }
 }
 
-export function handleTSNullKeyword(node: arkts.AstNode) { }
+export function handleTSNullKeyword(node: arkts.TSNullKeyword) { }
 
-export function handleTSNumberKeyword(node: arkts.AstNode) { }
+export function handleTSNumberKeyword(node: arkts.TSNumberKeyword) { }
 
-export function handleTSObjectKeyword(node: arkts.AstNode) { }
+export function handleTSObjectKeyword(node: arkts.TSObjectKeyword) { }
 
-export function handleTSParameterProperty(node: arkts.AstNode) {
+export function handleTSParameterProperty(node: arkts.TSParameterProperty) {
   if (!!node.parameter) {
     handleAstNode(node.parameter);
   }
 }
 
-export function handleTSParenthesizedType(node: arkts.AstNode) {
+export function handleTSParenthesizedType(node: arkts.TSParenthesizedType) {
   if (!!node.type) {
     handleAstNode(node.type);
   }
 }
 
-export function handleTSPropertySignature(node: arkts.AstNode) {
+export function handleTSPropertySignature(node: arkts.TSPropertySignature) {
   if (!!node.key) {
     handleAstNode(node.key);
   }
@@ -1396,7 +1392,7 @@ export function handleTSPropertySignature(node: arkts.AstNode) {
   }
 }
 
-export function handleTSQualifiedName(node: arkts.AstNode) {
+export function handleTSQualifiedName(node: arkts.TSQualifiedName) {
   if (!!node.left) {
     handleAstNode(node.left);
   }
@@ -1405,7 +1401,7 @@ export function handleTSQualifiedName(node: arkts.AstNode) {
   }
 }
 
-export function handleTSSignatureDeclaration(node: arkts.AstNode) {
+export function handleTSSignatureDeclaration(node: arkts.TSSignatureDeclaration) {
   if (!!node.typeParams) {
     handleFunction(node.typeParams, handleTSTypeParameterDeclaration);
   }
@@ -1417,17 +1413,17 @@ export function handleTSSignatureDeclaration(node: arkts.AstNode) {
   }
 }
 
-export function handleTSStringKeyword(node: arkts.AstNode) { }
+export function handleTSStringKeyword(node: arkts.TSStringKeyword) { }
 
-export function handleTSThisType(node: arkts.AstNode) { }
+export function handleTSThisType(node: arkts.TSThisType) { }
 
-export function handleTSTupleType(node: arkts.AstNode) {
+export function handleTSTupleType(node: arkts.TSTupleType) {
   if (!!node.elementType) {
     node.elementType.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
-export function handleTSTypeAliasDeclaration(node: arkts.AstNode) {
+export function handleTSTypeAliasDeclaration(node: arkts.TSTypeAliasDeclaration) {
   if (!!node.id) {
     handleFunction(node.id, handleIdentifier);
   }
@@ -1445,9 +1441,9 @@ export function handleTSTypeAliasDeclaration(node: arkts.AstNode) {
   }
 }
 
-export function handleTSTypeAssertion(node: arkts.AstNode) {
-  if (!!node.getExpression) {
-    handleAstNode(node.getExpression);
+export function handleTSTypeAssertion(node: arkts.TSTypeAssertion) {
+  if (!!node.expression) {
+    handleAstNode(node.expression);
   }
   if (!!node.typeAnnotation) {
     handleAstNode(node.typeAnnotation);
@@ -1455,7 +1451,7 @@ export function handleTSTypeAssertion(node: arkts.AstNode) {
 
 }
 
-export function handleTSTypeLiteral(node: arkts.AstNode) {
+export function handleTSTypeLiteral(node: arkts.TSTypeLiteral) {
   if (!!node.members) {
     node.members.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
@@ -1464,13 +1460,13 @@ export function handleTSTypeLiteral(node: arkts.AstNode) {
   }
 }
 
-export function handleTSTypeOperator(node: arkts.AstNode) {
+export function handleTSTypeOperator(node: arkts.TSTypeOperator) {
   if (!!node.type) {
     handleAstNode(node.type);
   }
 }
 
-export function handleTSTypeParameter(node: arkts.AstNode) {
+export function handleTSTypeParameter(node: arkts.TSTypeParameter) {
   if (!!node.name) {
     handleFunction(node.name, handleIdentifier);
   }
@@ -1485,19 +1481,19 @@ export function handleTSTypeParameter(node: arkts.AstNode) {
   }
 }
 
-export function handleTSTypeParameterDeclaration(node: arkts.AstNode) {
+export function handleTSTypeParameterDeclaration(node: arkts.TSTypeParameterDeclaration) {
   if (!!node.params) {
     node.params.forEach((item: arkts.AstNode) => handleFunction(item, handleTSTypeParameter));
   }
 }
 
-export function handleTSTypeParameterInstantiation(node: arkts.AstNode) {
+export function handleTSTypeParameterInstantiation(node: arkts.TSTypeParameterInstantiation) {
   if (!!node.params) {
     node.params.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
-export function handleTSTypePredicate(node: arkts.AstNode) {
+export function handleTSTypePredicate(node: arkts.TSTypePredicate) {
   if (!!node.parameterName) {
     handleAstNode(node.parameterName);
   }
@@ -1506,13 +1502,13 @@ export function handleTSTypePredicate(node: arkts.AstNode) {
   }
 }
 
-export function handleTSTypeQuery(node: arkts.AstNode) {
+export function handleTSTypeQuery(node: arkts.TSTypeQuery) {
   if (!!node.exprName) {
     handleAstNode(node.exprName);
   }
 }
 
-export function handleTSTypeReference(node: arkts.AstNode) {
+export function handleTSTypeReference(node: arkts.TSTypeReference) {
   if (!!node.typeName) {
     handleAstNode(node.typeName);
   }
@@ -1521,19 +1517,19 @@ export function handleTSTypeReference(node: arkts.AstNode) {
   }
 }
 
-export function handleTSUndefinedKeyword(node: arkts.AstNode) { }
+export function handleTSUndefinedKeyword(node: arkts.TSUndefinedKeyword) { }
 
-export function handleTSUnionType(node: arkts.AstNode) {
+export function handleTSUnionType(node: arkts.TSUnionType) {
   if (!!node.types) {
-    node.types.forEach((item: arkts.AstNode) => traverseProgram(item));
+    node.types.forEach((item: arkts.TypeNode) => handleAstNode(item));
   }
 }
 
-export function handleTSUnknownKeyword(node: arkts.AstNode) { }
+export function handleTSUnknownKeyword(node: arkts.TSUnknownKeyword) { }
 
-export function handleTSVoidKeyword(node: arkts.AstNode) { }
+export function handleTSVoidKeyword(node: arkts.TSVoidKeyword) { }
 
-export function handleTaggedTemplateExpression(node: arkts.AstNode) {
+export function handleTaggedTemplateExpression(node: arkts.TaggedTemplateExpression) {
   if (!!node.tag) {
     handleAstNode(node.tag);
   }
@@ -1545,9 +1541,9 @@ export function handleTaggedTemplateExpression(node: arkts.AstNode) {
   }
 }
 
-export function handleTemplateElement(node: arkts.AstNode) { }
+export function handleTemplateElement(node: arkts.TemplateElement) { }
 
-export function handleTemplateLiteral(node: arkts.AstNode) {
+export function handleTemplateLiteral(node: arkts.TemplateLiteral) {
   if (!!node.quasis) {
     node.quasis.forEach((item: arkts.AstNode) => handleFunction(item, handleTemplateLiteral));
   }
@@ -1556,15 +1552,15 @@ export function handleTemplateLiteral(node: arkts.AstNode) {
   }
 }
 
-export function handleThisExpression(node: arkts.AstNode) { }
+export function handleThisExpression(node: arkts.ThisExpression) { }
 
-export function handleThrowStatement(node: arkts.AstNode) {
+export function handleThrowStatement(node: arkts.ThrowStatement) {
   if (!!node.argument) {
     handleAstNode(node.argument);
   }
 }
 
-export function handleTryStatement(node: arkts.AstNode) {
+export function handleTryStatement(node: arkts.TryStatement) {
   if (!!node.finallyBlock) {
     handleAstNode(node.finallyBlock);
   }
@@ -1576,35 +1572,35 @@ export function handleTryStatement(node: arkts.AstNode) {
   }
 }
 
-export function handleTypeNode(node: arkts.AstNode) { }
+export function handleTypeNode(node: arkts.TypeNode) { }
 
-export function handleTypedAstNode(node: arkts.AstNode) { }
+export function handleTypedAstNode(node: arkts.TypedAstNode) { }
 
-export function handleTypedStatement(node: arkts.AstNode) { }
+export function handleTypedStatement(node: arkts.TypedStatement) { }
 
-export function handleTypeofExpression(node: arkts.AstNode) {
+export function handleTypeofExpression(node: arkts.TypeofExpression) {
   if (!!node.argument) {
     handleAstNode(node.argument);
   }
 }
 
-export function handleUnaryExpression(node: arkts.AstNode) {
+export function handleUnaryExpression(node: arkts.UnaryExpression) {
   if (!!node.argument) {
     handleAstNode(node.argument);
   }
 }
 
-export function handleUndefinedLiteral(node: arkts.AstNode) { }
+export function handleUndefinedLiteral(node: arkts.UndefinedLiteral) { }
 
-export function handleUpdateExpression(node: arkts.AstNode) {
+export function handleUpdateExpression(node: arkts.UpdateExpression) {
   if (!!node.argument) {
     handleAstNode(node.argument);
   }
 }
 
-export function handleValidationInfo(node: arkts.AstNode) { }
+export function handleValidationInfo(node: arkts.ValidationInfo) { }
 
-export function handleVariableDeclaration(node: arkts.AstNode) {
+export function handleVariableDeclaration(node: arkts.VariableDeclaration) {
   if (!!node.annotations) {
     node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
@@ -1613,16 +1609,16 @@ export function handleVariableDeclaration(node: arkts.AstNode) {
   }
 }
 
-export function handleVariableDeclarator(node: arkts.AstNode) {
-  if (!!node.initializer) {
-    handleAstNode(node.initializer);
+export function handleVariableDeclarator(node: arkts.VariableDeclarator) {
+  if (!!node.init) {
+    handleAstNode(node.init);
   }
-  if (!!node.name) {
-    handleFunction(node.name, handleIdentifier);
+  if (!!node.id) {
+    handleFunction(node.id, handleIdentifier);
   }
 }
 
-export function handleWhileStatement(node: arkts.AstNode) {
+export function handleWhileStatement(node: arkts.WhileStatement) {
   if (!!node.test) {
     handleAstNode(node.test);
   }
@@ -1631,7 +1627,7 @@ export function handleWhileStatement(node: arkts.AstNode) {
   }
 }
 
-export function handleYieldExpression(node: arkts.AstNode) {
+export function handleYieldExpression(node: arkts.YieldExpression) {
   if (!!node.argument) {
     handleAstNode(node.argument);
   }

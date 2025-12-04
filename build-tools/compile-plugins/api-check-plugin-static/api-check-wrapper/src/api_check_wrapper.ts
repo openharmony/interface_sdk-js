@@ -69,7 +69,7 @@ export function checkApiExpression(apiCheckHost: ApiCheckWrapperServiceHost, pee
 
   curApiCheckWrapper = new ApiCheckWrapper(apiCheckHost);
   curFileCheckModuleInfo = {} as FileCheckModuleInfo;
-  let fileNames: Map<number, string> = new Map();
+  let fileNames: Map<arkts.KNativePointer, string> = new Map();
   let legacyModuleList: string[] = [];
   let legacyStructMap: Map<string, LegacyStructMap> = new Map();
 
@@ -91,11 +91,11 @@ export function checkApiExpression(apiCheckHost: ApiCheckWrapperServiceHost, pee
         // 清空map对象
         checkedNode = new Map();
         // 获取根节点，开始遍历
-        traverseProgram(currProgram.astNode);
+        traverseProgram(currProgram.ast as arkts.ETSModule);
       }
     }
     visited.add(currProgram.peer);
-    for (const externalSource of currProgram.externalSources) {
+    for (const externalSource of currProgram.getExternalSources()) {
       visitNextProgramInQueue(queue, visited, externalSource, fileNames);
     }
   }
@@ -157,7 +157,7 @@ function visitNextProgramInQueue(
   queue: arkts.Program[],
   visited: Set<unknown>,
   externalSource: arkts.ExternalSource,
-  fileNames: Map<number, string>
+  fileNames: Map<arkts.KNativePointer, string>
 ): void {
   const nextProgramArr: arkts.Program[] = externalSource.programs ?? [];
   for (const nextProgram of nextProgramArr) {
@@ -173,7 +173,7 @@ function visitNextProgramInQueue(
  * 
  * @param { arkts.AstNode } node 需要检查的标识符AST节点
  */
-export function checkIdentifier(node: arkts.AstNode) {
+export function checkIdentifier(node: arkts.Identifier) {
   // 获取校验节点的声明节点
   const decl = arkts.getDecl(node);
 
@@ -231,10 +231,10 @@ function getSysPath(decl: arkts.AstNode): string {
 /**
  * 通过声明节点获取Jsdoc注释内容
  * 
- * @param { arkts.AstNde } decl 声明节点
+ * @param { arkts.AstNode } decl 声明节点
  * @returns { string } 注释信息
  */
-export function getPeerJsDocs(decl: arkts.AstNde): string {
+export function getPeerJsDocs(decl: arkts.AstNode): string {
   return getJSDocInformation(decl);
 }
 
@@ -247,7 +247,7 @@ export function getPeerJsDocs(decl: arkts.AstNde): string {
  * @param { JsDocNodeCheckConfigItem[] } checkConfig 校验配置
  */
 function expressionCheckByJsDoc(
-  declaration: arkts.AstNode, identifier: arkts.AstNode,
+  declaration: arkts.AstNode, identifier: arkts.Identifier,
   address: CurrentAddress, checkConfig: JsDocNodeCheckConfigItem[]): void {
   const jsDocsString = getPeerJsDocs(declaration);
   const jsDocs: JSDoc[] = parseJSDoc(jsDocsString);
@@ -287,8 +287,8 @@ function expressionCheckByJsDoc(
 function getCurrentAddressByNode(node: arkts.AstNode): CurrentAddress {
   let address = {} as CurrentAddress;
   let startPosition = node.startPosition;
-  address.column = startPosition.col();
-  address.line = startPosition.line() + 1;
+  address.column = startPosition.getCol();
+  address.line = startPosition.getLine() + 1;
   return address;
 }
 

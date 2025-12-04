@@ -95,7 +95,7 @@ export interface ASTDeclaration extends arkts.AstNode {
   kind: number;
   pos: number;
   end: number;
-  parent?: ASTDeclaration;
+  parent: ASTDeclaration | undefined;
   jsDoc?: JSDoc[];
 }
 
