@@ -2185,6 +2185,20 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   includeFontPadding(include: Optional<boolean>): SearchAttribute;
 
   /**
+   * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+   *
+   * @param { Optional<boolean> } enabled - Whether enable the feature, the default value is false.
+   *     True means enable the feature, false means disable the feature.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fallbackLineSpacing(enabled: Optional<boolean>): SearchAttribute;
+
+  /**
    * Whether to compress punctuation at the beginning of line.
    *
    * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.

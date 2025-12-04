@@ -1043,6 +1043,17 @@ export declare interface SearchAttribute extends CommonMethod {
      */
     default includeFontPadding(include: boolean | undefined): this;
     /**
+     * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+     *
+     * @param { boolean | undefined } enabled - Whether enable the feature, the default value is false.
+     *     True means enable the feature. Passing `undefined` resets it to the default value.
+     * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default fallbackLineSpacing(enabled: boolean | undefined): this;
+    /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<SearchAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
