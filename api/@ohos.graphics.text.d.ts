@@ -2632,6 +2632,24 @@ declare namespace text {
      * @since 23 dynamic&static
      */
     compressHeadPunctuation?: boolean;
+
+    /**
+     * Whether to Add padding to the font.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    includeFontPadding?: boolean;
+
+    /**
+     * Whether to enable line spacing fallback.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    fallbackLineSpacing?: boolean;
   }
 
   /**
