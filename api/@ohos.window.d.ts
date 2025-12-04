@@ -11459,19 +11459,21 @@ declare namespace window {
 
     /**
      * Restores the main window of current window to foreground.
-     * Only TYPE_FLOAT can use this interface, when the main window in the background
+     * This interface can only be used by TYPE_FLOAT window, when the main window in the background
      *     need to be moved to foreground after the TYPE_FLOAT window is clicked.
-     * The wantParameters will delivered to the main window in the Want.
+     * The wantParameters will be delivered to the main window in the Want.
      * 
-     * @param { ?:Record<string, Object> } - Want parameters.
+     * @param { Record<string, Object> } [wantParameters] - Want parameters.
+     *     Custom parameters deliverd when restoring the main window.
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @throws { BusinessError } 1300002 - Restore parent main window failed.
+     * @throws { BusinessError } 1300007 - Restore parent main window failed.
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @atomicservice
-     * @since 23 dynamic & static
+     * @since 23 dynamic&static
      */
     restoreMainWindow(wantParameters?: Record<string, Object>): Promise<void>;
 
