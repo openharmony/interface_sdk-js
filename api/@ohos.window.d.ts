@@ -1979,20 +1979,8 @@ declare namespace window {
      * @atomicservice
      * @since 12 dynamic
      * @since 22 static
-     * @deprecated since 22
-     * @useinstead ohos.window#WindowProperties.windowType
      */
     type: WindowType;
-
-    /**
-     * Window type
-     *
-     * @type { WindowType }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 22 dynamic&static
-     */
-    windowType: WindowType;
 
     /**
      * Whether the window is displayed in full screen mode. The default value is false.
