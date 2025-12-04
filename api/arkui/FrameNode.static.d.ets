@@ -771,12 +771,13 @@ export declare class FrameNode {
    * This operation does not actually append it as a child, but only allows it to receive life-cycle
    * callbacks as if it were a child.
    *
-   * @param { FrameNode } child the target node being adopted.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @param { FrameNode } child - the target node being adopted.
+   * @throws { BusinessError } 100021 - The current FrameNode is not modifiable.
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'child' is invalid: it cannot be disposed."
-   * @throws { BusinessError } 100026 - The curent FrameNode has been disposed.
+   * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   adoptChild(child: FrameNode): void;
@@ -784,12 +785,13 @@ export declare class FrameNode {
   /**
    * Remove the target adopted child node.
    *
-   * @param { FrameNode } child the target node being adopted.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @param { FrameNode } child - the target node being adopted.
+   * @throws { BusinessError } 100021 - The current FrameNode is not modifiable.
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'child' is invalid: it cannot be null."
-   * @throws { BusinessError } 100026 - The curent FrameNode has been disposed.
+   * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   removeAdoptedChild(child: FrameNode): void;
