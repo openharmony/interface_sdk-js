@@ -6928,7 +6928,7 @@ declare class DrawModifier {
    * @atomicservice
    * @since 20 dynamic
    */
-  drawForeground?(drawContext: DrawContext): void;
+  drawForeground(drawContext: DrawContext): void;
 
   /**
    * Invalidate the component, which will cause a re-render of the component.
