@@ -35,21 +35,28 @@ import pointer from '@ohos.multimodalInput.pointer';
 import {
   Action as KeyAction, SourceType, ToolType, Touch, TouchEvent
 } from '@ohos.multimodalInput.touchEvent';
+import infraredEmitter from '@ohos.multimodalInput.infraredEmitter';
+import inputEventClient from '@ohos.multimodalInput.inputEventClient';
+import inputMonitor from '@ohos.multimodalInput.inputMonitor';
+import shortKey from '@ohos.multimodalInput.shortKey';
+/*** endif */
 
+/*** if arkts dynamic */
+import inputDeviceCooperate from '@ohos.multimodalInput.inputDeviceCooperate';
+/*** endif */
+
+/*** if arkts dynamic&static */
 export {
   Action, ActionType, Axis, AxisValue, Button, FourFingersSwipe, InputEvent, IntentionCode,
   Key, KeyAction, KeyCode, KeyEvent, MouseAction, MouseEvent, MouseToolType, Pinch, Rotate,
   SourceType, ThreeFingersSwipe, ThreeFingersTap, ToolType, Touch, TouchEvent, inputConsumer,
   inputDevice, pointer, SwipeInward
 };
-import infraredEmitter from '@ohos.multimodalInput.infraredEmitter';
-import inputEventClient from '@ohos.multimodalInput.inputEventClient';
-import inputMonitor from '@ohos.multimodalInput.inputMonitor';
-import shortKey from '@ohos.multimodalInput.shortKey';
 export {
   inputEventClient, inputMonitor, shortKey, infraredEmitter
 };
 /*** endif */
 
-import inputDeviceCooperate from '@ohos.multimodalInput.inputDeviceCooperate';
+/*** if arkts dynamic */
 export { inputDeviceCooperate };
+/*** endif */
