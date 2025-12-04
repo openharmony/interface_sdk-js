@@ -4613,16 +4613,12 @@ declare namespace notificationManager {
   /**
    * Checks if the geofence is enabled.
    *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<boolean> } whether the geofence is enabled.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
-   * @systemapi
    * @since 23 dynamic&static
    */
   function isGeofenceEnabled(): Promise<boolean>;
