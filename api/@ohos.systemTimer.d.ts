@@ -71,6 +71,7 @@ declare namespace systemTimer {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
   const TIMER_TYPE_IDLE: int;
 
@@ -246,6 +247,7 @@ declare namespace systemTimer {
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
     wantAgent?: WantAgent;
 
@@ -269,6 +271,7 @@ declare namespace systemTimer {
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi
      * @since 15 dynamic
+     * @since 22 static
      */
     autoRestore?: boolean;
 
