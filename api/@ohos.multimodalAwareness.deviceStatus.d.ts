@@ -33,7 +33,7 @@ declare namespace deviceStatus {
   /**
    * Enum for steady standing status.
    *
-   * @enum { number } SteadyStandingStatus
+   * @enum { int } SteadyStandingStatus
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
    * @since 18 dynamic
    * @since 22 static
@@ -102,7 +102,7 @@ declare namespace deviceStatus {
    * @throws { BusinessError } 32500001 - Service exception.
    * @throws { BusinessError } 32500002 - Subscription failed.
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
-   * @since 18
+   * @since 18 dynamic
    */
   function on(type: 'steadyStandingDetect', callback: Callback<SteadyStandingStatus>): void;
 
@@ -117,7 +117,7 @@ declare namespace deviceStatus {
    * @throws { BusinessError } 32500001 - Service exception.
    * @throws { BusinessError } 32500003 - Unsubscription failed.
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
-   * @since 18
+   * @since 18 dynamic
    */
   function off(type: 'steadyStandingDetect', callback?: Callback<SteadyStandingStatus>): void;
 
