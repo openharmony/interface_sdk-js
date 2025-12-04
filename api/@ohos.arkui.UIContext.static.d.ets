@@ -1403,7 +1403,6 @@ export declare class UIObserver {
   /**
    * Registers a callback function to be called when the layout is done.
    *
-   * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
    * @param { Callback<void> } callback - The callback function to be called when the layout is done.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
