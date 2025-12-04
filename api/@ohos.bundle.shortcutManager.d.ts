@@ -132,6 +132,7 @@ declare namespace shortcutManager {
    * @returns { Promise<void> } - the promise returned by the function.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700003 - The specified ability is not found.
@@ -164,6 +165,7 @@ declare namespace shortcutManager {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
