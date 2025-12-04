@@ -8671,7 +8671,7 @@ declare namespace audio {
      * @type { ?string }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 22 dynamic&static
+     * @since 22 dynamic
      */
     readonly model?: string;
 
@@ -8680,7 +8680,7 @@ declare namespace audio {
      * @type { ?Array<AudioStreamInfo> }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 22 dynamic&static
+     * @since 22 dynamic
      */
     readonly capabilities?: Array<AudioStreamInfo>;
   }
