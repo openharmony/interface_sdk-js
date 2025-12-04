@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import { BusinessError } from './@ohos.base';
+import { BusinessError, Callback } from './@ohos.base';
 
 /**
  * Cache download capability provider.
@@ -74,6 +74,55 @@ declare namespace cacheDownload {
          * @since 23 dynamic&static
          */
         LAZY = 1,
+    }
+
+    /**
+     * Error codes categorizing different types of cache download failures.
+     *
+     * @enum { int } ErrorCode
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 23 dynamic&static
+     */
+    enum ErrorCode {  
+        /**
+         * Other unspecified errors.
+         * 
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 23 dynamic&static
+         */
+        OTHERS = 0xFF,
+
+        /**
+         * DNS-related errors.
+         * 
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 23 dynamic&static
+         */
+        DNS = 0x00,
+
+        /**
+         * TCP connection errors.
+         * 
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 23 dynamic&static
+         */
+        TCP = 0x10,
+
+        /**
+         * SSL security errors.
+         * 
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 23 dynamic&static
+         */
+        SSL = 0x20,
+        
+        /**
+         * HTTP protocol errors.
+         * 
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 23 dynamic&static
+         */
+        HTTP = 0x30,
     }
 
     /**
@@ -297,6 +346,34 @@ declare namespace cacheDownload {
     }
 
     /**
+     * Interface for download error information.
+     *
+     * @typedef DownloadError
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 23 dynamic&static
+     */
+    interface DownloadError {
+        /**
+         * Unique error code identifying the specific type of cache download failure.
+         *
+         * @type { ErrorCode }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 23 dynamic&static
+         */
+        readonly errorCode: ErrorCode;
+        /**
+         * Descriptive error message explaining the failure reason.
+         *
+         * @type { string }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 23 dynamic&static
+         */
+        readonly message: string;
+    }
+
+    /**
      * Downloads resources at the specified URL. Resources will be stored in memory cache or files cache.
      * The maximum size of the specified URL is 8192 bytes.
      * The maximum size of a single resource after decompression is 20,971,520 bytes(20 MB).
@@ -400,6 +477,49 @@ declare namespace cacheDownload {
      * @since 23 dynamic&static
      */
     function clearFileCache(): void;
+    /**
+     * Registers a callback function for successful download events.
+     * The maximum size of the specified URL is 8192 bytes.
+     *
+     * @param { string } url - URL of the cache download target.
+     * @param { Callback<void> } callback - Callback function to be executed when download succeeds.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 23 dynamic&static
+     */
+    function onDownloadSuccess(url: string, callback: Callback<void>): void;
+
+    /**
+     * Registers a callback function for download error events.
+     * The maximum size of the specified URL is 8192 bytes.
+     *
+     * @param { string } url - URL of the cache download target.
+     * @param { Callback<DownloadError> } callback - Callback function to be executed when download fails.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 23 dynamic&static
+     */
+    function onDownloadError(url: string, callback: Callback<DownloadError>): void;
+
+    /**
+     * Unregisters callback function for successful download events.
+     * The maximum size of the specified URL is 8192 bytes.
+     * 
+     * @param { string } url - URL of the cache download target.
+     * @param { Callback<void> } [callback] - Callback function to be executed when download succeeds.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 23 dynamic&static
+     */
+    function offDownloadSuccess(url: string, callback?: Callback<void>): void;
+
+    /**
+     * Unregisters callback function for download error events.
+     * The maximum size of the specified URL is 8192 bytes.
+     *
+     * @param { string } url - URL of the cache download target.
+     * @param { Callback<DownloadError> } [callback] - Callback function to be executed when download fails.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 23 dynamic&static
+     */
+    function offDownloadError(url: string, callback?: Callback<DownloadError>): void;
 }
 
 export default cacheDownload;
