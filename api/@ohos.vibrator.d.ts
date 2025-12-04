@@ -1861,7 +1861,13 @@ declare namespace vibrator {
    * @interface VibratorInfo
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 19 dynamic
-   * @since 22 static
+   */
+  /**
+   * Represents the information about a vibrator device in the system.
+   * @interface VibratorInfo
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @crossplatform
+   * @since 22 dynamic&static
    */
   interface VibratorInfo {
     /**
