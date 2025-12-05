@@ -1306,6 +1306,81 @@ declare namespace formInfo {
      * @since 22 dynamic&static
      */
     EDIT_FORM_KEY = 'ohos.extra.param.key.edit_form_id',
+
+    /**
+     * Indicates the key specifying the flag whether show single form in form manage page.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_MANAGER_SHOW_SINGLE_FORM: true
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    FORM_MANAGER_SHOW_SINGLE_FORM = 'ohos.extra.param.key.form_manager_show_single_form',
+
+    /**
+     * Indicates the key specifying the template form detail id.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       TEMPLATE_FORM_DETAIL_ID: "119476135"
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    TEMPLATE_FORM_DETAIL_ID = 'ohos.extra.param.key.template_form_detail_id',
+      
+    /**
+     * Indicates the key specifying the form data of the template form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       TEMPLATE_FORM_DATA: "formData"
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    TEMPLATE_FORM_DATA = 'ohos.extra.param.key.template_form_data',
+
+    /**
+     * Indicates the key specifying the display name of the form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       TEMPLATE_FORM_DISPLAY_NAME: "formDisplayName"
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    TEMPLATE_FORM_DISPLAY_NAME = 'ohos.extra.param.key.template_form_display_name',
+    
+    /**
+     * Indicates the key specifying the description of the form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       TEMPLATE_FORM_DESCRIPTION: "formDescription"
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    TEMPLATE_FORM_DESCRIPTION = 'ohos.extra.param.key.template_form_description'
   }
 
   /**
