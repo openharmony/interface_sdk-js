@@ -43,7 +43,7 @@ declare namespace imageGeneration {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  export interface ImageStyle { 
+  export interface ImageStyle {
     /**
      * The style icon information which will display in style list.
      *
@@ -76,7 +76,7 @@ declare namespace imageGeneration {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  export interface GenerateImageTaskParams {  
+  export interface GenerateImageTaskParams {
     /**
      * image information used for AI-generated image tasks.
      *
@@ -118,7 +118,7 @@ declare namespace imageGeneration {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  export interface ImageGenerationModel {  
+  export interface ImageGenerationModel {
     /**
      * Get the types of image styles supported by the AI model.
      *
@@ -287,7 +287,7 @@ declare namespace imageGeneration {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  export interface TaskStatistic {  
+  export interface TaskStatistic {
     /**
      * The style used in AI image generation tasks.
      *
@@ -342,7 +342,7 @@ declare namespace imageGeneration {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  export interface GeneratorResult {  
+  export interface GeneratorResult {
     /**
      * Decoded data of AI-generated images.
      *
@@ -385,7 +385,7 @@ declare namespace imageGeneration {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  export interface GeneratorResultPageIcon {  
+  export interface GeneratorResultPageIcon {
     /**
      * Icon image information.
      *
@@ -427,7 +427,7 @@ declare namespace imageGeneration {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  export interface GeneratorDialogOptions {  
+  export interface GeneratorDialogOptions {
     /**
      * Initial image parameters used for AI-generated image tasks.
      *
@@ -503,3 +503,5 @@ declare namespace imageGeneration {
    */
   function showGeneratorDialog(uiContext: UIContext, options?: GeneratorDialogOptions): Promise<GeneratorResult>;
 }
+
+export default imageGeneration;
