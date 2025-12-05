@@ -21,6 +21,7 @@
 import image from '../../@ohos.multimedia.image';
 import drawing from '../../@ohos.graphics.drawing';
 import matrix4 from '../../@ohos.matrix4';
+import cacheDownload from '../../@ohos.request.cacheDownload';
 import { BusinessError } from '../../@ohos.base';
 import { DrawableDescriptor } from '../../@ohos.arkui.drawableDescriptor';
 import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
@@ -64,6 +65,15 @@ export type DrawingLattice = drawing.Lattice;
  * @since 22 static
  */
 export type ImageMatrix = matrix4.Matrix4Transit;
+/**
+ * Download information of network images.
+ *
+ * @typedef { cacheDownload.DownloadInfo } DownloadInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export type RequestDownloadInfo = cacheDownload.DownloadInfo;
+
 /**
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -866,6 +876,14 @@ export declare interface ImageError {
      * @since 22 static
      */
     error?: BusinessError<void>;
+    /**
+     * Download information of network images.
+     *
+     * @type { ?RequestDownloadInfo }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    downloadInfo?: RequestDownloadInfo;
 }
 /**
  * Image resizable options

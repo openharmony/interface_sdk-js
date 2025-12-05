@@ -99,6 +99,18 @@ declare type ImageMatrix = import ('../api/@ohos.matrix4').default.Matrix4Transi
 declare type BusinessError<T = void> = import('../api/@ohos.base').BusinessError<T>;
 
 /**
+ * Download information of network images.
+ * 
+ * @typedef { import('../api/@ohos.request.cacheDownload').default.DownloadInfo } DownloadInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare type RequestDownloadInfo = import('../api/@ohos.request.cacheDownload').default.DownloadInfo;
+
+/**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -2362,6 +2374,18 @@ declare interface ImageError {
    * @since 20 dynamic
    */
   error?: BusinessError<void>;
+
+  /**
+   * Download information of network images.
+   *
+   * @type { ?RequestDownloadInfo }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  downloadInfo?: RequestDownloadInfo; 
 }
 
 /**
