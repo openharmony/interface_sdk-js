@@ -1508,6 +1508,16 @@ declare namespace userAuth {
      * @since 22 static
      */
     skipLockedBiometricAuth?: boolean;
+  
+    /**
+     * Used to specify the credential Ids for authentication.
+     *
+     * @type { ?int[] }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 23 dynamic&static
+     */
+    credentialIdList?: int[];
   }
 
   /**
