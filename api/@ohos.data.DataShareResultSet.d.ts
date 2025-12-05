@@ -18,6 +18,8 @@
  * @kit ArkData
  */
 
+import { ValuesBucket } from './@ohos.data.ValuesBucket';
+
 /**
  * Indicates the {@code DataType}.
  * <p>{@code DataType} is obtained based on the value.
@@ -92,7 +94,7 @@ export enum DataType {
  * @interface DataShareResultSet
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9 dynamic
  * @since 22 static
  */
@@ -125,14 +127,14 @@ export default interface DataShareResultSet {
   /**
    * Obtains the number of rows in the result set.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 22 static
    */
-  rowCount: number;
+  rowCount: int;
 
   /**
    * Checks whether the current result set is closed.
@@ -153,7 +155,7 @@ export default interface DataShareResultSet {
    * returns false otherwise, for example, if the result set is empty.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 22 static
    */
@@ -166,8 +168,9 @@ export default interface DataShareResultSet {
    * returns false otherwise, for example, if the result set is empty.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
   goToLastRow(): boolean;
 
@@ -178,8 +181,9 @@ export default interface DataShareResultSet {
    * returns false otherwise, for example, if the result set is already in the last row.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
   goToNextRow(): boolean;
 
@@ -244,29 +248,30 @@ export default interface DataShareResultSet {
    * The implementation class determines whether to throw an exception if the value of the specified
    * column or key in the current row is null or the specified column or key is not of the string type.
    *
-   * @param { number } columnIndex - Indicates the specified column index or key index, which starts from 0.
+   * @param { int } columnIndex - Indicates the specified column index or key index, which starts from 0.
    * @returns { string } Returns the value of the specified column or key as a string.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 22 static
    */
-  getString(columnIndex: number): string;
+  getString(columnIndex: int): string;
 
   /**
    * Obtains the value of the specified column or key in the current row as long.
    * The implementation class determines whether to throw an exception if the value of the specified
    * column or key in the current row is null, the specified column or key is not of the long type.
    *
-   * @param { number } columnIndex - Indicates the specified column index or key index, which starts from 0.
-   * @returns { number } Returns the value of the specified column or key as a long.
+   * @param { int } columnIndex - Indicates the specified column index or key index, which starts from 0.
+   * @returns { long } Returns the value of the specified column or key as a long.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
-  getLong(columnIndex: number): number;
+  getLong(columnIndex: int): long;
 
   /**
    * Obtains the value of the specified column or key in the current row as double.
@@ -289,7 +294,7 @@ export default interface DataShareResultSet {
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 22 static
    */
@@ -300,14 +305,14 @@ export default interface DataShareResultSet {
    * The column name or key name is passed as an input parameter.
    *
    * @param { string } columnName - Indicates the name of the specified column or key in the result set.
-   * @returns { number } Returns the index of the specified column or key.
+   * @returns { int } Returns the index of the specified column or key.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 22 static
    */
-  getColumnIndex(columnName: string): number;
+  getColumnIndex(columnName: string): int;
 
   /**
    * Obtains the column name or key name based on the specified column index or key index.

@@ -178,6 +178,24 @@ declare namespace shortcutManager {
   function deleteDynamicShortcutInfos(bundleName: string, appIndex: int, userId: int, ids?: Array<string>): Promise<void>;
 
   /**
+   * Set whether to enable specified shortcuts.
+   *
+   * @permission ohos.permission.MANAGE_SHORTCUTS
+   * @param { Array<ShortcutInfo> } shortcutsInfo - Indicates the ShortcutInfo object.
+   * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Verify permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 801 - Capability not support.
+   * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+   * @throws { BusinessError } 17700070 - The specified shortcut id is illegal.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function setShortcutsEnabled(shortcutsInfo: Array<ShortcutInfo>, isEnabled: boolean): Promise<void>;
+
+  /**
    * Provides information about a shortcut, including the shortcut ID and label.
    *
    * @typedef { _ShortcutInfo }

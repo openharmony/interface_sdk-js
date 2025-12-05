@@ -59,7 +59,7 @@ export { Effect } from './graphics3d/SceneResources';
 export { SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
   SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, CullMode, Blend,
   RenderSort, MaterialProperty, MetallicRoughnessMaterial, MeshResource, Morpher,
-  Sampler, SamplerFilter, SamplerAddressMode } from './graphics3d/SceneResources';
+  Sampler, SamplerFilter, SamplerAddressMode, UnlitShadowAlphaMaterial } from './graphics3d/SceneResources';
 
 /**
  * Export scene resources
