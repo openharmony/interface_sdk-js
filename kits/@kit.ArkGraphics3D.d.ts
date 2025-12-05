@@ -25,7 +25,7 @@ import { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   CylinderGeometry, SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
   SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, MeshResource,
   LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight, Camera,
-  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
+  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters, RenderConfiguration,
   RaycastResult, RaycastParameters, CullMode, PolygonMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
   UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
   RenderingPipelineType, CameraParameters, EffectParameters, Effect, VignetteSettings, ColorFringeSettings } from '@ohos.graphics.scene';
@@ -36,7 +36,7 @@ export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   CylinderGeometry, SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
   SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, MeshResource,
   LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight, Camera,
-  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
+  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters, RenderConfiguration,
   RaycastResult, RaycastParameters, CullMode, PolygonMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
   UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
   RenderingPipelineType, CameraParameters, EffectParameters, Effect, VignetteSettings, ColorFringeSettings };
@@ -49,7 +49,7 @@ import { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   CylinderGeometry, SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
   SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, MeshResource,
   LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight, Camera,
-  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
+  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters, RenderConfiguration,
   RaycastResult, RaycastParameters, CullMode, PolygonMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
   UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
   RenderingPipelineType, CameraParameters, VignetteSettings, ColorFringeSettings } from '@ohos.graphics.scene';
@@ -60,7 +60,7 @@ export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   CylinderGeometry, SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
   SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, MeshResource,
   LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight, Camera,
-  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
+  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters, RenderConfiguration,
   RaycastResult, RaycastParameters, CullMode, PolygonMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
   UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
   RenderingPipelineType, CameraParameters, VignetteSettings, ColorFringeSettings };
