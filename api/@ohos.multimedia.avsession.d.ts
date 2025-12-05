@@ -2778,7 +2778,7 @@ declare namespace avSession {
      * @atomicservice
      * @since 12 dynamiconly
      * @deprecated since 20
-     * @useinstead ohos.multimedia.avsession.AVSessoin#on
+     * @useinstead ohos.multimedia.avsession.AVSession#on
      */
     on(type: 'playFromAssetId', callback: (assetId: number) => void): void;
 
@@ -2805,7 +2805,7 @@ declare namespace avSession {
      * @atomicservice
      * @since 12 dynamiconly
      * @deprecated since 20
-     * @useinstead ohos.multimedia.avsession.AVSessoin#off
+     * @useinstead ohos.multimedia.avsession.AVSession#off
      */
     off(type: 'playFromAssetId', callback?: (assetId: number) => void): void;
 
