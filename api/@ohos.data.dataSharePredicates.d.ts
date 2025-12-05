@@ -294,6 +294,7 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
+     * @since 23 static
      */
     beginsWith(field: string, value: string): DataSharePredicates;
 
@@ -310,6 +311,7 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
+     * @since 23 static
      */
     endsWith(field: string, value: string): DataSharePredicates;
 
@@ -387,6 +389,7 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
+     * @since 23 static
      */
     unlike(field: string, value: string): DataSharePredicates;
 
@@ -403,6 +406,7 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
+     * @since 23 static
      */
     glob(field: string, value: string): DataSharePredicates;
 
@@ -431,6 +435,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
      * @since 23 dynamic&static
+     * @since 23 static
      */
     between(field: string, low: ValueType, high: ValueType): DataSharePredicates;
 
@@ -655,6 +660,7 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
+     * @since 23 static
      */
     distinct(): DataSharePredicates;
 
@@ -722,6 +728,7 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
+     * @since 23 static
      */
     indexedBy(field: string): DataSharePredicates;
 
@@ -844,6 +851,7 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
+     * @since 23 static
      */
     prefixKey(prefix: string): DataSharePredicates;
 
@@ -857,6 +865,7 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
+     * @since 23 static
      */
     inKeys(keys: Array<string>): DataSharePredicates;
   }
