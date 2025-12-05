@@ -45,8 +45,8 @@ declare namespace dialogRequest {
      * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-    * @since 10 dynamic
-    * @since 22 static
+     * @since 10 dynamic
+     * @since 22 static
      */
     left: int;
 

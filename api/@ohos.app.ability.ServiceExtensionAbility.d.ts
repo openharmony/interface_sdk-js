@@ -113,26 +113,13 @@ declare class ServiceExtensionAbility {
    * Called back when all abilities connected to a service extension are disconnected.
    *
    * @param { Want } want - Indicates disconnection information about the service extension.
-   * @returns { void } the promise returned by the function.
+   * @returns { Promise<void> | undefined } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
    * @since 22 static
    */
-  onDisconnect(want: Want): void;
-
-  /**
-   * Asynchronous callback when all abilities connected to a service extension are disconnected.
-   * The next lifecycle callback onDestroy() will be triggered when the returned Promise object resolves.
-   *
-   * @param { Want } want - Indicates disconnection information about the service extension.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @StageModelOnly
-   * @since 22 static
-   */
-  onDisconnectAsync(want: Want): Promise<void>;
+  onDisconnect(want: Want): Promise<void> | undefined;
 
   /**
    * Called when a new client attempts to connect to a service extension after all previous client connections to it

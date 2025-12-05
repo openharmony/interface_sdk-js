@@ -80,11 +80,11 @@ export declare interface TextTimerConfiguration extends CommonConfiguration<Text
      * <br>Otherwise, the default value is used as the initial countdown time.
      * </p>
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    count: number;
+    count: long;
     /**
      * Whether the timer is a countdown.
      * The value true means that the timer counts down,
@@ -107,11 +107,11 @@ export declare interface TextTimerConfiguration extends CommonConfiguration<Text
     /**
      * Elapsed time of the timer, in the minimum unit of the format.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    elapsedTime: number;
+    elapsedTime: long;
 }
 /**
  * Parameters of the TextTimer component.
@@ -141,11 +141,11 @@ export interface TextTimerOptions {
      * <br>Otherwise, the default value is used as the initial countdown time.
      * </p>
      *
-     * @type { ?number } - Default value: 60000
+     * @type { ?long } - Default value: 60000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    count?: number;
+    count?: long;
     /**
      * TextTimer controller.
      *
@@ -155,6 +155,17 @@ export interface TextTimerOptions {
      */
     controller?: TextTimerController;
 }
+/**
+ * TimerCallback
+ *
+ * @typedef { function } TimerCallback
+ * @param { long } utc
+ * @param { long } elapsedTime
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ * @noninterop
+ */
+export type TimerCallback = (utc: long, elapsedTime: long) => void;
 /**
  * Defines the TextTimer component attributes.
  *
@@ -214,7 +225,7 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * <br>If the value is too large, the text may be clipped depending on the font.
      * </p>
      *
-     * @param { number | FontWeight | ResourceStr | undefined } value - Font weight.
+     * @param { int | FontWeight | ResourceStr | undefined } value - Font weight.
      * <br>For the number type, Value range: [100, 900], at an interval of 100.The default value is 400.
      * <br>A larger value indicates a heavier font weight.
      * <br>For the string type, only strings that represent a number.
@@ -222,7 +233,7 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default fontWeight(value: number | FontWeight | ResourceStr | undefined): this;
+    default fontWeight(value: int | FontWeight | ResourceStr | undefined): this;
     /**
      * Sets the font family.
      *
@@ -237,12 +248,12 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * This event is not triggered when the screen is locked or the application is running in the background.
      * When high-precision formats (such as SSS or SS) are used, the callback interval may vary.
      *
-     * @param { function | undefined } event
+     * @param { TimerCallback | undefined } event
      * @returns { TextTimerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default onTimer(event: ((utc: number, elapsedTime: number) => void) | undefined): this;
+    default onTimer(event: TimerCallback | undefined): this;
     /**
      * Sets the text shadow.
      * It supports input parameters in an array to implement multiple text shadows.
@@ -281,6 +292,7 @@ export declare interface TextTimerAttribute extends CommonMethod {
  * @returns { TextTimerAttribute } The attribute of the TextTimer.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function TextTimer(

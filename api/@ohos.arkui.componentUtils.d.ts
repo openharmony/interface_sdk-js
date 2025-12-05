@@ -18,6 +18,9 @@
  * @kit ArkUI
  */
 
+import type image from './@ohos.multimedia.image';
+import type matrix4 from './@ohos.matrix4';
+
 /**
  * This module provides functionality for component coordinates and sizes.
  * @namespace componentUtils
@@ -822,6 +825,107 @@ declare namespace componentUtils {
     number,
     number,
   ];
+
+  /**
+   * Image object with layout information.
+   *
+   * @interface ImageItem
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  interface ImageItem {  
+    /**
+     * Image Decoding Information.
+     *
+     * @type { image.PixelMap }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    image: image.PixelMap;
+    /**
+     * Information about graphic transformations, such as the position of the image,
+     * scaling factors for width and height, and rotation angle.
+     *
+     * @type { matrix4.Matrix4Transit }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    transform: matrix4.Matrix4Transit;
+
+    /**
+     * Information about image rendering hierarchy.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    zIndex: number;
+  }
+
+  /**
+   * Image options setted when need to get the image objects.
+   *
+   * @interface GetItemsInShapePathParams
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  interface GetItemsInShapePathParams {  
+    /**
+     * image information.
+     *
+     * @type { Array<ImageItem> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    images: Array<ImageItem>;
+
+    /**
+     * Indicates the path string that compiles with the SVG path description specifications.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    shapePath: string;
+
+    /**
+     * The proportion of non-transparent blank pixels in the selected area
+     * relative to the total pixels of the image. Default value is 0.15.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    ratio?: number;
+   }
+
+  /**
+   * Get the image objects located within the selected area.
+   *
+   * @param { GetItemsInShapePathParams } value - options to get images in shapePath.
+   * @returns { Array<ImageItem> } Returns the image objects located within the selected area.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  function getItemsInShapePath(value: GetItemsInShapePathParams): Array<ImageItem>;
 
   /**
   * Provide the ability to obtain the coordinates and size of component drawing areas.

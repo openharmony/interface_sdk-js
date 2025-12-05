@@ -37,7 +37,7 @@ import type pointer from './@ohos.multimodalInput.pointer';
 import { ComponentContent, FrameNode, Frame } from '@ohos.arkui.node';
 import { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import { ClickEvent, ExpectedFrameRateRange, DragItemInfo, AnimateParam, KeyframeAnimateParam, KeyframeState,
-  SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent, Optional,
+  SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent,
   ContentCoverOptions } from '@ohos.arkui.component';
 import { CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 import { GestureEvent, GestureRecognizer } from '@ohos.arkui.component';
@@ -46,7 +46,7 @@ import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRou
 import { TimePickerDialogOptions } from '@ohos.arkui.component';
 import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogParamWithOptions } from '@ohos.arkui.component';
 import { ActionSheetOptions } from '@ohos.arkui.component';
-import { TextPickerDialogOptions } from '@ohos.arkui.component';
+import { TextPickerDialogOptions, TextPickerDialogOptionsExt } from '@ohos.arkui.component';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 import { DatePickerDialogOptions } from '@ohos.arkui.component';
 import { TabsController } from '@ohos.arkui.component';
@@ -1300,52 +1300,46 @@ export declare class UIObserver {
   offNavDestinationUpdateByUniqueId(navigationUniqueId: int, callback?: Callback<observer.NavDestinationInfo>): void;
 
   /**
-   * Registers a callback function to be called when the scroll event start or stop.
+   * Registers a callback function to be called when the scroll event starts or stops.
    *
-   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
    * @param { observer.ObserverOptions } options - The options object.
    * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event
    * start or stop.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  on(type: 'scrollEvent', options: observer.ObserverOptions, callback: Callback<observer.ScrollEventInfo>): void;
-
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'scrollEvent' } type - The type of event to remove the listener for. Must be 'scrollEvent'.
-   * @param { observer.ObserverOptions } options - The options object.
-   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to remove. If not provided, all
-   * callbacks for the given event type and
-   *                                                    scroll ID will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  off(type: 'scrollEvent', options: observer.ObserverOptions, callback?: Callback<observer.ScrollEventInfo>): void;
-
-  /**
-   * Registers a callback function to be called when the scroll event start or stop.
-   *
-   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
-   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event
-   * start or stop.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  on(type: 'scrollEvent', callback: Callback<observer.ScrollEventInfo>): void;
+  onScrollEvent(options: observer.ObserverOptions, callback: Callback<observer.ScrollEventInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
    * @param { 'scrollEvent'} type - The type of event to remove the listener for. Must be 'scrollEvent'.
    * @param { Callback<observer.ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all
-   * callbacks for the given event type
-   *                                                      will be removed.
+   * callbacks for the given event type and scroll ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  off(type: 'scrollEvent', callback?: Callback<observer.ScrollEventInfo>): void;
+  offScrollEvent(options: observer.ObserverOptions, callback?: Callback<observer.ScrollEventInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the scroll event starts or stops.
+   *
+   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event
+   * start or stop.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  onScrollEvent(callback: Callback<observer.ScrollEventInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `onScrollEvent()`.
+   *
+   * @param { Callback<observer.ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all
+   * callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  offScrollEvent(callback?: Callback<observer.ScrollEventInfo>): void;
 
   /**
    * Registers a callback function to be called when the router page in a ui context is updated.
@@ -1370,67 +1364,61 @@ export declare class UIObserver {
   /**
    * Registers a callback function to be called when the screen density in a ui context is updated.
    *
-   * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
    * @param { Callback<observer.DensityInfo> } callback - The callback function to be called when the screen density is
    * updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  on(type: 'densityUpdate', callback: Callback<observer.DensityInfo>): void;
+  onDensityUpdate(callback: Callback<observer.DensityInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'densityUpdate' } type - The type of event to remove the listener for. Must be 'densityUpdate'.
    * @param { Callback<observer.DensityInfo> } [callback] - The callback function to remove. If not provided, all
    * callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  off(type: 'densityUpdate', callback?: Callback<observer.DensityInfo>): void;
+  offDensityUpdate(callback?: Callback<observer.DensityInfo>): void;
 
   /**
    * Registers a callback function to be called when the draw command will be drawn.
    *
-   * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
    * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  on(type: 'willDraw', callback: Callback<void>): void;
+  onWillDraw(callback: Callback<void>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'willDraw' } type - The type of event to remove the listener for. Must be 'willDraw'.
    * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the
    * given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  off(type: 'willDraw', callback?: Callback<void>): void;
+  offWillDraw(callback?: Callback<void>): void;
 
   /**
    * Registers a callback function to be called when the layout is done.
    *
-   * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
    * @param { Callback<void> } callback - The callback function to be called when the layout is done.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  on(type: 'didLayout', callback: Callback<void>): void;
+  onDidLayout(callback: Callback<void>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'didLayout' } type - The type of event to remove the listener for. Must be 'didLayout'.
    * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the
    * given event type
    *                                                        will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  off(type: 'didLayout', callback?: Callback<void>): void;
+  offDidLayout(callback?: Callback<void>): void;
 
   /**
    * Registers a callback function to be called when the navigation switched to a new navDestination.
@@ -2181,7 +2169,9 @@ export declare class DragController {
    * @param { CustomBuilder | DragItemInfo | undefined } custom - Object used for prompts displayed when the object
    * is dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @returns { Promise<dragController.DragEventParam> } A Promise with the drag event information.
+   * @returns { Promise<dragController.DragEventParam> | null } A Promise with the drag event information. Null will be returned
+   *     if the parameters' checking failed or some internal errors occur, for example: the runtime environment is
+   *     broken.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -2191,7 +2181,7 @@ export declare class DragController {
    * @since 22 static
    */
   executeDrag(custom: CustomBuilder | DragItemInfo | undefined, dragInfo: dragController.DragInfo)
-    : Promise<dragController.DragEventParam>;
+    : Promise<dragController.DragEventParam> | null;
 
   /**
    * Create one drag action object, which can be used for starting drag later or monitoring the drag status after
@@ -2464,8 +2454,9 @@ export declare class ComponentSnapshot {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get(id: string, callback: AsyncCallback<image.PixelMap>, options?: componentSnapshot.SnapshotOptions): void;
 
@@ -2474,58 +2465,63 @@ export declare class ComponentSnapshot {
    *
    * @param { string } id - Target component ID, set by developer through .id attribute.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @returns { Promise<image.PixelMap> | null } A Promise with the snapshot in PixelMap format.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  get(id: string, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+  get(id: string, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
 
   /**
    * Generate a snapshot from a custom component builder.
    *
    * @param { CustomBuilder } builder - Builder function of a custom component.
    * @param { AsyncCallback<image.PixelMap> } callback - Callback that contains the snapshot in PixelMap format.
-   * @param { number } [delay] - Defines the delay time to render the snapshot.
+   * @param { int } [delay] - Defines the delay time to render the snapshot.
    * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - The builder is not a valid build function.
    * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
-   * the ready state is required when the checkImageStatus option is enabled.
+   *     the ready state is required when the checkImageStatus option is enabled.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
+   * @throws { BusinessError } 160004 - isAuto(true) is not supported for offscreen node snapshots.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>,
-    delay?: number, checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): void;
+    delay?: int, checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): void;
 
   /**
    * Generate a snapshot from a custom component builder.
    *
    * @param { CustomBuilder } builder - Builder function of a custom component.
-   * @param { number } [delay] - Defines the delay time to render the snapshot.
+   * @param { int } [delay] - Defines the delay time to render the snapshot.
    * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @returns { Promise<image.PixelMap> | null } A Promise with the snapshot in PixelMap format.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - The builder is not a valid build function.
    * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
    * the ready state is required when the checkImageStatus option is enabled.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
+   * @throws { BusinessError } 160004 - isAuto(true) is not supported for offscreen node snapshots.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  createFromBuilder(builder: CustomBuilder, delay?: number,
-    checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+  createFromBuilder(builder: CustomBuilder, delay?: int,
+    checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
 
   /**
    * Take a screenshot of the specified component in synchronous mode,
@@ -2534,73 +2530,80 @@ export declare class ComponentSnapshot {
    *
    * @param { string } id - Target component ID, set by developer through .id attribute.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { image.PixelMap } The snapshot result in PixelMap format.
+   * @returns { image.PixelMap | null } The snapshot result in PixelMap format. Null will be returned
+   *     if the parameters' checking failed or some internal errors occur, for example: the runtime environment is
+   *     broken.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
    * @throws { BusinessError } 160002 - Timeout.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  getSync(id: string, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
+  getSync(id: string, options?: componentSnapshot.SnapshotOptions): image.PixelMap | null;
 
   /**
    * Get a component snapshot by uniqueId.
    *
-   * @param { number } uniqueId - The uniqueId of the node, can get through getUniqueId.
+   * @param { int } uniqueId - The uniqueId of the node, can get through getUniqueId.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @returns { Promise<image.PixelMap> | null } A Promise with the snapshot in PixelMap format.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  getWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+  getWithUniqueId(uniqueId: int, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
 
   /**
    * Take a screenshot of the specified component in synchronous mode,
    * this mode will block the main thread, please use it with caution, the maximum
    * waiting time of the interface is 3s, if it does not return after 3s, an exception will be thrown.
    *
-   * @param { number } uniqueId - The uniqueId of the node, can get through getUniqueId.
+   * @param { int } uniqueId - The uniqueId of the node, can get through getUniqueId.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
    * @returns { image.PixelMap } The snapshot result in PixelMap format.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
    * @throws { BusinessError } 160002 - Timeout.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  getSyncWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
+  getSyncWithUniqueId(uniqueId: int, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
 
   /**
    * Generate a snapshot from a custom component content.
    *
    * @param { ComponentContent<T> } content - The content to be taken snapshot.
-   * @param { number } [delay] - Defines the delay time to render the snapshot.
+   * @param { int } [delay] - Defines the delay time to render the snapshot.
    * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @returns { Promise<image.PixelMap> | null } A Promise with the snapshot in PixelMap format.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - The builder is not a valid build function.
    * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
-   * the ready state is required when the checkImageStatus option is enabled.
+   *     the ready state is required when the checkImageStatus option is enabled.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
+   * @throws { BusinessError } 160004 - isAuto(true) is not supported for offscreen node snapshots.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
-  createFromComponent<T extends Object>(content: ComponentContent<T>, delay?: number,
-    checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+  createFromComponent<T extends Object>(content: ComponentContent<T>, delay?: int,
+    checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
 
   /**
    * Get a component snapshot by component range.
@@ -2615,18 +2618,20 @@ export declare class ComponentSnapshot {
    * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 100001 - Invalid ID detected.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   getWithRange(start: NodeIdentity, end: NodeIdentity, isStartRect: boolean,
-    options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+    options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
 }
 
 /**
  * class UIContext
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 22 static
  */
 export declare class UIContext {
@@ -2686,7 +2691,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  getFilteredInspectorTreeById(id: string, depth: number, filters?: Array<string>): string;
+  getFilteredInspectorTreeById(id: string, depth: int, filters?: Array<string>): string;
 
   /**
    * get object router.
@@ -2817,11 +2822,11 @@ export declare class UIContext {
   /**
    * textPickerDialog display.
    *
-   * @param { TextPickerDialogOptions } options - Options.
+   * @param { TextPickerDialogOptions | TextPickerDialogOptionsExt } style - Dialog style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  showTextPickerDialog(options: TextPickerDialogOptions): void;
+  showTextPickerDialog(style: TextPickerDialogOptions | TextPickerDialogOptionsExt): void;
 
   /**
    * Set image cache capacity of decoded image count.
@@ -2985,35 +2990,35 @@ export declare class UIContext {
   /**
    * Get FrameNode by uniqueId.
    *
-   * @param { number } id - The uniqueId of the FrameNode.
+   * @param { int } id - The uniqueId of the FrameNode.
    * @returns { FrameNode | null } - The FrameNode with the target uniqueId, or null if the frameNode is not existed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  getFrameNodeByUniqueId(id: number): FrameNode | null;
+  getFrameNodeByUniqueId(id: int): FrameNode | null;
 
   /**
    * Get page information of the frameNode with uniqueId.
    *
-   * @param { number } id - The uniqueId of the target FrameNode.
+   * @param { int } id - The uniqueId of the target FrameNode.
    * @returns { PageInfo } - The page information of the frameNode with the target uniqueId, includes
    * navDestination and router page information. If the frame node does not have navDestination and
    * router page information, it will return an empty object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  getPageInfoByUniqueId(id: number): PageInfo;
+  getPageInfoByUniqueId(id: int): PageInfo;
 
   /**
    * Get navigation information of the frameNode with uniqueId.
    *
-   * @param { number } id - The uniqueId of the target FrameNode.
+   * @param { int } id - The uniqueId of the target FrameNode.
    * @returns { observer.NavigationInfo | undefined } - The navigation information of the frameNode with the
    * target uniqueId, or undefined if the frameNode is not existed or does not have navigation information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  getNavigationInfoByUniqueId(id: number): observer.NavigationInfo | undefined;
+  getNavigationInfoByUniqueId(id: int): observer.NavigationInfo | undefined;
 
   /**
    * Dynamic dimming.
@@ -3137,6 +3142,19 @@ export declare class UIContext {
   getWindowName(): string | undefined;
 
   /**
+   * Get window id to which the current UIContext belongs.
+   * <p>**NOTE**:
+   * If the current UIContext is in a UIExtensionAbility running within the host process,
+   * this method returns the top-level window ID of the host application.
+   * </p>
+   *
+   * @returns { int | undefined } - Window id. If the current UIContext is unavailable, return undefined.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  getWindowId(): int | undefined;
+
+  /**
    * Get the width breakpoint of current window.
    *
    * @returns { WidthBreakpoint } The width breakpoint of current window.
@@ -3245,7 +3263,6 @@ export declare class UIContext {
    * of repeatedly loading resources. Clearing this cache may slow down the loading speed of resources during page
    * overload.
    *
-   * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 22 static
@@ -3316,11 +3333,12 @@ export declare class UIContext {
   /**
    * whether to enable or disable swipe to back event.
    *
-   * @param { Optional<boolean> } enabled - enable or disable swipe to back event.
+   * @param { boolean | undefined } enabled - enable or disable swipe to back event.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @stagemodelonly
    * @since 22 static
    */
-  enableSwipeBack(enabled: Optional<boolean>): void;
+  enableSwipeBack(enabled: boolean | undefined): void;
 
   /**
    * Open the BindContentCover.

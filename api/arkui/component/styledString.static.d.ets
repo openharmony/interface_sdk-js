@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { Callback, ShadowOptions, ClickEvent, Optional, PixelMap, AttributeModifier, CommonMethod } from './common';
+import { Callback, ShadowOptions, ClickEvent, PixelMap, AttributeModifier, CommonMethod } from './common';
 import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from './enums';
 import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
 import { TextBackgroundStyle } from './span';
@@ -98,7 +98,7 @@ export declare class StyledString {
      * @param { int } start - the start position of the subStyledString.
      * @param { int } length - the length of the subStyledString's characters.
      * @param { StyledStringKey } [styledKey] - the specified type.
-     * @returns { Array<SpanStyle> }
+     * @returns { Array<SpanStyle> | undefined }
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -106,7 +106,7 @@ export declare class StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getStyles(start: int, length: int, styledKey?: StyledStringKey): Array<SpanStyle>;
+    getStyles(start: int, length: int, styledKey?: StyledStringKey): Array<SpanStyle> | undefined;
     /**
      * Judge if two attribute strings are equal.
      *
@@ -121,7 +121,7 @@ export declare class StyledString {
      *
      * @param { int } start - the start position of the subStyledString.
      * @param { int } [length] - the length of the subStyledString's characters.
-     * @returns { StyledString }
+     * @returns { StyledString | undefined }
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -129,12 +129,12 @@ export declare class StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    subStyledString(start: int, length?: int): StyledString;
+    subStyledString(start: int, length?: int): StyledString | undefined;
     /**
      * Returns StyledString from the provided HTML string.
      *
      * @param { string } html - the html text will be converted to a StyledString.
-     * @returns { Promise<StyledString> }
+     * @returns { Promise<StyledString | undefined> }
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
@@ -144,7 +144,7 @@ export declare class StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    static fromHtml(html: string): Promise<StyledString>;
+    static fromHtml(html: string): Promise<StyledString | undefined>;
     /**
      * Returns HTML string from the provided StyledString.
      *
@@ -165,20 +165,20 @@ export declare class StyledString {
      * @param { StyledString } styledString - StyledString parameter.
      * @param { StyledStringMarshallCallback } callback - When marshalling StyledStringMarshingValue, will trigger
      *    this callback to get ArrayBuffer
-     * @returns { ArrayBuffer }
+     * @returns { ArrayBuffer | undefined }
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
-    static marshalling(styledString: StyledString, callback: StyledStringMarshallCallback): ArrayBuffer;
+    static marshalling(styledString: StyledString, callback: StyledStringMarshallCallback): ArrayBuffer | undefined;
     /**
      * Returns StyledString from the deserialized ArrayBuffer.
      *
      * @param { ArrayBuffer } buffer - The buffer will be deserialized to a StyledString.
      * @param { StyledStringUnmarshallCallback } callback - When unmarshalling ArrayBuffer, will trigger this callback
      *    to get StyledStringMarshingValue
-     * @returns { Promise<StyledString> }
+     * @returns { Promise<StyledString | undefined> }
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
@@ -189,23 +189,23 @@ export declare class StyledString {
      * @systemapi
      * @since 22 static
      */
-    static unmarshalling(buffer: ArrayBuffer, callback: StyledStringUnmarshallCallback): Promise<StyledString>;
+    static unmarshalling(buffer: ArrayBuffer, callback: StyledStringUnmarshallCallback): Promise<StyledString | undefined>;
     /**
      * Returns ArrayBuffer from the serialized styled string.
      *
      * @param { StyledString } styledString - StyledString parameter.
-     * @returns { ArrayBuffer }
+     * @returns { ArrayBuffer | undefined }
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
-    static marshalling(styledString: StyledString): ArrayBuffer;
+    static marshalling(styledString: StyledString): ArrayBuffer | undefined;
     /**
      * Returns StyledString from the deserialized ArrayBuffer.
      *
      * @param { ArrayBuffer } buffer - The buffer will be deserialized to a StyledString.
-     * @returns { Promise<StyledString> }
+     * @returns { Promise<StyledString | undefined> }
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
@@ -216,7 +216,7 @@ export declare class StyledString {
      * @systemapi
      * @since 22 static
      */
-    static unmarshalling(buffer: ArrayBuffer): Promise<StyledString>;
+    static unmarshalling(buffer: ArrayBuffer): Promise<StyledString | undefined>;
 }
 /**
  * StyleOptions
@@ -465,11 +465,11 @@ export declare interface DecorationStyleInterface {
     /**
      * The type value of the decoration property object.
      *
-     * @type { TextDecorationType }
+     * @type { TextDecorationType | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    type: TextDecorationType;
+    type: TextDecorationType | undefined ;
     /**
      * The color value of the decoration property object.
      *
@@ -1170,11 +1170,11 @@ export declare interface ResourceImageAttachmentOptions {
     /**
      * The content of the ResourceImageAttachment.
      *
-     * @type { Optional<ResourceStr> }
+     * @type { ResourceStr | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    resourceValue: Optional<ResourceStr>;
+    resourceValue: ResourceStr | undefined;
     /**
      * size of the ResourceImage.
      *

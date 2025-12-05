@@ -19,11 +19,12 @@
  * @kit ArkUI
  */
 
-import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, Optional, TranslateOptions, DividerStyle, Bindable } from './common';
+import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, TranslateOptions, DividerStyle, Bindable } from './common';
 import { EdgeEffect, PageFlipMode, Curve } from "./enums";
 import { Dimension, Length, ResourceColor } from "./units";
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, ICurve } from "./common";
+import { CommonModifier } from '@ohos.arkui.modifier';
 /**
  * Declare the graphic format of the bar chart.
  *
@@ -205,16 +206,17 @@ export declare class TabsController {
     /**
      * Called when need to preload specified tab content.
      *
-     * @param { Optional<Array<int>> } indices - Indices of tab content to be preloaded.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { Array<int> | undefined } indices - Indices of tab content to be preloaded.
+     * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter invalid. Possible causes:
-     * <br> 1. The parameter type is not Array<int>.
-     * <br> 2. The parameter is an empty array.
-     * <br> 3. The parameter contains an invalid index.
+     *     <br> 1. The parameter type is not Array<int>.
+     *     <br> 2. The parameter is an empty array.
+     *     <br> 3. The parameter contains an invalid index.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 22 static
      */
-    preloadItems(indices: Optional<Array<int>>): Promise<void>;
+    preloadItems(indices: Array<int> | undefined): Promise<void>;
     /**
      * Set tab bar translate.
      *
@@ -264,6 +266,14 @@ export declare interface TabsOptions {
      * @since 22 static
      */
     controller?: TabsController;
+    /**
+     * Set common attributes to tabbar.
+     *
+     * @type { ?CommonModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    barModifier?: CommonModifier;
 }
 /**
  * Provides an interface for tabs animation.
@@ -440,7 +450,18 @@ export type TabsCustomContentTransitionCallback = (from: int, to: int) => TabCon
  * @since 22 static
  */
 export type OnTabsContentWillChangeCallback = (currentIndex: int, comingIndex: int) => boolean;
-
+/**
+ * Defines a tabs callback when onContentDidScroll.
+ *
+ * @typedef { function } OnTabsContentDidScrollCallback
+ * @param { int } selectedIndex - the index value of the Tabs content selected before animation start.
+ * @param { int } index - the index value of the Tabs content.
+ * @param { double } position - the moving ratio of the Tabs content from the start position of the Tabs main axis.
+ * @param { double } mainAxisLength - the Tabs main axis length for calculating position.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export type OnTabsContentDidScrollCallback = (selectedIndex: int, index: int, position: double, mainAxisLength: double) => void;
 /**
  * The TabsAttribute.
  * 
@@ -846,6 +867,25 @@ export declare interface TabsAttribute extends CommonMethod {
      * @noninterop
      */ 
     default attributeModifier(modifier: AttributeModifier<TabsAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Triggered when scrolling content within the Tabs component.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>During page scrolling, the OnTabsContentDidScrollCallback callback is invoked for all pages in the viewport
+     * on a frame-by-frame basis.
+     * </p>
+     *
+     * @param { OnTabsContentDidScrollCallback | undefined } handler - callback of tabs,
+     *     selectedIndex is the index value of the Tabs content selected before animation start.
+     *     index is the index value of the Tabs content.
+     *     position is the moving ratio of the Tabs content from the start position of the Tabs main axis.
+     *     mainAxisLength is the Tabs main axis length for calculating position.
+     *     undefined means unbinding callback.
+     * @returns { this } - the attribute of the Tabs.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default onContentDidScroll(handler: OnTabsContentDidScrollCallback | undefined): this;
 }
 /**
  * Defines the Tab Content animated transition options.

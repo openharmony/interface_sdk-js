@@ -4117,8 +4117,8 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-  * @since 12 dynamic
-  * @since 22 static
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface CertChainValidator {
     /**
@@ -5963,7 +5963,17 @@ declare namespace cert {
      * @atomicservice
      * @since 22 dynamic&static
      */
-    REVOCATION_CHECK_OPTION_LOCAL_CRL_ONLY_CHECK_END_ENTITY_CERT = 5
+    REVOCATION_CHECK_OPTION_LOCAL_CRL_ONLY_CHECK_END_ENTITY_CERT = 5,
+
+    /**
+     * Ignore network access failure error when verifying certificate revocation list in online OCSL or online CRL.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    REVOCATION_CHECK_OPTION_IGNORE_NETWORK_ERROR = 6
   }
 
   /**

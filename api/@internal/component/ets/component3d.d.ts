@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts static */
-import { Scene } from './../../../api/@ohos.graphics.scene';
-import { ResourceStr, Dimension } from './units';
-import { CommonMethod } from './common';
-/*** endif */
-
 /**
  * Provides methods for controlling the 3d scene 
  *
@@ -40,7 +34,6 @@ declare type Scene = import('../api/@ohos.graphics.scene').Scene;
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
  */
 declare enum ModelType {
   /**
@@ -49,7 +42,6 @@ declare enum ModelType {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   TEXTURE = 0,
 
@@ -59,7 +51,6 @@ declare enum ModelType {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   SURFACE = 1,
 }
@@ -71,7 +62,6 @@ declare enum ModelType {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
  */
 declare interface SceneOptions {
   /**
@@ -81,7 +71,6 @@ declare interface SceneOptions {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   scene?: ResourceStr | Scene;
 
@@ -93,7 +82,6 @@ declare interface SceneOptions {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   modelType?: ModelType; 
 }
@@ -105,7 +93,6 @@ declare interface SceneOptions {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
  */
 interface Component3DInterface {
   /**
@@ -116,7 +103,6 @@ interface Component3DInterface {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   (sceneOptions?: SceneOptions): Component3DAttribute;
 }
@@ -126,7 +112,6 @@ interface Component3DInterface {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
  */
 declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
   /**
@@ -137,7 +122,6 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   environment(uri: ResourceStr): Component3DAttribute;
 
@@ -150,7 +134,6 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   customRender(uri: ResourceStr, selfRenderUpdate: boolean): Component3DAttribute;
 
@@ -162,7 +145,6 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   shader(uri: ResourceStr): Component3DAttribute;
 
@@ -174,7 +156,6 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   shaderImageTexture(uri: ResourceStr): Component3DAttribute;
   
@@ -186,7 +167,6 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   shaderInputBuffer(buffer: Array<number>): Component3DAttribute;
 
@@ -198,7 +178,6 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   renderWidth(value: Dimension): Component3DAttribute;
 
@@ -210,7 +189,6 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   renderHeight(value: Dimension): Component3DAttribute;
 }

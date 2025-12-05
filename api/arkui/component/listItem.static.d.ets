@@ -26,7 +26,7 @@ import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Sliding effect
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -49,7 +49,7 @@ export declare enum SwipeEdgeEffect {
 /**
  * Declare enum SwipeActionState.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -90,7 +90,6 @@ export declare interface SwipeActionItem {
      *
      * @type { ?CustomBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 22 static
      */
     builder?: CustomBuilder;
@@ -109,7 +108,6 @@ export declare interface SwipeActionItem {
      * @type { ?Length }
      * @default 56vp
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 22 static
      */
     actionAreaDistance?: Length;
@@ -118,7 +116,6 @@ export declare interface SwipeActionItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 22 static
      */
     onAction?: () => void;
@@ -127,7 +124,6 @@ export declare interface SwipeActionItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 22 static
      */
     onEnterActionArea?: () => void;
@@ -136,7 +132,6 @@ export declare interface SwipeActionItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 22 static
      */
     onExitActionArea?: () => void;
@@ -145,7 +140,6 @@ export declare interface SwipeActionItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 22 static
      */
     onStateChange?: (state: SwipeActionState) => void;
@@ -191,12 +185,12 @@ export declare interface SwipeActionOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onOffsetChange?: (offset: number) => void;
+    onOffsetChange?: (offset: double) => void;
 }
 /**
  * Defines the list item style.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */

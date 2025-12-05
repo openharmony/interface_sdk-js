@@ -23,6 +23,7 @@ import { AsyncCallback } from '../@ohos.base';
 import { ProcessInformation } from './ProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import Want from '../@ohos.app.ability.Want';
+import window from '../@ohos.window';
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
 import InteropAbilityLifecycleCallback from '../@ohos.app.ability.InteropAbilityLifecycleCallback';
@@ -278,15 +279,25 @@ declare class ApplicationContext extends Context {
    *
    * @param { 'environment' } type - environment.
    * @param { EnvironmentCallback } callback - The environment callback.
+   * @returns { number } Returns the number code of the callback.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 11 dynamic
+   */
+  on(type: 'environment', callback: EnvironmentCallback): number;
+
+  /**
+   * Register environment callback.
+   *
+   * @param { EnvironmentCallback } callback - The environment callback.
    * @returns { int } Returns the number code of the callback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
    * @since 22 static
    */
-  on(type: 'environment', callback: EnvironmentCallback): int;
+  onEnvironment(callback: EnvironmentCallback): int;
 
   /**
    * Unregister environment callback.
@@ -303,16 +314,26 @@ declare class ApplicationContext extends Context {
    * Unregister environment callback.
    *
    * @param { 'environment' } type - environment.
-   * @param { int } callbackId - Indicates the number code of the callback.
+   * @param { number } callbackId - Indicates the number code of the callback.
    * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
+   */
+  off(type: 'environment', callbackId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Unregister environment callback.
+   * 
+   * @param { int } callbackId - Indicates the number code of the callback.
+   * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
    * @since 22 static
    */
-  off(type: 'environment', callbackId: int, callback: AsyncCallback<void>): void;
+  offEnvironment(callbackId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister environment callback.
@@ -329,16 +350,26 @@ declare class ApplicationContext extends Context {
    * Unregister environment callback.
    *
    * @param { 'environment' } type - environment.
-   * @param { int } callbackId - Indicates the number code of the callback.
+   * @param { number } callbackId - Indicates the number code of the callback.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
+   */
+  off(type: 'environment', callbackId: number): Promise<void>;
+
+  /**
+   * Unregister environment callback.
+   *
+   * @param { int } callbackId - Indicates the number code of the callback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
    * @since 22 static
    */
-  off(type: 'environment', callbackId: int): Promise<void>;
+  offEnvironment(callbackId: int): Promise<void>;
 
   /**
    * Register applicationStateChange callback.
@@ -380,9 +411,18 @@ declare class ApplicationContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
    */
   on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback): void;
+
+  /**
+   * Register applicationStateChange callback.
+   * 
+   * @param { ApplicationStateChangeCallback } callback - The applicationStateChange callback.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onApplicationStateChange(callback: ApplicationStateChangeCallback): void;
 
   /**
    * Unregister applicationStateChange callback.
@@ -426,9 +466,18 @@ declare class ApplicationContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
    */
   off(type: 'applicationStateChange', callback?: ApplicationStateChangeCallback): void;
+
+  /**
+   * Unregister applicationStateChange callback.
+   *
+   * @param { ApplicationStateChangeCallback } [callback] - The applicationStateChange callback.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offApplicationStateChange(callback?: ApplicationStateChangeCallback): void;
 
   /**
    * Get information about running processes
@@ -912,6 +961,21 @@ declare class ApplicationContext extends Context {
    * @since 22 static
    */
     getAllRunningInstanceKeys(): Promise<Array<string>>;
+
+  /**
+   * Obtains all windowstage of current process.
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @returns { Promise<Array<window.WindowStage>> } Promise used to return the windowStages of current process.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  getAllWindowStages(): Promise<Array<window.WindowStage>>;
 }
 
 export default ApplicationContext;

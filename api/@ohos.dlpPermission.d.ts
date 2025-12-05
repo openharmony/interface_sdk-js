@@ -1175,6 +1175,14 @@ declare namespace dlpPermission {
      * @since 21
      */
     allowedOpenCount?: number;
+
+    /**
+     * Defines whether watermarking is required.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 23
+     */
+    waterMarkConfig?: boolean;
   }
 
   /**

@@ -416,7 +416,7 @@ export class MovingPhotoViewController {
      * @systemapi
      * @since 22 dynamic&static
      */
-    notifyMovingPhotoTransition();
+    notifyMovingPhotoTransition(): void;
 }
 /**
  * Defines MovingPhotoView Component.

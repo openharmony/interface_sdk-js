@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { CommonConfiguration, Callback, CommonMethod, Optional, ContentModifier, Bindable } from './common';
+import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Bindable } from './common';
 import { ResourceStr } from './units';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
@@ -58,20 +58,20 @@ export declare interface StarStyleOptions {
      * Background URI option.
      * Anonymous Object Rectification.
      *
-     * @type { ResourceStr }
+     * @type { ResourceStr | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    backgroundUri: ResourceStr;
+    backgroundUri: ResourceStr | undefined;
     /**
      * Foreground URI option.
      * Anonymous Object Rectification.
      *
-     * @type { ResourceStr }
+     * @type { ResourceStr | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    foregroundUri: ResourceStr;
+    foregroundUri: ResourceStr | undefined;
     /**
      * Secondary URI option.
      * Anonymous Object Rectification.

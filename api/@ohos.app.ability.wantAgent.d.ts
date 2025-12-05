@@ -24,6 +24,10 @@ import { WantAgentInfo as _WantAgentInfo } from './wantAgent/wantAgentInfo';
 import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
 import Context from './application/Context';
 import { LocalWantAgentInfo as _LocalWantAgentInfo } from './wantAgent/wantAgentInfo';
+/*** endif */
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * Provide the method obtain trigger, cancel, and compare and to obtain
@@ -509,6 +513,7 @@ declare namespace wantAgent {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
+   * @since 22 static
    */
   function setWantAgentMultithreading(isMultithreadingSupported: boolean) : void;
 
@@ -970,9 +975,17 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     extraInfo?: Record<string, Object>;
+
+    /**
+     * Extra information.
+     *
+     * @type { ?Record<string, RecordData> }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 22 static
+     */
+    extraInfo?: Record<string, RecordData>;
   }
 
   /**

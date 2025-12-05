@@ -21,13 +21,13 @@ import { Resource } from './../../global/resource';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
- * Defines the space property with string, number and resource unit.
+ * Defines the space property with string, double and resource unit.
  *
- * @typedef { string | number | Resource } SpaceType
+ * @typedef { string | double | Resource } SpaceType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export type SpaceType = string | number | Resource;
+export type SpaceType = string | double | Resource;
 /**
  * Column constructor options.
  *
@@ -39,11 +39,11 @@ export interface ColumnOptions {
     /**
      * Vertical layout element spacing.
      *
-     * @type { ?(string | number) }
+     * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    space?: string | number;
+    space?: string | double;
 }
 /**
  * Column constructor options.
@@ -76,7 +76,7 @@ export declare interface ColumnAttribute extends CommonMethod {
     /**
      * Sets the alignment format of the subassembly in the horizontal direction.
      *
-     * @param { HorizontalAlign } value
+     * @param { HorizontalAlign | undefined } value
      * @returns { ColumnAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
@@ -85,7 +85,7 @@ export declare interface ColumnAttribute extends CommonMethod {
     /**
      * Sets the alignment format of the subassembly in the vertical direction.
      *
-     * @param { FlexAlign } value
+     * @param { FlexAlign | undefined } value
      * @returns { ColumnAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
@@ -94,13 +94,13 @@ export declare interface ColumnAttribute extends CommonMethod {
     /**
     * Defines the PointLight
     *
-    * @param { PointLightStyle } value - The point light style.
+    * @param { PointLightStyle | undefined } value - The point light style.
     * @returns { ColumnAttribute } The attribute of the column.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @systemapi
     * @since 22 static
     */
-    default pointLight(value: PointLightStyle): ColumnAttribute;
+    default pointLight(value: PointLightStyle | undefined): ColumnAttribute;
     /**
      * Called when the Main-Axis's direction is set reversed or not
      *

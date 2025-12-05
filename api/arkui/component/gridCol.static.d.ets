@@ -19,7 +19,7 @@
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
- * Defines the option in number unit of grid-container child component.
+ * Defines the option in int unit of grid-container child component.
  *
  * @interface GridColColumnOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -29,51 +29,51 @@ export declare interface GridColColumnOption {
     /**
      * Grid Col Column Option xs
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    xs?: number;
+    xs?: int;
     /**
      * Grid Col Column Option sm
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    sm?: number;
+    sm?: int;
     /**
      * Grid Col Column Option md
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    md?: number;
+    md?: int;
     /**
      * Grid Col Column Option lg
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    lg?: number;
+    lg?: int;
     /**
      * Grid Col Column Option xl
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    xl?: number;
+    xl?: int;
     /**
      * Grid Col Column Option xxl
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    xxl?: number;
+    xxl?: int;
 }
 /**
  * Defines the options of grid-container child component.
@@ -86,27 +86,27 @@ export declare interface GridColOptions {
     /**
      * Sets the span of current gird-container item.
      *
-     * @type { ?(number | GridColColumnOption) }
+     * @type { ?(int | GridColColumnOption) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    span?: number | GridColColumnOption;
+    span?: int | GridColColumnOption;
     /**
      * Sets the offset of current gird-container item.
      *
-     * @type { ?(number | GridColColumnOption) }
+     * @type { ?(int | GridColColumnOption) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    offset?: number | GridColColumnOption;
+    offset?: int | GridColColumnOption;
     /**
      * Sets the order of current gird-container item.
      *
-     * @type { ?(number | GridColColumnOption) }
+     * @type { ?(int | GridColColumnOption) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    order?: number | GridColColumnOption;
+    order?: int | GridColColumnOption;
 }
 
 /**
@@ -122,30 +122,30 @@ export declare interface GridColAttribute extends CommonMethod {
     /**
      * Sets the span of current gird-container item.
      *
-     * @param { number | GridColColumnOption } value
+     * @param { int | GridColColumnOption } value
      * @returns { GridColAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default span(value: number | GridColColumnOption | undefined): this;
+    default span(value: int | GridColColumnOption | undefined): this;
     /**
      * Sets the offset of current gird-container item.
      *
-     * @param { number | GridColColumnOption } value
+     * @param { int | GridColColumnOption } value
      * @returns { GridColAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default gridColOffset(value: number | GridColColumnOption | undefined): this;
+    default gridColOffset(value: int | GridColColumnOption | undefined): this;
     /**
      * Sets the order of current gird-container item.
      *
-     * @param { number | GridColColumnOption } value
+     * @param { int | GridColColumnOption } value
      * @returns { GridColAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default order(value: number | GridColColumnOption | undefined): this;
+    default order(value: int | GridColColumnOption | undefined): this;
     /**
      * Set the attribute modifier
      *

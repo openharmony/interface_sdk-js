@@ -93,6 +93,7 @@ export {
 /*** if arkts static */
 import configPolicy from '@ohos.configPolicy';
 import customConfig from '@ohos.customization.customConfig';
+import { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData } from '@ohos.base';
 import zlib from '@ohos.zlib';
 import systemDateTime from '@ohos.systemDateTime';
 import systemTimer from '@ohos.systemTimer';
@@ -100,6 +101,7 @@ import systemLoad from '@ohos.resourceschedule.systemload';
 import request from '@ohos.request';
 
 export {
-  zlib, configPolicy, customConfig, systemDateTime, systemTimer, systemLoad, request
+  zlib, configPolicy, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, customConfig, systemDateTime,
+  systemTimer, systemLoad, request
 };
 /*** endif */

@@ -20,7 +20,7 @@
  */
 import { ResourceColor, Length, PX, VP, LPX, Font, ResourceStr } from "./units";
 import { Resource } from '../../global/resource';
-import { CommonMethod, Optional, ContentModifier, CommonConfiguration } from './common';
+import { CommonMethod, ContentModifier, CommonConfiguration } from './common';
 import { LinearGradient } from "./dataPanel";
 import { LengthMetrics } from '../Graphics';
 import { ComponentBuilder, CustomBuilder } from './builder';
@@ -37,19 +37,19 @@ export declare interface ProgressOptions {
     /**
      * Sets the value of Progress.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    value: number;
+    value: double;
     /**
      * Sets the total of Progress.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    total?: number;
+    total?: double;
     /**
      * Sets the type of Progress.
      *
@@ -62,7 +62,7 @@ export declare interface ProgressOptions {
 /**
  * Type of progress bar
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -106,7 +106,7 @@ export declare enum ProgressType {
 /**
  * Current status of progress bar.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -146,11 +146,11 @@ export declare interface ProgressStyleOptions extends CommonProgressStyleOptions
     /**
      * Defines the scaleCount property.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    scaleCount?: number;
+    scaleCount?: int;
     /**
      * Defines the scaleWidth property.
      *
@@ -234,11 +234,11 @@ export declare interface ScaleRingStyleOptions extends CommonProgressStyleOption
     /**
      * Defines the scaleCount property.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    scaleCount?: number;
+    scaleCount?: int;
 }
 /**
  * Defines the ring style Options.
@@ -372,7 +372,7 @@ export declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonPr
 /**
  * Type of progress bar
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -435,12 +435,12 @@ export declare interface ProgressAttribute extends CommonMethod {
     /**
      * Called when the current progress value is set.
      *
-     * @param { number | undefined } value
+     * @param { double | undefined } value
      * @returns { ProgressAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default value(value: number | undefined): this;
+    default value(value: double | undefined): this;
     /**
      * Called when the progress bar foreground is set.
      *
@@ -500,19 +500,19 @@ export declare interface ProgressConfiguration extends CommonConfiguration<Progr
     /**
      * The value of Progress.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    value: number;
+    value: double;
     /**
      * The total of Progress.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    total: number;
+    total: double;
 }
 /**
  * Defines the Progress component.

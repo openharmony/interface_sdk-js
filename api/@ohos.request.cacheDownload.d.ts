@@ -26,6 +26,7 @@ import { BusinessError } from './@ohos.base';
  * @namespace cacheDownload
  * @syscap SystemCapability.Request.FileTransferAgent
  * @since 18 dynamic
+ * @since 22 static
  */
 declare namespace cacheDownload {
     /**
@@ -50,6 +51,30 @@ declare namespace cacheDownload {
          * @since 21 dynamic
          */
         TLCP = 'TLCP'
+    }
+
+    /**
+     * Cache strategy for resources.
+     *
+     * @enum { int } CacheStrategy
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 23 dynamic&static
+     */
+    enum CacheStrategy {
+        /**
+         * Force update of cache regardless of whether it already exists.
+         *
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 23 dynamic&static
+         */
+        FORCE = 0,
+        /**
+         * Updates the cache only if the cached resource does not exist.
+         *
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 23 dynamic&static
+         */
+        LAZY = 1,
     }
 
     /**
@@ -86,6 +111,15 @@ declare namespace cacheDownload {
          * @since 21 dynamic
          */
         caPath?: string;
+        /**
+         * Cache update strategy for resources.
+         * The default value is `CacheStrategy.FORCE`.
+         *
+         * @type { ?CacheStrategy }
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 23 dynamic&static
+         */
+        cacheStrategy?: CacheStrategy;
     }
 
     /**
@@ -128,6 +162,17 @@ declare namespace cacheDownload {
          * @since 22 static
          */
         readonly dnsServers: string[];
+        /**
+         * The IP address of a specific URL is used when downloading resources.
+         * If the value is undefined, it means that the DNS resolution fails
+         * and the IP address cannot be obtained.
+         *
+         * @type { ?string }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 23 dynamic&static
+         */
+        readonly ip?: string;
     }
 
     /**
@@ -340,6 +385,22 @@ declare namespace cacheDownload {
      * @since 22 static
      */
     function setDownloadInfoListSize(size: number): void;
+
+    /**
+     * Clears the memory cache used to store downloaded content.
+     *
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 23 dynamic&static
+     */
+    function clearMemoryCache(): void;
+   
+    /**
+     * Clears the file cache used to store downloaded content.
+     *
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 23 dynamic&static
+     */
+    function clearFileCache(): void;
 }
 
 export default cacheDownload;

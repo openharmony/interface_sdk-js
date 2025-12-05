@@ -110,6 +110,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function dialCall(phoneNumber: string, options: DialCallOptions, callback: AsyncCallback<void>): void;
 
@@ -133,6 +134,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function dialCall(phoneNumber: string, options?: DialCallOptions): Promise<void>;
 
@@ -155,6 +157,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function dialCall(phoneNumber: string, callback: AsyncCallback<void>): void;
 
@@ -248,6 +251,7 @@ declare namespace call {
    * not in the {@link CallState#CALL_STATE_IDLE} state; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamic
+   * @since 22 static
    */
   function hasCall(callback: AsyncCallback<boolean>): void;
 
@@ -258,6 +262,7 @@ declare namespace call {
    * in the {@link CallState#CALL_STATE_IDLE} state; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamic
+   * @since 22 static
    */
   function hasCall(): Promise<boolean>;
 
@@ -283,6 +288,7 @@ declare namespace call {
    * @param { AsyncCallback<CallState> } callback - Indicates the callback for getting the call state.
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamic
+   * @since 22 static
    */
   function getCallState(callback: AsyncCallback<CallState>): void;
 
@@ -297,6 +303,7 @@ declare namespace call {
    * @returns { Promise<CallState> } Returns the call state.
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamic
+   * @since 22 static
    */
   function getCallState(): Promise<CallState>;
 
@@ -332,6 +339,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   function muteRinger(callback: AsyncCallback<void>): void;
 
@@ -350,6 +358,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   function muteRinger(): Promise<void>;
 
@@ -382,6 +391,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @since 7 dynamic
+   * @since 22 static
    */
   function isEmergencyPhoneNumber(phoneNumber: string, options: EmergencyNumberOptions, callback: AsyncCallback<boolean>): void;
 
@@ -400,6 +410,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @since 7 dynamic
+   * @since 22 static
    */
   function isEmergencyPhoneNumber(phoneNumber: string, options?: EmergencyNumberOptions): Promise<boolean>;
 
@@ -417,6 +428,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @since 7 dynamic
+   * @since 22 static
    */
   function isEmergencyPhoneNumber(phoneNumber: string, callback: AsyncCallback<boolean>): void;
 
@@ -499,6 +511,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @since 7 dynamic
+   * @since 22 static
    */
   function formatPhoneNumberToE164(phoneNumber: string, countryCode: string, callback: AsyncCallback<string>): void;
 
@@ -517,6 +530,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @since 7 dynamic
+   * @since 22 static
    */
   function formatPhoneNumberToE164(phoneNumber: string, countryCode: string): Promise<string>;
 
@@ -524,7 +538,7 @@ declare namespace call {
    * Answers the incoming call.
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { number } callId - Indicates the identifier of the call to answer.
+   * @param { int } callId - Indicates the identifier of the call to answer.
    * @param { AsyncCallback<void> } callback - The callback of answerCall.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -537,14 +551,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
-  function answerCall(callId: number, callback: AsyncCallback<void>): void;
+  function answerCall(callId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Answers the incoming call.
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { number } callId - Indicates the identifier of the call to answer.
+   * @param { int } callId - Indicates the identifier of the call to answer.
    * @returns { Promise<void> } The promise returned by the answerCall.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -557,8 +572,9 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
-  function answerCall(callId?: number): Promise<void>;
+  function answerCall(callId?: int): Promise<void>;
 
   /**
    * Answers the incoming call without callId.
@@ -576,6 +592,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function answerCall(callback: AsyncCallback<void>): void;
 
@@ -584,7 +601,7 @@ declare namespace call {
    *
    * @permission ohos.permission.ANSWER_CALL
    * @param { VideoStateType } videoState - Indicates the answer the call with video or voice.
-   * @param { number } callId - Indicates the identifier of the call to answer.
+   * @param { int } callId - Indicates the identifier of the call to answer.
    * @returns { Promise<void> } The promise returned by the answerCall.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -597,14 +614,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function answerCall(videoState: VideoStateType, callId: number): Promise<void>;
+  function answerCall(videoState: VideoStateType, callId: int): Promise<void>;
 
   /**
    * Hang up the foreground call.
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { number } callId - Indicates the identifier of the call to hangup.
+   * @param { int } callId - Indicates the identifier of the call to hangup.
    * @param { AsyncCallback<void> } callback - The callback of hangUpCall.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -617,14 +635,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
-  function hangUpCall(callId: number, callback: AsyncCallback<void>): void;
+  function hangUpCall(callId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Hang up the foreground call.
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { number } callId - Indicates the identifier of the call to hangup.
+   * @param { int } callId - Indicates the identifier of the call to hangup.
    * @returns { Promise<void> } The promise returned by the hangUpCall.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -637,8 +656,9 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
-  function hangUpCall(callId?: number): Promise<void>;
+  function hangUpCall(callId?: int): Promise<void>;
 
   /**
    * Hang up the foreground call without callId.
@@ -656,6 +676,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function hangUpCall(callback: AsyncCallback<void>): void;
 
@@ -663,7 +684,7 @@ declare namespace call {
    * Reject the incoming call.
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { number } callId - Indicates the identifier of the call to reject.
+   * @param { int } callId - Indicates the identifier of the call to reject.
    * @param { RejectMessageOptions } options - Indicates the text message to reject.
    * @param { AsyncCallback<void> } callback - The callback of rejectCall.
    * @throws { BusinessError } 201 - Permission denied.
@@ -677,14 +698,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
-  function rejectCall(callId: number, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
+  function rejectCall(callId: int, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Reject the incoming call.
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { number } callId - Indicates the identifier of the call to reject.
+   * @param { int } callId - Indicates the identifier of the call to reject.
    * @param { RejectMessageOptions } options - Indicates the text message to reject.
    * @returns { Promise<void> } The promise returned by the rejectCall.
    * @throws { BusinessError } 201 - Permission denied.
@@ -698,14 +720,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
-  function rejectCall(callId?: number, options?: RejectMessageOptions): Promise<void>;
+  function rejectCall(callId?: int, options?: RejectMessageOptions): Promise<void>;
 
   /**
    * Reject the incoming call.
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { number } callId - Indicates the identifier of the call to reject.
+   * @param { int } callId - Indicates the identifier of the call to reject.
    * @param { AsyncCallback<void> } callback - The callback of rejectCall.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -718,8 +741,9 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
-  function rejectCall(callId: number, callback: AsyncCallback<void>): void;
+  function rejectCall(callId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Reject the incoming call without callId.
@@ -737,6 +761,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function rejectCall(callback: AsyncCallback<void>): void;
 
@@ -757,6 +782,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function rejectCall(options: RejectMessageOptions, callback: AsyncCallback<void>): void;
 
@@ -764,7 +790,7 @@ declare namespace call {
    * Keep a call on hold.
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { AsyncCallback<void> } callback - The callback of holdCall.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -777,14 +803,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function holdCall(callId: number, callback: AsyncCallback<void>): void;
+  function holdCall(callId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Keep a call on hold.
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @returns { Promise<void> } The promise returned by the holdCall.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -797,14 +824,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function holdCall(callId: number): Promise<void>;
+  function holdCall(callId: int): Promise<void>;
 
   /**
    * Cancel call hold status.
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { AsyncCallback<void> } callback - The callback of unHoldCall.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -817,14 +845,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function unHoldCall(callId: number, callback: AsyncCallback<void>): void;
+  function unHoldCall(callId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Keep a call on hold.
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @returns { Promise<void> } The promise returned by the unHoldCall.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -837,14 +866,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function unHoldCall(callId: number): Promise<void>;
+  function unHoldCall(callId: int): Promise<void>;
 
   /**
    * Switch call.
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { AsyncCallback<void> } callback - The callback of switchCall.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -857,14 +887,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function switchCall(callId: number, callback: AsyncCallback<void>): void;
+  function switchCall(callId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Switch call.
    *
    * @permission ohos.permission.ANSWER_CALL
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @returns { Promise<void> } The promise returned by the switchCall.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -877,13 +908,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function switchCall(callId: number): Promise<void>;
+  function switchCall(callId: int): Promise<void>;
 
   /**
    * Merge calls, merge two calls into conference calls.
    *
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { AsyncCallback<void> } callback - The callback of combineConference.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -896,13 +928,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function combineConference(callId: number, callback: AsyncCallback<void>): void;
+  function combineConference(callId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Merge calls, merge two calls into conference calls.
    *
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @returns { Promise<void> } The promise returned by the combineConference.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -915,14 +948,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function combineConference(callId: number): Promise<void>;
+  function combineConference(callId: int): Promise<void>;
 
   /**
    * Get the main call Id.
    *
-   * @param { number } callId - Indicates the identifier of the call.
-   * @param { AsyncCallback<number> } callback - Indicates the callback for getting the main call id.
+   * @param { int } callId - Indicates the identifier of the call.
+   * @param { AsyncCallback<int> } callback - Indicates the callback for getting the main call id.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameters types;
@@ -933,14 +967,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function getMainCallId(callId: number, callback: AsyncCallback<number>): void;
+  function getMainCallId(callId: int, callback: AsyncCallback<int>): void;
 
   /**
    * Get the main call Id.
    *
-   * @param { number } callId - Indicates the identifier of the call.
-   * @returns { Promise<number> } Returns the main call id.
+   * @param { int } callId - Indicates the identifier of the call.
+   * @returns { Promise<int> } Returns the main call id.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameters types;
@@ -951,13 +986,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function getMainCallId(callId: number): Promise<number>;
+  function getMainCallId(callId: int): Promise<int>;
 
   /**
    * Get the list of sub-call Ids.
    *
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { AsyncCallback<Array<string>> } callback - Indicates the callback for getting the list of sub call ids.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -969,13 +1005,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function getSubCallIdList(callId: number, callback: AsyncCallback<Array<string>>): void;
+  function getSubCallIdList(callId: int, callback: AsyncCallback<Array<string>>): void;
 
   /**
    * Get the list of sub-call Ids.
    *
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @returns { Promise<Array<string>> } Returns the list of sub call ids.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -987,13 +1024,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function getSubCallIdList(callId: number): Promise<Array<string>>;
+  function getSubCallIdList(callId: int): Promise<Array<string>>;
 
   /**
    * Get the call Id list of the conference.
    *
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { AsyncCallback<Array<string>> } callback - Indicates the callback for getting
    * the call id list of conference calls.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1006,13 +1044,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function getCallIdListForConference(callId: number, callback: AsyncCallback<Array<string>>): void;
+  function getCallIdListForConference(callId: int, callback: AsyncCallback<Array<string>>): void;
 
   /**
    * Get the call Id list of the conference.
    *
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @returns { Promise<Array<string>> } Returns the call id list of conference calls.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1024,14 +1063,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function getCallIdListForConference(callId: number): Promise<Array<string>>;
+  function getCallIdListForConference(callId: int): Promise<Array<string>>;
 
   /**
    * Get call waiting status.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<CallWaitingStatus> } callback - Indicates the callback for getting the call waiting status.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1045,14 +1085,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function getCallWaitingStatus(slotId: number, callback: AsyncCallback<CallWaitingStatus>): void;
+  function getCallWaitingStatus(slotId: int, callback: AsyncCallback<CallWaitingStatus>): void;
 
   /**
    * Get call waiting status.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<CallWaitingStatus> } Returns the callback for getting the call waiting status.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1066,14 +1107,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function getCallWaitingStatus(slotId: number): Promise<CallWaitingStatus>;
+  function getCallWaitingStatus(slotId: int): Promise<CallWaitingStatus>;
 
   /**
    * Set call waiting.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { boolean } activate - Indicates whether to activate or call wait.
    * @param { AsyncCallback<void> } callback - The callback of setCallWaiting.
@@ -1088,14 +1130,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function setCallWaiting(slotId: number, activate: boolean, callback: AsyncCallback<void>): void;
+  function setCallWaiting(slotId: int, activate: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Set call waiting.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { boolean } activate - Indicates whether to activate or call wait.
    * @returns { Promise<void> } The promise returned by the setCallWaiting.
@@ -1110,13 +1153,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function setCallWaiting(slotId: number, activate: boolean): Promise<void>;
+  function setCallWaiting(slotId: int, activate: boolean): Promise<void>;
 
   /**
    * Start DTMF(Dual Tone Multi Frequency).
    *
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { string } character - Indicates the characters sent.
    * @param { AsyncCallback<void> } callback - The callback of startDTMF.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1129,13 +1173,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function startDTMF(callId: number, character: string, callback: AsyncCallback<void>): void;
+  function startDTMF(callId: int, character: string, callback: AsyncCallback<void>): void;
 
   /**
    * Start DTMF(Dual Tone Multi Frequency).
    *
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { string } character - Indicates the characters sent.
    * @returns { Promise<void> } The promise returned by the startDTMF.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1148,13 +1193,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function startDTMF(callId: number, character: string): Promise<void>;
+  function startDTMF(callId: int, character: string): Promise<void>;
 
   /**
    * Stop DTMF(Dual Tone Multi Frequency).
    *
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { AsyncCallback<void> } callback - The callback of stopDTMF.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1166,13 +1212,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function stopDTMF(callId: number, callback: AsyncCallback<void>): void;
+  function stopDTMF(callId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Stop DTMF(Dual Tone Multi Frequency).
    *
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @returns { Promise<void> } The promise returned by the stopDTMF.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1184,14 +1231,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
-  function stopDTMF(callId: number): Promise<void>;
+  function stopDTMF(callId: int): Promise<void>;
 
   /**
    * Continue post-dial DTMF(Dual Tone Multi Frequency).
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { boolean } proceed - Indicates whether to continue the post-dial DTMF.
    * @param { AsyncCallback<void> } callback - The callback of postDialProceed.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1205,14 +1253,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function postDialProceed(callId: number, proceed: boolean, callback: AsyncCallback<void>): void;
+  function postDialProceed(callId: int, proceed: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Continue post-dial DTMF(Dual Tone Multi Frequency).
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { boolean } proceed - Indicates whether to continue the post-dial DTMF.
    * @returns { Promise<void> } The promise returned by the postDialProceed.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1226,8 +1275,9 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function postDialProceed(callId: number, proceed: boolean): Promise<void>;
+  function postDialProceed(callId: int, proceed: boolean): Promise<void>;
 
   /**
    * Judge whether the emergency call is in progress.
@@ -1246,6 +1296,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
   function isInEmergencyCall(callback: AsyncCallback<boolean>): void;
 
@@ -1262,6 +1313,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
   function isInEmergencyCall(): Promise<boolean>;
 
@@ -1534,6 +1586,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   function isNewCallAllowed(callback: AsyncCallback<boolean>): void;
 
@@ -1549,13 +1602,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   function isNewCallAllowed(): Promise<boolean>;
 
   /**
    * Split conference call.
    *
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { AsyncCallback<void> } callback - The callback of separateConference.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1568,13 +1622,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function separateConference(callId: number, callback: AsyncCallback<void>): void;
+  function separateConference(callId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Split conference call.
    *
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @returns { Promise<void> } The promise returned by the separateConference.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1587,14 +1642,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function separateConference(callId: number): Promise<void>;
+  function separateConference(callId: int): Promise<void>;
 
   /**
    * Get call barring status.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { CallRestrictionType } type - Indicates which type of call restriction to obtain.
    * @param { AsyncCallback<RestrictionStatus> } callback - Indicates the callback for getting the call restriction status.
@@ -1609,14 +1665,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function getCallRestrictionStatus(slotId: number, type: CallRestrictionType, callback: AsyncCallback<RestrictionStatus>): void;
+  function getCallRestrictionStatus(slotId: int, type: CallRestrictionType, callback: AsyncCallback<RestrictionStatus>): void;
 
   /**
    * Get call barring status.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { CallRestrictionType } type - Indicates which type of call restriction to obtain.
    * @returns { Promise<RestrictionStatus> } Returns the call restriction status.
@@ -1631,14 +1688,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function getCallRestrictionStatus(slotId: number, type: CallRestrictionType): Promise<RestrictionStatus>;
+  function getCallRestrictionStatus(slotId: int, type: CallRestrictionType): Promise<RestrictionStatus>;
 
   /**
    * Set call barring status.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { CallRestrictionInfo } info - Indicates the set call restriction information.
    * @param { AsyncCallback<void> } callback - The callback of setCallRestriction.
@@ -1653,14 +1711,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function setCallRestriction(slotId: number, info: CallRestrictionInfo, callback: AsyncCallback<void>): void;
+  function setCallRestriction(slotId: int, info: CallRestrictionInfo, callback: AsyncCallback<void>): void;
 
   /**
    * Set call barring status.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { CallRestrictionInfo } info - Indicates the set call restriction information.
    * @returns { Promise<void> } The promise returned by the setCallRestriction.
@@ -1675,14 +1734,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function setCallRestriction(slotId: number, info: CallRestrictionInfo): Promise<void>;
+  function setCallRestriction(slotId: int, info: CallRestrictionInfo): Promise<void>;
 
   /**
    * Set call barring password.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } oldPassword - Indicates the call restriction old password.
    * @param { string } newPassword - Indicates the call restriction new password.
@@ -1698,14 +1758,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
-  function setCallRestrictionPassword(slotId: number, oldPassword: string, newPassword: string, callback: AsyncCallback<void>): void;
+  function setCallRestrictionPassword(slotId: int, oldPassword: string, newPassword: string, callback: AsyncCallback<void>): void;
 
   /**
    * Set call barring password.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } oldPassword - Indicates the call restriction old password.
    * @param { string } newPassword - Indicates the call restriction new password.
@@ -1721,17 +1782,19 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
-  function setCallRestrictionPassword(slotId: number, oldPassword: string, newPassword: string): Promise<void>;
+  function setCallRestrictionPassword(slotId: int, oldPassword: string, newPassword: string): Promise<void>;
 
   /**
    * Get call forwarding information.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { CallTransferType } type - Indicates which type of call forwarding to obtain.
-   * @param { AsyncCallback<CallTransferResult> } callback - Indicates the callback for getting the call forwarding status.
+   * @param { AsyncCallback<CallTransferResult> } callback - Indicates the callback for getting 
+   * the call forwarding status.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1743,14 +1806,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function getCallTransferInfo(slotId: number, type: CallTransferType, callback: AsyncCallback<CallTransferResult>): void;
+  function getCallTransferInfo(slotId: int, type: CallTransferType, callback: AsyncCallback<CallTransferResult>): void;
 
   /**
    * Get call forwarding information.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { CallTransferType } type - Indicates which type of call forwarding to obtain.
    * @returns { Promise<CallTransferResult> } Returns the call forwarding status.
@@ -1765,14 +1829,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function getCallTransferInfo(slotId: number, type: CallTransferType): Promise<CallTransferResult>;
+  function getCallTransferInfo(slotId: int, type: CallTransferType): Promise<CallTransferResult>;
 
   /**
    * Set call forwarding information.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { CallTransferInfo } info - Indicates the set call forwarding information.
    * @param { AsyncCallback<void> } callback - The callback of setCallTransfer.
@@ -1787,14 +1852,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function setCallTransfer(slotId: number, info: CallTransferInfo, callback: AsyncCallback<void>): void;
+  function setCallTransfer(slotId: int, info: CallTransferInfo, callback: AsyncCallback<void>): void;
 
   /**
    * Set call forwarding information.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { CallTransferInfo } info - Indicates the set call forwarding information.
    * @returns { Promise<void> } The promise returned by the setCallTransfer.
@@ -1809,8 +1875,9 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function setCallTransfer(slotId: number, info: CallTransferInfo): Promise<void>;
+  function setCallTransfer(slotId: int, info: CallTransferInfo): Promise<void>;
 
   /**
    * Judge whether there is a ringing call.
@@ -1829,6 +1896,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   function isRinging(callback: AsyncCallback<boolean>): void;
 
@@ -1845,6 +1913,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   function isRinging(): Promise<boolean>;
 
@@ -1862,6 +1931,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   function setMuted(callback: AsyncCallback<void>): void;
 
@@ -1876,6 +1946,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   function setMuted(): Promise<void>;
 
@@ -1893,6 +1964,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   function cancelMuted(callback: AsyncCallback<void>): void;
 
@@ -1907,6 +1979,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   function cancelMuted(): Promise<void>;
 
@@ -1927,6 +2000,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   function setAudioDevice(device: AudioDevice, callback: AsyncCallback<void>): void;
 
@@ -1947,13 +2021,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
   function setAudioDevice(device: AudioDevice): Promise<void>;
 
   /**
    * Join the conference call.
    *
-   * @param { number } mainCallId - Indicates the identifier of the main call.
+   * @param { int } mainCallId - Indicates the identifier of the main call.
    * @param { Array<string> } callNumberList - Indicates a call list.
    * @param { AsyncCallback<void> } callback - The callback of joinConference.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1966,13 +2041,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function joinConference(mainCallId: number, callNumberList: Array<string>, callback: AsyncCallback<void>): void;
+  function joinConference(mainCallId: int, callNumberList: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
    * Join the conference call.
    *
-   * @param { number } mainCallId - Indicates the identifier of the main call.
+   * @param { int } mainCallId - Indicates the identifier of the main call.
    * @param { Array<string> } callNumberList - Indicates a call list.
    * @returns { Promise<void> } The promise returned by the joinConference.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1985,14 +2061,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function joinConference(mainCallId: number, callNumberList: Array<string>): Promise<void>;
+  function joinConference(mainCallId: int, callNumberList: Array<string>): Promise<void>;
 
   /**
    * Kick out call from the conference call.
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { number } callId - Indicates the identifier of the call which kick out.
+   * @param { int } callId - Indicates the identifier of the call which kick out.
    * @param { AsyncCallback<void> } callback - The callback of kickOutFromConference.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -2005,14 +2082,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
-  function kickOutFromConference(callId: number, callback: AsyncCallback<void>): void;
+  function kickOutFromConference(callId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Kick out call from the conference call.
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { number } callId - Indicates the identifier of the call which kick out.
+   * @param { int } callId - Indicates the identifier of the call which kick out.
    * @returns { Promise<void> } The promise returned by the kickOutFromConference.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -2025,13 +2103,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
-  function kickOutFromConference(callId: number): Promise<void>;
+  function kickOutFromConference(callId: int): Promise<void>;
 
   /**
    * Update Ims call mode.
    *
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { ImsCallMode } mode - Indicates the mode of the ims call.
    * @param { AsyncCallback<void> } callback - The callback of updateImsCallMode.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -2044,13 +2123,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function updateImsCallMode(callId: number, mode: ImsCallMode, callback: AsyncCallback<void>): void;
+  function updateImsCallMode(callId: int, mode: ImsCallMode, callback: AsyncCallback<void>): void;
 
   /**
    * Update Ims call mode.
    *
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { ImsCallMode } mode - Indicates the mode of the ims call.
    * @returns { Promise<void> } The promise returned by the updateImsCallMode.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -2063,14 +2143,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function updateImsCallMode(callId: number, mode: ImsCallMode): Promise<void>;
+  function updateImsCallMode(callId: int, mode: ImsCallMode): Promise<void>;
 
   /**
    * Cancel call upgrade when voice call upgrade to video call.
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @returns { Promise<void> } The promise returned by the cancelCallUpgrade.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -2083,14 +2164,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function cancelCallUpgrade(callId: number): Promise<void>;
+  function cancelCallUpgrade(callId: int): Promise<void>;
 
   /**
    * Control camera to open/close/switch camera by cameraId when video call.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { string } cameraId - Indicates the identifier of the camera id.
    * @returns { Promise<void> } The promise returned by the controlCamera.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2104,14 +2186,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function controlCamera(callId: number, cameraId: string): Promise<void>;
+  function controlCamera(callId: int, cameraId: string): Promise<void>;
 
   /**
    * Set preview surface when video call.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { string } surfaceId - Indicates the identifier of the preview surface id.
    * @returns { Promise<void> } The promise returned by the setPreviewWindow.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2125,14 +2208,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function setPreviewSurface(callId: number, surfaceId: string): Promise<void>;
+  function setPreviewSurface(callId: int, surfaceId: string): Promise<void>;
 
   /**
    * Set display surface when video call.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { string } surfaceId - Indicates the identifier of the display surface id.
    * @returns { Promise<void> } The promise returned by the setDisplayWindow.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2146,14 +2230,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function setDisplaySurface(callId: number, surfaceId: string): Promise<void>;
+  function setDisplaySurface(callId: int, surfaceId: string): Promise<void>;
 
   /**
    * Set device direction when video call.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { DeviceDirection } deviceDirection - Indicates the identifier of the direction for the display.
    * @returns { Promise<void> } The promise returned by the setDeviceDirection.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2167,8 +2252,9 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function setDeviceDirection(callId: number, deviceDirection: DeviceDirection): Promise<void>;
+  function setDeviceDirection(callId: int, deviceDirection: DeviceDirection): Promise<void>;
 
   /**
    * Subscribe to the imsCallModeChange event.
@@ -2356,7 +2442,7 @@ declare namespace call {
    * Turn on Ims switch.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<void> } callback - The callback of enableImsSwitch.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2370,14 +2456,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function enableImsSwitch(slotId: number, callback: AsyncCallback<void>): void;
+  function enableImsSwitch(slotId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Turn on Ims switch.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<void> } The promise returned by the enableImsSwitch.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2391,14 +2478,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function enableImsSwitch(slotId: number): Promise<void>;
+  function enableImsSwitch(slotId: int): Promise<void>;
 
   /**
    * Turn off Ims switch.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<void> } callback - The callback of disableImsSwitch.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2412,14 +2500,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function disableImsSwitch(slotId: number, callback: AsyncCallback<void>): void;
+  function disableImsSwitch(slotId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Turn off Ims switch.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<void> } The promise returned by the disableImsSwitch.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2433,13 +2522,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function disableImsSwitch(slotId: number): Promise<void>;
+  function disableImsSwitch(slotId: int): Promise<void>;
 
   /**
    * Judge whether the Ims switch is enabled.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<boolean> } callback - The callback of isImsSwitchEnabled.
    * Returns {@code true} If the ims switch is on; returns {@code false} otherwise.
@@ -2453,13 +2543,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function isImsSwitchEnabled(slotId: number, callback: AsyncCallback<boolean>): void;
+  function isImsSwitchEnabled(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
    * Judge whether the Ims switch is enabled.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<boolean> } Returns {@code true} If the ims switch is on; returns {@code false} otherwise.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -2472,13 +2563,14 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
-  function isImsSwitchEnabled(slotId: number): Promise<boolean>;
+  function isImsSwitchEnabled(slotId: int): Promise<boolean>;
 
   /**
    * Judge whether the Ims switch is enabled.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { boolean } Returns {@code true} If the ims switch is on; returns {@code false} otherwise.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -2491,14 +2583,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 22 static
    */
-  function isImsSwitchEnabledSync(slotId: number): boolean;
+  function isImsSwitchEnabledSync(slotId: int): boolean;
 
   /**
    * Close unfinished ussd.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<void> } callback - The callback of closeUnfinishedUssd.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2512,14 +2605,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
-  function closeUnfinishedUssd(slotId: number, callback: AsyncCallback<void>): void;
+  function closeUnfinishedUssd(slotId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Close unfinished ussd.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<void> } The promise returned by the closeUnfinishedUssd.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2533,14 +2627,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
-  function closeUnfinishedUssd(slotId: number): Promise<void>;
+  function closeUnfinishedUssd(slotId: int): Promise<void>;
 
   /**
    * Set switch state for voice over NR.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { VoNRState } state - Indicates the VoNR state.
    * @param { AsyncCallback<void> } callback - The callback of setVoNRState.
@@ -2555,14 +2650,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
-  function setVoNRState(slotId: number, state: VoNRState, callback: AsyncCallback<void>): void;
+  function setVoNRState(slotId: int, state: VoNRState, callback: AsyncCallback<void>): void;
 
   /**
    * Set switch state for voice over NR.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { VoNRState } state - Indicates the VoNR state.
    * @returns { Promise<void> } The promise returned by the setVoNRState.
@@ -2577,14 +2673,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
-  function setVoNRState(slotId: number, state: VoNRState): Promise<void>;
+  function setVoNRState(slotId: int, state: VoNRState): Promise<void>;
 
   /**
    * Get switch state for voice over NR.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<VoNRState> } callback - Indicates the callback for getVoNRState.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2598,14 +2695,15 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
-  function getVoNRState(slotId: number, callback: AsyncCallback<VoNRState>): void;
+  function getVoNRState(slotId: int, callback: AsyncCallback<VoNRState>): void;
 
   /**
    * Get switch state for voice over NR.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<VoNRState> } Returns the VoNR state.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2619,8 +2717,9 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
-  function getVoNRState(slotId: number): Promise<VoNRState>;
+  function getVoNRState(slotId: int): Promise<VoNRState>;
 
   /**
    * Checks whether can set call transfer time.
@@ -2628,7 +2727,7 @@ declare namespace call {
    * The system checks whether IP multimedia subsystem domain (IMS) can set call transfer time.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<boolean> } callback - Returns {@code true} if the device can set call transfer time;
    * returns {@code false} otherwise.
@@ -2643,8 +2742,9 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
-  function canSetCallTransferTime(slotId: number, callback: AsyncCallback<boolean>): void;
+  function canSetCallTransferTime(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks whether can set call transfer time.
@@ -2652,7 +2752,7 @@ declare namespace call {
    * The system checks whether IP multimedia subsystem domain (IMS) can set call transfer time.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<boolean> } Returns {@code true} if the device can set call transfer time;
    * returns {@code false} otherwise.
@@ -2667,8 +2767,9 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
-  function canSetCallTransferTime(slotId: number): Promise<boolean>;
+  function canSetCallTransferTime(slotId: int): Promise<boolean>;
 
   /**
    * Enters the special code on the keypad.
@@ -2686,6 +2787,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
   function inputDialerSpecialCode(inputCode: string, callback: AsyncCallback<void>): void;
 
@@ -2705,6 +2807,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
   function inputDialerSpecialCode(inputCode: string): Promise<void>;
 
@@ -2724,6 +2827,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
   function removeMissedIncomingCallNotification(callback: AsyncCallback<void>): void;
 
@@ -2741,6 +2845,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
   function removeMissedIncomingCallNotification(): Promise<void>;
 
@@ -2748,7 +2853,7 @@ declare namespace call {
    * Send call ui event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } callId - Indicates the identifier of the call.
+   * @param { int } callId - Indicates the identifier of the call.
    * @param { string } eventName - Indicates the event name.
    * @returns { Promise<void> } The promise returned by the sendCallUiEvent.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2762,8 +2867,9 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 22 static
    */
-  function sendCallUiEvent(callId: number, eventName: string): Promise<void>;
+  function sendCallUiEvent(callId: int, eventName: string): Promise<void>;
 
   /**
    * Indicates the mode of the ims call.
@@ -2772,6 +2878,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   export enum ImsCallMode {
     /**
@@ -2780,6 +2887,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     CALL_MODE_AUDIO_ONLY = 0,
 
@@ -2789,6 +2897,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     CALL_MODE_SEND_ONLY,
 
@@ -2798,6 +2907,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     CALL_MODE_RECEIVE_ONLY,
 
@@ -2807,6 +2917,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     CALL_MODE_SEND_RECEIVE,
 
@@ -2816,6 +2927,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     CALL_MODE_VIDEO_PAUSED,
   }
@@ -2823,10 +2935,11 @@ declare namespace call {
   /**
    * Indicates the VoNR state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
   export enum VoNRState {
     /**
@@ -2835,6 +2948,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 22 static
      */
     VONR_STATE_OFF = 0,
 
@@ -2844,6 +2958,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 22 static
      */
     VONR_STATE_ON = 1,
   }
@@ -2851,7 +2966,7 @@ declare namespace call {
   /**
    * Indicates the device type of the audio device.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -3000,10 +3115,11 @@ declare namespace call {
   /**
    * Indicates the type of call restriction.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   export enum CallRestrictionType {
     /**
@@ -3012,6 +3128,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     RESTRICTION_TYPE_ALL_INCOMING = 0,
 
@@ -3021,6 +3138,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     RESTRICTION_TYPE_ALL_OUTGOING,
 
@@ -3030,6 +3148,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     RESTRICTION_TYPE_INTERNATIONAL,
 
@@ -3039,6 +3158,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     RESTRICTION_TYPE_INTERNATIONAL_EXCLUDING_HOME,
 
@@ -3048,6 +3168,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     RESTRICTION_TYPE_ROAMING_INCOMING,
 
@@ -3057,6 +3178,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     RESTRICTION_TYPE_ALL_CALLS,
 
@@ -3066,6 +3188,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     RESTRICTION_TYPE_OUTGOING_SERVICES,
 
@@ -3075,6 +3198,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     RESTRICTION_TYPE_INCOMING_SERVICES,
   }
@@ -3086,6 +3210,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   export interface CallTransferInfo {
     /**
@@ -3095,6 +3220,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     transferNum: string;
 
@@ -3105,6 +3231,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     type: CallTransferType;
 
@@ -3115,57 +3242,63 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     settingType: CallTransferSettingType;
 
     /**
      * Start time hours.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
-    startHour?: number;
+    startHour?: int;
 
     /**
      * Start time minutes.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
-    startMinute?: number;
+    startMinute?: int;
 
     /**
      * End time hours.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
-    endHour?: number;
+    endHour?: int;
 
     /**
      * End time minutes.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
-    endMinute?: number;
+    endMinute?: int;
   }
 
   /**
    * Indicates the type of call transfer.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   export enum CallTransferType {
     /**
@@ -3174,6 +3307,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     TRANSFER_TYPE_UNCONDITIONAL = 0,
 
@@ -3183,6 +3317,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     TRANSFER_TYPE_BUSY,
 
@@ -3192,6 +3327,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     TRANSFER_TYPE_NO_REPLY,
 
@@ -3201,6 +3337,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     TRANSFER_TYPE_NOT_REACHABLE,
   }
@@ -3208,10 +3345,11 @@ declare namespace call {
   /**
    * Indicates the type of call transfer setting.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   export enum CallTransferSettingType {
     /**
@@ -3220,6 +3358,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     CALL_TRANSFER_DISABLE = 0,
 
@@ -3229,6 +3368,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     CALL_TRANSFER_ENABLE = 1,
 
@@ -3238,6 +3378,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     CALL_TRANSFER_REGISTRATION = 3,
 
@@ -3247,6 +3388,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     CALL_TRANSFER_ERASURE = 4,
   }
@@ -3268,6 +3410,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
     accountNumber: string;
 
@@ -3278,18 +3421,20 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
     speakerphoneOn: boolean;
 
     /**
      * Indicates the id of account.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
-    accountId: number;
+    accountId: int;
 
     /**
      * Indicates the type of video state.
@@ -3298,18 +3443,20 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
     videoState: VideoStateType;
 
     /**
      * Indicates the start time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
-    startTime: number;
+    startTime: int;
 
     /**
      * Indicates if this is an emergency call.
@@ -3318,6 +3465,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
     isEcc: boolean;
 
@@ -3335,13 +3483,13 @@ declare namespace call {
     /**
      * Indicates the id of call.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
      * @since 22 static
      */
-    callId: number;
+    callId: int;
 
     /**
      * Indicates the detailed state of call.
@@ -3361,6 +3509,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
     conferenceState: ConferenceState;
 
@@ -3371,28 +3520,31 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     voipCallAttribute?: VoipCallAttribute;
 
     /**
      * Indicates the color tone type.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
-    crsType: number;
-  
+    crsType: int;
+
     /**
      * Indicates the initial type of this call.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
-    originalCallType: number;
+    originalCallType: int;
 
     /**
      * Indicates the location of the phone number.
@@ -3401,6 +3553,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     numberLocation?: string;
 
@@ -3411,6 +3564,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     numberMarkInfo?: NumberMarkInfo;
 
@@ -3421,6 +3575,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
+     * @since 22 static
      */
     extraParams?: Record<string, Object>;
   }
@@ -3432,6 +3587,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
   export interface VoipCallAttribute {
     /**
@@ -3441,6 +3597,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     voipCallId: string;
 
@@ -3451,6 +3608,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     userName: string;
 
@@ -3461,6 +3619,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     userProfile: image.PixelMap;
 
@@ -3471,6 +3630,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     extensionId: string;
 
@@ -3481,6 +3641,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     abilityName: string;
 
@@ -3491,6 +3652,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     voipBundleName: string;
 
@@ -3501,9 +3663,10 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     showBannerForIncomingCall?: boolean;
-  
+
     /**
      * Indicates whether the VoIP call is a conference call. Default value is false.
      *
@@ -3511,9 +3674,10 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     isConferenceCall?: boolean;
-  
+
     /**
      * Indicates whether the VoIP incoming video call is support voice answer. Default value is true.
      *
@@ -3521,6 +3685,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     isVoiceAnswerSupported?: boolean;
   }
@@ -3528,10 +3693,11 @@ declare namespace call {
   /**
    * Indicates the state of conference call.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
   export enum ConferenceState {
     /**
@@ -3540,6 +3706,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
     TEL_CONFERENCE_IDLE = 0,
 
@@ -3549,6 +3716,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
     TEL_CONFERENCE_ACTIVE,
 
@@ -3558,6 +3726,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
     TEL_CONFERENCE_DISCONNECTING,
 
@@ -3567,6 +3736,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
     TEL_CONFERENCE_DISCONNECTED,
   }
@@ -3574,7 +3744,7 @@ declare namespace call {
   /**
    * Indicates the type of call.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -3635,10 +3805,11 @@ declare namespace call {
   /**
    * Indicates the type of video state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
   export enum VideoStateType {
     /**
@@ -3647,6 +3818,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
     TYPE_VOICE = 0,
     /**
@@ -3665,6 +3837,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     TYPE_VIDEO_SEND_ONLY = 1,
     /**
@@ -3673,6 +3846,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     TYPE_VIDEO_RECEIVE_ONLY,
     /**
@@ -3681,6 +3855,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     TYPE_VIDEO_BIDIRECTIONAL,
   }
@@ -3688,10 +3863,11 @@ declare namespace call {
   /**
    * Indicates the type of video request result.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
   export enum VideoRequestResultType {
     /**
@@ -3700,6 +3876,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     TYPE_REQUEST_SUCCESS = 0,
     /**
@@ -3708,6 +3885,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     TYPE_REQUEST_FAILURE,
     /**
@@ -3716,6 +3894,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     TYPE_REQUEST_INVALID,
     /**
@@ -3724,6 +3903,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     TYPE_REQUEST_TIMED_OUT,
     /**
@@ -3732,6 +3912,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     TYPE_REQUEST_REJECTED_BY_REMOTE,
     /**
@@ -3740,6 +3921,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     TYPE_REQUEST_UPGRADE_CANCELED,
     /**
@@ -3748,6 +3930,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     TYPE_DOWNGRADE_RTP_OR_RTCP_TIMEOUT = 100,
     /**
@@ -3756,6 +3939,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     TYPE_DOWNGRADE_RTP_AND_RTCP_TIMEOUT,
   }
@@ -3763,10 +3947,11 @@ declare namespace call {
   /**
    * Indicates the type of device direction.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
   export enum DeviceDirection {
     /**
@@ -3775,6 +3960,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     DEVICE_DIRECTION_0 = 0,
     /**
@@ -3783,6 +3969,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     DEVICE_DIRECTION_90 = 90,
     /**
@@ -3791,6 +3978,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     DEVICE_DIRECTION_180 = 180,
     /**
@@ -3799,6 +3987,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     DEVICE_DIRECTION_270 = 270,
   }
@@ -3806,10 +3995,11 @@ declare namespace call {
   /**
    * Indicates the type of video call event.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
   export enum CallSessionEventId {
     /**
@@ -3818,6 +4008,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     EVENT_CONTROL_CAMERA_FAILURE = 0,
     /**
@@ -3826,6 +4017,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     EVENT_CONTROL_CAMERA_READY,
     /**
@@ -3834,6 +4026,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     EVENT_DISPLAY_SURFACE_RELEASED = 100,
     /**
@@ -3842,6 +4035,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     EVENT_PREVIEW_SURFACE_RELEASED,
   }
@@ -3849,7 +4043,7 @@ declare namespace call {
   /**
    * Indicates the detailed state of call.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -3954,6 +4148,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   export interface CallRestrictionInfo {
     /**
@@ -3963,6 +4158,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     type: CallRestrictionType;
 
@@ -3973,6 +4169,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     password: string;
 
@@ -3983,6 +4180,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     mode: CallRestrictionMode;
   }
@@ -3990,10 +4188,11 @@ declare namespace call {
   /**
    * Indicates the mode of call restriction.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   export enum CallRestrictionMode {
     /**
@@ -4002,6 +4201,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     RESTRICTION_MODE_DEACTIVATION = 0,
 
@@ -4011,6 +4211,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     RESTRICTION_MODE_ACTIVATION,
   }
@@ -4040,7 +4241,7 @@ declare namespace call {
   /**
    * Indicates the event ID of call ability.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -4131,7 +4332,7 @@ declare namespace call {
   /**
    * Indicates the states of call.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamic
    * @since 22 static
@@ -4187,7 +4388,7 @@ declare namespace call {
   /**
    * Indicates the states of telCall.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @since 21 dynamic
    * @since 22 static
@@ -4316,18 +4517,20 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   export interface DialCallOptions {
     /**
      * Indicates the card slot index number, ranging from 0 to the maximum card slot index number
      * supported by the device.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
-    accountId?: number;
+    accountId?: int;
     /**
      * Indicates the type of Video state.
      *
@@ -4335,6 +4538,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     videoState?: VideoStateType;
     /**
@@ -4344,6 +4548,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     dialScene?: DialScene;
     /**
@@ -4353,6 +4558,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     dialType?: DialType;
     /**
@@ -4362,6 +4568,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
+     * @since 22 static
      */
     extraParams?: Record<string, Object>;
   }
@@ -4369,10 +4576,11 @@ declare namespace call {
   /**
    * Indicates the scenarios of the call to be made.
    *
-   * @enum { number }
+   * @enum {int}
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   export enum DialScene {
     /**
@@ -4381,6 +4589,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     CALL_NORMAL = 0,
 
@@ -4390,6 +4599,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     CALL_PRIVILEGED = 1,
 
@@ -4399,6 +4609,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     CALL_EMERGENCY = 2,
   }
@@ -4406,10 +4617,11 @@ declare namespace call {
   /**
    * Indicates the types of the call to be made.
    *
-   * @enum { number }
+   * @enum {int}
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   export enum DialType {
     /**
@@ -4418,6 +4630,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     DIAL_CARRIER_TYPE = 0,
 
@@ -4427,6 +4640,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     DIAL_VOICE_MAIL_TYPE = 1,
 
@@ -4436,6 +4650,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     DIAL_OTT_TYPE = 2,
   }
@@ -4447,6 +4662,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
   export interface RejectMessageOptions {
     /**
@@ -4456,6 +4672,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
     messageContent: string;
   }
@@ -4467,6 +4684,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   export interface CallTransferResult {
     /**
@@ -4476,6 +4694,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     status: TransferStatus;
 
@@ -4502,51 +4721,56 @@ declare namespace call {
     /**
      * Indicates the start time hours of call forwarding.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
-    startHour: number;
+    startHour: int;
 
     /**
      * Indicates the start time minutes of call forwarding.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
-    startMinute: number;
+    startMinute: int;
 
     /**
      * Indicates the end time hours of call forwarding.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
-    endHour: number;
+    endHour: int;
 
     /**
      * Indicates the end time minutes of call forwarding.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
-    endMinute: number;
+    endMinute: int;
   }
 
   /**
    * Indicates the status of call waiting.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
   export enum CallWaitingStatus {
     /**
@@ -4555,6 +4779,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
     CALL_WAITING_DISABLE = 0,
 
@@ -4564,6 +4789,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 22 static
      */
     CALL_WAITING_ENABLE = 1
   }
@@ -4571,10 +4797,11 @@ declare namespace call {
   /**
    * Indicates the status of call restriction.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   export enum RestrictionStatus {
     /**
@@ -4583,6 +4810,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     RESTRICTION_DISABLE = 0,
 
@@ -4592,6 +4820,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     RESTRICTION_ENABLE = 1
   }
@@ -4599,10 +4828,11 @@ declare namespace call {
   /**
    * Indicates the status of call transfer.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 22 static
    */
   export enum TransferStatus {
     /**
@@ -4611,6 +4841,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     TRANSFER_DISABLE = 0,
 
@@ -4620,6 +4851,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 22 static
      */
     TRANSFER_ENABLE = 1
   }
@@ -4630,17 +4862,19 @@ declare namespace call {
    * @interface EmergencyNumberOptions
    * @syscap SystemCapability.Telephony.CallManager
    * @since 7 dynamic
+   * @since 22 static
    */
   export interface EmergencyNumberOptions {
     /**
      * Indicates the card slot index number, ranging from 0 to the
      * maximum card slot index number supported by the device.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Telephony.CallManager
      * @since 7 dynamic
+     * @since 22 static
      */
-    slotId?: number;
+    slotId?: int;
   }
 
   /**
@@ -4699,7 +4933,7 @@ declare namespace call {
   /**
    * Indicates the MMI code result.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -4730,7 +4964,7 @@ declare namespace call {
   /**
    * Indicates the causes of call disconnection.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -5573,13 +5807,13 @@ declare namespace call {
     /**
      * Indicates the id of call.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
      * @since 22 static
      */
-    callId: number;
+    callId: int;
     /**
      * Indicates the request result.
      *
@@ -5587,6 +5821,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     result: VideoRequestResultType;
     /**
@@ -5596,6 +5831,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     isRequestInfo: boolean;
     /**
@@ -5605,6 +5841,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     imsCallMode: ImsCallMode;
   }
@@ -5622,13 +5859,13 @@ declare namespace call {
     /**
      * Indicates the id of call.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
      * @since 22 static
      */
-    callId: number;
+    callId: int;
     /**
      * Indicates the event id of video call.
      *
@@ -5636,6 +5873,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
     eventId: CallSessionEventId;
   }
@@ -5653,31 +5891,33 @@ declare namespace call {
     /**
      * Indicates the id of call.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
      * @since 22 static
      */
-    callId: number;
+    callId: int;
     /**
      * Indicates the peer dimensions width.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
-    width: number;
+    width: int;
     /**
      * Indicates the the peer dimensions height.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
-    height: number;
+    height: int;
   }
 
   /**
@@ -5693,31 +5933,33 @@ declare namespace call {
     /**
      * Indicates the id of call.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
      * @since 22 static
      */
-    callId: number;
+    callId: int;
     /**
      * Indicates the camera width.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
-    width: number;
+    width: int;
     /**
      * Indicates the the camera height.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
+     * @since 22 static
      */
-    height: number;
+    height: int;
   }
 
   /**
@@ -5727,6 +5969,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 22 static
    */
   export interface NumberMarkInfo {
     /**
@@ -5736,6 +5979,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     markType: MarkType;
 
@@ -5746,18 +5990,20 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     markContent?: string;
 
     /**
      * Indicates the count of number mark.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
-    markCount?: number;
+    markCount?: int;
 
     /**
      * Indicates the source of number mark.
@@ -5766,6 +6012,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     markSource?: string;
 
@@ -5776,6 +6023,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     isCloud?: boolean;
 
@@ -5786,6 +6034,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
+     * @since 22 static
      */
     markDetails?: string;
   }
@@ -5793,10 +6042,11 @@ declare namespace call {
   /**
    * Indicates the type of the number mark.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 22 static
    */
   export enum MarkType {
     /**
@@ -5805,6 +6055,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     MARK_TYPE_NONE = 0,
 
@@ -5814,6 +6065,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     MARK_TYPE_CRANK = 1,
 
@@ -5823,6 +6075,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     MARK_TYPE_FRAUD = 2,
 
@@ -5832,6 +6085,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     MARK_TYPE_EXPRESS = 3,
 
@@ -5841,6 +6095,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     MARK_TYPE_PROMOTE_SALES = 4,
 
@@ -5850,6 +6105,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     MARK_TYPE_HOUSE_AGENT = 5,
 
@@ -5859,6 +6115,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     MARK_TYPE_INSURANCE = 6,
 
@@ -5868,6 +6125,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     MARK_TYPE_TAXI = 7,
 
@@ -5877,6 +6135,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     MARK_TYPE_CUSTOM = 8,
 
@@ -5886,6 +6145,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     MARK_TYPE_OTHERS = 9,
 
@@ -5895,6 +6155,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     MARK_TYPE_YELLOW_PAGE = 10,
 
@@ -5904,6 +6165,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
+     * @since 22 static
      */
     MARK_TYPE_ENTERPRISE = 11
   }

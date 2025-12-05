@@ -24,6 +24,7 @@
  * During compilation, compatibility checks will be triggered. If minApiVersion exceeds the compatibleSDKVersion specified in build-profile.json5,
  * a compatibility warning will be generated.
  * @syscap SystemCapability.Base
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -34,10 +35,11 @@ export @interface Available {
    * minApiVersion is used to indicate the minimum Available version. Composed of two parts: System Type + Version Number. The system type can be omitted only when the type is OpenHarmony.For example: 'OpenHarmony 20' '20'
    * @type { string }
    * @syscap SystemCapability.Base
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
    * @since 22
    */
-  minApiVersion: string = ''
+  minApiVersion: string = '';
 }

@@ -18,6 +18,10 @@
  * @kit BasicServicesKit
  */
 
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
+
 /**
  * The CommonEventPublishData module provides APIs for defining common event content and attributes.
  *
@@ -170,9 +174,9 @@ export interface CommonEventPublishData {
   /**
    * The description of the parameters in a common event.
    *
-   * @type { ?Record<string, Object> }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 22 static
    */
-  parameters?: Record<string, Object>;
+  parameters?: Record<string, RecordData>;
 }

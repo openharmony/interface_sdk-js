@@ -19,6 +19,7 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
+import type insightIntent from './@ohos.app.ability.insightIntent';
 import type Want from './@ohos.app.ability.Want';
 
 /**
@@ -31,6 +32,18 @@ import type Want from './@ohos.app.ability.Want';
  * @since 22 static
  */
 declare class InsightIntentContext {
+
+  /**
+   * The insight intent instance ID.
+   * 
+   * @type { int }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  instanceId: int;
+
   /**
    * Starts a new ability.
    * This interface only allows you to start abilities within the same bundle and specify the bundleName.
@@ -92,6 +105,42 @@ declare class InsightIntentContext {
    * @since 22 static
    */
   startAbility(want: Want): Promise<void>;
+
+  /**
+   * Set the return mode for the current insight intent execution in UIAbility foreground insight intent execute mode.
+   * 
+   * When configured to {@link insightIntent#ReturnMode#CALLBACK}, results are returned through the
+   * onExecuteInUIAbilityForegroundMode/onExecute.
+   * When configured to {@link insightIntent#ReturnMode#FUNCTION}, results are returned via the
+   * sendExecuteResult/sendIntentResult interface.
+   * 
+   * @param { insightIntent.ReturnMode } returnMode - Indicates the return mode.
+   * @throws { BusinessError } 16000011 - The context does not exist. Possible causes: 1.The context is
+   *     not insightIntentContext; 2.The context is not for UIAbility foreground insight intent execute mode.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  setReturnModeForUIAbilityForeground(returnMode: insightIntent.ReturnMode): void;
+
+  /**
+   * Set the return mode for the current insight intent execution in UIExtensionAbility insight intent execute mode.
+   * 
+   * When configured to {@link insightIntent#ReturnMode#CALLBACK}, results are returned through the
+   * onExecuteInUIExtensionAbility/onExecute. 
+   * When configured to {@link insightIntent#ReturnMode#FUNCTION}, results are returned via the
+   * sendExecuteResult/sendIntentResult interface.
+   * 
+   * @param { insightIntent.ReturnMode } returnMode - Indicates the return mode.
+   * @throws { BusinessError } 16000011 - The context does not exist. Possible causes: 1.The context is not
+   *     insightIntentContext; 2.The context is not for UIExtensionAbility insight intent execute mode.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  setReturnModeForUIExtensionAbility(returnMode: insightIntent.ReturnMode): void;
 }
 
 export default InsightIntentContext;

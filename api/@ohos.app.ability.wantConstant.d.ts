@@ -379,6 +379,7 @@ declare namespace wantConstant {
     *
     * @syscap SystemCapability.Ability.AbilityBase
     * @since 19 dynamic
+    * @since 22 static
     */
     DESTINATION_PLUGIN_ABILITY = 'ohos.params.pluginAbility',
 
@@ -388,6 +389,7 @@ declare namespace wantConstant {
     * @syscap SystemCapability.Ability.AbilityBase
     * @atomicservice
     * @since 17 dynamic
+    * @since 22 static
     */
     APP_LAUNCH_TRUSTLIST = 'ohos.params.appLaunchTrustList',
 
@@ -397,6 +399,7 @@ declare namespace wantConstant {
     * @syscap SystemCapability.Ability.AbilityBase
     * @atomicservice
     * @since 20 dynamic
+    * @since 22 static
     */
     ABILITY_UNIFIED_DATA_KEY = 'ohos.param.ability.udKey',
 
@@ -406,6 +409,7 @@ declare namespace wantConstant {
     * @syscap SystemCapability.Ability.AbilityBase
     * @atomicservice
     * @since 20 dynamic
+    * @since 22 static
     */
     ATOMIC_SERVICE_SHARE_ROUTER = 'ohos.params.atomicservice.shareRouter'
   }
