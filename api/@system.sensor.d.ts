@@ -686,6 +686,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#ACCELEROMETER
    */
   static subscribeAccelerometer(options: subscribeAccelerometerOptions): void;
@@ -697,6 +698,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#ACCELEROMETER
    */
   static unsubscribeAccelerometer(): void;
@@ -776,6 +778,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#PEDOMETER
    */
   static subscribeStepCounter(options: SubscribeStepCounterOptions): void;
@@ -787,6 +790,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#PEDOMETER
    */
   static unsubscribeStepCounter(): void;
@@ -799,6 +803,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#BAROMETER
    */
   static subscribeBarometer(options: SubscribeBarometerOptions): void;
@@ -809,6 +814,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#BAROMETER
    */
   static unsubscribeBarometer(): void;
@@ -822,6 +828,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#HEART_RATE
    */
   static subscribeHeartRate(options: SubscribeHeartRateOptions): void;
@@ -833,6 +840,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#HEART_RATE
    */
   static unsubscribeHeartRate(): void;
@@ -845,6 +853,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#WEAR_DETECTION
    */
   static subscribeOnBodyState(options: SubscribeOnBodyStateOptions): void;
@@ -855,6 +864,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#WEAR_DETECTION
    */
   static unsubscribeOnBodyState(): void;
@@ -866,6 +876,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#WEAR_DETECTION
    */
   static getOnBodyState(options: GetOnBodyStateOptions): void;
@@ -901,6 +912,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#GYROSCOPE
    */
   static subscribeGyroscope(options: SubscribeGyroscopeOptions): void;
@@ -912,6 +924,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#GYROSCOPE
    */
   static unsubscribeGyroscope(): void;
