@@ -231,7 +231,7 @@ declare namespace intelligence {
      * @since 15 dynamic
      * @since 22 static
      */
-    getEmbedding(image: string): Promise<Array<number>>;
+    getEmbedding(image: string): Promise<Array<double>>;
   }
 
   /**
