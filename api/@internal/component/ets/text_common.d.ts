@@ -2138,7 +2138,25 @@ declare enum TextDirection {
    * @atomicservice
    * @since 22 dynamic
    */
-  RTL = 1
+  RTL = 1,
+  /**
+   * The text direction follows the component layout.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  DEFAULT = 2,
+  /**
+   * The text direction follows the actual text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  AUTO = 3
 }
 
 /**

@@ -1123,3 +1123,41 @@ export declare interface SelectedDragPreviewStyle {
      */
   color?: ResourceColor;
 }
+
+/**
+ * Defines text direction.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export declare enum TextDirection {
+    /**
+     * Left to right.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    LTR = 0,
+    /**
+     * Right to left.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    RTL = 1,
+    /**
+     * The text direction follows the component layout.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    DEFAULT = 2,
+    /**
+     * The text direction follows the actual text.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    AUTO = 3
+}

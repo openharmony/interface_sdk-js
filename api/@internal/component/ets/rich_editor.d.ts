@@ -690,6 +690,17 @@ declare interface RichEditorParagraphStyle {
    * @since 19 dynamic
    */
   paragraphSpacing?: number;
+
+  /**
+   * Text direction, the default value is TextDirection.DEFAULT.
+   *
+   * @type { ?TextDirection } - the text direction of the paragraph.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  textDirection?: TextDirection;
 }
 
 /**

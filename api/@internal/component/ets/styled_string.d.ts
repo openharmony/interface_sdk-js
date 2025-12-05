@@ -1080,6 +1080,18 @@ declare class ParagraphStyle {
      * @since 22 dynamic
      */
     readonly leadingMarginSpan?: LeadingMarginSpan;
+
+    /**
+     * Get the text direction of the StyledString.
+     *
+     * @type { ?TextDirection } - the text direction of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    readonly textDirection?: TextDirection;
 }
 
 /**
@@ -1190,6 +1202,17 @@ declare interface ParagraphStyleInterface {
      * @since 22 dynamic
      */
     leadingMarginSpan?: LeadingMarginSpan;
+
+    /**
+     * Set the text direction of the StyledString.
+     *
+     * @type { ?TextDirection }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    textDirection?: TextDirection;
 }
 
 /**
