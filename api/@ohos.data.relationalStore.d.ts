@@ -9293,7 +9293,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Poss the updated data does not exist.
+     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
@@ -10150,7 +10150,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     *     Poss the updated data does not exist.
+     *     Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
