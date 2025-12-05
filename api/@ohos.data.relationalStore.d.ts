@@ -2139,22 +2139,22 @@ declare namespace relationalStore {
   }
 
   /**
-  * Configuration items for the specified returning-related interfaces.
-  * @interface ReturningConfig
-  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-  * @stagemodelonly
-  * @crossplatform
-  * @since 23 dynamic&static
-  */
+   * Configuration items for the specified returning-related interfaces.
+   * @interface ReturningConfig
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @since 23 dynamic&static
+   */
   interface ReturningConfig {
     /**
-    * Indicates the changed fields that need to be returning.
-    * @type { Array<string> }
-    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-    * @stagemodelonly
-    * @crossplatform
-    * @since 23 dynamic&static
-    */
+     * Indicates the changed fields that need to be returning.
+     * @type { Array<string> }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
     columns: Array<string>;
 
     /**
@@ -2170,23 +2170,23 @@ declare namespace relationalStore {
   }
 
   /**
-  * Entries recording data changes and fields that have been modified.
-  * @interface ResultSet
-  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-  * @stagemodelonly
-  * @crossplatform
-  * @since 23 dynamic&static
-  */
+   * Entries recording data changes and fields that have been modified.
+   * @interface ResultSet
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @since 23 dynamic&static
+   */
   interface Result {
     /**
-    * Indicates the number of rows affected by this operation.
-    * @type { long }
-    * @readonly
-    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-    * @stagemodelonly
-    * @crossplatform
-    * @since 23 dynamic&static
-    */
+     * Indicates the number of rows affected by this operation.
+     * @type { long }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
     readonly changed: long;
 
     /**
