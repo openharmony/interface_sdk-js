@@ -265,14 +265,38 @@ declare namespace dlpPermission {
    * @returns { Promise<boolean> } Returns {@code true} if {@link fd} is a DLP file; returns {@code false} otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
+  /**
+   * Checks whether a file is a DLP file. This method uses a promise to return the result.
+   *
+   * @param { number } fd - Indicates the file descriptor of the file to check.
+   * @returns { Promise<boolean> } Returns {@code true} if {@link fd} is a DLP file; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 23
+   */
   function isDLPFile(fd: number): Promise<boolean>;
 
+  /**
+   * Checks whether a file is a DLP file. This method uses an asynchronous callback to return the result.
+   *
+   * @param { number } fd - Indicates the file descriptor of the file to check.
+   * @param { AsyncCallback<boolean> } callback - Indicates the callback of isDLPFile.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Checks whether a file is a DLP file. This method uses an asynchronous callback to return the result.
    *
@@ -284,10 +308,21 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function isDLPFile(fd: number, callback: AsyncCallback<boolean>): void;
 
+  /**
+   * Obtains the permission info of this DLP file. This method uses a promise to return the result.
+   *
+   * @returns { Promise<DLPPermissionInfo> } Returns the {@link DLPPermissionInfo}.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100006 - No permission to call this API,
+   *     which is available only for DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Obtains the permission info of this DLP file. This method uses a promise to return the result.
    *
@@ -298,10 +333,22 @@ declare namespace dlpPermission {
    *     which is available only for DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getDLPPermissionInfo(): Promise<DLPPermissionInfo>;
 
+  /**
+   * Obtains the permission info of this DLP file. This method uses an asynchronous callback to return the result.
+   *
+   * @param { AsyncCallback<DLPPermissionInfo> } callback - Indicates the callback of getDLPPermissionInfo.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100006 - No permission to call this API,
+   *     which is available only for DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Obtains the permission info of this DLP file. This method uses an asynchronous callback to return the result.
    *
@@ -313,10 +360,20 @@ declare namespace dlpPermission {
    *     which is available only for DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getDLPPermissionInfo(callback: AsyncCallback<DLPPermissionInfo>): void;
 
+  /**
+   * Obtains the original file name from a DLP file name. This method removes the DLP file name extension from the DLP file name.
+   *
+   * @param { string } fileName - Indicates the DLP file name.
+   * @returns { string } Returns the original file name obtained.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Obtains the original file name from a DLP file name. This method removes the DLP file name extension from the DLP file name.
    *
@@ -326,7 +383,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getOriginalFileName(fileName: string): string;
 
@@ -334,13 +391,36 @@ declare namespace dlpPermission {
    * Obtains the DLP file name extension.
    *
    * @returns { string } Returns the DLP file name extension obtained.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
+  /**
+   * Obtains the DLP file name extension.
+   *
+   * @returns { string } Returns the DLP file name extension obtained.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 23
+   */
   function getDLPSuffix(): string;
 
+  /**
+   * Subscribes to the event reported when a DLP file is opened by current application.
+   *
+   * @param { 'openDLPFile' } type - Indicates the type of the event to subscribe to.
+   *     The value of type must be openDLPFile.
+   * @param { Callback<AccessedDLPFileInfo> } listener - Indicates the callback invoked when a DLP file is opened by current application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Subscribes to the event reported when a DLP file is opened by current application.
    *
@@ -355,10 +435,25 @@ declare namespace dlpPermission {
    *     which is available only for non-DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function on(type: 'openDLPFile', listener: Callback<AccessedDLPFileInfo>): void;
 
+  /**
+   * Unsubscribes from the event reported when a DLP file is opened by current application.
+   *
+   * @param { 'openDLPFile' } type - Indicates the type of the event to unsubscribe from.
+   *     The value of type must be openDLPFile.
+   * @param { Callback<AccessedDLPFileInfo> } listener - Indicates the callback invoked when a DLP file is opened by current application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Unsubscribes from the event reported when a DLP file is opened by current application.
    *
@@ -373,10 +468,19 @@ declare namespace dlpPermission {
    *     which is available only for non-DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function off(type: 'openDLPFile', listener?: Callback<AccessedDLPFileInfo>): void;
 
+  /**
+   * Checks whether current application is in the DLP sandbox. This method uses a promise to return the result.
+   *
+   * @returns { Promise<boolean> } Returns {@code true} if current application is in a DLP sandbox; returns {@code false} otherwise.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Checks whether current application is in the DLP sandbox. This method uses a promise to return the result.
    *
@@ -385,10 +489,20 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function isInSandbox(): Promise<boolean>;
 
+  /**
+   * Checks whether current application is in the DLP sandbox. This method uses an asynchronous callback to return the result.
+   *
+   * @param { AsyncCallback<boolean> } callback - Indicates the callback of isInSandbox.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Checks whether current application is in the DLP sandbox. This method uses an asynchronous callback to return the result.
    *
@@ -398,10 +512,19 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function isInSandbox(callback: AsyncCallback<boolean>): void;
 
+  /**
+   * Obtains the file types supported by DLP. This method uses a promise to return the result.
+   *
+   * @returns { Promise<Array<string>> } Returns the list of file types supported.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Obtains the file types supported by DLP. This method uses a promise to return the result.
    *
@@ -410,10 +533,20 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getDLPSupportedFileTypes(): Promise<Array<string>>;
 
+  /**
+   * Obtains the file types supported by DLP. This method uses an asynchronous callback to return the result.
+   *
+   * @param { AsyncCallback<Array<string>> } callback - Indicates the callback of getDLPSupportedFileTypes.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Obtains the file types supported by DLP. This method uses an asynchronous callback to return the result.
    *
@@ -423,10 +556,24 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getDLPSupportedFileTypes(callback: AsyncCallback<Array<string>>): void;
 
+  /**
+   * Sets the retention status for the files specified by URI list. This method uses a promise to return the result.
+   *
+   * @param { Array<string> } docUris - Indicates the URIs of the files, for which the retention status is to set.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100006 - No permission to call this API,
+   *     which is available only for DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Sets the retention status for the files specified by URI list. This method uses a promise to return the result.
    *
@@ -440,10 +587,24 @@ declare namespace dlpPermission {
    *     which is available only for DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function setRetentionState(docUris: Array<string>): Promise<void>;
 
+  /**
+   * Sets the retention status for the files specified by URI list. This method uses an asynchronous callback to return the result.
+   *
+   * @param { Array<string> } docUris - Indicates the URIs of the files, for which the retention status is to set.
+   * @param { AsyncCallback<void> } callback - Indicates the callback of setRetentionState.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100006 - No permission to call this API,
+   *     which is available only for DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Sets the retention status for the files specified by URI list. This method uses an asynchronous callback to return the result.
    *
@@ -457,10 +618,22 @@ declare namespace dlpPermission {
    *     which is available only for DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function setRetentionState(docUris: Array<string>, callback: AsyncCallback<void>): void;
 
+  /**
+   * Cancels the retention status for the files specified by URI list. This method uses a promise to return the result.
+   *
+   * @param { Array<string> } docUris - Indicates the list of the file URIs.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Cancels the retention status for the files specified by URI list. This method uses a promise to return the result.
    *
@@ -472,10 +645,22 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function cancelRetentionState(docUris: Array<string>): Promise<void>;
 
+  /**
+   * Cancels the retention status for the files specified by URI list. This method uses an asynchronous callback to return the result.
+   *
+   * @param { Array<string> } docUris - Indicates the list of the file URIs.
+   * @param { AsyncCallback<void> } callback - Indicates the callback of cancelRetentionState.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Cancels the retention status for the files specified by URI list. This method uses an asynchronous callback to return the result.
    *
@@ -487,10 +672,23 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function cancelRetentionState(docUris: Array<string>, callback: AsyncCallback<void>): void;
 
+  /**
+   * Obtains information about the retained DLP sandboxes of an application. This method uses a promise to return the result.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @returns { Promise<Array<RetentionSandboxInfo>> } Returns a list of {@link RetentionSandboxInfo}.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Obtains information about the retained DLP sandboxes of an application. This method uses a promise to return the result.
    *
@@ -503,10 +701,23 @@ declare namespace dlpPermission {
    *     which is available only for non-DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getRetentionSandboxList(bundleName?: string): Promise<Array<RetentionSandboxInfo>>;
 
+  /**
+   * Obtains information about the retained DLP sandboxes of an application. This method uses an asynchronous callback to return the result.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Indicates the callback of getRetentionSandboxList.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Obtains information about the retained DLP sandboxes of an application. This method uses an asynchronous callback to return the result.
    *
@@ -519,10 +730,22 @@ declare namespace dlpPermission {
    *     which is available only for non-DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getRetentionSandboxList(bundleName: string, callback: AsyncCallback<Array<RetentionSandboxInfo>>): void;
 
+  /**
+   * Obtains information about the retained DLP sandboxes of an application. This method uses an asynchronous callback to return the result.
+   *
+   * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Indicates the callback of getRetentionSandboxList.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Obtains information about the retained DLP sandboxes of an application. This method uses an asynchronous callback to return the result.
    *
@@ -534,10 +757,21 @@ declare namespace dlpPermission {
    *     which is available only for non-DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getRetentionSandboxList(callback: AsyncCallback<Array<RetentionSandboxInfo>>): void;
 
+  /**
+   * Obtains the DLP file access records. This method uses a promise to return the result.
+   *
+   * @returns { Promise<Array<AccessedDLPFileInfo>> } Returns a list of {@link AccessedDLPFileInfo}.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Obtains the DLP file access records. This method uses a promise to return the result.
    *
@@ -548,10 +782,22 @@ declare namespace dlpPermission {
    *     which is available only for non-DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getDLPFileAccessRecords(): Promise<Array<AccessedDLPFileInfo>>;
 
+  /**
+   * Obtains the DLP file access records. This method uses an asynchronous callback to return the result.
+   *
+   * @param { AsyncCallback<Array<AccessedDLPFileInfo>> } callback - Indicates the callback of getDLPFileAccessRecords.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 10
+   */
   /**
    * Obtains the DLP file access records. This method uses an asynchronous callback to return the result.
    *
@@ -563,7 +809,7 @@ declare namespace dlpPermission {
    *     which is available only for non-DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getDLPFileAccessRecords(callback: AsyncCallback<Array<AccessedDLPFileInfo>>): void;
 
@@ -605,7 +851,6 @@ declare namespace dlpPermission {
    * @returns { Promise<DLPManagerResult> } Returns the {@link DLPManagerResult}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100016 - The uri field is missing in the want parameter.
@@ -613,6 +858,23 @@ declare namespace dlpPermission {
    * @syscap SystemCapability.Security.DataLossPrevention
    * @StageModelOnly
    * @since 11
+   */
+  /**
+   * Starts the DLP manager. This method uses a promise to return the result.
+   *
+   * @param { common.UIAbilityContext } context - Indicates the UIAbility context of the caller.
+   * @param { Want } want - Indicates the request to the DLP manager.
+   * @returns { Promise<DLPManagerResult> } Returns the {@link DLPManagerResult}.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @throws { BusinessError } 19100016 - The uri field is missing in the want parameter.
+   * @throws { BusinessError } 19100017 - The displayName field is missing in the want parameter.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @StageModelOnly
+   * @since 23
    */
   function startDLPManagerForResult(context: common.UIAbilityContext, want: Want): Promise<DLPManagerResult>;
 
@@ -651,15 +913,42 @@ declare namespace dlpPermission {
    * @returns { Promise<GatheringPolicyType> } Returns the {@link GatheringPolicyType}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
    */
+  /**
+   * Obtains the DLP sandbox gathering policy. This method uses a promise to return the result.
+   *
+   * @permission ohos.permission.ACCESS_DLP_FILE
+   * @returns { Promise<GatheringPolicyType> } Returns the {@link GatheringPolicyType}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @systemapi Hide this for inner system use.
+   * @since 23
+   */
   function getDLPGatheringPolicy(): Promise<GatheringPolicyType>;
 
+  /**
+   * Obtains the DLP sandbox gathering policy. This method uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.ACCESS_DLP_FILE
+   * @param { AsyncCallback<GatheringPolicyType> } callback - Indicates the callback of getDLPGatheringPolicy.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
   /**
    * Obtains the DLP sandbox gathering policy. This method uses an asynchronous callback to return the result.
    *
@@ -673,7 +962,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 23
    */
   function getDLPGatheringPolicy(callback: AsyncCallback<GatheringPolicyType>): void;
 
@@ -720,12 +1009,31 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
+   */
+  /**
+   * Installs a DLP sandbox application. This method uses a promise to return the result.
+   *
+   * @permission ohos.permission.ACCESS_DLP_FILE
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { DLPFileAccess } access - Indicates the access permission for the DLP file.
+   * @param { number } userId - Indicates the user ID.
+   * @param { string } uri - Indicates the URI of the file.
+   * @returns { Promise<DLPSandboxInfo> } Returns the {@link DLPSandboxInfo}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @systemapi Hide this for inner system use.
+   * @since 23
    */
   function installDLPSandbox(
     bundleName: string,
@@ -747,12 +1055,31 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
+   */
+  /**
+   * Installs a DLP sandbox application. This method uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.ACCESS_DLP_FILE
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { DLPFileAccess } access - Indicates the access permission for the DLP file.
+   * @param { number } userId - Indicates the user ID.
+   * @param { string } uri - Indicates the URI of the file.
+   * @param { AsyncCallback<DLPSandboxInfo> } callback - Indicates the callback of installDLPSandbox.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @systemapi Hide this for inner system use.
+   * @since 23
    */
   function installDLPSandbox(
     bundleName: string,
@@ -774,15 +1101,51 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
    */
+  /**
+   * Uninstalls a DLP sandbox application. This method uses a promise to return the result.
+   *
+   * @permission ohos.permission.ACCESS_DLP_FILE
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { number } userId - Indicates the user ID.
+   * @param { number } appIndex - Indicates the index of DLP sandbox.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @systemapi Hide this for inner system use.
+   * @since 23
+   */
   function uninstallDLPSandbox(bundleName: string, userId: number, appIndex: number): Promise<void>;
 
+  /**
+   * Uninstalls a DLP sandbox application. This method uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.ACCESS_DLP_FILE
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { number } userId - Indicates the user ID.
+   * @param { number } appIndex - Indicates the index of DLP sandbox.
+   * @param { AsyncCallback<void> } callback - Indicates the callback of uninstallDLPSandbox.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
   /**
    * Uninstalls a DLP sandbox application. This method uses an asynchronous callback to return the result.
    *
@@ -800,7 +1163,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 23
    */
   function uninstallDLPSandbox(
     bundleName: string,
@@ -850,15 +1213,49 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
    */
+  /**
+   * Subscribes to the event reported when a DLP sandbox application is uninstalled.
+   *
+   * @permission ohos.permission.ACCESS_DLP_FILE
+   * @param { 'uninstallDLPSandbox' } type - Indicates the type of event to subscribe to.
+   *     The value of type must be uninstallDLPSandbox.
+   * @param { Callback<DLPSandboxState> } listener - Indicates the callback for the DLP sandbox application uninstall event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @systemapi Hide this for inner system use.
+   * @since 23
+   */
   function on(type: 'uninstallDLPSandbox', listener: Callback<DLPSandboxState>): void;
 
+  /**
+   * Unsubscribes from the event reported when a DLP sandbox application is uninstalled.
+   *
+   * @permission ohos.permission.ACCESS_DLP_FILE
+   * @param { 'uninstallDLPSandbox' } type - Indicates the type of event to unsubscribe from.
+   *     The value of type must be uninstallDLPSandbox.
+   * @param { Callback<DLPSandboxState> } listener - Indicates the callback for the DLP sandbox application uninstall event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
   /**
    * Unsubscribes from the event reported when a DLP sandbox application is uninstalled.
    *
@@ -875,7 +1272,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 23
    */
   function off(type: 'uninstallDLPSandbox', listener?: Callback<DLPSandboxState>): void;
 
@@ -1245,7 +1642,6 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1253,8 +1649,45 @@ declare namespace dlpPermission {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * Adds a link file for the DLP file. This method uses a promise to return the result.
+     * The link file is implemented through the Filesystem in Userspace (FUSE).
+     *
+     * @permission ohos.permission.ACCESS_DLP_FILE
+     * @param { string } linkFileName - Indicates the name of link file to add.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @since 23
+     */
     addDLPLinkFile(linkFileName: string): Promise<void>;
 
+    /**
+     * Adds a link file for the DLP file. This method uses an asynchronous callback to return the result.
+     * The link file is implemented through the FUSE.
+     *
+     * @permission ohos.permission.ACCESS_DLP_FILE
+     * @param { string } linkFileName - Indicates the name of link file to add.
+     * @param { AsyncCallback<void> } callback - Indicates the callback of addDLPLinkFile.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
     /**
      * Adds a link file for the DLP file. This method uses an asynchronous callback to return the result.
      * The link file is implemented through the FUSE.
@@ -1272,10 +1705,24 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     addDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
 
+    /**
+     * Stops the FUSE link between the DLP file and a link file. This method uses a promise to return the result.
+     *
+     * @permission ohos.permission.ACCESS_DLP_FILE
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
     /**
      * Stops the FUSE link between the DLP file and a link file. This method uses a promise to return the result.
      *
@@ -1289,10 +1736,25 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     stopFuseLink(): Promise<void>;
 
+    /**
+     * Stops the FUSE link between the DLP file and a link file. This method uses an asynchronous callback to return the result.
+     *
+     * @permission ohos.permission.ACCESS_DLP_FILE
+     * @param { AsyncCallback<void> } callback - Indicates the callback of stopFuseLink.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
     /**
      * Stops the FUSE link between the DLP file and a link file. This method uses an asynchronous callback to return the result.
      *
@@ -1307,10 +1769,24 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     stopFuseLink(callback: AsyncCallback<void>): void;
 
+    /**
+     * Resumes the FUSE link between the DLP file and a link file. This method uses a promise to return the result.
+     *
+     * @permission ohos.permission.ACCESS_DLP_FILE
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
     /**
      * Resumes the FUSE link between the DLP file and a link file. This method uses a promise to return the result.
      *
@@ -1324,10 +1800,25 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     resumeFuseLink(): Promise<void>;
 
+    /**
+     * Resumes the FUSE link between the DLP file and a link file. This method uses an asynchronous callback to return the result.
+     *
+     * @permission ohos.permission.ACCESS_DLP_FILE
+     * @param { AsyncCallback<void> } callback - Indicates the callback of resumeFuseLink.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
     /**
      * Resumes the FUSE link between the DLP file and a link file. This method uses an asynchronous callback to return the result.
      *
@@ -1342,10 +1833,27 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     resumeFuseLink(callback: AsyncCallback<void>): void;
 
+    /**
+     * Replaces the link file of the DLP file. This method uses a promise to return the result.
+     *
+     * @permission ohos.permission.ACCESS_DLP_FILE
+     * @param { string } linkFileName - Indicates the name of link file.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
     /**
      * Replaces the link file of the DLP file. This method uses a promise to return the result.
      *
@@ -1362,10 +1870,27 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     replaceDLPLinkFile(linkFileName: string): Promise<void>;
 
+    /**
+     * Replaces the link file of the DLP file. This method uses an asynchronous callback to return the result.
+     *
+     * @permission ohos.permission.ACCESS_DLP_FILE
+     * @param { string } linkFileName - Indicates the name of link file.
+     * @param { AsyncCallback<void> } callback - Indicates the callback of replaceDLPLinkFile.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
     /**
      * Replaces the link file of the DLP file. This method uses an asynchronous callback to return the result.
      *
@@ -1382,10 +1907,27 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     replaceDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
 
+    /**
+     * Deletes a link file of the DLP file. This method uses a promise to return the result.
+     *
+     * @permission ohos.permission.ACCESS_DLP_FILE
+     * @param { string } linkFileName - Indicates the name of link file to delete.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
     /**
      * Deletes a link file of the DLP file. This method uses a promise to return the result.
      *
@@ -1402,10 +1944,27 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     deleteDLPLinkFile(linkFileName: string): Promise<void>;
 
+    /**
+     * Deletes a link file of the DLP file. This method uses an asynchronous callback to return the result.
+     *
+     * @permission ohos.permission.ACCESS_DLP_FILE
+     * @param { string } linkFileName - Indicates the name of link file to delete.
+     * @param { AsyncCallback<void> } callback - Indicates the callback of deleteDLPLinkFile.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
     /**
      * Deletes a link file of the DLP file. This method uses an asynchronous callback to return the result.
      *
@@ -1422,10 +1981,33 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     deleteDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
 
+    /**
+     * Recovers the file in plaintext from the DLP file. This method uses a promise to return the result.
+     *
+     * @permission ohos.permission.ACCESS_DLP_FILE
+     * @param { number } plaintextFd - Indicates the file descriptor of the file in plaintext.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
+     * @throws { BusinessError } 19100003 - Credential task time out.
+     * @throws { BusinessError } 19100004 - Credential service error.
+     * @throws { BusinessError } 19100005 - Credential authentication server error.
+     * @throws { BusinessError } 19100008 - The file is not a DLP file.
+     * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+     * @throws { BusinessError } 19100010 - The DLP file is read only.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
     /**
      * Recovers the file in plaintext from the DLP file. This method uses a promise to return the result.
      *
@@ -1448,10 +2030,33 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     recoverDLPFile(plaintextFd: number): Promise<void>;
 
+    /**
+     * Recovers the file in plaintext from the DLP file. This method uses an asynchronous callback to return the result.
+     *
+     * @permission ohos.permission.ACCESS_DLP_FILE
+     * @param { number } plaintextFd - Indicates the file descriptor of the file in plaintext.
+     * @param { AsyncCallback<void> } callback - Indicates the callback of recoverDLPFile.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
+     * @throws { BusinessError } 19100003 - Credential task time out.
+     * @throws { BusinessError } 19100004 - Credential service error.
+     * @throws { BusinessError } 19100005 - Credential authentication server error.
+     * @throws { BusinessError } 19100008 - The file is not a DLP file.
+     * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+     * @throws { BusinessError } 19100010 - The DLP file is read only.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
     /**
      * Recovers the file in plaintext from the DLP file. This method uses an asynchronous callback to return the result.
      *
@@ -1474,10 +2079,24 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     recoverDLPFile(plaintextFd: number, callback: AsyncCallback<void>): void;
 
+    /**
+     * Closes the DLP file when the object is no longer used. This method uses a promise to return the result.
+     *
+     * @permission ohos.permission.ACCESS_DLP_FILE
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
     /**
      * Closes the DLP file when the object is no longer used. This method uses a promise to return the result.
      *
@@ -1491,10 +2110,25 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     closeDLPFile(): Promise<void>;
 
+    /**
+     * Closes the DLP file when the object is no longer used. This method uses an asynchronous callback to return the result.
+     *
+     * @permission ohos.permission.ACCESS_DLP_FILE
+     * @param { AsyncCallback<void> } callback - Indicates the callback of closeDLPFile.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
     /**
      * Closes the DLP file when the object is no longer used. This method uses an asynchronous callback to return the result.
      *
@@ -1509,11 +2143,34 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     closeDLPFile(callback: AsyncCallback<void>): void;
   }
 
+  /**
+   * Generates a DLP file. This method uses a promise to return the result.
+   *
+   * @permission ohos.permission.ACCESS_DLP_FILE
+   * @param { number } plaintextFd - Indicates the file descriptor of the file in plaintext.
+   * @param { number } ciphertextFd - Indicates the file descriptor of the DLP file.
+   * @param { DLPProperty } property - Indicates the property of the DLP file.
+   * @returns { Promise<DLPFile> } Returns the {@link DLPFile}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
+   * @throws { BusinessError } 19100003 - Credential task time out.
+   * @throws { BusinessError } 19100004 - Credential service error.
+   * @throws { BusinessError } 19100005 - Credential authentication server error.
+   * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
   /**
    * Generates a DLP file. This method uses a promise to return the result.
    *
@@ -1536,10 +2193,33 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 23
    */
   function generateDLPFile(plaintextFd: number, ciphertextFd: number, property: DLPProperty): Promise<DLPFile>;
 
+  /**
+   * Generates a DLP file. This method uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.ACCESS_DLP_FILE
+   * @param { number } plaintextFd - Indicates the file descriptor of the file in plaintext.
+   * @param { number } ciphertextFd - Indicates the file descriptor of the DLP file.
+   * @param { DLPProperty } property - Indicates the property of the DLP file.
+   * @param { AsyncCallback<DLPFile> } callback - Indicates the callback of generateDLPFile.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
+   * @throws { BusinessError } 19100003 - Credential task time out.
+   * @throws { BusinessError } 19100004 - Credential service error.
+   * @throws { BusinessError } 19100005 - Credential authentication server error.
+   * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
   /**
    * Generates a DLP file. This method uses an asynchronous callback to return the result.
    *
@@ -1562,7 +2242,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 23
    */
   function generateDLPFile(
     plaintextFd: number,
@@ -1571,6 +2251,32 @@ declare namespace dlpPermission {
     callback: AsyncCallback<DLPFile>
   ): void;
 
+  /**
+   * Opens a DLP file. This method uses a promise to return the result.
+   *
+   * @permission ohos.permission.ACCESS_DLP_FILE
+   * @param { number } ciphertextFd - Indicates the file descriptor of the DLP file to open.
+   * @param { string } appId - Indicates the app ID of the application which opens the DLP file.
+   * @returns { Promise<DLPFile> } Returns the {@link DLPFile}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
+   * @throws { BusinessError } 19100003 - Credential task time out.
+   * @throws { BusinessError } 19100004 - Credential service error.
+   * @throws { BusinessError } 19100005 - Credential authentication server error.
+   * @throws { BusinessError } 19100008 - The file is not a DLP file.
+   * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @throws { BusinessError } 19100018 - The application is not authorized.
+   * @throws { BusinessError } 19100019 - The DLP file has expired.
+   * @throws { BusinessError } 19100020 - No network connection.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
   /**
    * Opens a DLP file. This method uses a promise to return the result.
    *
@@ -1596,10 +2302,36 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100020 - No network connection.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 23
    */
   function openDLPFile(ciphertextFd: number, appId: string): Promise<DLPFile>;
 
+  /**
+   * Opens a DLP file. This method uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.ACCESS_DLP_FILE
+   * @param { number } ciphertextFd - Indicates the file descriptor of the DLP file to open.
+   * @param { string } appId - Indicates the app ID of the application which opens the DLP file.
+   * @param { AsyncCallback<DLPFile> } callback - Indicates the callback of openDLPFile.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
+   * @throws { BusinessError } 19100003 - Credential task time out.
+   * @throws { BusinessError } 19100004 - Credential service error.
+   * @throws { BusinessError } 19100005 - Credential authentication server error.
+   * @throws { BusinessError } 19100008 - The file is not a DLP file.
+   * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @throws { BusinessError } 19100018 - The application is not authorized.
+   * @throws { BusinessError } 19100019 - The DLP file has expired.
+   * @throws { BusinessError } 19100020 - No network connection.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
   /**
    * Opens a DLP file. This method uses an asynchronous callback to return the result.
    *
@@ -1625,10 +2357,25 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100020 - No network connection.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 23
    */
   function openDLPFile(ciphertextFd: number, appId: string, callback: AsyncCallback<DLPFile>): void;
 
+  /**
+   * Sets sandbox application configuration. This method uses a promise to return the result.
+   *
+   * @param { string } configInfo - Configuration of the sandbox application.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @throws { BusinessError } 19100018 - The application is not authorized.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 11
+   */
   /**
    * Sets sandbox application configuration. This method uses a promise to return the result.
    *
@@ -1643,10 +2390,22 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100018 - The application is not authorized.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 11
+   * @since 23
    */
   function setSandboxAppConfig(configInfo: string): Promise<void>;
 
+  /**
+   * Cleans sandbox application configuration. This method uses a promise to return the result.
+   *
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100007 - No permission to call this API,
+   *     which is available only for non-DLP sandbox applications.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @throws { BusinessError } 19100018 - The application is not authorized.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 11
+   */
   /**
    * Cleans sandbox application configuration. This method uses a promise to return the result.
    *
@@ -1658,10 +2417,20 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100018 - The application is not authorized.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 11
+   * @since 23
    */
   function cleanSandboxAppConfig(): Promise<void>;
 
+  /**
+   * Obtains sandbox application configuration. This method uses a promise to return the result.
+   *
+   * @returns { Promise<string> } Promise used to return the result.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @throws { BusinessError } 19100018 - The application is not authorized.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 11
+   */
   /**
    * Obtains sandbox application configuration. This method uses a promise to return the result.
    *
@@ -1671,7 +2440,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100018 - The application is not authorized.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 11
+   * @since 23
    */
   function getSandboxAppConfig(): Promise<string>;
 
@@ -1679,10 +2448,18 @@ declare namespace dlpPermission {
   * Checks whether the current system provides the DLP feature. This method uses a promise to return the result.
   *
   * @returns { Promise<boolean> } Promise used to return the result.
-  * @throws { BusinessError } 801 - Capability not supported.
   * @throws { BusinessError } 19100011 - The system ability works abnormally.
   * @syscap SystemCapability.Security.DataLossPrevention
   * @since 12
+  */
+ /**
+  * Checks whether the current system provides the DLP feature. This method uses a promise to return the result.
+  *
+  * @returns { Promise<boolean> } Promise used to return the result.
+  * @throws { BusinessError } 801 - Capability not supported.
+  * @throws { BusinessError } 19100011 - The system ability works abnormally.
+  * @syscap SystemCapability.Security.DataLossPrevention
+  * @since 23
   */
   function isDLPFeatureProvided(): Promise<boolean>;
 
@@ -1794,7 +2571,6 @@ declare namespace dlpPermission {
    * @param { CustomProperty } customProperty - Custom DLP policy to use.
    * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
    * @throws { BusinessError } 19100003 - Credential task time out.
@@ -1805,6 +2581,28 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100014 - Account not logged in.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 21
+   */
+  /**
+   * Generates a DLP file.
+   *
+   * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+   * @param { number } plaintextFd - FD of the file in plaintext.
+   * @param { number } dlpFd - FD of the DLP file to generate.
+   * @param { DLPProperty } property - General DLP policy to use.
+   * @param { CustomProperty } customProperty - Custom DLP policy to use.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
+   * @throws { BusinessError } 19100003 - Credential task time out.
+   * @throws { BusinessError } 19100004 - Credential service error.
+   * @throws { BusinessError } 19100005 - Credential authentication server error.
+   * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @throws { BusinessError } 19100014 - Account not logged in.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 23
    */
   function generateDlpFileForEnterprise(plaintextFd: number, dlpFd: number, property: DLPProperty, customProperty: CustomProperty): Promise<void>;
 
@@ -1836,7 +2634,6 @@ declare namespace dlpPermission {
    * @param { number } dlpFd FD of the target DLP file.
    * @returns { Promise<string> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
    * @throws { BusinessError } 19100003 - Credential task time out.
@@ -1848,6 +2645,26 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100013 - The user does not have the permission.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 21
+   */
+  /**
+   * Queries the DLP file policy.
+   * 
+   * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+   * @param { number } dlpFd FD of the target DLP file.
+   * @returns { Promise<string> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
+   * @throws { BusinessError } 19100003 - Credential task time out.
+   * @throws { BusinessError } 19100004 - Credential service error.
+   * @throws { BusinessError } 19100005 - Credential authentication server error.
+   * @throws { BusinessError } 19100008 - The file is not a DLP file.
+   * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @throws { BusinessError } 19100013 - The user does not have the permission.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 23
    */
   function queryDlpPolicy(dlpFd: number): Promise<string>;
 
@@ -1881,7 +2698,6 @@ declare namespace dlpPermission {
    * @param { number } plaintextFd FD of the target DLP file.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
    * @throws { BusinessError } 19100003 - Credential task time out.
@@ -1893,6 +2709,27 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100013 - The user does not have the permission.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 21
+   */
+  /**
+   * Decrypts a DLP file. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+   * @param { number } dlpFd FD of the target DLP file.
+   * @param { number } plaintextFd FD of the target DLP file.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
+   * @throws { BusinessError } 19100003 - Credential task time out.
+   * @throws { BusinessError } 19100004 - Credential service error.
+   * @throws { BusinessError } 19100005 - Credential authentication server error.
+   * @throws { BusinessError } 19100008 - The file is not a DLP file.
+   * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @throws { BusinessError } 19100013 - The user does not have the permission.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 23
    */
   function decryptDlpFile(dlpFd: number, plaintextFd: number): Promise<void>;
 
@@ -1920,12 +2757,24 @@ declare namespace dlpPermission {
    * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
    * @param { EnterprisePolicy } policy - Indicates the enterprise custom policy string.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100021 - Failed to set the enterprise policy.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 21
+   */
+  /**
+   * Set enterprise application protection policies.
+   *
+   * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+   * @param { EnterprisePolicy } policy - Indicates the enterprise custom policy string.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @throws { BusinessError } 19100021 - Failed to set the enterprise policy.
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 23
    */
   function setEnterprisePolicy(policy: EnterprisePolicy): void;
 
@@ -1945,10 +2794,22 @@ declare namespace dlpPermission {
      * @param { string } requestData Context in request.
      * @param { Callback<string> } callback Callback fun.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
+     */
+    /**
+     * Connect server.
+     * 
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+     * @param { string } requestId Id request.
+     * @param { string } requestData Context in request.
+     * @param { Callback<string> } callback Callback fun.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 23
      */
     connectServer(requestId: string, requestData: string, callback: Callback<string>): void;
   }
@@ -1965,12 +2826,35 @@ declare namespace dlpPermission {
      * 
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
      */
+    /**
+     * constructor.
+     * 
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 23
+     */
     constructor();
 
+    /**
+     * register plugin.
+     * 
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+     * @param { DlpConnPlugin } plugin Plugin.
+     * @returns { number } Id for plugin.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
+     * @throws { BusinessError } 19100003 - Credential task time out.
+     * @throws { BusinessError } 19100004 - Credential service error.
+     * @static
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
+     */
     /**
      * register plugin.
      * 
@@ -1985,10 +2869,23 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100004 - Credential service error.
      * @static
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
+     * @since 23
      */
     static registerPlugin(plugin: DlpConnPlugin): number;
 
+    /**
+     * unregister plugin.
+     * 
+     * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
+     * @throws { BusinessError } 19100003 - Credential task time out.
+     * @throws { BusinessError } 19100004 - Credential service error.
+     * @static
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
+     */
     /**
      * unregister plugin.
      * 
@@ -2001,7 +2898,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100004 - Credential service error.
      * @static
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
+     * @since 23
      */
     static unregisterPlugin(): void;
   }
