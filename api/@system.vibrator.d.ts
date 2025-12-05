@@ -89,6 +89,7 @@ export default class Vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.vibrator/vibrator#startVibration
    */
   static vibrate(options?: VibrateOptions): void;
