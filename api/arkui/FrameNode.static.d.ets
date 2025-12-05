@@ -2113,12 +2113,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Swiper type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Swiper' } nodeType - node type.
    * @returns { Swiper } - Return Swiper type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  export function createSwiperNode(context: UIContext, nodeType: 'Swiper'): Swiper;
+  export function createSwiperNode(context: UIContext): Swiper;
 
   /**
    * Defines the XComponent type of FrameNode.
