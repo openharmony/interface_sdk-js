@@ -246,7 +246,25 @@ export enum LiveViewStatus {
    * @since 11 dynamic
    * @since 22 static
    */
-  LIVE_VIEW_FULL_UPDATE = 3
+  LIVE_VIEW_FULL_UPDATE = 3,
+  /**
+   * Create live view notification by trigger.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  LIVE_VIEW_PENDING_CREATE = 4,
+  /**
+   * Complete the live view notification by trigger.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  LIVE_VIEW_PENDING_END = 6
 }
 
 /**
