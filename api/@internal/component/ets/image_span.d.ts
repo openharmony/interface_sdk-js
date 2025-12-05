@@ -177,6 +177,16 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Placeholder displayed on load
+   *
+   * @param { PixelMap } value
+   * @returns { ImageSpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   alt(value: PixelMap): ImageSpanAttribute;
 }
 

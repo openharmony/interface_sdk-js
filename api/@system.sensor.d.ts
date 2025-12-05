@@ -33,7 +33,7 @@ export interface AccelerometerResponse {
    * @permission ohos.permission.ACCELEROMETER
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   x: number;
@@ -44,7 +44,7 @@ export interface AccelerometerResponse {
     * @permission ohos.permission.ACCELEROMETER
     * @type { number }
     * @syscap SystemCapability.Sensors.Sensor.Lite
-    * @since 3 dynamic
+    * @since 3 dynamiconly
     * @deprecated since 8
     */
   y: number;
@@ -55,7 +55,7 @@ export interface AccelerometerResponse {
     * @permission ohos.permission.ACCELEROMETER
     * @type { number }
     * @syscap SystemCapability.Sensors.Sensor.Lite
-    * @since 3 dynamic
+    * @since 3 dynamiconly
     * @deprecated since 8
     */
   z: number;
@@ -81,7 +81,7 @@ export interface subscribeAccelerometerOptions {
    * @permission ohos.permission.ACCELEROMETER
    * @type { string }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   interval: string;
@@ -92,7 +92,7 @@ export interface subscribeAccelerometerOptions {
    * @permission ohos.permission.ACCELEROMETER
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   success: (data: AccelerometerResponse) => void;
@@ -103,7 +103,7 @@ export interface subscribeAccelerometerOptions {
    * @permission ohos.permission.ACCELEROMETER
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -122,7 +122,7 @@ export interface CompassResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   direction: number;
@@ -141,7 +141,7 @@ export interface SubscribeCompassOptions {
    * 
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   success: (data: CompassResponse) => void;
@@ -151,7 +151,7 @@ export interface SubscribeCompassOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -170,7 +170,7 @@ export interface ProximityResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   distance: number;
@@ -189,7 +189,7 @@ export interface SubscribeProximityOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   success: (data: ProximityResponse) => void;
@@ -199,7 +199,7 @@ export interface SubscribeProximityOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -218,7 +218,7 @@ export interface LightResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   intensity: number;
@@ -237,7 +237,7 @@ export interface SubscribeLightOptions {
    * 
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   success: (data: LightResponse) => void;
@@ -247,7 +247,7 @@ export interface SubscribeLightOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -269,7 +269,7 @@ export interface StepCounterResponse {
    * @permission ohos.permission.ACTIVITY_MOTION
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   steps: number;
@@ -290,7 +290,7 @@ export interface SubscribeStepCounterOptions {
    * @permission ohos.permission.ACTIVITY_MOTION
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   success: (data: StepCounterResponse) => void;
@@ -301,7 +301,7 @@ export interface SubscribeStepCounterOptions {
    * @permission ohos.permission.ACTIVITY_MOTION
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -320,7 +320,7 @@ export interface BarometerResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   pressure: number;
@@ -339,7 +339,7 @@ export interface SubscribeBarometerOptions {
    * 
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   success: (data: BarometerResponse) => void;
@@ -349,7 +349,7 @@ export interface SubscribeBarometerOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -371,7 +371,7 @@ export interface HeartRateResponse {
    * @permission ohos.permission.READ_HEALTH_DATA
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   heartRate: number;
@@ -392,7 +392,7 @@ export interface SubscribeHeartRateOptions {
    * @permission ohos.permission.READ_HEALTH_DATA
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   success: (data: HeartRateResponse) => void;
@@ -403,7 +403,7 @@ export interface SubscribeHeartRateOptions {
    * @permission ohos.permission.READ_HEALTH_DATA
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -422,7 +422,7 @@ export interface OnBodyStateResponse {
    * 
    * @type { boolean }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   value: boolean;
@@ -441,7 +441,7 @@ export interface SubscribeOnBodyStateOptions {
    * 
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   success: (data: OnBodyStateResponse) => void;
@@ -451,7 +451,7 @@ export interface SubscribeOnBodyStateOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -470,7 +470,7 @@ export interface GetOnBodyStateOptions {
    * 
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   success: (data: OnBodyStateResponse) => void;
@@ -480,7 +480,7 @@ export interface GetOnBodyStateOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -490,7 +490,7 @@ export interface GetOnBodyStateOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   complete?: () => void;
@@ -509,7 +509,7 @@ export interface DeviceOrientationResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
    */
   alpha: number;
@@ -519,7 +519,7 @@ export interface DeviceOrientationResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
    */
   beta: number;
@@ -529,7 +529,7 @@ export interface DeviceOrientationResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
    */
   gamma: number;
@@ -553,7 +553,7 @@ export interface SubscribeDeviceOrientationOptions {
    * 
    * @type { string }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
    */
   interval: string;
@@ -563,7 +563,7 @@ export interface SubscribeDeviceOrientationOptions {
    * 
    * @type { function}
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
    */
   success: (data: DeviceOrientationResponse) => void;
@@ -573,7 +573,7 @@ export interface SubscribeDeviceOrientationOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -594,7 +594,7 @@ export interface GyroscopeResponse {
    * @permission ohos.permission.GYROSCOPE
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
    */
   x: number;
@@ -605,7 +605,7 @@ export interface GyroscopeResponse {
    * @permission ohos.permission.GYROSCOPE
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
    */
   y: number;
@@ -616,7 +616,7 @@ export interface GyroscopeResponse {
    * @permission ohos.permission.GYROSCOPE
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
    */
   z: number;
@@ -642,7 +642,7 @@ export interface SubscribeGyroscopeOptions {
    * @permission ohos.permission.GYROSCOPE
    * @type { string }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
    */
   interval: string;
@@ -653,7 +653,7 @@ export interface SubscribeGyroscopeOptions {
    * @permission ohos.permission.GYROSCOPE
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
    */
   success: (data: GyroscopeResponse) => void;
@@ -664,7 +664,7 @@ export interface SubscribeGyroscopeOptions {
    * @permission ohos.permission.GYROSCOPE
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;

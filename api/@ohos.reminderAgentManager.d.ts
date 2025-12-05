@@ -256,6 +256,18 @@ declare namespace reminderAgentManager {
   function updateReminder(reminderId: int, reminderReq: ReminderRequest): Promise<void>;
 
   /**
+   * Cancel the notification that is currently showing.
+   *
+   * @param { int } reminderId - Indicates the reminder id.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 1700003 - The reminder does not exist.
+   * @throws { BusinessError } 1700007 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 23 dynamic&static
+   */
+  function cancelReminderOnDisplay(reminderId: int): Promise<void>;
+
+  /**
    * Declares action button type.
    *
    * @enum { int }
@@ -557,13 +569,21 @@ declare namespace reminderAgentManager {
     RING_CHANNEL_ALARM = 0,
 
     /**
-     * Ring channel alarm.
+     * Ring channel media.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 20 dynamic
      * @since 22 static
      */
     RING_CHANNEL_MEDIA = 1,
+
+    /**
+     * Ring channel notification.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 23 dynamic&static
+     */
+    RING_CHANNEL_NOTIFICATION = 2
   }
 
   /**
@@ -821,6 +841,28 @@ declare namespace reminderAgentManager {
      * @since 22 static
      */
     customRingUri?: string;
+
+    /**
+     * Force Distributed forwarding flag.
+     * 
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    forceDistributed?: boolean;
+
+    /**
+     * Distributed forwarding flag.
+     * 
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    notDistributed?: boolean;
   }
 
   /**

@@ -153,12 +153,26 @@ declare namespace floatingBall {
      * @since 20 dynamic
      */
     on(type: 'stateChange', callback: Callback<FloatingBallState>): void;
+  
+    /**
+     * Register floating ball stageChange event listener.
+     * 
+     * @param { Callback<FloatingBallState> } callback - Used to handle {'stateChange'} command.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300022 - Repeated floating ball operation.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onStateChange(callback: Callback<FloatingBallState>): void;
 
     /**
      * Unregister floating ball lifecycle event listener.
      * 
      * @param { 'stateChange' } type - Used to unregister listener for {'stateChange'} command.
-     * @param { Callback<FloatingBallState> } [callback] - Indicates the callback function.
+     * @param { Callback<FloatingBallState> } [callback] - Indicates the callback function. If not provided,
+     *     all callbacks for the given event type will be removed.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
@@ -166,6 +180,19 @@ declare namespace floatingBall {
      * @since 20 dynamic
      */
     off(type: 'stateChange', callback?: Callback<FloatingBallState>): void;
+
+    /**
+     * Unregister floating ball stageChange event listener.
+     * 
+     * @param { Callback<FloatingBallState> } [callback] - Indicates the callback function. If not provided,
+     *     all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offStateChange(callback?: Callback<FloatingBallState>): void;
 
     /**
      * Register floating ball click event listener.
@@ -180,12 +207,26 @@ declare namespace floatingBall {
      * @since 20 dynamic
      */
     on(type: 'click', callback: Callback<void>): void;
+  
+    /**
+     * Register floating ball click event listener.
+     * 
+     * @param { Callback<void> } callback - Used to handle {'click'} command.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300022 - Repeated floating ball operation.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onClick(callback: Callback<void>): void;
 
     /**
      * Unregister floating ball click event listener.
      * 
      * @param { 'click' } type - Used to unregister listener for {'click'} command.
-     * @param { Callback<void> } [callback] - Indicates the callback function.
+     * @param { Callback<void> } [callback] - Indicates the callback function. If not provided,
+     *     all callbacks for the given event type will be removed.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
@@ -193,6 +234,19 @@ declare namespace floatingBall {
      * @since 20 dynamic
      */
     off(type: 'click', callback?: Callback<void>): void;
+  
+    /**
+     * Unregister floating ball click event listener.
+     * 
+     * @param { Callback<void> } [callback] - Indicates the callback function. If not provided,
+     *     all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offClick(callback?: Callback<void>): void;
 
     /**
      * Get the info of floating ball window.
@@ -378,13 +432,13 @@ declare namespace floatingBall {
     /**
      * Indicates target window id.
      *
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      * @since 22 static
      */
-    readonly windowId: number;
+    readonly windowId: int;
   }
 }
 

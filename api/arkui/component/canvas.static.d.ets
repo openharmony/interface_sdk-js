@@ -16,11 +16,11 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod, Callback, PixelMap } from './common';
+import { CommonMethod, PixelMap } from './common';
 import { FrameNode } from '../FrameNode';
 import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
 import { Matrix2D } from './matrix2d';
-import { DrawingCanvas, VoidCallback, LengthMetricsUnit, LengthMetrics } from './units';
+import { DrawingCanvas, VoidCallback, LengthMetricsUnit, LengthMetrics, ColorMetrics } from './units';
 import { Size } from '../Graphics';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
@@ -134,13 +134,13 @@ export declare class CanvasGradient {
   /**
    * Add a breakpoint defined by offset and color to the gradient
    *
-   * @param { double } offset - Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
-   * @param { string } color - Set the gradient color.
-   *     a SYNTAX_ERR error is thrown.
+   * @param { double } offset - Value between 0 and 1.
+   * @param { string | ColorMetrics } color - Set the gradient color.
+   * @throws { BusinessError } 103701 - The color's ColorSpace is not the same as the last color's.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  addColorStop(offset: double, color: string): void;
+  addColorStop(offset: double, color: string | ColorMetrics): void;
 }
 
 /**
@@ -1562,8 +1562,7 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Register the listener that watches if the canvasrenderingcontext2d attached to the Canvas frameNode.
    *
-   * @param { 'onAttach' } type Indicates the type of event.
-   * @param { Callback<void> } callback Indicates the listener.
+   * @param { VoidCallback } callback Indicates the listener.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -1571,12 +1570,11 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  on(type: 'onAttach', callback: Callback<void>): void;
+  onAttach(callback: VoidCallback): void;
   /**
    * Unregister the listener that watches if the canvasrenderingcontext2d attached to the Canvas frameNode.
    *
-   * @param { 'onAttach' } type Indicates the type of event.
-   * @param { Callback<void> } [callback] Indicates the listener.
+   * @param { VoidCallback } [callback] Indicates the listener.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -1584,12 +1582,11 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  off(type: 'onAttach', callback?: Callback<void>): void;
+  offAttach(callback?: VoidCallback): void;
   /**
    * Register the listener that watches if the canvasrenderingcontext2d detached from the Canvas frameNode.
    *
-   * @param { 'onDetach' } type Indicates the type of event.
-   * @param { Callback<void> } callback Indicates the listener.
+   * @param { VoidCallback } callback Indicates the listener.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -1597,12 +1594,11 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  on(type: 'onDetach', callback: Callback<void>): void;
+  onDetach(callback: VoidCallback): void;
   /**
    * Unregister the listener that watches if the canvasrenderingcontext2d detached from the Canvas frameNode.
    *
-   * @param { 'onDetach' } type Indicates the type of event.
-   * @param { Callback<void> } [callback] Indicates the listener.
+   * @param { VoidCallback } [callback] Indicates the listener.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -1610,7 +1606,7 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  off(type: 'onDetach', callback?: Callback<void>): void;
+  offDetach(callback?: VoidCallback): void;
 }
 
 /**
@@ -1636,11 +1632,11 @@ export declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
    * transfer the content to ImageBitmap
    *
-   * @returns { ImageBitmap }
+   * @returns { ImageBitmap | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  transferToImageBitmap(): ImageBitmap;
+  transferToImageBitmap(): ImageBitmap | undefined;
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
    *
@@ -1696,11 +1692,11 @@ export declare class OffscreenCanvas {
   /**
    * Exports rendered content as an ImageBitmap object
    *
-   * @returns { ImageBitmap }
+   * @returns { ImageBitmap | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  transferToImageBitmap(): ImageBitmap;
+  transferToImageBitmap(): ImageBitmap | undefined;
   /**
    * Creates the context from the current OffscreenCanvas.
    *

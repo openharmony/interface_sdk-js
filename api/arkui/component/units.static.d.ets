@@ -1495,3 +1495,22 @@ export declare interface AccessibilityOptions {
    */
   accessibilityPreferred?: boolean;
 }
+
+/**
+ * Defines the struct of AccessibilityActionOptions that can affect operation under accessibility.
+ *
+ * @interface AccessibilityActionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare interface AccessibilityActionOptions {
+
+  /**
+   * scrollStep - the step when the component is scrolled by accessibility.
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  scrollStep?: int;
+}

@@ -324,7 +324,7 @@ declare namespace uri {
      *
      * @param { string } key - Indicates the key value to be queried.
      * @param { boolean } defaultValue - The default value returned when the key has no query parameters.
-     * @returns { boolean } Query with key value returns true, otherwise returns false.
+     * @returns { boolean } Query returns false if the value of the key is "false" or "0", otherwise returns true.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.

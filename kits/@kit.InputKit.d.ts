@@ -18,7 +18,6 @@
  * @kit InputKit
  */
 
-/* 共用部分*/
 /*** if arkts dynamic&static */
 import {
   ActionType, FourFingersSwipe, Pinch, Rotate, ThreeFingersSwipe, ThreeFingersTap, SwipeInward
@@ -36,21 +35,28 @@ import pointer from '@ohos.multimodalInput.pointer';
 import {
   Action as KeyAction, SourceType, ToolType, Touch, TouchEvent
 } from '@ohos.multimodalInput.touchEvent';
+import infraredEmitter from '@ohos.multimodalInput.infraredEmitter';
+import inputEventClient from '@ohos.multimodalInput.inputEventClient';
+import inputMonitor from '@ohos.multimodalInput.inputMonitor';
+import shortKey from '@ohos.multimodalInput.shortKey';
+/*** endif */
 
+/*** if arkts static */
 export {
   Action, ActionType, Axis, AxisValue, Button, FourFingersSwipe, InputEvent, IntentionCode,
   Key, KeyAction, KeyCode, KeyEvent, MouseAction, MouseEvent, MouseToolType, Pinch, Rotate,
   SourceType, ThreeFingersSwipe, ThreeFingersTap, ToolType, Touch, TouchEvent, inputConsumer,
-  inputDevice, pointer, SwipeInward, infraredEmitter
+  inputDevice, pointer, SwipeInward, inputEventClient, inputMonitor, shortKey, infraredEmitter
 };
-import infraredEmitter from '@ohos.multimodalInput.infraredEmitter';
 /*** endif */
 
-/* 1.1 独有部分 */
+/*** if arkts dynamic */
 import inputDeviceCooperate from '@ohos.multimodalInput.inputDeviceCooperate';
-import inputEventClient from '@ohos.multimodalInput.inputEventClient';
-import inputMonitor from '@ohos.multimodalInput.inputMonitor';
-import shortKey from '@ohos.multimodalInput.shortKey';
 export {
-  inputDeviceCooperate, inputEventClient, inputMonitor, shortKey
+  Action, ActionType, Axis, AxisValue, Button, FourFingersSwipe, InputEvent, IntentionCode,
+  Key, KeyAction, KeyCode, KeyEvent, MouseAction, MouseEvent, MouseToolType, Pinch, Rotate,
+  SourceType, ThreeFingersSwipe, ThreeFingersTap, ToolType, Touch, TouchEvent, inputConsumer,
+  inputDevice, pointer, SwipeInward, inputEventClient, inputMonitor, shortKey, infraredEmitter,
+  inputDeviceCooperate
 };
+/*** endif */

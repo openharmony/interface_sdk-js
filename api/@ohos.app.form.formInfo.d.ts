@@ -1240,8 +1240,24 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     ORIGINAL_FORM_KEY = 'ohos.extra.param.key.original_form_id',
+
+    /**
+     * Indicates the key specifying the edit form id, used in conjunction with LaunchReason.FORM_EDIT_PREVIEW.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       EDIT_FORM_KEY: "119476135"
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    EDIT_FORM_KEY = 'ohos.extra.param.key.edit_form_id',
   }
 
   /**
@@ -2034,7 +2050,7 @@ declare namespace formInfo {
   /**
    * The stage of form use.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11 dynamic

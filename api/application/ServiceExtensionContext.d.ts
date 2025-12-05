@@ -18,10 +18,8 @@
  * @kit AbilityKit
  */
 
-/*** if arkts dynamic */
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
-/*** endif */
 import AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 import { AsyncCallback } from '../@ohos.base';
 import { ConnectOptions } from '../ability/connectOptions';
@@ -489,6 +487,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
   openLink(link: string, options?: OpenLinkOptions): Promise<void>;
 
@@ -602,6 +601,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
   startAbilityAsCaller(want: Want, callback: AsyncCallback<void>): void;
 
@@ -712,6 +712,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
   startAbilityAsCaller(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -828,6 +829,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
   startAbilityAsCaller(want: Want, options?: StartOptions): Promise<void>;
 
@@ -915,7 +917,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the accountId to start.
+   * @param { int } accountId - Indicates the accountId to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -949,8 +951,9 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
-  startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+  startAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Service extension uses this method to start a specific ability with account.
@@ -1064,7 +1067,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the accountId to start.
+   * @param { int } accountId - Indicates the accountId to start.
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
@@ -1097,8 +1100,9 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
-  startAbilityWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
+  startAbilityWithAccount(want: Want, accountId: int, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Service extension uses this method to start a specific ability with account. If the caller application is in foreground,
@@ -1186,7 +1190,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the accountId to start.
+   * @param { int } accountId - Indicates the accountId to start.
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
@@ -1221,8 +1225,9 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
-  startAbilityWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<void>;
+  startAbilityWithAccount(want: Want, accountId: int, options?: StartOptions): Promise<void>;
 
   /**
    * Starts a new service extension ability.
@@ -1456,7 +1461,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -1478,8 +1483,9 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
-  startServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+  startServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Starts a new service extension ability with account.
@@ -1545,7 +1551,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -1567,8 +1573,9 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
-  startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
+  startServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
   /**
    * Stops a service within the same application.
@@ -1700,7 +1707,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the accountId to start.
+   * @param { int } accountId - Indicates the accountId to start.
    * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -1718,8 +1725,9 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 22 static
    */
-  stopServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+  stopServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Stops a service within the same application with account.
@@ -1753,7 +1761,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the accountId to start.
+   * @param { int } accountId - Indicates the accountId to start.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -1771,8 +1779,9 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 22 static
    */
-  stopServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
+  stopServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
   /**
    * Destroys this service extension.
@@ -1929,9 +1938,9 @@ declare class ServiceExtensionContext extends ExtensionContext {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the service extension to connect.
-   * @param { number } accountId - Indicates the account to connect.
+   * @param { int } accountId - Indicates the account to connect.
    * @param { ConnectOptions } options - Indicates the callback of connection.
-   * @returns { number } Returns the connection id.
+   * @returns { long } Returns the connection id.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1950,8 +1959,9 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 22 static
    */
-  connectServiceExtensionAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
+  connectServiceExtensionAbilityWithAccount(want: Want, accountId: int, options: ConnectOptions): long;
 
   /**
    * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
@@ -2036,6 +2046,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 22 static
    */
   startAbilityByCall(want: Want): Promise<Caller>;
 
@@ -2050,7 +2061,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    *
    * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @returns { Promise<Caller> } Returns the Caller interface.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -2071,8 +2082,9 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 22 static
    */
-  startAbilityByCallWithAccount(want: Want, accountId: number): Promise<Caller>;
+  startAbilityByCallWithAccount(want: Want, accountId: int): Promise<Caller>;
 
   /**
    * Service extension uses this method to start a specific ability,
@@ -2170,6 +2182,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
   startRecentAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -2268,6 +2281,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
   startRecentAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -2370,6 +2384,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
+   * @since 22 static
    */
   startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -2413,6 +2428,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
   requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
 
@@ -2456,6 +2472,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
   requestModalUIExtension(pickerWant: Want): Promise<void>;
 
@@ -2479,6 +2496,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */  
   preStartMission(bundleName: string, moduleName: string, abilityName: string, startTime: string): Promise<void>;
 
@@ -2577,6 +2595,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 22 static
    */
   startUIAbilities(wantList: Array<Want>): Promise<void>;
 }

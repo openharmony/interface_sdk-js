@@ -553,9 +553,20 @@ export interface CommonEventSubscriber {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
    */
   getSubscribeInfo(callback: AsyncCallback<CommonEventSubscribeInfo>): void;
+
+  /**
+   * Obtains the subscriber information. This API uses an asynchronous callback to return the result.
+   *
+   * @param { AsyncCallback<CommonEventSubscribeInfo|null> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @since 22 static
+   */
+  getSubscribeInfo(callback: AsyncCallback<CommonEventSubscribeInfo|null>): void;
 
   /**
    * Obtains the subscriber information. This API uses a promise to return the result.
@@ -572,9 +583,18 @@ export interface CommonEventSubscriber {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
    */
   getSubscribeInfo(): Promise<CommonEventSubscribeInfo>;
+
+  /**
+   * Obtains the subscriber information. This API uses a promise to return the result.
+   *
+   * @returns { Promise<CommonEventSubscribeInfo|null> } Promise used to return the result.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @since 22 static
+   */
+  getSubscribeInfo(): Promise<CommonEventSubscribeInfo|null>;
 
   /**
    * Obtains the subscriber information.
@@ -590,9 +610,17 @@ export interface CommonEventSubscriber {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
    */
   getSubscribeInfoSync(): CommonEventSubscribeInfo;
+
+  /**
+   * Obtains the subscriber information.
+   *
+   * @returns { CommonEventSubscribeInfo|null } Subscriber information.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 22 static
+   */
+  getSubscribeInfoSync(): CommonEventSubscribeInfo|null;
 
   /**
    * Finishes this ordered common event. This API uses an asynchronous callback to return the result.

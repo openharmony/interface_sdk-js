@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 import { Resource } from '../../global/resource';
-import { CommonMethod, PickerTextStyle, Callback, BlurStyle, PickerDialogButtonStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, DateRange, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional } from './common';
+import { CommonMethod, PickerTextStyle, Callback, BlurStyle, PickerDialogButtonStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, DateRange, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
 import { Offset, ResourceColor, VoidCallback } from "./units";
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
@@ -59,11 +59,11 @@ export declare enum CalendarAlign {
 export declare interface CalendarOptions {
     /**
      * Specifies the radius of the background of the day in calendar.
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    hintRadius?: number | Resource;
+    hintRadius?: double | Resource;
     /**
      * Specifies the date selector check date.
      * @type { ?Date }

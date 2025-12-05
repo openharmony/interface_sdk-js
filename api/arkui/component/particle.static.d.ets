@@ -49,20 +49,20 @@ export declare interface VelocityOptions {
      * Particle speed.
      *
      * Anonymous Object Rectification.
-     * @type { ParticleTuple<number, number> }
+     * @type { ParticleTuple<double, double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    speed: ParticleTuple<number, number>;
+    speed: ParticleTuple<double, double>;
     /**
      * Angle of particle's direction.
      *
      * Anonymous Object Rectification.
-     * @type { ParticleTuple<number, number> }
+     * @type { ParticleTuple<double, double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    angle: ParticleTuple<number, number>;
+    angle: ParticleTuple<double, double>;
 }
 /**
  * Defines acceleration options.
@@ -244,7 +244,7 @@ export interface EmitterProperty {
      */
     emitRate?: int;
     /**
-     * Emitter emission rate. Only support number type.
+     * Emitter emission rate. Only support double type.
      *
      * @type { ?PositionT<double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -252,7 +252,7 @@ export interface EmitterProperty {
      */
     position?: PositionT<double>;
     /**
-     * Emitter emission window size. Only support number type.
+     * Emitter emission window size. Only support double type.
      *
      * @type { ?SizeT<double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -390,11 +390,11 @@ export interface EmitterOptions {
 }
 /**
  * Defines the particle property updater configs.
- * @typedef { undefined | ParticleTuple<number, number> |  Array<ParticlePropertyAnimation<number>> } ParticlePropertyUpdaterConfigs
+ * @typedef { undefined | ParticleTuple<double, double> |  Array<ParticlePropertyAnimation<double>> } ParticlePropertyUpdaterConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export type ParticlePropertyUpdaterConfigs = undefined | ParticleTuple<number, number> | Array<ParticlePropertyAnimation<number>>;
+export type ParticlePropertyUpdaterConfigs = undefined | ParticleTuple<double, double> | Array<ParticlePropertyAnimation<double>>;
 /**
  * Defines the particle updater options.
  *
@@ -434,38 +434,38 @@ export interface ParticleColorOptions {
      * Red component of particle color.
      *
      * Anonymous Object Rectification.
-     * @type { ParticleTuple<number, number> }
+     * @type { ParticleTuple<int, int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    r: ParticleTuple<number, number>;
+    r: ParticleTuple<int, int>;
     /**
      * Green component of particle color.
      *
      * Anonymous Object Rectification.
-     * @type { ParticleTuple<number, number> }
+     * @type { ParticleTuple<int, int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    g: ParticleTuple<number, number>;
+    g: ParticleTuple<int, int>;
     /**
      * Blue component of particle color.
      *
      * Anonymous Object Rectification.
-     * @type { ParticleTuple<number, number> }
+     * @type { ParticleTuple<int, int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    b: ParticleTuple<number, number>;
+    b: ParticleTuple<int, int>;
     /**
      * Opacity component of particle color.
      *
      * Anonymous Object Rectification.
-     * @type { ParticleTuple<number, number> }
+     * @type { ParticleTuple<int, int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    a: ParticleTuple<number, number>;
+    a: ParticleTuple<int, int>;
 }
 /**
  * Defines the particle color updater options.
@@ -502,11 +502,11 @@ export interface ParticlePropertyOptions {
     /**
      * Initial range, within which the initial value are randomly generated.
      *
-     * @type { ParticleTuple<number, number> }
+     * @type { ParticleTuple<double, double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    range: ParticleTuple<number, number>;
+    range: ParticleTuple<double, double>;
     /**
      * Particle property updater.
      *

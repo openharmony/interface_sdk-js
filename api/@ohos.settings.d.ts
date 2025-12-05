@@ -1429,7 +1429,7 @@ declare namespace settings {
   /**
    * Set settingsdata value(synchronous method)
    *
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @permission ohos.permission.MANAGE_SETTINGS
    * @param { DataAbilityHelper } dataAbilityHelper Indicates dataAbilityHelper instance.
    * @param { string } name Indicates the name of the character string.
    * @param { string } value Indicates the value of the character string.
@@ -1519,6 +1519,30 @@ declare namespace settings {
    * @since 22 static
    */
   function openNetworkManagerSettings(context: Context): Promise<boolean>;
+
+  /**
+   * Open the input method settings page.
+   *
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @throws { BusinessError } 16900010 - Parameter error.
+   * @syscap SystemCapability.Applications.Settings.Core
+   * @StageModelOnly
+   * @since 23 dynamic&static
+   */
+  function openInputMethodSettings(context: Context): void;
+
+  /**
+   * Open the input method detail page.
+   *
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
+   * @param { string } bundleName - bundle name of the input method.
+   * @param { string } inputMethodId - id of the input method.
+   * @throws { BusinessError } 16900010 - Parameter error.
+   * @syscap SystemCapability.Applications.Settings.Core
+   * @StageModelOnly
+   * @since 23 dynamic&static
+   */
+  function openInputMethodDetail(context: Context, bundleName: string, inputMethodId: string): void;
 }
 
 export default settings;

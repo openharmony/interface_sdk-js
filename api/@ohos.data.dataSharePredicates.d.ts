@@ -316,7 +316,6 @@ declare namespace dataSharePredicates {
     /**
      * Configure the DataSharePredicates to match the fields whose value is null.
      * This method is similar to is null of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name in the database table.
      * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
@@ -324,13 +323,13 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
+     * @since 23 static
      */
     isNull(field: string): DataSharePredicates;
 
     /**
      * Configure the DataSharePredicates to match the specified fields whose value is not null.
      * This method is similar to is not null of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name in the database table.
      * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
@@ -338,6 +337,7 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
+     * @since 23 static
      */
     isNotNull(field: string): DataSharePredicates;
 
@@ -685,17 +685,17 @@ declare namespace dataSharePredicates {
      * Construct a query object to specify the number of results and the starting position.
      * Currently only used for RDB and KVDB(schema).
      *
-     * @param { number } total - Represents the specified number of results.
-     * @param { number } offset - Indicates the starting position.
+     * @param { int } total - Represents the specified number of results.
+     * @param { int } offset - Indicates the starting position.
      * @returns { DataSharePredicates } Returns the query object.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
      * @since 22 static
      */
-    limit(total: number, offset: number): DataSharePredicates;
+    limit(total: int, offset: int): DataSharePredicates;
 
     /**
      * Configure {@code DataSharePredicates} to group query results by specified columns.
@@ -763,9 +763,22 @@ declare namespace dataSharePredicates {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     in(field: string, value: Array<ValueType>): DataSharePredicates;
+
+    /**
+     * Configure {@code DataSharePredicates} to match the specified field whose data type is ValueType array and values
+     * are within a given range.
+     * Currently only used for RDB and KVDB(schema).
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
+     * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    inValues(field: string, value: Array<ValueType>): DataSharePredicates;
 
     /**
      * Configure {@code DataSharePredicates} to match the specified field whose data type is String array and values
@@ -793,6 +806,33 @@ declare namespace dataSharePredicates {
      * @since 23 dynamic
      */
     notIn(field: string, value: Array<ValueType>): DataSharePredicates;
+
+    /**
+     * Configure {@code DataSharePredicates} to match the specified field whose data type is String array and values
+     * are out of a given range.
+     * Currently only used for RDB and KVDB(schema).
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
+     * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 22 static
+     */
+    /**
+     * Configure {@code DataSharePredicates} to match the specified field whose data type is String array and values
+     * are out of a given range.
+     * Currently only used for RDB and KVDB(schema).
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
+     * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    notInValues(field: string, value: Array<ValueType>): DataSharePredicates;
 
     /**
      * Configure {@code DataSharePredicates} Creates a query condition using the specified key prefix.

@@ -1043,6 +1043,34 @@ declare namespace cryptoFramework {
      * @since 22 static
      */
     getEncodedPem(format: string, config: KeyEncodingConfig): string;
+
+    /**
+     * Get the public key object of the private key.
+     *
+     * @returns { Promise<PubKey> } the promise returned by the function.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getPubKey(): Promise<PubKey>;
+
+    /**
+     * Get the public key object of the private key.
+     *
+     * @returns { PubKey } the public key object of the private key.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getPubKeySync(): PubKey;
   }
 
   /**

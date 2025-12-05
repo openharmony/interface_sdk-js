@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 import { ResourceStr, Dimension } from '@ohos.arkui.component';
-import { PropRef } from '.@ohos.arkui.stateManagement';
+import { PropRef } from '@ohos.arkui.stateManagement';
 import { Component } from '@ohos.arkui.component';
 import { SymbolGlyphModifier } from 'arkui.SymbolGlyphModifier';
 import { Builder } from '@ohos.arkui.component';
@@ -29,6 +29,7 @@ import { Builder } from '@ohos.arkui.component';
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
+ * @noninterop
  */
 export declare enum MarginType {
   /**
@@ -55,6 +56,7 @@ export declare enum MarginType {
  * @interface PromptOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
+ * @noninterop
  */
 export interface PromptOptions {
   /**
@@ -119,6 +121,7 @@ export interface PromptOptions {
  * @struct { ExceptionPrompt }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
+ * @noninterop
  */
 @Component
 export declare struct ExceptionPrompt {
@@ -129,7 +132,8 @@ export declare struct ExceptionPrompt {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  @PropRef options: PromptOptions;
+  @PropRef
+  options: PromptOptions;
   /**
    * Callback when clicking the text on the left.
    *
@@ -148,9 +152,8 @@ export declare struct ExceptionPrompt {
   onActionTextClick?: () => void;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder build(): void;
 }

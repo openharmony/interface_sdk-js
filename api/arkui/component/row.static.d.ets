@@ -32,11 +32,11 @@ export declare interface RowOptions {
      * Row spacing.
      *
      * Anonymous Object Rectification
-     * @type { ?(string | number) }
+     * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    space?: string | number;
+    space?: string | double;
 }
 /**
  * Define options used to construct a row.
@@ -69,7 +69,7 @@ export declare interface RowAttribute extends CommonMethod {
     /**
      * Called when the vertical alignment is set.
      *
-     * @param { VerticalAlign } value
+     * @param { VerticalAlign | undefined } value
      * @returns { RowAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
@@ -78,7 +78,7 @@ export declare interface RowAttribute extends CommonMethod {
     /**
      * Called when the horizontal alignment is set.
      *
-     * @param { FlexAlign } value
+     * @param { FlexAlign | undefined } value
      * @returns { RowAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
@@ -87,13 +87,13 @@ export declare interface RowAttribute extends CommonMethod {
     /**
     * Defines the PointLight
     *
-    * @param { PointLightStyle } value - The point light style.
+    * @param { PointLightStyle | undefined } value - The point light style.
     * @returns { RowAttribute } The attribute of the row.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @systemapi
     * @since 22 static
     */
-    default pointLight(value: PointLightStyle): RowAttribute;
+    default pointLight(value: PointLightStyle | undefined): RowAttribute;
     /**
      * Called when the Main-Axis's direction is set reversed or not
      *

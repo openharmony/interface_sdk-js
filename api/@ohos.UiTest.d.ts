@@ -1539,24 +1539,6 @@ declare enum ComponentEventType {
    * @test
    */
   COMPONENT_TEXT_CHANGED = 5,
-  /**
-   * The mouse hoveringly enter a component.
-   * 
-   * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
-   * @since 22 dynamic&static
-   * @test
-   */
-  COMPONENT_HOVER_ENTER = 6,
-  /**
-   * The mouse hoveringly exit a component.
-   * 
-   * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
-   * @since 22 dynamic&static
-   * @test
-   */
-  COMPONENT_HOVER_EXIT = 7,
 }
 
 /**
@@ -5037,9 +5019,9 @@ declare class Driver {
    *
    * @param { Point } p - the coordinate of the specified location.
    * @param { boolean } down - whether the mouse wheel rolls down.
-   * @param { int } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
-   * @param { int } [key1] - the first keyCode,set it default 0 if null or undefined.
-   * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
+   * @param { number } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
+   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -5048,7 +5030,7 @@ declare class Driver {
    * @since 11 dynamic
    * @test
    */
-  mouseScroll(p: Point, down: boolean, d: int, key1?: int, key2?: int): Promise<void>;
+  mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number): Promise<void>;
 
   /**
    * The mouse wheel scrolls the specified cell at the specified position, and press the specified key simultaneously if necessary.
@@ -5879,15 +5861,16 @@ declare class UiWindow {
   /**
    * Get the displayId to which the window belongs.
    *
-   * @returns { Promise<number> } the displayId value.
+   * @returns { Promise<int> } the displayId value.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    * @test
    */
-  getDisplayId(): Promise<number>;
+  getDisplayId(): Promise<int>;
 }
 
 /**

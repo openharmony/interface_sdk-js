@@ -20,7 +20,7 @@
 import { Resource } from '../../global/resource';
 import { ResourceColor } from "./units";
 import { FontWeight } from "./enums";
-import { CommonMethod, Optional, AttributeModifier } from "./common";
+import { CommonMethod, AttributeModifier } from "./common";
 import { ComponentBuilder, CustomBuilder } from './builder';
 /**
  * The symbol rendering strategy.

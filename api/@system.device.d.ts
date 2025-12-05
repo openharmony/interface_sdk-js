@@ -23,6 +23,7 @@
  * @syscap SystemCapability.Startup.SystemInfo.Lite
  * @since 3 dynamiconly
  * @deprecated since 6
+ * @reserved ["liteWearable"]
  */
 export interface DeviceResponse {
   /**
@@ -32,6 +33,7 @@ export interface DeviceResponse {
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   brand: string;
 
@@ -42,6 +44,7 @@ export interface DeviceResponse {
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   manufacturer: string;
 
@@ -52,6 +55,7 @@ export interface DeviceResponse {
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   model: string;
 
@@ -62,6 +66,7 @@ export interface DeviceResponse {
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   product: string;
 
@@ -72,6 +77,7 @@ export interface DeviceResponse {
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   language: string;
 
@@ -82,6 +88,7 @@ export interface DeviceResponse {
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   region: string;
 
@@ -92,6 +99,7 @@ export interface DeviceResponse {
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   windowWidth: number;
 
@@ -102,6 +110,7 @@ export interface DeviceResponse {
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   windowHeight: number;
 
@@ -112,6 +121,7 @@ export interface DeviceResponse {
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   screenDensity: number;
 
@@ -124,6 +134,7 @@ export interface DeviceResponse {
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   screenShape: 'rect' | 'circle';
 
@@ -134,6 +145,7 @@ export interface DeviceResponse {
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   apiVersion: number;
 
@@ -156,6 +168,7 @@ export interface DeviceResponse {
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   deviceType: string;
 }
@@ -165,6 +178,7 @@ export interface DeviceResponse {
  * @syscap SystemCapability.Startup.SystemInfo.Lite
  * @since 3 dynamiconly
  * @deprecated since 6
+ * @reserved ["liteWearable"]
  */
 export interface GetDeviceOptions {
   /**
@@ -174,6 +188,7 @@ export interface GetDeviceOptions {
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   success?: (data: DeviceResponse) => void;
 
@@ -184,6 +199,7 @@ export interface GetDeviceOptions {
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   fail?: (data: any, code: number) => void;
 
@@ -194,6 +210,7 @@ export interface GetDeviceOptions {
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -204,6 +221,7 @@ export interface GetDeviceOptions {
  * @syscap SystemCapability.Startup.SystemInfo.Lite
  * @since 3 dynamiconly
  * @deprecated since 6
+ * @reserved ["liteWearable"]
  */
 export default class Device {
   /**
@@ -213,6 +231,7 @@ export default class Device {
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
+   * @reserved ["liteWearable"]
    */
   static getInfo(options?: GetDeviceOptions): void;
 }

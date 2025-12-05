@@ -211,9 +211,8 @@ export declare struct TipsDialog {
   onCheckedChange?: Callback<boolean>;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder build(): void;
 }
@@ -292,9 +291,8 @@ export declare struct SelectDialog {
   themeColorMode?: ThemeColorMode;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder build(): void;
 }
@@ -389,9 +387,8 @@ export declare struct ConfirmDialog {
   onCheckedChange?: Callback<boolean>;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder build(): void;
 }
@@ -470,9 +467,8 @@ export declare struct AlertDialog {
   themeColorMode?: ThemeColorMode;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder build(): void;
 }
@@ -519,9 +515,8 @@ export declare struct LoadingDialog {
   themeColorMode?: ThemeColorMode;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder build(): void;
 }
@@ -609,9 +604,8 @@ export declare struct CustomContentDialog {
   themeColorMode?: ThemeColorMode;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder build(): void;
 }
@@ -652,9 +646,8 @@ export declare struct PopoverDialog {
   targetBuilder: () => void;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @since 22 staticonly
    */
   @Builder build(): void;
 }

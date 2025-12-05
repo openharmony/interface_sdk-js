@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 import { ResourceColor, Offset, VoidCallback } from "./units";
-import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback, DateTimeOptions, Bindable } from './common';
+import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Callback, DateTimeOptions, Bindable } from './common';
 import { DialogAlignment } from "./alertDialog";
 import { CrownSensitivity } from "./enums";
 import { ComponentBuilder, CustomBuilder } from './builder';
@@ -36,31 +36,31 @@ export declare interface TimePickerResult {
     /**
      * Hour portion of the selected time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    hour: number;
+    hour: int;
     /**
      * Minute portion of the selected time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    minute: number;
+    minute: int;
     /**
      * Second portion of the selected time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    second: number;
+    second: int;
 }
 /**
  * Type of the TimePicker that need to be displayed.
- * @enum {number}
+ * @enum {int}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */

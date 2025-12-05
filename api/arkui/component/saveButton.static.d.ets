@@ -210,7 +210,14 @@ export declare enum SaveButtonOnClickResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  TEMPORARY_AUTHORIZATION_FAILED = 1
+  TEMPORARY_AUTHORIZATION_FAILED = 1,
+  /**
+   * Canceled by user.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  CANCELED_BY_USER = 2
 }
 /**
  * Callback function when the save button is clicked.
@@ -298,6 +305,16 @@ export declare interface SaveButtonAttribute extends SecurityComponentMethod {
    * @since 22 static
    */
   stateEffect(enabled: boolean | undefined): this;
+
+  /**
+   * Receives the Event when the user clicks cancel.
+   *
+   * @param { boolean | undefined } enabled Whether to receive the event when the user clicks cancel.
+   * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  userCancelEvent(enabled: boolean | undefined): this;
 }
 
 
