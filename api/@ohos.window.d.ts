@@ -5462,7 +5462,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Modal sub window and dialog window can not set focusOnShow.
+     *     Possible cause: Invalid window type. Modal subwindow and dialog window can not set focusOnShow.
      * @throws { BusinessError } 1300016 - Parameter validation error. Possible cause: 1. The value of the parameter is out of the allowed range;
      *                                                                                 2. The length of the parameter exceeds the allowed length;
      *                                                                                 3. The parameter format is incorrect.
@@ -7292,13 +7292,17 @@ declare namespace window {
     setUIContent(path: string): Promise<void>;
 
     /**
-     * Loads the content of a named route page to this window, and transfers the state attribute to the page through a local storage.
-     * This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content.
+     * Loads the content of a named route page to this window, and transfers the state attribute
+     *     to the page through a local storage.
+     * This API uses an asynchronous callback to return the result. You are advised to call
+     *     this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content.
      * Exercise caution when using it.
      *
      * @param { string } name - Name of the named route page.
-     * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to transfer the state attribute for the page.
+     * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to 
+     *     transfer the state attribute for the page.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -7315,9 +7319,12 @@ declare namespace window {
     loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
     /**
-     * Loads the content of a named route page to this window, and transfers the state attribute to the page through a local storage.
-     * This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content.
+     * Loads the content of a named route page to this window, and transfers the state attribute
+     *     to the page through a local storage.
+     * This API uses an asynchronous callback to return the result. You are advised to call
+     *     this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content.
      * Exercise caution when using it.
      *
      * @param { string } name - Name of the named route page.
@@ -7337,13 +7344,17 @@ declare namespace window {
     loadContentByName(name: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Loads the content of a named route page to this window, and transfers the state attribute to the page through a local storage.
-     * This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content.
+     * Loads the content of a named route page to this window, and transfers the state attribute
+     *     to the page through a local storage.
+     * This API uses an asynchronous callback to return the result. You are advised to call
+     *     this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content.
      * Exercise caution when using it.
      *
      * @param { string } name - Name of the named route page.
-     * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to transfer the state attribute for the page.
+     * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to
+     *     transfer the state attribute for the page.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -11104,9 +11115,12 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Minimizes the main window if the caller is the main window. The main window can be restored in the dock bar. For 2-in-1 devices, it can be restored by calling restore().
-     * Hides the child window if the caller is a child window. The child window cannot be restored in the dock bar. It can be made visible again by calling showWindow().
-     * 
+     * Minimize the window based on the caller type:
+     *     If the caller is the main window, it will minimize the main window, which can be restored from the dock bar.
+     *     On 2-in-1 devices, it can also be restored using the restore() method.
+     *     If the caller is a subwindow or a float window, it will hide the subwindow or float window,
+     *     which cannot be restored from the dock bar.
+     *     The subwindow or float window can be made visible again using the showWindow() method.
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -11132,12 +11146,18 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Minimizes the main window if the caller is the main window. The main window can be restored in the dock bar. For 2-in-1 devices, it can be restored by calling restore().
-     * Hides the child window if the caller is a child window. The child window cannot be restored in the dock bar. It can be made visible again by calling showWindow().
+     * Minimize the window based on the caller type:
+     *     If the caller is the main window, it will minimize the main window, which can be restored from the dock bar.
+     *     On 2-in-1 devices, it can also be restored using the restore() method.
+     *     If the caller is a subwindow or a float window, it will hide the subwindow or float window,
+     *     which cannot be restored from the dock bar.
+     *     The subwindow or float window can be made visible again using the showWindow() method.
      *
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: 1. The window is not created or destroyed;
+     *                     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -11171,7 +11191,7 @@ declare namespace window {
      *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Only main windows and maximizable sub windows are supported.
+     *     Possible cause: Invalid window type. Only main windows and maximizable subwindows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
@@ -11196,7 +11216,7 @@ declare namespace window {
      *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Only main windows and sub windows are supported.
+     *     Possible cause: Invalid window type. Only main windows and maximizable subwindows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 dynamic&static
      */
@@ -11433,7 +11453,8 @@ declare namespace window {
     recover(): Promise<void>;
 
     /**
-     * Restores the main window from minimization to the foreground, returning it to its size and position before it is minimized.
+     * Restores the main window from minimization to the foreground, returning it to
+     *     its size and position before it is minimized.
      *
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -12483,7 +12504,7 @@ declare namespace window {
      *                     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Only main windows, sub windows, and floating windows are supported.
+     *     Possible cause: Invalid window type. Only main windows, subwindows, and float windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @atomicservice
