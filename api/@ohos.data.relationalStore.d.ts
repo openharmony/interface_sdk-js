@@ -2139,6 +2139,69 @@ declare namespace relationalStore {
   }
 
   /**
+   * Configuration items for the specified returning-related interfaces.
+   * @interface ReturningConfig
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @since 23 dynamic&static
+   */
+  interface ReturningConfig {
+    /**
+     * Indicates the changed fields that need to be returning.
+     * @type { Array<string> }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    columns: Array<string>;
+
+    /**
+     * Indicates the maximum number of entries in the returned result set, with a default value of 1024.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    maxReturningCount?: int;
+  }
+
+  /**
+   * Entries recording data changes and fields that have been modified.
+   * @interface ResultSet
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @since 23 dynamic&static
+   */
+  interface Result {
+    /**
+     * Indicates the number of rows affected by this operation.
+     * @type { long }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    readonly changed: long;
+
+    /**
+     * The result set of data changes.
+     *
+     * @type { LiteResultSet }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    readonly resultSet: LiteResultSet;
+  }
+  /**
    * Manages relational database configurations.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -9181,6 +9244,202 @@ declare namespace relationalStore {
      * @since 22 dynamic&static
      */
     rekeyEx(cryptoParam: CryptoParam): Promise<void>;
+
+    /**
+     * Inserts a batch of data into the target table and return a resultSet of changed fields.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { Array<ValuesBucket> } values -
+     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ConflictResolution } [conflict] -
+     *     Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { Promise<Result> } The {@link Result} result of the inserted field includes the number of modified
+     *     rows and the result set of changed data.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    batchInsertWithReturning(table: string, values: Array<ValuesBucket>, config: ReturningConfig,
+      conflict?: ConflictResolution): Promise<Result>;
+
+    /**
+     * Inserts a batch of data into the target table and return a resultSet of changed fields.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { Array<ValuesBucket> } values -
+     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ConflictResolution } [conflict] -
+     *     Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { Result } The {@link Result} result of the inserted field includes the number of modified
+     *     rows and the result set of changed data.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of    valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    batchInsertWithReturningSync(table: string, values: Array<ValuesBucket>, config: ReturningConfig,
+      conflict?: ConflictResolution): Result;
+
+    /**
+     * Updates data in the database based on a specified instance object of RdbPredicates and return a
+     * resultSet of changed fields.
+     *
+     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
+     *     The key-value pairs are associated with column names of the database table.
+     * @param { RdbPredicates } predicates -
+     *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ConflictResolution } [conflict] -
+     *     Indicates the {@link ConflictResolution} to update data into the table.
+     * @returns { Promise<Result> } The {@link Result} result of the updated field includes the number of modified
+     *     rows and the result set of changed data.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of    valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    updateWithReturning(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig,
+      conflict?: ConflictResolution): Promise<Result>;
+
+    /**
+     * Updates data in the database based on a specified instance object of RdbPredicates and return a
+     * resultSet of changed fields.
+     *
+     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
+     *     The key-value pairs are associated with column names of the database table.
+     * @param { RdbPredicates } predicates -
+     *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ConflictResolution } [conflict] -
+     *     Indicates the {@link ConflictResolution} to update data into the table.
+     * @returns { Result } The {@link Result} result of the updated field includes the number of modified
+     *     rows and the result set of changed data.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of    valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    updateWithReturningSync(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig,
+      conflict?: ConflictResolution): Result;
+
+    /**
+     * Deletes data from the database based on a specified instance object of RdbPredicates and return a
+     * resultSet of changed fields.
+     *
+     * @param { RdbPredicates } predicates -
+     *     The specified delete condition by the instance object of {@link RdbPredicates}.
+     * @param { config } config - Indicate the information that needs to be returned.
+     * @returns { Promise<Result> } The {@link Result} result of the deleted field includes the number of modified
+     *     rows and the result set of changed data.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of    valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    deleteWithReturning(predicates: RdbPredicates, config: ReturningConfig): Promise<Result>;
+
+    /**
+     * Deletes data from the database based on a specified instance object of RdbPredicates and return a
+     * resultSet of changed fields.
+     *
+     * @param { RdbPredicates } predicates -
+     *     The specified delete condition by the instance object of {@link RdbPredicates}.
+     * @param { config } config - Indicate the information that needs to be returned.
+     * @returns { Result } The {@link Result} result of the deleted field includes the number of modified
+     *     rows and the result set of changed data.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    deleteWithReturningSync(predicates: RdbPredicates, config: ReturningConfig): Result;
   }
 
   /**
@@ -9842,6 +10101,202 @@ declare namespace relationalStore {
      * @since 14 dynamic
      */
     executeSync(sql: string, args?: Array<ValueType>): ValueType;
+
+    /**
+     * Inserts a batch of data into the target table and return a resultSet of changed fields.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { Array<ValuesBucket> } values -
+     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ConflictResolution } [conflict] -
+     *     Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { Promise<Result> } The {@link Result} result of the inserted field includes the number of modified
+     *     rows and the result set of changed data.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    batchInsertWithReturning(table: string, values: Array<ValuesBucket>, config: ReturningConfig,
+      conflict?: ConflictResolution): Promise<Result>;
+
+    /**
+     * Inserts a batch of data into the target table and return a resultSet of changed fields.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { Array<ValuesBucket> } values -
+     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ConflictResolution } [conflict] -
+     *     Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { Result } The {@link Result} result of the inserted field includes the number of modified
+     *     rows and the result set of changed data.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of    valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    batchInsertWithReturningSync(table: string, values: Array<ValuesBucket>, config: ReturningConfig,
+      conflict?: ConflictResolution): Result;
+
+    /**
+     * Updates data in the database based on a specified instance object of RdbPredicates and return a
+     * resultSet of changed fields.
+     *
+     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
+     *     The key-value pairs are associated with column names of the database table.
+     * @param { RdbPredicates } predicates -
+     *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ConflictResolution } [conflict] -
+     *     Indicates the {@link ConflictResolution} to update data into the table.
+     * @returns { Promise<Result> } The {@link Result} result of the updated field includes the number of modified
+     * rows and the result set of changed data.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of    valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    updateWithReturning(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig,
+      conflict?: ConflictResolution): Promise<Result>;
+
+    /**
+     * Updates data in the database based on a specified instance object of RdbPredicates and return a
+     * resultSet of changed fields.
+     *
+     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
+     *     The key-value pairs are associated with column names of the database table.
+     * @param { RdbPredicates } predicates -
+     *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ConflictResolution } [conflict] -
+     *     Indicates the {@link ConflictResolution} to update data into the table.
+     * @returns { Result } The {@link Result} result of the updated field includes the number of modified
+     *     rows and the result set of changed data.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of    valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    updateWithReturningSync(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig,
+      conflict?: ConflictResolution): Result;
+
+    /**
+     * Deletes data from the database based on a specified instance object of RdbPredicates and return a
+     * resultSet of changed fields.
+     *
+     * @param { RdbPredicates } predicates -
+     *     The specified delete condition by the instance object of {@link RdbPredicates}.
+     * @param { config } config - Indicate the information that needs to be returned.
+     * @returns { Promise<Result> } The {@link Result} result of the deleted field includes the number of modified
+     *     rows and the result set of changed data.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of    valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    deleteWithReturning(predicates: RdbPredicates, config: ReturningConfig): Promise<Result>;
+
+    /**
+     * Deletes data from the database based on a specified instance object of RdbPredicates and return a
+     * resultSet of changed fields.
+     *
+     * @param { RdbPredicates } predicates -
+     *     The specified delete condition by the instance object of {@link RdbPredicates}.
+     * @param { config } config - Indicate the information that needs to be returned.
+     * @returns { Result } The {@link Result} result of the deleted field includes the number of modified
+     *     rows and the result set of changed data.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    deleteWithReturningSync(predicates: RdbPredicates, config: ReturningConfig): Result;
   }
 
   /**
