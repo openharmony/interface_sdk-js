@@ -168,6 +168,47 @@ declare enum FormShape {
 }
 
 /**
+ * Form color mode.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic
+ */
+enum FormColorMode {  
+  /**
+   * Automatic mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  MODE_AUTO = -1,
+
+  /**
+   * Dark mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  MODE_DARK = 0,
+
+  /**
+   * Light mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  MODE_LIGHT = 1
+}
+
+/**
  * Defines the FormInfo.
  *
  * @interface FormInfo
@@ -518,6 +559,18 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @since 7 dynamic
    */
   visibility(value: Visibility): FormComponentAttribute;
+
+  /**
+   * Set the color mode of the card.
+   *
+   * @param { FormColorMode } value - The form color mode to set.
+   * @returns { FormComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  colorMode(value: FormColorMode): FormComponentAttribute;
 
   /**
    * This function is triggered after card information is obtained.

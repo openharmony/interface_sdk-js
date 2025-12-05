@@ -525,6 +525,43 @@ declare namespace formInfo {
      * @since 22 static
      */
     readonly groupId?: string;
+  
+    /**
+     * Obtains whether the form supports standby.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly isStandbySupported?: boolean;
+
+    
+    /**
+     * Obtains whether the form is adapted for standby.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly isStandbyAdapted?: boolean;
+
+    /**
+     * Obtains whether the form is privacy sensitive.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly isPrivacySensitive?: boolean;
   }
 
   /**
@@ -2240,6 +2277,16 @@ declare namespace formInfo {
      * @since 22 static
      */
     AI_SUGGESTION = 7,
+
+    /**
+     * Form is in standby.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 static&dynamic
+     */
+    STANDBY = 8
   }
 
   /**
