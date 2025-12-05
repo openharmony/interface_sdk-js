@@ -9246,35 +9246,35 @@ declare namespace relationalStore {
     rekeyEx(cryptoParam: CryptoParam): Promise<void>;
 
     /**
-    * Inserts a batch of data into the target table and return a resultSet of changed fields.
-    *
-    * @param { string } table - Indicates the target table.
-    * @param { Array<ValuesBucket> } values -
-    *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-    * @param { config } config - Indicate the information that needs to be returned.
-    * @param { ConflictResolution } [conflict] -
-    *     Indicates the {@link ConflictResolution} to insert data into the table.
-    * @returns { Promise<Result> } The {@link Result} result of the inserted field includes the number of modified
-    *     rows and the result set of changed data.
-    * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
-    * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
-    * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
-    * @throws { BusinessError } 14800021 - SQLite: Generic error.
-    *     Possible causes: Insert failed or the updated data does not exist.
-    * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-    * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-    * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-    * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-    * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-    * @throws { BusinessError } 14800029 - SQLite: The database is full.
-    * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-    * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-    * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-    * @stagemodelonly
-    * @crossplatform
-    * @since 23 dynamic&static
-    */
+     * Inserts a batch of data into the target table and return a resultSet of changed fields.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { Array<ValuesBucket> } values -
+     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ConflictResolution } [conflict] -
+     *     Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { Promise<Result> } The {@link Result} result of the inserted field includes the number of modified
+     *     rows and the result set of changed data.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
     batchInsertWithReturning(table: string, values: Array<ValuesBucket>, config: ReturningConfig,
       conflict?: ConflictResolution): Promise<Result>;
 
@@ -10103,35 +10103,35 @@ declare namespace relationalStore {
     executeSync(sql: string, args?: Array<ValueType>): ValueType;
 
     /**
-    * Inserts a batch of data into the target table and return a resultSet of changed fields.
-    *
-    * @param { string } table - Indicates the target table.
-    * @param { Array<ValuesBucket> } values -
-    *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-    * @param { config } config - Indicate the information that needs to be returned.
-    * @param { ConflictResolution } [conflict] -
-    *     Indicates the {@link ConflictResolution} to insert data into the table.
-    * @returns { Promise<Result> } The {@link Result} result of the inserted field includes the number of modified
-    *     rows and the result set of changed data.
-    * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
-    * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
-    * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
-    * @throws { BusinessError } 14800021 - SQLite: Generic error.
-    *     Possible causes: Insert failed or the updated data does not exist.
-    * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-    * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-    * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-    * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-    * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-    * @throws { BusinessError } 14800029 - SQLite: The database is full.
-    * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-    * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-    * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-    * @stagemodelonly
-    * @crossplatform
-    * @since 23 dynamic&static
-    */
+     * Inserts a batch of data into the target table and return a resultSet of changed fields.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { Array<ValuesBucket> } values -
+     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ConflictResolution } [conflict] -
+     *     Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { Promise<Result> } The {@link Result} result of the inserted field includes the number of modified
+     *     rows and the result set of changed data.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
     batchInsertWithReturning(table: string, values: Array<ValuesBucket>, config: ReturningConfig,
       conflict?: ConflictResolution): Promise<Result>;
 
