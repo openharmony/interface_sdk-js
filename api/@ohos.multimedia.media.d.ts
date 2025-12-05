@@ -957,6 +957,7 @@ declare namespace media {
      * @param { AsyncCallback<AVMetadata> } callback - A callback instance used to return when fetchMetadata completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
@@ -966,6 +967,7 @@ declare namespace media {
      * which is an **AVMetadata** instance.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
@@ -977,6 +979,7 @@ declare namespace media {
      * which is an **AVMetadata** instance.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 22 static
@@ -988,6 +991,7 @@ declare namespace media {
      * @returns { Promise<AVMetadata> } A Promise instance used to return when fetchMetadata completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
@@ -996,6 +1000,7 @@ declare namespace media {
      * @returns { Promise<AVMetadata> } Promise used to return the result, which is an **AVMetadata** instance.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
@@ -1006,6 +1011,7 @@ declare namespace media {
      * @returns { Promise<AVMetadata | undefined> } Promise used to return the result, which is an **AVMetadata** instance.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 22 static
@@ -1096,6 +1102,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 20 dynamic
      */
@@ -1114,6 +1121,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 22 static
      */
@@ -2280,6 +2288,14 @@ declare namespace media {
      * @since 22 static
      */
     AVERR_SUPER_RESOLUTION_NOT_ENABLED = 5410004,
+
+    /**
+     * Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    AVERR_IO_CLEARTEXT_NOT_PERMITTED = 5411012,
 
     /**
      * The parameter value is out of the specified range.
@@ -4351,6 +4367,7 @@ declare namespace media {
      * @throws { BusinessError } 5411009 - IO SSL connect fail.
      * @throws { BusinessError } 5411010 - IO SSL server cert untrusted.
      * @throws { BusinessError } 5411011 - IO unsupported request.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -4751,6 +4768,7 @@ declare namespace media {
      * @throws { BusinessError } 5411009 - IO SSL connect fail.
      * @throws { BusinessError } 5411010 - IO SSL server cert untrusted.
      * @throws { BusinessError } 5411011 - IO unsupported request.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 22 static
      */
