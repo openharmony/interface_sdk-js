@@ -7673,7 +7673,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'keyboardHeightChange', callback: Callback<int>): void;
 
@@ -7710,7 +7709,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'keyboardHeightChange', callback?: Callback<int>): void;
 
@@ -7842,7 +7840,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
      */
     on(type: 'keyboardDidShow', callback: Callback<KeyboardInfo>): void;
 
@@ -7868,7 +7865,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
      */
     off(type: 'keyboardDidShow', callback?: Callback<KeyboardInfo>): void;
 
@@ -7895,7 +7891,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
      */
     on(type: 'keyboardDidHide', callback: Callback<KeyboardInfo>): void;
 
@@ -7921,7 +7916,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
      */
     off(type: 'keyboardDidHide', callback?: Callback<KeyboardInfo>): void;
 
@@ -9043,7 +9037,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 22 static
      */
     on(type: 'windowHighlightChange', callback: Callback<boolean>): void;
 
@@ -9064,7 +9057,8 @@ declare namespace window {
      * Unregister the callback of window highlight state change
      *
      * @param { 'windowHighlightChange' } type - The value is fixed at 'windowHighlightChange', indicating the window highlight change event.
-     * @param { Callback<boolean> } callback - Callback used to return the highlight status of the window.
+     * @param { Callback<boolean> } [callback] - Callback used to return the highlight status of the window.
+     *     if not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -9074,7 +9068,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 22 static
      */
     off(type: 'windowHighlightChange', callback?: Callback<boolean>): void;
 
