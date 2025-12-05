@@ -99,11 +99,9 @@ declare interface CustomComponentLifecycleObserver {
   aboutToExpand?(): void;
 
   /**
-   * The onDidExpand function is executed after a new instance of the custom component
+   * The onDidBuild function is executed after a new instance of the custom component
    * is built, after its build() function is executed. Developers can implement functions that do not
-   * affect the actual UI, such as event data reporting at this stage. Its functionality is similar
-   * to onDidBuild, but because onDidExpand is triggered under the constraints of the custom component
-   * state machine, the onDidExpand interface is added for compatibility considerations.
+   * affect the actual UI, such as event data reporting at this stage.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -111,7 +109,7 @@ declare interface CustomComponentLifecycleObserver {
    * @atomicservice
    * @since 23 dynamic
    */
-  onDidExpand?(): void;
+  onDidBuild?(): void;
 
   /**
    * The aboutToDelete function executes before a custom component is destroyed. It is not allowed to
@@ -130,7 +128,7 @@ declare interface CustomComponentLifecycleObserver {
   aboutToDelete?(): void;
 
   /**
-   * The aboutToAttach function is executed when a custom component is about to be attached to the main tree.
+   * The aboutToAttach function is executed when a custom component is attached to the main tree.
    * Developers can implement functions that do not affect the actual UI, such as event data reporting at this stage.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -142,7 +140,7 @@ declare interface CustomComponentLifecycleObserver {
   aboutToAttach?(): void;
 
   /**
-   * The aboutToDetach function executes when a custom component is about to be detached from the main tree.
+   * The aboutToDetach function executes when a custom component is detached from the main tree.
    * Developers can implement functions that do not affect the actual UI, such as initialization of non-state
    * variable data at this stage.
    *
