@@ -40,17 +40,7 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 11 dynamiconly
- */
-/**
- * The convertxml module provides utilities for converting XML text to Javascript object.
- *
- * @namespace xml
- * @syscap SystemCapability.Utils.Lang
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
+ * @since 11 dynamic
  */
 declare namespace xml {
   /**
@@ -75,17 +65,7 @@ declare namespace xml {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamiconly
-   */
-  /**
-   * The options for conversion.
-   *
-   * @interface ConvertOptions
-   * @syscap SystemCapability.Utils.Lang
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 11 dynamic
    */
   interface ConvertOptions {
     /**
@@ -110,17 +90,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Whether to trim whitespace characters that may exist before and after the text, default false.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     trim: boolean;
     /**
@@ -145,17 +115,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Whether to ignore writing declaration directives of xml.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     ignoreDeclaration?: boolean;
     /**
@@ -180,17 +140,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Whether to ignore writing processing instruction of xml.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     ignoreInstruction?: boolean;
     /**
@@ -215,17 +165,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Whether to print attributes across multiple lines and indent them.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     ignoreAttributes?: boolean;
     /**
@@ -250,17 +190,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Whether to ignore writing comments of the elements.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     ignoreComment?: boolean;
     /**
@@ -285,17 +215,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Whether to ignore writing CDATA of the elements.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     ignoreCDATA?: boolean;
     /**
@@ -320,17 +240,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Whether to ignore writing Doctype of the elements.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     ignoreDoctype?: boolean;
     /**
@@ -355,17 +265,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Whether to ignore writing texts of the elements.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     ignoreText?: boolean;
     /**
@@ -390,17 +290,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Name of the property key which will be used for the declaration.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     declarationKey: string;
     /**
@@ -425,17 +315,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Name of the property key which will be used for the processing instruction.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     instructionKey: string;
     /**
@@ -460,17 +340,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Name of the property key which will be used for the attributes.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     attributesKey: string;
     /**
@@ -495,17 +365,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Name of the property key which will be used for the text.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     textKey: string;
     /**
@@ -530,17 +390,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Name of the property key which will be used for the cdata.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     cdataKey: string;
     /**
@@ -565,17 +415,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Name of the property key which will be used for the doctype.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     doctypeKey: string;
     /**
@@ -600,17 +440,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Name of the property key which will be used for the comment.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     commentKey: string;
     /**
@@ -635,17 +465,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Name of the property key which will be used for the parent.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     parentKey: string;
     /**
@@ -670,17 +490,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Name of the property key which will be used for the type.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     typeKey: string;
     /**
@@ -705,17 +515,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Name of the property key which will be used for the name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     nameKey: string;
     /**
@@ -740,17 +540,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
-     */
-    /**
-     * Name of the property key which will be used for the elements.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 11 dynamic
      */
     elementsKey: string;
   }
@@ -776,16 +566,7 @@ declare namespace xml {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamiconly
-   */
-  /**
-   * ConvertXML representation refers to extensible markup language.
-   *
-   * @syscap SystemCapability.Utils.Lang
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 11 dynamic
    */
   class ConvertXML {
     /**
@@ -862,20 +643,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 14 dynamiconly
-     */
-    /**
-     * To convert XML text to JavaScript object with better performance.
-     *
-     * @param { string } xml - xml xml The xml text to be converted.
-     * @param { ConvertOptions } [options] - options option Option Inputted by user to set.
-     * @returns { Object } Returns a JavaScript object converting from XML text.
-     * @throws { BusinessError } 10200002 - Invalid xml string.
-     * @syscap SystemCapability.Utils.Lang
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
+     * @since 14 dynamic
      */
     fastConvertToJSObject(xml: string, options?: ConvertOptions): Object;
 
