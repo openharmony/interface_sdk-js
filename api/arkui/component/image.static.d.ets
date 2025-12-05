@@ -27,7 +27,7 @@ import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
 import { ResourceStr, ResourceColor, ColorFilter, EdgeWidths, ColorMetrics, VoidCallback } from "./units";
 import { ImageFit, ImageRepeat, CopyOptions } from "./enums";
 import { Resource } from '../../global/resource';
-import { CommonMethod, PointLightStyle, PixelMap } from './common';
+import { CommonMethod, PointLightStyle, PixelMap, ContentTransitionEffect } from './common';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
@@ -347,6 +347,29 @@ export interface ImageSourceSize {
     height: double;
 }
 /**
+ * Set the placeholder image.
+ * @interface ImageAlt
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export interface ImageAlt {
+  /**
+   * Set the placeholder image during the loading process.
+   * @type { ?(ResourceStr | PixelMap) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  placeholder?: ResourceStr | PixelMap;
+
+  /**
+   * Set the placeholder image when loading fails .
+   * @type { ?(ResourceStr | PixelMap) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  error?: ResourceStr | PixelMap;
+}
+/**
  * Defines the ColorContent.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -373,6 +396,19 @@ export declare class ColorContent {
  * @since 22 static
  */
 export declare interface ImageAttribute extends CommonMethod {
+    /**
+     * Sets the placeholder image displayed during loading.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
+     * </p>
+     * @param { string | Resource | PixelMap | ImageAlt | undefined } value - Placeholder image displayed
+     *     during loading, Default value is null.
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default alt(value: string | Resource | PixelMap | ImageAlt | undefined): this;
     /**
      * Sets the placeholder image displayed during loading.
      *
@@ -748,6 +784,22 @@ export declare interface ImageAttribute extends CommonMethod {
      * @since 22 static
      */
     default orientation(orientation: ImageRotateOrientation | undefined): this;
+    /**
+     * Set the range of SVG parsing capabilities supported through enable switch.
+     * @param { boolean | undefined } enable - switch
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default supportSvg2(enable: boolean | undefined): this;
+    /**
+     * Animation effect when the image content changes.
+     * @param { ContentTransitionEffect | undefined } transition - Animation effect
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default contentTransition(transition: ContentTransitionEffect | undefined): this;
     /**
      * Set the attribute modifier.
      *
