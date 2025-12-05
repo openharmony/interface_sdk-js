@@ -234,6 +234,30 @@ declare namespace huksExternalCrypto {
    * @since 22
    */
   function getUkeyPinAuthState(resourceId: string, params?: Array<HuksExternalCryptoParam>): Promise<HuksExternalPinAuthState>;
+
+  /**
+   * The general get operations of the external provider.
+   *
+   * @param { string } resourceId - Indicates the resource id of the provider.
+   * @param { string } propertyId - Indicates the id of the property need to get,
+   *     currently support the property method name defined in GMT 0016-2023.
+   * @param { Array<HuksExternalCryptoParam> } [params] - Indicates the input operation parameters.
+   * @returns { Promise<Array<HuksExternalCryptoParam>> } the promise returned by the function.
+   * @throws { BusinessError } 12000006 - If the Ukey driver operation failed. Possible causes:
+   *     1. Error reported when provider accessing the SKF interface of Ukey.
+   * @throws { BusinessError } 12000011 - If not found the cached resource id.
+   * @throws { BusinessError } 12000014 - If the memory is insufficient.
+   * @throws { BusinessError } 12000018 - the input parameter is invalid. Possible causes:
+   *     1. The resourceId or propertyId length is invalid.
+   *     2. The params contain invalid tags or invalid value types.
+   * @throws { BusinessError } 12000020 - If the provider operation failed. Possible causes:
+   *     1. The provider occurred internal processing error.
+   * @throws { BusinessError } 12000024 - If the provider or Ukey is busy.
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 22
+   */
+  function getProperty(resourceId: string, propertyId: string, params?: Array<HuksExternalCryptoParam>): Promise<Array<HuksExternalCryptoParam>>;
 }
 
 export default huksExternalCrypto;
