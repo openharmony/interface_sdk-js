@@ -1922,15 +1922,6 @@ export declare interface RichEditorAttribute extends CommonMethod {
         responseType: ResponseType | RichEditorResponseType | undefined,
         options?: SelectionMenuOptions | undefined): this;
     /**
-     * Define custom keyboard.
-     *
-     * @param { CustomBuilder | undefined } value - Set up a custom keyboard of RichEditor
-     * @param { KeyboardOptions | undefined } [options] - Indicates the custom keyboard options of RichEditor
-     * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    /**
      * Set custom keyboard of the rich editor.
      *
      * @param { CustomBuilder | ComponentContent | undefined } value - The custom keyboard of RichEditor
@@ -1938,6 +1929,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @param { KeyboardOptions | undefined } [options] - Indicates the custom keyboard options of RichEditor
      * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default customKeyboard(value: CustomBuilder | ComponentContent | undefined,
