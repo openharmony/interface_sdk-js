@@ -269,7 +269,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function isDLPFile(fd: number): Promise<boolean>;
 
@@ -284,7 +284,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function isDLPFile(fd: number, callback: AsyncCallback<boolean>): void;
 
@@ -298,7 +298,7 @@ declare namespace dlpPermission {
    *     which is available only for DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getDLPPermissionInfo(): Promise<DLPPermissionInfo>;
 
@@ -313,7 +313,7 @@ declare namespace dlpPermission {
    *     which is available only for DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getDLPPermissionInfo(callback: AsyncCallback<DLPPermissionInfo>): void;
 
@@ -326,7 +326,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getOriginalFileName(fileName: string): string;
 
@@ -337,7 +337,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getDLPSuffix(): string;
 
@@ -355,7 +355,7 @@ declare namespace dlpPermission {
    *     which is available only for non-DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function on(type: 'openDLPFile', listener: Callback<AccessedDLPFileInfo>): void;
 
@@ -373,7 +373,7 @@ declare namespace dlpPermission {
    *     which is available only for non-DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function off(type: 'openDLPFile', listener?: Callback<AccessedDLPFileInfo>): void;
 
@@ -385,7 +385,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function isInSandbox(): Promise<boolean>;
 
@@ -398,7 +398,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function isInSandbox(callback: AsyncCallback<boolean>): void;
 
@@ -410,7 +410,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getDLPSupportedFileTypes(): Promise<Array<string>>;
 
@@ -423,7 +423,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getDLPSupportedFileTypes(callback: AsyncCallback<Array<string>>): void;
 
@@ -440,7 +440,7 @@ declare namespace dlpPermission {
    *     which is available only for DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function setRetentionState(docUris: Array<string>): Promise<void>;
 
@@ -457,7 +457,7 @@ declare namespace dlpPermission {
    *     which is available only for DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function setRetentionState(docUris: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -472,7 +472,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function cancelRetentionState(docUris: Array<string>): Promise<void>;
 
@@ -487,7 +487,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function cancelRetentionState(docUris: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -503,7 +503,7 @@ declare namespace dlpPermission {
    *     which is available only for non-DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getRetentionSandboxList(bundleName?: string): Promise<Array<RetentionSandboxInfo>>;
 
@@ -519,7 +519,7 @@ declare namespace dlpPermission {
    *     which is available only for non-DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getRetentionSandboxList(bundleName: string, callback: AsyncCallback<Array<RetentionSandboxInfo>>): void;
 
@@ -534,7 +534,7 @@ declare namespace dlpPermission {
    *     which is available only for non-DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getRetentionSandboxList(callback: AsyncCallback<Array<RetentionSandboxInfo>>): void;
 
@@ -548,7 +548,7 @@ declare namespace dlpPermission {
    *     which is available only for non-DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getDLPFileAccessRecords(): Promise<Array<AccessedDLPFileInfo>>;
 
@@ -563,7 +563,7 @@ declare namespace dlpPermission {
    *     which is available only for non-DLP sandbox applications.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 10
+   * @since 23
    */
   function getDLPFileAccessRecords(callback: AsyncCallback<Array<AccessedDLPFileInfo>>): void;
 
@@ -612,7 +612,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100017 - The displayName field is missing in the want parameter.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @StageModelOnly
-   * @since 11
+   * @since 23
    */
   function startDLPManagerForResult(context: common.UIAbilityContext, want: Want): Promise<DLPManagerResult>;
 
@@ -656,7 +656,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 23
    */
   function getDLPGatheringPolicy(): Promise<GatheringPolicyType>;
 
@@ -673,7 +673,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 23
    */
   function getDLPGatheringPolicy(callback: AsyncCallback<GatheringPolicyType>): void;
 
@@ -725,7 +725,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 23
    */
   function installDLPSandbox(
     bundleName: string,
@@ -752,7 +752,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 23
    */
   function installDLPSandbox(
     bundleName: string,
@@ -779,7 +779,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 23
    */
   function uninstallDLPSandbox(bundleName: string, userId: number, appIndex: number): Promise<void>;
 
@@ -800,7 +800,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 23
    */
   function uninstallDLPSandbox(
     bundleName: string,
@@ -855,7 +855,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 23
    */
   function on(type: 'uninstallDLPSandbox', listener: Callback<DLPSandboxState>): void;
 
@@ -875,7 +875,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 23
    */
   function off(type: 'uninstallDLPSandbox', listener?: Callback<DLPSandboxState>): void;
 
@@ -1251,7 +1251,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     addDLPLinkFile(linkFileName: string): Promise<void>;
 
@@ -1272,7 +1272,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     addDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
 
@@ -1289,7 +1289,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     stopFuseLink(): Promise<void>;
 
@@ -1307,7 +1307,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     stopFuseLink(callback: AsyncCallback<void>): void;
 
@@ -1324,7 +1324,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     resumeFuseLink(): Promise<void>;
 
@@ -1342,7 +1342,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     resumeFuseLink(callback: AsyncCallback<void>): void;
 
@@ -1362,7 +1362,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     replaceDLPLinkFile(linkFileName: string): Promise<void>;
 
@@ -1382,7 +1382,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     replaceDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
 
@@ -1402,7 +1402,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     deleteDLPLinkFile(linkFileName: string): Promise<void>;
 
@@ -1422,7 +1422,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     deleteDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
 
@@ -1448,7 +1448,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     recoverDLPFile(plaintextFd: number): Promise<void>;
 
@@ -1474,7 +1474,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     recoverDLPFile(plaintextFd: number, callback: AsyncCallback<void>): void;
 
@@ -1491,7 +1491,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     closeDLPFile(): Promise<void>;
 
@@ -1509,7 +1509,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 23
      */
     closeDLPFile(callback: AsyncCallback<void>): void;
   }
@@ -1536,7 +1536,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 23
    */
   function generateDLPFile(plaintextFd: number, ciphertextFd: number, property: DLPProperty): Promise<DLPFile>;
 
@@ -1562,7 +1562,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 23
    */
   function generateDLPFile(
     plaintextFd: number,
@@ -1596,7 +1596,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100020 - No network connection.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 23
    */
   function openDLPFile(ciphertextFd: number, appId: string): Promise<DLPFile>;
 
@@ -1625,7 +1625,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100020 - No network connection.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 23
    */
   function openDLPFile(ciphertextFd: number, appId: string, callback: AsyncCallback<DLPFile>): void;
 
@@ -1643,7 +1643,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100018 - The application is not authorized.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 11
+   * @since 23
    */
   function setSandboxAppConfig(configInfo: string): Promise<void>;
 
@@ -1658,7 +1658,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100018 - The application is not authorized.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 11
+   * @since 23
    */
   function cleanSandboxAppConfig(): Promise<void>;
 
@@ -1671,7 +1671,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100018 - The application is not authorized.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 11
+   * @since 23
    */
   function getSandboxAppConfig(): Promise<string>;
 
@@ -1682,7 +1682,7 @@ declare namespace dlpPermission {
   * @throws { BusinessError } 801 - Capability not supported.
   * @throws { BusinessError } 19100011 - The system ability works abnormally.
   * @syscap SystemCapability.Security.DataLossPrevention
-  * @since 12
+  * @since 23
   */
   function isDLPFeatureProvided(): Promise<boolean>;
 
@@ -1804,7 +1804,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100014 - Account not logged in.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 21
+   * @since 23
    */
   function generateDlpFileForEnterprise(plaintextFd: number, dlpFd: number, property: DLPProperty, customProperty: CustomProperty): Promise<void>;
 
@@ -1847,7 +1847,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100013 - The user does not have the permission.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 21
+   * @since 23
    */
   function queryDlpPolicy(dlpFd: number): Promise<string>;
 
@@ -1892,7 +1892,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100013 - The user does not have the permission.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 21
+   * @since 23
    */
   function decryptDlpFile(dlpFd: number, plaintextFd: number): Promise<void>;
 
@@ -1925,7 +1925,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100021 - Failed to set the enterprise policy.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 21
+   * @since 23
    */
   function setEnterprisePolicy(policy: EnterprisePolicy): void;
 
@@ -1948,7 +1948,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
+     * @since 23
      */
     connectServer(requestId: string, requestData: string, callback: Callback<string>): void;
   }
@@ -1967,7 +1967,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
+     * @since 23
      */
     constructor();
 
@@ -1985,7 +1985,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100004 - Credential service error.
      * @static
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
+     * @since 23
      */
     static registerPlugin(plugin: DlpConnPlugin): number;
 
@@ -2001,7 +2001,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100004 - Credential service error.
      * @static
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
+     * @since 23
      */
     static unregisterPlugin(): void;
   }
