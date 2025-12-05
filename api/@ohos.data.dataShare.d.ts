@@ -542,6 +542,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 23 static
    */
   interface UpdateOperation {
     /**
@@ -552,6 +553,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     values: ValuesBucket;
 
@@ -563,6 +565,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     predicates: dataSharePredicates.DataSharePredicates;
   }
@@ -1310,6 +1313,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     getPublishedData(bundleName: string, callback: AsyncCallback<Array<PublishedItem>>): void;
 
@@ -1340,6 +1344,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     getPublishedData(bundleName: string): Promise<Array<PublishedItem>>;
 
@@ -1637,7 +1642,7 @@ declare namespace dataShare {
      * Updates data records in the database.
      *
      * @param { Record<string, Array<UpdateOperation>> } operations - Indicates the data to update.
-     * @returns {Promise<Record<string, Array<number>>>} {Record<string, Array<number>>}: The result set of batch operations.
+     * @returns {Promise<Record<string, Array<int>>>} {Record<string, Array<int>>}: The result set of batch operations.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700000 - Inner error. Possible causes: 1.The internal status is abnormal;
@@ -1648,8 +1653,9 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
-    batchUpdate(operations: Record<string, Array<UpdateOperation>>): Promise<Record<string, Array<number>>>;
+    batchUpdate(operations: Record<string, Array<UpdateOperation>>): Promise<Record<string, Array<int>>>;
 
     /**
      * Inserts multiple data records into the database.
@@ -1746,6 +1752,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     normalizeUri(uri: string, callback: AsyncCallback<string>): void;
 
@@ -1780,6 +1787,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     normalizeUri(uri: string): Promise<string>;
 
@@ -1812,6 +1820,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     denormalizeUri(uri: string, callback: AsyncCallback<string>): void;
 
@@ -1844,6 +1853,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     denormalizeUri(uri: string): Promise<string>;
 
@@ -1869,6 +1879,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     notifyChange(uri: string, callback: AsyncCallback<void>): void;
 
@@ -1894,6 +1905,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     notifyChange(uri: string): Promise<void>;
 
@@ -1910,6 +1922,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     notifyChange(data: ChangeInfo): Promise<void>;
 
@@ -2048,11 +2061,11 @@ declare namespace dataShare {
   /**
    * Enumeration of data proxy operation error codes.
    *
-   * @enum { number } DataProxyErrorCode
+   * @enum { int } DataProxyErrorCode
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum DataProxyErrorCode {
     /**
@@ -2061,7 +2074,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SUCCESS = 0,
     
@@ -2071,7 +2084,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     URI_NOT_EXIST = 1,
 
@@ -2081,7 +2094,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NO_PERMISSION = 2,
 
@@ -2091,7 +2104,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OVER_LIMIT = 3
   }
@@ -2189,11 +2202,11 @@ declare namespace dataShare {
   /**
    * Enumeration of data proxy types.
    *
-   * @enum { number } DataProxyType
+   * @enum { int } DataProxyType
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum DataProxyType {
     /**
@@ -2202,7 +2215,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHARED_CONFIG = 0
   }
