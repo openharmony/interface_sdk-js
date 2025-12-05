@@ -525,7 +525,18 @@ declare namespace formInfo {
      * @since 22 static
      */
     readonly groupId?: string;
-  
+
+    /**
+     * Obtains whether the form is template form.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    readonly isTemplateForm?: boolean;
+
     /**
      * Obtains whether the form supports standby.
      *
