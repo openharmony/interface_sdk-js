@@ -6778,6 +6778,28 @@ declare enum TextAlign {
    * @since 11 dynamic
    */
   JUSTIFY,
+
+  /**
+   * The text is aligned in the left direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  LEFT = 4,
+
+  /**
+   * The text is aligned in the right direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  RIGHT = 5,
 }
 
 /**

@@ -1980,7 +1980,23 @@ export declare enum TextAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  JUSTIFY = 3
+  JUSTIFY = 3,
+
+  /**
+   * The text is aligned in the left direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  LEFT = 4,
+
+  /**
+   * The text is aligned in the right direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  RIGHT = 5
 }
 
 /**
