@@ -204,6 +204,16 @@ export interface Shader extends SceneResource {
    * @since 22 static
    */
   readonly inputs: Record<string, double | Vec2 | Vec3 | Vec4 | Image>;
+
+  /**
+   * Set shader inputs. Offers the same functionality for setting shader inputs as the property version,
+   *     but with better performance.
+   * @param { Record<string, double | Vec2 | Vec3 | Vec4 | Image> } inputs - Inputs of the shader
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  setShaderInputs(inputs: Record<string, double | Vec2 | Vec3 | Vec4 | Image>): void;
 }
 
 /**
