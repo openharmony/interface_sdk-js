@@ -2665,5 +2665,174 @@ declare namespace formInfo {
    * @since 22 static
    */
   type GetLiveFormStatusCallback = () => Record<string, string>;
+
+  /**
+   * TemplateFormDetailInfo
+   *
+   * @typedef TemplateFormDetailInfo
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static&dynamic
+   */
+  interface TemplateFormDetailInfo {  
+    /**
+     * Obtains the bundle name of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    bundleName: string;
+
+    /**
+     * Obtains the module name of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    moduleName: string;
+
+    /**
+     * Obtains the ability name of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    abilityName: string;
+
+    /**
+     * Obtains the form name of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    formName: string;
+
+    /**
+     * Obtains the form dimension of the template form.
+     *
+     * @type { FormDimension }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    dimension: FormDimension;
+
+    /**
+     * Obtains the form detail Id of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    detailId: string;
+
+    /**
+     * Obtains the form display name of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    displayName: string;
+
+    /**
+     * Obtains the form description of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    description: string;
+  }
+
+  /**
+   * template form detail info callback.
+   *
+   * @typedef { function } TemplateFormDetailInfoCallback
+   * @param { Array<TemplateFormDetailInfo> } info - Template form detail info.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static&dynamic
+   */
+  type TemplateFormDetailInfoCallback = (info: Array<TemplateFormDetailInfo>) => void;
+
+  /**
+   * PublishFormCrossBundleInfo
+   *
+   * @typedef PublishFormCrossBundleInfo
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static&dynamic
+   */
+  interface PublishFormCrossBundleInfo {  
+    /**
+     * Obtains the caller bundle name of the form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    callerBundleName: string;
+
+    /**
+     * Obtains the target bundle name of the form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    targetBundleName: string;
+
+    /**
+     * Obtains the target template form detail id of the form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    targetTemplateFormDetailId: string;
+  }
+
+  /**
+   * publish form cross bundle control callback.
+   *
+   * @typedef { function } PublishFormCrossBundleControlCallback
+   * @param { PublishFormCrossBundleInfo } info - Publish form cross bundle info.
+   * @returns { boolean } Publish form cross bundle control result, true indicates success, false indicates failure.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static&dynamic
+   */
+  type PublishFormCrossBundleControlCallback = (info: PublishFormCrossBundleInfo) => boolean;
 }
 export default formInfo;
