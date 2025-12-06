@@ -12,36 +12,38 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /**
  * @file
  * @kit DistributedServiceKit
  */
- 
+
 import Want from './@ohos.app.ability.Want';
+
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import type DistributedExtensionContext from './@ohos.application.DistributedExtensionContext';
- 
+
 /**
  * Class to be override for distributed extension ability.
  *
  * @syscap SystemCapability.DistributedSched.AppCollaboration
  * @stagemodelonly
  * @since 20 dynamic
+ * @since 23 static
  */
- 
-export default class DistributedExtensionAbility {
- 
+declare class DistributedExtensionAbility {
+
   /**
    * distributed collaborative context.
-   * 
+   *
    * @type { DistributedExtensionContext }
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   context: DistributedExtensionContext;
- 
+
   /**
    * Callback when Extension is started
    *
@@ -49,18 +51,20 @@ export default class DistributedExtensionAbility {
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   onCreate(want: Want): void;
- 
+
   /**
    * Callback when the distributed collaborative extension is destroyed
    *
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   onDestroy(): void;
- 
+
   /**
    * Callback when there is a request in distributed collaboration
    *
@@ -69,6 +73,9 @@ export default class DistributedExtensionAbility {
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult;
 }
+
+export default DistributedExtensionAbility;
