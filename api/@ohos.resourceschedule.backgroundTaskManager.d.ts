@@ -1156,7 +1156,6 @@ declare namespace backgroundTaskManager {
    *
    * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
    * @param { BackgroundTaskSubscriber } subscriber - The continuous task state change subscriber.
-   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 9800004 - System service operation failed.
@@ -1166,14 +1165,13 @@ declare namespace backgroundTaskManager {
    * @stagemodelonly
    * @since 23 dynamic&static
    */
-  function subscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): Promise<void>;
+  function subscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
 
   /**
    * Unsubscribe to continuous task state change.
    *
    * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
    * @param { BackgroundTaskSubscriber } subscriber - The continuous task state change subscriber.
-   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 9800004 - System service operation failed.
@@ -1183,7 +1181,7 @@ declare namespace backgroundTaskManager {
    * @stagemodelonly
    * @since 23 dynamic&static
    */
-  function unsubscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): Promise<void>;
+  function unsubscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
 
   /**
    * Apply or unapply efficiency resources.
