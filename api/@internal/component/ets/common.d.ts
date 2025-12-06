@@ -6939,7 +6939,7 @@ declare class DrawModifier {
    * @atomicservice
    * @since 20 dynamic
    */
-  drawForeground?(drawContext: DrawContext): void;
+  drawForeground(drawContext: DrawContext): void;
 
   /**
    * Draws content in the overlay layer after the associated Node and all its children have been drawn.
