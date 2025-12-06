@@ -9588,6 +9588,39 @@ declare namespace audio {
   }
 
   /**
+   * Defines audio latency types.
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum AudioLatencyType {
+    /**
+     * Type to get latency of all audio processing units, including software and hardware.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    LATENCY_TYPE_ALL = 0,
+
+    /**
+     * Type to get latency of software part, including audio effects in software.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    LATENCY_TYPE_SOFTWARE = 1,
+
+    /**
+     * Type to get latency of hardware part, including audio effects in hal, driver and hardware.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    LATENCY_TYPE_HARDWARE = 2
+  }
+
+  /**
    * Provides audio playback APIs.
    * @typedef AudioRenderer
    * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -11128,6 +11161,25 @@ declare namespace audio {
      * @since 22 static
      */
     offWriteData(callback?: AudioRendererWriteDataCallback): void;
+  
+    /**
+     * Gets the estimated audio latency in milliseconds for current audio route. For wireless connection
+     * audio devices cases, the latency result may not be very accurate, system just provides it for reference only.
+     * The real-time buffer status is also not taken into consideration, so it is recommended to get it only at the
+     * beginning of audio playback, and do not call th function very frequently because it may be blocked by route
+     * change.
+     * Applications should still use {@link getAudioTimestampInfo} or {@link getAudioTimestampInfoSync} to
+     * handle A/V sync after audio data has been output to hardware.
+     * @param { AudioLatencyType } type - Type of audio latency to get.
+     * @returns { int } Audio latency in milliseconds.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permitted in release state.
+     * @throws { BusinessError } 6800301 - System internal error, like audio service error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getLatency(type: AudioLatencyType): int;
   }
 
   /**
