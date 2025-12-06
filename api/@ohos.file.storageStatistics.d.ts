@@ -703,6 +703,62 @@ parameters are left unspecified;
    * @since 23 dynamic&static
    */
   function getAllExtBundleStats(userId: int): Promise<Array<ExtBundleStats>>;
+  /**
+   * Scan user data dirs.
+   * @interface StorageStats
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export interface UserdataDirInfo {  
+   /**
+    * The user data dirs list.
+    *
+    * @type { string }
+    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+    * @systemapi
+    * @stagemodelonly
+    * @since 23 dynamic&static
+    */
+   path: string;
+   /**
+    * The size of user data dirs.
+    *
+    * @type { long }
+    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+    * @systemapi
+    * @stagemodelonly
+    * @since 23 dynamic&static
+    */
+   totalSize: long;
+   /**
+    * The size of inode count.
+    *
+    * @type { int }
+    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+    * @systemapi
+    * @stagemodelonly
+    * @since 23 dynamic&static
+    */
+   totalCnt: int;
+ }
+
+ /**
+  * Scan user data dirs.
+  *
+  * @permission ohos.permission.STORAGE_MANAGER
+  * @returns { Promise<Array<UserdataDirInfo>> } return the user data dirs scan result
+  * @throws { BusinessError } 201 - Permission verification failed.
+  * @throws { BusinessError } 202 - The caller is not a system application.
+  * @throws { BusinessError } 13600001 - IPC error.
+  * @throws { BusinessError } 13600015 - Failed to traverse the query data partition directory.
+  * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+  * @systemapi
+  * @stagemodelonly
+  * @since 23 dynamic&static
+  */
+ function listUserdataDirInfo(): Promise<Array<UserdataDirInfo>>;
 }
 
 export default storageStatistics;
