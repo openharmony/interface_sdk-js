@@ -3781,7 +3781,7 @@ export class ComponentSnapshot {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 23 dynamic
+ * @since 22 dynamic
  */
 export const enum ResolveStrategy {
   /**
@@ -3789,7 +3789,7 @@ export const enum ResolveStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   CALLING_SCOPE = 0,
 
@@ -3798,7 +3798,7 @@ export const enum ResolveStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   LAST_FOCUS = 1,
 
@@ -3807,7 +3807,7 @@ export const enum ResolveStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   MAX_INSTANCE_ID = 2,
 
@@ -3816,7 +3816,7 @@ export const enum ResolveStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   UNIQUE = 3,
 
@@ -3825,7 +3825,7 @@ export const enum ResolveStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   LAST_FOREGROUND = 4,
 
@@ -3834,7 +3834,7 @@ export const enum ResolveStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   UNDEFINED = 5
 }
@@ -3847,7 +3847,7 @@ export const enum ResolveStrategy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 23 dynamic
+ * @since 22 dynamic
  */
 export class ResolvedUIContext extends UIContext {
   /**
@@ -3856,7 +3856,7 @@ export class ResolvedUIContext extends UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   strategy: ResolveStrategy;
 }
@@ -3882,7 +3882,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   constructor();
 
@@ -3894,7 +3894,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   static getCallingScopeUIContext(): UIContext | undefined;
 
@@ -3905,7 +3905,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   static getLastFocusedUIContext(): UIContext | undefined;
 
@@ -3916,7 +3916,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   static getLastForegroundUIContext(): UIContext | undefined;
 
@@ -3928,7 +3928,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   static getAllUIContexts(): UIContext[];
 
@@ -3948,7 +3948,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   static resolveUIContext(): ResolvedUIContext;
 
