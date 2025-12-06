@@ -1673,8 +1673,42 @@ declare namespace relationalStore {
      * @since 18 dynamic
      */
     enableCloud?: boolean;
+
+    /**
+     * Specify distributed table type.
+     *
+     * @type { ?DistributedTableType }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 23 dynamic&static
+     */
+    tableType?: DistributedTableType;
   }
 
+  /**
+   * Describes the type of the distributed tables.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 23 dynamic&static
+   */
+  enum DistributedTableType {
+    /**
+     * Device-collaboration table, data is isolated by device id.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 23 dynamic&static
+     */
+    DEVICE_COLLABORATION = 0,
+
+    /**
+     * Single-version table
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 23 dynamic&static
+     */
+    SINGLE_VERSION = 1
+  }
+  
   /**
    * Describes the conflict resolutions to insert data into the table.
    *
