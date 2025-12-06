@@ -4423,7 +4423,8 @@ declare namespace avSession {
      * @param { Array<string> } filter - The properties of {@link AVPlaybackState} that you cared about
      * @param { Callback<AVPlaybackState> } callback - The callback used to handle playback state changed event.
      *     The callback function provides the {@link AVPlaybackState} parameter.
-     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600101 - Session service exception.  
+     *     Returned when a null pointer is encountered, the service restarts, memory allocation fails, or session creation encounters an internal error.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 22 static
      */
@@ -4433,7 +4434,8 @@ declare namespace avSession {
      * Register playback state changed callback
      * @param { Callback<AVPlaybackState> } callback - The callback used to handle playback state changed event.
      *     The callback function provides the {@link AVPlaybackState} parameter.
-     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600101 - Session service exception.
+     *     Returned when a null pointer is encountered, the service restarts, memory allocation fails, or session creation encounters an internal error
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 22 static
      */
@@ -9278,7 +9280,7 @@ declare namespace avSession {
     onCallStateChange(filter: Array<string>, callback: Callback<AVCallState>): void;
 
     /**
-     * Register call state changed callback
+     * Register to listen to callback for all call attribute changes
      * @param { Callback<AVCallState> } callback - The callback used to handle call state changed event.
      *     The callback function provides the {@link AVCallState} parameter.
      * @throws { BusinessError } 6600101 - Session service exception.
