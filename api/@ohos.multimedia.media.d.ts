@@ -718,7 +718,7 @@ declare namespace media {
    * @stagemodelonly
    * @since 23 dynamic&static
    */
-  enum SoundInterruptMode {
+  enum InterruptMode {
     /**
      * Multiple sounds can be played parallelly, without interrupting each other.
      * @syscap SystemCapability.Multimedia.Media.SoundPool
