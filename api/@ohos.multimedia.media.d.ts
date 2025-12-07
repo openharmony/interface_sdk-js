@@ -24,7 +24,6 @@ import photoAccessHelper from './@ohos.file.photoAccessHelper';
 import type image from './@ohos.multimedia.image';
 import type { SoundPool as _SoundPool } from './multimedia/soundPool';
 import type { PlayParameters as _PlayParameters } from './multimedia/soundPool';
-import { InterruptMode as _InterruptMode } from './multimedia/soundPool';
 import type drm from './@ohos.multimedia.drm';
 
 /**
@@ -714,12 +713,27 @@ declare namespace media {
 
   /**
    * Enumerates the interrupt mode.
-   *
-   * @typedef { _InterruptMode }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @stagemodelonly
    * @since 23 dynamic&static
    */
-  export import InterruptMode = _InterruptMode;
+  enum SoundInterruptMode {
+    /**
+     * Multiple sounds can be played parallelly, without interrupting each other.
+     * @syscap SystemCapability.Multimedia.Media.SoundPool
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    NO_INTERRUPT = 0,
+    /**
+     * Multiple sounds can be played parallelly, but for the same sound, the latter one interrupts the former one
+     * @syscap SystemCapability.Multimedia.Media.SoundPool
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SAME_SOUND_INTERRUPT = 1
+  }
 
   /**
    * Enumerates state change reason.
