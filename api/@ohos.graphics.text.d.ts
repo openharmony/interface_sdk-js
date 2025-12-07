@@ -3185,6 +3185,97 @@ declare namespace text {
      * @since 22 dynamic&static
      */
     symbolic?: boolean;
+
+    /**
+     * Font local post script name
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    localPostscriptName?: string;
+
+    /**
+     * Font local full name
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    localFullName?: string;
+
+    /**
+     * Font local family name
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    localFamilyName?: string;
+
+    /**
+     * Font local subfamily name
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    localSubFamilyName?: string;
+
+    /**
+     * Font version
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    version?: string;
+
+    /**
+     * Font manufacture
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    manufacture?: string;
+
+    /**
+     * Font copyright
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    copyright?: string;
+
+    /**
+     * Font trademark
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    trademark?: string;
+
+    /**
+     * Font license
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    license?: string;
+
+    /**
+     * The font index in ttc file
+     * @type { ?int }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    index?: int;
   }
 
   /**
@@ -5458,6 +5549,30 @@ declare namespace text {
    * @since 22 dynamic&static
    */
   function getFontDescriptorsFromPath(path: string | Resource): Promise<Array<FontDescriptor>>;
+
+  /**
+   * Obtain font Unicode set based on the provided font file path or resource.
+   * @param { string | Resource } path - Path or resource of the font file.
+   *     The value must be **file://**absolute path of the font file or **rawfile/**directory or file name.
+   * @param { int } index - Index of ttc files, if the file is ttf, the index should be set to 0.
+   * @returns { Promise<Array<int>> } Promise used to return all parsed font unicode,
+   *     and an empty array will be returned if no font data are found, invalid path, no permission, or non-font file.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  function getFontUnicodeSet(path: string | Resource, index: int) : Promise<Array<int>>;
+
+  /**
+   * Obtain font count based on the provided font file path or resource.
+   * @param { string | Resource } path - Path or resource of the font file.
+   * @returns { int } font count.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  function getFontCount(path: string | Resource) : int;
 }
 
 export default text;
