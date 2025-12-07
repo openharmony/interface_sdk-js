@@ -57,14 +57,14 @@ export enum ErrorType {
  */
 export enum InterruptMode {
   /**
-   * Multiple sounds can be played parallelly, without interrupt each other
+   * Multiple sounds can be played parallelly, without interrupting each other
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @stagemodelonly
    * @since 23 dynamic&static
    */
   NO_INTERRUPT = 0,
   /**
-   * Multiple sounds can be played parallelly, but for the same sound, the latter one interrupt the former one
+   * Multiple sounds can be played parallelly, but for the same sound, the latter one interrupts the former one
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @stagemodelonly
    * @since 23 dynamic&static
