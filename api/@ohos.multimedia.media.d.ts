@@ -712,7 +712,7 @@ declare namespace media {
   type PlayParameters = _PlayParameters;
 
   /**
-   * Enumerates the interrupt mode.
+   * Enumerates the sound interrupt mode.
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @stagemodelonly

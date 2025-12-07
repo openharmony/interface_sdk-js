@@ -21,6 +21,7 @@
 import { ErrorCallback, AsyncCallback, Callback, BusinessError } from '../@ohos.base';
 import type audio from '../@ohos.multimedia.audio';
 import media from '../@ohos.multimedia.media';
+import type { SoundInterruptMode } from '../@ohos.multimedia.media';
 import resourceManager from '../@ohos.resourceManager';
 
 /**
@@ -46,6 +47,30 @@ export enum ErrorType {
    * @since 22 static
    */
   PLAY_ERROR = 2
+}
+
+/**
+ * Enumerates the interrupt mode.
+ * @enum { int }
+ * @syscap SystemCapability.Multimedia.Media.SoundPool
+ * @stagemodelonly
+ * @since 23 dynamic&static
+ */
+export enum InterruptMode {
+  /**
+   * Multiple sounds can be played parallelly, without interrupting each other.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  NO_INTERRUPT = 0,
+  /**
+   * Multiple sounds can be played parallelly, but for the same sound, the latter one interrupts the former one
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  SAME_SOUND_INTERRUPT = 1
 }
 
 /**
@@ -508,12 +533,12 @@ export declare interface SoundPool {
   /**
    * Sets the interrupt mode for sound parallel play. the default mode is SoundInterruptMode.SAME_SOUND_INTERRUPT.
    * 
-   * @param { SoundInterruptMode } interruptMode - the interrupt mode.
+   * @param { SoundInterruptMode } interruptMode - The interrupt mode.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @stagemodelonly
    * @since 23 dynamic&static
    */
-  setInterruptMode(interruptMode: media.SoundInterruptMode): void;
+  setInterruptMode(interruptMode: SoundInterruptMode): void;
   /**
    * Unloads a sound. This API uses an asynchronous callback to return the result.
    *
