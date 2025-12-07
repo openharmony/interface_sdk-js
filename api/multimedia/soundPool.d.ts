@@ -57,7 +57,7 @@ export enum ErrorType {
  */
 export enum InterruptMode {
   /**
-   * Multiple sounds can be played parallelly, without interrupting each other
+   * Multiple sounds can be played parallelly, without interrupting each other.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -530,12 +530,12 @@ export declare interface SoundPool {
    */
   setVolume(streamID: int, leftVolume: double, rightVolume: double): Promise<void>;
   /**
-   * Sets the interrupt mode for sound parallel play. the default mode is InterruptMode.SAME_SOUND_INTERRUPT
+   * Sets the interrupt mode for sound parallel play. the default mode is InterruptMode.SAME_SOUND_INTERRUPT.
    * 
    * @param {InterruptMode} interruptMode - the interrupt mode.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @stagemodelonly
-   * @since 23 dynamic&staic
+   * @since 23 dynamic&static
    */
   setInterruptMode(interruptMode: InterruptMode): void;
   /**
