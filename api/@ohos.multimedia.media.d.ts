@@ -1120,6 +1120,38 @@ declare namespace media {
     fetchFrameByTime(timeUs: long, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap | undefined>;
 
     /**
+     * It will decode the given video resource, then fetch pictures at each time member of @timesUs array
+     * according the given @options and @param. When one fetch is done, a callback is called with fetch result.
+     * Please note that, the callback order is not same as the time order in @timesUs aray.
+     * @param { long[] } timesUs - The times array expected to fetch picture from the video resource.
+     *    The unit of time is microsecond(us). The max size of array is 4096.
+     * @param { AVImageQueryOptions } queryOption - The time options about the relationship
+     *    between the given timeUs and a key frame, see @AVImageQueryOptions.
+     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams.
+     * @param { OnFrameFetched } callback - The callback function when a fetch is done\failed\cancelled.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    fetchFramesByTimes(timesUs: long[], queryOption: AVImageQueryOptions, param: PixelMapParams,
+        callback: OnFrameFetched): void;
+
+    /**
+     * Cancel all fetch tasks which are triggered by { fetchFramesByTimes }. The callbacks of { fetchFrameByTimes }
+     * will be called with cancelled result.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    cancelAllFetchFrames(): void;
+
+    /**
      * Obtains the video timestamp corresponding to a video frame number. Only MP4 video files are supported.
      * @param { int } index - Video frame number.
      * @returns { Promise<long> } Promise used to return the timestamp, in microseconds.
@@ -1893,6 +1925,88 @@ declare namespace media {
      */
     RGB_888 = 5,
   }
+
+/**
+   * Enumerates the fetch result code.
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum FetchResult {
+    /**
+     * Fetch picture from video failed.
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    FETCH_FAILED = 0,
+
+    /**
+     * Fetch picture from video failed.
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    FETCH_SUCCEEDED = 1,
+
+    /**
+     * Fetch picture from video failed.
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    FETCH_CANCELLED = 2,
+  }
+
+interface FrameInfo {
+    /**
+     * The requested frame time.
+     * @type { long }
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    requestedTimeUs: long;
+
+    /**
+     * The actual frame time.
+     * @type { ?long }
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    actualTimeUs?: long;
+
+    /**
+     * The image extracted from video.
+     * @type { ?PixelMap }
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    image?: PixelMap;
+
+    /**
+     * The fetch result code -succeed, failed or cancelled.
+     * @type { FetchResult }
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    result?: FetchResult;
+  }
+
+ /**
+   * Describes the callback invoked for the track change event.
+   * @typedef { function } OnFrameFetched
+   * @param { FrameInfo } frameInfo - the fetched data.
+   * @param { BusinessError<void> } [err] - the error ocurred during fetch.
+   * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  type OnFrameFetched = (frameInfo: FrameInfo, err?: BusinessError<void>) => void;
 
   /**
     * Enumerates ErrorCode types, return in BusinessError::code.
