@@ -507,7 +507,7 @@ export declare interface SoundPool {
    */
   setVolume(streamID: int, leftVolume: double, rightVolume: double): Promise<void>;
   /**
-   * Sets the interrupt mode for sound parallel play. the default mode is SoundInterruptMode.SAME_SOUND_INTERRUPT.
+   * Sets the interrupt mode for sound parallel play. The default mode is SoundInterruptMode.SAME_SOUND_INTERRUPT.
    * 
    * @param { SoundInterruptMode } interruptMode - The interrupt mode.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
