@@ -50,30 +50,6 @@ export enum ErrorType {
 }
 
 /**
- * Enumerates the interrupt mode.
- * @enum { int }
- * @syscap SystemCapability.Multimedia.Media.SoundPool
- * @stagemodelonly
- * @since 23 dynamic&static
- */
-export enum InterruptMode {
-  /**
-   * Multiple sounds can be played parallelly, without interrupting each other.
-   * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @stagemodelonly
-   * @since 23 dynamic&static
-   */
-  NO_INTERRUPT = 0,
-  /**
-   * Multiple sounds can be played parallelly, but for the same sound, the latter one interrupts the former one
-   * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @stagemodelonly
-   * @since 23 dynamic&static
-   */
-  SAME_SOUND_INTERRUPT = 1
-}
-
-/**
  * Interface for error info.
  * @typedef { ErrorInfo<T extends Error = BusinessError> }
  * @syscap SystemCapability.Multimedia.Media.SoundPool
