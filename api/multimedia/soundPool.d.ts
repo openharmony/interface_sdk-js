@@ -508,7 +508,7 @@ export declare interface SoundPool {
   /**
    * Sets the interrupt mode for sound parallel play. The default mode is SoundInterruptMode.SAME_SOUND_INTERRUPT.
    *
-   * @param { media.SoundInterruptMode } interruptMode - The interrupt mode.
+   * @param { media.SoundInterruptMode } interruptMode - the interrupt mode.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @stagemodelonly
    * @since 23 dynamic&static
