@@ -291,6 +291,28 @@ declare namespace relationalStore {
   type ModifyTime = Map<PRIKeyType, UTCTime>;
 
   /**
+   * Indicates a row of data with an array.
+   *
+   * @typedef { Array<ValueType> } RowData
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @since 23 dynamic&static
+   */
+  type RowData = Array<ValueType>;
+
+  /**
+   * Indicates mutiple rows of data with an array.
+   *
+   * @typedef { Array<RowData> } RowsData
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @since 23 dynamic&static
+   */
+  type RowsData = Array<RowData>;
+
+  /**
    * Manages relational database configurations.
    *
    * @interface StoreConfig
@@ -3424,6 +3446,28 @@ declare namespace relationalStore {
     getColumnName(columnIndex: int): string;
 
     /**
+     * Obtains the names of all columns in a result set.
+     * The column names are returned as a string array, in which the strings are in the same order
+     * as the columns in the result set.
+     *
+     * @returns { Array<string> } The columnNames of the resultSet.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+	  getColumnNames(): Array<string>;
+
+    /**
      * Obtains the column data type based on the specified column index.
      * The column index is passed as an input parameter.
      *
@@ -4411,6 +4455,52 @@ declare namespace relationalStore {
     getRows(maxCount: int, position?: int): Promise<Array<ValuesBucket>>;
 
     /**
+     * Obtains the values of all columns in the current row.
+     *
+     * @returns { RowData } Indicates the row of data {@link RowData} to be inserted into the table.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    getCurrentRowData(): RowData;
+
+    /**
+     * Moves sequentially from the specified position, taking up to maxCount steps,
+     * and captures the data from each encountered row.
+     *
+     * @param { int } maxCount - Indicates the maximum number of rows.
+     * @param { int } [position] - Indicates the start position to obtain the values.
+     * @returns { Promise<RowsData> } Promise used to return the values obtained in an {@link RowsData}.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    getRowsData(maxCount: int, position?: int): Promise<RowsData>;
+
+    /**
      * Obtains the values of all columns in the specified row.
      *
      * @returns { sendableRelationalStore.ValuesBucket } Indicates the row of data
@@ -4539,7 +4629,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 23 dynamic&static
    */
-  class LiteResultSet {  
+  class LiteResultSet {
     /**
      * Obtains the column index based on the specified column name.
      * The column name is passed as an input parameter.
@@ -4584,6 +4674,28 @@ declare namespace relationalStore {
      * @since 23 dynamic&static
      */
     getColumnName(columnIndex: int): string;
+
+    /**
+     * Obtains the names of all columns in a result set.
+     * The column names are returned as a string array, in which the strings are in the same order
+     * as the columns in the result set.
+     *
+     * @returns { Array<string> } The columnNames of the resultSet.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+	  getColumnNames(): Array<string>;
 
     /**
      * Obtains the column data type based on the specified column index.
@@ -4849,6 +4961,52 @@ declare namespace relationalStore {
      * @since 23 dynamic&static
      */
     getRows(maxCount: int, position?: int): Promise<Array<ValuesBucket>>;
+
+    /**
+     * Obtains the values of all columns in the current row.
+     *
+     * @returns { RowData } Indicates the row of data {@link RowData} to be inserted into the table.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    getCurrentRowData(): RowData;
+
+    /**
+     * Moves sequentially from the specified position, taking up to maxCount steps,
+     * and captures the data from each encountered row.
+     *
+     * @param { int } maxCount - Indicates the maximum number of rows.
+     * @param { int } [position] - Indicates the start position to obtain the values.
+     * @returns { Promise<RowsData> } Promise used to return the values obtained in an {@link RowsData}.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     *     Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    getRowsData(maxCount: int, position?: int): Promise<RowsData>;
 
     /**
      * Checks whether the value of the specified column in the current row is null.
