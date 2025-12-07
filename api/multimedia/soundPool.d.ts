@@ -49,6 +49,30 @@ export enum ErrorType {
 }
 
 /**
+ * Enumerates the interrupt mode.
+ * @enum { int }
+ * @syscap SystemCapability.Multimedia.Media.SoundPool
+ * @stagemodelonly
+ * @since 23 dynamic&static
+ */
+export enum InterruptMode {
+  /**
+   * Multiple sounds can be played parallelly, without interrupt each other
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  NO_INTERRUPT = 0,
+  /**
+   * Multiple sounds can be played parallelly, but for the same sound, the latter one interrupt the former one
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  SAME_SOUND_INTERRUPT = 1
+}
+
+/**
  * Interface for error info.
  * @typedef { ErrorInfo<T extends Error = BusinessError> }
  * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -505,6 +529,15 @@ export declare interface SoundPool {
    * @since 22 static
    */
   setVolume(streamID: int, leftVolume: double, rightVolume: double): Promise<void>;
+  /**
+   * Sets the interrupt mode for sound parallel play. the default mode is InterruptMode.SAME_SOUND_INTERRUPT
+   * 
+   * @param {InterruptMode} interruptMode - the interrupt mode.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @stagemodelonly
+   * @since 23 dynamic&staic
+   */
+  setInterruptMode(interruptMode: InterruptMode): void;
   /**
    * Unloads a sound. This API uses an asynchronous callback to return the result.
    *

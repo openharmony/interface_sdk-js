@@ -24,6 +24,7 @@ import photoAccessHelper from './@ohos.file.photoAccessHelper';
 import type image from './@ohos.multimedia.image';
 import type { SoundPool as _SoundPool } from './multimedia/soundPool';
 import type { PlayParameters as _PlayParameters } from './multimedia/soundPool';
+import {InterruptMode as _InterruptMode} from './multimedia/soundPool';
 import type drm from './@ohos.multimedia.drm';
 
 /**
@@ -710,6 +711,15 @@ declare namespace media {
    * @since 22 static
    */
   type PlayParameters = _PlayParameters;
+
+  /**
+   * Enumerates the interrupt mode.
+   *
+   * @typedef { _InterruptMode }
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 23 dynamic&static
+   */
+  export import InterruptMode = _InterruptMode;
 
   /**
    * Enumerates state change reason.
