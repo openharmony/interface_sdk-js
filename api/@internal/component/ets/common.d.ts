@@ -8386,7 +8386,7 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  MOUSE = 3,
+  MOUSE,
 
   /**
    * The touchpad type.
@@ -8396,7 +8396,7 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  TOUCHPAD = 4,
+  TOUCHPAD,
 
   /**
    * The joystick type.
@@ -8406,7 +8406,7 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  JOYSTICK = 5
+  JOYSTICK
 }
 
 /**
