@@ -702,7 +702,6 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   /**
    * Sets the language for the application.
@@ -860,7 +859,6 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
    */
   /**
    * Sets the font for this application.
@@ -902,7 +900,6 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 13 dynamic
-   * @since 20 static
    */
   /**
    * Sets the scale ratio for the font size of this application.

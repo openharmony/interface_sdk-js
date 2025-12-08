@@ -27,8 +27,7 @@ import type image from './@ohos.multimedia.image';
  *
  * @namespace call
  * @syscap SystemCapability.Telephony.CallManager
- * @since 6 dynamic
- * @since 20 static
+ * @since 6
  */
 /**
  * Provides methods related to call management.
@@ -173,8 +172,7 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Applications.Contacts
-   * @since 7 dynamic
-   * @since 20 static
+   * @since 7
    */
   /**
    * Go to the dial screen and the called number is displayed.
@@ -206,8 +204,7 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Applications.Contacts
-   * @since 7 dynamic
-   * @since 20 static
+   * @since 7
    */
   /**
    * Go to the dial screen and the called number is displayed.

@@ -1009,7 +1009,6 @@ declare namespace accessibility {
    * @typedef {'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 20 static
    */
   /**
    * The type of the Ability app.
@@ -1052,7 +1051,6 @@ declare namespace accessibility {
    * @typedef {'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' | 'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' | 'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' | 'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   /**
    * The action that the ability can execute.
@@ -1122,7 +1120,6 @@ declare namespace accessibility {
    * @typedef {'accessibilityFocus' | 'accessibilityFocusClear' | 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' | 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' | 'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' | 'announceForAccessibilityNotInterrupt' | 'scrolling'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 18 dynamic
-   * @since 20 static
    */
   /**
    * The type of the accessibility event.
@@ -1191,7 +1188,6 @@ declare namespace accessibility {
    * @typedef {'enable' | 'disable' | 'install'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7 dynamic
-   * @since 20 static
    */
   /**
    * The type of the ability state.
@@ -1225,7 +1221,6 @@ declare namespace accessibility {
    * @typedef {'retrieve' | 'touchGuide' | 'keyEventObserver' | 'zoom' | 'gesture'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7 dynamic
-   * @since 20 static
    */
    /**
    * The ability that accessibility subsystem support.
@@ -1373,7 +1368,6 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   /**
    * Checks touch browser ability (which is used by talkback) is enabled.
@@ -1401,7 +1395,6 @@ declare namespace accessibility {
    * @returns { boolean } Returns true if the screen reader is enabled; return false otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @since 18 dynamic
-   * @since 20 static
    */
   /**
    * Checks screen reader ability (which is used by talkback) is enabled.
@@ -1463,7 +1456,6 @@ declare namespace accessibility {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 20 static
    */
   /**
    * Queries the list of accessibility abilities.
@@ -1512,7 +1504,6 @@ declare namespace accessibility {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 20 static
    */
   /**
    * Queries the list of accessibility abilities.
@@ -1558,7 +1549,6 @@ declare namespace accessibility {
    * @returns { Array<AccessibilityAbilityInfo> } Returns the list of abilityInfos.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   /**
    * Queries the list of accessibility abilities.
@@ -1622,7 +1612,6 @@ declare namespace accessibility {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 20 static
    */
   /**
    * Send accessibility event.
@@ -1665,7 +1654,6 @@ declare namespace accessibility {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 20 static
    */
   /**
    * Send accessibility event.
@@ -1701,7 +1689,7 @@ declare namespace accessibility {
    * Gets touch mode type.
    * @returns { string } Returns touch mode type, include 'singleTouchMode', 'doubleTouchMode', and 'none'.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   /**
    * Gets touch mode type.
@@ -2520,7 +2508,6 @@ declare namespace accessibility {
    * @typedef AccessibilityAbilityInfo
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7 dynamic
-   * @since 20 static
    */
   /**
    * Indicates the info of accessibility.
@@ -2547,7 +2534,6 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
      */
     /**
      * The ability id.
@@ -2575,7 +2561,6 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
      */
     /**
      * The ability name.
@@ -2603,7 +2588,6 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
      */
     /**
      * The bundle name of the ability.
@@ -2630,7 +2614,6 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 9 dynamic
-     * @since 20 static
      */
     /**
      * The target bundle name for the observation.
@@ -2658,7 +2641,6 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
      */
     /**
      * The type of the ability.
@@ -2686,7 +2668,6 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
      */
     /**
      * The capabilities of the ability.
@@ -2714,7 +2695,6 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
      */
     /**
      * The description of the ability.
@@ -2742,7 +2722,6 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
      */
     /**
      * The events which the accessibility ability wants to observe.
@@ -2808,7 +2787,6 @@ declare namespace accessibility {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7 dynamic
-   * @since 20 static
    */
   /**
    * Indicates the info of events.
@@ -2876,7 +2854,6 @@ declare namespace accessibility {
      * @param { Action } triggerAction - The action that the ability can execute.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 11 dynamic
-     * @since 20 static
      */
    /**
      * A constructor used to create a EventInfo object.
@@ -2906,7 +2883,6 @@ declare namespace accessibility {
      * @type { EventType }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
      */
     /**
      * The type of an accessibility event.
@@ -2948,7 +2924,6 @@ declare namespace accessibility {
      * @type { string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
      */
     /**
      * The bundle name of the target application.
@@ -3024,7 +2999,6 @@ declare namespace accessibility {
      * @type { Action }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
      */
     /**
      * The action that triggers the accessibility event, for example, clicking or focusing a view.
@@ -3185,7 +3159,6 @@ declare namespace accessibility {
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * The content of announce accessibility text.
@@ -3227,7 +3200,6 @@ declare namespace accessibility {
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * The customized element id.
