@@ -1694,6 +1694,15 @@ declare namespace backgroundTaskManager {
      * @since 22 dynamic
      */
     SUBMODE_VIDEO_BROADCAST_NORMAL_NOTIFICATION = 10,
+
+    /**
+     * submode of 'MODE_SPECIAL_SCENARIO_PROCESSING', used for workout scenarios.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SUBMODE_WORK_OUT_NORMAL_NOTIFICATION = 11
   }
 
   /**
