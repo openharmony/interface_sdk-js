@@ -233,6 +233,7 @@ export interface DeleteStorageOptions {
  * @FAModelOnly
  * @since 3 dynamiconly
  * @deprecated since 6
+ * @reserverd ["liteWearable"]
  */
 export default class Storage {
   /**
