@@ -1893,9 +1893,19 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
      */
     on(type: 'change', callback: Callback<string>): void;
+
+    /**
+     * Registers an observer to listen for the change of a {@link Preferences} object.
+     *
+     * @param { Callback<string> } callback - Indicates the callback function.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    onChange(callback: Callback<string>): void;
 
     /**
      * Registers an observer to listen for the change of a {@link Preferences} object.
@@ -1922,9 +1932,19 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
      */
     on(type: 'multiProcessChange', callback: Callback<string>): void;
+
+    /**
+     * Registers an observer to listen for the change of a {@link Preferences} object.
+     *
+     * @param { Callback<string> } callback - Indicates the callback function.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500019 - Failed to obtain the subscription service.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @since 22 static
+     */
+    onMultiProcessChange(callback: Callback<string>): void;
 
     /**
      * Registers an observer to listen for changes to the {@ link Preferences} object.
@@ -1954,9 +1974,20 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     on(type: 'dataChange', keys: Array<string>, callback: Callback<Record<string, ValueType>>): void;
+
+    /**
+     * Registers an observer to listen for changes to the {@ link Preferences} object.
+     *
+     * @param { Array<string> } keys - Indicates one or more keys to listen for.
+     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback used to return the data change.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    onDataChange(keys: Array<string>, callback: Callback<Record<string, ValueType>>): void;
 
     /**
      * Unregisters an existing observer.
@@ -1994,9 +2025,19 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
      */
     off(type: 'change', callback?: Callback<string>): void;
+
+    /**
+     * Unregisters an existing observer.
+     *
+     * @param { Callback<string> } callback - Indicates the callback function.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    offChange(callback?: Callback<string>): void;
 
     /**
      * Unregisters an existing observer.
@@ -2021,9 +2062,18 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
      */
     off(type: 'multiProcessChange', callback?: Callback<string>): void;
+
+    /**
+     * Unregisters an existing observer.
+     *
+     * @param { Callback<string> } callback - Indicates the callback function.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @since 22 static
+     */
+    offMultiProcessChange(callback?: Callback<string>): void;
 
     /**
      * Unregisters an observer for changes to the {@ link Preferences} object.
@@ -2053,9 +2103,20 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     off(type: 'dataChange', keys: Array<string>, callback?: Callback<Record<string, ValueType>>): void;
+
+    /**
+     * Unregisters an observer for changes to the {@ link Preferences} object.
+     *
+     * @param { Array<string> } keys - Indicates the data whose changes are not observed.
+     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback to unregister.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    offDataChange(keys: Array<string>, callback?: Callback<Record<string, ValueType>>): void;
   }
 }
 
