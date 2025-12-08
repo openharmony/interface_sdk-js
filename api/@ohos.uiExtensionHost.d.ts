@@ -28,7 +28,7 @@ import uiExtension from './@ohos.arkui.uiExtension';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace uiExtensionHost {
   /**
@@ -38,7 +38,7 @@ declare namespace uiExtensionHost {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface UIExtensionHostWindowProxy {
     /**
@@ -50,7 +50,7 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getWindowAvoidArea(type: window.AvoidAreaType): window.AvoidArea;
 
@@ -168,7 +168,7 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     properties: UIExtensionHostWindowProxyProperties;
 
@@ -204,7 +204,7 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hideNonSecureWindows(shouldHide: boolean): Promise<void>;
 
@@ -219,12 +219,14 @@ declare namespace uiExtensionHost {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
+     * <br> 1. The window is not created or destroyed.
+     * <br> 2. Internal task error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @StageModelOnly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
      createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
 
@@ -239,7 +241,7 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWaterMarkFlag(enable: boolean): Promise<void>;
 
@@ -260,7 +262,7 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hidePrivacyContentForHost(shouldHide: boolean): Promise<void>;
   }
@@ -272,7 +274,7 @@ declare namespace uiExtensionHost {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface UIExtensionHostWindowProxyProperties {
     /**
@@ -282,7 +284,7 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uiExtensionHostWindowProxyRect: window.Rect;
   }

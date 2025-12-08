@@ -28,6 +28,7 @@ import type { ChildProcessOptions } from './@ohos.app.ability.ChildProcessOption
  * @namespace childProcessManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 11 dynamic
+ * @since 22 static
  */
 declare namespace childProcessManager {
 
@@ -38,6 +39,7 @@ declare namespace childProcessManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 22 static
    */
   export const enum StartMode {
 
@@ -48,6 +50,7 @@ declare namespace childProcessManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 11 dynamic
+     * @since 22 static
      */
     SELF_FORK = 0,
 
@@ -57,6 +60,7 @@ declare namespace childProcessManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 11 dynamic
+     * @since 22 static
      */
     APP_SPAWN_FORK = 1,
   }
@@ -66,7 +70,7 @@ declare namespace childProcessManager {
    *
    * @param { string } srcEntry - Child process source file entrance to be started.
    * @param { StartMode } startMode - Child process start mode.
-   * @returns { Promise<number> } Returns the started child process pid.
+   * @returns { Promise<int> } Returns the started child process pid.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -75,15 +79,16 @@ declare namespace childProcessManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 22 static
    */
-  function startChildProcess(srcEntry: string, startMode: StartMode): Promise<number>;
+  function startChildProcess(srcEntry: string, startMode: StartMode): Promise<int>;
 
   /**
    * Start child process with the given src entry and mode.
    *
    * @param { string } srcEntry - Child process source file entrance to be started.
    * @param { StartMode } startMode - Child process start mode.
-   * @param { AsyncCallback<number> } callback - The callback of startChildProcess.
+   * @param { AsyncCallback<int> } callback - The callback of startChildProcess.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -92,8 +97,9 @@ declare namespace childProcessManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 22 static
    */
-  function startChildProcess(srcEntry: string, startMode: StartMode, callback: AsyncCallback<number>): void;
+  function startChildProcess(srcEntry: string, startMode: StartMode, callback: AsyncCallback<int>): void;
 
   /** 
    * Start child process with the given args and options.
@@ -117,7 +123,7 @@ declare namespace childProcessManager {
    * @param { string } srcEntry - Indicates child process source file entrance to be started.
    * @param { ChildProcessArgs } args - Indicates args to pass to child process.
    * @param { ChildProcessOptions } [options] - Indicates options for starting child process.
-   * @returns { Promise<number> } Returns the started child process pid.
+   * @returns { Promise<int> } Returns the started child process pid.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -127,8 +133,9 @@ declare namespace childProcessManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 13 dynamic
+   * @since 22 static
    */
-  function startArkChildProcess(srcEntry: string, args: ChildProcessArgs, options?: ChildProcessOptions): Promise<number>;
+  function startArkChildProcess(srcEntry: string, args: ChildProcessArgs, options?: ChildProcessOptions): Promise<int>;
 
   /** 
    * Start native child process with the given args and options.
@@ -136,7 +143,7 @@ declare namespace childProcessManager {
    * @param { string } entryPoint - Indicates entry point of child process, consisting of library and entry function, such as "libEntry.so:Main".
    * @param { ChildProcessArgs } args - Indicates args to pass to child process.
    * @param { ChildProcessOptions } [options] - Indicates options for starting child process.
-   * @returns { Promise<number> } Returns the started child process pid.
+   * @returns { Promise<int> } Returns the started child process pid.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -146,8 +153,9 @@ declare namespace childProcessManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 13 dynamic
+   * @since 22 static
    */
-  function startNativeChildProcess(entryPoint: string, args: ChildProcessArgs, options?: ChildProcessOptions): Promise<number>;
+  function startNativeChildProcess(entryPoint: string, args: ChildProcessArgs, options?: ChildProcessOptions): Promise<int>;
 
 }
 

@@ -25,7 +25,7 @@
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface DispatchInfo {
   /**
@@ -36,7 +36,7 @@ export interface DispatchInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly version: string;
 
@@ -48,7 +48,7 @@ export interface DispatchInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly dispatchAPIVersion: string;
 }

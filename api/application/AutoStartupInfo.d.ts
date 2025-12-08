@@ -26,6 +26,7 @@
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
+ * @since 22 static
  */
 export interface AutoStartupInfo {
   /**
@@ -36,6 +37,7 @@ export interface AutoStartupInfo {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 22 static
    */
   bundleName: string;
 
@@ -47,6 +49,7 @@ export interface AutoStartupInfo {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 22 static
    */
   moduleName?: string;
 
@@ -58,6 +61,7 @@ export interface AutoStartupInfo {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 22 static
    */
   abilityName: string;
 
@@ -69,42 +73,46 @@ export interface AutoStartupInfo {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 22 static
    */
   abilityTypeName?: string;
 
   /**
    * The app clone index of ability instance.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
-  appCloneIndex?: number;
+  appCloneIndex?: int;
 
   /**
    * The user id of application.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
-  readonly userId?: number;
+  readonly userId?: int;
 
   /**
    * The user id of setter.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
-  readonly setterUserId?: number;
+  readonly setterUserId?: int;
 
   /**
    * Whether to allow user to modify autostartup status.
@@ -114,7 +122,8 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly canUserModify?: boolean;
 }

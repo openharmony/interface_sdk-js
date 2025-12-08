@@ -19,6 +19,7 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
+import { Callback } from './@ohos.base';
 import Context from './application/Context';
 import DataShareResultSet from './@ohos.data.DataShareResultSet';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
@@ -39,7 +40,8 @@ import { ValuesBucket, ValueType } from './@ohos.data.ValuesBucket';
  * @namespace dataShare
  * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
  * @stagemodelonly
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare namespace dataShare {
   /**
@@ -50,7 +52,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface DataShareHelperOptions {
     /**
@@ -63,7 +65,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isProxy?: boolean;
     /**
@@ -87,7 +89,7 @@ declare namespace dataShare {
    * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: The dataShareHelper for consumer.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700010 - The DataShareHelper fails to be initialized.
+   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -99,15 +101,15 @@ declare namespace dataShare {
    * @param { Context } context - Indicates the application context.
    * @param { string } uri - Indicates the path of the file to open.
    * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: The dataShareHelper for consumer.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 202 - Not System Application.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700010 - The DataShareHelper fails to be initialized.
+   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createDataShareHelper(context: Context, uri: string, callback: AsyncCallback<DataShareHelper>): void;
   /**
@@ -119,7 +121,7 @@ declare namespace dataShare {
    * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: The dataShareHelper for consumer.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700010 - The DataShareHelper fails to be initialized.
+   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -132,15 +134,15 @@ declare namespace dataShare {
    * @param { string } uri - Indicates the path of the file to open.
    * @param { DataShareHelperOptions } options - Indicates the optional config.
    * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: The dataShareHelper for consumer.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 202 - Not System Application.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700010 - The DataShareHelper fails to be initialized.
+   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createDataShareHelper(
     context: Context,
@@ -157,7 +159,7 @@ declare namespace dataShare {
    * @returns { Promise<DataShareHelper> } {DataShareHelper}: The dataShareHelper for consumer.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700010 - The DataShareHelper fails to be initialized.
+   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -172,7 +174,7 @@ declare namespace dataShare {
    * @returns { Promise<DataShareHelper> } {DataShareHelper}: The dataShareHelper for consumer.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700010 - The DataShareHelper fails to be initialized.
+   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -185,15 +187,15 @@ declare namespace dataShare {
    * @param { string } uri - Indicates the path of the file to open.
    * @param { DataShareHelperOptions } options - Indicates the optional config.
    * @returns { Promise<DataShareHelper> } {DataShareHelper}: The dataShareHelper for consumer.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 202 - Not System Application.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700010 - The DataShareHelper fails to be initialized.
+   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createDataShareHelper(
     context: Context,
@@ -229,7 +231,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableSilentProxy(context: Context, uri?: string): Promise<void>;
 
@@ -261,7 +263,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function disableSilentProxy(context: Context, uri?: string): Promise<void>;
 
@@ -269,12 +271,13 @@ declare namespace dataShare {
    * Specifies the {@link Template} id structure.
    * A template is marked by the template id. Note that the template id is auto generated in {@link DataShareHelper#addTemplate}.
    * After {@link DataShareHelper#addTemplate}, can use the template id to direct a template.
-   * 
+   *
    * @interface TemplateId
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 23 static
    */
   interface TemplateId {
     /**
@@ -286,6 +289,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
+     * @since 23 static
      */
     subscriberId: string;
     /**
@@ -297,6 +301,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
+     * @since 23 static
      */
     bundleNameOfOwner: string;
   }
@@ -309,6 +314,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 23 static
    */
   interface PublishedItem {
     /**
@@ -319,6 +325,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
+     * @since 23 static
      */
     key: string;
     /**
@@ -330,6 +337,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
+     * @since 23 static
      */
     data: string | ArrayBuffer;
     /**
@@ -340,6 +348,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
+     * @since 23 static
      */
     subscriberId: string;
   }
@@ -352,6 +361,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 23 static
    */
   interface RdbDataChangeNode {
     /**
@@ -362,6 +372,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
+     * @since 23 static
      */
     uri: string;
     /**
@@ -372,6 +383,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
+     * @since 23 static
      */
     templateId: TemplateId;
     /**
@@ -384,6 +396,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
+     * @since 23 static
      */
     data: Array<string>;
   }
@@ -396,6 +409,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 23 static
    */
   interface PublishedDataChangeNode {
     /**
@@ -406,6 +420,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
+     * @since 23 static
      */
     bundleName: string;
     /**
@@ -416,6 +431,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
+     * @since 23 static
      */
     data: Array<PublishedItem>;
   }
@@ -428,6 +444,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 23 static
    */
   interface Template {
     /**
@@ -451,6 +468,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
+     * @since 23 static
      */
     predicates: Record<string, string>;
 
@@ -463,6 +481,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
+     * @since 23 static
      */
     scheduler: string;
 
@@ -475,6 +494,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
     update?: string;
   }
@@ -486,6 +506,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 23 static
    */
   interface OperationResult {
     /**
@@ -496,19 +517,21 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
+     * @since 23 static
      */
     key: string;
 
     /**
      * Specifies the operation result.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
+     * @since 23 static
      */
-    result: number;
+    result: int;
   }
 
   /**
@@ -519,27 +542,30 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 23 static
    */
   interface UpdateOperation {
     /**
      * Indicates the data to update.
-     * 
+     *
      * @type { ValuesBucket }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     values: ValuesBucket;
 
     /**
      * Indicates filter criteria.
-     * 
+     *
      * @type { dataSharePredicates.DataSharePredicates }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     predicates: dataSharePredicates.DataSharePredicates;
   }
@@ -556,10 +582,11 @@ declare namespace dataShare {
   /**
    * Enumerates the data change types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum ChangeType {
     /**
@@ -575,7 +602,8 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     INSERT = 0,
 
@@ -592,9 +620,11 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
-    DELETE,
+    DELETE = 1,
+
     /**
      * Data updated.
      *
@@ -608,31 +638,32 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
-    UPDATE
+    UPDATE = 2
   }
   /**
    * Enumerates the subscription types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum SubscriptionType {
-      /**
-       * Subscribe to the change of the data with the specified URI.
-       *
-       * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-       * @systemapi
-       * @stagemodelonly
-       * @since 12 dynamic
-       * @since 20 static
-       */
-      SUBSCRIPTION_TYPE_EXACT_URI = 0,
+    /**
+     * Subscribe to the change of the data with the specified URI.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 22 static
+     */
+    SUBSCRIPTION_TYPE_EXACT_URI = 0
   }
 
   /**
@@ -643,54 +674,54 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ChangeInfo {
-      /**
-       * Type of the data change.
-       *
-       * @type { ChangeType }
-       * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-       * @systemapi
-       * @stagemodelonly
-       * @since 12 dynamic
-       * @since 20 static
-       */
-      type: ChangeType;
+    /**
+     * Type of the data change.
+     *
+     * @type { ChangeType }
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 22 static
+     */
+    type: ChangeType;
 
-      /**
-       * URI of the data changed.
-       *
-       * @type { string }
-       * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-       * @systemapi
-       * @stagemodelonly
-       * @since 12 dynamic
-       * @since 20 static
-       */
-      uri: string;
-      /**
-        * Data changed.
-        *
-        * @type { Array<ValuesBucket> }
-        * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-        * @systemapi
-        * @stagemodelonly
-        * @since 12 dynamic
-        * @since 20 static
-        */
-      values: Array<ValuesBucket>;
+    /**
+     * URI of the data changed.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 22 static
+     */
+    uri: string;
+    /**
+     * Data changed.
+     *
+     * @type { Array<ValuesBucket> }
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 22 static
+     */
+    values: Array<ValuesBucket>;
   }
 
   /**
-   * Provides a DataShareHelper interface to access data.
+   * DataShareHelper
    *
    * @interface DataShareHelper
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface DataShareHelper {
     /**
@@ -718,9 +749,22 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Registers an observer to observe data specified by the given uri.
+     *
+     * @param { string } uri - Indicates the path of the data to operate.
+     * @param { Callback<void> } callback - The callback of on.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onDataChange(uri: string, callback: Callback<void>): void;
 
     /**
      * Deregisters an observer used for monitoring data specified by the given uri.
@@ -747,9 +791,23 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
+
+    /**
+     * Deregisters an observer used for monitoring data specified by the given uri.
+     *
+     * @param { string } uri - Indicates the path of the data to operate.
+     * @param { Callback<void> } [callback] - The callback of off.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    offDataChange(uri: string, callback?: Callback<void>): void;
+
     /**
      * Subscribes to the change of the data specified by the given URI.
      *
@@ -765,9 +823,23 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
      */
     on(event: 'dataChange', type:SubscriptionType, uri: string, callback: AsyncCallback<ChangeInfo>): void;
+
+    /**
+     * Subscribes to the change of the data specified by the given URI.
+     *
+     * @param { SubscriptionType } type - Indicates the subscription type, which is defined in {@link SubscriptionType}.
+     * @param { string } uri - Indicates the path of the data to subscribe.
+     * @param { Callback<ChangeInfo> } callback - Indicates the callback used to return the data change.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onDataChange(type:SubscriptionType, uri: string, callback: Callback<ChangeInfo>): void;
 
     /**
      * Unsubscribes from the change of the data specified by the given URI.
@@ -784,9 +856,23 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
      */
     off(event: 'dataChange', type:SubscriptionType, uri: string, callback?: AsyncCallback<ChangeInfo>): void;
+
+    /**
+     * Unsubscribes from the change of the data specified by the given URI.
+     *
+     * @param { SubscriptionType } type - Indicates the subscription type, which is defined in {@link SubscriptionType}.
+     * @param { string } uri - Indicates the path of the data to unsubscribe.
+     * @param { Callback<ChangeInfo> } [callback] - Indicates the callback to unsubscribe.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    offDataChange(type:SubscriptionType, uri: string, callback?: Callback<ChangeInfo>): void;
 
     /**
      * Adds a template of {@link #on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}.
@@ -796,7 +882,7 @@ declare namespace dataShare {
      * @param { Template } template - The template to add.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700011 - The URI does not exist.
+     * @throws { BusinessError } 15700011 - The URI is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -810,13 +896,14 @@ declare namespace dataShare {
      * @param { Template } template - The template to add.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700011 - The URI does not exist.
+     * @throws { BusinessError } 15700011 - The URI is not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     addTemplate(uri: string, subscriberId: string, template: Template): void;
 
@@ -827,7 +914,7 @@ declare namespace dataShare {
      * @param { string } subscriberId - The subscribe id.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700011 - The URI does not exist.
+     * @throws { BusinessError } 15700011 - The URI is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -840,13 +927,14 @@ declare namespace dataShare {
      * @param { string } subscriberId - The subscribe id.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700011 - The URI does not exist.
+     * @throws { BusinessError } 15700011 - The URI is not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     delTemplate(uri: string, subscriberId: string): void;
 
@@ -876,18 +964,38 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
      */
     on(
-      type: 'rdbDataChange',
-      uris: Array<string>,
-      templateId: TemplateId,
-      callback: AsyncCallback<RdbDataChangeNode>
-    ): Array<OperationResult>;
+       type: 'rdbDataChange',
+       uris: Array<string>,
+       templateId: TemplateId,
+       callback: AsyncCallback<RdbDataChangeNode>
+     ): Array<OperationResult>;
+
+    /**
+     * Registers observers to observe rdb data specified by the given uri and template.
+     *
+     * @param { Array<string> } uris - Indicates the paths of the data to operate.
+     * @param { TemplateId } templateId - The template of on.
+     * @param { Callback<RdbDataChangeNode> } callback - The callback of on.
+     * @returns { Array<OperationResult> } : The operation result.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onRdbDataChange(
+       uris: Array<string>,
+       templateId: TemplateId,
+       callback: Callback<RdbDataChangeNode>
+     ): Array<OperationResult>;
 
     /**
      * Deregisters observers used for monitoring data specified by the given uri and template.
@@ -915,18 +1023,38 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
      */
     off(
-      type: 'rdbDataChange',
-      uris: Array<string>,
-      templateId: TemplateId,
-      callback?: AsyncCallback<RdbDataChangeNode>
-    ): Array<OperationResult>;
+       type: 'rdbDataChange',
+       uris: Array<string>,
+       templateId: TemplateId,
+       callback?: AsyncCallback<RdbDataChangeNode>
+     ): Array<OperationResult>;
+
+    /**
+     * Deregisters observers used for monitoring data specified by the given uri and template.
+     *
+     * @param { Array<string> } uris - Indicates the paths of the data to operate.
+     * @param { TemplateId } templateId - The template of off.
+     * @param { Callback<RdbDataChangeNode> } [callback] - The callback of off.
+     * @returns { Array<OperationResult> } : The operation result.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    offRdbDataChange(
+       uris: Array<string>,
+       templateId: TemplateId,
+       callback?: Callback<RdbDataChangeNode>
+     ): Array<OperationResult>;
 
     /**
      * Registers observers to observe published data specified by the given key and subscriberId.
@@ -954,18 +1082,38 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
      */
     on(
-      type: 'publishedDataChange',
-      uris: Array<string>,
-      subscriberId: string,
-      callback: AsyncCallback<PublishedDataChangeNode>
-    ): Array<OperationResult>;
+       type: 'publishedDataChange',
+       uris: Array<string>,
+       subscriberId: string,
+       callback: AsyncCallback<PublishedDataChangeNode>
+     ): Array<OperationResult>;
+
+    /**
+     * Registers observers to observe published data specified by the given key and subscriberId.
+     *
+     * @param { Array<string> } uris - Indicates the uris of the data to operate.
+     * @param { string } subscriberId - The subscriberId of on.
+     * @param { Callback<PublishedDataChangeNode> } callback - The callback of on.
+     * @returns { Array<OperationResult> } : The operation result.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onPublishedDataChange(
+       uris: Array<string>,
+       subscriberId: string,
+       callback: Callback<PublishedDataChangeNode>
+     ): Array<OperationResult>;
 
     /**
      * Deregisters observers used for monitoring data specified by the given key and subscriberId.
@@ -993,18 +1141,38 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
      */
     off(
-      type: 'publishedDataChange',
-      uris: Array<string>,
-      subscriberId: string,
-      callback?: AsyncCallback<PublishedDataChangeNode>
-    ): Array<OperationResult>;
+       type: 'publishedDataChange',
+       uris: Array<string>,
+       subscriberId: string,
+       callback?: AsyncCallback<PublishedDataChangeNode>
+     ): Array<OperationResult>;
+
+    /**
+     * Deregisters observers used for monitoring data specified by the given key and subscriberId.
+     *
+     * @param { Array<string> } uris - Indicates the uris of the data to operate.
+     * @param { string } subscriberId - The subscriberId of off.
+     * @param { Callback<PublishedDataChangeNode> } [callback] - The callback of off.
+     * @returns { Array<OperationResult> } : The operation result.
+     * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    offPublishedDataChange(
+       uris: Array<string>,
+       subscriberId: string,
+       callback?: Callback<PublishedDataChangeNode>
+     ): Array<OperationResult>;
 
     /**
      * Update a single data into host data area.
@@ -1015,7 +1183,7 @@ declare namespace dataShare {
      * @param { AsyncCallback<Array<OperationResult>> } callback
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700012 - The data area does not exist.
+     * @throws { BusinessError } 15700012 - The data area is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1026,24 +1194,25 @@ declare namespace dataShare {
      *
      * @param { Array<PublishedItem> } data - Indicates the data to publish.
      * @param { string } bundleName - Indicates the bundleName of data to publish.
-     * @param { number } version - Indicates the version of data to publish, larger is newer.
+     * @param { int } version - Indicates the version of data to publish, larger is newer.
      * @param { AsyncCallback<Array<OperationResult>> } callback
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700012 - The data area does not exist.
+     * @throws { BusinessError } 15700012 - The data area is not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     publish(
-      data: Array<PublishedItem>,
-      bundleName: string,
-      version: number,
-      callback: AsyncCallback<Array<OperationResult>>
-    ): void;
+       data: Array<PublishedItem>,
+       bundleName: string,
+       version: int,
+       callback: AsyncCallback<Array<OperationResult>>
+     ): void;
 
     /**
      * Update a single data into host data area.
@@ -1053,7 +1222,7 @@ declare namespace dataShare {
      * @param { AsyncCallback<Array<OperationResult>> } callback
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700012 - The data area does not exist.
+     * @throws { BusinessError } 15700012 - The data area is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1067,19 +1236,20 @@ declare namespace dataShare {
      * @param { AsyncCallback<Array<OperationResult>> } callback
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700012 - The data area does not exist.
+     * @throws { BusinessError } 15700012 - The data area is not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     publish(
-      data: Array<PublishedItem>,
-      bundleName: string,
-      callback: AsyncCallback<Array<OperationResult>>
-    ): void;
+       data: Array<PublishedItem>,
+       bundleName: string,
+       callback: AsyncCallback<Array<OperationResult>>
+     ): void;
 
     /**
      * Update a single data into host data area.
@@ -1090,7 +1260,7 @@ declare namespace dataShare {
      * @returns { Promise<Array<OperationResult>> }
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700012 - The data area does not exist.
+     * @throws { BusinessError } 15700012 - The data area is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1101,19 +1271,20 @@ declare namespace dataShare {
      *
      * @param { Array<PublishedItem> } data - Indicates the data to publish.
      * @param { string } bundleName - Indicates the bundleName of data to publish.
-     * @param { number } version - Indicates the version of data to publish, larger is newer.
+     * @param { int } version - Indicates the version of data to publish, larger is newer.
      * @returns { Promise<Array<OperationResult>> }
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700012 - The data area does not exist.
+     * @throws { BusinessError } 15700012 - The data area is not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
-    publish(data: Array<PublishedItem>, bundleName: string, version?: number): Promise<Array<OperationResult>>;
+    publish(data: Array<PublishedItem>, bundleName: string, version?: int): Promise<Array<OperationResult>>;
 
     /**
      * Registers a one-time observer to observe data specified by the given uri and template.
@@ -1142,6 +1313,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     getPublishedData(bundleName: string, callback: AsyncCallback<Array<PublishedItem>>): void;
 
@@ -1172,6 +1344,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     getPublishedData(bundleName: string): Promise<Array<PublishedItem>>;
 
@@ -1195,17 +1368,18 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { ValuesBucket } value - Indicates the data record to insert. If this parameter is null,
      * a blank row will be inserted.
-     * @param { AsyncCallback<number> } callback - {number}: the index of the inserted data record.
+     * @param { AsyncCallback<int> } callback - {int}: the index of the inserted data record.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
-    insert(uri: string, value: ValuesBucket, callback: AsyncCallback<number>): void;
+    insert(uri: string, value: ValuesBucket, callback: AsyncCallback<int>): void;
 
     /**
      * Inserts a single data record into the database.
@@ -1227,17 +1401,18 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { ValuesBucket } value - Indicates the data record to insert. If this parameter is null,
      * a blank row will be inserted.
-     * @returns { Promise<number> } {number}: the index of the inserted data record.
+     * @returns { Promise<int> } {int}: the index of the inserted data record.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
-    insert(uri: string, value: ValuesBucket): Promise<number>;
+    insert(uri: string, value: ValuesBucket): Promise<int>;
 
     /**
      * Deletes one or more data records from the database.
@@ -1259,17 +1434,18 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
-     * @param { AsyncCallback<number> } callback - {number}: the number of data records deleted.
+     * @param { AsyncCallback<int> } callback - {int}: the number of data records deleted.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
-    delete(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
+    delete(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<int>): void;
 
     /**
      * Deletes one or more data records from the database.
@@ -1291,17 +1467,18 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
-     * @returns { Promise<number> } {number}: the number of data records deleted.
+     * @returns { Promise<int> } {int}: the number of data records deleted.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
-    delete(uri: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
+    delete(uri: string, predicates: dataSharePredicates.DataSharePredicates): Promise<int>;
 
     /**
      * Queries data in the database.
@@ -1331,19 +1508,19 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     query(
-      uri: string,
-      predicates: dataSharePredicates.DataSharePredicates,
-      columns: Array<string>,
-      callback: AsyncCallback<DataShareResultSet>
-    ): void;
+       uri: string,
+       predicates: dataSharePredicates.DataSharePredicates,
+       columns: Array<string>,
+       callback: AsyncCallback<DataShareResultSet>
+     ): void;
 
     /**
      * Queries data in the database.
@@ -1373,18 +1550,18 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     query(
-      uri: string,
-      predicates: dataSharePredicates.DataSharePredicates,
-      columns: Array<string>
-    ): Promise<DataShareResultSet>;
+       uri: string,
+       predicates: dataSharePredicates.DataSharePredicates,
+       columns: Array<string>
+     ): Promise<DataShareResultSet>;
 
     /**
      * Updates data records in the database.
@@ -1408,23 +1585,23 @@ declare namespace dataShare {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
      * @param { ValuesBucket } value - Indicates the data to update. This parameter can be null.
-     * @param { AsyncCallback<number> } callback - {number}: the number of data records updated.
+     * @param { AsyncCallback<int> } callback - {int}: the number of data records updated.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     update(
-      uri: string,
-      predicates: dataSharePredicates.DataSharePredicates,
-      value: ValuesBucket,
-      callback: AsyncCallback<number>
-    ): void;
+       uri: string,
+       predicates: dataSharePredicates.DataSharePredicates,
+       value: ValuesBucket,
+       callback: AsyncCallback<int>
+     ): void;
 
     /**
      * Updates data records in the database.
@@ -1448,24 +1625,24 @@ declare namespace dataShare {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
      * @param { ValuesBucket } value - Indicates the data to update. This parameter can be null.
-     * @returns { Promise<number> } {number}: the number of data records updated.
+     * @returns { Promise<int> } {int}: the number of data records updated.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
-    update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket): Promise<number>;
+    update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket): Promise<int>;
 
     /**
      * Updates data records in the database.
      *
      * @param { Record<string, Array<UpdateOperation>> } operations - Indicates the data to update.
-     * @returns {Promise<Record<string, Array<number>>>} {Record<string, Array<number>>}: The result set of batch operations.
+     * @returns {Promise<Record<string, Array<int>>>} {Record<string, Array<int>>}: The result set of batch operations.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700000 - Inner error. Possible causes: 1.The internal status is abnormal;
@@ -1476,8 +1653,9 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
-    batchUpdate(operations: Record<string, Array<UpdateOperation>>): Promise<Record<string, Array<number>>>;
+    batchUpdate(operations: Record<string, Array<UpdateOperation>>): Promise<Record<string, Array<int>>>;
 
     /**
      * Inserts multiple data records into the database.
@@ -1497,17 +1675,18 @@ declare namespace dataShare {
      *
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { Array<ValuesBucket> } values - Indicates the data records to insert.
-     * @param { AsyncCallback<number> } callback - {number}: the number of data records inserted.
+     * @param { AsyncCallback<int> } callback - {int}: the number of data records inserted.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
-    batchInsert(uri: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
+    batchInsert(uri: string, values: Array<ValuesBucket>, callback: AsyncCallback<int>): void;
 
     /**
      * Inserts multiple data records into the database.
@@ -1527,17 +1706,18 @@ declare namespace dataShare {
      *
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { Array<ValuesBucket> } values - Indicates the data records to insert.
-     * @returns { Promise<number> } {number}: the number of data records inserted.
+     * @returns { Promise<int> } {int}: the number of data records inserted.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
-    batchInsert(uri: string, values: Array<ValuesBucket>): Promise<number>;
+    batchInsert(uri: string, values: Array<ValuesBucket>): Promise<int>;
 
     /**
      * Converts the given {@code uri} that refers to the DataShare into a normalized {@link ohos.utils.net.Uri}.
@@ -1572,6 +1752,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     normalizeUri(uri: string, callback: AsyncCallback<string>): void;
 
@@ -1606,6 +1787,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     normalizeUri(uri: string): Promise<string>;
 
@@ -1638,6 +1820,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     denormalizeUri(uri: string, callback: AsyncCallback<string>): void;
 
@@ -1670,6 +1853,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     denormalizeUri(uri: string): Promise<string>;
 
@@ -1695,6 +1879,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     notifyChange(uri: string, callback: AsyncCallback<void>): void;
 
@@ -1720,6 +1905,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     notifyChange(uri: string): Promise<void>;
 
@@ -1736,15 +1922,15 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 23 static
      */
     notifyChange(data: ChangeInfo): Promise<void>;
 
     /**
      * Close the connection between datashare and extension.
-     * 
+     *
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 15700000 - Inner error. Possible causes: 1.The internal status is abnormal;
-     *         2.The interface is incorrectly used; 3.Permission configuration error; 4.A system error.
+     * @throws { BusinessError } 15700000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1752,15 +1938,15 @@ declare namespace dataShare {
      */
     /**
      * Close the connection between datashare and extension.
-     * 
+     *
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 15700000 - Inner error. Possible causes: 1.The internal status is abnormal;
-     *         2.The interface is incorrectly used; 3.Permission configuration error; 4.A system error.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 15700000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 19 dynamic
+     * @since 23 static
      */
     close(): Promise<void>;
   }
@@ -1773,7 +1959,8 @@ declare namespace dataShare {
    *     restarted abnormally.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function createDataProxyHandle(): Promise<DataProxyHandle>;
 
@@ -1783,7 +1970,8 @@ declare namespace dataShare {
    * @interface ProxyData
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface ProxyData {
     /**
@@ -1792,7 +1980,8 @@ declare namespace dataShare {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     uri: string;
 
@@ -1804,7 +1993,8 @@ declare namespace dataShare {
      * @type { ?ValueType }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     value?: ValueType;
 
@@ -1818,7 +2008,8 @@ declare namespace dataShare {
      * @type { ?string[] }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     allowList?: string[];
   }
@@ -1829,7 +2020,8 @@ declare namespace dataShare {
    * @interface DataProxyChangeInfo
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface DataProxyChangeInfo {
     /**
@@ -1838,7 +2030,8 @@ declare namespace dataShare {
      * @type { ChangeType }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     type: ChangeType;
 
@@ -1848,7 +2041,8 @@ declare namespace dataShare {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     uri: string;
 
@@ -1858,7 +2052,8 @@ declare namespace dataShare {
      * @type { ValueType }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     value: ValueType;
   }
@@ -1866,10 +2061,11 @@ declare namespace dataShare {
   /**
    * Enumeration of data proxy operation error codes.
    *
-   * @enum { number } DataProxyErrorCode
+   * @enum { int } DataProxyErrorCode
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 23 static
    */
   enum DataProxyErrorCode {
     /**
@@ -1877,7 +2073,8 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 23 static
      */
     SUCCESS = 0,
     
@@ -1886,7 +2083,8 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 23 static
      */
     URI_NOT_EXIST = 1,
 
@@ -1895,7 +2093,8 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 23 static
      */
     NO_PERMISSION = 2,
 
@@ -1904,7 +2103,8 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 23 static
      */
     OVER_LIMIT = 3
   }
@@ -1915,7 +2115,8 @@ declare namespace dataShare {
    * @interface DataProxyResult
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface DataProxyResult {
     /**
@@ -1924,7 +2125,8 @@ declare namespace dataShare {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     uri: string;
 
@@ -1933,7 +2135,8 @@ declare namespace dataShare {
      * @type { DataProxyErrorCode }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     result: DataProxyErrorCode;
   }
@@ -1944,7 +2147,8 @@ declare namespace dataShare {
    * @interface DataProxyGetResult
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface DataProxyGetResult {
     /**
@@ -1953,7 +2157,8 @@ declare namespace dataShare {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     uri: string;
 
@@ -1963,7 +2168,8 @@ declare namespace dataShare {
      * @type { DataProxyErrorCode }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     result: DataProxyErrorCode;
 
@@ -1974,7 +2180,8 @@ declare namespace dataShare {
      * @type { ValueType | undefined }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     value: ValueType | undefined;
 
@@ -1986,7 +2193,8 @@ declare namespace dataShare {
      * @type { string[] | undefined}
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     allowList: string[] | undefined;
   }
@@ -1994,10 +2202,11 @@ declare namespace dataShare {
   /**
    * Enumeration of data proxy types.
    *
-   * @enum { number } DataProxyType
+   * @enum { int } DataProxyType
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 23 static
    */
   enum DataProxyType {
     /**
@@ -2005,7 +2214,8 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 23 static
      */
     SHARED_CONFIG = 0
   }
@@ -2016,7 +2226,8 @@ declare namespace dataShare {
    * @interface DataProxyConfig
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface DataProxyConfig {
     /**
@@ -2025,7 +2236,8 @@ declare namespace dataShare {
      * @type { DataProxyType }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     type: DataProxyType;
   }
@@ -2036,7 +2248,8 @@ declare namespace dataShare {
    * @interface DataProxyHandle
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface DataProxyHandle {
     /**
@@ -2052,7 +2265,8 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     on(
       event: 'dataChange',
@@ -2074,7 +2288,8 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     off(
       event: 'dataChange',
@@ -2097,7 +2312,8 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     publish(data: ProxyData[], config: DataProxyConfig): Promise<DataProxyResult[]>;
 
@@ -2113,7 +2329,8 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     delete(uris: string[], config: DataProxyConfig): Promise<DataProxyResult[]>;
 
@@ -2129,11 +2346,11 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     get(uris: string[], config: DataProxyConfig): Promise<DataProxyGetResult[]>;
   }
-
 }
 
 export default dataShare;

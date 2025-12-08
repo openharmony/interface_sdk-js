@@ -40,8 +40,9 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 13
+ * @useinstead Navigation
  */
 declare enum NavigationType {
   /**
@@ -139,8 +140,9 @@ declare enum NavigationType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 13
+ * @useinstead Navigation
  */
 interface NavigatorInterface {
   /**
@@ -223,8 +225,9 @@ interface NavigatorInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 13
+ * @useinstead Navigation
  */
 declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
   /**
@@ -367,8 +370,9 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 13
+ * @useinstead Navigation
  */
 declare const Navigator: NavigatorInterface;
 
@@ -391,7 +395,8 @@ declare const Navigator: NavigatorInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 13
+ * @useinstead Navigation
  */
 declare const NavigatorInstance: NavigatorAttribute;

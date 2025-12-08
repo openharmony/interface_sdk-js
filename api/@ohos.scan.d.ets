@@ -25,118 +25,135 @@ import type { Callback } from './@ohos.base';
  *
  * @namespace scan
  * @syscap SystemCapability.Print.PrintFramework
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare namespace scan {
     /**
      * Enumeration of scan error codes.
      * @enum { int } ScanErrorCode
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     enum ScanErrorCode {
         /**
          * No permission error.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_ERROR_NO_PERMISSION = 201,
 
         /**
          * Not system application error.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_ERROR_NOT_SYSTEM_APPLICATION = 202,
 
         /**
          * Invalid parameter error.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_ERROR_INVALID_PARAMETER = 401,
 
         /**
          * Generic failure error.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_ERROR_GENERIC_FAILURE = 13100001,
 
         /**
          * RPC failure error.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_ERROR_RPC_FAILURE = 13100002,
 
         /**
          * Server failure error.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_ERROR_SERVER_FAILURE = 13100003,
 
         /**
          * Unsupported operation error.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_ERROR_UNSUPPORTED = 13100004,
 
         /**
          * Operation canceled error.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_ERROR_CANCELED = 13100005,
 
         /**
          * Device busy error.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_ERROR_DEVICE_BUSY = 13100006,
 
         /**
          * Invalid operation error.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_ERROR_INVALID = 13100007,
 
         /**
          * Paper jam error.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_ERROR_JAMMED = 13100008,
 
         /**
          * No documents error.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_ERROR_NO_DOCS = 13100009,
 
         /**
          * Cover open error.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_ERROR_COVER_OPEN = 13100010,
 
         /**
          * I/O error.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_ERROR_IO_ERROR = 13100011,
 
         /**
          * No memory error.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_ERROR_NO_MEMORY = 13100012,
     }
@@ -145,34 +162,39 @@ declare namespace scan {
      * Enumeration of constraint types.
      * @enum { int } ConstraintType
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     enum ConstraintType {
         /**
          * No constraint.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_CONSTRAINT_NONE = 0,
 
         /**
          * Range constraint.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_CONSTRAINT_RANGE = 1,
 
         /**
          * Word list constraint.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_CONSTRAINT_WORD_LIST = 2,
 
         /**
          * String list constraint.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_CONSTRAINT_STRING_LIST = 3,
     }
@@ -181,55 +203,63 @@ declare namespace scan {
      * Enumeration of physical units.
      * @enum { int } PhysicalUnit
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     enum PhysicalUnit {
         /**
          * No unit.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_UNIT_NONE = 0,
 
         /**
          * Pixel unit.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_UNIT_PIXEL = 1,
 
         /**
          * Bit unit.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_UNIT_BIT = 2,
 
         /**
          * Millimeter unit.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_UNIT_MM = 3,
 
         /**
          * DPI unit.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_UNIT_DPI = 4,
 
         /**
          * Percentage unit.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_UNIT_PERCENT = 5,
 
         /**
          * Microsecond unit.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_UNIT_MICROSECOND = 6,
     }
@@ -238,34 +268,39 @@ declare namespace scan {
      * Enumeration of option value types.
      * @enum { int } OptionValueType
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     enum OptionValueType {
         /**
          * Boolean type.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_TYPE_BOOL = 0,
 
         /**
          * Integer type.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_TYPE_INT = 1,
 
         /**
          * Fixed point type.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_TYPE_FIXED = 2,
 
         /**
          * String type.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         SCAN_TYPE_STRING = 3,
     }
@@ -274,20 +309,23 @@ declare namespace scan {
      * Enumeration of scanner sync modes.
      * @enum { string } ScannerSyncMode
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     enum ScannerSyncMode {
         /**
          * Update mode.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         UPDATE_STR = 'update',
 
         /**
          * Delete mode.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         DELETE_STR = 'delete',
     }
@@ -296,20 +334,23 @@ declare namespace scan {
      * Enumeration of scanner discovery modes.
      * @enum { string } ScannerDiscoveryMode
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     enum ScannerDiscoveryMode {
         /**
          * TCP discovery mode.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         TCP_STR = 'TCP',
 
         /**
          * USB discovery mode.
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         USB_STR = 'USB',
     }
@@ -318,14 +359,16 @@ declare namespace scan {
      * Defines a range with minimum, maximum and quantization values.
      * @typedef Range
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     interface Range {
         /**
          * Minimum value of the range.
          * @type { int }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         minValue: int;
 
@@ -333,7 +376,8 @@ declare namespace scan {
          * Maximum value of the range.
          * @type { int }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         maxValue: int;
 
@@ -341,7 +385,8 @@ declare namespace scan {
          * Quantization value of the range.
          * @type { int }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         quantValue: int;
     }
@@ -350,14 +395,16 @@ declare namespace scan {
      * Defines scanner parameters.
      * @typedef ScannerParameter
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     interface ScannerParameter {
         /**
          * Name of the option.
          * @type { string }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         optionName: string;
 
@@ -365,7 +412,8 @@ declare namespace scan {
          * Index of the option.
          * @type { int }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         optionIndex: int;
 
@@ -373,7 +421,8 @@ declare namespace scan {
          * Title of the option.
          * @type { string }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         optionTitle: string;
 
@@ -381,7 +430,8 @@ declare namespace scan {
          * Description of the option.
          * @type { string }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         optionDesc: string;
 
@@ -389,7 +439,8 @@ declare namespace scan {
          * Type of the option value.
          * @type { OptionValueType }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         optionType: OptionValueType;
 
@@ -397,7 +448,8 @@ declare namespace scan {
          * Physical unit of the option.
          * @type { PhysicalUnit }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         optionUnit: PhysicalUnit;
 
@@ -405,7 +457,8 @@ declare namespace scan {
          * Constraint type of the option.
          * @type { ConstraintType }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         optionConstraintType: ConstraintType;
 
@@ -413,7 +466,8 @@ declare namespace scan {
          * String constraints for the option.
          * @type { ?string[] }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         optionConstraintString?: string[];
 
@@ -421,7 +475,8 @@ declare namespace scan {
          * Int constraints for the option.
          * @type { ?int[] }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         optionConstraintInt?: int[];
 
@@ -429,7 +484,8 @@ declare namespace scan {
          * Range constraints for the option.
          * @type { ?Range }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         optionConstraintRange?: Range;
     }
@@ -438,14 +494,16 @@ declare namespace scan {
      * Defines scanner option values.
      * @typedef ScannerOptionValue
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     interface ScannerOptionValue {
         /**
          * Type of the value.
          * @type { OptionValueType }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         valueType: OptionValueType;
 
@@ -453,7 +511,8 @@ declare namespace scan {
          * Numeric value.
          * @type { ?int }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         numValue?: int;
 
@@ -461,7 +520,8 @@ declare namespace scan {
          * String value.
          * @type { ?string }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         strValue?: string;
 
@@ -469,7 +529,8 @@ declare namespace scan {
          * Boolean value.
          * @type { ?boolean }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         boolValue?: boolean;
     }
@@ -478,14 +539,16 @@ declare namespace scan {
      * Defines picture scan progress.
      * @typedef PictureScanProgress
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     interface PictureScanProgress {
         /**
          * Current progress percentage.
          * @type { int }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         progress: int;
 
@@ -493,7 +556,8 @@ declare namespace scan {
          * File descriptor of the scanned picture.
          * @type { int }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         pictureFd: int;
 
@@ -501,7 +565,8 @@ declare namespace scan {
          * Whether this is the final progress update.
          * @type { boolean }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         isFinal: boolean;
     }
@@ -510,14 +575,16 @@ declare namespace scan {
      * Defines scanner device information.
      * @typedef ScannerDevice
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     interface ScannerDevice {
         /**
          * Unique identifier of the scanner.
          * @type { string }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         scannerId: string;
 
@@ -525,7 +592,8 @@ declare namespace scan {
          * Discovery mode of the scanner.
          * @type { ScannerDiscoveryMode }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         discoveryMode: ScannerDiscoveryMode;
 
@@ -533,7 +601,8 @@ declare namespace scan {
          * Unique ID of the scanner.
          * @type { string }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         uniqueId: string;
 
@@ -541,7 +610,8 @@ declare namespace scan {
          * Manufacturer of the scanner.
          * @type { string }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         manufacturer: string;
 
@@ -549,7 +619,8 @@ declare namespace scan {
          * Model of the scanner.
          * @type { string }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         model: string;
 
@@ -557,7 +628,8 @@ declare namespace scan {
          * Name of the scanner device.
          * @type { string }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         deviceName: string;
     }
@@ -566,21 +638,24 @@ declare namespace scan {
      * Defines scanner sync device information.
      * @typedef ScannerSyncDevice
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
     */
     interface ScannerSyncDevice {
         /**
          * Scanner ID.
          * @type { string }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         scannerId: string;
             /**
          * Discovery mode.
          * @type { ScannerDiscoveryMode }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         discoveryMode: ScannerDiscoveryMode;
 
@@ -588,7 +663,8 @@ declare namespace scan {
          * Unique ID.
          * @type { string }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         uniqueId: string;
 
@@ -596,7 +672,8 @@ declare namespace scan {
          * Sync mode.
          * @type { ScannerSyncMode }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         syncMode: ScannerSyncMode;
 
@@ -604,7 +681,8 @@ declare namespace scan {
          * Old scanner ID, which is valid only when syncMode is "update".
 		 * @type { ?string }
          * @syscap SystemCapability.Print.PrintFramework
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         oldScannerId?: string;
     }
@@ -615,7 +693,8 @@ declare namespace scan {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function init(): Promise<void>;
 
@@ -625,7 +704,8 @@ declare namespace scan {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function exit(): Promise<void>;
 
@@ -635,7 +715,8 @@ declare namespace scan {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function startScannerDiscovery(): Promise<void>;
 
@@ -646,7 +727,8 @@ declare namespace scan {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function openScanner(scannerId: string): Promise<void>;
 
@@ -657,7 +739,8 @@ declare namespace scan {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function closeScanner(scannerId: string): Promise<void>;
 
@@ -668,7 +751,8 @@ declare namespace scan {
      * @returns { Promise<ScannerParameter[]> } the promise returned with scanner parameters.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function getScannerParameter(scannerId: string): Promise<ScannerParameter[]>;
 
@@ -681,7 +765,8 @@ declare namespace scan {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function setScannerParameter(scannerId: string, optionIndex: int, value: ScannerOptionValue): Promise<void>;
 
@@ -693,7 +778,8 @@ declare namespace scan {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function setScanAutoOption(scannerId: string, optionIndex: int): Promise<void>;
 
@@ -705,7 +791,8 @@ declare namespace scan {
      * @returns { Promise<ScannerOptionValue> } the promise returned with the current setting.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function getScannerCurrentSetting(scannerId: string, optionIndex: int): Promise<ScannerOptionValue>;
 
@@ -717,7 +804,8 @@ declare namespace scan {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function startScan(scannerId: string, batchMode: boolean): Promise<void>;
 
@@ -728,7 +816,8 @@ declare namespace scan {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function cancelScan(scannerId: string): Promise<void>;
 
@@ -739,7 +828,8 @@ declare namespace scan {
      * @returns { Promise<PictureScanProgress> } the promise returned with scan progress.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function getPictureScanProgress(scannerId: string): Promise<PictureScanProgress>;
 
@@ -753,7 +843,8 @@ declare namespace scan {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function addScanner(uniqueId: string, discoveryMode: ScannerDiscoveryMode): Promise<void>;
 
@@ -767,7 +858,8 @@ declare namespace scan {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function deleteScanner(uniqueId: string, discoveryMode: ScannerDiscoveryMode): Promise<void>;
 
@@ -779,7 +871,8 @@ declare namespace scan {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function getAddedScanners(): Promise<ScannerDevice[]>;
 
@@ -790,9 +883,19 @@ declare namespace scan {
      * @param { Callback<ScannerDevice> } callback - Callback for device found event.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     function on(type: 'scanDeviceFound', callback: Callback<ScannerDevice>): void;
+
+    /**
+     * Register event callback for scanner device found.
+     * @permission ohos.permission.PRINT
+     * @param { Callback<ScannerDevice> } callback - Callback for device found event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 22 static
+     */
+    function onScanDeviceFound(callback: Callback<ScannerDevice>): void;
 
     /**
      * Unregister event callback for scanner device found.
@@ -801,9 +904,19 @@ declare namespace scan {
      * @param { Callback<ScannerDevice> } [callback] - Optional callback to unregister.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     function off(type: 'scanDeviceFound', callback?: Callback<ScannerDevice>): void;
+
+    /**
+     * Unregister event callback for scanner device found.
+     * @permission ohos.permission.PRINT
+     * @param { Callback<ScannerDevice> } [callback] - Optional callback to unregister.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 22 static
+     */
+    function offScanDeviceFound(callback?: Callback<ScannerDevice>): void;
 
     /**
      * Register event callback for scanner device sync.
@@ -812,9 +925,19 @@ declare namespace scan {
      * @param { Callback<ScannerSyncDevice> } callback - Callback for device sync event.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     function on(type: 'scanDeviceSync', callback: Callback<ScannerSyncDevice>): void;
+
+    /**
+     * Register event callback for scanner device sync.
+     * @permission ohos.permission.MANAGE_PRINT_JOB
+     * @param { Callback<ScannerSyncDevice> } callback - Callback for device sync event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 22 static
+     */
+    function onScanDeviceSync(callback: Callback<ScannerSyncDevice>): void;
 
     /**
      * Unregister event callback for scanner device sync.
@@ -823,9 +946,19 @@ declare namespace scan {
      * @param { Callback<ScannerSyncDevice> } [callback] - Optional callback to unregister.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     function off(type: 'scanDeviceSync', callback?: Callback<ScannerSyncDevice>): void;
+
+    /**
+     * Unregister event callback for scanner device sync.
+     * @permission ohos.permission.MANAGE_PRINT_JOB
+     * @param { Callback<ScannerSyncDevice> } [callback] - Optional callback to unregister.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 22 static
+     */
+    function offScanDeviceSync(callback?: Callback<ScannerSyncDevice>): void;
 
     /**
      * Register event callback for scanner device add (system API).
@@ -836,9 +969,21 @@ declare namespace scan {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     function on(type: 'scanDeviceAdd', callback: Callback<ScannerDevice>): void;
+
+    /**
+     * Register event callback for scanner device add (system API).
+     * @permission ohos.permission.MANAGE_PRINT_JOB
+     * @param { Callback<ScannerDevice> } callback - Callback for device add event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    function onScanDeviceAdd(callback: Callback<ScannerDevice>): void;
 
     /**
      * Unregister event callback for scanner device add (system API).
@@ -849,9 +994,21 @@ declare namespace scan {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     function off(type: 'scanDeviceAdd', callback?: Callback<ScannerDevice>): void;
+
+    /**
+     * Unregister event callback for scanner device add (system API).
+     * @permission ohos.permission.MANAGE_PRINT_JOB
+     * @param { Callback<ScannerDevice> } [callback] - Optional callback to unregister.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    function offScanDeviceAdd(callback?: Callback<ScannerDevice>): void;
 
     /**
      * Register event callback for scanner device delete (system API).
@@ -862,9 +1019,21 @@ declare namespace scan {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     function on(type: 'scanDeviceDel', callback: Callback<ScannerDevice>): void;
+
+    /**
+     * Register event callback for scanner device delete (system API).
+     * @permission ohos.permission.MANAGE_PRINT_JOB
+     * @param { Callback<ScannerDevice> } callback - Callback for device delete event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    function onScanDeviceDel(callback: Callback<ScannerDevice>): void;
 
     /**
      * Unregister event callback for scanner device delete (system API).
@@ -875,8 +1044,20 @@ declare namespace scan {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     function off(type: 'scanDeviceDel', callback?: Callback<ScannerDevice>): void;
+
+    /**
+     * Unregister event callback for scanner device delete (system API).
+     * @permission ohos.permission.MANAGE_PRINT_JOB
+     * @param { Callback<ScannerDevice> } [callback] - Optional callback to unregister.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    function offScanDeviceDel(callback?: Callback<ScannerDevice>): void;
 }
 export default scan;

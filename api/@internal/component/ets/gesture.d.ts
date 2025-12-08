@@ -891,6 +891,28 @@ declare interface EventLocationInfo {
    * @since 20 dynamic
    */
   displayY: number;
+
+  /**
+   * X position of the point relative to the global display coordinate.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y position of the point relative to the global display coordinate.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  globalDisplayY?: number;
 }
 
 /**
@@ -3532,6 +3554,17 @@ interface TapGestureHandlerOptions extends BaseHandlerOptions {
    * @since 12 dynamic
    */
   fingers?: number;
+  /**
+   * The limited move distance of click. If the value is less than 0, the default value is used. If undefiined is set, the default value will be used.
+   *
+   * @type { ?number }
+   * @default Infinity
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  distanceThreshold?: number; 
 }
 
 /**

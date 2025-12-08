@@ -26,6 +26,6 @@ import { ImageAnimatorAttribute } from '@ohos.arkui.component';
  *
  * @implements { ImageAnimatorAttribute, AttributeModifier<ImageAnimatorAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare class ImageAnimatorModifier implements ImageAnimatorAttribute, AttributeModifier<ImageAnimatorAttribute> {}

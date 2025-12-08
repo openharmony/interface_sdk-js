@@ -17,12 +17,14 @@
  * @kit ArkUI
  */
 
+import type image from './@ohos.multimedia.image';
+import type matrix4 from './@ohos.matrix4';
 
 /**
  * This module provides functionality for component coordinates and sizes.
  * @namespace componentUtils
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 declare namespace componentUtils {
     
@@ -31,7 +33,7 @@ declare namespace componentUtils {
     * Component information.
     * @typedef ComponentInfo
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20 static
+    * @since 22 static
     */
     export interface ComponentInfo {
         
@@ -40,7 +42,7 @@ declare namespace componentUtils {
         * component size.
         * @type {Size}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
         size: Size;
         
@@ -49,7 +51,7 @@ declare namespace componentUtils {
         * Obtain attribute information relative to the local.
         * @type {Offset}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
         localOffset: Offset;
         
@@ -58,7 +60,7 @@ declare namespace componentUtils {
         * Obtain attribute information relative to the window.
         * @type {Offset}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
         windowOffset: Offset;
         
@@ -67,7 +69,7 @@ declare namespace componentUtils {
         * Obtain attribute information relative to the screen.
         * @type {Offset}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
         screenOffset: Offset;
         
@@ -76,7 +78,7 @@ declare namespace componentUtils {
         * Obtain attribute information for translation.
         * @type {TranslateResult}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
         translate: TranslateResult;
         
@@ -85,7 +87,7 @@ declare namespace componentUtils {
         * Obtain attribute information for scale.
         * @type {ScaleResult}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
         scale: ScaleResult;
         
@@ -94,7 +96,7 @@ declare namespace componentUtils {
         * Obtain attribute information for rotate.
         * @type {RotateResult}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
         rotate: RotateResult;
         
@@ -103,7 +105,7 @@ declare namespace componentUtils {
         * Obtain attribute information of the transformation matrix.
         * @type {Matrix4Result}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
         transform: Matrix4Result;
     }
@@ -113,27 +115,27 @@ declare namespace componentUtils {
     * Defines the size property.
     * @typedef Size
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20 static
+    * @since 22 static
     */
     export interface Size {
         
         
         /**
         * Defines the width property.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        width: number;
+        width: double;
         
         
         /**
         * Defines the height property.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        height: number;
+        height: double;
     }
     
     
@@ -141,27 +143,27 @@ declare namespace componentUtils {
     * Defines the offset property.
     * @typedef Offset
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20 static
+    * @since 22 static
     */
     export interface Offset {
         
         
         /**
         * Coordinate x of the Position.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        x: number;
+        x: double;
         
         
         /**
         * Coordinate y of the Position.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        y: number;
+        y: double;
     }
     
     
@@ -169,36 +171,36 @@ declare namespace componentUtils {
     * Translation Result
     * @typedef TranslateResult
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20 static
+    * @since 22 static
     */
     export interface TranslateResult {
         
         
         /**
         * Indicates the translation distance of the x-axis, in vp.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        x: number;
+        x: double;
         
         
         /**
         * Indicates the translation distance of the y-axis, in vp.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        y: number;
+        y: double;
         
         
         /**
         * Indicates the translation distance of the z-axis, in vp.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        z: number;
+        z: double;
     }
     
     
@@ -206,54 +208,54 @@ declare namespace componentUtils {
     * Scale Result
     * @typedef ScaleResult
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20 static
+    * @since 22 static
     */
     export interface ScaleResult {
         
         
         /**
         * Zoom factor of the x-axis.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        x: number;
+        x: double;
         
         
         /**
         * Zoom factor of the y-axis.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        y: number;
+        y: double;
         
         
         /**
         * Zoom factor of the z-axis.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        z: number;
+        z: double;
         
         
         /**
         * Transform the x-axis coordinate of the center point.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        centerX: number;
+        centerX: double;
         
         
         /**
         * Transform the y-axis coordinate of the center point.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        centerY: number;
+        centerY: double;
     }
     
     
@@ -261,90 +263,191 @@ declare namespace componentUtils {
     * Rotation Result.
     * @typedef RotateResult
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20 static
+    * @since 22 static
     */
     export interface RotateResult {
         
         
         /**
         * Axis of rotation vector x coordinate.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        x: number;
+        x: double;
         
         
         /**
         * Axis of rotation vector y coordinate.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        y: number;
+        y: double;
         
         
         /**
         * Axis of rotation vector z coordinate.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        z: number;
+        z: double;
         
         
         /**
         * Transform the x-axis coordinate of the center point.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        centerX: number;
+        centerX: double;
         
         
         /**
         * Transform the y-axis coordinate of the center point.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        centerY: number;
+        centerY: double;
         
         
         /**
         * Rotation angle.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
-        angle: number;
+        angle: double;
     }
     
     
     /**
     * The matrix is column-first fourth-order matrix.
-    * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number,
-    * number, number, number, number,] } Matrix4Result
+    * @typedef { [double, double, double, double, double, double, double, double, double, double, double, double,
+    * double, double, double, double] } Matrix4Result
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20 static
+    * @since 22 static
     */
     export type Matrix4Result = [
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double
     ];
+
+    /**
+     * Image object with layout information.
+     *
+     * @interface ImageItem
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    interface ImageItem {    
+        /**
+         * Image Decoding Information.
+         *
+         * @type { image.PixelMap }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 23 static
+         */
+        image: image.PixelMap;
+        /**
+         * Information about graphic transformations, such as the position of the image,
+         * scaling factors for width and height, and rotation angle.
+         *
+         * @type { matrix4.Matrix4Transit }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 23 static
+         */
+        transform: matrix4.Matrix4Transit;
+
+        /**
+         * Information about image rendering hierarchy.
+         *
+         * @type { int }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 23 static
+         */
+        zIndex: int;
+    }
+
+    /**
+     * Image options setted when need to get the image objects.
+     *
+     * @interface GetItemsInShapePathParams
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    interface GetItemsInShapePathParams {    
+        /**
+         * image information.
+         *
+         * @type { Array<ImageItem> }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 23 static
+         */
+        images: Array<ImageItem>;
+
+        /**
+         * Indicates the path string that compiles with the SVG path description specifications.
+         *
+         * @type { string }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 23 static
+         */
+        shapePath: string;
+
+        /**
+         * The proportion of non-transparent blank pixels in the selected area
+         * relative to the total pixels of the image. Default value is 0.15.
+         *
+         * @type { ?double }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 23 static
+         */
+        ratio?: double;
+    }
+
+    /**
+     * Get the image objects located within the selected area.
+     *
+     * @param { GetItemsInShapePathParams } value - options to get images in shapePath.
+     * @returns { Array<ImageItem> } Returns the image objects located within the selected area.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    function getItemsInShapePath(value: GetItemsInShapePathParams): Array<ImageItem>;
 }
 export default componentUtils;

@@ -20,35 +20,35 @@
 import { Resource } from '../../global/resource';
 import { ResourceColor } from './units';
 import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Bindable } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Declare the type of status button
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare enum ToggleType {
     /**
      * Checkbox
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     Checkbox,
     /**
      * Switch
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     Switch,
     /**
      * Button
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     Button
 }
@@ -57,23 +57,23 @@ export declare enum ToggleType {
  *
  * @interface SwitchStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface SwitchStyle {
     /**
      * Set the radius of the point of the switch.
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
-    pointRadius?: number | Resource;
+    pointRadius?: double | Resource;
     /**
      * Set the color of the unselected switch.
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     unselectedColor?: ResourceColor;
     /**
@@ -81,17 +81,17 @@ export declare interface SwitchStyle {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     pointColor?: ResourceColor;
     /**
      * Set the border radius of the track of the switch.
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
-    trackBorderRadius?: number | Resource;
+    trackBorderRadius?: double | Resource;
 }
 /**
  * ToggleConfiguration used by toggle Modifier
@@ -99,7 +99,7 @@ export declare interface SwitchStyle {
  * @extends CommonConfiguration<ToggleConfiguration>
  * @interface ToggleConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfiguration> {
     /**
@@ -107,7 +107,7 @@ export declare interface ToggleConfiguration extends CommonConfiguration<ToggleC
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     isOn: boolean;
     /**
@@ -115,7 +115,7 @@ export declare interface ToggleConfiguration extends CommonConfiguration<ToggleC
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     enabled: boolean;
     /**
@@ -123,7 +123,7 @@ export declare interface ToggleConfiguration extends CommonConfiguration<ToggleC
      *
      * @type { Callback<boolean> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     triggerChange: Callback<boolean>;
 }
@@ -132,7 +132,7 @@ export declare interface ToggleConfiguration extends CommonConfiguration<ToggleC
  *
  * @interface ToggleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface ToggleOptions {
     /**
@@ -141,7 +141,7 @@ export declare interface ToggleOptions {
      *
      * @type { ToggleType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     type: ToggleType;
     /**
@@ -149,7 +149,7 @@ export declare interface ToggleOptions {
      *
      * @type { ?(boolean | undefined | Bindable<boolean>) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     isOn?: boolean | undefined | Bindable<boolean>;
 }
@@ -160,7 +160,7 @@ export declare interface ToggleOptions {
  * @extends CommonMethod
  * @interface ToggleAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface ToggleAttribute extends CommonMethod {
     /**
@@ -169,7 +169,7 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @param { ((isOn: boolean) => void) | undefined } callback
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onChange(callback: ((isOn: boolean) => void) | undefined): this;
     /**
@@ -178,7 +178,7 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @param { ContentModifier<ToggleConfiguration> | undefined } modifier - The content modifier of toggle.
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default contentModifier(modifier: ContentModifier<ToggleConfiguration> | undefined): this;
     /**
@@ -187,7 +187,7 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default selectedColor(value: ResourceColor | undefined): this;
     /**
@@ -196,7 +196,7 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } color
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default switchPointColor(color: ResourceColor | undefined): this;
     /**
@@ -205,7 +205,7 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @param { SwitchStyle | undefined } value
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default switchStyle(value: SwitchStyle | undefined): this;
     /**
@@ -215,7 +215,7 @@ export declare interface ToggleAttribute extends CommonMethod {
      *     The attribute modifier of toggle.
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<ToggleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -224,15 +224,13 @@ export declare interface ToggleAttribute extends CommonMethod {
  * Defines Toggle Component.
  *
  * @param { ToggleOptions } options - the options of Toggle.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ToggleAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Toggle(
     options: ToggleOptions,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ToggleAttribute

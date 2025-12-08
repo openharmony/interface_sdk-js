@@ -534,6 +534,6 @@ export interface PacMap {
  *
  * @typedef { Record<string, int | double | string | boolean | Array<string | int | double | boolean> | null> }
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @since 20 static
+ * @since 22 static
  */
 export type PacMap = Record<string, int | double | string | boolean | Array<string | int | double | boolean> | null>;

@@ -24,6 +24,9 @@ import Want from './@ohos.app.ability.Want';
 import window from './@ohos.window';
 import UIAbilityContext from './application/UIAbilityContext';
 import rpc from './@ohos.rpc';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * The prototype of the listener function interface registered by the Caller.
@@ -34,7 +37,7 @@ import rpc from './@ohos.rpc';
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type OnReleaseCallback = (msg: string) => void;
 
@@ -47,7 +50,7 @@ export type OnReleaseCallback = (msg: string) => void;
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type OnRemoteStateChangeCallback = (msg: string) => void;
 
@@ -61,7 +64,7 @@ export type OnRemoteStateChangeCallback = (msg: string) => void;
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type CalleeCallback = (indata: rpc.MessageSequence) => rpc.Parcelable;
 
@@ -72,7 +75,7 @@ export type CalleeCallback = (indata: rpc.MessageSequence) => rpc.Parcelable;
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface Caller {
   /**
@@ -90,7 +93,7 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   call(method: string, data: rpc.Parcelable): Promise<void>;
 
@@ -110,7 +113,7 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   callWithResult(method: string, data: rpc.Parcelable): Promise<rpc.MessageSequence>;
 
@@ -122,7 +125,7 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   release(): void;
 
@@ -137,7 +140,7 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onRelease(callback: OnReleaseCallback): void;
 
@@ -152,7 +155,7 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onRemoteStateChange(callback: OnRemoteStateChangeCallback): void;
 
@@ -168,7 +171,6 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
    */
   on(type: 'release', callback: OnReleaseCallback): void;
 
@@ -183,9 +185,18 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
    */
   off(type: 'release', callback: OnReleaseCallback): void;
+
+  /**
+   * Unregisters all death listener notification callback.
+   *
+   * @param { OnReleaseCallback } callback - Callback used to return the result.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offRelease(callback: OnReleaseCallback): void;
 
   /**
    * Unregisters a callback that is invoked when the stub on the target UIAbility is disconnected.
@@ -197,9 +208,17 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
    */
   off(type: 'release'): void;
+
+  /**
+   * Unregisters all death listener notification callback.
+   * 
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offRelease(): void;
 }
 
 /**
@@ -209,7 +228,7 @@ export interface Caller {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface Callee {
   /**
@@ -225,7 +244,7 @@ export interface Callee {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   on(method: string, callback: CalleeCallback): void;
 
@@ -240,7 +259,7 @@ export interface Callee {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   off(method: string): void;
 }
@@ -277,7 +296,7 @@ export interface Callee {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class UIAbility extends Ability {
   /**
@@ -306,7 +325,7 @@ declare class UIAbility extends Ability {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   context: UIAbilityContext;
 
@@ -326,7 +345,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   launchWant: Want;
 
@@ -346,7 +365,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   lastRequestWant: Want;
 
@@ -357,9 +376,18 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   callee: Callee;
+
+  /**
+   * Get the string returned by `AbilityStage.onAcceptWant(want: Want)` for the current specified UIAbility.
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  specifiedId?: string;
 
   /**
    * Called back when an ability is started for initialization.
@@ -393,7 +421,7 @@ declare class UIAbility extends Ability {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
@@ -423,7 +451,7 @@ declare class UIAbility extends Ability {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onWindowStageCreate(windowStage: window.WindowStage): void;
 
@@ -435,7 +463,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onWindowStageWillDestroy(windowStage: window.WindowStage): void;
 
@@ -462,7 +490,7 @@ declare class UIAbility extends Ability {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onWindowStageDestroy(): void;
 
@@ -482,7 +510,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onWindowStageRestore(windowStage: window.WindowStage): void;
 
@@ -524,44 +552,18 @@ declare class UIAbility extends Ability {
   onDestroy(): void | Promise<void>;
 
   /**
-   * Called to clear resources when this UIAbility is destroyed.
-   * This API returns the result synchronously or uses a promise to return the result.
-   * 
-   * <p>**NOTE**:
-   * <br>After the onDestroy() lifecycle callback is executed, the application may exit. Consequently,
-   * the asynchronous function (for example, asynchronously writing data to the database) in onDestroy() may fail to be
-   * executed. You can use the asynchronous lifecycle to ensure that the subsequent lifecycle continues only after the
-   * asynchronous function in onDestroy() finishes the execution.
-   * </p>
+   * Called back before an ability is destroyed.
+   * After the onDestroy() lifecycle callback is executed, the application may exit. Consequently,
+   * the asynchronous function (for example, asynchronously writing data to the database) in synchronous onDestroy()
+   * may fail to be executed. You can use the asynchronous lifecycle to ensure that the subsequent lifecycle
+   * continues only after the asynchronous function in onDestroy() finishes the execution.
    *
-   * @returns { void } the promise returned by the function.
+   * @returns { Promise<void> | undefined } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
-  onDestroy(): void;
-
-  /**
-   * Called to clear resources when this UIAbility is destroyed.
-   * This API returns the result synchronously or uses a promise to return the result.
-   * 
-   * <p>**NOTE**:
-   * <br>After the onDestroyAsync() lifecycle callback is executed, the application may exit. Consequently,
-   * the asynchronous function (for example, asynchronously writing data to the database) in onDestroyAsync() may fail to be
-   * executed. You can use the asynchronous lifecycle to ensure that the subsequent lifecycle continues only after the
-   * asynchronous function in onDestroyAsync() finishes the execution.
-   * </p>
-   *
-   * @returns { Promise<void> } the promise returned by the function.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 static
-   */
-  onDestroyAsync(): Promise<void>;
+  onDestroy(): Promise<void> | undefined;
 
   /**
    * Called back when the state of an ability changes to foreground.
@@ -593,7 +595,7 @@ declare class UIAbility extends Ability {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onForeground(): void;
 
@@ -611,7 +613,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   onWillForeground(): void;
 
@@ -629,7 +632,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   onDidForeground(): void;
 
@@ -658,7 +662,7 @@ declare class UIAbility extends Ability {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onBackground(): void;
 
@@ -675,7 +679,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   onWillBackground(): void;
 
@@ -692,7 +697,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   onDidBackground(): void;
 
@@ -772,7 +778,7 @@ declare class UIAbility extends Ability {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
@@ -796,7 +802,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onDump(params: Array<string>): Array<string>;
 
@@ -827,9 +833,26 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   onSaveState(reason: AbilityConstant.StateType, wantParam: Record<string, Object>): AbilityConstant.OnSaveResult;
+
+  /**
+   * Called when the framework automatically saves the UIAbility state in the case of an application fault.
+   * When an application is faulty, the framework calls onSaveState to save the status of the UIAbility if
+   * auto-save is enabled.
+   *
+   * <p>**NOTE**:
+   * <br>This API is used together with appRecovery.
+   * </p>
+   * 
+   * @param { AbilityConstant.StateType } reason - Reason for triggering the callback to save the UIAbility state.
+   * @param { Record<string, RecordData> } wantParam - want parameter.
+   * @returns { AbilityConstant.OnSaveResult } Whether the UIAbility state is saved.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onSaveState(reason: AbilityConstant.StateType, wantParam: Record<string, RecordData>): AbilityConstant.OnSaveResult;
 
   /**
   * Called back asynchronously when an ability prepares to save.
@@ -865,6 +888,16 @@ declare class UIAbility extends Ability {
   onShare(wantParam: Record<string, Object>): void;
 
   /**
+   * Called by this UIAbility to set data to share in the cross-device sharing scenario.
+   *
+   * @param { Record<string, RecordData> } wantParam - Data to share.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onShare(wantParam: Record<string, RecordData>): void;
+
+  /**
    * Called back when an ability prepare to terminate.
    *
    * @permission ohos.permission.PREPARE_APP_TERMINATE
@@ -895,6 +928,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
   onPrepareToTerminate(): boolean;
 
@@ -921,6 +955,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
+   * @since 22 static
    */
   onPrepareToTerminateAsync(): Promise<boolean>;
 
@@ -950,9 +985,20 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onBackPressed(): boolean;
+
+  /**
+   * Called back when another device start to collaborate.
+   * 
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
+   * @returns { AbilityConstant.CollaborateResult } Return the result of onCollaborate.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult;
 
   /**
    * Callback invoked to return the collaboration result in multi-device collaboration scenarios.
@@ -965,16 +1011,16 @@ declare class UIAbility extends Ability {
    * start, this callback must be invoked before onNewWant.
    * </p>
    * 
-   * @param { Record<string, Object> } wantParam - Want parameter, which supports only the key
-   * "ohos.extra.param.key.supportCollaborateIndex". The key can be used to obtain the data passed by the caller and
-   * perform corresponding processing.
+   * @param { Record<string, RecordData> } wantParam - Want parameter, which supports only the key
+   *     "ohos.extra.param.key.supportCollaborateIndex". The key can be used to obtain the data passed by the caller and
+   *     perform corresponding processing.
    * @returns { AbilityConstant.CollaborateResult } Collaborator result, that is, whether the target application
-   * accepts the collaboration request.	
+   *     accepts the collaboration request.	
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 18 dynamic
+   * @since 22 static
    */
-  onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult;
+  onCollaborate(wantParam: Record<string, RecordData>): AbilityConstant.CollaborateResult;
 }
 
 export default UIAbility;

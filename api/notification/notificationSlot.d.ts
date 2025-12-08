@@ -31,7 +31,7 @@ import type notificationManager from '../@ohos.notificationManager';
  * @typedef NotificationSlot
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationSlot {
   /**
@@ -51,7 +51,7 @@ export interface NotificationSlot {
    * @type { ?notificationManager.SlotType }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   notificationType?: notificationManager.SlotType;
 
@@ -73,7 +73,8 @@ export interface NotificationSlot {
    *
    * @type { ?notificationManager.SlotLevel }
    * @syscap SystemCapability.Notification.Notification
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   notificationLevel?: notificationManager.SlotLevel;
 
@@ -83,7 +84,7 @@ export interface NotificationSlot {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   desc?: string;
 
@@ -93,7 +94,7 @@ export interface NotificationSlot {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   badgeFlag?: boolean;
 
@@ -103,7 +104,7 @@ export interface NotificationSlot {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   bypassDnd?: boolean;
 
@@ -113,7 +114,7 @@ export interface NotificationSlot {
    * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   lockscreenVisibility?: int;
 
@@ -123,7 +124,7 @@ export interface NotificationSlot {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   vibrationEnabled?: boolean;
 
@@ -133,7 +134,7 @@ export interface NotificationSlot {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   sound?: string;
 
@@ -143,7 +144,7 @@ export interface NotificationSlot {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   lightEnabled?: boolean;
 
@@ -153,7 +154,7 @@ export interface NotificationSlot {
    * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   lightColor?: int;
 
@@ -163,7 +164,7 @@ export interface NotificationSlot {
    * @type { ?Array<long> }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   vibrationValues?: Array<long>;
 
@@ -174,7 +175,7 @@ export interface NotificationSlot {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly enabled?: boolean;
 
@@ -186,7 +187,7 @@ export interface NotificationSlot {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly reminderMode?: int;
 
@@ -198,7 +199,7 @@ export interface NotificationSlot {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly authorizedStatus?: int;
 }

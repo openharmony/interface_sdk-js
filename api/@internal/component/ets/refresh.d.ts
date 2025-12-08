@@ -229,7 +229,7 @@ interface RefreshOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    * @deprecated since 11
    */
   offset?: number | string;
@@ -255,8 +255,9 @@ interface RefreshOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    * @deprecated since 11
+   * @useinstead RefreshAttribute#pullDownRatio
    */
   friction?: number | string;
 
@@ -463,7 +464,19 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @since 12 dynamic
    */
   pullToRefresh(value: boolean): RefreshAttribute;
-  
+
+  /**
+   * Sets whether to cancel refresh when the pull-up.
+   *
+   * @param { boolean | undefined } enabled - enable pull up to cancel refresh. <br>Default value: true.
+   * @returns { RefreshAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  pullUpToCancelRefresh(enabled: boolean | undefined): RefreshAttribute;
+
   /**
    * Called when the refresh offset changed.
    * The unit is vp.

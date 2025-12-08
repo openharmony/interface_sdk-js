@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -35,7 +35,7 @@ import uri from './@ohos.uri';
  * @syscap SystemCapability.FileManagement.AppFileService
  * @atomicservice
  * @since 15 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace fileUri {
   /**
@@ -52,7 +52,7 @@ declare namespace fileUri {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class FileUri extends uri.URI {
     /**
@@ -77,14 +77,15 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constructor(uriOrPath: string);
 
     /**
      * Obtains the file name of uri.
      *
-     * @type { string }
+     * @returns { string }
+     * string: Return the file name of uri
      * @readonly
      * @throws { BusinessError } 13900005 - I/O error
      * @throws { BusinessError } 13900042 - Unknown error
@@ -94,15 +95,17 @@ declare namespace fileUri {
     /**
      * Obtains the file name of uri.
      *
-     * @type { string }
+     * @returns { string }
+     * string: Return the file name of uri
      * @readonly
      * @throws { BusinessError } 13900005 - I/O error
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
-    readonly name: string;
+    get name(): string;
 
     /**
      * Get the full directory uri where the file URI is located
@@ -124,6 +127,7 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     getFullDirectoryUri(): string;
 
@@ -143,6 +147,7 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     isRemoteUri(): boolean;
   }
@@ -167,7 +172,7 @@ declare namespace fileUri {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getUriFromPath(path: string): string;
 }
