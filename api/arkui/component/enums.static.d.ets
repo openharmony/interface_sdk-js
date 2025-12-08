@@ -2184,40 +2184,45 @@ export declare enum ResponseType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 22 static
  */
 export declare enum HoverEffect {
   /**
-   * Default effect
+   * None effect
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 22 static
    */
-  Auto = 0,
+  None = 0,
 
   /**
    * Zoom in and out effect
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 22 static
    */
-  Scale = 1,
+  Scale = 2,
 
   /**
    * Highlight effect
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 22 static
    */
-  Highlight = 2,
+  Highlight = 3,
 
   /**
-   * None effect
+   * Default effect
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 22 static
    */
-  None = 3
+  Auto = 4
 }
 
 /**
