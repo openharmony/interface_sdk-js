@@ -5240,7 +5240,7 @@ declare namespace osAccount {
     isSilent: boolean;
 
     /**
-     * Indicate the type of the changed credential.
+     * Indicates the type of the changed credential.
      *
      * @type { AuthType }
      * @syscap SystemCapability.Account.OsAccount
@@ -5251,7 +5251,7 @@ declare namespace osAccount {
     credentialType: AuthType;
 
     /**
-     * Indicate the identifier of the added credential.
+     * Indicates the identifier of the added credential.
      *
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
@@ -5262,7 +5262,7 @@ declare namespace osAccount {
     addedCredentialId?: Uint8Array;
 
     /**
-     * Indicate the identifier of the deleted credential.
+     * Indicates the identifier of the deleted credential.
      *
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
