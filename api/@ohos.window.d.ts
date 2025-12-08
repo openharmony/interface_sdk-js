@@ -10783,7 +10783,7 @@ declare namespace window {
     /**
      * Sets the aspect ratio of window
      *
-     * @param { number } ratio - The aspect ratio of window except decoration
+     * @param { number } ratio - The aspect ratio of window except decoration.
      * @param { AsyncCallback<void> } callback - The callback of setAspectRatio.
      * @throws { BusinessError } 401 - Parameter error. Possible cause:
      *     1. Mandatory parameters are left unspecified;
@@ -10797,35 +10797,24 @@ declare namespace window {
     /**
      * Sets the aspect ratio of window
      *
-     * @param { number } ratio - The aspect ratio of window except decoration
+     * @param { double } ratio - The aspect ratio of window except decoration.
      * @param { AsyncCallback<void> } callback - The callback of setAspectRatio.
      * @throws { BusinessError } 401 - Parameter error. Possible cause:
-     *     1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types;
-     *     3. Parameter verification failed.
+     *     Invalid parameter range.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
+     *     Possible cause: Invalid window type. Only main windows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Sets the aspect ratio of window
-     *
-     * @param { double } ratio - The aspect ratio of window except decoration
-     * @param { AsyncCallback<void> } callback - The callback of setAspectRatio.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 static
      */
     setAspectRatio(ratio: double, callback: AsyncCallback<void>): void;
 
     /**
      * Sets the aspect ratio of window
      *
-     * @param { number } ratio - The aspect ratio of window except decoration
+     * @param { number } ratio - The aspect ratio of window except decoration.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible cause:
      *     1. Mandatory parameters are left unspecified;
@@ -10839,52 +10828,44 @@ declare namespace window {
     /**
      * Sets the aspect ratio of window
      *
-     * @param { number } ratio - The aspect ratio of window except decoration
+     * @param { double } ratio - The aspect ratio of window except decoration.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible cause:
-     *     1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types;
-     *     3. Parameter verification failed.
+     *     Invalid parameter range.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
+     *     Possible cause: Invalid window type. Only main windows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     */
-    /**
-     * Sets the aspect ratio of window
-     *
-     * @param { double } ratio - The aspect ratio of window except decoration
-     * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 static
      */
     setAspectRatio(ratio: double): Promise<void>;
 
     /**
      * Sets the aspect ratio of window.
      *
-     * @param { number } ratio - The aspect ratio of window except decoration.
+     * @param { double } ratio - The aspect ratio of window except decoration.
      * @param { boolean } [isPersistent] - The parameter determines whether the ratio should be persistently saved.
+     *     The default value is true, indicating that the ratio will be persisted to the local file.
      * @param { boolean } [needUpdateRect] - The parameter determines whether the window should be resized immediately
      *     with the given aspect ratio.
+     *     The default value is true, indicating that the current window will immediately resize based on the ratio.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
+     *     Possible cause: Invalid window type. Only main windows are supported.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
-     *     1. Invaild parameter range. 
+     *     1. Invalid parameter range.
      *     2. Invalid parameter length.
      * @syscap SystemCapability.Window.SessionManager
      * @since 21 dynamic
      * @since 22 static
      */
-    setContentAspectRatio(ratio: number, isPersistent?: boolean, needUpdateRect?: boolean): Promise<void>;
+    setContentAspectRatio(ratio: double, isPersistent?: boolean, needUpdateRect?: boolean): Promise<void>;
 
     /**
      * Resets the aspect ratio of window
