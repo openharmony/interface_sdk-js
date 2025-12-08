@@ -174,7 +174,6 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   /**
    * Indicates windowStage information.

@@ -1801,7 +1801,6 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Obtains the thumbnail of this file. This API uses an asynchronous callback to return the result.
@@ -1831,7 +1830,6 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Obtains the file thumbnail of the given size. This API uses an asynchronous callback to return the result.
@@ -1862,7 +1860,6 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Obtains the file thumbnail of the given size. This API uses a promise to return the result.
@@ -3488,7 +3485,6 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   /**
    * Options for creating an image or video asset.
@@ -3514,7 +3510,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     /**
      * Title of the asset
@@ -5444,7 +5439,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     /**
      * Creates an image or video asset with the specified file type, file name extension, and options.
@@ -5498,7 +5492,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     /**
      * Creates an image or video asset with the specified file type and file name extension.
@@ -5553,7 +5546,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     /**
      * Creates an image or video asset with the specified file type, file name extension, and options.
@@ -5899,7 +5891,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Get analysis progress of the asset.

@@ -98,7 +98,7 @@
   * of attributes per level are uncertain, you can use RecordData for initialization.
   * @typedef RecordData
   * @syscap SystemCapability.Base
-  * @since 20 staticonly
+  * @since 22 staticonly
   * @example
   * import { RecordData } from '@kit.BasicServiceKit';
   * const param: RecordData = {

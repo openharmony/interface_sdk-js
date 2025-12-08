@@ -12548,7 +12548,6 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
    */
   /**
    * Quick shot photo session object.
