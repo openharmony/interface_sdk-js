@@ -619,6 +619,27 @@ declare namespace call {
   function answerCall(videoState: VideoStateType, callId: int): Promise<void>;
 
   /**
+   * Answers the incoming rtt
+   *
+   * @permission ohos.permission.ANSWER_CALL
+   * @param { VideoStateType } videoState - Indicates the answer the call with video or voice.
+   * @param { int } callId - Indicates the identifier of the call to answer.
+   * @param { boolean } isRtt - Indicates the call is rtt or not.
+   * @returns { Promise<void> } The promise returned by the answerCall.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8400001 - Invalid parameter value.
+   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8400003 - System internal error.
+   * @throws { BusinessError } 8400999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 22 dynamic&static
+   */
+  function answerCall(videoState: VideoStateType, callId: int, isRtt: boolean): Promise<void>;
+
+  /**
    * Hang up the foreground call.
    *
    * @permission ohos.permission.ANSWER_CALL
@@ -1572,6 +1593,114 @@ declare namespace call {
   function off(type: 'postDialDelay', callback?: Callback<string>): void;
 
   /**
+   * Subscribe to the rtt message event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { Callback<RttMessageInfo> } callback - Indicates the callback for getting the rtt message.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8400001 - Invalid parameter value.
+   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8400003 - System internal error.
+   * @throws { BusinessError } 8400999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 22 dynamic&static
+   */
+  function onReceiveRttMessage(callback: Callback<RttMessageInfo>): void;
+
+  /**
+   * Unsubscribe from the  rtt message event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { Callback<RttMessageInfo> } [callback] - Indicates the callback for getting the rtt message.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8400001 - Invalid parameter value.
+   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8400003 - System internal error.
+   * @throws { BusinessError } 8400999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 22 dynamic&static
+   */
+  function offReceiveRttMessage(callback?: Callback<RttMessageInfo>): void;
+
+  /**
+   * Subscribe to the rtt modify indication.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { Callback<RttEventInfo> } callback - Indicates the callback for getting the rtt event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8400001 - Invalid parameter value.
+   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8400003 - System internal error.
+   * @throws { BusinessError } 8400999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 22 dynamic&static
+   */
+  function onRttModifyInd(callback: Callback<RttEventInfo>): void;
+
+  /**
+   * Unsubscribe from the rtt modify indication.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { Callback<RttEventInfo> } [callback] - Indicates the callback for getting the rtt event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8400001 - Invalid parameter value.
+   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8400003 - System internal error.
+   * @throws { BusinessError } 8400999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 22 dynamic&static
+   */
+  function offRttModifyInd(callback?: Callback<RttEventInfo>): void;
+
+  /**
+   * Subscribe to the rtt error event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { Callback<RttErrorInfo> } callback - Indicates the callback for getting the rtt error report.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8400001 - Invalid parameter value.
+   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8400003 - System internal error.
+   * @throws { BusinessError } 8400999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 22 dynamic&static
+   */
+  function onRttErrCause(callback: Callback<RttErrorInfo>): void;
+
+  /**
+   * Unsubscribe from the rtt error report event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { Callback<RttErrorInfo> } [callback] - Indicates the callback for getting the rtt error report.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8400001 - Invalid parameter value.
+   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8400003 - System internal error.
+   * @throws { BusinessError } 8400999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 22 dynamic&static
+   */
+  function offRttErrCause(callback?: Callback<RttErrorInfo>): void;
+
+  /**
    * Judge whether to allow another new call.
    *
    * @param { AsyncCallback<boolean> } callback - The callback of isNewCallAllowed. Returns {@code true} if
@@ -1793,7 +1922,7 @@ declare namespace call {
    * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { CallTransferType } type - Indicates which type of call forwarding to obtain.
-   * @param { AsyncCallback<CallTransferResult> } callback - Indicates the callback for getting 
+   * @param { AsyncCallback<CallTransferResult> } callback - Indicates the callback for getting
    * the call forwarding status.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -2872,6 +3001,86 @@ declare namespace call {
   function sendCallUiEvent(callId: int, eventName: string): Promise<void>;
 
   /**
+   * Set rtt capability.
+   *
+   * @permission ohos.permission.PLACE_CALL
+   * @param { int } accountId - Indicates the identifier of the account to set rtt capability.
+   * @param { boolean } isEnable - Indicates whether Rtt capability is enabled.
+   * @returns { Promise<void> } The promise returned by the setRttCapability.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8400001 - Invalid parameter value.
+   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8400003 - System internal error.
+   * @throws { BusinessError } 8400999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 22 dynamic&static
+   */
+  function setRttCapability(accountId: int, isEnable: boolean): Promise<void>;
+
+  /**
+   * Send rtt message.
+   *
+   * @permission ohos.permission.PLACE_CALL
+   * @param { int } callId - Indicates the identifier of the call.
+   * @param { string } rttMessage - Indicates the message of rtt.
+   * @returns { Promise<void> } The promise returned by the sendRttMessage.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8400001 - Invalid parameter value.
+   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8400003 - System internal error.
+   * @throws { BusinessError } 8400999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 22 dynamic&static
+   */
+  function sendRttMessage(callId: int, rttMessage: string): Promise<void>;
+
+  /**
+   * Start rtt.
+   *
+   * @permission ohos.permission.PLACE_CALL
+   * @param { int } callId - Indicates the identifier of the call.
+   * @param { ImsRttMode } type - Indicates the type of operation.
+   * @returns { Promise<void> } The promise returned by the startRtt.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8400001 - Invalid parameter value.
+   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8400003 - System internal error.
+   * @throws { BusinessError } 8400999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 22 dynamic&static
+   */
+  function startRtt(callId: int, type: ImsRttMode): Promise<void>;
+
+  /**
+   * Stop rtt.
+   *
+   * @permission ohos.permission.PLACE_CALL
+   * @param { int } callId - Indicates the identifier of the call.
+   * @param { ImsRttMode } type - Indicates the type of operation.
+   * @returns { Promise<void> } The promise returned by the stopRtt.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8400001 - Invalid parameter value.
+   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8400003 - System internal error.
+   * @throws { BusinessError } 8400999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 22 dynamic&static
+   */
+  function stopRtt(callId: int, type: ImsRttMode): Promise<void>;
+
+  /**
    * Indicates the mode of the ims call.
    *
    * @enum { number }
@@ -2899,7 +3108,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    CALL_MODE_SEND_ONLY,
+    CALL_MODE_SEND_ONLY = 1,
 
     /**
      * Indicates receiving only calls.
@@ -2909,7 +3118,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    CALL_MODE_RECEIVE_ONLY,
+    CALL_MODE_RECEIVE_ONLY = 2,
 
     /**
      * Indicates permission to send and receive calls.
@@ -2919,7 +3128,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    CALL_MODE_SEND_RECEIVE,
+    CALL_MODE_SEND_RECEIVE = 3,
 
     /**
      * Indicates a pause in video calls.
@@ -2929,7 +3138,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    CALL_MODE_VIDEO_PAUSED,
+    CALL_MODE_VIDEO_PAUSED = 4
   }
 
   /**
@@ -2960,7 +3169,7 @@ declare namespace call {
      * @since 10 dynamic
      * @since 22 static
      */
-    VONR_STATE_ON = 1,
+    VONR_STATE_ON = 1
   }
 
   /**
@@ -2981,7 +3190,7 @@ declare namespace call {
      * @since 10 dynamic
      * @since 22 static
      */
-    DEVICE_EARPIECE,
+    DEVICE_EARPIECE = 0,
 
     /**
      * Indicates the audio device is speaker.
@@ -2991,7 +3200,7 @@ declare namespace call {
      * @since 10 dynamic
      * @since 22 static
      */
-    DEVICE_SPEAKER,
+    DEVICE_SPEAKER = 1,
 
     /**
      * Indicates the audio device is wired headset.
@@ -3001,7 +3210,7 @@ declare namespace call {
      * @since 10 dynamic
      * @since 22 static
      */
-    DEVICE_WIRED_HEADSET,
+    DEVICE_WIRED_HEADSET = 2,
 
     /**
      * Indicates the audio device is bluetooth headset.
@@ -3011,7 +3220,7 @@ declare namespace call {
      * @since 10 dynamic
      * @since 22 static
      */
-    DEVICE_BLUETOOTH_SCO,
+    DEVICE_BLUETOOTH_SCO = 3,
 
     /**
      * Indicates the audio device is distributed automotive device.
@@ -3021,7 +3230,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    DEVICE_DISTRIBUTED_AUTOMOTIVE,
+    DEVICE_DISTRIBUTED_AUTOMOTIVE = 4
   }
 
   /**
@@ -3140,7 +3349,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    RESTRICTION_TYPE_ALL_OUTGOING,
+    RESTRICTION_TYPE_ALL_OUTGOING = 1,
 
     /**
      * Indicates restrict international calls.
@@ -3150,7 +3359,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    RESTRICTION_TYPE_INTERNATIONAL,
+    RESTRICTION_TYPE_INTERNATIONAL = 2,
 
     /**
      * Indicates restrict international roaming calls.
@@ -3160,7 +3369,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    RESTRICTION_TYPE_INTERNATIONAL_EXCLUDING_HOME,
+    RESTRICTION_TYPE_INTERNATIONAL_EXCLUDING_HOME = 3,
 
     /**
      * Indicates restrict roaming calls.
@@ -3170,7 +3379,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    RESTRICTION_TYPE_ROAMING_INCOMING,
+    RESTRICTION_TYPE_ROAMING_INCOMING = 4,
 
     /**
      * Indicates restrict all calls.
@@ -3180,7 +3389,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    RESTRICTION_TYPE_ALL_CALLS,
+    RESTRICTION_TYPE_ALL_CALLS = 5,
 
     /**
      * Indicates restrict all outgoing services.
@@ -3190,7 +3399,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    RESTRICTION_TYPE_OUTGOING_SERVICES,
+    RESTRICTION_TYPE_OUTGOING_SERVICES = 6,
 
     /**
      * Indicates restrict all incoming services.
@@ -3200,7 +3409,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    RESTRICTION_TYPE_INCOMING_SERVICES,
+    RESTRICTION_TYPE_INCOMING_SERVICES = 7
   }
 
   /**
@@ -3319,7 +3528,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    TRANSFER_TYPE_BUSY,
+    TRANSFER_TYPE_BUSY = 1,
 
     /**
      * Indicates transfer the call when no reply.
@@ -3329,7 +3538,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    TRANSFER_TYPE_NO_REPLY,
+    TRANSFER_TYPE_NO_REPLY = 2,
 
     /**
      * Indicates transfer the call when unreachable.
@@ -3339,7 +3548,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    TRANSFER_TYPE_NOT_REACHABLE,
+    TRANSFER_TYPE_NOT_REACHABLE = 3
   }
 
   /**
@@ -3390,7 +3599,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    CALL_TRANSFER_ERASURE = 4,
+    CALL_TRANSFER_ERASURE = 4
   }
 
   /**
@@ -3578,6 +3787,17 @@ declare namespace call {
      * @since 22 static
      */
     extraParams?: Record<string, Object>;
+
+    /**
+     * Indicates the rtt state.
+     *
+     * @type { ?RttState }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    rttState?: RttState;
   }
 
   /**
@@ -3718,7 +3938,7 @@ declare namespace call {
      * @since 7 dynamic
      * @since 22 static
      */
-    TEL_CONFERENCE_ACTIVE,
+    TEL_CONFERENCE_ACTIVE = 1,
 
     /**
      * Indicates the state is disconnecting.
@@ -3728,7 +3948,7 @@ declare namespace call {
      * @since 7 dynamic
      * @since 22 static
      */
-    TEL_CONFERENCE_DISCONNECTING,
+    TEL_CONFERENCE_DISCONNECTING = 2,
 
     /**
      * Indicates the state is disconnected.
@@ -3738,7 +3958,7 @@ declare namespace call {
      * @since 7 dynamic
      * @since 22 static
      */
-    TEL_CONFERENCE_DISCONNECTED,
+    TEL_CONFERENCE_DISCONNECTED = 3
   }
 
   /**
@@ -3799,7 +4019,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    TYPE_VOIP = 4,
+    TYPE_VOIP = 4
   }
 
   /**
@@ -3830,7 +4050,7 @@ declare namespace call {
      * @deprecated since 11
      * @useinstead telephony.call#TYPE_VIDEO_BIDIRECTIONAL
      */
-    TYPE_VIDEO,
+    TYPE_VIDEO = 1,
     /**
      * Indicates the call is in send only video state.
      *
@@ -3848,7 +4068,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    TYPE_VIDEO_RECEIVE_ONLY,
+    TYPE_VIDEO_RECEIVE_ONLY = 2,
     /**
      * Indicates the call is in send and receive video state.
      *
@@ -3857,7 +4077,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    TYPE_VIDEO_BIDIRECTIONAL,
+    TYPE_VIDEO_BIDIRECTIONAL = 3
   }
 
   /**
@@ -3887,7 +4107,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    TYPE_REQUEST_FAILURE,
+    TYPE_REQUEST_FAILURE = 1,
     /**
      * Indicates the request ignored due to invalid parameters.
      *
@@ -3896,7 +4116,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    TYPE_REQUEST_INVALID,
+    TYPE_REQUEST_INVALID = 2,
     /**
      * Indicates the request timed out.
      *
@@ -3905,7 +4125,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    TYPE_REQUEST_TIMED_OUT,
+    TYPE_REQUEST_TIMED_OUT = 3,
     /**
      * Indicates the request rejected by remote.
      *
@@ -3914,7 +4134,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    TYPE_REQUEST_REJECTED_BY_REMOTE,
+    TYPE_REQUEST_REJECTED_BY_REMOTE = 4,
     /**
      * Indicates the upgrade request canceled.
      *
@@ -3923,7 +4143,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    TYPE_REQUEST_UPGRADE_CANCELED,
+    TYPE_REQUEST_UPGRADE_CANCELED = 5,
     /**
      * Indicates the ImsCall Mode downgrade RTP time out.
      *
@@ -3941,7 +4161,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    TYPE_DOWNGRADE_RTP_AND_RTCP_TIMEOUT,
+    TYPE_DOWNGRADE_RTP_AND_RTCP_TIMEOUT = 101
   }
 
   /**
@@ -3989,7 +4209,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    DEVICE_DIRECTION_270 = 270,
+    DEVICE_DIRECTION_270 = 270
   }
 
   /**
@@ -4019,7 +4239,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    EVENT_CONTROL_CAMERA_READY,
+    EVENT_CONTROL_CAMERA_READY = 1,
     /**
      * Indicates release display surface event.
      *
@@ -4037,7 +4257,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    EVENT_PREVIEW_SURFACE_RELEASED,
+    EVENT_PREVIEW_SURFACE_RELEASED = 101
   }
 
   /**
@@ -4068,7 +4288,7 @@ declare namespace call {
      * @since 7 dynamic
      * @since 22 static
      */
-    CALL_STATUS_HOLDING,
+    CALL_STATUS_HOLDING = 1,
 
     /**
      * Indicates the call is dialing.
@@ -4078,7 +4298,7 @@ declare namespace call {
      * @since 7 dynamic
      * @since 22 static
      */
-    CALL_STATUS_DIALING,
+    CALL_STATUS_DIALING = 2,
 
     /**
      * Indicates the call is alerting.
@@ -4088,7 +4308,7 @@ declare namespace call {
      * @since 7 dynamic
      * @since 22 static
      */
-    CALL_STATUS_ALERTING,
+    CALL_STATUS_ALERTING = 3,
 
     /**
      * Indicates the call is incoming.
@@ -4098,7 +4318,7 @@ declare namespace call {
      * @since 7 dynamic
      * @since 22 static
      */
-    CALL_STATUS_INCOMING,
+    CALL_STATUS_INCOMING = 4,
 
     /**
      * Indicates the call is waiting.
@@ -4108,7 +4328,7 @@ declare namespace call {
      * @since 7 dynamic
      * @since 22 static
      */
-    CALL_STATUS_WAITING,
+    CALL_STATUS_WAITING = 5,
 
     /**
      * Indicates the call is disconnected.
@@ -4118,7 +4338,7 @@ declare namespace call {
      * @since 7 dynamic
      * @since 22 static
      */
-    CALL_STATUS_DISCONNECTED,
+    CALL_STATUS_DISCONNECTED = 6,
 
     /**
      * Indicates the call is disconnecting.
@@ -4128,7 +4348,7 @@ declare namespace call {
      * @since 7 dynamic
      * @since 22 static
      */
-    CALL_STATUS_DISCONNECTING,
+    CALL_STATUS_DISCONNECTING = 7,
 
     /**
      * Indicates the call is idle.
@@ -4138,7 +4358,7 @@ declare namespace call {
      * @since 7 dynamic
      * @since 22 static
      */
-    CALL_STATUS_IDLE,
+    CALL_STATUS_IDLE = 8
   }
 
   /**
@@ -4213,7 +4433,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    RESTRICTION_MODE_ACTIVATION,
+    RESTRICTION_MODE_ACTIVATION = 1
   }
 
   /**
@@ -4266,7 +4486,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    EVENT_INVALID_FDN_NUMBER,
+    EVENT_INVALID_FDN_NUMBER = 2,
 
     /**
      * Indicates hold call fail.
@@ -4276,7 +4496,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    EVENT_HOLD_CALL_FAILED,
+    EVENT_HOLD_CALL_FAILED = 3,
 
     /**
      * Indicates swap call fail.
@@ -4286,7 +4506,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    EVENT_SWAP_CALL_FAILED,
+    EVENT_SWAP_CALL_FAILED = 4,
 
     /**
      * Indicates combine call failed.
@@ -4296,8 +4516,8 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    EVENT_COMBINE_CALL_FAILED,
-  
+    EVENT_COMBINE_CALL_FAILED = 5,
+
     /**
      * Indicates split call failed.
      *
@@ -4306,7 +4526,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 22 static
      */
-    EVENT_SPLIT_CALL_FAILED,
+    EVENT_SPLIT_CALL_FAILED = 6,
 
     /**
      * Indicates show full screen.
@@ -4316,7 +4536,7 @@ declare namespace call {
      * @since 12 dynamic
      * @since 22 static
      */
-    EVENT_SHOW_FULL_SCREEN,
+    EVENT_SHOW_FULL_SCREEN = 7,
 
     /**
      * Indicates show float window.
@@ -4326,7 +4546,7 @@ declare namespace call {
      * @since 12 dynamic
      * @since 22 static
      */
-    EVENT_SHOW_FLOAT_WINDOW,
+    EVENT_SHOW_FLOAT_WINDOW = 8
   }
 
   /**
@@ -4611,7 +4831,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    CALL_EMERGENCY = 2,
+    CALL_EMERGENCY = 2
   }
 
   /**
@@ -4652,7 +4872,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    DIAL_OTT_TYPE = 2,
+    DIAL_OTT_TYPE = 2
   }
 
   /**
@@ -5759,7 +5979,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 22 static
      */
-    UNKNOWN = 1279,
+    UNKNOWN = 1279
   }
 
   /**
@@ -6040,6 +6260,138 @@ declare namespace call {
   }
 
   /**
+   * Indicates the info of the rtt error.
+   *
+   * @interface RttErrorInfo
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 22 dynamic&static
+   */
+  export interface RttErrorInfo {
+    /**
+     * Indicates the id of rtt.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    callId: int;
+
+    /**
+     * Indicates the type of rtt operation.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    operationType: int;
+
+    /**
+     * Indicates the code of rtt cause.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    causeCode: int;
+
+    /**
+     * Indicates the text of rtt fail reason.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    reasonText: string;
+  }
+
+  /**
+   * Indicates the info of the rtt event.
+   *
+   * @interface RttEventInfo
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 22 dynamic&static
+   */
+  export interface RttEventInfo {
+    /**
+     * Indicates the id of rtt.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    callId: int;
+
+    /**
+     * Indicates the type of rtt event.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    eventType: int;
+
+    /**
+     * Indicates the reason of rtt event.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    reason: int;
+  }
+
+  /**
+   * Indicates the info of the rtt message.
+   *
+   * @interface RttMessageInfo
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 22 dynamic&static
+   */
+  export interface RttMessageInfo {
+    /**
+     * Indicates the id of rtt.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    callId: int;
+
+    /**
+     * Indicates the rtt messgae.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    rttMessage: string;
+  }
+
+  /**
    * Indicates the type of the number mark.
    *
    * @enum { int }
@@ -6169,6 +6521,101 @@ declare namespace call {
      */
     MARK_TYPE_ENTERPRISE = 11
   }
+
+  /**
+   * Indicates the state of the rtt.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 22 dynamic&static
+   */
+  export enum RttState {
+    /**
+     * Indicates the rtt is disable.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    RTT_STATE_NO = 0,
+    /**
+     * Indicates the rtt is enable.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    RTT_STATE_YES = 1,
+    /**
+     * Indicates the rtt is tty state.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    RTT_STATE_REMOTE_TTY = 2,
+    /**
+     * Indicates the rtt is not support.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    RTT_STATE_REMOTE_NOT_SUPPORT = 3
+    }
+  /**
+   * Indicates the mode of the ims rtt.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 22 dynamic&static
+   */
+  export enum ImsRttMode {
+    /**
+     * Indicates the rtt is local request update.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    LOCAL_REQUEST_UPGRADE = 0,
+    /**
+     * Indicates the rtt is local request downgrade.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    LOCAL_REQUEST_DOWNGRADE = 1,
+    /**
+     * Indicates the rtt is remote request local accept.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    REMOTE_REQUEST_UPGRADE_LOCAL_ACCEPT = 2,
+    /**
+     * Indicates the rtt is remote request update local reject.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 22 dynamic&static
+     */
+    REMOTE_REQUEST_UPGRADE_LOCAL_REJECT = 3
+     }
 }
 
 export default call;
