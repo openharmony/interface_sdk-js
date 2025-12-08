@@ -339,6 +339,14 @@ declare namespace photoAccessHelper {
      */
     BURST = 4,
     /**
+     * Slow Motion Video Type
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    SLOW_MOTION_VIDEO = 6,
+    /**
      * Spatial 3DGS Type
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -3161,6 +3169,14 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic&static
      */
     ASPECT_RATIO = 'aspect_ratio',
+    /**
+     * Edit data of asset exists, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    EDIT_DATA_EXIST = 'edit_data_exist',
   }
 
   /**
