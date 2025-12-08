@@ -129,7 +129,7 @@ declare class ApplicationContext extends Context {
    * @param { InteropAbilityLifecycleCallback } callback - Callback used to be registered as the listener.	
    * @syscap SystemCapability.Ability.AbilityRuntime.Core	
    * @stagemodelonly	
-   * @since 22 static
+   * @since 23 static
    */	
   onInteropAbilityLifecycle(callback: InteropAbilityLifecycleCallback): void;
 
@@ -259,7 +259,7 @@ declare class ApplicationContext extends Context {
    * @param { InteropAbilityLifecycleCallback } callback - Callback used to be unregistered.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   offInteropAbilityLifecycle(callback?: InteropAbilityLifecycleCallback): void;
 
