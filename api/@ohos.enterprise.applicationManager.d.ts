@@ -821,12 +821,12 @@ declare namespace applicationManager {
    *              the list of application instance.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter validation failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *              The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22
    */
    function addUserNonStopApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
 
@@ -841,12 +841,12 @@ declare namespace applicationManager {
    *              the list of application instance.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter validation failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *              The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22
    */
   function removeUserNonStopApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
 
@@ -864,7 +864,7 @@ declare namespace applicationManager {
    *              The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22
    */
   function getUserNonStopApps(admin: Want): Array<common.ApplicationInstance>;
 
@@ -879,12 +879,12 @@ declare namespace applicationManager {
    *              the list of application instance.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter validation failed.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *              required to call the API
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22
    */
    function addFreezeExemptedApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
 
@@ -899,12 +899,12 @@ declare namespace applicationManager {
    *              the list of application instance.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter validation failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *              The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22
    */
   function removeFreezeExemptedApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
 
@@ -922,7 +922,7 @@ declare namespace applicationManager {
    *              The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22
    */
   function getFreezeExemptedApps(admin: Want): Array<common.ApplicationInstance>;
 
