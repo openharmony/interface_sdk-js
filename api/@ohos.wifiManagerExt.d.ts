@@ -39,8 +39,9 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead ohos.wifiManager/wifiManager.enableHotspot
    */
   function enableHotspot(): void;
    
@@ -52,8 +53,9 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead ohos.wifiManager/wifiManager.disableHotspot
    */
   function disableHotspot(): void;
 
@@ -113,7 +115,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
    */
   function setPowerMode(mode: PowerMode): void;
