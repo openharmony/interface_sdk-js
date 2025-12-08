@@ -19,7 +19,7 @@
  */
 
 /**
- * Available is an Annotation and it supports class function varible type interface namespace etc
+ * Available is an Annotation and it supports class function variable type interface namespace etc
  * Apply this annotation at the source code location, then call the corresponding source code (e.g., class). 
  * During compilation, compatibility checks will be triggered. If minApiVersion exceeds the compatibleSDKVersion specified in build-profile.json5,
  * a compatibility warning will be generated.
