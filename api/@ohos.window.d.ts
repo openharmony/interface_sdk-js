@@ -146,8 +146,7 @@ declare namespace window {
      * System alert.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7 dynamic
-     * @since 22 static
+     * @since 7 dynamiconly
      * @deprecated since 11
      */
     TYPE_SYSTEM_ALERT = 1,
