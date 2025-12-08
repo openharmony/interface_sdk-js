@@ -1548,7 +1548,7 @@ declare namespace formHost {
   function updateFormSize(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void;
 
   /**
-   * Notify form lock state update.
+   * Update form lock state.
    *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { string } formId - Indicates the form id.
