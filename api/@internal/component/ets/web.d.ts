@@ -8848,8 +8848,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } wideViewModeAccess {@code true} means the Web access meta 'viewport' in HTML; {@code false} otherwise.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead ohos.web.WebAttribute#metaViewport
    */
   wideViewModeAccess(wideViewModeAccess: boolean): WebAttribute;
 
