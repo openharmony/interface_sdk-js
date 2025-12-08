@@ -390,7 +390,7 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   appendChild(node: FrameNode): void;
 
@@ -429,7 +429,7 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   insertChildAfter(child: FrameNode, sibling: FrameNode | null): void;
 
@@ -610,7 +610,7 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   moveTo(targetParent: FrameNode, index?: number): void;
 
@@ -1279,7 +1279,7 @@ export class FrameNode {
    * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   adoptChild(child: FrameNode): void;
 
@@ -1295,7 +1295,7 @@ export class FrameNode {
    * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   removeAdoptedChild(child: FrameNode): void;
 
