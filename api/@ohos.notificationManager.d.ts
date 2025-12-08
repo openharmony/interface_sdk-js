@@ -4224,7 +4224,7 @@ declare namespace notificationManager {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @throws { BusinessError } 1600018 - the notification settings window is already displayed.
+   * @throws { BusinessError } 1600018 - The notification settings window is already displayed.
    * @syscap SystemCapability.Notification.NotificationSettings
    * @stagemodelonly
    * @since 13
