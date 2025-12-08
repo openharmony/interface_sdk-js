@@ -9123,6 +9123,13 @@ declare namespace audio {
      * @since 22 static
      */
     updateUi: boolean;
+    /**
+     * Previous volume level.
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 23 dynamic&static
+     */
+    previousVolume?: int;
   }
 
   /**
