@@ -525,6 +525,54 @@ declare namespace formInfo {
      * @since 22 static
      */
     readonly groupId?: string;
+
+    /**
+     * Obtains whether the form is template form.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    readonly isTemplateForm?: boolean;
+
+    /**
+     * Obtains whether the form supports standby.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly isStandbySupported?: boolean;
+
+    
+    /**
+     * Obtains whether the form is adapted for standby.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly isStandbyAdapted?: boolean;
+
+    /**
+     * Obtains whether the form is privacy sensitive.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly isPrivacySensitive?: boolean;
   }
 
   /**
@@ -1258,6 +1306,81 @@ declare namespace formInfo {
      * @since 22 dynamic&static
      */
     EDIT_FORM_KEY = 'ohos.extra.param.key.edit_form_id',
+
+    /**
+     * Indicates the key specifying the flag whether show single form in form manage page.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_MANAGER_SHOW_SINGLE_FORM: true
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    FORM_MANAGER_SHOW_SINGLE_FORM = 'ohos.extra.param.key.form_manager_show_single_form',
+
+    /**
+     * Indicates the key specifying the template form detail id.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       TEMPLATE_FORM_DETAIL_ID: "119476135"
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    TEMPLATE_FORM_DETAIL_ID = 'ohos.extra.param.key.template_form_detail_id',
+      
+    /**
+     * Indicates the key specifying the form data of the template form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       TEMPLATE_FORM_DATA: "formData"
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    TEMPLATE_FORM_DATA = 'ohos.extra.param.key.template_form_data',
+
+    /**
+     * Indicates the key specifying the display name of the form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       TEMPLATE_FORM_DISPLAY_NAME: "formDisplayName"
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    TEMPLATE_FORM_DISPLAY_NAME = 'ohos.extra.param.key.template_form_display_name',
+    
+    /**
+     * Indicates the key specifying the description of the form.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       TEMPLATE_FORM_DESCRIPTION: "formDescription"
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    TEMPLATE_FORM_DESCRIPTION = 'ohos.extra.param.key.template_form_description'
   }
 
   /**
@@ -2240,6 +2363,16 @@ declare namespace formInfo {
      * @since 22 static
      */
     AI_SUGGESTION = 7,
+
+    /**
+     * Form is in standby.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 static&dynamic
+     */
+    STANDBY = 8
   }
 
   /**
@@ -2532,5 +2665,174 @@ declare namespace formInfo {
    * @since 22 static
    */
   type GetLiveFormStatusCallback = () => Record<string, string>;
+
+  /**
+   * TemplateFormDetailInfo
+   *
+   * @typedef TemplateFormDetailInfo
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static&dynamic
+   */
+  interface TemplateFormDetailInfo {  
+    /**
+     * Obtains the bundle name of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    bundleName: string;
+
+    /**
+     * Obtains the module name of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    moduleName: string;
+
+    /**
+     * Obtains the ability name of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    abilityName: string;
+
+    /**
+     * Obtains the form name of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    formName: string;
+
+    /**
+     * Obtains the form dimension of the template form.
+     *
+     * @type { FormDimension }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    dimension: FormDimension;
+
+    /**
+     * Obtains the form detail Id of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    detailId: string;
+
+    /**
+     * Obtains the form display name of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    displayName: string;
+
+    /**
+     * Obtains the form description of the template form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    description: string;
+  }
+
+  /**
+   * template form detail info callback.
+   *
+   * @typedef { function } TemplateFormDetailInfoCallback
+   * @param { Array<TemplateFormDetailInfo> } info - Template form detail info.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static&dynamic
+   */
+  type TemplateFormDetailInfoCallback = (info: Array<TemplateFormDetailInfo>) => void;
+
+  /**
+   * PublishFormCrossBundleInfo
+   *
+   * @typedef PublishFormCrossBundleInfo
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static&dynamic
+   */
+  interface PublishFormCrossBundleInfo {  
+    /**
+     * Obtains the caller bundle name of the form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    callerBundleName: string;
+
+    /**
+     * Obtains the target bundle name of the form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    targetBundleName: string;
+
+    /**
+     * Obtains the target template form detail id of the form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static&dynamic
+     */
+    targetTemplateFormDetailId: string;
+  }
+
+  /**
+   * publish form cross bundle control callback.
+   *
+   * @typedef { function } PublishFormCrossBundleControlCallback
+   * @param { PublishFormCrossBundleInfo } info - Publish form cross bundle info.
+   * @returns { boolean } Publish form cross bundle control result, true indicates success, false indicates failure.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static&dynamic
+   */
+  type PublishFormCrossBundleControlCallback = (info: PublishFormCrossBundleInfo) => boolean;
 }
 export default formInfo;

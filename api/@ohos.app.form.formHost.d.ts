@@ -1566,5 +1566,37 @@ declare namespace formHost {
    * @since 22 dynamic&static
    */
   function updateFormLockedState(formId: string, isLocked: boolean): Promise<void>
+
+  /**
+   * Register the callback of the template form detail info change event.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.TemplateFormDetailInfoCallback } callback - Indicates the callback of the template form detail info
+   *     change event.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function onTemplateFormDetailInfoChange(callback: formInfo.TemplateFormDetailInfoCallback): void;
+
+  /**
+   * Unregister the callback of the template form detail info change event.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.TemplateFormDetailInfoCallback } [callback] - Indicates the callback of the template form detail
+   *     info change event.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function offTemplateFormDetailInfoChange(callback?: formInfo.TemplateFormDetailInfoCallback): void;
 }
 export default formHost;
