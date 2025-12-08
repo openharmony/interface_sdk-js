@@ -6849,9 +6849,9 @@ declare namespace window {
     getWindowSystemBarProperties(): SystemBarProperties;
 
     /**
-     * Set the content color of the status bar.
+     * Set the color of the status bar.
      *
-     * @param { ColorMetrics } color - Content color of the status bar
+     * @param { ColorMetrics } color - Color metrics.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
