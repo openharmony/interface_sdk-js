@@ -291,7 +291,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountActivated(localId: number, callback: AsyncCallback<boolean>): void;
@@ -309,7 +309,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountActivated(localId: number): Promise<boolean>;
@@ -391,7 +391,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId or constraint.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountConstraintEnabled(localId: number, constraint: string, callback: AsyncCallback<boolean>): void;
@@ -415,7 +415,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId or constraint.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountConstraintEnabled(localId: number, constraint: string): Promise<boolean>;
@@ -588,7 +588,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountVerified(localId: number, callback: AsyncCallback<boolean>): void;
@@ -606,7 +606,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountVerified(localId: number): Promise<boolean>;
@@ -1112,7 +1112,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     getOsAccountConstraints(localId: number, callback: AsyncCallback<Array<string>>): void;
@@ -1130,7 +1130,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     getOsAccountConstraints(localId: number): Promise<Array<string>>;
@@ -1518,7 +1518,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      * @deprecated since 11
      */
     getCurrentOsAccount(callback: AsyncCallback<OsAccountInfo>): void;
@@ -1542,7 +1542,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      * @deprecated since 11
      */
     getCurrentOsAccount(): Promise<OsAccountInfo>;
