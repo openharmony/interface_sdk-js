@@ -41,7 +41,6 @@ declare namespace wifiManagerExt {
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 9 dynamiconly
    * @deprecated since 10
-   * @useinstead ohos.wifiManager/wifiManager.enableHotspot
    */
   function enableHotspot(): void;
    
@@ -55,7 +54,6 @@ declare namespace wifiManagerExt {
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 9 dynamiconly
    * @deprecated since 10
-   * @useinstead ohos.wifiManager/wifiManager.disableHotspot
    */
   function disableHotspot(): void;
 
