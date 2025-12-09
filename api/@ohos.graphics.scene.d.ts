@@ -59,7 +59,7 @@ export { Effect } from './graphics3d/SceneResources';
 export { SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
   SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, CullMode, Blend,
   RenderSort, MaterialProperty, MetallicRoughnessMaterial, MeshResource, Morpher,
-  Sampler, SamplerFilter, SamplerAddressMode, UnlitShadowAlphaMaterial } from './graphics3d/SceneResources';
+  Sampler, SamplerFilter, SamplerAddressMode } from './graphics3d/SceneResources';
 
 /**
  * Export scene resources
@@ -67,6 +67,15 @@ export { SceneResourceType, SceneResource, Shader, MaterialType, Material, Shade
  * @since 22 dynamic&static
  */
 export { PolygonMode, UnlitMaterial } from './graphics3d/SceneResources';
+
+/**
+ * Export scene resources
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic&static
+ */
+export { UnlitShadowAlphaMaterial } from './graphics3d/SceneResources';
 
 /**
  * Export scene nodes
