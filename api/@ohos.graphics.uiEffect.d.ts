@@ -29,7 +29,12 @@ import { LinearGradientBlurOptions } from '@ohos.arkui.component';
  * @namespace uiEffect
  * @syscap SystemCapability.Graphics.Drawing
  * @since 12 dynamic
- * @since 22 static
+ */
+/**
+ * @namespace uiEffect
+ * @syscap SystemCapability.Graphics.Drawing
+ * @form
+ * @since 22 dynamic&static
  */
 declare namespace uiEffect {
 
@@ -424,7 +429,13 @@ declare namespace uiEffect {
    * @typedef VisualEffect
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12 dynamic
-   * @since 22 static
+   */
+  /**
+   * The VisualEffect of Component.
+   * @typedef VisualEffect
+   * @syscap SystemCapability.Graphics.Drawing
+   * @form
+   * @since 22 dynamic&static
    */
   interface VisualEffect {
     /**
@@ -434,7 +445,15 @@ declare namespace uiEffect {
     * @syscap SystemCapability.Graphics.Drawing
     * @systemapi
     * @since 12 dynamic
-    * @since 22 static
+     */
+    /**
+    * A backgroundColorEffect effect is added to the Component.
+    * @param { BrightnessBlender } blender - The blender to blend backgroundColor.
+    * @returns { VisualEffect } VisualEffects for the current effect have been added.
+    * @syscap SystemCapability.Graphics.Drawing
+    * @systemapi
+    * @form
+    * @since 22 dynamic&static
     */
     backgroundColorBlender(blender: BrightnessBlender): VisualEffect;
 
@@ -701,7 +720,14 @@ declare namespace uiEffect {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   */
+  /**
+   * The Blender of backgroundColorEffect.
+   * @typedef BrightnessBlender
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   interface BrightnessBlender {
     /**
@@ -711,7 +737,15 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     */
+    /**
+     * Defines third-order rate for grayscale adjustment.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
      */
     cubicRate: double;
 
@@ -722,7 +756,15 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     */
+    /**
+     * Defines second-order rate for grayscale adjustment.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
      */
     quadraticRate: double;
 
@@ -733,7 +775,15 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     */
+    /**
+     * Defines linear rate for grayscale adjustment.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
      */
     linearRate: double;
 
@@ -744,7 +794,15 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     */
+    /**
+     * Defines grayscale adjustment degree.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
      */
     degree: double;
 
@@ -766,7 +824,15 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     */
+    /**
+     * Defines the positive adjustment coefficients in RGB channels based on the reference saturation.
+     *
+     * @type { [double, double, double] }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
      */
     positiveCoefficient: [double, double, double];
 
@@ -777,7 +843,15 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     */
+    /**
+     * Defines the negative adjustment coefficients in RGB channels based on the reference saturation.
+     *
+     * @type { [double, double, double] }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
      */
     negativeCoefficient: [double, double, double];
 
@@ -788,7 +862,15 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     */
+    /**
+     * Defines the blending fraction for brightness effect.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
      */
     fraction: double;
   }
@@ -977,7 +1059,15 @@ declare namespace uiEffect {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   */
+  /**
+   * Create a BrightnessBlender, which is used to adjust the brightness of UI components.
+   * @param { BrightnessBlenderParam } param - The brightness blender parameters.
+   * @returns { BrightnessBlender } Returns the blender.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   function createBrightnessBlender(param: BrightnessBlenderParam): BrightnessBlender;
 
@@ -1000,7 +1090,14 @@ declare namespace uiEffect {
  * @syscap SystemCapability.Graphics.Drawing
  * @systemapi
  * @since 12 dynamic
- * @since 22 static
+ */
+/**
+ * The parameters of brightness blender.
+ * @typedef BrightnessBlenderParam
+ * @syscap SystemCapability.Graphics.Drawing
+ * @systemapi
+ * @form
+ * @since 22 dynamic&static
  */
 export declare interface BrightnessBlenderParam {
   /**
@@ -1010,7 +1107,15 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   */
+  /**
+   * Defines third-order rate for grayscale adjustment.
+   *
+   * @type { double }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   cubicRate: double;
 
@@ -1021,7 +1126,15 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   */
+  /**
+   * Defines second-order rate for grayscale adjustment.
+   *
+   * @type { double }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   quadraticRate: double;
 
@@ -1032,7 +1145,15 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   */
+  /**
+   * Defines linear rate for grayscale adjustment.
+   *
+   * @type { double }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   linearRate: double;
 
@@ -1043,7 +1164,15 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   */
+  /**
+   * Defines grayscale adjustment degree.
+   *
+   * @type { double }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   degree: double;
 
@@ -1054,7 +1183,15 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   */
+  /**
+   * Defines the reference saturation for brightness.
+   *
+   * @type { double }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   saturation: double;
 
@@ -1065,7 +1202,15 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   */
+  /**
+   * Defines the positive adjustment coefficients in RGB channels based on the reference saturation.
+   *
+   * @type { [double, double, double] }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   positiveCoefficient: [double, double, double];
 
@@ -1076,7 +1221,15 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   */
+  /**
+   * Defines the negative adjustment coefficients in RGB channels based on the reference saturation.
+   *
+   * @type { [double, double, double] }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   negativeCoefficient: [double, double, double];
 
@@ -1087,7 +1240,15 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   */
+  /**
+   * Defines the blending fraction for brightness effect.
+   *
+   * @type { double }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   fraction: double;
 }
