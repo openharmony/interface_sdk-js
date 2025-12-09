@@ -1221,7 +1221,6 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
    */
   /**
    * Defines the negative adjustment coefficients in RGB channels based on the reference saturation.
