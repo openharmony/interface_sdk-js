@@ -811,6 +811,15 @@ export declare interface ImageAttribute extends CommonMethod {
      */
     default contentTransition(transition: ContentTransitionEffect | undefined): this;
     /**
+     * Anti-aliasing of image edges.
+     *
+     * @param { boolean | undefined } isAntialiased 
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default antialiased(isAntialiased: boolean | undefined): this;
+    /**
      * Set the attribute modifier.
      *
      * @param { AttributeModifier<ImageAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
