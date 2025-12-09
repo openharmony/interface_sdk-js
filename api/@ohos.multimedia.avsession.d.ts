@@ -4419,7 +4419,8 @@ declare namespace avSession {
     on(type: 'playbackStateChange', filter: Array<string> | 'all', callback: (state: AVPlaybackState) => void): void;
 
     /**
-     * Register playback state changed callback Returned when a null pointer is encountered, the service restarts, memory allocation fails, or session creation encounters an internal error.
+     * Register playback state changed callback 
+     * Returned when a null pointer is encountered, the service restarts, memory allocation fails, or session creation encounters an internal error.
      * @param { Array<string> } filter - The properties of {@link AVPlaybackState} that you cared about
      * @param { Callback<AVPlaybackState> } callback - The callback used to handle playback state changed event.
      *     The callback function provides the {@link AVPlaybackState} parameter.
@@ -4430,7 +4431,8 @@ declare namespace avSession {
     onPlaybackStateChange(filter: Array<string>, callback: Callback<AVPlaybackState>): void;
 
     /**
-     * Register playback state changed callback Returned when a null pointer is encountered, the service restarts, memory allocation fails, or session creation encounters an internal error.
+     * Register playback state changed callback 
+     * Returned when a null pointer is encountered, the service restarts, memory allocation fails, or session creation encounters an internal error.
      * @param { Callback<AVPlaybackState> } callback - The callback used to handle playback state changed event.
      *     The callback function provides the {@link AVPlaybackState} parameter.
      * @throws { BusinessError } 6600101 - Session service exception.
