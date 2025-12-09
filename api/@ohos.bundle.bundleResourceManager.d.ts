@@ -303,11 +303,12 @@ declare namespace bundleResourceManager {
    *     contained in the LauncherAbilityResourceInfo that will be returned.
    * @returns { Promise<Array<LauncherAbilityResourceInfo>> } Returns a list of LauncherAbilityResourceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
-   * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
-   * @throws { BusinessError } 17700061 - AppIndex not in valid range or not found.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700001 - The specified bundle is not found.
+   * @throws { BusinessError } 17700002 - The specified module is not found.
+   * @throws { BusinessError } 17700003 - The specified ability is not found.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @stagemodelonly

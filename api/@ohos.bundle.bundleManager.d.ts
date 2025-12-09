@@ -3811,12 +3811,13 @@ declare namespace bundleManager {
    * If you need to get all app provision info under other users, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and
    * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
+   *     (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
    * @param { int } [userId] - Indicates the user ID.
    * @returns { Promise<Array<AppProvisionInfo>> } Returns a list of AppProvisionInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 17700004 - The specified user id is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 23 dynamic&static
@@ -4544,7 +4545,7 @@ declare namespace bundleManager {
    * @param { string } bundleName - Indicates the bundle name.
    * @returns { BundleInstallStatus } Returns the bundle install status.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 23 dynamic&static
