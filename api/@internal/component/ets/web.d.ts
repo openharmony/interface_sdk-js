@@ -5030,6 +5030,15 @@ declare class JsGeolocation {
  * @atomicservice
  * @since 11 dynamic
  */
+/**
+ * Defines the Web cookie.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 11 dynamiconly
+ * @deprecated since 23
+ * @useinstead ohos.web.webview.webview.WebCookieManager
+ */
 declare class WebCookie {
   /**
    * Constructor.
@@ -5043,6 +5052,15 @@ declare class WebCookie {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11 dynamiconly
+   * @deprecated since 23
+   * @useinstead ohos.web.webview.webview.WebCookieManager
    */
   constructor();
 
