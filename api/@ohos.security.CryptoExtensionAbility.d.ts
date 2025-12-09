@@ -23,6 +23,79 @@ import huks from '@ohos.security.huks';
 import huksExternalCrypto from '@ohos.security.huksExternalCrypto';
 import certificateManager from '@ohos.security.certManager';
 
+ /**
+   * Enum for crypto extension ability result code, used by HuksCryptoExtensionResult.resultCode.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @since 22
+   */
+  export enum HuksCryptoExtensionResultCode {
+    /**
+     * An error occurred in the crypto extension. Possible causes:
+     * 1. The input parameter is invalid.
+     * 2. The crypto extension encountered an unresolvable error state.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @since 22
+     */
+    HUKS_CRYPTO_EXTENSION_ERR_EXTENSION_FAIL = 34800000,
+    /**
+     * The UKey does not exist. Possible causes:
+     * 1. The UKey has been removed.
+     * 2. The crypto extension maintained an error UKey state.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @since 22
+     */
+    HUKS_CRYPTO_EXTENSION_ERR_UKEY_NOT_EXIST = 34800001,
+    /**
+     * The UKey driver error. This means an unknown error has occurred in the UKey driver.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @since 22
+     */
+    HUKS_CRYPTO_EXTENSION_ERR_UKEY_DRIVER_FAIL = 34800002,
+    /**
+     * The UKey PIN is not authenticated. Please verify the UKey PIN first.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @since 22
+     */
+    HUKS_CRYPTO_EXTENSION_ERR_PIN_NO_AUTH = 34800003,
+    /**
+     * The handle does not exist. Possible causes:
+     * 1. The handle you entered is invalid.
+     * 2. The states of huks service and crypto extension are inconsistent. Due to an exception,
+     * the handle held by huks service was not released.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @since 22
+     */
+    HUKS_CRYPTO_EXTENSION_ERR_HANDLE_NOT_EXIST = 34800004,
+    /**
+     * The handle is unavailable, possibly due to an inconsistent state between the crypto extension and the UKey.
+     * 
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @since 22
+     */
+    HUKS_CRYPTO_EXTENSION_ERR_HANDLE_FAIL = 34800005,
+    /**
+     * The UKey PIN is not correct. Please check the PIN you entered.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @since 22
+     */
+    HUKS_CRYPTO_EXTENSION_ERR_PIN_INCORRECT = 34800006,
+    /**
+     * The UKey PIN is locked because the maximum allowed number of attempts has been exceeded.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @since 22
+     */
+    HUKS_CRYPTO_EXTENSION_ERR_PIN_LOCKED = 34800007,
+}
+
 /**
  * Represents the information of certificate.
  *
