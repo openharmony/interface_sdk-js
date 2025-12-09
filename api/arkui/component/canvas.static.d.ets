@@ -23,7 +23,7 @@ import { Matrix2D } from './matrix2d';
 import { DrawingCanvas, VoidCallback, LengthMetricsUnit, LengthMetrics, ColorMetrics } from './units';
 import { Size } from '../Graphics';
 import { ComponentBuilder, CustomBuilder } from './builder';
-import { AttributeModifier, CommonMethod } from './common';
+import { AttributeModifier, CommonMethod, Callback } from './common';
 import { Color } from './enums'
 
 /**
@@ -599,6 +599,27 @@ export declare class RenderingContextSettings {
    * @since 22 static
    */
   constructor(antialias?: boolean);
+}
+
+/**
+ * Defines the options for rendering context.
+ *
+ * @interface RenderingContextOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface RenderingContextOptions {
+  /**
+   * Indicates whether anti-aliasing is enabled for rendering context.
+   * Default value is false, undefined means setting to default value.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  antialias?: boolean;
 }
 
 /**
@@ -1607,6 +1628,21 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @since 22 static
    */
   offDetach(callback?: VoidCallback): void;
+
+  /**
+   * Retrieves a 2D rendering context from the specified drawing context.
+   *
+   * @Params { DrawingRenderingContext } drawingContext - A drawing rendering context.
+   * @Params { RenderingContextOptions } [options] - options of CanvasRenderingContext2D.
+   * @returns { CanvasRenderingContext2D } - Returns a 2D rendering context that is bound to
+   *     the same canvas component as the input drawingContext.
+   * @throws { BusinessError } 103702 - The drawingContext is not bound to a canvas component.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  static getContext2DFromDrawingContext(drawingContext: DrawingRenderingContext, options?: RenderingContextOptions): CanvasRenderingContext2D;
 }
 
 /**
@@ -1764,6 +1800,38 @@ export declare class DrawingRenderingContext {
 }
 
 /**
+ * Defines the parameters for creating Canvas.
+ *
+ * @interface CanvasParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface CanvasParams {
+  /**
+   * Indicates the unit mode employed by Canvas during drawing.
+   * Default value is LengthMetricsUnit.DEFAULT, undefined means setting to default value.
+   *
+   * @type { ?LengthMetricsUnit }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  unit?: LengthMetricsUnit;
+
+  /**
+   * AI image analysis options.
+   * You can configure the analysis type or bind an analyzer controller through this parameter.
+   *
+   * @type { ?ImageAIOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  imageAIOptions?: ImageAIOptions;
+}
+
+/**
  * Provides attribute for Canvas.
  *
  * @extends CommonMethod
@@ -1776,12 +1844,16 @@ export declare interface CanvasAttribute extends CommonMethod {
   /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.
    *
-   * @param { VoidCallback | undefined } event
+   * @param { Callback<DrawingRenderingContext | undefined> | undefined } event.
+   *     Passing undefined means unbinding the callback.
+   *     Returns a { @link DrawingRenderingContext } object if the canvas is constructed by { @link CanvasParams },
+   *     otherwise returns undefined.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  onReady(event: VoidCallback | undefined): this;
+  onReady(event: Callback<DrawingRenderingContext | undefined> | undefined): this;
   /**
    * Enable image analyzer for Canvas.
    *
@@ -1807,14 +1879,30 @@ export declare interface CanvasAttribute extends CommonMethod {
  *
  * @param { CanvasRenderingContext2D | DrawingRenderingContext } [context] - Canvas context object.
  * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.
- * @param { CustomBuilder } [content_]
  * @returns { CanvasAttribute } The attribute of the Canvas.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function Canvas(
-  context?: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions?: ImageAIOptions,
-  content_?: CustomBuilder,
-): CanvasAttribute
+  context?: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions?: ImageAIOptions
+): CanvasAttribute;
+
+/**
+ * Create a canvas component using { @link CanvasParams }.
+ * This canvas component will not respond to drawing commands when invisible for memory optimization,
+ * You can get a rendering context in { @link onReady }.
+ *
+ * @param { CanvasParams } params - Parameters for creating Canvas.
+ * @returns { CanvasAttribute } The attribute of the Canvas.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
+ */
+@ComponentBuilder
+export declare function Canvas(
+  params: CanvasParams
+): CanvasAttribute;
