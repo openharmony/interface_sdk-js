@@ -8378,23 +8378,23 @@ declare namespace window {
     offMainWindowFullScreenAcrossDisplaysChanged(callback?: Callback<boolean>): void;
 
     /**
-     * Subscribes to non-interaction events in a window within the specified period.
+     * Register the callback function that has no interaction for a long time.
      * Interaction events include physical keyboard input events and screen touch/click events,
      * but not soft keyboard input events.
      * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected',
      *     indicating the window has no interaction for a long time.
      * @param { number } timeout - The timeout(in seconds) of no interaction detection.
      * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'noInteractionDetected', timeout: number, callback: Callback<void>): void;
 
