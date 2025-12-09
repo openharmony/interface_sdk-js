@@ -304,7 +304,17 @@ declare namespace systemSoundManager {
    * @constant
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
+   * @stagemodelonly
    * @since 20 dynamic
+   */
+  const TONE_CATEGORY_CONTACTS: 16;
+
+  /**
+   * Define the contact tone category.
+   * @constant
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @stagemodelonly
    * @since 22 static
    */
   const TONE_CATEGORY_CONTACTS: int;

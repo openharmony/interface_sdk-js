@@ -5096,8 +5096,9 @@ export declare interface WebAttribute extends CommonMethod {
      * will not trigger this callback.
      *
      * <p><strong>API Note</strong>:<br>
-     * Different from onPageBegin, onLoadStarted is triggered only once if the mainframe is automatically redirected
-     * before the page is completely loaded. OnPageBegin is triggered every navigation.
+     * When the document of a pop-up window has been modified by JavaScript before it is loaded, it will simulate the
+     * triggering of onLoadStarted with the URL set to empty because displaying the URL that is currently loading maybe
+     * unsafe. onPageBegin will not be simulated.
      * </p>
      *
      * @param { Callback<OnLoadStartedEvent> | undefined } callback The triggered function at the begin of web page loading.
@@ -5110,7 +5111,12 @@ export declare interface WebAttribute extends CommonMethod {
      * Notify the host application that a page has finished loading. This method is called only for main frame.
      *
      * <p><strong>API Note</strong>:<br>
-     * Different from onPageEnd, fragment navigation also triggers onLoadFinished.
+     * 1. Fragment navigation also triggers onLoadFinished, but onPageEnd will not be triggered.
+     * 2. onLoadFinished is triggered only once if the mainframe is automatically redirected before the page is
+     *    completely loaded. onPageEnd is triggered every navigation on mainframe.
+     * 3. When the document of a pop-up window has been modified by Javascript before it is loaded , it will simulate the
+     *    triggering of onLoadStarted with the URL set to empty because displaying the URL that is currently
+     *    loading may be unsafe. onPageBegin will not be simulated.
      * </p>
      *
      * @param { Callback<OnLoadFinishedEvent> | undefined } callback The triggered function at the end of web page loading.
