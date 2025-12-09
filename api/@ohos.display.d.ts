@@ -1572,14 +1572,14 @@ declare namespace display {
    *
    * @enum { int }
    * @syscap SystemCapability.Window.SessionManager
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   enum CornerType {
     /**
      * The round corner in the top left.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     TOP_LEFT = 0,
  
@@ -1587,7 +1587,7 @@ declare namespace display {
      * The round corner in the top right.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     TOP_RIGHT = 1,
 
@@ -1595,7 +1595,7 @@ declare namespace display {
      * The round corner in the bottom right.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     BOTTOM_RIGHT = 2,
 
@@ -1613,7 +1613,7 @@ declare namespace display {
    *
    * @interface RoundedCorner
    * @syscap SystemCapability.Window.SessionManager
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   interface RoundedCorner {
     /**
@@ -1621,7 +1621,7 @@ declare namespace display {
      *
      * @type { CornerType }
      * @syscap  SystemCapability.Window.SessionManager
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     type: CornerType;
 
@@ -1630,7 +1630,7 @@ declare namespace display {
      *
      * @type { Position }
      * @syscap  SystemCapability.Window.SessionManager
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     position: Position;
 
@@ -1639,7 +1639,7 @@ declare namespace display {
      *
      * @type { int }
      * @syscap  SystemCapability.Window.SessionManager
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     radius: int;
   }
@@ -2537,7 +2537,7 @@ declare namespace display {
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     getRoundedCorner(): Array<RoundedCorner>;
 
