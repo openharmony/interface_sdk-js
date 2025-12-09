@@ -2370,7 +2370,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @stagemodelonly
      * @atomicservice
-     * @since 23 static&dynamic
+     * @since 23 dynamic&static
      */
     STANDBY = 8
   }
@@ -2673,7 +2673,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 23 static&dynamic
+   * @since 23 dynamic&static
    */
   interface TemplateFormDetailInfo {  
     /**
@@ -2683,7 +2683,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
-     * @since 23 static&dynamic
+     * @since 23 dynamic&static
      */
     bundleName: string;
 
@@ -2694,7 +2694,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
-     * @since 23 static&dynamic
+     * @since 23 dynamic&static
      */
     moduleName: string;
 
@@ -2705,7 +2705,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
-     * @since 23 static&dynamic
+     * @since 23 dynamic&static
      */
     abilityName: string;
 
@@ -2716,7 +2716,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
-     * @since 23 static&dynamic
+     * @since 23 dynamic&static
      */
     formName: string;
 
@@ -2727,7 +2727,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
-     * @since 23 static&dynamic
+     * @since 23 dynamic&static
      */
     dimension: FormDimension;
 
@@ -2738,7 +2738,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
-     * @since 23 static&dynamic
+     * @since 23 dynamic&static
      */
     detailId: string;
 
@@ -2749,7 +2749,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
-     * @since 23 static&dynamic
+     * @since 23 dynamic&static
      */
     displayName: string;
 
@@ -2760,7 +2760,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
-     * @since 23 static&dynamic
+     * @since 23 dynamic&static
      */
     description: string;
   }
@@ -2774,7 +2774,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 23 static&dynamic
+   * @since 23 dynamic&static
    */
   type TemplateFormDetailInfoCallback = (info: Array<TemplateFormDetailInfo>) => void;
 
@@ -2785,7 +2785,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 23 static&dynamic
+   * @since 23 dynamic&static
    */
   interface PublishFormCrossBundleInfo {  
     /**
@@ -2795,7 +2795,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
-     * @since 23 static&dynamic
+     * @since 23 dynamic&static
      */
     callerBundleName: string;
 
@@ -2806,7 +2806,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
-     * @since 23 static&dynamic
+     * @since 23 dynamic&static
      */
     targetBundleName: string;
 
@@ -2817,7 +2817,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
-     * @since 23 static&dynamic
+     * @since 23 dynamic&static
      */
     targetTemplateFormDetailId: string;
   }
@@ -2831,7 +2831,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 23 static&dynamic
+   * @since 23 dynamic&static
    */
   type PublishFormCrossBundleControlCallback = (info: PublishFormCrossBundleInfo) => boolean;
 }
