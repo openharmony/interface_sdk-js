@@ -8395,6 +8395,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     on(type: 'noInteractionDetected', timeout: number, callback: Callback<void>): void;
 
