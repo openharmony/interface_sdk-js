@@ -60,14 +60,14 @@ export interface LiveFormInfo {
   /**
    * The form border radius.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
    * @since 22 static
    */
-  borderRadius: number;
+  borderRadius: double;
 }
 
 /**
