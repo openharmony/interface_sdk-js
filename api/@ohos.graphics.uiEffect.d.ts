@@ -1115,7 +1115,7 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @form
-   * @since dynamic&static
+   * @since 22 dynamic&static
    */
   cubicRate: double;
 
@@ -1134,7 +1134,7 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @form
-   * @since dynamic&static
+   * @since 22 dynamic&static
    */
   quadraticRate: double;
 
