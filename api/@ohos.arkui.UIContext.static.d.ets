@@ -2628,6 +2628,83 @@ export declare class ComponentSnapshot {
 }
 
 /**
+ * Enum of strategy of resolved UIContext.
+ * @enum { number } strategy of resolved UIContext.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export const enum ResolveStrategy {
+  /**
+   * Get UIContext of calling scope.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  CALLING_SCOPE = 0,
+
+  /**
+   * Get UIContext of last focused instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  LAST_FOCUS = 1,
+
+  /**
+   * Get UIContext with maximum instanceId.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  MAX_INSTANCE_ID = 2,
+
+  /**
+   * Get UIContext of unique UI instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  UNIQUE = 3,
+
+  /**
+   * Get UIContext of last foregrounded instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  LAST_FOREGROUND = 4,
+
+  /**
+   * Get UIContext of undefined calling scope.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  UNDEFINED = 5
+}
+
+/**
+ * Defines the result of UIContext.resolveUIContext.
+ * This class is a subclass of UIContext and additionally provides the strategy used to
+ * obtain this UIContext.
+ * @extends UIContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare class ResolvedUIContext extends UIContext {
+  /**
+   * Resolving strategy of the UIContext.
+   * @type { ResolveStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  strategy: ResolveStrategy;
+}
+
+/**
  * class UIContext
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2635,6 +2712,26 @@ export declare class ComponentSnapshot {
  * @since 22 static
  */
 export declare class UIContext {
+
+  /**
+   * Resolves a UIContext using priority strategy.
+   *
+   * Resolves and returns a UIContext instance following a predefined priority sequence.
+   * resolution rules in order:
+   * <br>1. the UIContext with current calling scope
+   * <br>2. Returns the unique UIContext if only one UI instance exists.
+   * <br>3. Returns the UIContext of the last focused UI instance if one exists.
+   * <br>4. Returns the UIContext of the last foregrounded UI instance if one exists.
+   * <br>5. Returns the UIContext of the most recently created UI instance if any UI instance exists.
+   * <br>6. Returns an invalid UIContext instance if none of the above conditions are met.
+   * @returns { ResolvedUIContext } - ResolvedUIContext instance
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  static resolveUIContext(): ResolvedUIContext;
+
   /**
    * get object font.
    *
