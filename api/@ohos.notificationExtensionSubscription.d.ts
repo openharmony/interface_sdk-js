@@ -45,7 +45,7 @@ declare namespace notificationExtensionSubscription {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600018 - the notification settings window is already displayed.
+   * @throws { BusinessError } 1600018 - The notification settings window is already displayed.
    * @throws { BusinessError } 1600023 - The application does not implement the NotificationSubscriberExtensionAbility.
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic&static

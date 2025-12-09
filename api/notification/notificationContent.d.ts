@@ -683,6 +683,7 @@ export interface NotificationCapsule {
  *
  * @typedef NotificationIconButton
  * @syscap SystemCapability.Notification.Notification
+ * @systemapi
  * @since 18 dynamic
  * @since 22 static
  */
