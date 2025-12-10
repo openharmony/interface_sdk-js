@@ -67,7 +67,7 @@ declare enum FormDimension {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 20
    */
   Dimension_2_1 = 4,
