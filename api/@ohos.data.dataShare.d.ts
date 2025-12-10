@@ -71,14 +71,15 @@ declare namespace dataShare {
     /**
      * Specifies the time to wait for connecting extension, in seconds.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 2
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 18 dynamic
+     * @since 23 static
      */
-    waitTime?: number;
+    waitTime?: int;
   }
 
   /**
@@ -231,7 +232,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableSilentProxy(context: Context, uri?: string): Promise<void>;
 
@@ -263,7 +264,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function disableSilentProxy(context: Context, uri?: string): Promise<void>;
 
