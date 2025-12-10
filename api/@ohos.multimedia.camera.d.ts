@@ -9666,6 +9666,7 @@ declare namespace camera {
      * @param { Callback<IsoInfo> } callback - Callback used to get the ISO info change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
+     * @atomicservice
      * @since 22 dynamic&static
      */
     onIsoInfoChange(callback: Callback<IsoInfo>): void
@@ -9676,6 +9677,7 @@ declare namespace camera {
      * @param { Callback<IsoInfo> } [callback] - Callback used to get the ISO info change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
+     * @atomicservice
      * @since 22 dynamic&static
      */
     offIsoInfoChange(callback?: Callback<IsoInfo>): void
@@ -10723,7 +10725,15 @@ declare namespace camera {
    * @typedef IsoInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 12 dynamic
+   * @since 12
+   */
+  /**
+   * ISO info object
+   *
+   * @typedef IsoInfo
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 20 dynamic
    * @since 22 static
    */
   interface IsoInfo {
@@ -10734,7 +10744,16 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * ISO value.
+     *
+     * @type { ?int }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20 dynamic
      * @since 22 static
      */
     readonly iso?: int;
