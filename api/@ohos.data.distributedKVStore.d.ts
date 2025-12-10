@@ -291,12 +291,12 @@ declare namespace distributedKVStore {
     /**
      * Indicates the value
      *
-     * @type { Uint8Array | string | int | float | double | boolean }
+     * @type { Uint8Array | string | long | double | boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
      * @since 22 static
      */
-    value: Uint8Array | string | int | float | double | boolean;
+    value: Uint8Array | string | long | double | boolean;
   }
 
   /**
@@ -1018,7 +1018,7 @@ declare namespace distributedKVStore {
      * specified long value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { int | float | double | string | boolean } value - Indicates the value to be compared.
+     * @param { long | double | string | boolean } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -1027,14 +1027,14 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      * @since 22 static
      */
-    equalTo(field: string, value: int | float | double | string | boolean): Query;
+    equalTo(field: string, value: long | double | string | boolean): Query;
 
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is not equal to the
      * specified int value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { int | float | double | string | boolean } value - Indicates the value to be compared.
+     * @param { long | double | string | boolean } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -1043,14 +1043,14 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      * @since 22 static
      */
-    notEqualTo(field: string, value: int | float | double | string | boolean): Query;
+    notEqualTo(field: string, value: long | double | string | boolean): Query;
 
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is greater than or
      * equal to the specified int value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { int | float | double | string | boolean } value - Indicates the value to be compared.
+     * @param { long | double | string | boolean } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -1059,14 +1059,14 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      * @since 22 static
      */
-    greaterThan(field: string, value: int | float | double | string | boolean): Query;
+    greaterThan(field: string, value: long | double | string | boolean): Query;
 
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is less than the
      * specified int value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { int | float | double | string } value - Indicates the value to be compared.
+     * @param { long | double | string } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -1075,14 +1075,14 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      * @since 22 static
      */
-    lessThan(field: string, value: int | float | double | string): Query;
+    lessThan(field: string, value: long | double | string): Query;
 
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is greater than or
      * equal to the specified int value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { int | float | double | string } value - Indicates the value to be compared.
+     * @param { long | double | string } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -1091,14 +1091,14 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      * @since 22 static
      */
-    greaterThanOrEqualTo(field: string, value: int | float | double | string): Query;
+    greaterThanOrEqualTo(field: string, value: long | double | string): Query;
 
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is less than or
      * equal to the specified int value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { int | float | double | string } value - Indicates the value to be compared.
+     * @param { long | double | string } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -1107,7 +1107,7 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      * @since 22 static
      */
-    lessThanOrEqualTo(field: string, value: int | float | double | string): Query;
+    lessThanOrEqualTo(field: string, value: long | double | string): Query;
 
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is null.
@@ -1128,7 +1128,7 @@ declare namespace distributedKVStore {
      * int value list.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { (int | long | double)[] } valueList - Indicates the int value list.
+     * @param { long[] | double[] } valueList - Indicates the int value list.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -1137,7 +1137,7 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      * @since 22 static
      */
-    inNumber(field: string, valueList: (int | long | double)[]): Query;
+    inNumber(field: string, valueList: long[] | double[]): Query;
 
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is within the specified
@@ -1160,7 +1160,7 @@ declare namespace distributedKVStore {
      * specified int value list.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { (int | long | double)[] } valueList - Indicates the int value list.
+     * @param { long[] | double[] } valueList - Indicates the int value list.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -1169,7 +1169,7 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      * @since 22 static
      */
-    notInNumber(field: string, valueList: (int | long | double)[]): Query;
+    notInNumber(field: string, valueList: long[] | double[]): Query;
 
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is not within the
@@ -1416,7 +1416,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
-     * @param { Uint8Array | string | int | float | double | boolean } value - Indicates the value to be inserted.
+     * @param { Uint8Array | string | long | double | boolean } value - Indicates the value to be inserted.
      * @param { AsyncCallback<void> } callback - the callback of put.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -1428,7 +1428,7 @@ declare namespace distributedKVStore {
      * @since 10 dynamic
      * @since 22 static
      */
-    put(key: string, value: Uint8Array | string | int | float | double | boolean, callback: AsyncCallback<void>): void;
+    put(key: string, value: Uint8Array | string | long | double | boolean, callback: AsyncCallback<void>): void;
 
     /**
      * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
@@ -1454,7 +1454,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
-     * @param { Uint8Array | string | int | float | double | boolean } value - Indicates the value to be inserted.
+     * @param { Uint8Array | string | long | double | boolean } value - Indicates the value to be inserted.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -1466,7 +1466,7 @@ declare namespace distributedKVStore {
      * @since 10 dynamic
      * @since 22 static
      */
-    put(key: string, value: Uint8Array | string | int | float | double | boolean): Promise<void>;
+    put(key: string, value: Uint8Array | string | long | double | boolean): Promise<void>;
 
     /**
      * Inserts key-value pairs into the {@code SingleKVStore} database in batches.
@@ -1845,7 +1845,7 @@ declare namespace distributedKVStore {
      * Obtains the value of a specified key.
      *
      * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @param { AsyncCallback<boolean | string | int | float | double | Uint8Array> } callback -
+     * @param { AsyncCallback<boolean | string | long | double | Uint8Array> } callback -
      * {Uint8Array|string|boolean|number}: the returned value specified by the key.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -1857,13 +1857,13 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      * @since 22 static
      */
-    get(key: string, callback: AsyncCallback<boolean | string | int | float | double | Uint8Array>): void;
+    get(key: string, callback: AsyncCallback<boolean | string | long | double | Uint8Array>): void;
 
     /**
      * Obtains the value of a specified key.
      *
      * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @returns { Promise<boolean | string | int | float | double | Uint8Array> }
+     * @returns { Promise<boolean | string | long | double | Uint8Array> }
      * {Uint8Array|string|boolean|number}: the returned value specified by the key.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -1875,7 +1875,7 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      * @since 22 static
      */
-    get(key: string): Promise<boolean | string | int | float | double | Uint8Array>;
+    get(key: string): Promise<boolean | string | long | double | Uint8Array>;
 
     /**
      * Obtains all key-value pairs that match a specified key prefix.
@@ -2693,8 +2693,8 @@ declare namespace distributedKVStore {
      * Obtains the value matching the local device ID and specified key.
      *
      * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @param { AsyncCallback<boolean | string | int | float | double | Uint8Array> } callback -
-     * {Uint8Array|string|boolean|number}: the returned value specified by the local device ID and specified key.
+     * @param { AsyncCallback<boolean | string | long | double | Uint8Array> } callback -
+     * {Uint8Array|string|boolean|long|double}: the returned value specified by the local device ID and specified key.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
@@ -2705,14 +2705,14 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      * @since 22 static
      */
-    get(key: string, callback: AsyncCallback<boolean | string | int | float | double | Uint8Array>): void;
+    get(key: string, callback: AsyncCallback<boolean | string | long | double | Uint8Array>): void;
 
     /**
      * Obtains the value matching the local device ID and specified key.
      *
      * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
      * @returns { Promise<boolean | string | int | float | double | Uint8Array> }
-     * {Uint8Array|string|boolean|int|float|double }: the returned value specified by the local device ID and specified key.
+     * {Uint8Array|string|boolean|long|double}: the returned value specified by the local device ID and specified key.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
@@ -2723,7 +2723,7 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      * @since 22 static
      */
-    get(key: string): Promise<boolean | string | int | float | double | Uint8Array>;
+    get(key: string): Promise<boolean | string | long | double | Uint8Array>;
 
     /**
      * Obtains the value matching a specified device ID and key.
@@ -2731,8 +2731,8 @@ declare namespace distributedKVStore {
      * @param { string } deviceId - Indicates the device to be queried.
      * @param { string } key - Indicates the key of the value to be queried. The length must be less than
      * {@code MAX_KEY_LENGTH}.
-     * @param { AsyncCallback<boolean | string | int | float | double | Uint8Array> } callback -
-     * {boolean | string | int | float | double | Uint8Array}: the returned value specified by the deviceId and key.
+     * @param { AsyncCallback<boolean | string | long | double | Uint8Array> } callback -
+     * {boolean | string | long | double | Uint8Array}: the returned value specified by the deviceId and key.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
@@ -2743,7 +2743,7 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      * @since 22 static
      */
-    get(deviceId: string, key: string, callback: AsyncCallback<boolean | string | int | float | double | Uint8Array>): void;
+    get(deviceId: string, key: string, callback: AsyncCallback<boolean | string | long | double | Uint8Array>): void;
 
     /**
      * Obtains the value matching a specified device ID and key.
