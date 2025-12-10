@@ -142,12 +142,12 @@ declare namespace performanceMonitor {
      *
      * @param { ActionType } type - Indicates the scene input event type.
      * @param { SourceType } sourceType - Indicates the scene input source type.
-     * @param { number } time - Indicates the scene input time.
+     * @param { long } time - Indicates the scene input time.
      * @throws { BusinessError } 202 - not system application.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
-    function recordInputEventTime(type: ActionType, sourceType: SourceType, time: number): void;
+    function recordInputEventTime(type: ActionType, sourceType: SourceType, time: long): void;
 }
 export default performanceMonitor;

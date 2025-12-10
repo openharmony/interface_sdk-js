@@ -2410,20 +2410,20 @@ export declare abstract class FrameCallback {
   /**
    * Call when a new display frame is being rendered.
    *
-   * @param { number } frameTimeInNano - The frame time in nanoseconds.
+   * @param { long } frameTimeInNano - The frame time in nanoseconds.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  onFrame(frameTimeInNano: number): void;
+  onFrame(frameTimeInNano: long): void;
 
   /**
    * Called at the end of the next idle frame. If there is no next frame, will request one automatically.
    *
-   * @param { number } timeLeftInNano - The remaining time from the deadline for this frame.
+   * @param { long } timeLeftInNano - The remaining time from the deadline for this frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  onIdle(timeLeftInNano: number): void;
+  onIdle(timeLeftInNano: long): void;
 }
 
 /**
@@ -3060,57 +3060,57 @@ export declare class UIContext {
 
   /**
    * Converts a value in vp units to a value in px.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  vp2px(value: number): number;
+  vp2px(value: double): double;
 
   /**
    * Converts a value in px units to a value in vp.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  px2vp(value: number): number;
+  px2vp(value: double): double;
 
   /**
    * Converts a value in fp units to a value in px.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  fp2px(value: number): number;
+  fp2px(value: double): double;
 
   /**
    * Converts a value in px units to a value in fp.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  px2fp(value: number): number;
+  px2fp(value: double): double;
 
   /**
    * Converts a value in lpx units to a value in px.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  lpx2px(value: number): number;
+  lpx2px(value: double): double;
 
   /**
    * Converts a value in px units to a value in lpx.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  px2lpx(value: number): number;
+  px2lpx(value: double): double;
 
   /**
    * Get current LocalStorage shared from stage.
@@ -3242,11 +3242,11 @@ export declare class UIContext {
    * Post a frame callback to run on the next frame after the specified delay.
    *
    * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
-   * @param { number } delayTime - The delay time in milliseconds,
+   * @param { long } delayTime - The delay time in milliseconds,
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: number): void;
+  postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: long): void;
 
   /**
    * Require DynamicSyncScene by id.
@@ -3377,14 +3377,14 @@ export declare class UIContext {
   /**
    * Sets the component freezing flag based on the component uniqueId to prevent the
    * UI component from marking and updating dirty areas.
-   * @param { number } uniqueId - Unique Id of the frame node.
+   * @param { int } uniqueId - Unique Id of the frame node.
    * @param { boolean } isFrozen - whether the component is frozen.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 22 static
    */
-  freezeUINode(uniqueId: number, isFrozen: boolean): void;
+  freezeUINode(uniqueId: int, isFrozen: boolean): void;
 
   /**
    * Get object text menu controller.

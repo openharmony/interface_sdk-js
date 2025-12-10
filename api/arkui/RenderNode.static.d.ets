@@ -98,12 +98,12 @@ export declare class RenderNode {
   /**
    * Get a child of the current RenderNode by index.
    *
-   * @param { number } index - The index of the desired node in the children of RenderNode.
+   * @param { int } index - The index of the desired node in the children of RenderNode.
    * @returns { RenderNode | null } - Returns a RenderNode. When the required node does not exist, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  getChild(index: number): RenderNode | null;
+  getChild(index: int): RenderNode | null;
 
   /**
    * Get the first child of the current RenderNode.
@@ -137,20 +137,20 @@ export declare class RenderNode {
   /**
    * Set the background color of the RenderNode.
    *
-   * @param { number } color - The background color. Colors are defined as ARGB format represented by number.
+   * @param { int } color - The background color. Colors are defined as ARGB format represented by number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  set backgroundColor(color: number);
+  set backgroundColor(color: int);
 
   /**
    * Get the background color of the RenderNode.
    *
-   * @returns { number } - Returns a background color. Colors are defined as ARGB format represented by number.
+   * @returns { int } - Returns a background color. Colors are defined as ARGB format represented by number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  get backgroundColor(): number;
+  get backgroundColor(): int;
 
   /**
    * Set whether the RenderNode clip to frame.
@@ -173,20 +173,20 @@ export declare class RenderNode {
   /**
    * Set opacity of the RenderNode.
    *
-   * @param { number } value - The opacity of the RenderNode.
+   * @param { double } value - The opacity of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  set opacity(value: number);
+  set opacity(value: double);
 
   /**
    * Get opacity of the RenderNode.
    *
-   * @returns { number } Returns the opacity of the RenderNode.
+   * @returns { double } Returns the opacity of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  get opacity(): number;
+  get opacity(): double;
 
   /**
    * Set frame size of the RenderNode.
@@ -335,22 +335,22 @@ export declare class RenderNode {
   /**
    * Set shadow color of the RenderNode.
    *
-   * @param { number } color - the shadow color of the RenderNode. Colors are defined as ARGB format represented by
+   * @param { int } color - the shadow color of the RenderNode. Colors are defined as ARGB format represented by
    * number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  set shadowColor(color: number);
+  set shadowColor(color: int);
 
   /**
    * Get shadow color of the RenderNode.
    *
-   * @returns { number } - Returns the shadow color of the RenderNode. Colors are defined as ARGB format represented by
+   * @returns { int } - Returns the shadow color of the RenderNode. Colors are defined as ARGB format represented by
    * number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  get shadowColor(): number;
+  get shadowColor(): int;
 
   /**
    * Set shadow offset of the RenderNode.
@@ -391,56 +391,56 @@ export declare class RenderNode {
   /**
    * Set shadow alpha of the RenderNode.
    *
-   * @param { number } alpha - the shadow alpha of the RenderNode.
+   * @param { double } alpha - the shadow alpha of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  set shadowAlpha(alpha: number);
+  set shadowAlpha(alpha: double);
 
   /**
    * Get shadow alpha of the RenderNode.
    *
-   * @returns { number } - Returns the shadow alpha of the RenderNode.
+   * @returns { double } - Returns the shadow alpha of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  get shadowAlpha(): number;
+  get shadowAlpha(): double;
 
   /**
    * Set shadow elevation of the RenderNode.
    *
-   * @param { number } elevation - the shadow elevation of the RenderNode.
+   * @param { double } elevation - the shadow elevation of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  set shadowElevation(elevation: number);
+  set shadowElevation(elevation: double);
 
   /**
    * Get shadow elevation of the RenderNode.
    *
-   * @returns { number } - Returns the shadow elevation of the RenderNode.
+   * @returns { double } - Returns the shadow elevation of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  get shadowElevation(): number;
+  get shadowElevation(): double;
 
   /**
    * Set shadow radius of the RenderNode.
    *
-   * @param { number } radius - the shadow radius of the RenderNode.
+   * @param { double } radius - the shadow radius of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  set shadowRadius(radius: number);
+  set shadowRadius(radius: double);
 
   /**
    * Get shadow radius of the RenderNode.
    *
-   * @returns { number } - Returns the shadow radius of the RenderNode.
+   * @returns { double } - Returns the shadow radius of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  get shadowRadius(): number;
+  get shadowRadius(): double;
 
   /**
    * Set border style of the RenderNode.
@@ -463,16 +463,16 @@ export declare class RenderNode {
   /**
    * Set border width of the RenderNode.
    *
-   * @param { NodeEdges<number> } width - the border width of the RenderNode.
+   * @param { NodeEdges<double> } width - the border width of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  set borderWidth(width: NodeEdges<number>);
+  set borderWidth(width: NodeEdges<double>);
 
   /**
    * Get border width of the RenderNode.
    *
-   * @returns { NodeEdges<number> } - Returns the border width of the RenderNode.
+   * @returns { NodeEdges<double> } - Returns the border width of the RenderNode.
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
@@ -482,16 +482,16 @@ export declare class RenderNode {
   /**
    * Set border color of the RenderNode.
    *
-   * @param { NodeEdges<number> } color - the border color of the RenderNode.
+   * @param { NodeEdges<int> } color - the border color of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  set borderColor(color: NodeEdges<number>);
+  set borderColor(color: NodeEdges<int>);
 
   /**
    * Get border color of the RenderNode.
    *
-   * @returns { NodeEdges<number> } - Returns the border color of the RenderNode.
+   * @returns { NodeEdges<int> } - Returns the border color of the RenderNode.
    * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
