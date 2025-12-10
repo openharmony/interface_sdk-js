@@ -460,7 +460,7 @@ parameters are left unspecified;
    * @since 9 dynamic
    * @since 22 static
    */
-  function partition(diskId: string, type: number, callback: AsyncCallback<void>): void;
+  function partition(diskId: string, type: int, callback: AsyncCallback<void>): void;
 
   /**
    * Partition.

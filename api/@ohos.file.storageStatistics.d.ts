@@ -185,29 +185,9 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 12 dynamic
-   */
-  function getBundleStats(packageName: string, callback: AsyncCallback<BundleStats>, index?: number): void;
-
-  /*** if arkts static */
-  /**
-   * Get the bundle statistics.
-   *
-   * @permission ohos.permission.STORAGE_MANAGER
-   * @param { string } packageName - The name of the application
-   * @param { AsyncCallback<BundleStats> } callback - callback
-   * @param { int } index - The index number of the clone application, the default value is 0.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
-   * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @systemapi
    * @since 22 static
    */
-  function getBundleStats(packageName: string, index?: int, callback: AsyncCallback<BundleStats>): void;
-  /*** endif */
+  function getBundleStats(packageName: string, callback: AsyncCallback<BundleStats>, index?: int): void;
 
   /**
    * Get the bundle statistics.
@@ -243,7 +223,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getBundleStats(packageName: string, index?: int): Promise<BundleStats>;
 
