@@ -18,7 +18,7 @@
  * @kit MediaKit
  */
 
-import { ErrorCallback, AsyncCallback, Callback, BusinessError } from './@ohos.base';
+import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
 import audio from './@ohos.multimedia.audio';
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
 import type image from './@ohos.multimedia.image';
