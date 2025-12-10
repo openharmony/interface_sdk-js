@@ -2873,6 +2873,15 @@ declare namespace request {
      */
     const VISIBILITY_COMPLETION: 1;
     /**
+     * Indicates to show completion notification.
+     * 
+     * @constant
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @stagemodelonly
+     * @since 23 static
+     */
+    const VISIBILITY_COMPLETION: int = 1;
+    /**
      * Indicates to show progress notification.
      * 
      * @constant
@@ -2880,6 +2889,15 @@ declare namespace request {
      * @since 21 dynamic
      */
     const VISIBILITY_PROGRESS: 2;
+    /**
+     * Indicates to show progress notification.
+     * 
+     * @constant
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @stagemodelonly
+     * @since 23 static
+     */
+    const VISIBILITY_PROGRESS:int = 2;
     /**
      * The action options.
      *
@@ -5288,7 +5306,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11 dynamic
        * @since 22 static
        */
       on(event: 'progress', callback: (progress: Progress) => void): void;
@@ -5323,7 +5341,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11 dynamic
        */
       off(event: 'progress', callback?: (progress: Progress) => void): void;
       /**
@@ -5686,7 +5704,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 20 dynamic
+       * @since 20 dynamic
        * @since 22 static
        */
       on(event: 'response', callback: Callback<HttpResponse>): void;
