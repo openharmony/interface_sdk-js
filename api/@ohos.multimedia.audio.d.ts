@@ -9580,7 +9580,7 @@ declare namespace audio {
 
   /**
    * Audio render target.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
    * @since 22 dynamic&static
