@@ -252,6 +252,14 @@ export enum MaterialType {
   UNLIT = 3,
 
   /**
+   * The material is an occlusion material.
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  OCCLUSION = 4,
+
+  /**
    * Only render the shadows received on the material surface,
    *     the material is transparent.
    * 
@@ -699,6 +707,17 @@ export interface ShaderMaterial extends Material {
    * @since 22 static
    */
   colorShader?: Shader;
+}
+
+/**
+ * Occlusion material resource.
+ *
+ * @extends Material
+ * @interface OcclusionMaterial
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 23 dynamic&static
+ */
+export interface OcclusionMaterial extends Material {
 }
 
 /**

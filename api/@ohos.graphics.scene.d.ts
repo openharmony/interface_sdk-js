@@ -75,7 +75,7 @@ export { PolygonMode, UnlitMaterial } from './graphics3d/SceneResources';
  * @stagemodelonly
  * @since 23 dynamic&static
  */
-export { UnlitShadowAlphaMaterial } from './graphics3d/SceneResources';
+export { UnlitShadowAlphaMaterial, OcclusionMaterial } from './graphics3d/SceneResources';
 
 /**
  * Export scene nodes
