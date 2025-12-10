@@ -10292,6 +10292,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     setHandwritingFlag(enable: boolean): Promise<void>;
 
