@@ -813,7 +813,15 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     */
+    /**
+     * Defines the reference saturation for brightness.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
      */
     saturation: double;
 
