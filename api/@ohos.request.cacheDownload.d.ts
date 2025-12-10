@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import { BusinessError } from './@ohos.base';
+import { BusinessError, Callback } from './@ohos.base';
 
 /**
  * Cache download capability provider.

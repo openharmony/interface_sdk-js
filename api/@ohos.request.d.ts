@@ -5306,7 +5306,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11 dynamic
        * @since 22 static
        */
       on(event: 'progress', callback: (progress: Progress) => void): void;
@@ -5341,7 +5341,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11 dynamic
        */
       off(event: 'progress', callback?: (progress: Progress) => void): void;
       /**
@@ -5704,7 +5704,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 20 dynamic
+       * @since 20 dynamic
        * @since 22 static
        */
       on(event: 'response', callback: Callback<HttpResponse>): void;
