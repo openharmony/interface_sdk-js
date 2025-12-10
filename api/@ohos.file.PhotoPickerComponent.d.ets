@@ -179,7 +179,7 @@ export declare struct PhotoPickerComponent {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamic@static
+   * @since 23 dynamic&static
    */
   onScrollStopAtStart?: ScrollStopAtStartCallback;
 
@@ -190,7 +190,7 @@ export declare struct PhotoPickerComponent {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 23 dynamic@static
+   * @since 23 dynamic&static
    */
   onScrollStopAtEnd?: ScrollStopAtEndCallback;
 
@@ -1564,7 +1564,7 @@ export declare enum ItemDisplayRatio {
   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
   * @stagemodelonly
   * @atomicservice
-  * @since 23 dynamic@static
+  * @since 23 dynamic&static
   */
 export type ScrollStopAtStartCallback = () => void;
 
@@ -1575,6 +1575,6 @@ export type ScrollStopAtStartCallback = () => void;
   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
   * @stagemodelonly
   * @atomicservice
-  * @since 23 dynamic@static
+  * @since 23 dynamic&static
   */
 export type ScrollStopAtEndCallback = () => void;
