@@ -19,39 +19,36 @@
  */
 
 import ExtensionContext from './ExtensionContext';
-import type Want from '@ohos.app.ability.Want';
+import Want from '@ohos.app.ability.Want';
 
 /**
- * The context of an ability. It allows access to ability-specific resources.
+ * The context of enterpriseAdmin extension. It allows access to enterpriseAdminExtension-specific resources.
  *
- * @extends Context
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @extends ExtensionContext
+ * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
  * @since 23
  */
 declare class EnterpriseAdminExtensionContext extends ExtensionContext {
   /**
-   * Starts a new ability. If the caller application is in foreground, you can use this method to start ability;
-   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
-   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   * Starts an ability by enterprise administrator. Only supports start UIAbility or AppServiceExtensionAbility.
    *
-   * @param { StartOptions } [options] - Indicates the start options.
-   * @param { Want } want - Indicates the ability to start.
+   * @permission ohos.permission.ENTERPRISE_START_ABILITIES
+   * @param { Want } admin - Indicates the enterprise admin extension ability information.
+   * @param { Want } want - Includes ability name, parameters and relative info sending to an ability.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @throws { BusinessError } 16300003 - The target application is not the current application.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200014 - Failed to start the ability.
+   * @throws { BusinessError } 9200015 - The ability does not exist.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
    * @since 23
    */
-  startAbility(admin: Want, want: Want): Promise<void>;
+  startAbilityByAdmin(admin: Want, want: Want): Promise<void>;
 }
 
 export default EnterpriseAdminExtensionContext;
