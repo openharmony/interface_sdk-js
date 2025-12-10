@@ -18,7 +18,7 @@
  * @kit MediaKit
  */
 
-import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
+import { ErrorCallback, AsyncCallback, Callback, BusinessError } from './@ohos.base';
 import audio from './@ohos.multimedia.audio';
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
 import type image from './@ohos.multimedia.image';
@@ -3161,6 +3161,18 @@ declare namespace media {
      * @since 22 static
      */
     getPlaybackPosition() : int;
+
+    /**
+     * Get the PresentationTime value at current playback position.
+     * This API can be used in the playing, paused, or completed state.
+     * @returns { long } returns the time of current playback position - microseconds(us)
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getCurrentPresentationTimestamp() : long;
 
     /**
      * Enable or disable super-resolution dynamically. This API can be called when the AVPlayer is in the
