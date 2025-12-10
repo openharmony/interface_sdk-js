@@ -30,6 +30,18 @@ import common from './@ohos.enterprise.common';
  */
 export default class EnterpriseAdminExtensionAbility {
   /**
+   * Context of the EnterpriseAdminExtensionAbility.
+   *
+   * @type { EnterpriseAdminExtensionContext }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23
+   */
+  context: EnterpriseAdminExtensionContext;
+
+  /**
    * Called back when an application is enabled.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
