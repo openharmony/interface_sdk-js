@@ -18,7 +18,7 @@
  * @kit PerformanceAnalysisKit
  */
 
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import hiAppEvent from '@ohos.hiviewdfx.hiAppEvent';
 import hichecker from '@ohos.hichecker';
 import hidebug from '@ohos.hidebug';
@@ -36,7 +36,7 @@ export {
 };
 /*** endif */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import FaultLogger from '@ohos.faultLogger';
 import jsLeakWatcher from '@ohos.hiviewdfx.jsLeakWatcher';
 

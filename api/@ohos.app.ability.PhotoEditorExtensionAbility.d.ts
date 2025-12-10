@@ -29,16 +29,18 @@ import type Want from './@ohos.app.ability.Want';
  * @extends ExtensionAbility
  * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
  * @StageModelOnly
- * @since 12
+ * @since 12 dynamic
+ * @since 22 static
  */
-export default class PhotoEditorExtensionAbility extends ExtensionAbility {
+declare class PhotoEditorExtensionAbility extends ExtensionAbility {
      /**
       * Indicates configuration information about an Photo editor extension ability context.
       *
       * @type { PhotoEditorExtensionContext }
       * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
       * @StageModelOnly
-      * @since 12
+      * @since 12 dynamic
+      * @since 22 static
       */
     context: PhotoEditorExtensionContext;
 
@@ -47,7 +49,8 @@ export default class PhotoEditorExtensionAbility extends ExtensionAbility {
      *
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @StageModelOnly
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     onCreate(): void;
 
@@ -56,7 +59,8 @@ export default class PhotoEditorExtensionAbility extends ExtensionAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     onForeground(): void;
 
@@ -65,7 +69,8 @@ export default class PhotoEditorExtensionAbility extends ExtensionAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     onBackground(): void;
 
@@ -75,9 +80,19 @@ export default class PhotoEditorExtensionAbility extends ExtensionAbility {
      * @returns { void | Promise<void> } the promise returned by the function.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @StageModelOnly
-     * @since 12
+     * @since 12 dynamic
      */
     onDestroy(): void | Promise<void>;
+
+    /**
+     * Called back before an UI extension is destroyed.
+     *
+     * @returns { Promise<void> | undefined } the promise returned by the function.
+     * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
+     * @StageModelOnly
+     * @since 22 static
+     */
+    onDestroy(): Promise<void> | undefined;
 
     /**
      * Called back when an UI extension session is created and original image is ready.
@@ -87,7 +102,10 @@ export default class PhotoEditorExtensionAbility extends ExtensionAbility {
      * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @StageModelOnly
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     onStartContentEditing(uri: string, want: Want, session: UIExtensionContentSession): void;
 }
+
+export default PhotoEditorExtensionAbility;

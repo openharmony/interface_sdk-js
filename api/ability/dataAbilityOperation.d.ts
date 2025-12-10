@@ -27,7 +27,7 @@ import rdb from '../@ohos.data.rdb';
  *
  * @typedef DataAbilityOperation
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @since 7
+ * @since 7 dynamic
  */
 export interface DataAbilityOperation {
   /**
@@ -36,7 +36,7 @@ export interface DataAbilityOperation {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   uri: string;
 
@@ -46,7 +46,7 @@ export interface DataAbilityOperation {
    * @type { featureAbility.DataAbilityOperationType }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   type: featureAbility.DataAbilityOperationType;
 
@@ -56,7 +56,7 @@ export interface DataAbilityOperation {
    * @type { ?rdb.ValuesBucket }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   valuesBucket?: rdb.ValuesBucket;
 
@@ -66,7 +66,7 @@ export interface DataAbilityOperation {
    * @type { ?rdb.ValuesBucket }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   valueBackReferences?: rdb.ValuesBucket;
 
@@ -77,7 +77,7 @@ export interface DataAbilityOperation {
    * @type { ?dataAbility.DataAbilityPredicates }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   predicates?: dataAbility.DataAbilityPredicates;
 
@@ -87,7 +87,7 @@ export interface DataAbilityOperation {
    * @type { ?Map<number, number> }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   predicatesBackReferences?: Map<number, number>;
 
@@ -97,7 +97,7 @@ export interface DataAbilityOperation {
    * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   interrupted?: boolean;
 
@@ -107,7 +107,7 @@ export interface DataAbilityOperation {
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   expectedCount?: number;
 }

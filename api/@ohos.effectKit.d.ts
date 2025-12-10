@@ -18,12 +18,14 @@
  * @kit ArkGraphics2D
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
+import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
+import { FractionStop } from './arkui/component/common';
 /*** endif */
 
 /**
@@ -41,8 +43,8 @@ import image from './@ohos.multimedia.image';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14 dynamic
+ * @since 22 static
  */
 
 declare namespace effectKit {
@@ -68,21 +70,21 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   interface Filter {
 
     /**
     * A blur effect is added to the image.
-    * @param { number } radius - The degree of blur, the value is measured in pixels.
+    * @param { double } radius - The degree of blur, the value is measured in pixels.
     * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @since 9
     */
     /**
     * A blur effect is added to the image.
-    * @param { number } radius - The degree of blur, the value is measured in pixels.
+    * @param { double } radius - The degree of blur, the value is measured in pixels.
     * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @form
@@ -91,40 +93,66 @@ declare namespace effectKit {
     */
     /**
     * Adds the blur effect to the filter linked list, and returns the head node of the linked list.
-    * @param { number } radius - Blur radius, in pixels. The blur effect is proportional to the configured value.
+    * @param { double } radius - Blur radius, in pixels. The blur effect is proportional to the configured value.
     *  A larger value indicates a more obvious effect.
     * @returns { Filter } Final image effect.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @crossplatform
     * @form
     * @atomicservice
-    * @since arkts {'1.1':'14', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 14 dynamic
+    * @since 22 static
     */
-    blur(radius: number): Filter;
+    blur(radius: double): Filter;
 
     /**
     * Adds the blur effect to the filter linked list, and returns the head node of the linked list.
-    * @param { number } radius - Blur radius, in pixels. The blur effect is proportional to the configured value.
+    * @param { double } radius - Blur radius, in pixels. The blur effect is proportional to the configured value.
     *  A larger value indicates a more obvious effect.
     * @param { TileMode } tileMode - Tile mode of the shader effect. The blur effect of image edges is affected. Currently,
     *  only CPU rendering is supported. Therefore, the tile mode supports only DECAL.
     * @returns { Filter } Final image effect.
     * @syscap SystemCapability.Multimedia.Image.Core
-    * @since 14
+    * @since 14 dynamic
+    * @since 22 static
     */
-    blur(radius: number, tileMode: TileMode): Filter;
+    blur(radius: double, tileMode: TileMode): Filter;
+   
+    /**
+    * Adds the elliptical gradient blur effect to the filter linked list, and returns the head node of the linked list.
+    * @param { double } blurRadius - Blur radius, in pixels. The blur effect is proportional to the configured value.
+    *     A larger value indicates a more obvious effect.
+    * @param { EllipticalMaskCenter } center - Set the center point of the ellipse. [0, 0] represents the top-left corner of 
+    *     the component, and floating-point numbers are allowed. Values exceeding the boundary will be automatically 
+    *     truncated during implementation. 
+    * @param { EllipticalMaskRadius } maskRadius - Set the major axis and minor axis of the ellipse. 
+    *     A radius of 1 is equal to the height of the component. The value range is [0, 10], 
+    *     and floating-point numbers are allowed. Values exceeding the boundary 
+    *     will be automatically truncated during implementation. 
+    * @param { FractionStop[] } fractionStops - Gradient blur position and intensity array. 
+    *     The array length ranges from 0 to 12. It has no effect if the length is 0 or greater than 12. 
+    *     Both position and intensity values are between 0 and 1. Position 0 corresponds to the ellipse center, 
+    *     and position 1 corresponds to the ellipse boundary. Intensity 0 means no blur, while intensity 1 equals the 
+    *     blur effect of the input blur radius. 
+    * @returns { Filter } Final image effect.
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @stagemodelonly
+    * @systemapi
+    * @since 23 dynamic&static
+    */
+    ellipticalGradientBlur(blurRadius: double, center: EllipticalMaskCenter, maskRadius: EllipticalMaskRadius, fractionStops: FractionStop[]): Filter;
 
     /**
     * A Brightness effect is added to the image.
-    * @param { number } bright - The degree of light and darkness,the value range is 0 to 1.
+    * @param { double } bright - The degree of light and darkness,the value range is 0 to 1.
     * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @since 9
     */
     /**
     * A Brightness effect is added to the image.
-    * @param { number } bright - The degree of light and darkness,the value range is 0 to 1.
+    * @param { double } bright - The degree of light and darkness,the value range is 0 to 1.
     * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @form
@@ -133,15 +161,16 @@ declare namespace effectKit {
     */
     /**
     * Adds the brightness effect to the filter linked list, and returns the head node of the linked list.
-    * @param { number } bright - Brightness value, ranging from 0 to 1. When the value is 0, the image brightness remains unchanged.
+    * @param { double } bright - Brightness value, ranging from 0 to 1. When the value is 0, the image brightness remains unchanged.
     * @returns { Filter } Final image effect.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @crossplatform
     * @form
     * @atomicservice
-    * @since 14
+    * @since 14 dynamic
+    * @since 22 static
     */
-    brightness(bright: number): Filter;
+    brightness(bright: double): Filter;
 
     /**
     * A Grayscale effect is added to the image.
@@ -164,7 +193,8 @@ declare namespace effectKit {
     * @crossplatform
     * @form
     * @atomicservice
-    * @since 14
+    * @since 14 dynamic
+    * @since 22 static
     */
     grayscale(): Filter;
 
@@ -179,14 +209,15 @@ declare namespace effectKit {
     * @returns { Filter } Final image effect.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @crossplatform
-    * @since 14
+    * @since 14 dynamic
+    * @since 22 static
     */
     invert(): Filter;
 
     /**
      * A custom effect is added to the image.
      *
-     * @param { Array<number> } colorMatrix - A matrix of 5x4 size for create effect filter.
+     * @param { Array<double> } colorMatrix - A matrix of 5x4 size for create effect filter.
      * @returns { Filter } Filters for the current effect have been added.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -195,23 +226,24 @@ declare namespace effectKit {
     /**
      * Adds a custom effect to the filter linked list, and returns the head node of the linked list.
      *
-     * @param { Array<number> } colorMatrix - Custom color matrix.
-     * A 5 x 4 matrix can be created. The value range of the matrix element is [0, 1], 
-     * where 0 indicates that the color channel is not involved in the calculation, 
+     * @param { Array<double> } colorMatrix - Custom color matrix.
+     * A 5 x 4 matrix can be created. The value range of the matrix element is [0, 1],
+     * where 0 indicates that the color channel is not involved in the calculation,
      * and 1 indicates that the color channel is involved in the calculation and retains the original weight.
      * @returns { Filter } Final image effect.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
-    setColorMatrix(colorMatrix: Array<number>): Filter;
+    setColorMatrix(colorMatrix: Array<double>): Filter;
 
     /**
     * Obtains image.PixelMap of the source image to which the filter linked list is added.
     * @returns { image.PixelMap } image.PixelMap.
     * @syscap SystemCapability.Multimedia.Image.Core
-    * @since 9
+    * @since 9 dynamiconly
     * @deprecated since 11
     * @useinstead effectKit.Filter#getEffectPixelMap
     */
@@ -238,8 +270,8 @@ declare namespace effectKit {
     * @crossplatform
     * @form
     * @atomicservice
-    * @since arkts {'1.1':'14', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 14 dynamic
+    * @since 22 static
     */
     getEffectPixelMap(): Promise<image.PixelMap>;
 
@@ -251,7 +283,8 @@ declare namespace effectKit {
     * @crossplatform
     * @form
     * @atomicservice
-    * @since 20
+    * @since 20 dynamic
+	* @since 22 static
     */
     getEffectPixelMap(useCpuRender : boolean): Promise<image.PixelMap>;
   }
@@ -277,7 +310,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 22 static
    */
   interface ColorPicker {
 
@@ -302,7 +336,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
     getMainColor(): Promise<Color>;
 
@@ -327,7 +362,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
     getMainColorSync(): Color;
 
@@ -352,13 +388,14 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
     getLargestProportionColor(): Color;
 
     /**
      * Get top proportion color of an image
-     * @param { number } colorCount - The number of colors to require, the value is 1 to 10.
+     * @param { int } colorCount - The number of colors to require, the value is 1 to 10.
      * @returns { Array<Color | null> } An array of feature colors sorted by proportion, with a size equal to
      *                                  the minimum of colorCount and the actual number of extracted feature colors.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -368,7 +405,7 @@ declare namespace effectKit {
      */
     /**
      * Obtains a given number of colors with the top proportions in the image. This API returns the result synchronously.
-     * @param { number } colorCount - Number of colors to obtain. The value range is [1, 10]. If a non-integer is passed in, the value will be rounded down.
+     * @param { int } colorCount - Number of colors to obtain. The value range is [1, 10]. If a non-integer is passed in, the value will be rounded down.
      * @returns { Array<Color | null> } Array of colors, sorted by proportion.
      * - If the number of colors obtained is less than the value of colorCount, the array size is the actual number obtained.
      * - If the colors fail to be obtained or the number of colors obtained is less than 1, [null] is returned.
@@ -377,9 +414,60 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
-    getTopProportionColors(colorCount: number): Array<Color | null>;
+    getTopProportionColors(colorCount: int): Array<Color | null>;
+
+    /**
+     * Get top proportion colors and percentages of an image
+     * @param { int } colorCount - The number of colors to require, the value is 1 to 10.
+     * @returns { Map<Color | null, double | null> } Map of colors and percentages, sorted by proportion.
+     *    - If the number of colors obtained is less than the value of colorCount, the map size is 
+     *      the actual number obtained.
+     *    - If the colors fail to be obtained or the number of colors obtained is less than 1, Map() is returned.
+     *    - If the value of colorCount is greater than 10, a map holding the first 10 colors with
+     *      the top proportions is returned.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
+     */
+    getTopProportionColorsAndPercentage(colorCount: int): Map<Color | null, double | null>;
+
+    /**
+     * Get the proportion of transparent pixels with alpha=0 in the image
+     * @returns { double } proportion of transparent pixels with alpha=0
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @form
+     * @since 23 dynamic&static
+     */
+    getAlphaZeroTransparentProportion(): double;
+
+    /**
+     * Get shade degree of an image
+     * @returns { PictureShadeDegree } shade degree of an image
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
+     */
+    getShadeDegree(): PictureShadeDegree;
+
+    /**
+     * Get complexity degree of an image
+     * @returns { PictureComplexityDegree } complexity degree of an image
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
+     */
+    getComplexityDegree(): PictureComplexityDegree;
 
     /**
      * Get highest saturation color of an image
@@ -402,7 +490,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
     getHighestSaturationColor(): Color;
 
@@ -427,20 +516,21 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
     getAverageColor(): Color;
 
     /**
      * Determine whether the color is black or white or gray
-     * @param { number } color - The 32 bit ARGB color to discriminate.
+     * @param { int } color - The 32 bit ARGB color to discriminate.
      * @returns { boolean } Result of judging black, white and gray.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
     /**
      * Determine whether the color is black or white or gray
-     * @param { number } color - The 32 bit ARGB color to discriminate.
+     * @param { int } color - The 32 bit ARGB color to discriminate.
      * @returns { boolean } Result of judging black, white and gray.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @form
@@ -448,16 +538,17 @@ declare namespace effectKit {
      * @since 12
      */
     /**
-     * Checks whether a color is black, white, and gray.
-     * @param { number } color - Color to check. The value range is [0x0, 0xFFFFFFFF].
-     * @returns { boolean } Returns true if the image is black, white, and gray; returns false otherwise.
+     * Determine whether the color is black or white or gray
+     * @param { int } color - The 32 bit ARGB color to discriminate.
+     * @returns { boolean } Result of judging black, white and gray.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
-    isBlackOrWhiteOrGrayColor(color: number): boolean;
+    isBlackOrWhiteOrGrayColor(color: int): boolean;
   }
 
   /**
@@ -481,19 +572,20 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 22 static
    */
   interface Color {
 
     /**
      * Red
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
      * Red
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @form
      * @atomicservice
@@ -501,24 +593,25 @@ declare namespace effectKit {
      */
     /**
      * Value of the red component. The value range is [0x0, 0xFF].
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
-    red: number;
+    red: int;
 
     /**
      * Green
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
      * Green
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @form
      * @atomicservice
@@ -526,24 +619,25 @@ declare namespace effectKit {
      */
     /**
      * Value of the green component. The value range is [0x0, 0xFF].
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
-    green: number;
+    green: int;
 
     /**
      * Blue
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
      * Blue
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @form
      * @atomicservice
@@ -551,24 +645,25 @@ declare namespace effectKit {
      */
     /**
      * Value of the blue component. The value range is [0x0, 0xFF].
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
-    blue: number;
+    blue: int;
 
     /**
      * Alpha
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
      * Alpha
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @form
      * @atomicservice
@@ -576,14 +671,15 @@ declare namespace effectKit {
      */
     /**
      * Value of the alpha component. The value range is [0x0, 0xFF].
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
-    alpha: number;
+    alpha: int;
   }
 
   /**
@@ -604,15 +700,15 @@ declare namespace effectKit {
    */
   /**
    * Creates a Filter instance based on a pixel map.
-   * @param { image.PixelMap } source - PixelMap instance created by the image module. An instance can be obtained 
+   * @param { image.PixelMap } source - PixelMap instance created by the image module. An instance can be obtained
    * by decoding an image or directly created. For details, see Image Overview.
    * @returns { Filter } Head node of the filter linked list without any effect. If the operation fails, null is returned.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   function createEffect(source: image.PixelMap): Filter;
 
@@ -636,7 +732,7 @@ declare namespace effectKit {
    */
   /**
    * Creates a ColorPicker instance based on a pixel map. This API uses a promise to return the result.
-   * @param { image.PixelMap } source - PixelMap instance created by the image module. An instance can be 
+   * @param { image.PixelMap } source - PixelMap instance created by the image module. An instance can be
    * obtained by decoding an image or directly created. For details, see Image Overview.
    * @returns { Promise<ColorPicker> } - Promise used to return the ColorPicker instance created.
    * @throws { BusinessError } 401 - Input parameter error.
@@ -644,14 +740,15 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 22 static
    */
   function createColorPicker(source: image.PixelMap): Promise<ColorPicker>;
 
   /**
    * Create a color picker to get color of an image.
    * @param { image.PixelMap } source - the source pixelmap.
-   * @param { Array<number> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
+   * @param { Array<double> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
    * default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
    * @returns { Promise<ColorPicker> } - returns the ColorPicker generated.
    * @throws { BusinessError } 401 - Input parameter error.
@@ -661,7 +758,7 @@ declare namespace effectKit {
   /**
    * Create a color picker to get color of an image.
    * @param { image.PixelMap } source - the source pixelmap.
-   * @param { Array<number> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
+   * @param { Array<double> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
    * default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
    * @returns { Promise<ColorPicker> } - returns the ColorPicker generated.
    * @throws { BusinessError } 401 - Input parameter error.
@@ -674,7 +771,7 @@ declare namespace effectKit {
    * Creates a ColorPicker instance for the selected region based on a pixel map. This API uses a promise to return the result.
    * @param { image.PixelMap } source - PixelMap instance created by the image module. An instance can be obtained by decoding
    *  an image or directly created. For details, see Image Overview.
-   * @param { Array<number> } region - Region of the image from which the color is picked.
+   * @param { Array<double> } region - Region of the image from which the color is picked.
    *  The array consists of four elements, representing the left, top, right, and bottom positions of the image, respectively.
    *  The value of each element must be in the range [0, 1]. The leftmost and topmost positions of the image correspond to 0,
    *  and the rightmost and bottom positions correspond to 1. In the array, the third element must be greater than the first element,
@@ -685,9 +782,10 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 22 static
    */
-  function createColorPicker(source: image.PixelMap, region: Array<number>): Promise<ColorPicker>;
+  function createColorPicker(source: image.PixelMap, region: Array<double>): Promise<ColorPicker>;
 
   /**
    * Create a color picker to get color of an image.
@@ -717,14 +815,15 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 22 static
    */
   function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>): void;
   
   /**
    * Create a color picker to get color of an image.
    * @param { image.PixelMap } source - the source pixelmap.
-   * @param { Array<number> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
+   * @param { Array<double> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
    * default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
    * @param { AsyncCallback<ColorPicker> } callback - the callback of createColorPicker.
    * @throws { BusinessError } 401 - Input parameter error.
@@ -734,7 +833,7 @@ declare namespace effectKit {
   /**
    * Create a color picker to get color of an image.
    * @param { image.PixelMap } source - the source pixelmap.
-   * @param { Array<number> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
+   * @param { Array<double> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
    * default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
    * @param { AsyncCallback<ColorPicker> } callback - the callback of createColorPicker.
    * @throws { BusinessError } 401 - Input parameter error.
@@ -748,7 +847,7 @@ declare namespace effectKit {
    * @param { image.PixelMap } source - PixelMap instance created by the image module. An instance can be obtained by decoding an
    *  image or directly created. For details, see Image Overview.PixelMap instance created by the image module. An instance can be
    *  obtained by decoding an image or directly created. For details, see Image Overview.
-   * @param { Array<number> } region - Region of the image from which the color is picked.
+   * @param { Array<double> } region - Region of the image from which the color is picked.
    *  The array consists of four elements, representing the left, top, right, and bottom positions of the image, respectively.
    *  The value of each element must be in the range [0, 1]. The leftmost and topmost positions of the image correspond to 0,
    *  and the rightmost and bottom positions correspond to 1. In the array, the third element must be greater than the first element,
@@ -759,23 +858,26 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 22 static
    */
-  function createColorPicker(source: image.PixelMap, region: Array<number>, callback: AsyncCallback<ColorPicker>): void;
+  function createColorPicker(source: image.PixelMap, region: Array<double>, callback: AsyncCallback<ColorPicker>): void;
 
   /**
    * Enumerates the tile modes of the shader effect.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 14
+   * @since 14 dynamic
+   * @since 22 static
    */
   enum TileMode {
     /**
      * Replicates the edge color if the shader effect draws outside of its original boundary.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
     CLAMP = 0,
 
@@ -783,7 +885,8 @@ declare namespace effectKit {
      * Repeats the shader effect in both horizontal and vertical directions.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
     REPEAT = 1,
 
@@ -791,7 +894,8 @@ declare namespace effectKit {
      * Repeats the shader effect in both horizontal and vertical directions, alternating mirror images.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
     MIRROR = 2,
 
@@ -799,10 +903,158 @@ declare namespace effectKit {
      * Renders the shader effect only within the original boundary.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
     DECAL = 3,
   }
+
+  /**
+   * Enumerates the shade degree of an image.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  enum PictureShadeDegree {
+    /**
+     * The shade degree of the image is unknown.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    UNKNOWN_SHADE_DEGREE_PICTURE = 0,
+
+    /**
+     * The shade degree of the image is extremely light.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    EXTREMELY_LIGHT_PICTURE = 1,
+
+    /**
+     * The shade degree of the image is very light.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    VERY_LIGHT_PICTURE = 2,
+
+    /**
+     * The shade degree of the image is light.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    LIGHT_PICTURE = 3,
+
+    /**
+     * The shade degree of the image is moderate.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    MODERATE_SHADE_PICTURE = 4,
+
+    /**
+     * The shade degree of the image is dark.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    DARK_PICTURE = 5,
+
+    /**
+     * The shade degree of the image is extremely dark.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    EXTREMELY_DARK_PICTURE = 6,
+  }
+
+  /**
+   * Enumerates the complexity degree of an image.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  enum PictureComplexityDegree {
+    /**
+     * The complexity degree of the image is unknown.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    UNKNOWN_COMPLEXITY_DEGREE_PICTURE = 0,
+
+    /**
+     * The complexity degree of the image is pure.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    PURE_PICTURE = 1,
+
+    /**
+     * The complexity degree of the image is moderate.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    MODERATE_COMPLEXITY_PICTURE = 2,
+
+    /**
+     * The complexity degree of the image is very flowery.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    VERY_FLOWERY_PICTURE = 3,
+  }
+
+/**
+ * The center of the elliptical mask, 
+ * specifying where the ellipse mask is anchored in function 'ellipticalGradientBlur'.
+ * @typedef { [double, double] } EllipticalMaskCenter
+ * @syscap SystemCapability.Multimedia.Image.Core
+ * @stagemodelonly
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+type EllipticalMaskCenter = [
+  double,
+  double
+];
+
+/**
+ * The major axis and minor axis of the elliptical mask
+ * used in function 'ellipticalGradientBlur'.
+ * @typedef { [double, double] } EllipticalMaskRadius
+ * @syscap SystemCapability.Multimedia.Image.Core
+ * @stagemodelonly
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+type EllipticalMaskRadius = [
+  double,
+  double
+];
 }
 
 export default effectKit;

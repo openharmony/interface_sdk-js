@@ -31,7 +31,8 @@
  * @namespace customConfig
  * @syscap SystemCapability.Customization.CustomConfig
  * @atomicservice
- * @since 13
+ * @since 13 dynamic
+ * @since 22 static
  */
 declare namespace customConfig {
   
@@ -48,7 +49,8 @@ declare namespace customConfig {
    * @returns { string } the channelId or empty if not exist.
    * @syscap SystemCapability.Customization.CustomConfig
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
+   * @since 22 static
    */
   function getChannelId(): string;
 

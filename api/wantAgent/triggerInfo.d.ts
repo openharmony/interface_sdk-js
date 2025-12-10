@@ -20,6 +20,9 @@
 
 import Want from '../@ohos.app.ability.Want';
 import StartOptions from '../@ohos.app.ability.StartOptions';
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
 
 /**
  * Provides the information required for triggering a WantAgent.
@@ -34,8 +37,8 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  * @typedef TriggerInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 22 static
  */
 export interface TriggerInfo {
   /**
@@ -48,13 +51,13 @@ export interface TriggerInfo {
   /**
    * Result code.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
-  code: number;
+  code: int;
 
   /**
    * Extra Want.
@@ -79,8 +82,8 @@ export interface TriggerInfo {
    * @type { ?Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   want?: Want;
 
@@ -101,8 +104,8 @@ export interface TriggerInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   permission?: string;
 
@@ -119,19 +122,18 @@ export interface TriggerInfo {
    * @type { ?object }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   extraInfo?: { [key: string]: any };
 
   /**
    * Custom extra data you want to add for triggering a WantAgent.
    *
-   * @type { ?Record<string, Object> }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
-  extraInfo?: Record<string, Object>;
+  extraInfo?: Record<string, RecordData>;
 
   /**
    * Custom extra data you want to add for triggering a WantAgent.
@@ -148,10 +150,19 @@ export interface TriggerInfo {
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   extraInfos?: Record<string, Object>;
+
+  /**
+   * Custom extra data you want to add for triggering a WantAgent.
+   * The ability of this property is same as extraInfo. If both are set, this property will be used.
+   *
+   * @type { ?Record<string, RecordData> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 22 static
+   */
+  extraInfos?: Record<string, RecordData>;
 
   /**
    * Specific options for triggering a wantagent which is used for starting an ability.
@@ -160,8 +171,8 @@ export interface TriggerInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
    startOptions?: StartOptions;
 }

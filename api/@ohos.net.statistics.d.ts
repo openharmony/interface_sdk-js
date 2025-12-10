@@ -32,20 +32,22 @@ import type connection from './@ohos.net.connection';
  * @namespace statistics
  * @syscap SystemCapability.Communication.NetManager.Core
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
+ * @since 22 static
  */
 declare namespace statistics {
   /**
    * @typedef {connection.NetBearType}
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   type NetBearType = connection.NetBearType;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received through a specified NIC.
    * @param { string } nic - Network interface card.
-   * @param { AsyncCallback<number> } callback - Returns the data traffic received through the specified NIC.
+   * @param { AsyncCallback<long> } callback - Returns the data traffic received through the specified NIC.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -53,14 +55,15 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
-  function getIfaceRxBytes(nic: string, callback: AsyncCallback<number>): void;
+  function getIfaceRxBytes(nic: string, callback: AsyncCallback<long>): void;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received through a specified NIC.
    * @param { string } nic - Network interface card.
-   * @returns { Promise<number> } The promise returned by the function.
+   * @returns { Promise<long> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -68,14 +71,15 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
-  function getIfaceRxBytes(nic: string): Promise<number>;
+  function getIfaceRxBytes(nic: string): Promise<long>;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through a specified NIC.
    * @param { string } nic - Network interface card.
-   * @param { AsyncCallback<number> } callback - Returns the data traffic sent through the specified NIC.
+   * @param { AsyncCallback<long> } callback - Returns the data traffic sent through the specified NIC.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -83,14 +87,15 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
-  function getIfaceTxBytes(nic: string, callback: AsyncCallback<number>): void;
+  function getIfaceTxBytes(nic: string, callback: AsyncCallback<long>): void;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through a specified NIC.
    * @param { string } nic - Network interface card.
-   * @returns { Promise<number> } The promise returned by the function.
+   * @returns { Promise<long> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -98,88 +103,70 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
-  function getIfaceTxBytes(nic: string): Promise<number>;
+  function getIfaceTxBytes(nic: string): Promise<long>;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received through the cellular network.
-   * @param { AsyncCallback<number> } callback - Returns the data traffic received through the cellular network.
+   * @param { AsyncCallback<long> } callback - Returns the data traffic received through the cellular network.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
-  function getCellularRxBytes(callback: AsyncCallback<number>): void;
+  function getCellularRxBytes(callback: AsyncCallback<long>): void;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received through the cellular network.
-   * @returns { Promise<number> } The promise returned by the function.
+   * @returns { Promise<long> } The promise returned by the function.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
-  function getCellularRxBytes(): Promise<number>;
+  function getCellularRxBytes(): Promise<long>;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through the cellular network.
-   * @param { AsyncCallback<number> } callback - Returns the data traffic sent through the cellular network.
+   * @param { AsyncCallback<long> } callback - Returns the data traffic sent through the cellular network.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
-  function getCellularTxBytes(callback: AsyncCallback<number>): void;
+  function getCellularTxBytes(callback: AsyncCallback<long>): void;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through the cellular network.
-   * @returns { Promise<number> } The promise returned by the function.
+   * @returns { Promise<long> } The promise returned by the function.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
-  function getCellularTxBytes(): Promise<number>;
+  function getCellularTxBytes(): Promise<long>;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received through all NICs.
-   * @param { AsyncCallback<number> } callback - Returns the data traffic received through all NICs.
-   * @throws { BusinessError } 2100002 - Failed to connect to the service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read the system map.
-   * @throws { BusinessError } 2103011 - Failed to create a system map.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
-   */
-  /**
-   * Queries the data traffic (including all TCP and UDP data packets) received through all NICs.
-   * @param { AsyncCallback<number> } callback - Returns the data traffic received through all NICs.
-   * @throws { BusinessError } 2100002 - Failed to connect to the service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read the system map.
-   * @throws { BusinessError } 2103011 - Failed to create a system map.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @atomicservice
-   * @since 15
-   */
-  function getAllRxBytes(callback: AsyncCallback<number>): void;
-
-  /**
-   * Queries the data traffic (including all TCP and UDP data packets) received through all NICs.
-   * @returns { Promise<number> } The promise returned by the function.
+   * @param { AsyncCallback<int> } callback - Returns the data traffic received through all NICs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read the system map.
@@ -189,20 +176,45 @@ declare namespace statistics {
    */
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received through all NICs.
-   * @returns { Promise<number> } The promise returned by the function.
+   * @param { AsyncCallback<long> } callback - Returns the data traffic received through all NICs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
+   * @since 22 static
    */
-  function getAllRxBytes(): Promise<number>;
+  function getAllRxBytes(callback: AsyncCallback<long>): void;
+
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) received through all NICs.
+   * @returns { Promise<long> } The promise returned by the function.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) received through all NICs.
+   * @returns { Promise<long> } The promise returned by the function.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 15 dynamic
+   * @since 22 static
+   */
+  function getAllRxBytes(): Promise<long>;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through all NICs.
-   * @param { AsyncCallback<number> } callback - Returns the data traffic sent through all NICs.
+   * @param { AsyncCallback<long> } callback - Returns the data traffic sent through all NICs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read the system map.
@@ -212,20 +224,21 @@ declare namespace statistics {
    */
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through all NICs.
-   * @param { AsyncCallback<number> } callback - Returns the data traffic sent through all NICs.
+   * @param { AsyncCallback<long> } callback - Returns the data traffic sent through all NICs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
+   * @since 22 static
    */
-  function getAllTxBytes(callback: AsyncCallback<number>): void;
+  function getAllTxBytes(callback: AsyncCallback<long>): void;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through all NICs.
-   * @returns { Promise<number> } The promise returned by the function.
+   * @returns { Promise<long> } The promise returned by the function.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read the system map.
@@ -235,78 +248,83 @@ declare namespace statistics {
    */
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through all NICs.
-   * @returns { Promise<number> } The promise returned by the function.
+   * @returns { Promise<long> } The promise returned by the function.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
+   * @since 22 static
    */
-  function getAllTxBytes(): Promise<number>;
+  function getAllTxBytes(): Promise<long>;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received by a specified application.
-   * @param { number } uid - Indicates the process ID of the application.
-   * @param { AsyncCallback<number> } callback - Returns the data traffic received by the specified application.
+   * @param { int } uid - Indicates the process ID of the application.
+   * @param { AsyncCallback<long> } callback - Returns the data traffic received by the specified application.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
-  function getUidRxBytes(uid: number, callback: AsyncCallback<number>): void;
+  function getUidRxBytes(uid: int, callback: AsyncCallback<long>): void;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received by a specified application.
-   * @param { number } uid - Indicates the process ID of the application.
-   * @returns { Promise<number> } The promise returned by the function.
+   * @param { int } uid - Indicates the process ID of the application.
+   * @returns { Promise<long> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
-  function getUidRxBytes(uid: number): Promise<number>;
+  function getUidRxBytes(uid: int): Promise<long>;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent by a specified application.
-   * @param { number } uid - Indicates the process ID of the application.
-   * @param { AsyncCallback<number> } callback - Returns the data traffic sent by the specified application.
+   * @param { int } uid - Indicates the process ID of the application.
+   * @param { AsyncCallback<long> } callback - Returns the data traffic sent by the specified application.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
-  function getUidTxBytes(uid: number, callback: AsyncCallback<number>): void;
+  function getUidTxBytes(uid: int, callback: AsyncCallback<long>): void;
   
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent by a specified application.
-   * @param { number } uid - Indicates the process ID of the application.
-   * @returns { Promise<number> } The promise returned by the function.
+   * @param { int } uid - Indicates the process ID of the application.
+   * @returns { Promise<long> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
-  function getUidTxBytes(uid: number): Promise<number>;
+  function getUidTxBytes(uid: int): Promise<long>;
 
   /**
    * Register notifications of network traffic updates.
    * @permission ohos.permission.GET_NETWORK_STATS
    * @param { 'netStatsChange' } type - Indicates Event name.
-   * @param { Callback<{ iface: string, uid?: number }> } callback - The callback of on.
+   * @param { Callback<{ iface: string, uid?: int }> } callback - The callback of on.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -328,15 +346,29 @@ declare namespace statistics {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'netStatsChange', callback: Callback<NetStatsChangeInfo>): void;
+
+  /**
+   * Register notifications of network traffic updates.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { Callback<NetStatsChangeInfo> } callback - The callback of on.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onNetStatsChange(callback: Callback<NetStatsChangeInfo>): void;
 
   /**
    * Unregister notifications of network traffic updates.
    * @permission ohos.permission.GET_NETWORK_STATS
    * @param { 'netStatsChange' } type - Indicates Event name.
-   * @param { Callback<{ iface: string, uid?: number }> } callback - The callback of off.
+   * @param { Callback<{ iface: string, uid?: int }> } callback - The callback of off.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -358,9 +390,23 @@ declare namespace statistics {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function off(type: 'netStatsChange', callback?: Callback<NetStatsChangeInfo>): void;
+
+  /**
+   * Unregister notifications of network traffic updates.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { Callback<NetStatsChangeInfo> } [callback] - The callback of off.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offNetStatsChange(callback?: Callback<NetStatsChangeInfo>): void;
 
   /**
    * Get the traffic usage details of the network interface in the specified time period.
@@ -376,7 +422,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   function getTrafficStatsByIface(ifaceInfo: IfaceInfo, callback: AsyncCallback<NetStatsInfo>): void;
   
@@ -394,7 +441,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   function getTrafficStatsByIface(ifaceInfo: IfaceInfo): Promise<NetStatsInfo>;
 
@@ -412,7 +460,8 @@ declare namespace statistics {
    * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   function getTrafficStatsByUid(uidInfo: UidInfo, callback: AsyncCallback<NetStatsInfo>): void;
   
@@ -430,68 +479,74 @@ declare namespace statistics {
    * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   function getTrafficStatsByUid(uidInfo: UidInfo): Promise<NetStatsInfo>;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received through a specified sockfd.
-   * @param { number } sockfd - Indicates the file descriptor of the given socket.
-   * @param { AsyncCallback<number> } callback - Returns the data traffic bytes received by the specified sockfd.
+   * @param { int } sockfd - Indicates the file descriptor of the given socket.
+   * @param { AsyncCallback<long> } callback - Returns the data traffic bytes received by the specified sockfd.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
-  function getSockfdRxBytes(sockfd: number, callback: AsyncCallback<number>): void;
+  function getSockfdRxBytes(sockfd: int, callback: AsyncCallback<long>): void;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received through a specified sockfd.
-   * @param { number } sockfd - Indicates the file descriptor of the given socket.
-   * @returns { Promise<number> } Returns the data traffic bytes received by the specified sockfd.
+   * @param { int } sockfd - Indicates the file descriptor of the given socket.
+   * @returns { Promise<long> } Returns the data traffic bytes received by the specified sockfd.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
-  function getSockfdRxBytes(sockfd: number): Promise<number>;
+  function getSockfdRxBytes(sockfd: int): Promise<long>;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through a specified sockfd.
-   * @param { number } sockfd - Indicates the file descriptor of the given socket.
-   * @param { AsyncCallback<number> } callback - Returns the data traffic bytes sent by the specified sockfd.
+   * @param { int } sockfd - Indicates the file descriptor of the given socket.
+   * @param { AsyncCallback<long> } callback - Returns the data traffic bytes sent by the specified sockfd.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
-  function getSockfdTxBytes(sockfd: number, callback: AsyncCallback<number>): void;
+  function getSockfdTxBytes(sockfd: int, callback: AsyncCallback<long>): void;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through a specified sockfd.
-   * @param { number } sockfd - Indicates the file descriptor of the given socket.
-   * @returns { Promise<number> } Returns the data traffic bytes sent by the specified sockfd.
+   * @param { int } sockfd - Indicates the file descriptor of the given socket.
+   * @returns { Promise<long> } Returns the data traffic bytes sent by the specified sockfd.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
-  function getSockfdTxBytes(sockfd: number): Promise<number>;
+  function getSockfdTxBytes(sockfd: int): Promise<long>;
 
   /**
    * Parameters for obtaining detailed information on network interface traffic usage.
    * @interface IfaceInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   export interface IfaceInfo {
     /**
@@ -499,27 +554,30 @@ declare namespace statistics {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     iface: string;
 
     /**
      * Start time for querying traffic.
-     * @type {number}
+     * @type {int}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
-    startTime: number;
+    startTime: int;
 
     /**
      * End time for querying traffic.
-     * @type {number}
+     * @type {int}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
-    endTime: number;
+    endTime: int;
   }
 
   /**
@@ -527,7 +585,8 @@ declare namespace statistics {
    * @interface UidInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   export interface UidInfo {
     /**
@@ -535,18 +594,20 @@ declare namespace statistics {
      * @type {IfaceInfo}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     ifaceInfo: IfaceInfo;
 
     /**
      * Uid of app for querying traffic.
-     * @type {number}
+     * @type {int}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
-    uid: number;
+    uid: int;
   }
 
   /**
@@ -554,44 +615,74 @@ declare namespace statistics {
    * @interface NetStatsInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
+   */
+  /**
+   * Detailed information of statistics.
+   * @interface NetStatsInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 22 dynamic&static
    */
   export interface NetStatsInfo {
     /**
      * Bytes of received.
-     * @type {number}
+     * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
-    rxBytes: number;
+    /**
+     * Bytes of received.
+     * @type {long}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic&static
+     */
+    rxBytes: long;
 
     /**
      * Bytes of send.
-     * @type {number}
+     * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
-    txBytes: number;
+    /**
+     * Bytes of send.
+     * @type {long}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic&static
+     */
+    txBytes: long;
 
     /**
      * Packets of received.
-     * @type {number}
+     * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
-    rxPackets: number;
+    /**
+     * Packets of received.
+     * @type {long}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic&static
+     */
+    rxPackets: long;
 
     /**
      * Packets of send.
-     * @type {number}
+     * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
-    txPackets: number;
+    /**
+     * Packets of send.
+     * @type {long}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic&static
+     */
+    txPackets: long;
   }
 
   /**
@@ -599,7 +690,8 @@ declare namespace statistics {
    * @interface NetStatsChangeInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   export interface NetStatsChangeInfo {
     /**
@@ -607,42 +699,44 @@ declare namespace statistics {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     iface: string;
     /**
      * Network interface for querying traffic.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
-    uid?: number;
+    uid?: int;
   }
 
   /**
    * An {@link NetStatsInfo} array with start time and end time.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
    */
   export type NetStatsInfoSequence = {
     /**
      * Start time for querying traffic.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    startTime: number;
+    startTime: int;
     /**
      * End time for querying traffic.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    endTime: number;
+    endTime: int;
     /**
      * Detailed information of statistics.
      * @type { NetStatsInfo }
@@ -654,21 +748,77 @@ declare namespace statistics {
   }[];
 
   /**
+   * Array of {@link NetStatsInfoSequenceItem}.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  export type NetStatsInfoSequence = Array<NetStatsInfoSequenceItem>;
+
+  /**
+   * Parameters for an {@link NetStatsInfo} with start time and end time.
+   * @interface NetStatsInfoSequenceItem
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  export interface NetStatsInfoSequenceItem {
+    /**
+     * Start time for querying traffic.
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    startTime: int;
+    /**
+     * End time for querying traffic.
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    endTime: int;
+    /**
+     * Detailed information of statistics.
+     * @type { NetStatsInfo }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    info: NetStatsInfo;
+  }
+
+  /**
    * {@link NetStatsInfo} for every UID. Key is UID.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
    */
   export type UidNetStatsInfo = {
-    [uid: number]: NetStatsInfo;
+    [uid: int]: NetStatsInfo;
   };
+
+  /**
+   * {@link NetStatsInfo} for every UID. Key is UID.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  export type UidNetStatsInfo = Record<int, NetStatsInfo>;
 
   /**
    * Parameters for obtaining detailed information on specified network traffic usage.
    * @interface NetworkInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   */
+  /**
+   * Parameters for obtaining detailed information on specified network traffic usage.
+   * @interface NetworkInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 22 dynamic&static
    */
   export interface NetworkInfo {
     /**
@@ -676,33 +826,57 @@ declare namespace statistics {
      * @type { NetBearType }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Network type for querying traffic.
+     * @type { NetBearType }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic&static
      */
     type: NetBearType;
     /**
      * Start time for querying traffic.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
      */
-    startTime: number;
+    /**
+     * Start time for querying traffic.
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic&static
+     */
+    startTime: int;
     /**
      * End time for querying traffic.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
      */
-    endTime: number;
+    /**
+     * End time for querying traffic.
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic&static
+     */
+    endTime: int;
     /**
      * SIM card id for querying traffic.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
      */
-    simId?: number;
+    /**
+     * SIM card id for querying traffic.
+     * @type { ?int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic&static
+     */
+    simId?: int;
   }
 
   /**
@@ -719,13 +893,14 @@ declare namespace statistics {
    * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   function getTrafficStatsByNetwork(networkInfo: NetworkInfo): Promise<UidNetStatsInfo>;
   /**
    * Get the traffic usage sequence of the specified network of the application in the specified time period.
    * @permission ohos.permission.GET_NETWORK_STATS
-   * @param { number } uid - UID with this parameter, get stats info of this UID.
+   * @param { int } uid - UID with this parameter, get stats info of this UID.
    * @param { NetworkInfo } networkInfo - Information about the network to be queried.
    * @returns { Promise<NetStatsInfoSequence> } The statistics history of the sim card.
    * @throws { BusinessError } 201 - Permission denied.
@@ -737,9 +912,42 @@ declare namespace statistics {
    * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
-  function getTrafficStatsByUidNetwork(uid: number, networkInfo: NetworkInfo): Promise<NetStatsInfoSequence>;
+  function getTrafficStatsByUidNetwork(uid: int, networkInfo: NetworkInfo): Promise<NetStatsInfoSequence>;
+
+  /**
+   * Get the traffic usage details of the specified network of the calling application
+   *     in the specified time period and the specified networktype.
+   * @param { NetworkInfo } networkInfo - Information about the network to be queried.
+   * @returns { Promise<NetStatsInfo> } The statistics of the calling application.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103017 - Failed to read the database.
+   * @throws { BusinessError } 2103019 - The timestamp in param is invalid.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 22 dynamic&static
+   */
+  function getSelfTrafficStats(networkInfo: NetworkInfo): Promise<NetStatsInfo>;
+
+  /**
+   * Get this month traffic data of the cellular network.
+   *
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { int } simId - The id of the specified sim card.
+   * @returns { Promise<long> } The statistics of the simId in this month.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  function getMonthTrafficStats(simId: int): Promise<long>;
 }
 
 export default statistics;

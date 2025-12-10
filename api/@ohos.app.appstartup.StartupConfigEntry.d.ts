@@ -26,18 +26,29 @@ import Want from './@ohos.app.ability.Want';
  *
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
- * @since 12
+ * @since 12 dynamic
+ * @since 22 static
  */
-export default class StartupConfigEntry {
+declare class StartupConfigEntry {
   /**
    * Called when startup initialization to configure startup mode.
    *
    * @returns { StartupConfig } The developer returns a startup configuration.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   onConfig?(): StartupConfig;
+
+  /**
+   * Called when startup initialization to configure startup mode.
+   *
+   * @returns { StartupConfig } The developer returns a startup configuration.
+   * @syscap SystemCapability.Ability.AppStartup
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onConfig(): StartupConfig;
 
   /**
    * Called to obtain a custom match rule during application launch.
@@ -51,7 +62,10 @@ export default class StartupConfigEntry {
    * @returns { string } Custom match rule
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   onRequestCustomMatchRule(want: Want): string;
 }
+
+export default StartupConfigEntry;

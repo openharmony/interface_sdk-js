@@ -18,13 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonMethod, PixelMap } from './common';
-import { ResourceColor, Length } from './units';
-import { Resource } from '../../global/resource';
-import { LineCapStyle, LineJoinStyle } from './enums';
-/*** endif */
-
 /**
  * Viewport bounding box.
  *
@@ -33,8 +26,7 @@ import { LineCapStyle, LineJoinStyle } from './enums';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 declare interface ViewportRect {
   /**
@@ -90,24 +82,11 @@ declare interface ViewportRect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   x?: Length;
 
   /**
-   * Viewport X coordinate.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  x?: number | string;
-
-  /**
    * Viewport Y coordinate.
    *
    * @type { ?(number | string) }
@@ -160,24 +139,11 @@ declare interface ViewportRect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   y?: Length;
 
   /**
-   * Viewport Y coordinate.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  y?: number | string;
-
-  /**
    * Viewport width.
    *
    * @type { ?(number | string) }
@@ -230,24 +196,11 @@ declare interface ViewportRect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   width?: Length;
 
   /**
-   * Viewport width.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  width?: number | string;
-
-  /**
    * Viewport height.
    *
    * @type { ?(number | string) }
@@ -300,22 +253,9 @@ declare interface ViewportRect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   height?: Length;
-
-  /**
-   * Viewport height.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  height?: number | string
 }
 
 /**
@@ -350,7 +290,7 @@ declare interface ViewportRect {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ShapeInterface {
   /**
@@ -372,7 +312,7 @@ interface ShapeInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   new (value?: PixelMap): ShapeAttribute;
 
@@ -401,7 +341,7 @@ interface ShapeInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (value: PixelMap): ShapeAttribute;
 
@@ -437,7 +377,7 @@ interface ShapeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (): ShapeAttribute;
 }
@@ -466,8 +406,7 @@ interface ShapeInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
@@ -518,8 +457,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   viewPort(value: ViewportRect): ShapeAttribute;
 
@@ -559,8 +497,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   stroke(value: ResourceColor): ShapeAttribute;
 
@@ -600,8 +537,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   fill(value: ResourceColor): ShapeAttribute;
 
@@ -652,25 +588,11 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   strokeDashOffset(value: Length): ShapeAttribute;
 
   /**
-   * Called when the offset of the starting point of border drawing is set.
-   *
-   * @param { number | string } value
-   * @returns { ShapeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  strokeDashOffset(value: number | string): ShapeAttribute;
-
-  /**
    * Called when the gap of the border is set.
    *
    * @param { Array<any> } value
@@ -706,25 +628,11 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   strokeDashArray(value: Array<any>): ShapeAttribute;
 
   /**
-   * Called when the gap of the border is set.
-   *
-   * @param { Array<Length> } value
-   * @returns { ShapeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  strokeDashArray(value: Array<Length>): ShapeAttribute;
-
-  /**
    * Called when the path endpoint drawing style is set.
    *
    * @param { LineCapStyle } value
@@ -760,8 +668,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   strokeLineCap(value: LineCapStyle): ShapeAttribute;
 
@@ -801,8 +708,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   strokeLineJoin(value: LineJoinStyle): ShapeAttribute;
 
@@ -853,23 +759,9 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   strokeMiterLimit(value: Length): ShapeAttribute;
-
-  /**
-   * Called when the limit value for drawing acute angles as oblique angles is set.
-   *
-   * @param { number | string } value
-   * @returns { ShapeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  strokeMiterLimit(value: number | string): ShapeAttribute;
 
   /**
    * Called when the opacity of the border is set.
@@ -907,8 +799,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   strokeOpacity(value: number | string | Resource): ShapeAttribute;
 
@@ -948,8 +839,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   fillOpacity(value: number | string | Resource): ShapeAttribute;
 
@@ -1000,23 +890,9 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   strokeWidth(value: Length): ShapeAttribute;
-
-  /**
-   * Called when the width of the border is set.
-   *
-   * @param { number | string } value
-   * @returns { ShapeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  strokeWidth(value: number | string): ShapeAttribute;
 
   /**
    * Called when setting whether anti aliasing is on.
@@ -1054,8 +930,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   antiAlias(value: boolean): ShapeAttribute;
 
@@ -1103,25 +978,9 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   mesh(value: Array<any>, column: number, row: number): ShapeAttribute;
-
-  /**
-   * Called when shape mesh.
-   *
-   * @param { Array<number> } value
-   * @param { number } column
-   * @param { number } row
-   * @returns { ShapeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  mesh(value: Array<number>, column: number, row: number): ShapeAttribute;
 }
 
 /**
@@ -1152,7 +1011,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Shape: ShapeInterface;
 
@@ -1184,32 +1043,6 @@ declare const Shape: ShapeInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const ShapeInstance: ShapeAttribute;
-
-/**
- * Provides interfaces for drawing components.
- *
- * @interface ShapeInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-interface ShapeInterface {
-  /**
-   * Shape component constructor.
-   *
-   * @param { PixelMap } [value] - PixelMap object to draw.
-   * @returns { ShapeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (value?: PixelMap): ShapeAttribute;
-}

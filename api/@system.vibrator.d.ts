@@ -22,8 +22,9 @@
  * @interface VibrateOptions
  * @permission ohos.permission.VIBRATE
  * @syscap SystemCapability.Sensors.MiscDevice.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.vibrator/vibrator.VibrateTime
  */
 export interface VibrateOptions {
@@ -34,8 +35,9 @@ export interface VibrateOptions {
    * @permission ohos.permission.VIBRATE
    * @type { ?('long' | 'short') }
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   mode?: 'long' | 'short';
 
@@ -45,8 +47,9 @@ export interface VibrateOptions {
    * @permission ohos.permission.VIBRATE
    * @type { function }
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   success: () => void;
 
@@ -56,8 +59,9 @@ export interface VibrateOptions {
    * @permission ohos.permission.VIBRATE
    * @type { ?function }
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -67,8 +71,9 @@ export interface VibrateOptions {
    * @permission ohos.permission.VIBRATE
    * @type { ?function }
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -76,8 +81,9 @@ export interface VibrateOptions {
 /**
  * @permission ohos.permission.VIBRATE
  * @syscap SystemCapability.Sensors.MiscDevice.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.vibrator/vibrator
  */
 export default class Vibrator {
@@ -87,8 +93,9 @@ export default class Vibrator {
    * @permission ohos.permission.VIBRATE
    * @param { VibrateOptions } options Options.
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.vibrator/vibrator#startVibration
    */
   static vibrate(options?: VibrateOptions): void;

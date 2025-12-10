@@ -19,6 +19,26 @@
  */
 
 /**
+ * Prepare the unit testing environment for running test cases.
+ *
+ * @typedef { Function }
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 23 dynamic&static
+ */
+type OnPrepareFn = () => void;
+
+/**
+ * Run all test cases.
+ * 
+ * @typedef { Function }
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 23 dynamic&static
+ */
+type OnRunFn = () => void;
+
+/**
  * Base class for the test framework.
  * If you want to implement your own unit test framework, you must inherit this class and overrides all its methods.
  *
@@ -33,8 +53,8 @@
  * @interface TestRunner
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 interface TestRunner {
   /**
@@ -48,10 +68,17 @@ interface TestRunner {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  onPrepare(): void;
+  /**
+   * Prepare the unit testing environment for running test cases.
+   * 
+   * @type { OnPrepareFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  onPrepare: OnPrepareFn;
 
   /**
    * Run all test cases.
@@ -64,13 +91,20 @@ interface TestRunner {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  onRun(): void;
+  /**
+   * Run all test cases.
+   *
+   * @typedef { OnRunFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  onRun: OnRunFn;
 }
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 export { TestRunner };
 /*** endif */
 export default TestRunner;

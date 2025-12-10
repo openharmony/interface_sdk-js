@@ -24,40 +24,40 @@
  * @typedef KioskStatus
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic
+ * @since 22 static
  */
 export interface KioskStatus {
   /**
-   * Whether current system is in kiosk mode.
+   * Whether current system is in Kiosk mode.
    *
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   isKioskMode: boolean;
 
   /**
-   * The bundle name of kiosk app.
+   * The bundle name of Kiosk app.
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   kioskBundleName: string;
 
   /**
-   * The budle uid of kiosk app.
+   * The budle uid of Kiosk app.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
-  kioskBundleUid: number;
+  kioskBundleUid: int;
 }

@@ -28,7 +28,8 @@ import type { Callback } from './@ohos.base';
  *
  * @namespace floatingBall
  * @syscap SystemCapability.Window.SessionManager
- * @since 20
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare namespace floatingBall {
   /**
@@ -36,7 +37,8 @@ declare namespace floatingBall {
    *
    * @returns { boolean } true if floating ball enabled, otherwise false.
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function isFloatingBallEnabled(): boolean;
 
@@ -51,7 +53,8 @@ declare namespace floatingBall {
    * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
    * @throws { BusinessError } 1300023 - Floating ball internal error.
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function create(config: FloatingBallConfiguration): Promise<FloatingBallController>;
 
@@ -60,7 +63,8 @@ declare namespace floatingBall {
    *
    * @interface FloatingBallConfiguration
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface FloatingBallConfiguration {
     /**
@@ -68,7 +72,8 @@ declare namespace floatingBall {
      *
      * @type { BaseContext }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     context: BaseContext;
   }
@@ -78,7 +83,8 @@ declare namespace floatingBall {
    *
    * @interface FloatingBallController
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface FloatingBallController {
     /**
@@ -96,7 +102,8 @@ declare namespace floatingBall {
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @throws { BusinessError } 1300025 - The floating ball state does not support this operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     startFloatingBall(params: FloatingBallParams): Promise<void>;
 
@@ -115,7 +122,8 @@ declare namespace floatingBall {
      * @throws { BusinessError } 1300027 - When updating the floating ball, the template type cannot be changed.
      * @throws { BusinessError } 1300028 - Updating static template-based floating balls is not supported.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     updateFloatingBall(params: FloatingBallParams): Promise<void>;
 
@@ -127,7 +135,8 @@ declare namespace floatingBall {
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     stopFloatingBall(): Promise<void>;
 
@@ -141,22 +150,49 @@ declare namespace floatingBall {
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
      */
     on(type: 'stateChange', callback: Callback<FloatingBallState>): void;
+  
+    /**
+     * Register floating ball stageChange event listener.
+     * 
+     * @param { Callback<FloatingBallState> } callback - Used to handle {'stateChange'} command.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300022 - Repeated floating ball operation.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onStateChange(callback: Callback<FloatingBallState>): void;
 
     /**
      * Unregister floating ball lifecycle event listener.
      * 
      * @param { 'stateChange' } type - Used to unregister listener for {'stateChange'} command.
-     * @param { Callback<FloatingBallState> } [callback] - Indicates the callback function.
+     * @param { Callback<FloatingBallState> } [callback] - Indicates the callback function. If not provided,
+     *     all callbacks for the given event type will be removed.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
      */
     off(type: 'stateChange', callback?: Callback<FloatingBallState>): void;
+
+    /**
+     * Unregister floating ball stageChange event listener.
+     * 
+     * @param { Callback<FloatingBallState> } [callback] - Indicates the callback function. If not provided,
+     *     all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offStateChange(callback?: Callback<FloatingBallState>): void;
 
     /**
      * Register floating ball click event listener.
@@ -168,22 +204,49 @@ declare namespace floatingBall {
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
      */
     on(type: 'click', callback: Callback<void>): void;
+  
+    /**
+     * Register floating ball click event listener.
+     * 
+     * @param { Callback<void> } callback - Used to handle {'click'} command.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300022 - Repeated floating ball operation.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onClick(callback: Callback<void>): void;
 
     /**
      * Unregister floating ball click event listener.
      * 
      * @param { 'click' } type - Used to unregister listener for {'click'} command.
-     * @param { Callback<void> } [callback] - Indicates the callback function.
+     * @param { Callback<void> } [callback] - Indicates the callback function. If not provided,
+     *     all callbacks for the given event type will be removed.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
      */
     off(type: 'click', callback?: Callback<void>): void;
+  
+    /**
+     * Unregister floating ball click event listener.
+     * 
+     * @param { Callback<void> } [callback] - Indicates the callback function. If not provided,
+     *     all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offClick(callback?: Callback<void>): void;
 
     /**
      * Get the info of floating ball window.
@@ -196,7 +259,8 @@ declare namespace floatingBall {
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @throws { BusinessError } 1300025 - The floating ball state does not support this operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     getFloatingBallWindowInfo(): Promise<FloatingBallWindowInfo>;
 
@@ -216,7 +280,8 @@ declare namespace floatingBall {
      * @throws { BusinessError } 1300025 - The floating ball state does not support this operation.
      * @throws { BusinessError } 1300026 - Failed to restore the main window.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     restoreMainWindow(want: Want): Promise<void>;
   }
@@ -226,7 +291,8 @@ declare namespace floatingBall {
    *
    * @interface FloatingBallParams
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface FloatingBallParams {
     /**
@@ -234,7 +300,8 @@ declare namespace floatingBall {
      *
      * @type { FloatingBallTemplate }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     template: FloatingBallTemplate;
     
@@ -243,7 +310,8 @@ declare namespace floatingBall {
      *
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     title: string;
     
@@ -252,7 +320,8 @@ declare namespace floatingBall {
      *
      * @type { ?string }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     content?: string;
     
@@ -261,7 +330,8 @@ declare namespace floatingBall {
      *
      * @type { ?string }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     backgroundColor?: string;
     
@@ -270,7 +340,8 @@ declare namespace floatingBall {
      *
      * @type { ?image.PixelMap }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     icon?: image.PixelMap;
   }
@@ -280,14 +351,16 @@ declare namespace floatingBall {
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum FloatingBallState {
     /**
      * FloatingBall window started.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     STARTED = 1,
   
@@ -295,7 +368,8 @@ declare namespace floatingBall {
      * FloatingBall window stopped.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     STOPPED = 2
   }
@@ -305,14 +379,16 @@ declare namespace floatingBall {
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum FloatingBallTemplate {
     /**
      * Static layout, support icon and title.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     STATIC = 1,
   
@@ -320,7 +396,8 @@ declare namespace floatingBall {
      * Normal layout, support title and content.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     NORMAL = 2,
   
@@ -328,7 +405,8 @@ declare namespace floatingBall {
      * Emphatic layout, support icon, title, and content.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     EMPHATIC = 3,
   
@@ -336,7 +414,8 @@ declare namespace floatingBall {
      * Simple layout, support title with 2-lines display.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     SIMPLE = 4
   }
@@ -346,18 +425,20 @@ declare namespace floatingBall {
    *
    * @interface FloatingBallWindowInfo
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface FloatingBallWindowInfo {
     /**
      * Indicates target window id.
      *
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
-    readonly windowId: number;
+    readonly windowId: int;
   }
 }
 

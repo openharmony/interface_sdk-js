@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,13 +20,17 @@
 
 import type distributedAccount from './@ohos.account.distributedAccount';
 import type { AsyncCallback, Callback } from './@ohos.base';
+/*** if arkts static */
+import type { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * This module provides the capability to manage os accounts.
  *
  * @namespace osAccount
  * @syscap SystemCapability.Account.OsAccount
- * @since 7
+ * @since 7 dynamic
+ * @since 22 static
  */
 declare namespace osAccount {
   /**
@@ -34,7 +38,8 @@ declare namespace osAccount {
    *
    * @returns { AccountManager } Returns the instance of the AccountManager.
    * @syscap SystemCapability.Account.OsAccount
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   function getAccountManager(): AccountManager;
 
@@ -43,7 +48,8 @@ declare namespace osAccount {
    *
    * @interface AccountManager
    * @syscap SystemCapability.Account.OsAccount
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   interface AccountManager {
     /**
@@ -55,7 +61,7 @@ declare namespace osAccount {
      * </p>
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -79,7 +85,7 @@ declare namespace osAccount {
      * </p>
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -93,9 +99,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300016 - The number of logged in accounts reaches the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    activateOsAccount(localId: number, callback: AsyncCallback<void>): void;
+    activateOsAccount(localId: int, callback: AsyncCallback<void>): void;
 
     /**
      * Activates a specified OS account on the target display.
@@ -107,8 +114,8 @@ declare namespace osAccount {
      * </p>
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { number } localId - Indicates the local ID of the OS account.
-     * @param { number } displayId - Indicates the ID of the target display.
+     * @param { int } localId - Indicates the local ID of the OS account.
+     * @param { long } displayId - Indicates the ID of the target display.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -122,9 +129,9 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300019 - Cross-display activation not supported.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21
+     * @since 23 dynamic&static
      */
-    activateOsAccount(localId: number, displayId: number): Promise<void>;
+    activateOsAccount(localId: int, displayId: long): Promise<void>;
 
     /**
      * Activates a specified OS account.
@@ -135,7 +142,7 @@ declare namespace osAccount {
      * </p>
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -159,7 +166,7 @@ declare namespace osAccount {
      * </p>
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -173,15 +180,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300016 - The number of logged in accounts reaches the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    activateOsAccount(localId: number): Promise<void>;
+    activateOsAccount(localId: int): Promise<void>;
 
     /**
      * Deactivates a specified OS account.
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -193,16 +201,17 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target account is being operated.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    deactivateOsAccount(localId: number): Promise<void>;
+    deactivateOsAccount(localId: int): Promise<void>;
 
     /**
      * Checks whether the function of supporting multiple OS accounts is enabled.
      *
      * @param { AsyncCallback<boolean> } callback - Returns {@code true} if this function is enabled; returns {@code false} otherwise.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#checkMultiOsAccountEnabled
      */
@@ -213,7 +222,7 @@ declare namespace osAccount {
      *
      * @returns { Promise<boolean> } Returns {@code true} if this function is enabled; returns {@code false} otherwise.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#checkMultiOsAccountEnabled
      */
@@ -227,7 +236,8 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     checkMultiOsAccountEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -237,7 +247,8 @@ declare namespace osAccount {
      * @returns { Promise<boolean> } Returns {@code true} if this function is enabled; returns {@code false} otherwise.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     checkMultiOsAccountEnabled(): Promise<boolean>;
 
@@ -248,7 +259,7 @@ declare namespace osAccount {
      * @param { number } localId - Indicates the local ID of the OS account.
      * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking whether the OS account is activated.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#checkOsAccountActivated
      */
@@ -261,7 +272,7 @@ declare namespace osAccount {
      * @param { number } localId - Indicates the local ID of the OS account.
      * @returns { Promise<boolean> } Returns {@code true} if the OS account is activated; returns {@code false} otherwise.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#checkOsAccountActivated
      */
@@ -280,7 +291,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountActivated(localId: number, callback: AsyncCallback<boolean>): void;
@@ -298,7 +309,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountActivated(localId: number): Promise<boolean>;
@@ -307,7 +318,7 @@ declare namespace osAccount {
      * Checks whether an OS account is activated based on its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<boolean> } - Returns {@code true} if the OS account is activated; returns {@code false} otherwise.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -317,9 +328,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
-    isOsAccountActivated(localId: number): Promise<boolean>;
+    isOsAccountActivated(localId: int): Promise<boolean>;
 
     /**
      * Checks whether a constraint has been enabled for an OS account based on its local ID.
@@ -334,7 +346,7 @@ declare namespace osAccount {
      * <br> from unknown sources.
      * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking whether the constraint is enabled for the specified OS account.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#checkOsAccountConstraintEnabled
      */
@@ -354,7 +366,7 @@ declare namespace osAccount {
      * @returns { Promise<boolean> } Returns {@code true} if the constraint has been enabled for the OS account;
      *         returns {@code false} otherwise.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#checkOsAccountConstraintEnabled
      */
@@ -379,7 +391,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId or constraint.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountConstraintEnabled(localId: number, constraint: string, callback: AsyncCallback<boolean>): void;
@@ -403,7 +415,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId or constraint.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountConstraintEnabled(localId: number, constraint: string): Promise<boolean>;
@@ -422,7 +434,8 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     isOsAccountConstraintEnabled(constraint: string): Promise<boolean>;
 
@@ -430,7 +443,7 @@ declare namespace osAccount {
      * Checks whether the given constraint is enabled for the specified OS account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { string } constraint - Indicates the constraint to check. For example: the value can be:
      * <br> {@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
      * <br> {@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
@@ -446,16 +459,17 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
-    isOsAccountConstraintEnabled(localId: number, constraint: string): Promise<boolean>;
+    isOsAccountConstraintEnabled(localId: int, constraint: string): Promise<boolean>;
 
     /**
      * Checks whether this OS account is a test OS account.
      *
      * @param { AsyncCallback<boolean> } callback - Returns {@code true} if this OS account is a test OS account; returns {@code false} otherwise.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#checkOsAccountTestable
      */
@@ -466,7 +480,7 @@ declare namespace osAccount {
      *
      * @returns { Promise<boolean> } Returns {@code true} if this OS account is a test OS account; returns {@code false} otherwise.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#checkOsAccountTestable
      */
@@ -480,7 +494,8 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     checkOsAccountTestable(callback: AsyncCallback<boolean>): void;
 
@@ -490,7 +505,8 @@ declare namespace osAccount {
      * @returns { Promise<boolean> } Returns {@code true} if this account is testable; returns {@code false} otherwise.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     checkOsAccountTestable(): Promise<boolean>;
 
@@ -501,7 +517,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<boolean> } callback - Returns {@code true} if the OS account has been verified successfully;
      *          returns {@code false} otherwise.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#checkOsAccountVerified
      */
@@ -515,7 +531,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<boolean> } callback - Returns {@code true} if the OS account has been verified successfully;
      *          returns {@code false} otherwise.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#checkOsAccountVerified
      */
@@ -529,7 +545,7 @@ declare namespace osAccount {
      * @returns { Promise<boolean> } Returns {@code true} if the OS account has been verified successfully;
      *          returns {@code false} otherwise.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#checkOsAccountVerified
      */
@@ -541,7 +557,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking whether the current OS account is verified.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      * @useinstead osAccount.AccountManager#isOsAccountUnlocked
      */
@@ -553,7 +569,7 @@ declare namespace osAccount {
      * @returns { Promise<boolean> } Returns whether the current OS account is verified.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      * @useinstead osAccount.AccountManager#isOsAccountUnlocked
      */
@@ -572,7 +588,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountVerified(localId: number, callback: AsyncCallback<boolean>): void;
@@ -590,7 +606,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountVerified(localId: number): Promise<boolean>;
@@ -601,7 +617,8 @@ declare namespace osAccount {
      * @returns { Promise<boolean> } Returns whether the current OS account is unlocked.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     isOsAccountUnlocked(): Promise<boolean>;
 
@@ -609,7 +626,7 @@ declare namespace osAccount {
      * Checks whether the specified OS account is unlocked.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<boolean> } Returns whether the specified OS account is unlocked.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -619,15 +636,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
-    isOsAccountUnlocked(localId: number): Promise<boolean>;
+    isOsAccountUnlocked(localId: int): Promise<boolean>;
 
     /**
      * Removes an OS account based on its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { AsyncCallback<void> } callback - Indicates the callback for removing the specified OS account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -640,15 +658,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target account is being operated.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
-    removeOsAccount(localId: number, callback: AsyncCallback<void>): void;
+    removeOsAccount(localId: int, callback: AsyncCallback<void>): void;
 
     /**
      * Removes an OS account based on its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -661,15 +680,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target account is being operated.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
-    removeOsAccount(localId: number): Promise<void>;
+    removeOsAccount(localId: int): Promise<void>;
 
     /**
      * Sets constraints for an OS account based on its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { Array<string> } constraints - Indicates the constraints to set for the OS account. The value can be:
      * <br> {@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
      * <br> {@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
@@ -688,10 +708,11 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300008 - Restricted Account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     setOsAccountConstraints(
-      localId: number,
+      localId: int,
       constraints: Array<string>,
       enable: boolean,
       callback: AsyncCallback<void>
@@ -701,7 +722,7 @@ declare namespace osAccount {
      * Sets constraints for an OS account based on its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { Array<string> } constraints - Indicates the constraints to set for the OS account. The value can be:
      * <br> {@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
      * <br> {@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
@@ -720,15 +741,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300008 - Restricted Account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
-    setOsAccountConstraints(localId: number, constraints: Array<string>, enable: boolean): Promise<void>;
+    setOsAccountConstraints(localId: int, constraints: Array<string>, enable: boolean): Promise<void>;
 
     /**
      * Sets the local name for an OS account based on its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { string } localName - Indicates the local name to set for the OS account.
      * @param { AsyncCallback<void> } callback - Indicates the callback for setting the specified OS account name.
      * @throws { BusinessError } 201 - Permission denied.
@@ -741,15 +763,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300008 - Restricted Account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
-    setOsAccountName(localId: number, localName: string, callback: AsyncCallback<void>): void;
+    setOsAccountName(localId: int, localName: string, callback: AsyncCallback<void>): void;
 
     /**
      * Sets the local name for an OS account based on its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { string } localName - Indicates the local name to set for the OS account.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
@@ -762,9 +785,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300008 - Restricted Account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
-    setOsAccountName(localId: number, localName: string): Promise<void>;
+    setOsAccountName(localId: int, localName: string): Promise<void>;
 
     /**
      * Gets the name of the OS account to which the caller belongs.
@@ -772,7 +796,8 @@ declare namespace osAccount {
      * @returns { Promise<string> } The promise returned by the function.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     getOsAccountName(): Promise<string>;
 
@@ -782,7 +807,7 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { AsyncCallback<number> } callback - Returns the number of created OS accounts.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getOsAccountCount
      */
@@ -794,7 +819,7 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @returns { Promise<number> } Returns the number of created OS accounts.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getOsAccountCount
      */
@@ -804,36 +829,38 @@ declare namespace osAccount {
      * Obtains the number of all OS accounts created on a device.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { AsyncCallback<number> } callback - Returns the number of created OS accounts.
+     * @param { AsyncCallback<int> } callback - Returns the number of created OS accounts.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getOsAccountCount(callback: AsyncCallback<number>): void;
+    getOsAccountCount(callback: AsyncCallback<int>): void;
 
     /**
      * Obtains the number of all OS accounts created on a device.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @returns { Promise<number> } Returns the number of created OS accounts.
+     * @returns { Promise<int> } Returns the number of created OS accounts.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getOsAccountCount(): Promise<number>;
+    getOsAccountCount(): Promise<int>;
 
     /**
      * Obtains the local ID of an OS account from the current process UID.
      *
      * @param { AsyncCallback<number> } callback - Returns the local ID of the OS account.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getOsAccountLocalId
      */
@@ -844,7 +871,7 @@ declare namespace osAccount {
      *
      * @returns { Promise<number> } Returns the local ID of the OS account.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getOsAccountLocalId
      */
@@ -853,24 +880,26 @@ declare namespace osAccount {
     /**
      * Gets the local ID of the current OS account.
      *
-     * @param { AsyncCallback<number> } callback - Indicates the callback for getting the local ID of the current OS account.
+     * @param { AsyncCallback<int> } callback - Indicates the callback for getting the local ID of the current OS account.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getOsAccountLocalId(callback: AsyncCallback<number>): void;
+    getOsAccountLocalId(callback: AsyncCallback<int>): void;
 
     /**
      * Get the local ID of the current OS account.
      *
-     * @returns { Promise<number> } Returns the local ID of the current account.
+     * @returns { Promise<int> } Returns the local ID of the current account.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getOsAccountLocalId(): Promise<number>;
+    getOsAccountLocalId(): Promise<int>;
 
     /**
      * Gets the local ID of an OS account from the process UID
@@ -878,7 +907,7 @@ declare namespace osAccount {
      * @param { number } uid - Indicates the process UID.
      * @param { AsyncCallback<number> } callback - Returns the local ID of the OS account.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getOsAccountLocalIdForUid
      */
@@ -890,7 +919,7 @@ declare namespace osAccount {
      * @param { number } uid - Indicates the process UID.
      * @returns { Promise<number> } Returns the local ID of the OS account.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getOsAccountLocalIdForUid
      */
@@ -899,43 +928,46 @@ declare namespace osAccount {
     /**
      * Gets the local ID of the OS account associated with the specified UID.
      *
-     * @param { number } uid - Indicates the process UID.
-     * @param { AsyncCallback<number> } callback - Indicates the callback for getting the local ID of the OS account associated with the specified UID.
+     * @param { int } uid - Indicates the process UID.
+     * @param { AsyncCallback<int> } callback - Indicates the callback for getting the local ID of the OS account associated with the specified UID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getOsAccountLocalIdForUid(uid: number, callback: AsyncCallback<number>): void;
+    getOsAccountLocalIdForUid(uid: int, callback: AsyncCallback<int>): void;
 
     /**
      * Get the local ID of the OS account associated with the specified UID.
      *
-     * @param { number } uid - Indicates the process UID.
-     * @returns { Promise<number> } - Returns the local ID of the OS account associated with the specified UID.
+     * @param { int } uid - Indicates the process UID.
+     * @returns { Promise<int> } - Returns the local ID of the OS account associated with the specified UID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getOsAccountLocalIdForUid(uid: number): Promise<number>;
+    getOsAccountLocalIdForUid(uid: int): Promise<int>;
 
     /**
      * Gets the local ID of the OS account associated with the specified UID synchronously.
      *
-     * @param { number } uid - Indicates the process UID.
-     * @returns { number } Returns the local ID of the OS account associated with the specified UID.
+     * @param { int } uid - Indicates the process UID.
+     * @returns { int } Returns the local ID of the OS account associated with the specified UID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
-    getOsAccountLocalIdForUidSync(uid: number): number;
+    getOsAccountLocalIdForUidSync(uid: int): int;
 
     /**
      * Queries the local ID of an OS account which is bound to the specified domain account.
@@ -944,7 +976,7 @@ declare namespace osAccount {
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
      * @param { AsyncCallback<number> } callback - Returns the local ID of the OS account.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getOsAccountLocalIdForDomain
      */
@@ -957,7 +989,7 @@ declare namespace osAccount {
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
      * @returns { Promise<number> } Returns the local ID of the OS account.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getOsAccountLocalIdForDomain
      */
@@ -968,7 +1000,7 @@ declare namespace osAccount {
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
-     * @param { AsyncCallback<number> } callback - Indicates the callback for
+     * @param { AsyncCallback<int> } callback - Indicates the callback for
      *   getting the local ID of the OS account associated with the specified domain account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -977,16 +1009,17 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo, callback: AsyncCallback<number>): void;
+    getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo, callback: AsyncCallback<int>): void;
 
     /**
      * Gets the local ID of the OS account associated with the specified domain account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
-     * @returns { Promise<number> } Returns the local ID of the OS account associated with the specified domain account.
+     * @returns { Promise<int> } Returns the local ID of the OS account associated with the specified domain account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
@@ -994,47 +1027,51 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo): Promise<number>;
+    getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo): Promise<int>;
 
     /**
      * Queries the maximum number of OS accounts that can be created on a device.
      *
-     * @param { AsyncCallback<number> } callback - Returns the maximum number of OS accounts that can be created.
+     * @param { AsyncCallback<int> } callback - Returns the maximum number of OS accounts that can be created.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
-    queryMaxOsAccountNumber(callback: AsyncCallback<number>): void;
+    queryMaxOsAccountNumber(callback: AsyncCallback<int>): void;
 
     /**
      * Queries the maximum number of OS accounts that can be created on a device.
      *
-     * @returns { Promise<number> } Returns the maximum number of OS accounts that can be created.
+     * @returns { Promise<int> } Returns the maximum number of OS accounts that can be created.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
-    queryMaxOsAccountNumber(): Promise<number>;
+    queryMaxOsAccountNumber(): Promise<int>;
 
     /**
      * Queries the maximum number of OS accounts that can be logged in.
      *
-     * @returns { Promise<number> } Returns the maximum number of OS accounts that can be logged in.
+     * @returns { Promise<int> } Returns the maximum number of OS accounts that can be logged in.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    queryMaxLoggedInOsAccountNumber(): Promise<number>;
+    queryMaxLoggedInOsAccountNumber(): Promise<int>;
 
     /**
      * Obtains all constraints of an OS account based on its local ID.
@@ -1043,7 +1080,7 @@ declare namespace osAccount {
      * @param { number } localId - Indicates the local ID of the OS account.
      * @param { AsyncCallback<Array<string>> } callback - Returns a list of constraints.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getOsAccountConstraints
      */
@@ -1056,7 +1093,7 @@ declare namespace osAccount {
      * @param { number } localId - Indicates the local ID of the OS account.
      * @returns { Promise<Array<string>> } Returns a list of constraints.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getOsAccountConstraints
      */
@@ -1075,7 +1112,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     getOsAccountConstraints(localId: number, callback: AsyncCallback<Array<string>>): void;
@@ -1093,7 +1130,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     getOsAccountConstraints(localId: number): Promise<Array<string>>;
@@ -1102,7 +1139,7 @@ declare namespace osAccount {
      * Gets all enabled constraints of the specified OS account by its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<Array<string>> } Returns a list of constraints.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -1112,9 +1149,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
-    getEnabledOsAccountConstraints(localId: number): Promise<Array<string>>;
+    getEnabledOsAccountConstraints(localId: int): Promise<Array<string>>;
 
     /**
      * Queries the list of all the OS accounts that have been created in the system.
@@ -1128,7 +1166,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     queryAllCreatedOsAccounts(callback: AsyncCallback<Array<OsAccountInfo>>): void;
 
@@ -1142,7 +1181,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     queryAllCreatedOsAccounts(): Promise<Array<OsAccountInfo>>;
 
@@ -1151,7 +1191,7 @@ declare namespace osAccount {
      *
      * @param { AsyncCallback<Array<number>> } callback - Returns a id list of OS accounts.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getActivatedOsAccountLocalIds
      */
@@ -1162,7 +1202,7 @@ declare namespace osAccount {
      *
      * @returns { Promise<Array<number>> } Returns a id list of OS accounts.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getActivatedOsAccountLocalIds
      */
@@ -1171,66 +1211,69 @@ declare namespace osAccount {
     /**
      * Gets the local IDs of all activated OS accounts.
      *
-     * @param { AsyncCallback<Array<number>> } callback - Indicates the callback for getting the local IDs of all activated OS accounts.
+     * @param { AsyncCallback<Array<int>> } callback - Indicates the callback for getting the local IDs of all activated OS accounts.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getActivatedOsAccountLocalIds(callback: AsyncCallback<Array<number>>): void;
+    getActivatedOsAccountLocalIds(callback: AsyncCallback<Array<int>>): void;
 
     /**
      * Gets the local IDs of all activated OS accounts.
      *
-     * @returns { Promise<Array<number>> } Returns all activated accounts.
+     * @returns { Promise<Array<int>> } Returns all activated accounts.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getActivatedOsAccountLocalIds(): Promise<Array<number>>;
+    getActivatedOsAccountLocalIds(): Promise<Array<int>>;
 
     /**
      * Gets the local ID of the foreground OS account.
      *
-     * @returns { Promise<number> } Returns local ID of the foreground OS account.
+     * @returns { Promise<int> } Returns local ID of the foreground OS account.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 15
+     * @since 15 dynamic
+     * @since 22 static
      */
-    getForegroundOsAccountLocalId(): Promise<number>;
+    getForegroundOsAccountLocalId(): Promise<int>;
 
     /**
-     * Gets the local ID of the foreground OS account by displayId.
+     * Gets the local ID of the foreground OS account by display ID.
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } displayId - Indicates the display ID of the target foreground OS account.
-     * @returns { Promise<number> } Returns local ID of the target foreground OS account.
+     * @param { long } displayId - Indicates the display ID of the target foreground OS account.
+     * @returns { Promise<int> } Returns local ID of the target foreground OS account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300017 - The foreground OS account is not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21
+     * @since 23 dynamic&static
      */
-    getForegroundOsAccountLocalId(displayId: number): Promise<number>;
+    getForegroundOsAccountLocalId(displayId: long): Promise<int>;
 
     /**
-     * Gets the disyplay ID of the foreground OS account by localId.
+     * Gets the display ID of the foreground OS account by local ID.
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the target foreground OS account.
-     * @returns { Promise<number> } Returns display ID of the target foreground OS account.
+     * @param { int } localId - Indicates the local ID of the target foreground OS account.
+     * @returns { Promise<long> } Returns display ID of the target foreground OS account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300017 - The foreground OS account is not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21
+     * @since 23 dynamic&static
      */
-    getForegroundOsAccountDisplayId(localId: number): Promise<number>;
+    getForegroundOsAccountDisplayId(localId: int): Promise<long>;
 
     /**
      * Creates an OS account using the local name and account type.
@@ -1273,7 +1316,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300007 - The number of accounts has reached the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     createOsAccount(localName: string, type: OsAccountType, callback: AsyncCallback<OsAccountInfo>): void;
 
@@ -1320,7 +1364,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300015 - The short name already exists.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     createOsAccount(localName: string, type: OsAccountType, options?: CreateOsAccountOptions): Promise<OsAccountInfo>;
 
@@ -1367,7 +1412,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300007 - The number of accounts has reached the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     createOsAccountForDomain(
       type: OsAccountType,
@@ -1420,7 +1466,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300015 - The short name already exists.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     createOsAccountForDomain(type: OsAccountType, domainInfo: DomainAccountInfo, options?: CreateOsAccountForDomainOptions): Promise<OsAccountInfo>;
 
@@ -1430,7 +1477,7 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the current OS account; returns {@code null} if the query fails.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getCurrentOsAccount
      */
@@ -1442,7 +1489,7 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @returns { Promise<OsAccountInfo> } Returns information about the current OS account; returns {@code null} if the query fails.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getCurrentOsAccount
      */
@@ -1471,7 +1518,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      */
     getCurrentOsAccount(callback: AsyncCallback<OsAccountInfo>): void;
@@ -1495,7 +1542,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      */
     getCurrentOsAccount(): Promise<OsAccountInfo>;
@@ -1510,7 +1557,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     queryOsAccount(): Promise<OsAccountInfo>;
 
@@ -1518,7 +1566,7 @@ declare namespace osAccount {
      * Queries OS account information based on the local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { AsyncCallback<OsAccountInfo> } callback - Returns the OS account information; returns {@code null} if the query fails.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -1529,15 +1577,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
-    queryOsAccountById(localId: number, callback: AsyncCallback<OsAccountInfo>): void;
+    queryOsAccountById(localId: int, callback: AsyncCallback<OsAccountInfo>): void;
 
     /**
      * Queries OS account information based on the local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<OsAccountInfo> } Returns the OS account information; returns {@code null} if the query fails.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -1548,9 +1597,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
-    queryOsAccountById(localId: number): Promise<OsAccountInfo>;
+    queryOsAccountById(localId: int): Promise<OsAccountInfo>;
 
     /**
      * Gets the domain account information associated with the specified OS account.
@@ -1564,9 +1614,23 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - OS account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 15
+     * @since 15 dynamic
      */
     getOsAccountDomainInfo(localId: number): Promise<DomainAccountInfo>;
+
+    /**
+     * Gets the domain account information associated with the specified OS account.
+     *
+     * @permission ohos.permission.GET_DOMAIN_ACCOUNTS and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { int } localId - Indicates the local ID of the specified OS account.
+     * @returns { Promise<DomainAccountInfo | null> } Returns the domain account information.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300003 - OS account not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 22 static
+     */
+    getOsAccountDomainInfo(localId: int): Promise<DomainAccountInfo | null>;
 
     /**
      * Obtains the type of this OS account from the current process.
@@ -1574,7 +1638,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<OsAccountType> } callback - Returns the OS account type. The value can be {@link OsAccountType#ADMIN},
      *         {@link OsAccountType#NORMAL}, and {@link OsAccountType#GUEST}.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getOsAccountType
      */
@@ -1586,7 +1650,7 @@ declare namespace osAccount {
      * @returns { Promise<OsAccountType> } Returns the OS account type. The value can be {@link OsAccountType#ADMIN},
      *         {@link OsAccountType#NORMAL}, and {@link OsAccountType#GUEST}.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getOsAccountType
      */
@@ -1601,7 +1665,8 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     getOsAccountType(callback: AsyncCallback<OsAccountType>): void;
 
@@ -1612,7 +1677,8 @@ declare namespace osAccount {
      *         {@link OsAccountType#NORMAL}, and {@link OsAccountType#GUEST}.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     getOsAccountType(): Promise<OsAccountType>;
 
@@ -1620,7 +1686,7 @@ declare namespace osAccount {
      * Gets the type of the specified OS account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<OsAccountType> } Returns the OS account type.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -1630,9 +1696,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    getOsAccountType(localId: number): Promise<OsAccountType>;
+    getOsAccountType(localId: int): Promise<OsAccountType>;
 
     /**
      * Obtains the distributed virtual device ID (DVID).
@@ -1646,7 +1713,7 @@ declare namespace osAccount {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC or ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { AsyncCallback<string> } callback - Returns the DVID if obtained; returns an empty string if no OHOS account has logged in.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#queryDistributedVirtualDeviceId
      */
@@ -1664,7 +1731,7 @@ declare namespace osAccount {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC or ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @returns { Promise<string> } Returns the DVID if obtained; returns an empty string if no OHOS account has logged in.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#queryDistributedVirtualDeviceId
      */
@@ -1686,7 +1753,8 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     queryDistributedVirtualDeviceId(callback: AsyncCallback<string>): void;
 
@@ -1704,7 +1772,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     queryDistributedVirtualDeviceId(): Promise<string>;
 
@@ -1712,7 +1781,7 @@ declare namespace osAccount {
      * Obtains the profile photo of an OS account based on its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { AsyncCallback<string> } callback - Returns the profile photo if obtained;
      *         returns {@code null} if the profile photo fails to be obtained.
      * @throws { BusinessError } 201 - Permission denied.
@@ -1724,15 +1793,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
-    getOsAccountProfilePhoto(localId: number, callback: AsyncCallback<string>): void;
+    getOsAccountProfilePhoto(localId: int, callback: AsyncCallback<string>): void;
 
     /**
      * Obtains the profile photo of an OS account based on its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<string> } Returns the profile photo if obtained;
      *         returns {@code null} if the profile photo fails to be obtained.
      * @throws { BusinessError } 201 - Permission denied.
@@ -1744,15 +1814,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
-    getOsAccountProfilePhoto(localId: number): Promise<string>;
+    getOsAccountProfilePhoto(localId: int): Promise<string>;
 
     /**
      * Sets the profile photo for an OS account based on its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { string } photo - Indicates the profile photo to set for the OS account.
      * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
      * @throws { BusinessError } 201 - Permission denied.
@@ -1765,15 +1836,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300008 - Restricted Account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
-    setOsAccountProfilePhoto(localId: number, photo: string, callback: AsyncCallback<void>): void;
+    setOsAccountProfilePhoto(localId: int, photo: string, callback: AsyncCallback<void>): void;
 
     /**
      * Sets the profile photo for an OS account based on its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { string } photo - Indicates the profile photo to set for the OS account.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
@@ -1786,9 +1858,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300008 - Restricted Account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
-    setOsAccountProfilePhoto(localId: number, photo: string): Promise<void>;
+    setOsAccountProfilePhoto(localId: int, photo: string): Promise<void>;
 
     /**
      * Obtain localId according to serial number
@@ -1796,7 +1869,7 @@ declare namespace osAccount {
      * @param { number } serialNumber - Indicates serial number.
      * @param { AsyncCallback<number> } callback - Returns localId.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getOsAccountLocalIdForSerialNumber
      */
@@ -1808,7 +1881,7 @@ declare namespace osAccount {
      * @param { number } serialNumber - Indicates serial number.
      * @returns { Promise<number> } Returns localId.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getOsAccountLocalIdForSerialNumber
      */
@@ -1817,32 +1890,34 @@ declare namespace osAccount {
     /**
      * Gets the local ID of the OS account associated with the serial number.
      *
-     * @param { number } serialNumber - Indicates serial number.
-     * @param { AsyncCallback<number> } callback - Indicates the callback for getting the local ID of the OS account associated with the serial number.
+     * @param { long } serialNumber - Indicates serial number.
+     * @param { AsyncCallback<int> } callback - Indicates the callback for getting the local ID of the OS account associated with the serial number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid serialNumber.
-     * @throws { BusinessError } 12300003 - The account indicated by serialNumber does not exist.
+     * @throws { BusinessError } 12300003 - The account indicated by serialNumber dose not exist.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getOsAccountLocalIdForSerialNumber(serialNumber: number, callback: AsyncCallback<number>): void;
+    getOsAccountLocalIdForSerialNumber(serialNumber: long, callback: AsyncCallback<int>): void;
 
     /**
      * Gets the local ID of the OS account associated with the serial number.
      *
-     * @param { number } serialNumber - Indicates serial number.
-     * @returns { Promise<number> } Returns the local ID of the OS account associated with the serial number.
+     * @param { long } serialNumber - Indicates serial number.
+     * @returns { Promise<int> } Returns the local ID of the OS account associated with the serial number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid serialNumber.
-     * @throws { BusinessError } 12300003 - The account indicated by serialNumber does not exist.
+     * @throws { BusinessError } 12300003 - The account indicated by serialNumber dose not exist.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getOsAccountLocalIdForSerialNumber(serialNumber: number): Promise<number>;
+    getOsAccountLocalIdForSerialNumber(serialNumber: long): Promise<int>;
 
     /**
      * Obtain serial number according to localId.
@@ -1850,7 +1925,7 @@ declare namespace osAccount {
      * @param { number } localId - Indicates the local ID of the OS account.
      * @param { AsyncCallback<number> } callback - Returns serial number.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getSerialNumberForOsAccountLocalId
      */
@@ -1862,7 +1937,7 @@ declare namespace osAccount {
      * @param { number } localId - Indicates the local ID of the OS account.
      * @returns { Promise<number> } Returns serial number.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getSerialNumberForOsAccountLocalId
      */
@@ -1871,32 +1946,34 @@ declare namespace osAccount {
     /**
      * Gets the serial number for the specified os account local id.
      *
-     * @param { number } localId - Indicates the local ID of the OS account.
-     * @param { AsyncCallback<number> } callback - Indicates the callback for getting the serial number for the specified os account local id.
+     * @param { int } localId - Indicates the local ID of the OS account.
+     * @param { AsyncCallback<long> } callback - Indicates the callback for getting the serial number for the specified os account local id.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getSerialNumberForOsAccountLocalId(localId: number, callback: AsyncCallback<number>): void;
+    getSerialNumberForOsAccountLocalId(localId: int, callback: AsyncCallback<long>): void;
 
     /**
      * Gets the serial number for the specified os account local id.
      *
-     * @param { number } localId - Indicates the local ID of the OS account.
-     * @returns { Promise<number> } Returns the serial number according to local ID.
+     * @param { int } localId - Indicates the local ID of the OS account.
+     * @returns { Promise<long> } Returns the serial number according to local ID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getSerialNumberForOsAccountLocalId(localId: number): Promise<number>;
+    getSerialNumberForOsAccountLocalId(localId: int): Promise<long>;
 
     /**
      * Subscribes to the change events of accounts.
@@ -1907,7 +1984,7 @@ declare namespace osAccount {
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
      * @param { 'activate' | 'activating' } type - Event type.
      * @param { string } name - Indicates the name of subscriber.
-     * @param { Callback<number> } callback - Asynchronous callback interface.
+     * @param { Callback<int> } callback - Asynchronous callback interface.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1916,9 +1993,9 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type or name.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
-    on(type: 'activate' | 'activating', name: string, callback: Callback<number>): void;
+    on(type: 'activate' | 'activating', name: string, callback: Callback<int>): void;
 
     /**
      * Unsubscribes from account events.
@@ -1926,7 +2003,7 @@ declare namespace osAccount {
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
      * @param { 'activate' | 'activating' } type - Event type.
      * @param { string } name - Indicates the name of subscriber.
-     * @param { Callback<number> } callback - Asynchronous callback interface.
+     * @param { Callback<int> } callback - Asynchronous callback interface.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1935,9 +2012,9 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type or name.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
-    off(type: 'activate' | 'activating', name: string, callback?: Callback<number>): void;
+    off(type: 'activate' | 'activating', name: string, callback?: Callback<int>): void;
 
     /**
      * Subscribes to the OS account switching event.
@@ -1953,7 +2030,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Subscribes to the OS account switching event.
@@ -1967,7 +2044,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
      */
     on(type: 'switching', callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -1985,7 +2062,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Unsubscribes from the OS account switching event.
@@ -1999,7 +2076,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
      */
     off(type: 'switching', callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -2017,7 +2094,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Subscribes to the OS account switched event.
@@ -2031,7 +2108,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
      */
     on(type: 'switched', callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -2049,7 +2126,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Unsubscribes from the OS account switched event.
@@ -2063,15 +2140,15 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
      */
     off(type: 'switched', callback?: Callback<OsAccountSwitchEventData>): void;
 
     /**
      * Gets the bundle ID associated with the specified UID.
      *
-     * @param { number } uid - Indicates the target uid.
-     * @param { AsyncCallback<number> } callback - Indicates the callback for getting the bundle ID associated with the specified UID.
+     * @param { int } uid - Indicates the target uid.
+     * @param { AsyncCallback<int> } callback - Indicates the callback for getting the bundle ID associated with the specified UID.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
@@ -2079,15 +2156,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getBundleIdForUid(uid: number, callback: AsyncCallback<number>): void;
+    getBundleIdForUid(uid: int, callback: AsyncCallback<int>): void;
 
     /**
      * Gets the bundle ID associated with the specified UID.
      *
-     * @param { number } uid - Indicates the target uid.
-     * @returns { Promise<number> } Returns the bundle ID associated with the specified UID.
+     * @param { int } uid - Indicates the target uid.
+     * @returns { Promise<int> } Returns the bundle ID associated with the specified UID.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
@@ -2095,24 +2173,146 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getBundleIdForUid(uid: number): Promise<number>;
+    getBundleIdForUid(uid: int): Promise<int>;
 
     /**
      * Gets the bundle ID associated with the specified UID synchronously.
      *
-     * @param { number } uid - Indicates the target uid.
-     * @returns { number } Returns the bundle ID associated with the specified UID.
+     * @param { int } uid - Indicates the target uid.
+     * @returns { int } Returns the bundle ID associated with the specified UID.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
-    getBundleIdForUidSync(uid: number): number;
+    getBundleIdForUidSync(uid: int): int;
+
+    /**
+     * Subscribes to the event indicating the completion of an OS account activation.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { string } name - Indicates the name of subscriber.
+     * @param { Callback<int> } callback - Asynchronous callback interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid name.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 static
+     */
+    onActivate(name: string, callback: Callback<int>): void;
+
+    /**
+     * Subscribes to the event indicating that an OS account is being activated.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { string } name - Indicates the name of subscriber.
+     * @param { Callback<int> } callback - Asynchronous callback interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid name.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 static
+     */
+    onActivating(name: string, callback: Callback<int>): void;
+
+    /**
+     * Unsubscribes from the event indicating the completion of an OS account activation.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { string } name - Indicates the name of subscriber.
+     * @param { Callback<int> } [callback] - Asynchronous callback interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid name.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 static
+     */
+    offActivate(name: string, callback?: Callback<int>): void;
+
+    /**
+     * Unsubscribes to the event indicating that an OS account is being activated.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { string } name - Indicates the name of subscriber.
+     * @param { Callback<int> } [callback] - Asynchronous callback interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid name.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 static
+     */
+    offActivating(name: string, callback?: Callback<int>): void;
+
+    /**
+     * Subscribes to the OS account switching event.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { Callback<OsAccountSwitchEventData> } callback - Indicates the callback for getting the event data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 static
+     */
+    onSwitching(callback: Callback<OsAccountSwitchEventData>): void;
+
+    /**
+     * Unsubscribes from the OS account switching event.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { Callback<OsAccountSwitchEventData> } [callback] - Indicates the callback for getting the event data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 static
+     */
+    offSwitching(callback?: Callback<OsAccountSwitchEventData>): void;
+
+    /**
+     * Subscribes to the OS account switched event.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { Callback<OsAccountSwitchEventData> } callback - Indicates the callback for getting the event data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 static
+     */
+    onSwitched(callback: Callback<OsAccountSwitchEventData>): void;
+
+    /**
+     * Unsubscribes from the OS account switched event.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { Callback<OsAccountSwitchEventData> } [callback] - Indicates the callback for getting the event data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 static
+     */
+    offSwitched(callback?: Callback<OsAccountSwitchEventData>): void;
 
     /**
      * Check whether current process belongs to the main account.
@@ -2127,7 +2327,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     isMainOsAccount(callback: AsyncCallback<boolean>): void;
 
@@ -2142,7 +2343,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     isMainOsAccount(): Promise<boolean>;
 
@@ -2150,7 +2352,7 @@ declare namespace osAccount {
      * Gets a list of constraint source types for the specified os account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { string } constraint - Indicates the constraint to query the source type.
      * @param { AsyncCallback<Array<ConstraintSourceTypeInfo>> } callback - Indicates the callback for
      *   getting a list of constraint source types for the specified os account.
@@ -2163,19 +2365,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getOsAccountConstraintSourceTypes(
-      localId: number,
-      constraint: string,
-      callback: AsyncCallback<Array<ConstraintSourceTypeInfo>>
-    ): void;
+    getOsAccountConstraintSourceTypes(localId: int, constraint: string, callback: AsyncCallback<Array<ConstraintSourceTypeInfo>>): void;
 
     /**
      * Gets a list of constraint source types for the specified os account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { string } constraint - Indicates the constraint to query the source type.
      * @returns { Promise<Array<ConstraintSourceTypeInfo>> } Returns a list of constraint source types for the specified os account.
      * @throws { BusinessError } 201 - Permission denied.
@@ -2187,15 +2386,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    getOsAccountConstraintSourceTypes(localId: number, constraint: string): Promise<Array<ConstraintSourceTypeInfo>>;
+    getOsAccountConstraintSourceTypes(localId: int, constraint: string): Promise<Array<ConstraintSourceTypeInfo>>;
 
     /**
      * Binds the specified domain account to the target OS account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local Id of the OS account.
+     * @param { int } localId - Indicates the local Id of the OS account.
      * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
@@ -2210,9 +2410,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300022 - The domain account is already bound.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
-    bindDomainAccount(localId: number, domainAccountInfo: DomainAccountInfo): Promise<void>;
+    bindDomainAccount(localId: int, domainAccountInfo: DomainAccountInfo): Promise<void>;
   }
 
   /**
@@ -2220,24 +2421,27 @@ declare namespace osAccount {
    *
    * @interface OsAccountInfo
    * @syscap SystemCapability.Account.OsAccount
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   interface OsAccountInfo {
     /**
      * The local ID of an OS account.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
-    localId: number;
+    localId: int;
 
     /**
      * The local name of an OS account.
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     localName: string;
 
@@ -2247,7 +2451,8 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     shortName?: string;
 
@@ -2256,7 +2461,8 @@ declare namespace osAccount {
      *
      * @type { OsAccountType }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     type: OsAccountType;
 
@@ -2265,7 +2471,8 @@ declare namespace osAccount {
      *
      * @type { Array<string> }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     constraints: Array<string>;
 
@@ -2274,7 +2481,7 @@ declare namespace osAccount {
      *
      * @type { boolean }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 11
      * @useinstead osAccount.OsAccountInfo#isUnlocked
      */
@@ -2285,7 +2492,8 @@ declare namespace osAccount {
      *
      * @type { boolean }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     isUnlocked: boolean;
 
@@ -2294,43 +2502,47 @@ declare namespace osAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     photo: string;
 
     /**
      * Os account create time.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
-    createTime: number;
+    createTime: long;
 
     /**
      * The last time to log in.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
-    lastLoginTime: number;
+    lastLoginTime: long;
 
     /**
      * Os account serial number.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
-    serialNumber: number;
+    serialNumber: long;
 
     /**
      * Os account is activated or not.
      *
      * @type { boolean }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 11
      * @useinstead osAccount.OsAccountInfo#isActivated
      */
@@ -2341,7 +2553,8 @@ declare namespace osAccount {
      *
      * @type { boolean }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     isActivated: boolean;
 
@@ -2351,7 +2564,8 @@ declare namespace osAccount {
      * @type { ?boolean }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     isLoggedIn?: boolean;
 
@@ -2360,7 +2574,8 @@ declare namespace osAccount {
      *
      * @type { boolean }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     isCreateCompleted: boolean;
 
@@ -2369,7 +2584,8 @@ declare namespace osAccount {
      *
      * @type { distributedAccount.DistributedInfo }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     distributedInfo: distributedAccount.DistributedInfo;
 
@@ -2378,7 +2594,8 @@ declare namespace osAccount {
      *
      * @type { DomainAccountInfo }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     domainInfo: DomainAccountInfo;
   }
@@ -2389,38 +2606,41 @@ declare namespace osAccount {
    * @typedef OsAccountSwitchEventData
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface OsAccountSwitchEventData {
     /**
      * Indicates which OS account to switch from.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    fromAccountId: number;
+    fromAccountId: int;
 
     /**
      * Indicates which OS account to switch to.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    toAccountId: number;
+    toAccountId: int;
 
     /**
      * Indicates which display the switch event occurred on.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 21
+     * @systemapi
+     * @since 23 dynamic&static
      */
-    displayId?: number;
+    displayId?: long;
   }
 
   /**
@@ -2429,7 +2649,8 @@ declare namespace osAccount {
    * @interface CreateOsAccountOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface CreateOsAccountOptions {
     /**
@@ -2438,9 +2659,19 @@ declare namespace osAccount {
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
      */
     shortName: string;
+
+    /**
+     * Indicates the short name of the OS account.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    shortName?: string;
 
     /**
      * Indicates the bundles are disallowed to be preinstalled on the OS account.
@@ -2448,7 +2679,8 @@ declare namespace osAccount {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 19
+     * @since 19 dynamic
+     * @since 22 static
      */
     disallowedPreinstalledBundles?: Array<string>;
 
@@ -2458,7 +2690,8 @@ declare namespace osAccount {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 19
+     * @since 19 dynamic
+     * @since 22 static
      */
     allowedPreinstalledBundles?: Array<string>;
   }
@@ -2470,7 +2703,8 @@ declare namespace osAccount {
    * @interface CreateOsAccountForDomainOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface CreateOsAccountForDomainOptions extends CreateOsAccountOptions {}
 
@@ -2479,7 +2713,8 @@ declare namespace osAccount {
    *
    * @interface DomainAccountInfo
    * @syscap SystemCapability.Account.OsAccount
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   interface DomainAccountInfo {
     /**
@@ -2487,7 +2722,8 @@ declare namespace osAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     domain: string;
 
@@ -2496,7 +2732,8 @@ declare namespace osAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     accountName: string;
 
@@ -2506,7 +2743,8 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     accountId?: string;
 
@@ -2516,7 +2754,8 @@ declare namespace osAccount {
      * @type { ?boolean }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     isAuthenticated?: boolean;
 
@@ -2525,7 +2764,8 @@ declare namespace osAccount {
      *
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
     serverConfigId?: string;
   }
@@ -2533,16 +2773,18 @@ declare namespace osAccount {
   /**
    * Enumerates OS account types.
    *
-   * @enum { number } OsAccountType
+   * @enum { int } OsAccountType
    * @syscap SystemCapability.Account.OsAccount
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   enum OsAccountType {
     /**
      * Indicates the administrator account, which has the permission to manage other OS accounts.
      *
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     ADMIN = 0,
 
@@ -2550,7 +2792,8 @@ declare namespace osAccount {
      * Indicates a normal account, which has access to common functions of OS accounts.
      *
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     NORMAL = 1,
 
@@ -2558,7 +2801,8 @@ declare namespace osAccount {
      * Indicates a guest account, which is used to temporarily access the device and may be deleted at any time.
      *
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     GUEST = 2,
 
@@ -2567,7 +2811,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     PRIVATE = 1024
   }
@@ -2577,7 +2822,8 @@ declare namespace osAccount {
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    * @name UserAuth
    */
   class UserAuth {
@@ -2587,20 +2833,22 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     constructor();
 
     /**
      * Gets version information.
      *
-     * @returns { number } Returns the version information.
+     * @returns { int } Returns the version information.
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
-    getVersion(): number;
+    getVersion(): int;
 
     /**
      * Checks whether the authentication capability is available.
@@ -2608,18 +2856,20 @@ declare namespace osAccount {
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
      * @param { AuthType } authType - Indicates the credential type for authentication.
      * @param { AuthTrustLevel } authTrustLevel - Indicates the trust level of authentication result.
-     * @returns { number } Returns a status result.
+     * @returns { int } Returns a status result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid authType or authTrustLevel.
+     * @throws { BusinessError } 12300117 - PIN is expired.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
-    getAvailableStatus(authType: AuthType, authTrustLevel: AuthTrustLevel): number;
+    getAvailableStatus(authType: AuthType, authTrustLevel: AuthTrustLevel): int;
 
     /**
      * Gets the property based on the specified request information.
@@ -2652,7 +2902,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     getProperty(request: GetPropertyRequest, callback: AsyncCallback<ExecutorProperty>): void;
 
@@ -2687,7 +2938,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     getProperty(request: GetPropertyRequest): Promise<ExecutorProperty>;
 
@@ -2707,7 +2959,24 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since 14 dynamic
+     */
+    /**
+     * Gets the executor property associated with the specified credential.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { Uint8Array } credentialId - Indicates the id for getting the credential information.
+     * @param { Array<GetPropertyType> } keys - Indicates the array of property types to get.
+     * @returns { Promise<ExecutorProperty> } Returns an executor property.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid keys.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 dynamic&static
      */
     getPropertyByCredentialId(credentialId: Uint8Array, keys: Array<GetPropertyType>): Promise<ExecutorProperty>;
 
@@ -2725,7 +2994,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid request.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     setProperty(request: SetPropertyRequest, callback: AsyncCallback<void>): void;
 
@@ -2743,7 +3013,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid request.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     setProperty(request: SetPropertyRequest): Promise<void>;
 
@@ -2777,7 +3048,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300111 - Operation timeout.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     prepareRemoteAuth(remoteNetworkId: string): Promise<void>;
 
@@ -2872,7 +3144,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     auth(
       challenge: Uint8Array,
@@ -2949,7 +3222,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     auth(
       challenge: Uint8Array,
@@ -2963,7 +3237,7 @@ declare namespace osAccount {
      * Executes user authentication.
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { number } userId - Indicates the user identification.
+     * @param { int } userId - Indicates the user identification.
      * @param { Uint8Array } challenge - Indicates the challenge value.
      * @param { AuthType } authType - Indicates the authentication type.
      * @param { AuthTrustLevel } authTrustLevel - Indicates the trust level of authentication result.
@@ -2991,7 +3265,7 @@ declare namespace osAccount {
      * Executes user authentication.
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { number } userId - Indicates the user identification.
+     * @param { int } userId - Indicates the user identification.
      * @param { Uint8Array } challenge - Indicates the challenge value.
      * @param { AuthType } authType - Indicates the authentication type.
      * @param { AuthTrustLevel } authTrustLevel - Indicates the trust level of authentication result.
@@ -3025,7 +3299,7 @@ declare namespace osAccount {
      * Executes user authentication.
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { number } userId - Indicates the user identification.
+     * @param { int } userId - Indicates the user identification.
      * @param { Uint8Array } challenge - Indicates the challenge value.
      * @param { AuthType } authType - Indicates the authentication type.
      * @param { AuthTrustLevel } authTrustLevel - Indicates the trust level of authentication result.
@@ -3055,10 +3329,11 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     authUser(
-      userId: number,
+      userId: int,
       challenge: Uint8Array,
       authType: AuthType,
       authTrustLevel: AuthTrustLevel,
@@ -3078,7 +3353,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid contextId.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     cancelAuth(contextID: Uint8Array): void;
   }
@@ -3088,7 +3364,8 @@ declare namespace osAccount {
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    * @name PINAuth
    */
   class PINAuth {
@@ -3098,7 +3375,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     constructor();
 
@@ -3116,7 +3394,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300103 - The credential inputer already exists.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     registerInputer(inputer: IInputer): void;
 
@@ -3128,7 +3407,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     unregisterInputer(): void;
   }
@@ -3138,7 +3418,8 @@ declare namespace osAccount {
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    * @name InputerManager
    */
   class InputerManager {
@@ -3159,7 +3440,8 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     static registerInputer(authType: AuthType, inputer: IInputer): void;
 
@@ -3176,7 +3458,8 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     static unregisterInputer(authType: AuthType): void;
   }
@@ -3187,28 +3470,31 @@ declare namespace osAccount {
    * @interface AuthStatusInfo
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   interface AuthStatusInfo {
     /**
      * Indicates the remaining times that authentication can be performed.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
-    remainTimes: number;
+    remainTimes: int;
 
     /**
      * Indicates the freezing time before performing the next authentication.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
-    freezingTime: number;
+    freezingTime: int;
   }
 
   /**
@@ -3217,7 +3503,8 @@ declare namespace osAccount {
    * @typedef GetDomainAccessTokenOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   interface GetDomainAccessTokenOptions {
     /**
@@ -3226,7 +3513,8 @@ declare namespace osAccount {
      * @type { DomainAccountInfo }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     domainAccountInfo: DomainAccountInfo;
 
@@ -3236,7 +3524,8 @@ declare namespace osAccount {
      * @type { Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     domainAccountToken: Uint8Array;
 
@@ -3246,19 +3535,30 @@ declare namespace osAccount {
      * @type { Record<string, Object> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
     businessParams: Record<string, Object>;
 
     /**
-     * Indicates caller UID.
+     * Indicates the business parameters.
      *
-     * @type { number }
+     * @type { Record<string, RecordData> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 22 static
      */
-    callerUid: number;
+    businessParams: Record<string, RecordData>;
+
+    /**
+     * Indicates caller UID.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10 dynamic
+     * @since 22 static
+     */
+    callerUid: int;
   }
 
   /**
@@ -3267,7 +3567,8 @@ declare namespace osAccount {
    * @typedef GetDomainAccountInfoOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   interface GetDomainAccountInfoOptions {
     /**
@@ -3276,7 +3577,8 @@ declare namespace osAccount {
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     accountName: string;
 
@@ -3286,7 +3588,8 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     domain?: string;
 
@@ -3296,7 +3599,8 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     serverConfigId?: string;
   }
@@ -3308,19 +3612,162 @@ declare namespace osAccount {
    * @extends GetDomainAccountInfoOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   interface GetDomainAccountInfoPluginOptions extends GetDomainAccountInfoOptions {
     /**
      * Indicates the caller UID.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
-    callerUid: number;
+    callerUid: int;
   }
+
+  /**
+   * Authenticates the specified domain account.
+   *
+   * @typedef { function } DomainPluginAuthFunc
+   * @param { DomainAccountInfo } domainAccountInfo -
+   *     Indicates the domain account information for authentication.
+   * @param { Uint8Array } credential - Indicates the credential for authentication.
+   * @param { IUserAuthCallback } callback - Indicates the authentication callback.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20 dynamic
+   * @since 22 static
+   */
+  type DomainPluginAuthFunc = (domainAccountInfo: DomainAccountInfo,
+    credential: Uint8Array, callback: IUserAuthCallback) => void;
+
+  /**
+   * Authenticates the specified domain account with a popup.
+   *
+   * @typedef { function } DomainPluginAuthWithPopupFunc
+   * @param { DomainAccountInfo } domainAccountInfo -
+   *     Indicates the domain account information for authentication.
+   * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20 dynamic
+   * @since 22 static
+   */
+  type DomainPluginAuthWithPopupFunc = (domainAccountInfo: DomainAccountInfo,
+    callback: IUserAuthCallback) => void;
+
+  /**
+   * Authenticates the specified domain account with an authorization token.
+   *
+   * @typedef { function } DomainPluginAuthWithTokenFunc
+   * @param { DomainAccountInfo } domainAccountInfo -
+   *     Indicates the domain account information for authentication.
+   * @param { Uint8Array } token -
+   *     Indicates the authorization token generated when PIN or biometric authentication is successful.
+   * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20 dynamic
+   * @since 22 static
+   */
+  type DomainPluginAuthWithTokenFunc = (domainAccountInfo: DomainAccountInfo,
+    token: Uint8Array, callback: IUserAuthCallback) => void;
+
+  /**
+   * Gets the domain account information with the specified options.
+   *
+   * @typedef { function } DomainPluginGetAccountInfoFunc
+   * @param { GetDomainAccountInfoPluginOptions } options -
+   *     Indicates the options for getting domain account information.
+   * @param { AsyncCallback<DomainAccountInfo> } callback -
+   *     Indicates the callback for notifying the domain account information.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20 dynamic
+   * @since 22 static
+   */
+  type DomainPluginGetAccountInfoFunc = (options: GetDomainAccountInfoPluginOptions,
+    callback: AsyncCallback<DomainAccountInfo>) => void;
+
+  /**
+   * Gets the domain authentication property for the specified domain account.
+   *
+   * @typedef { function } DomainPluginGetAuthStatusInfoFunc 
+   * @param { DomainAccountInfo } domainAccountInfo -
+   *     Indicates the domain account information for authentication.
+   * @param { AsyncCallback<AuthStatusInfo> } callback -
+   *     Indicates the callback for notifying the domain authentication status information.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20 dynamic
+   * @since 22 static
+   */
+  type DomainPluginGetAuthStatusInfoFunc = (domainAccountInfo: DomainAccountInfo,
+    callback: AsyncCallback<AuthStatusInfo>) => void;
+
+  /**
+   * Binds the specified domain account with an OS account.
+   *
+   * @typedef { function } DomainPluginBindAccountFunc
+   * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+   * @param { int } localId - Indicates the local ID of the OS account.
+   * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the binding result.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20 dynamic
+   * @since 22 static
+   */
+  type DomainPluginBindAccountFunc = (domainAccountInfo: DomainAccountInfo,
+    localId: int, callback: AsyncCallback<void>) => void;
+
+  /**
+   * Unbind the specified domain account.
+   *
+   * @typedef { function } DomainPluginUnbindAccountFunc
+   * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+   * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the unbinding result.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20 dynamic
+   * @since 22 static
+   */
+  type DomainPluginUnbindAccountFunc = (domainAccountInfo: DomainAccountInfo,
+    callback: AsyncCallback<void>) => void;
+
+  /**
+   * Checks whether the token of specified domain account is valid.
+   *
+   * @typedef { function } DomainPluginIsAccountTokenValidFunc
+   * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+   * @param { Uint8Array } token - Indicates the account token.
+   * @param { AsyncCallback<boolean> } callback - Indicates the callback for notifying the checking result.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20 dynamic
+   * @since 22 static
+   */
+  type DomainPluginIsAccountTokenValidFunc = (
+    domainAccountInfo: DomainAccountInfo,
+    token: Uint8Array,
+    callback: AsyncCallback<boolean>
+  ) => void;
+
+  /**
+   * Gets the access token based on the specified options.
+   *
+   * @typedef { function } DomainPlugingetAccessTokenFunc
+   * @param { GetDomainAccessTokenOptions } options - Indicates the options for getting th access token.
+   * @param { AsyncCallback<Uint8Array> } callback - Indicates the callback for returning the access token.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20 dynamic
+   * @since 22 static
+   */
+  type DomainPluginGetAccessTokenFunc = (options: GetDomainAccessTokenOptions,
+    callback: AsyncCallback<Uint8Array>) => void;
 
   /**
    * Provides the definition of domain plugin.
@@ -3328,7 +3775,8 @@ declare namespace osAccount {
    * @interface DomainPlugin
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface DomainPlugin {
     /**
@@ -3341,7 +3789,16 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
+    /**
+     * Authenticates the specified domain account.
+     *
+     * @type { DomainPluginAuthFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20 dynamic
+     * @since 22 static
+     */
+    auth: DomainPluginAuthFunc;
 
     /**
      * Authenticates the specified domain account with a popup.
@@ -3352,41 +3809,81 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    authWithPopup(domainAccountInfo: DomainAccountInfo, callback: IUserAuthCallback): void;
+    /**
+     * Authenticates the specified domain account with a popup.
+     *
+     * @type { DomainPluginAuthWithPopupFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20 dynamic
+     * @since 22 static
+     */
+    authWithPopup: DomainPluginAuthWithPopupFunc;
 
     /**
      * Authenticates the specified domain account with an authorization token.
      *
      * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
-     * @param { Uint8Array } token - Indicates the authorization token generated when PIN or biometric authentication is successful.
+     * @param { Uint8Array } token -
+     *     Indicates the authorization token generated when PIN or biometric authentication is successful.
      * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    authWithToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array, callback: IUserAuthCallback): void;
+    /**
+     * Authenticates the specified domain account with an authorization token.
+     *
+     * @type { DomainPluginAuthWithTokenFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20 dynamic
+     * @since 22 static
+     */
+    authWithToken: DomainPluginAuthWithTokenFunc;
 
     /**
      * Gets the domain account information with the specified options.
      *
-     * @param { GetDomainAccountInfoPluginOptions } options - Indicates the options for getting domain account information.
-     * @param { AsyncCallback<DomainAccountInfo> } callback - Indicates the callback for notifying the domain account information.
+     * @param { GetDomainAccountInfoPluginOptions } options -
+     *     Indicates the options for getting domain account information.
+     * @param { AsyncCallback<DomainAccountInfo> } callback -
+     *     Indicates the callback for notifying the domain account information.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    getAccountInfo(options: GetDomainAccountInfoPluginOptions, callback: AsyncCallback<DomainAccountInfo>): void;
+    /**
+     * Gets the domain account information with the specified options.
+     *
+     * @type { DomainPluginGetAccountInfoFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20 dynamic
+     * @since 22 static
+     */
+    getAccountInfo: DomainPluginGetAccountInfoFunc;
 
     /**
      * Gets the domain authentication property for the specified domain account.
      *
      * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
-     * @param { AsyncCallback<AuthStatusInfo> } callback - Indicates the callback for notifying the domain authentication status information.
+     * @param { AsyncCallback<AuthStatusInfo> } callback -
+     *     Indicates the callback for notifying the domain authentication status information.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    getAuthStatusInfo(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<AuthStatusInfo>): void;
+    /**
+     * Gets the domain authentication property for the specified domain account.
+     *
+     * @type { DomainPluginGetAuthStatusInfoFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20 dynamic
+     * @since 22 static
+     */
+    getAuthStatusInfo: DomainPluginGetAuthStatusInfoFunc;
 
     /**
      * Binds the specified domain account with an OS account.
@@ -3398,7 +3895,16 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    bindAccount(domainAccountInfo: DomainAccountInfo, localId: number, callback: AsyncCallback<void>): void;
+    /**
+     * Binds the specified domain account with an OS account.
+     *
+     * @type { DomainPluginBindAccountFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20 dynamic
+     * @since 22 static
+     */
+    bindAccount: DomainPluginBindAccountFunc;
 
     /**
      * Unbind the specified domain account.
@@ -3409,7 +3915,16 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    unbindAccount(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<void>): void;
+    /**
+     * Unbind the specified domain account.
+     *
+     * @type { DomainPluginUnbindAccountFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20 dynamic
+     * @since 22 static
+     */
+    unbindAccount: DomainPluginUnbindAccountFunc;
 
     /**
      * Checks whether the token of specified domain account is valid.
@@ -3421,11 +3936,16 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    isAccountTokenValid(
-      domainAccountInfo: DomainAccountInfo,
-      token: Uint8Array,
-      callback: AsyncCallback<boolean>
-    ): void;
+    /**
+     * Checks whether the token of specified domain account is valid.
+     *
+     * @type { DomainPluginIsAccountTokenValidFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20 dynamic
+     * @since 22 static
+     */
+    isAccountTokenValid: DomainPluginIsAccountTokenValidFunc;
 
     /**
      * Gets the access token based on the specified options.
@@ -3436,14 +3956,24 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    getAccessToken(options: GetDomainAccessTokenOptions, callback: AsyncCallback<Uint8Array>): void;
+    /**
+     * Gets the access token based on the specified options.
+     *
+     * @type { DomainPluginGetAccessTokenFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20 dynamic
+     * @since 22 static
+     */
+    getAccessToken: DomainPluginGetAccessTokenFunc;
   }
 
   /**
    * Provides abilities for the management of domain account.
    *
    * @syscap SystemCapability.Account.OsAccount
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
   class DomainAccountManager {
     /**
@@ -3475,7 +4005,8 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
     static registerPlugin(plugin: DomainPlugin): void;
 
@@ -3500,7 +4031,8 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
     static unregisterPlugin(): void;
 
@@ -3530,7 +4062,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     static auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
 
@@ -3581,7 +4114,8 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     static authWithPopup(callback: IUserAuthCallback): void;
 
@@ -3589,7 +4123,7 @@ declare namespace osAccount {
      * Authenticates the domain account bound to the specified OS account with a popup.
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { number } localId - Indicates the local ID of the specified OS account.
+     * @param { int } localId - Indicates the local ID of the specified OS account.
      * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -3615,7 +4149,7 @@ declare namespace osAccount {
     /**
      * Authenticates the domain account bound to the specified OS account with a popup.
      *
-     * @param { number } localId - Indicates the local ID of the specified OS account.
+     * @param { int } localId - Indicates the local ID of the specified OS account.
      * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3636,9 +4170,10 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
-    static authWithPopup(localId: number, callback: IUserAuthCallback): void;
+    static authWithPopup(localId: int, callback: IUserAuthCallback): void;
 
     /**
      * Checks whether the specified domain account exists.
@@ -3661,7 +4196,8 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     static hasAccount(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<boolean>): void;
 
@@ -3686,7 +4222,8 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     static hasAccount(domainAccountInfo: DomainAccountInfo): Promise<boolean>;
 
@@ -3709,7 +4246,8 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     static updateAccountToken(
       domainAccountInfo: DomainAccountInfo,
@@ -3736,7 +4274,8 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     static updateAccountToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array): Promise<void>;
 
@@ -3755,7 +4294,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300004 - The new account already exists.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
     static updateAccountInfo(oldAccountInfo: DomainAccountInfo, newAccountInfo: DomainAccountInfo): Promise<void>;
 
@@ -3780,7 +4320,8 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     static getAccountInfo(options: GetDomainAccountInfoOptions, callback: AsyncCallback<DomainAccountInfo>): void;
 
@@ -3805,7 +4346,8 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     static getAccountInfo(options: GetDomainAccountInfoOptions): Promise<DomainAccountInfo>;
 
@@ -3829,9 +4371,31 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     static getAccessToken(businessParams: Record<string, Object>, callback: AsyncCallback<Uint8Array>): void;
+
+    /**
+     * Gets the business access token of the current domain account.
+     *
+     * @param { Record<string, RecordData> } businessParams - Indicates the business parameters.
+     * @param { AsyncCallback<Uint8Array> } callback - Indicates the result callback.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid business parameters.
+     * @throws { BusinessError } 12300003 - Domain account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300014 - The domain account is not authenticated.
+     * @throws { BusinessError } 12300111 - The operation time out.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    static getAccessToken(businessParams: Record<string, RecordData>, callback: AsyncCallback<Uint8Array>): void;
 
     /**
      * Gets the business access token for the current domain account.
@@ -3853,9 +4417,31 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     static getAccessToken(businessParams: Record<string, Object>): Promise<Uint8Array>;
+
+    /**
+     * Gets the business access token for the current domain account.
+     *
+     * @param { Record<string, RecordData> } businessParams - Indicates the business parameters.
+     * @returns { Promise<Uint8Array> } The promise returned by the function.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid business parameters.
+     * @throws { BusinessError } 12300003 - Domain account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300014 - The domain account is not authenticated.
+     * @throws { BusinessError } 12300111 - The operation time out.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    static getAccessToken(businessParams: Record<string, RecordData>): Promise<Uint8Array>;
 
     /**
      * Checks whether the authentication of the target domain account is expired.
@@ -3873,7 +4459,8 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     static isAuthenticationExpired(domainAccountInfo: DomainAccountInfo): Promise<boolean>;
   }
@@ -3883,7 +4470,8 @@ declare namespace osAccount {
    *
    * @typedef DomainServerConfig
    * @syscap SystemCapability.Account.OsAccount
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
   interface DomainServerConfig {
     /**
@@ -3891,16 +4479,26 @@ declare namespace osAccount {
      *
      * @type { Record<string, Object> }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 18
+     * @since 18 dynamic
      */
     parameters: Record<string, Object>;
+
+    /**
+     * Indicates the detail config parameters.
+     *
+     * @type { Record<string, RecordData> }
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 22 static
+     */
+    parameters: Record<string, RecordData>;
 
     /**
      * Indicates the config identifier.
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
     id: string;
 
@@ -3909,7 +4507,8 @@ declare namespace osAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
     domain: string;
   }
@@ -3918,7 +4517,8 @@ declare namespace osAccount {
    * Provides abilities for managing domain server config.
    *
    * @syscap SystemCapability.Account.OsAccount
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
   class DomainServerConfigManager {
     /**
@@ -3936,9 +4536,28 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300215 - The number of server config reaches the upper limit.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since 18
+     * @since 18 dynamic
      */
     static addServerConfig(parameters: Record<string, Object>): Promise<DomainServerConfig>;
+
+    /**
+     * Adds a domain server config.
+     *
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
+     * @param { Record<string, RecordData> } parameters - Indicates the server config parameters.
+     * @returns { Promise<DomainServerConfig> } Returns the added domain server config.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid server config parameters.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @throws { BusinessError } 12300213 - Server config already exists.
+     * @throws { BusinessError } 12300215 - The number of server config reaches the upper limit.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 22 static
+     */
+    static addServerConfig(parameters: Record<string, RecordData>): Promise<DomainServerConfig>;
 
     /**
      * Removes a domain server config.
@@ -3953,7 +4572,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300214 - Server config has been associated with an account.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
     static removeServerConfig(configId: string): Promise<void>;
 
@@ -3974,9 +4594,30 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300214 - Server config has been associated with an account.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since 18
+     * @since 18 dynamic
      */
     static updateServerConfig(configId: string, parameters: Record<string, Object>): Promise<DomainServerConfig>;
+
+    /**
+     * Updates the target server config with the specified parameters.
+     *
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
+     * @param { string } configId - Indicates the server config identifier.
+     * @param { Record<string, RecordData> } parameters - Indicates the server config parameters.
+     * @returns { Promise<DomainServerConfig> } Returns the updated domain server config.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid server config parameters.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @throws { BusinessError } 12300212 - Server config not found.
+     * @throws { BusinessError } 12300213 - Server config already exists.
+     * @throws { BusinessError } 12300214 - Server config has been associated with an account.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 22 static
+     */
+    static updateServerConfig(configId: string, parameters: Record<string, RecordData>): Promise<DomainServerConfig>;
 
     /**
      * Gets the specified server config by identifier.
@@ -3990,7 +4631,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300212 - Server config not found.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
     static getServerConfig(configId: string): Promise<DomainServerConfig>;
 
@@ -4004,7 +4646,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
     static getAllServerConfigs(): Promise<Array<DomainServerConfig>>;
 
@@ -4020,7 +4663,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Domain account not found.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
     static getAccountServerConfig(domainAccountInfo: DomainAccountInfo): Promise<DomainServerConfig>;
   }
@@ -4030,7 +4674,8 @@ declare namespace osAccount {
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    * @name UserIdentityManager
    */
   class UserIdentityManager {
@@ -4040,7 +4685,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     constructor();
 
@@ -4059,7 +4705,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     openSession(callback: AsyncCallback<Uint8Array>): void;
 
@@ -4085,7 +4732,7 @@ declare namespace osAccount {
      * Start an IDM operation to obtain challenge value.
      *
      * @permission ohos.permission.MANAGE_USER_IDM
-     * @param { number } [accountId] - Indicates the local ID of the OS account.
+     * @param { int } [accountId] - Indicates the local ID of the OS account.
      * @returns { Promise<Uint8Array> } Returns a challenge value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -4095,9 +4742,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300008 - Restricted account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    openSession(accountId?: number): Promise<Uint8Array>;
+    openSession(accountId?: int): Promise<Uint8Array>;
 
     /**
      * Adds credential.
@@ -4150,7 +4798,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300116 - Credential complexity verification failed.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     addCredential(credentialInfo: CredentialInfo, callback: IIdmCallback): void;
 
@@ -4196,7 +4845,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300116 - Credential complexity verification failed.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     updateCredential(credentialInfo: CredentialInfo, callback: IIdmCallback): void;
 
@@ -4218,7 +4868,7 @@ declare namespace osAccount {
      * End an IDM operation.
      *
      * @permission ohos.permission.MANAGE_USER_IDM
-     * @param { number } [accountId] - Indicates the local ID of the OS account.
+     * @param { int } [accountId] - Indicates the local ID of the OS account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
@@ -4227,9 +4877,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300008 - Restricted account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    closeSession(accountId?: number): void;
+    closeSession(accountId?: int): void;
 
     /**
      * Cancels entry with a challenge value.
@@ -4244,7 +4895,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid challenge.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     cancel(challenge: Uint8Array): void;
 
@@ -4262,7 +4914,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300101 - The token is invalid.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     delUser(token: Uint8Array, callback: IIdmCallback): void;
 
@@ -4283,7 +4936,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     delCred(credentialId: Uint8Array, token: Uint8Array, callback: IIdmCallback): void;
 
@@ -4300,7 +4954,21 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     */
+    /**
+     * Gets authentication information.
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { AsyncCallback<Array<EnrolledCredInfo>> } callback - Indicates the callback to get all registered credential information of
+     * the specified type for the current user.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 dynamic&static
      */
     getAuthInfo(callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
 
@@ -4319,7 +4987,23 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid authType.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     */
+    /**
+     * Gets authentication information.
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @param { AsyncCallback<Array<EnrolledCredInfo>> } callback - Indicates the callback to get all registered credential information of
+     * the specified type for the current user.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid authType.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 dynamic&static
      */
     getAuthInfo(authType: AuthType, callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
 
@@ -4337,9 +5021,25 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid authType.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
-    getAuthInfo(authType?: AuthType): Promise<Array<EnrolledCredInfo>>;
+    /**
+     * Gets authentication information.
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @returns { Promise<Array<EnrolledCredInfo>> } Returns all registered credential information of
+     * the specified type for the current user.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid authType.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    getAuthInfo(authType: AuthType): Promise<Array<EnrolledCredInfo>>;
 
     /**
      * Gets authentication information.
@@ -4356,7 +5056,24 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     */
+    /**
+     * Gets authentication information.
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { GetAuthInfoOptions } [options] - Indicates the options for getting the authentication information.
+     * @returns { Promise<Array<EnrolledCredInfo>> } Returns all enrolled credential information
+     * according to the options.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid options.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 dynamic&static
      */
     getAuthInfo(options?: GetAuthInfoOptions): Promise<Array<EnrolledCredInfo>>;
 
@@ -4365,7 +5082,7 @@ declare namespace osAccount {
      *
      * @permission ohos.permission.USE_USER_IDM
      * @param { AuthType } authType - Indicates the authentication type.
-     * @param { number } [accountId] - Indicates the OS account identifier.
+     * @param { int } [accountId] - Indicates the OS account identifier.
      * @returns { Promise<Uint8Array> } Returns the enrolled identifier.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -4378,9 +5095,182 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300106 - The authentication type is not supported.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
      */
-    getEnrolledId(authType: AuthType, accountId?: number): Promise<Uint8Array>;
+    /**
+     * Gets the credential enrolled identifier of the specified authentication type.
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @param { int } [accountId] - Indicates the OS account identifier.
+     * @returns { Promise<Uint8Array> } Returns the enrolled identifier.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid authType.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    getEnrolledId(authType: AuthType, accountId?: int): Promise<Uint8Array>;
+
+    /**
+     * Subscribes to one or more types of credential change events.
+     * Currently, the following types of credential change events are supported for subscription:
+     * 1. AuthType.PIN; 2. AuthType.FACE; 3. AuthType.FINGERPRINT; 4. AuthType.PRIVATE_PIN;
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { AuthType[] } credentialTypes - Indicates the credential types to be subscribed.
+     * @param { Callback<CredentialChangeInfo> } callback - Indicates callback for receiving
+     *     the credential change information.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - One or more credential types are invalid.
+     * @throws { BusinessError } 12300106 - One or more credential types are not supported.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    onCredentialChanged(credentialTypes: AuthType[], callback: Callback<CredentialChangeInfo>): void;
+
+   /**
+    * Unsubscribes from the credential change events.
+    *
+    * @permission ohos.permission.USE_USER_IDM
+    * @param { Callback<CredentialChangeInfo> } [callback] - Indicates callback for receiving
+    *     the credential change information.
+    * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application.
+    * @throws { BusinessError } 12300001 - The system service works abnormally.
+    * @syscap SystemCapability.Account.OsAccount
+    * @systemapi
+    * @since 23 dynamic&static
+    */
+   offCredentialChanged(callback?: Callback<CredentialChangeInfo>): void;
+  }
+
+  /**
+   * Enumerates the credential change types.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  enum CredentialChangeType {
+    /**
+     * Indicates that a credential has been added.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    ADD_CREDENTIAL = 1,
+
+    /**
+     * Indicates that a credential has been updated.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    UPDATE_CREDENTIAL = 2,
+
+    /**
+     * Indicates that a credential has been deleted.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    DELETE_CREDENTIAL = 3
+  }
+
+  /**
+   * Defines the credential change information.
+   *
+   * @typedef CredentialChangeInfo
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  interface CredentialChangeInfo {  
+    /**
+     * Indicates credential change type.
+     *
+     * @type { CredentialChangeType }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    changeType: CredentialChangeType;
+
+    /**
+     * Indicates the identifier of the OS account which the credential belongs.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    accountId: int;
+
+    /**
+     * Indicates whether the change is silent,
+     * i.e., whether the change is automatically performed by system in the backgroud.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    isSilent: boolean;
+
+    /**
+     * Indicates the type of the changed credential.
+     *
+     * @type { AuthType }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    credentialType: AuthType;
+
+    /**
+     * Indicates the identifier of the added credential.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    addedCredentialId?: Uint8Array;
+
+    /**
+     * Indicates the identifier of the deleted credential.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    deletedCredentialId?: Uint8Array;
   }
 
   /**
@@ -4389,7 +5279,8 @@ declare namespace osAccount {
    * @typedef GetAuthInfoOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface GetAuthInfoOptions {
     /**
@@ -4398,28 +5289,31 @@ declare namespace osAccount {
      * @type { ?AuthType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     authType?: AuthType;
 
     /**
      * Indicates the OS account identifier.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    accountId?: number;
+    accountId?: int;
   }
 
   /**
    * Indicates the enumeration of the authentication intent.
    *
-   * @enum { number } AuthIntent
+   * @enum { int } AuthIntent
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   enum AuthIntent {
     /**
@@ -4427,16 +5321,18 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     UNLOCK = 1,
 
     /**
-     * Indicates the intent of slient authentication.
+     * Indicates the intent of silent authentication.
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
     SILENT_AUTH = 2,
 
@@ -4445,7 +5341,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
     QUESTION_AUTH = 3,
 
@@ -4454,7 +5351,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     ABANDONED_PIN_AUTH = 4
   }
@@ -4465,7 +5363,8 @@ declare namespace osAccount {
    * @interface RemoteAuthOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface RemoteAuthOptions {
     /**
@@ -4474,7 +5373,8 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     verifierNetworkId?: string;
 
@@ -4484,19 +5384,21 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     collectorNetworkId?: string;
 
     /**
      * Indicates the collector token identifier.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    collectorTokenId?: number;
+    collectorTokenId?: int;
   }
 
   /**
@@ -4505,18 +5407,20 @@ declare namespace osAccount {
    * @interface AuthOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface AuthOptions {
     /**
      * Indicates the local ID of the OS account to be authenticated.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    accountId?: number;
+    accountId?: int;
 
     /**
      * Indicates the authentication intent.
@@ -4524,7 +5428,8 @@ declare namespace osAccount {
      * @type { ?AuthIntent }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     authIntent?: AuthIntent;
 
@@ -4534,7 +5439,8 @@ declare namespace osAccount {
      * @type { ?RemoteAuthOptions }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     remoteAuthOptions?: RemoteAuthOptions;
   }
@@ -4545,22 +5451,25 @@ declare namespace osAccount {
    * @interface IInputData
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   interface IInputData {
     /**
      * Notifies to set data.
      *
-     * @type { function }
+     * @param { AuthSubType } authSubType - Indicates the authentication credential subtype.
+     * @param { Uint8Array } data - Indicates the authentication credential data.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300002 - Invalid pinSubType.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
-    onSetData: (authSubType: AuthSubType, data: Uint8Array) => void;
+    onSetData(authSubType: AuthSubType, data: Uint8Array): void;
   }
 
   /**
@@ -4569,7 +5478,8 @@ declare namespace osAccount {
    * @interface GetInputDataOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface GetInputDataOptions {
     /**
@@ -4578,7 +5488,8 @@ declare namespace osAccount {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     challenge?: Uint8Array;
   }
@@ -4589,7 +5500,8 @@ declare namespace osAccount {
    * @interface IInputer
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   interface IInputer {
     /**
@@ -4598,7 +5510,8 @@ declare namespace osAccount {
      * @type { function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     onGetData: (authSubType: AuthSubType, callback: IInputData, options: GetInputDataOptions) => void;
   }
@@ -4609,7 +5522,8 @@ declare namespace osAccount {
    * @interface IUserAuthCallback
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   interface IUserAuthCallback {
     /**
@@ -4621,9 +5535,10 @@ declare namespace osAccount {
      * @type { function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
-    onResult: (result: number, extraInfo: AuthResult) => void;
+    onResult: (result: int, extraInfo: AuthResult) => void;
 
     /**
      * During an authentication, the TipsCode is returned through the callback.
@@ -4631,9 +5546,10 @@ declare namespace osAccount {
      * @type { ?function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
-    onAcquireInfo?: (module: number, acquire: number, extraInfo: Uint8Array) => void;
+    onAcquireInfo?: (module: int, acquire: int, extraInfo: Uint8Array) => void;
   }
 
   /**
@@ -4642,7 +5558,8 @@ declare namespace osAccount {
    * @interface IIdmCallback
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   interface IIdmCallback {
     /**
@@ -4651,9 +5568,10 @@ declare namespace osAccount {
      * @type { function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
-    onResult: (result: number, extraInfo: RequestResult) => void;
+    onResult: (result: int, extraInfo: RequestResult) => void;
 
     /**
      * During an authentication, the TipsCode is returned through the callback.
@@ -4661,9 +5579,10 @@ declare namespace osAccount {
      * @type { ?function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
-    onAcquireInfo?: (module: number, acquire: number, extraInfo: Uint8Array) => void;
+    onAcquireInfo?: (module: int, acquire: int, extraInfo: Uint8Array) => void;
   }
 
   /**
@@ -4672,7 +5591,8 @@ declare namespace osAccount {
    * @interface GetPropertyRequest
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   interface GetPropertyRequest {
     /**
@@ -4681,7 +5601,8 @@ declare namespace osAccount {
      * @type { AuthType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     authType: AuthType;
 
@@ -4691,19 +5612,21 @@ declare namespace osAccount {
      * @type { Array<GetPropertyType> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     keys: Array<GetPropertyType>;
 
     /**
      * Indicates the OS account identifier.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    accountId?: number;
+    accountId?: int;
   }
 
   /**
@@ -4712,7 +5635,8 @@ declare namespace osAccount {
    * @interface SetPropertyRequest
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   interface SetPropertyRequest {
     /**
@@ -4721,7 +5645,8 @@ declare namespace osAccount {
      * @type { AuthType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     authType: AuthType;
 
@@ -4731,7 +5656,8 @@ declare namespace osAccount {
      * @type { SetPropertyType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     key: SetPropertyType;
 
@@ -4741,7 +5667,8 @@ declare namespace osAccount {
      * @type { Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     setInfo: Uint8Array;
   }
@@ -4752,18 +5679,20 @@ declare namespace osAccount {
    * @interface ExecutorProperty
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   interface ExecutorProperty {
     /**
      * Indicates the result.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
-    result: number;
+    result: int;
 
     /**
      * Indicates the authentication credential subtype.
@@ -4771,39 +5700,43 @@ declare namespace osAccount {
      * @type { AuthSubType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     authSubType: AuthSubType;
 
     /**
      * Indicates the remaining times.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
-    remainTimes?: number;
+    remainTimes?: int;
 
     /**
      * Indicates the freezing times.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
-    freezingTime?: number;
+    freezingTime?: int;
 
     /**
      * Indicates next phase freezing time.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    nextPhaseFreezingTime?: number;
+    nextPhaseFreezingTime?: int;
 
     /**
      * Indicates the enrollment progress.
@@ -4811,7 +5744,8 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     enrollmentProgress?: string;
 
@@ -4821,19 +5755,21 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     sensorInfo?: string;
 
     /**
      * Indicates the credential length.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
-    credentialLength?: number;
+    credentialLength?: int;
   }
 
   /**
@@ -4842,7 +5778,8 @@ declare namespace osAccount {
    * @interface AuthResult
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   interface AuthResult {
     /**
@@ -4851,39 +5788,43 @@ declare namespace osAccount {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     token?: Uint8Array;
 
     /**
      * Indicates the remaining times.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
-    remainTimes?: number;
+    remainTimes?: int;
 
     /**
      * Indicates the freezing times.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
-    freezingTime?: number;
+    freezingTime?: int;
 
     /**
      * Indicates next phase freezing time.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    nextPhaseFreezingTime?: number;
+    nextPhaseFreezingTime?: int;
 
     /**
      * Indicates the credential ID.
@@ -4891,29 +5832,32 @@ declare namespace osAccount {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     credentialId?: Uint8Array;
 
     /**
      * Indicates the local ID of the authenticated OS account.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    accountId?: number;
+    accountId?: int;
 
     /**
      * Indicates the validity period after which the PIN will expire.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    pinValidityPeriod?: number;
+    pinValidityPeriod?: long;
   }
 
   /**
@@ -4922,7 +5866,8 @@ declare namespace osAccount {
    * @interface CredentialInfo
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   interface CredentialInfo {
     /**
@@ -4931,7 +5876,8 @@ declare namespace osAccount {
      * @type { AuthType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     credType: AuthType;
 
@@ -4941,7 +5887,8 @@ declare namespace osAccount {
      * @type { AuthSubType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     credSubType: AuthSubType;
 
@@ -4951,19 +5898,31 @@ declare namespace osAccount {
      * @type { Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     token: Uint8Array;
 
     /**
      * Indicates the local ID of the OS account to which the credential belongs.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    accountId?: number;
+    accountId?: int;
+
+    /**
+     * Indicates the additional information about the credential.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 23 dynamic&static
+     */
+    additionalInfo?: string;
   }
 
   /**
@@ -4972,7 +5931,8 @@ declare namespace osAccount {
    * @interface RequestResult
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   interface RequestResult {
     /**
@@ -4981,7 +5941,8 @@ declare namespace osAccount {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     credentialId?: Uint8Array;
   }
@@ -4992,7 +5953,8 @@ declare namespace osAccount {
    * @interface EnrolledCredInfo
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   interface EnrolledCredInfo {
     /**
@@ -5001,7 +5963,8 @@ declare namespace osAccount {
      * @type { Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     credentialId: Uint8Array;
 
@@ -5011,7 +5974,8 @@ declare namespace osAccount {
      * @type { AuthType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     authType: AuthType;
 
@@ -5021,7 +5985,8 @@ declare namespace osAccount {
      * @type { AuthSubType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     authSubType: AuthSubType;
 
@@ -5031,7 +5996,8 @@ declare namespace osAccount {
      * @type { Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     templateId: Uint8Array;
 
@@ -5040,28 +6006,31 @@ declare namespace osAccount {
      * @type { ?boolean }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     isAbandoned?: boolean;
 
     /**
      * Indicates the validity period.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
-    validityPeriod?: number;
+    validityPeriod?: long;
   }
 
   /**
    * Indicates the property type to get.
    *
-   * @enum { number } GetPropertyType
+   * @enum { int } GetPropertyType
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   enum GetPropertyType {
     /**
@@ -5069,7 +6038,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     AUTH_SUB_TYPE = 1,
 
@@ -5078,7 +6048,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     REMAIN_TIMES = 2,
 
@@ -5087,7 +6058,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FREEZING_TIME = 3,
 
@@ -5096,7 +6068,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     ENROLLMENT_PROGRESS = 4,
 
@@ -5105,7 +6078,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     SENSOR_INFO = 5,
 
@@ -5114,7 +6088,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     NEXT_PHASE_FREEZING_TIME = 6,
 
@@ -5123,7 +6098,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     CREDENTIAL_LENGTH = 7
   }
@@ -5131,10 +6107,11 @@ declare namespace osAccount {
   /**
    * Indicates the property type to set.
    *
-   * @enum { number } SetPropertyType
+   * @enum { int } SetPropertyType
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   enum SetPropertyType {
     /**
@@ -5142,7 +6119,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     INIT_ALGORITHM = 1
   }
@@ -5150,10 +6128,11 @@ declare namespace osAccount {
   /**
    * Indicates the credential type for authentication.
    *
-   * @enum { number } AuthType
+   * @enum { int } AuthType
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   enum AuthType {
     /**
@@ -5161,7 +6140,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     PIN = 1,
 
@@ -5170,7 +6150,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FACE = 2,
 
@@ -5179,7 +6160,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     FINGERPRINT = 4,
 
@@ -5188,7 +6170,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     RECOVERY_KEY = 8,
 
@@ -5197,7 +6180,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
     PRIVATE_PIN = 16,
 
@@ -5206,7 +6190,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     DOMAIN = 1024
   }
@@ -5214,10 +6199,11 @@ declare namespace osAccount {
   /**
    * Indicates the credential subtype for authentication.
    *
-   * @enum { number } AuthSubType
+   * @enum { int } AuthSubType
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   enum AuthSubType {
     /**
@@ -5225,7 +6211,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     PIN_SIX = 10000,
 
@@ -5234,7 +6221,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     PIN_NUMBER = 10001,
 
@@ -5243,7 +6231,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     PIN_MIXED = 10002,
 
@@ -5252,7 +6241,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     PIN_FOUR = 10003,
 
@@ -5261,7 +6251,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     PIN_PATTERN = 10004,
 
@@ -5270,7 +6261,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
     PIN_QUESTION = 10005,
 
@@ -5279,7 +6271,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FACE_2D = 20000,
 
@@ -5288,7 +6281,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FACE_3D = 20001,
 
@@ -5297,7 +6291,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     FINGERPRINT_CAPACITIVE = 30000,
 
@@ -5306,7 +6301,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     FINGERPRINT_OPTICAL = 30001,
 
@@ -5315,7 +6311,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     FINGERPRINT_ULTRASONIC = 30002,
 
@@ -5324,7 +6321,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     DOMAIN_MIXED = 10240001
   }
@@ -5332,10 +6330,11 @@ declare namespace osAccount {
   /**
    * Indicates the trusted level of authentication results.
    *
-   * @enum { number } AuthTrustLevel
+   * @enum { int } AuthTrustLevel
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   enum AuthTrustLevel {
     /**
@@ -5343,7 +6342,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     ATL1 = 10000,
 
@@ -5352,7 +6352,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     ATL2 = 20000,
 
@@ -5361,7 +6362,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     ATL3 = 30000,
 
@@ -5370,7 +6372,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     ATL4 = 40000
   }
@@ -5378,10 +6381,11 @@ declare namespace osAccount {
   /**
    * Indicates the module of acquired information.
    *
-   * @enum { number } Module
+   * @enum { int } Module
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   enum Module {
     /**
@@ -5389,7 +6393,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FACE_AUTH = 1
   }
@@ -5397,10 +6402,11 @@ declare namespace osAccount {
   /**
    * Indicates the enumeration of authentication result code.
    *
-   * @enum { number } ResultCode
+   * @enum { int } ResultCode
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   enum ResultCode {
     /**
@@ -5408,7 +6414,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     SUCCESS = 0,
 
@@ -5417,7 +6424,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FAIL = 1,
 
@@ -5426,7 +6434,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     GENERAL_ERROR = 2,
 
@@ -5435,7 +6444,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     CANCELED = 3,
 
@@ -5444,7 +6454,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     TIMEOUT = 4,
 
@@ -5453,7 +6464,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     TYPE_NOT_SUPPORT = 5,
 
@@ -5462,7 +6474,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     TRUST_LEVEL_NOT_SUPPORT = 6,
 
@@ -5471,7 +6484,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     BUSY = 7,
 
@@ -5480,7 +6494,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     INVALID_PARAMETERS = 8,
 
@@ -5489,7 +6504,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     LOCKED = 9,
 
@@ -5498,7 +6514,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     NOT_ENROLLED = 10
   }
@@ -5506,10 +6523,11 @@ declare namespace osAccount {
   /**
    * Indicates the enumeration of prompt codes in the process of face authentication.
    *
-   * @enum { number } FaceTipsCode
+   * @enum { int } FaceTipsCode
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   enum FaceTipsCode {
     /**
@@ -5517,7 +6535,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_BRIGHT = 1,
 
@@ -5526,7 +6545,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_DARK = 2,
 
@@ -5535,7 +6555,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_CLOSE = 3,
 
@@ -5544,7 +6565,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_FAR = 4,
 
@@ -5553,7 +6575,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_HIGH = 5,
 
@@ -5562,7 +6585,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_LOW = 6,
 
@@ -5571,7 +6595,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_RIGHT = 7,
 
@@ -5580,7 +6605,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_LEFT = 8,
 
@@ -5589,7 +6615,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_MUCH_MOTION = 9,
 
@@ -5598,7 +6625,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FACE_AUTH_TIP_POOR_GAZE = 10,
 
@@ -5607,7 +6635,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FACE_AUTH_TIP_NOT_DETECTED = 11
   }
@@ -5615,10 +6644,11 @@ declare namespace osAccount {
   /**
    * Indicates the enumeration of prompt codes in the process of fingerprint authentication.
    *
-   * @enum { number } FingerprintTips
+   * @enum { int } FingerprintTips
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   enum FingerprintTips {
     /**
@@ -5626,7 +6656,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FINGERPRINT_TIP_GOOD = 0,
 
@@ -5635,7 +6666,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FINGERPRINT_TIP_IMAGER_DIRTY = 1,
 
@@ -5644,7 +6676,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FINGERPRINT_TIP_INSUFFICIENT = 2,
 
@@ -5653,7 +6686,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FINGERPRINT_TIP_PARTIAL = 3,
 
@@ -5662,7 +6696,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FINGERPRINT_TIP_TOO_FAST = 4,
 
@@ -5671,7 +6706,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 22 static
      */
     FINGERPRINT_TIP_TOO_SLOW = 5,
 
@@ -5680,7 +6716,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     FINGERPRINT_TIP_FINGER_DOWN = 6,
 
@@ -5689,7 +6726,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     FINGERPRINT_TIP_FINGER_UP = 7
   }
@@ -5697,10 +6735,11 @@ declare namespace osAccount {
   /**
    * Enumerates for constraint source types.
    *
-   * @enum { number } ConstraintSourceType
+   * @enum { int } ConstraintSourceType
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   enum ConstraintSourceType {
     /**
@@ -5708,7 +6747,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     CONSTRAINT_NOT_EXIST = 0,
 
@@ -5717,7 +6757,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     CONSTRAINT_TYPE_BASE = 1,
 
@@ -5726,7 +6767,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     CONSTRAINT_TYPE_DEVICE_OWNER = 2,
 
@@ -5735,7 +6777,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     CONSTRAINT_TYPE_PROFILE_OWNER = 3
   }
@@ -5746,19 +6789,21 @@ declare namespace osAccount {
    * @interface ConstraintSourceTypeInfo
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface ConstraintSourceTypeInfo {
     /**
      * Indicates the id of an os account who set the constraint.
      * When type is CONSTRAINT_NOT_EXIST or CONSTRAINT_TYPE_BASE, localId will be -1.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    localId: number;
+    localId: int;
 
     /**
      * Indicates the source type of the constraint.
@@ -5766,7 +6811,8 @@ declare namespace osAccount {
      * @type { ConstraintSourceType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     type: ConstraintSourceType;
   }

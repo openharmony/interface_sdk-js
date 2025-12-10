@@ -29,7 +29,7 @@ import { ShortcutInfo } from './bundle/shortcutInfo';
  * @namespace innerBundleManager
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
- * @since 8
+ * @since 8 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.bundle.launcherBundleManager
  */
@@ -43,7 +43,7 @@ declare namespace innerBundleManager {
    * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.launcherBundleManager#getLauncherAbilityInfo
    */
@@ -59,7 +59,7 @@ declare namespace innerBundleManager {
    * @returns { Promise<Array<LauncherAbilityInfo>> } Returns the LauncherAbilityInfo array.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.launcherBundleManager#getLauncherAbilityInfo
    */
@@ -74,7 +74,7 @@ declare namespace innerBundleManager {
    * @param { AsyncCallback<string> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleMonitor#on
    */
@@ -90,7 +90,7 @@ declare namespace innerBundleManager {
    * @returns { Promise<string> } - Returns the result of register.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleMonitor#on
    */
@@ -104,7 +104,7 @@ declare namespace innerBundleManager {
    * @param { AsyncCallback<string> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleMonitor#off
    */
@@ -118,7 +118,7 @@ declare namespace innerBundleManager {
    * @returns { Promise<string> } Returns the result of unregister.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleMonitor#off
    */
@@ -132,7 +132,7 @@ declare namespace innerBundleManager {
    * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.launcherBundleManager#getAllLauncherAbilityInfos
    */
@@ -146,7 +146,7 @@ declare namespace innerBundleManager {
    * @returns { Promise<Array<LauncherAbilityInfo>> } Returns the LauncherAbilityInfo array.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.launcherBundleManager#getAllLauncherAbilityInfos
    */
@@ -160,7 +160,7 @@ declare namespace innerBundleManager {
    * @param { AsyncCallback<Array<ShortcutInfo>> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.launcherBundleManager#getShortcutInfo
    */
@@ -174,7 +174,7 @@ declare namespace innerBundleManager {
    * @returns { Promise<Array<ShortcutInfo>> } Returns the LauncherShortcutInfo array.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.launcherBundleManager#getShortcutInfo
    */
@@ -187,7 +187,7 @@ declare namespace innerBundleManager {
  * @typedef { _BundleStatusCallback }
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
- * @since 8
+ * @since 8 dynamic
  * @deprecated since 9
  */
 export type BundleStatusCallback = _BundleStatusCallback;

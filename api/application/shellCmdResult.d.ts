@@ -31,8 +31,8 @@
  * @typedef ShellCmdResult
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 export interface ShellCmdResult {
   /**
@@ -48,8 +48,8 @@ export interface ShellCmdResult {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   stdResult: string;
 
@@ -63,15 +63,15 @@ export interface ShellCmdResult {
   /**
    * shell cmd exec result.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
-  exitCode: number;
+  exitCode: int;
 }
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 export default ShellCmdResult;
 /*** endif */

@@ -50,8 +50,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare namespace intl {
   /**
@@ -86,7 +85,7 @@ declare namespace intl {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 20
    * @useinstead Intl.LocaleOptions
    */
@@ -132,7 +131,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.calendar
      */
@@ -178,7 +177,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.collation
      */
@@ -223,7 +222,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.hourCycle
      */
@@ -273,7 +272,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.numberingSystem
      */
@@ -319,7 +318,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.numeric
      */
@@ -364,7 +363,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.caseFirst
      */
@@ -399,7 +398,7 @@ declare namespace intl {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 20
    * @useinstead Intl.Locale
    */
@@ -432,7 +431,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead i18n.System.getSystemLocaleInstance
      */
@@ -477,7 +476,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.constructor
      */
@@ -512,7 +511,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.language
      */
@@ -547,7 +546,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.script
      */
@@ -582,7 +581,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.region
      */
@@ -620,7 +619,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.baseName
      */
@@ -656,7 +655,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.caseFirst
      */
@@ -693,7 +692,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.calendar
      */
@@ -729,7 +728,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.collation
      */
@@ -764,7 +763,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.hourCycle
      */
@@ -804,7 +803,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.numberingSystem
      */
@@ -840,7 +839,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.numeric
      */
@@ -878,7 +877,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.toString
      */
@@ -916,7 +915,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.maximize
      */
@@ -954,7 +953,7 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.Locale.minimize
      */
@@ -994,10 +993,9 @@ declare namespace intl {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12 dynamic
    * @deprecated since 20
    * @useinstead Intl.DateTimeFormatOptions
-   * @arkts 1.1&1.2
    */
   export interface DateTimeOptions {
     /**
@@ -1039,9 +1037,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
-     * @arkts 1.1&1.2
      */
     locale?: string;
 
@@ -1084,10 +1081,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.dateStyle
-     * @arkts 1.1&1.2
      */
     dateStyle?: string;
 
@@ -1130,10 +1126,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.timeStyle
-     * @arkts 1.1&1.2
      */
     timeStyle?: string;
 
@@ -1176,10 +1171,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.hourCycle
-     * @arkts 1.1&1.2
      */
     hourCycle?: string;
 
@@ -1222,10 +1216,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.timeZone
-     * @arkts 1.1&1.2
      */
     timeZone?: string;
 
@@ -1273,10 +1266,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.numberingSystem
-     * @arkts 1.1&1.2
      */
     numberingSystem?: string;
 
@@ -1321,10 +1313,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.hour12
-     * @arkts 1.1&1.2
      */
     hour12?: boolean;
 
@@ -1367,10 +1358,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.weekday
-     * @arkts 1.1&1.2
      */
     weekday?: string;
 
@@ -1413,10 +1403,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.era
-     * @arkts 1.1&1.2
      */
     era?: string;
 
@@ -1459,10 +1448,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.year
-     * @arkts 1.1&1.2
      */
     year?: string;
 
@@ -1505,10 +1493,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.month
-     * @arkts 1.1&1.2
      */
     month?: string;
 
@@ -1551,10 +1538,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.day
-     * @arkts 1.1&1.2
      */
     day?: string;
 
@@ -1597,10 +1583,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.hour
-     * @arkts 1.1&1.2
      */
     hour?: string;
 
@@ -1643,10 +1628,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.minute
-     * @arkts 1.1&1.2
      */
     minute?: string;
 
@@ -1689,10 +1673,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.second
-     * @arkts 1.1&1.2
      */
     second?: string;
 
@@ -1735,10 +1718,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.timeZoneName
-     * @arkts 1.1&1.2
      */
     timeZoneName?: string;
 
@@ -1781,10 +1763,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.dayPeriod
-     * @arkts 1.1&1.2
      */
     dayPeriod?: string;
 
@@ -1829,10 +1810,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.localeMatcher
-     * @arkts 1.1&1.2
      */
     localeMatcher?: string;
 
@@ -1877,10 +1857,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormatOptions.formatMatcher
-     * @arkts 1.1&1.2
      */
     formatMatcher?: string;
   }
@@ -1913,10 +1892,9 @@ declare namespace intl {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12 dynamic
    * @deprecated since 20
    * @useinstead Intl.DateTimeFormat
-   * @arkts 1.1&1.2
    */
   export class DateTimeFormat {
     /**
@@ -1947,10 +1925,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormat.constructor
-     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -1995,10 +1972,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormat.constructor
-     * @arkts 1.1&1.2
      */
     constructor(locale: string | Array<string>, options?: DateTimeOptions);
 
@@ -2038,10 +2014,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormat.format
-     * @arkts 1.1&1.2
      */
     format(date: Date): string;
 
@@ -2086,10 +2061,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormat.formatRange
-     * @arkts 1.1&1.2
      */
     formatRange(startDate: Date, endDate: Date): string;
 
@@ -2125,10 +2099,9 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormat.resolvedOptions
-     * @arkts 1.1&1.2
      */
     resolvedOptions(): DateTimeOptions;
   }
@@ -2156,8 +2129,7 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   export interface NumberOptions {
     /**
@@ -2189,8 +2161,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     locale?: string;
 
@@ -2225,8 +2196,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     currency?: string;
 
@@ -2259,8 +2229,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     currencySign?: string;
 
@@ -2294,8 +2263,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     currencyDisplay?: string;
 
@@ -2331,8 +2299,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     unit?: string;
 
@@ -2365,8 +2332,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     unitDisplay?: string;
 
@@ -2404,8 +2370,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     unitUsage?: string;
 
@@ -2443,8 +2408,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     signDisplay?: string;
 
@@ -2477,8 +2441,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     compactDisplay?: string;
 
@@ -2512,8 +2475,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     notation?: string;
 
@@ -2546,8 +2508,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     localeMatcher?: string;
 
@@ -2581,8 +2542,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     style?: string;
 
@@ -2620,8 +2580,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     numberingSystem?: string;
 
@@ -2655,29 +2614,28 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     useGrouping?: boolean;
 
     /**
      * Indicates the minimumIntegerDigits.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the minimumIntegerDigits.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
     /**
      * Indicates the minimumIntegerDigits.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
@@ -2686,33 +2644,32 @@ declare namespace intl {
      * Minimum number of digits allowed in the integer part of a number. The value ranges from 1 to 21.
      * The default value is 1.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    minimumIntegerDigits?: number;
+    minimumIntegerDigits?: int;
 
     /**
      * Indicates the minimumFractionDigits.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the minimumFractionDigits.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
     /**
      * Indicates the minimumFractionDigits.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
@@ -2721,33 +2678,32 @@ declare namespace intl {
      * Minimum number of digits in the fraction part of a number. The value ranges from 0 to 20.
      * The default value is 0.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    minimumFractionDigits?: number;
+    minimumFractionDigits?: int;
 
     /**
      * Indicates the maximumFractionDigits.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the maximumFractionDigits.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
     /**
      * Indicates the maximumFractionDigits.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
@@ -2756,33 +2712,32 @@ declare namespace intl {
      * Maximum number of digits in the fraction part of a number. The value ranges from 1 to 21.
      * The default value is 3.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    maximumFractionDigits?: number;
+    maximumFractionDigits?: int;
 
     /**
      * Indicates the minimumSignificantDigits.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the minimumSignificantDigits.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
     /**
      * Indicates the minimumSignificantDigits.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
@@ -2790,33 +2745,32 @@ declare namespace intl {
     /**
      * Minimum number of the least significant digits. The value ranges from 1 to 21. The default value is 1.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    minimumSignificantDigits?: number;
+    minimumSignificantDigits?: int;
 
     /**
      * Indicates the maximumSignificantDigits.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the maximumSignificantDigits.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
     /**
      * Indicates the maximumSignificantDigits.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
@@ -2824,14 +2778,13 @@ declare namespace intl {
     /**
      * Maximum number of the least significant digits. The value ranges from 1 to 21. The default value is 21.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    maximumSignificantDigits?: number;
+    maximumSignificantDigits?: int;
 
     /**
      * Rounding priority used when both the maximum number of fraction digits and the maximum number of valid digits
@@ -2842,8 +2795,7 @@ declare namespace intl {
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     roundingPriority?: string;
 
@@ -2851,13 +2803,12 @@ declare namespace intl {
      * Rounding increment. The value can be: 1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000, 2000, 2500, or 5000.
      * The default value is 1.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
-    roundingIncrement?: number;
+    roundingIncrement?: int;
 
     /**
      * Rounding mode. The value can be:
@@ -2882,8 +2833,7 @@ declare namespace intl {
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
     roundingMode?: string;
   }
@@ -2907,8 +2857,7 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   export class NumberFormat {
     /**
@@ -2930,8 +2879,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     constructor();
 
@@ -2963,15 +2911,14 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     constructor(locale: string | Array<string>, options?: NumberOptions);
 
     /**
      * Obtains the formatted number string.
      *
-     * @param { number } number Indicates the number to be formatted.
+     * @param { double } number Indicates the number to be formatted.
      * @returns { string } a number string formatted based on the specified locale.
      * @syscap SystemCapability.Global.I18n
      * @since 6
@@ -2979,7 +2926,7 @@ declare namespace intl {
     /**
      * Obtains the formatted number string.
      *
-     * @param { number } number Indicates the number to be formatted.
+     * @param { double } number Indicates the number to be formatted.
      * @returns { string } a number string formatted based on the specified locale.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
@@ -2988,28 +2935,26 @@ declare namespace intl {
     /**
      * Formats a number.
      *
-     * @param { number } num - Number to be formatted.
+     * @param { double } num - Number to be formatted.
      * @returns { string } Formatted number.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    format(num: number): string;
+    format(num: double): string;
 
     /**
      * Formats a number range.
      *
-     * @param { number } startRange - Start number.
-     * @param { number } endRange - End number.
+     * @param { double } startRange - Start number.
+     * @param { double } endRange - End number.
      * @returns { string } Formatted number range.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
      */
-    formatRange(startRange: number, endRange: number): string;
+    formatRange(startRange: double, endRange: double): string;
 
     /**
      * Obtains the options of the NumberFormat object.
@@ -3033,8 +2978,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     resolvedOptions(): NumberOptions;
   }
@@ -3061,8 +3005,8 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   export interface CollatorOptions {
     /**
@@ -3097,8 +3041,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     localeMatcher?: string;
 
@@ -3135,8 +3078,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     usage?: string;
 
@@ -3191,8 +3133,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     sensitivity?: string;
 
@@ -3226,8 +3167,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     ignorePunctuation?: boolean;
     /**
@@ -3261,8 +3201,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     collation?: string;
 
@@ -3296,8 +3235,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     numeric?: boolean;
 
@@ -3334,8 +3272,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     caseFirst?: string;
   }
@@ -3359,8 +3296,8 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   export class Collator {
     /**
@@ -3382,8 +3319,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     constructor();
     /**
@@ -3414,8 +3350,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     constructor(locale: string | Array<string>, options?: CollatorOptions);
 
@@ -3424,7 +3359,7 @@ declare namespace intl {
      *
      * @param { string } first - The first string to compare.
      * @param { string } second - The second string to compare.
-     * @returns { number } a number indicating how first compare to second:
+     * @returns { int } a number indicating how first compare to second:
      *         a negative value if string1 comes before string2;
      *         a positive value if string1 comes after string2;
      *         0 if they are considered equal.
@@ -3436,7 +3371,7 @@ declare namespace intl {
      *
      * @param { string } first - The first string to compare.
      * @param { string } second - The second string to compare.
-     * @returns { number } a number indicating how first compare to second:
+     * @returns { int } a number indicating how first compare to second:
      *         a negative value if string1 comes before string2;
      *         a positive value if string1 comes after string2;
      *         0 if they are considered equal.
@@ -3449,16 +3384,15 @@ declare namespace intl {
      *
      * @param { string } first - First string to compare.
      * @param { string } second - Second string to compare.
-     * @returns { number } Comparison result. If the value is a negative number, the first string comes before the
+     * @returns { int } Comparison result. If the value is a negative number, the first string comes before the
      *                     second string. If the value is 0, the first and second strings are in the same sequence.
      *                     If the value is a positive number, the first string is comes after the second string.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
-    compare(first: string, second: string): number;
+    compare(first: string, second: string): int;
 
     /**
      * Returns a new object with properties that reflect the locale and collation options computed
@@ -3484,8 +3418,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     resolvedOptions(): CollatorOptions;
   }
@@ -3512,7 +3445,7 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 20
    * @useinstead Intl.PluralRulesOptions
    */
@@ -3549,7 +3482,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRulesOptions.localeMatcher
      */
@@ -3585,7 +3518,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRulesOptions.type
      */
@@ -3595,7 +3528,7 @@ declare namespace intl {
      * The minimum number of integer digits to use.
      * Possible values are from 1 to 21; the default is 1.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -3603,7 +3536,7 @@ declare namespace intl {
      * The minimum number of integer digits to use.
      * Possible values are from 1 to 21; the default is 1.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -3611,7 +3544,7 @@ declare namespace intl {
      * The minimum number of integer digits to use.
      * Possible values are from 1 to 21; the default is 1.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
@@ -3620,21 +3553,21 @@ declare namespace intl {
      * Minimum number of digits allowed in the integer part of a number. The value ranges from 1 to 21.
      * The default value is 1.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRulesOptions.minimumIntegerDigits
      */
-    minimumIntegerDigits?: number;
+    minimumIntegerDigits?: int;
 
     /**
      * The minimum number of fraction digits to use.
      * Possible values are from 0 to 20; the default for plain number and percent formatting is 0;
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -3642,7 +3575,7 @@ declare namespace intl {
      * The minimum number of fraction digits to use.
      * Possible values are from 0 to 20; the default for plain number and percent formatting is 0;
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -3650,7 +3583,7 @@ declare namespace intl {
      * The minimum number of fraction digits to use.
      * Possible values are from 0 to 20; the default for plain number and percent formatting is 0;
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
@@ -3659,22 +3592,22 @@ declare namespace intl {
      * Minimum number of digits in the fraction part of a number. The value ranges from 0 to 20.
      * The default value is 0.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRulesOptions.minimumFractionDigits
      */
-    minimumFractionDigits?: number;
+    minimumFractionDigits?: int;
 
     /**
      * The maximum number of fraction digits to use.
      * Possible values are from 0 to 20;
      * the default for plain number formatting is the larger of minimumFractionDigits and 3;
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -3683,7 +3616,7 @@ declare namespace intl {
      * Possible values are from 0 to 20;
      * the default for plain number formatting is the larger of minimumFractionDigits and 3;
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -3692,7 +3625,7 @@ declare namespace intl {
      * Possible values are from 0 to 20;
      * the default for plain number formatting is the larger of minimumFractionDigits and 3;
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
@@ -3701,21 +3634,21 @@ declare namespace intl {
      * Maximum number of digits in the fraction part of a number. The value ranges from 1 to 21.
      * The default value is 3.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRulesOptions.maximumFractionDigits
      */
-    maximumFractionDigits?: number;
+    maximumFractionDigits?: int;
 
     /**
      * The minimum number of significant digits to use.
      * Possible values are from 1 to 21; the default is 1.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -3723,7 +3656,7 @@ declare namespace intl {
      * The minimum number of significant digits to use.
      * Possible values are from 1 to 21; the default is 1.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -3731,7 +3664,7 @@ declare namespace intl {
      * The minimum number of significant digits to use.
      * Possible values are from 1 to 21; the default is 1.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
@@ -3739,21 +3672,21 @@ declare namespace intl {
     /**
      * Minimum number of the least significant digits. The value ranges from 1 to 21. The default value is 1.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRulesOptions.minimumSignificantDigits
      */
-    minimumSignificantDigits?: number;
+    minimumSignificantDigits?: int;
 
     /**
      * The maximum number of significant digits to use.
      * Possible values are from 1 to 21; the default is 21.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -3761,7 +3694,7 @@ declare namespace intl {
      * The maximum number of significant digits to use.
      * Possible values are from 1 to 21; the default is 21.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -3769,7 +3702,7 @@ declare namespace intl {
      * The maximum number of significant digits to use.
      * Possible values are from 1 to 21; the default is 21.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
@@ -3777,15 +3710,15 @@ declare namespace intl {
     /**
      * Maximum number of the least significant digits. The value ranges from 1 to 21. The default value is 21.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRulesOptions.maximumSignificantDigits
      */
-    maximumSignificantDigits?: number;
+    maximumSignificantDigits?: int;
   }
 
   /**
@@ -3807,7 +3740,7 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 20
    * @useinstead Intl.PluralRules
    */
@@ -3831,7 +3764,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRules.constructor
      */
@@ -3865,7 +3798,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRules.constructor
      */
@@ -3874,7 +3807,7 @@ declare namespace intl {
     /**
      * Returns a string indicating which plural rule to use for locale-aware formatting.
      *
-     * @param { number } n - The number to get a plural rule for.
+     * @param { double } n - The number to get a plural rule for.
      * @returns { string } A string representing the pluralization category of the number,
      *         can be one of zero, one, two, few, many or other.
      * @syscap SystemCapability.Global.I18n
@@ -3883,7 +3816,7 @@ declare namespace intl {
     /**
      * Returns a string indicating which plural rule to use for locale-aware formatting.
      *
-     * @param { number } n - The number to get a plural rule for.
+     * @param { double } n - The number to get a plural rule for.
      * @returns { string } A string representing the pluralization category of the number,
      *         can be one of zero, one, two, few, many or other.
      * @syscap SystemCapability.Global.I18n
@@ -3893,18 +3826,18 @@ declare namespace intl {
     /**
      * Obtains the singular-plural type of the specified number.
      *
-     * @param { number } n - Number for which the singular-plural type is to be obtained.
+     * @param { double } n - Number for which the singular-plural type is to be obtained.
      * @returns { string } Singular-plural type. The value can be any of the following: "zero", "one", "two", "few",
      *                     "many", "others". For details about the meanings of different values, see
      *                     [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.PluralRules.select
      */
-    select(n: number): string;
+    select(n: double): string;
   }
 
   /**
@@ -3929,7 +3862,7 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 20
    * @useinstead Intl.RelativeTimeFormatOptions
    */
@@ -3966,7 +3899,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.RelativeTimeFormatOptions.localeMatcher
      */
@@ -4004,7 +3937,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.RelativeTimeFormatOptions.numeric
      */
@@ -4043,7 +3976,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.RelativeTimeFormatOptions.style
      */
@@ -4072,7 +4005,7 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 20
    * @useinstead Intl.ResolvedRelativeTimeFormatOptions
    */
@@ -4097,7 +4030,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.ResolvedRelativeTimeFormatOptions.locale
      */
@@ -4125,7 +4058,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.ResolvedRelativeTimeFormatOptions.style
      */
@@ -4153,7 +4086,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.ResolvedRelativeTimeFormatOptions.numeric
      */
@@ -4184,7 +4117,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.ResolvedRelativeTimeFormatOptions.numberingSystem
      */
@@ -4213,7 +4146,7 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 20
    * @useinstead Intl.RelativeTimeFormat
    */
@@ -4237,7 +4170,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.RelativeTimeFormat.constructor
      */
@@ -4271,7 +4204,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.RelativeTimeFormat.constructor
      */
@@ -4280,7 +4213,7 @@ declare namespace intl {
     /**
      * formats a value and unit according to the locale and formatting options of this object.
      *
-     * @param { number } value - Numeric value to use in the internationalized relative time message.
+     * @param { double } value - Numeric value to use in the internationalized relative time message.
      * @param { string } unit - Unit to use in the relative time internationalized message.
      *             Possible values are: year, quarter, month, week, day, hour, minute, second.
      * @returns { string } formatted language-sensitive relative time.
@@ -4290,7 +4223,7 @@ declare namespace intl {
     /**
      * formats a value and unit according to the locale and formatting options of this object.
      *
-     * @param { number } value - Numeric value to use in the internationalized relative time message.
+     * @param { double } value - Numeric value to use in the internationalized relative time message.
      * @param { string } unit - Unit to use in the relative time internationalized message.
      *             Possible values are: year, quarter, month, week, day, hour, minute, second.
      * @returns { string } formatted language-sensitive relative time.
@@ -4301,24 +4234,24 @@ declare namespace intl {
     /**
      * Formats a relative time.
      *
-     * @param { number } value - Value to format.
+     * @param { double } value - Value to format.
      * @param { string } unit - Unit of the relative time.<br>The value can be any of the following: "year", "quarter",
      * "month", "week", "day", "hour", "minute", or "second".
      * @returns { string } Relative time after formatting.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.RelativeTimeFormat.format
      */
-    format(value: number, unit: string): string;
+    format(value: double, unit: string): string;
 
     /**
      * returns an Array of objects representing the relative time format in parts that can be used for
      * custom locale-aware formatting
      *
-     * @param { number } value - Numeric value to use in the internationalized relative time message.
+     * @param { double } value - Numeric value to use in the internationalized relative time message.
      * @param { string } unit - to use in the relative time internationalized message.
      *             Possible values are: year, quarter, month, week, day, hour, minute, second.
      * @returns { Array<object> } an Array of objects representing the relative time format in parts
@@ -4329,7 +4262,7 @@ declare namespace intl {
      * returns an Array of objects representing the relative time format in parts that can be used for
      * custom locale-aware formatting
      *
-     * @param { number } value - Numeric value to use in the internationalized relative time message.
+     * @param { double } value - Numeric value to use in the internationalized relative time message.
      * @param { string } unit - to use in the relative time internationalized message.
      *             Possible values are: year, quarter, month, week, day, hour, minute, second.
      * @returns { Array<object> } an Array of objects representing the relative time format in parts
@@ -4340,18 +4273,18 @@ declare namespace intl {
     /**
      * Formats the relative time.
      *
-     * @param { number } value - Value to format.
+     * @param { double } value - Value to format.
      * @param { string } unit - Unit of the relative time.<br>The value can be any of the following: "year", "quarter",
      * "month", "week", "day", "hour", "minute", or "second".
      * @returns { Array<object> } to parts.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.RelativeTimeFormat.formatToParts
      */
-    formatToParts(value: number, unit: string): Array<object>;
+    formatToParts(value: double, unit: string): Array<object>;
 
     /**
      * Returns a new object with properties that reflect the locale and formatting options computed during
@@ -4377,7 +4310,7 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead Intl.RelativeTimeFormat.resolvedOptions
      */

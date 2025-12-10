@@ -21,41 +21,42 @@
 /**
  * @syscap SystemCapability.Location.Location.Lite
  * @deprecated since 9
+ * @reserved ["liteWearable"]
  * @useinstead ohos.geoLocationManager/geoLocationManager.Location
  */
 export interface GeolocationResponse {
   /**
    * Longitude.
    * @type { number }
-   * @since 3
+   * @since 3 dynamic
    */
   longitude: number;
 
   /**
    * Latitude.
    * @type { number }
-   * @since 3
+   * @since 3 dynamic
    */
   latitude: number;
 
   /**
    * Altitude.
    * @type { number }
-   * @since 3
+   * @since 3 dynamic
    */
   altitude: number;
 
   /**
    * Location accuracy.
    * @type { number }
-   * @since 3
+   * @since 3 dynamic
    */
   accuracy: number;
 
   /**
    * Time when the location is obtained.
    * @type { number }
-   * @since 3
+   * @since 3 dynamic
    */
   time: number;
 }
@@ -64,6 +65,7 @@ export interface GeolocationResponse {
  * @syscap SystemCapability.Location.Location.Lite
  * @permission ohos.permission.LOCATION
  * @deprecated since 9
+ * @reserved ["liteWearable"]
  * @useinstead ohos.geoLocationManager/geoLocationManager.CurrentLocationRequest
  */
 export interface GetLocationOption {
@@ -75,7 +77,7 @@ export interface GetLocationOption {
    * The value is a 32-digit positive integer.
    * If the value set is less than or equal to 0, the default value will be used.
    * @type { ?number }
-   * @since 3
+   * @since 3 dynamic
    */
   timeout?: number;
 
@@ -83,28 +85,28 @@ export interface GetLocationOption {
    * Coordinate system type. Available types can be obtained using getSupportedCoordTypes.
    * The default type is wgs84.
    * @type { ?string }
-   * @since 3
+   * @since 3 dynamic
    */
   coordType?: string;
 
   /**
    * Called when the geographic location is obtained.
    * @type { ?function }
-   * @since 3
+   * @since 3 dynamic
    */
   success?: (data: GeolocationResponse) => void;
 
   /**
    * Called when the location types fail to be obtained
    * @type { ?function }
-   * @since 3
+   * @since 3 dynamic
    */
   fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
    * @type { ?function }
-   * @since 3
+   * @since 3 dynamic
    */
   complete?: () => void;
 }
@@ -112,11 +114,12 @@ export interface GetLocationOption {
 /**
  * @syscap SystemCapability.Location.Location.Lite
  * @deprecated since 9
+ * @reserved ["liteWearable"]
  */
 export interface GetLocationTypeResponse {
   /**
    * @type { Array<string> }
-   * @since 3
+   * @since 3 dynamic
    */
   types: Array<string>;
 }
@@ -124,26 +127,27 @@ export interface GetLocationTypeResponse {
 /**
  * @syscap SystemCapability.Location.Location.Lite
  * @deprecated since 9
+ * @reserved ["liteWearable"]
  */
 export interface GetLocationTypeOption {
   /**
    * Called when the location types are obtained.
    * @type { ?function }
-   * @since 3
+   * @since 3 dynamic
    */
   success?: (data: GetLocationTypeResponse) => void;
 
   /**
    * Called when the location types fail to be obtained.
    * @type { ?function }
-   * @since 3
+   * @since 3 dynamic
    */
   fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
    * @type { ?function }
-   * @since 3
+   * @since 3 dynamic
    */
   complete?: () => void;
 }
@@ -152,6 +156,7 @@ export interface GetLocationTypeOption {
  * @syscap SystemCapability.Location.Location.Lite
  * @permission ohos.permission.LOCATION
  * @deprecated since 9
+ * @reserved ["liteWearable"]
  * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequest
  */
 export interface SubscribeLocationOption {
@@ -159,21 +164,21 @@ export interface SubscribeLocationOption {
    * Coordinate system type. Available types can be obtained using getSupportedCoordTypes.
    * The default type is wgs84.
    * @type { ?string }
-   * @since 3
+   * @since 3 dynamic
    */
   coordType?: string;
 
   /**
    * Called whenever the geographical location changes.
    * @type { ?function }
-   * @since 3
+   * @since 3 dynamic
    */
   success: (data: GeolocationResponse) => void;
 
   /**
    * Called when the listening fails.
    * @type { ?function }
-   * @since 3
+   * @since 3 dynamic
    */
   fail?: (data: string, code: number) => void;
 }
@@ -181,6 +186,7 @@ export interface SubscribeLocationOption {
 /**
  * @syscap SystemCapability.Location.Location.Lite
  * @deprecated since 9
+ * @reserved ["liteWearable"]
  * @useinstead ohos.geoLocationManager/geoLocationManager
  */
 export default class Geolocation {
@@ -189,6 +195,7 @@ export default class Geolocation {
    * @permission ohos.permission.LOCATION
    * @param options Options.
    * @deprecated since 9
+   * @reserved ["liteWearable"]
    * @useinstead ohos.geoLocationManager/geoLocationManager.getCurrentLocation
    */
   static getLocation(options?: GetLocationOption): void;
@@ -197,6 +204,7 @@ export default class Geolocation {
    * Obtains the location types supported by the system.
    * @param options Options.
    * @deprecated since 9
+   * @reserved ["liteWearable"]
    */
   static getLocationType(options?: GetLocationTypeOption): void;
 
@@ -205,6 +213,7 @@ export default class Geolocation {
    * @permission ohos.permission.LOCATION
    * @param options Options.
    * @deprecated since 9
+   * @reserved ["liteWearable"]
    * @useinstead ohos.geoLocationManager/geoLocationManager.on#event:locationChange
    */
   static subscribe(options: SubscribeLocationOption): void;
@@ -213,6 +222,7 @@ export default class Geolocation {
    * Cancels listening to the geographical location.
    * @permission ohos.permission.LOCATION
    * @deprecated since 9
+   * @reserved ["liteWearable"]
    * @useinstead ohos.geoLocationManager/geoLocationManager.off#event:locationChange
    */
   static unsubscribe(): void;
@@ -221,6 +231,7 @@ export default class Geolocation {
    * Obtains the supported coordinate system types.
    * @returns A string array of the supported coordinate system types, for example, ['wgs84'].
    * @deprecated since 9
+   * @reserved ["liteWearable"]
    */
   static getSupportedCoordTypes(): Array<string>;
 }

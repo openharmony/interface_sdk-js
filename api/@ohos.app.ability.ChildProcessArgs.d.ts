@@ -24,7 +24,8 @@
  * @interface ChildProcessArgs
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 12
+ * @since 12 dynamic
+ * @since 22 static
  */
 export interface ChildProcessArgs {
   /**
@@ -34,17 +35,19 @@ export interface ChildProcessArgs {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   entryParams?: string;
 
   /**
    * Indicates file descriptors that use to communicate between two processes.
    *
-   * @type { ?Record<string, number> }
+   * @type { ?Record<string, int> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
-  fds?: Record<string, number>;
+  fds?: Record<string, int>;
 }

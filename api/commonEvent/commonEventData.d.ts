@@ -18,6 +18,10 @@
  * @kit BasicServicesKit
  */
 
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
+
 /**
  * Common event data.
  *
@@ -32,8 +36,8 @@
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 export interface CommonEventData {
   /**
@@ -50,8 +54,8 @@ export interface CommonEventData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   event: string;
 
@@ -68,8 +72,8 @@ export interface CommonEventData {
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   bundleName?: string;
 
@@ -86,14 +90,14 @@ export interface CommonEventData {
    * Common event data received by the subscriber. The value of this field is the same as that of the code field in
    * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event. The default value is 0.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
-  code?: number;
+  code?: int;
 
   /**
    * Common event data received by the subscriber. The value of this field is the same as that of the data field in
@@ -120,8 +124,8 @@ export interface CommonEventData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   data?: string;
 
@@ -140,17 +144,16 @@ export interface CommonEventData {
    * @type { ?object }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   parameters?: { [key: string]: any };
 
   /**
    * The description of the parameters in a common event.
    *
-   * @type { ?Record<string, Object> }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
-  parameters?: Record<string, Object>;
+  parameters?: Record<string, RecordData>;
 }

@@ -18,10 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonShapeMethod } from './common';
-/*** endif */
-
 /**
  * Define options used to construct a path.
  *
@@ -30,8 +26,7 @@ import { CommonShapeMethod } from './common';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 declare interface PathOptions {
   /**
@@ -82,20 +77,9 @@ declare interface PathOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   width?: Length;
-  /**
-   * Width option.
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  width?: number | string;
 
   /**
    * Height option.
@@ -145,20 +129,9 @@ declare interface PathOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   height?: Length;
-  /**
-   * Height option.
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  height?: number | string;
 
   /**
    * Commands option.
@@ -208,20 +181,9 @@ declare interface PathOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   commands?: ResourceStr;
-  /**
-   * Commands option.
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  commands?: string
 }
 
 /**
@@ -256,7 +218,7 @@ declare interface PathOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface PathInterface {
   /**
@@ -307,7 +269,7 @@ interface PathInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   new (options?: PathOptions): PathAttribute;
 
@@ -359,7 +321,7 @@ interface PathInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options?: PathOptions): PathAttribute;
 }
@@ -396,8 +358,7 @@ interface PathInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
   /**
@@ -447,22 +408,9 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   commands(value: ResourceStr): PathAttribute;
-  /**
-   * Called when the command string drawn by the path is set.
-   *
-   * @param { string } value
-   * @returns { PathAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  commands(value: string): PathAttribute;
 }
 
 /**
@@ -493,7 +441,7 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Path: PathInterface;
 
@@ -525,33 +473,6 @@ declare const Path: PathInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const PathInstance: PathAttribute;
-
-/**
- * Provides the path drawing interface.
- *
- * @interface PathInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-interface PathInterface {
-  /**
-   * Called when drawing path.
-   *
-   * @param { PathOptions } [options] - path options
-   * @returns { PathAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (options?: PathOptions): PathAttribute;
-}

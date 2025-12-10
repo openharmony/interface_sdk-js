@@ -21,14 +21,38 @@
 import { ElementName } from './bundleManager/ElementName';
 
 /**
+ * Notify the success result of startAbility.
+ *
+ * @typedef { function }
+ * @param { ElementName } elementName - Indicates the component to start.
+ * @param { string } message - Indicates the message of the request result.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @stagemodelonly
+ * @since 22 static
+ */
+type OnRequestSuccessFn = (elementName: ElementName, message: string) => void;
+/**
+ * Notify the failure result of startAbility.
+ *
+ * @typedef { function }
+ * @param { ElementName } elementName - Indicates the component to start.
+ * @param { string } message - Indicates the message of the request result.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @stagemodelonly
+ * @since 22 static
+ */
+type OnRequestFailureFn = (elementName: ElementName, message: string) => void;
+
+/**
  * CompletionHandler is a handler to handle the completion events of start ability.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
+ * @since 22 static
  */
-export default class CompletionHandler {
+declare class CompletionHandler {
   /**
    * Notify the success result of startAbility.
    *
@@ -37,7 +61,7 @@ export default class CompletionHandler {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onRequestSuccess(elementName: ElementName, message: string): void;
 
@@ -51,7 +75,28 @@ export default class CompletionHandler {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onRequestFailure(elementName: ElementName, message: string): void;
+
+  /**
+   * Notify the success result of startAbility.
+   *
+   * @type { OnRequestSuccessFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onRequestSuccess: OnRequestSuccessFn;
+
+  /**
+   * Notify the failure result of startAbility.
+   *
+   * @type { OnRequestFailureFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onRequestFailure: OnRequestFailureFn;
 }
+export default CompletionHandler;

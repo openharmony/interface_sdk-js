@@ -27,6 +27,17 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Panel Modifier
+ * 
+ * @extends ParticleAttribute
+ * @implements AttributeModifier<ParticleAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20 dynamic
+ * @noninterop
+ */
 export declare class ParticleModifier extends ParticleAttribute implements AttributeModifier<ParticleAttribute> {
 
   /**
@@ -36,7 +47,7 @@ export declare class ParticleModifier extends ParticleAttribute implements Attri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
     applyNormalAttribute?(particleAttribute: ParticleAttribute): void;
 }

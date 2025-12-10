@@ -17,25 +17,34 @@
  * @file
  * @kit NetworkKit
  */
-
+/*** if arkts dynamic&static */
 import connection from '@ohos.net.connection';
-import ethernet from '@ohos.net.ethernet';
 import http from '@ohos.net.http';
+import sharing from '@ohos.net.sharing';
+import webSocket from '@ohos.net.webSocket';
+import statistics from '@ohos.net.statistics';
+import networkSecurity from '@ohos.net.networkSecurity';
+/*** endif */
+
+import ethernet from '@ohos.net.ethernet';
 import mdns from '@ohos.net.mdns';
 import policy from '@ohos.net.policy';
-import sharing from '@ohos.net.sharing';
 import socket from '@ohos.net.socket';
-import statistics from '@ohos.net.statistics';
 import vpn from '@ohos.net.vpn';
-import webSocket from '@ohos.net.webSocket';
 import vpnExtension from '@ohos.net.vpnExtension';
-import networkSecurity from '@ohos.net.networkSecurity';
-import VpnExtensionAbility, { VpnExtensionContext } from '@ohos.app.ability.VpnExtensionAbility';
+import VpnExtensionAbility from '@ohos.app.ability.VpnExtensionAbility';
+import VpnExtensionContext from '@ohos.net.vpnExtension';
 import eap from '@ohos.net.eap';
 import netFirewall from '@ohos.net.netFirewall';
 
 export {
   connection, ethernet, http, mdns, policy, sharing, webSocket,
-  socket, statistics, vpn, vpnExtension, networkSecurity, 
+  socket, statistics, vpn, vpnExtension, networkSecurity,
   VpnExtensionAbility, VpnExtensionContext, eap, netFirewall
 };
+
+/*** if arkts static */
+export {
+  connection, http, sharing, webSocket, statistics, networkSecurity
+};
+/*** endif */

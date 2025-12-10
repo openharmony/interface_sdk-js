@@ -19,24 +19,28 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
+/*** if arkts dynamic */
 import type relationalStore from './@ohos.data.relationalStore';
 import commonType from './@ohos.data.commonType';
+/*** endif */
 
 /**
  * Provides methods for cloud capabilities.
  *
  * @namespace cloudData
  * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
- * @since 10
+ * @since 10 dynamic
+ * @since 22 static
  */
 declare namespace cloudData {
   /**
    * Describes the clear action type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   enum ClearAction {
     /**
@@ -44,7 +48,8 @@ declare namespace cloudData {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     CLEAR_CLOUD_INFO,
 
@@ -53,9 +58,19 @@ declare namespace cloudData {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
-    CLEAR_CLOUD_DATA_AND_INFO
+    CLEAR_CLOUD_DATA_AND_INFO,
+
+    /**
+     * Indicates clearing nothing.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    CLEAR_CLOUD_NONE
   }
 
   /**
@@ -64,7 +79,7 @@ declare namespace cloudData {
    * @constant
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   const DATA_CHANGE_EVENT_ID = 'cloud_data_change';
 
@@ -74,7 +89,7 @@ declare namespace cloudData {
    * @interface ExtraData
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   interface ExtraData {
     /**
@@ -83,7 +98,7 @@ declare namespace cloudData {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     eventId: string;
 
@@ -103,7 +118,7 @@ declare namespace cloudData {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     extraData: string;
   }
@@ -114,7 +129,7 @@ declare namespace cloudData {
    * @interface StatisticInfo
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   interface StatisticInfo {
     /**
@@ -123,48 +138,52 @@ declare namespace cloudData {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     table: string;
 
     /**
      * Number of records to be inserted to the cloud.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    inserted: number;
+    inserted: int;
 
     /**
      * Number of inconsistent records between the local device and the cloud.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    updated: number;
+    updated: int;
 
     /**
      * Number of consistent records between the local device and the cloud.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    normal: number;
+    normal: int;
   }
 
   /**
    * Describes sync status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
   enum SyncStatus {
     /**
@@ -172,7 +191,7 @@ declare namespace cloudData {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     RUNNING = 0,
 
@@ -181,7 +200,7 @@ declare namespace cloudData {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     FINISHED = 1
   }
@@ -192,7 +211,7 @@ declare namespace cloudData {
    * @interface SyncInfo
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   interface SyncInfo {
     /**
@@ -201,7 +220,7 @@ declare namespace cloudData {
      * @type { Date }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     startTime: Date;
 
@@ -211,7 +230,7 @@ declare namespace cloudData {
      * @type { Date }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     finishTime: Date;
 
@@ -221,7 +240,7 @@ declare namespace cloudData {
      * @type { relationalStore.ProgressCode }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     code: relationalStore.ProgressCode;
 
@@ -231,9 +250,110 @@ declare namespace cloudData {
      * @type { ?SyncStatus }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     syncStatus?: SyncStatus;
+  }
+
+  /**
+   * Switches information of database.
+   *
+   * @interface DBSwitchInfo
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface DBSwitchInfo {
+    /**
+     * Indicates switches information of database.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    enable: boolean;
+
+    /**
+     * Indicates switches information of tables.
+     *
+     * @type { ?Record<string, boolean> }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    tableInfo?: Record<string, boolean>;
+  }
+
+  /**
+   * Switch configuration.
+   *
+   * @interface SwitchConfig
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface SwitchConfig {
+    /**
+     * Switch configuration of database.
+     *
+     * @type { Record<string, DBSwitchInfo> }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+     dbInfo: Record<string, DBSwitchInfo>;
+  }
+
+  /**
+   * Action information of database.
+   *
+   * @interface DBActionInfo
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface DBActionInfo {
+    /**
+     * Indicates the way in which the database is to be cleared.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    action: ClearAction;
+
+    /**
+     * Indicates actions information of tables.
+     *
+     * @type { ?Record<string, ClearAction> }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    tableInfo?: Record<string, ClearAction>;
+  }
+
+  /**
+   * Cleanup configuration.
+   *
+   * @interface ClearConfig
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface ClearConfig {
+    /**
+     * Cleanup action of database.
+     *
+     * @type { Record<string, DBActionInfo> }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+     dbInfo: Record<string, DBActionInfo>;
   }
 
   /**
@@ -241,7 +361,8 @@ declare namespace cloudData {
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   class Config {
     /**
@@ -278,7 +399,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     static enableCloud(
       accountId: string,
@@ -320,7 +441,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     static enableCloud(accountId: string, switches: Record<string, boolean>): Promise<void>;
 
@@ -337,7 +458,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     static disableCloud(accountId: string, callback: AsyncCallback<void>): void;
 
@@ -354,7 +475,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     static disableCloud(accountId: string): Promise<void>;
 
@@ -373,7 +494,8 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     static changeAppCloudSwitch(
       accountId: string,
@@ -397,9 +519,35 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     static changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean): Promise<void>;
+
+    /**
+     * Changes the cloud switch of a single application.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
+     * @param { string } bundleName -  Indicates the name of application.
+     * @param { boolean } status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
+     * @param { SwitchConfig } [config] - Indicates the configuration of cloud sync switch.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @static
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    static changeAppCloudSwitch(
+      accountId: string,
+      bundleName: string,
+      status: boolean,
+      config?: SwitchConfig
+    ): Promise<void>;
 
     /**
      * Notifies changes of the cloud records.
@@ -407,7 +555,7 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { ExtraData } extInfo - Indicates the extra data for
      * notification {@link ExtraData}.
-     * @param { number } [userId] - Indicates the user ID.
+     * @param { int } [userId] - Indicates the user ID.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -417,9 +565,10 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
-    static notifyDataChange(extInfo: ExtraData, userId?: number): Promise<void>;
+    static notifyDataChange(extInfo: ExtraData, userId?: int): Promise<void>;
 
     /**
      * Notifies changes of the cloud records.
@@ -437,7 +586,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     static notifyDataChange(extInfo: ExtraData, callback: AsyncCallback<void>): void;
 
@@ -447,7 +596,7 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { ExtraData } extInfo - Indicates the extra data for
      * notification {@link ExtraData}.
-     * @param { number } userId - Indicates the user ID.
+     * @param { int } userId - Indicates the user ID.
      * @param { AsyncCallback<void> } callback - Indicates the callback invoked
      * to return the data changes.
      * @throws { BusinessError } 201 - Permission verification failed, which
@@ -458,9 +607,10 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
-    static notifyDataChange(extInfo: ExtraData, userId: number, callback: AsyncCallback<void>): void;
+    static notifyDataChange(extInfo: ExtraData, userId: int, callback: AsyncCallback<void>): void;
 
     /**
      * notifies changes of the cloud records
@@ -476,7 +626,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     static notifyDataChange(accountId: string, bundleName: string): Promise<void>;
 
@@ -494,7 +644,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     static notifyDataChange(accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -513,7 +663,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     static queryStatistics(
         accountId: string,
@@ -536,7 +686,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     static queryLastSyncInfo(
         accountId: string,
@@ -574,7 +724,8 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     static clear(
       accountId: string,
@@ -612,9 +763,33 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     static clear(accountId: string, appActions: Record<string, ClearAction>): Promise<void>;
+
+    /**
+     * deletes cloud information from local data.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
+     * @param { Record<string, ClearAction> } appActions - Indicates the way in which the application data is to be cleared.
+     * @param { Record<string, ClearConfig> } [config] - Indicates configuration in which the database or table data is to be cleared.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @static
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    static clear(
+      accountId: string,
+      appActions: Record<string, ClearAction>,
+      config?: Record<string, ClearConfig>
+    ): Promise<void>;
 
     /**
      * Sets global cloud strategy.
@@ -630,7 +805,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     static setGlobalCloudStrategy(strategy: StrategyType, param?: Array<commonType.ValueType>): Promise<void>;
 
@@ -653,7 +828,7 @@ declare namespace cloudData {
      * @static
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     static cloudSync(
       bundleName: string,
@@ -666,9 +841,10 @@ declare namespace cloudData {
   /**
    * Enumerates the strategy types of cloud sync.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   enum StrategyType {
 
@@ -676,7 +852,7 @@ declare namespace cloudData {
      * Sync via the network.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12
+     * @since 12 dynamic
      */
     NETWORK
   }
@@ -684,9 +860,10 @@ declare namespace cloudData {
   /**
    * Enumerates the types of cloud sync via the network.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   enum NetWorkStrategy {
 
@@ -694,7 +871,7 @@ declare namespace cloudData {
      * Sync using WiFi.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12
+     * @since 12 dynamic
      */
     WIFI = 1,
 
@@ -702,7 +879,7 @@ declare namespace cloudData {
      * Sync using the cellular network.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12
+     * @since 12 dynamic
      */
     CELLULAR = 2,
   }
@@ -717,7 +894,7 @@ declare namespace cloudData {
      * 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-   * @since 12
+   * @since 12 dynamic
    */
   function setCloudStrategy(strategy: StrategyType, param?: Array<commonType.ValueType>): Promise<void>;
 
@@ -727,16 +904,17 @@ declare namespace cloudData {
    * @namespace sharing
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   export namespace sharing {
     /**
      * Enumerates the roles.
      *
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     enum Role {
       /**
@@ -744,7 +922,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       ROLE_INVITER = 0,
 
@@ -753,7 +931,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       ROLE_INVITEE = 1,
     }
@@ -761,10 +939,11 @@ declare namespace cloudData {
     /**
      * Enumerates the states of sharing invitation.
      *
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     enum State {
       /**
@@ -772,7 +951,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       STATE_UNKNOWN = 0,
 
@@ -781,7 +960,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       STATE_ACCEPTED = 1,
 
@@ -790,7 +969,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       STATE_REJECTED = 2,
 
@@ -799,7 +978,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       STATE_SUSPENDED = 3,
 
@@ -808,7 +987,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 12
+       * @since 12 dynamic
        */
       STATE_UNAVAILABLE = 4,
     }
@@ -816,10 +995,11 @@ declare namespace cloudData {
     /**
      * Enumerates the error code of sharing invitation.
      *
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     enum SharingCode {
       /**
@@ -827,7 +1007,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       SUCCESS = 0,
 
@@ -836,7 +1016,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       REPEATED_REQUEST = 1,
 
@@ -845,7 +1025,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       NOT_INVITER = 2,
 
@@ -854,7 +1034,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       NOT_INVITER_OR_INVITEE = 3,
 
@@ -863,7 +1043,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       OVER_QUOTA = 4,
 
@@ -872,7 +1052,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       TOO_MANY_PARTICIPANTS = 5,
 
@@ -881,7 +1061,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       INVALID_ARGS = 6,
 
@@ -890,7 +1070,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       NETWORK_ERROR = 7,
 
@@ -899,7 +1079,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       CLOUD_DISABLED = 8,
 
@@ -908,7 +1088,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       SERVER_ERROR = 9,
 
@@ -917,7 +1097,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       INNER_ERROR = 10,
 
@@ -926,7 +1106,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       INVALID_INVITATION = 11,
 
@@ -935,7 +1115,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       RATE_LIMIT = 12,
 
@@ -944,7 +1124,7 @@ declare namespace cloudData {
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       CUSTOM_ERROR = 1000,
     }
@@ -955,18 +1135,19 @@ declare namespace cloudData {
      * @interface Result
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     interface Result<T> {
       /**
        * Error code.
        *
-       * @type { number }
+       * @type { int }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
+       * @since 22 static
        */
-      code: number;
+      code: int;
 
       /**
        * Error code description.
@@ -974,7 +1155,7 @@ declare namespace cloudData {
        * @type { ?string }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       description?: string;
 
@@ -984,7 +1165,7 @@ declare namespace cloudData {
        * @type { ?T }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       value?: T;
     }
@@ -995,7 +1176,7 @@ declare namespace cloudData {
      * @interface Privilege
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     interface Privilege {
       /**
@@ -1006,7 +1187,7 @@ declare namespace cloudData {
        * @type { ?boolean }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       writable?: boolean;
 
@@ -1018,7 +1199,7 @@ declare namespace cloudData {
        * @type { ?boolean }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       readable?: boolean;
 
@@ -1030,7 +1211,7 @@ declare namespace cloudData {
        * @type { ?boolean }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       creatable?: boolean;
 
@@ -1042,7 +1223,7 @@ declare namespace cloudData {
        * @type { ?boolean }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       deletable?: boolean;
 
@@ -1054,7 +1235,7 @@ declare namespace cloudData {
        * @type { ?boolean }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       shareable?: boolean;
     }
@@ -1065,7 +1246,7 @@ declare namespace cloudData {
      * @interface Participant
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     interface Participant {
       /**
@@ -1074,7 +1255,7 @@ declare namespace cloudData {
        * @type { string }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       identity: string;
 
@@ -1084,7 +1265,7 @@ declare namespace cloudData {
        * @type { ?Role }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       role?: Role;
 
@@ -1094,7 +1275,7 @@ declare namespace cloudData {
        * @type { ?State }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       state?: State;
 
@@ -1104,7 +1285,7 @@ declare namespace cloudData {
        * @type { ?Privilege }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       privilege?: Privilege;
 
@@ -1114,7 +1295,7 @@ declare namespace cloudData {
        * @type { ?string }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
-       * @since 11
+       * @since 11 dynamic
        */
       attachInfo?: string;
     }
@@ -1134,7 +1315,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function allocResourceAndShare(
       storeId: string,
@@ -1158,7 +1339,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function allocResourceAndShare(
       storeId: string,
@@ -1183,7 +1364,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function allocResourceAndShare(
       storeId: string,
@@ -1207,7 +1388,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function share(
       sharingResource: string,
@@ -1228,7 +1409,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function share(
       sharingResource: string,
@@ -1249,7 +1430,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function unshare(
       sharingResource: string,
@@ -1270,7 +1451,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function unshare(
       sharingResource: string,
@@ -1288,7 +1469,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function exit(sharingResource: string, callback: AsyncCallback<Result<void>>): void;
 
@@ -1303,7 +1484,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function exit(sharingResource: string): Promise<Result<void>>;
 
@@ -1321,7 +1502,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function changePrivilege(
       sharingResource: string,
@@ -1342,7 +1523,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function changePrivilege(
       sharingResource: string,
@@ -1361,7 +1542,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function queryParticipants(sharingResource: string, callback: AsyncCallback<Result<Array<Participant>>>): void;
 
@@ -1376,7 +1557,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function queryParticipants(sharingResource: string): Promise<Result<Array<Participant>>>;
 
@@ -1392,7 +1573,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function queryParticipantsByInvitation(
       invitationCode: string,
@@ -1410,7 +1591,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function queryParticipantsByInvitation(invitationCode: string): Promise<Result<Array<Participant>>>;
 
@@ -1427,7 +1608,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function confirmInvitation(invitationCode: string, state: State, callback: AsyncCallback<Result<string>>): void;
 
@@ -1443,7 +1624,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function confirmInvitation(invitationCode: string, state: State): Promise<Result<string>>;
 
@@ -1459,7 +1640,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function changeConfirmation(sharingResource: string, state: State, callback: AsyncCallback<Result<void>>): void;
 
@@ -1475,7 +1656,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     function changeConfirmation(sharingResource: string, state: State): Promise<Result<void>>;
   }

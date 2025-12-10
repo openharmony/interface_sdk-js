@@ -20,14 +20,28 @@
 
 import AbilityStateData from './AbilityStateData';
 
+/*** if arkts dynamic */
 /**
  * The ability foreground state observer.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 11
+ * @since 11 dynamic
  */
 export default class AbilityForegroundStateObserver {
+/*** endif */
+
+/*** if arkts static */
+/**
+ * The ability foreground state observer.
+ *
+ * @typedef AbilityForegroundStateObserver
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi
+ * @since 22 static
+ */
+declare interface AbilityForegroundStateObserver {
+/*** endif */
 
   /**
    * Will be called when foreground or background ability changed.
@@ -35,7 +49,12 @@ export default class AbilityForegroundStateObserver {
    * @param { AbilityStateData } abilityStateData State changed ability info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   onAbilityStateChanged(abilityStateData: AbilityStateData): void;
 }
+
+/*** if arkts static */
+export default AbilityForegroundStateObserver;
+/*** endif */

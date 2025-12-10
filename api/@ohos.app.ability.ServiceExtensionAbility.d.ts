@@ -29,8 +29,8 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @StageModelOnly
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 22 static
  */
 declare class ServiceExtensionAbility {
   /**
@@ -40,8 +40,8 @@ declare class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   context: ServiceExtensionContext;
 
@@ -52,8 +52,8 @@ declare class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   onCreate(want: Want): void;
 
@@ -63,8 +63,8 @@ declare class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   onDestroy(): void;
 
@@ -72,16 +72,16 @@ declare class ServiceExtensionAbility {
    * Called back when a service extension is started.
    *
    * @param { Want } want - Indicates the want of service extension to start.
-   * @param { number } startId - Indicates the number of times the service extension has been started.
+   * @param { int } startId - Indicates the number of times the service extension has been started.
    *                             The {@code startId} is incremented by 1 every time the service extension is started.
    *                             For example, if the service extension has been started for six times.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
-  onRequest(want: Want, startId: number): void;
+  onRequest(want: Want, startId: int): void;
 
   /**
    * Called back when a service extension is first connected to an ability.
@@ -92,8 +92,8 @@ declare class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   onConnect(want: Want): rpc.RemoteObject | Promise<rpc.RemoteObject>;
 
@@ -105,7 +105,7 @@ declare class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   onDisconnect(want: Want): void | Promise<void>;
 
@@ -113,28 +113,13 @@ declare class ServiceExtensionAbility {
    * Called back when all abilities connected to a service extension are disconnected.
    *
    * @param { Want } want - Indicates disconnection information about the service extension.
-   * @returns { void } the promise returned by the function.
+   * @returns { Promise<void> | undefined } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
-  onDisconnect(want: Want): void;
-
-  /**
-   * Asynchronous callback when all abilities connected to a service extension are disconnected.
-   * The next lifecycle callback onDestroy() will be triggered when the returned Promise object resolves.
-   *
-   * @param { Want } want - Indicates disconnection information about the service extension.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @StageModelOnly
-   * @since 20
-   * @arkts 1.2
-   */
-  onDisconnectAsync(want: Want): Promise<void>;
+  onDisconnect(want: Want): Promise<void> | undefined;
 
   /**
    * Called when a new client attempts to connect to a service extension after all previous client connections to it
@@ -144,7 +129,7 @@ declare class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   onReconnect(want: Want): void;
 
@@ -155,8 +140,8 @@ declare class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
@@ -169,7 +154,8 @@ declare class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   onDump(params: Array<string>): Array<string>;
 }

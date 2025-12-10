@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,45 +17,6 @@
  * @file
  * @kit ArkUI
  */
-
-/*** if arkts 1.2 */
-import { Bindable, CommonMethod } from './common'
-/*** endif */
-
-/**
- * Declare the StepperOptions.
- *
- * @interface StepperOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-interface StepperOptions {
-  /**
-   * Set the stepper index.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  index?: number;
-
-  /**
-   * Set the stepper index.
-   *
-   * @type { ?(number | Bindable<number>) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  index?: number | Bindable<number>;
-}
 
 /**
  * Declare the stepper.
@@ -79,8 +40,9 @@ interface StepperOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @deprecated since 22
+ * @useinstead SwiperInterface
  */
 interface StepperInterface {
   /**
@@ -108,22 +70,10 @@ interface StepperInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @deprecated since 22
    */
   (value?: { index?: number }): StepperAttribute;
-  /**
-   * Called when the stepper component is used.
-   *
-   * Anonymous Object Rectification.
-   * @param { StepperOptions } value
-   * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
-   */
-  (value?: StepperOptions): StepperAttribute;
 }
 
 /**
@@ -148,8 +98,8 @@ interface StepperInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @deprecated since 22
  */
 declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
@@ -177,8 +127,8 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @deprecated since 22
    */
   onFinish(callback: () => void): StepperAttribute;
 
@@ -207,8 +157,8 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @deprecated since 22
    */
   onSkip(callback: () => void): StepperAttribute;
 
@@ -237,8 +187,8 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @deprecated since 22
    */
   onChange(callback: (prevIndex: number, index: number) => void): StepperAttribute;
 
@@ -267,8 +217,8 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @deprecated since 22
    */
   onNext(callback: (index: number, pendingIndex: number) => void): StepperAttribute;
 
@@ -297,8 +247,8 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @deprecated since 22
    */
   onPrevious(callback: (index: number, pendingIndex: number) => void): StepperAttribute;
 }
@@ -322,7 +272,8 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @deprecated since 22
  */
 declare const Stepper: StepperInterface;
 
@@ -345,6 +296,7 @@ declare const Stepper: StepperInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @deprecated since 22
  */
 declare const StepperInstance: StepperAttribute;

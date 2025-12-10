@@ -18,13 +18,17 @@
  * @kit NotificationKit
  */
 
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
+
 /**
  * The NotificationTemplate module describes the notification template.
  *
  * @typedef NotificationTemplate
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'8', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 8 dynamic
+ * @since 22 static
  */
 export interface NotificationTemplate {
   /**
@@ -32,8 +36,8 @@ export interface NotificationTemplate {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   name: string;
 
@@ -45,8 +49,19 @@ export interface NotificationTemplate {
    *
    * @type { Record<string, Object> }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
    */
   data: Record<string, Object>;
+
+  /**
+   * Template data.
+   * - title: title of the file. This parameter is mandatory, and the value is of the string type.
+   * - fileName: name of the file to be downloaded. This parameter is mandatory, and the value is of the string type.
+   * - progressValue: download progress. The value is a number.
+   *
+   * @type { Record<string, RecordData> }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 22 static
+   */
+  data: Record<string, RecordData>;
 }

@@ -26,7 +26,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare type Initializer<T> = () => T;
 
@@ -37,7 +37,7 @@ declare type Initializer<T> = () => T;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare class AttributeUpdater<T, C = Initializer<T>> implements AttributeModifier<T> {
 
@@ -48,7 +48,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: T): void;
 
@@ -59,7 +59,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   initializeModifier(instance: T): void;
 
@@ -70,7 +70,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get attribute(): T | undefined;
 
@@ -81,7 +81,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   updateConstructorParams: C;
 
@@ -92,81 +92,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
-   */
-  onComponentChanged(component: T): void;
-}
-
-/**
- * function that returns by the function updateConstructorParams.
- *
- * @typedef { function } Initializer<T>
- * @param { Object[] } params
- * @returns { T }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type Initializer<T> = (...params: Object[]) => T;
-
-/**
- * Defines a modifier which can update attributes to native side.
- *
- * @implements AttributeModifier<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export declare class AttributeUpdater<T> implements AttributeModifier<T> {
-  /**
-   * Defines a function for initialization.
-   *
-   * @param { T } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  initializeModifier(instance: T): void;
-
-  /**
-   * Get attribute of the modifier.
-   *
-   * @returns { T | undefined } The attribute of the modifier.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  get attribute(): T | undefined;
-
-  /**
-   * Used to update constructor params.
-   *
-   * @type { Initializer<T> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  get updateConstructorParams(): Initializer<T>;
-
-  /**
-   * Defines a function executed when component changed.
-   *
-   * @param { T } component
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 12 dynamic
    */
   onComponentChanged(component: T): void;
 }

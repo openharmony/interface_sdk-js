@@ -42,21 +42,21 @@ import type rpc from './@ohos.rpc';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 22 static
  */
 declare namespace image {
   /**
    * Enumerates pixel map formats.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 7
    */
   /**
    * Enumerates pixel map formats.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @since 10
@@ -64,7 +64,7 @@ declare namespace image {
   /**
    * Enumerates pixel map formats.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @atomicservice
@@ -73,13 +73,13 @@ declare namespace image {
   /**
    * Enumerates pixel map formats.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   enum PixelMapFormat {
     /**
@@ -110,8 +110,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     UNKNOWN = 0,
 
@@ -120,8 +120,8 @@ declare namespace image {
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     ARGB_8888 = 1,
 
@@ -161,8 +161,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     RGB_565 = 2,
 
@@ -198,8 +198,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     RGBA_8888 = 3,
 
@@ -235,8 +235,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     BGRA_8888 = 4,
 
@@ -272,8 +272,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     RGB_888 = 5,
 
@@ -309,8 +309,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     ALPHA_8 = 6,
 
@@ -346,8 +346,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     RGBA_F16 = 7,
 
@@ -383,8 +383,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     NV21 = 8,
 
@@ -420,8 +420,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     NV12 = 9,
 
@@ -430,8 +430,8 @@ declare namespace image {
      * R(10bits), G(10bits), B(10bits), A(2bits) and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     RGBA_1010102 = 10,
 
@@ -440,8 +440,8 @@ declare namespace image {
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     YCBCR_P010 = 11,
 
@@ -450,8 +450,8 @@ declare namespace image {
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     YCRCB_P010 = 12,
 
@@ -461,8 +461,8 @@ declare namespace image {
      * processing editing.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     ASTC_4x4 = 102
   }
@@ -470,11 +470,11 @@ declare namespace image {
   /**
    * Enumerates image resolution quality.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   enum ResolutionQuality {
     /**
@@ -482,8 +482,8 @@ declare namespace image {
      * 
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     LOW = 1,
 
@@ -492,8 +492,8 @@ declare namespace image {
      * 
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     MEDIUM = 2,
 
@@ -502,8 +502,8 @@ declare namespace image {
      * 
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     HIGH = 3
   }
@@ -540,21 +540,21 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface Size {
     /**
      * Height
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 6
      */
     /**
      * Height
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
@@ -562,7 +562,7 @@ declare namespace image {
     /**
      * Height
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -576,22 +576,22 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     height: int;
 
     /**
      * Width
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 6
      */
     /**
      * Width
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
@@ -599,7 +599,7 @@ declare namespace image {
     /**
      * Width
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -613,8 +613,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     width: int;
   }
@@ -634,8 +634,8 @@ declare namespace image {
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   enum PropertyKey {
     /**
@@ -651,8 +651,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     BITS_PER_SAMPLE = 'BitsPerSample',
 
@@ -689,8 +689,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     ORIENTATION = 'Orientation',
 
@@ -705,8 +705,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     IMAGE_LENGTH = 'ImageLength',
 
@@ -721,8 +721,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     IMAGE_WIDTH = 'ImageWidth',
 
@@ -743,8 +743,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     GPS_LATITUDE = 'GPSLatitude',
 
@@ -765,8 +765,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     GPS_LONGITUDE = 'GPSLongitude',
 
@@ -781,8 +781,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     GPS_LATITUDE_REF = 'GPSLatitudeRef',
 
@@ -797,8 +797,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     GPS_LONGITUDE_REF = 'GPSLongitudeRef',
 
@@ -815,8 +815,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     DATE_TIME_ORIGINAL = 'DateTimeOriginal',
 
@@ -831,8 +831,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     EXPOSURE_TIME = 'ExposureTime',
 
@@ -847,8 +847,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     SCENE_TYPE = 'SceneType',
 
@@ -863,8 +863,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     ISO_SPEED_RATINGS = 'ISOSpeedRatings',
 
@@ -879,8 +879,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     F_NUMBER = 'FNumber',
 
@@ -889,8 +889,8 @@ declare namespace image {
      * is "YYYY:MM:DD HH:MM:SS" with time shown in 24-hour format.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     DATE_TIME = 'DateTime',
 
@@ -898,8 +898,8 @@ declare namespace image {
      * GPS time stamp
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     GPS_TIME_STAMP = 'GPSTimeStamp',
  
@@ -907,8 +907,8 @@ declare namespace image {
      * GPS date stamp
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     GPS_DATE_STAMP = 'GPSDateStamp',
  
@@ -916,8 +916,8 @@ declare namespace image {
      * Image description
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     IMAGE_DESCRIPTION = 'ImageDescription',
  
@@ -925,8 +925,8 @@ declare namespace image {
      * Make
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     MAKE = 'Make',
  
@@ -934,8 +934,8 @@ declare namespace image {
      * Model
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     MODEL = 'Model',
  
@@ -943,8 +943,8 @@ declare namespace image {
      * Photo mode
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     PHOTO_MODE = 'PhotoMode',
  
@@ -952,8 +952,8 @@ declare namespace image {
      * Sensitivity type
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     SENSITIVITY_TYPE = 'SensitivityType',
  
@@ -961,8 +961,8 @@ declare namespace image {
      * Standard output sensitivity
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     STANDARD_OUTPUT_SENSITIVITY = 'StandardOutputSensitivity',
  
@@ -970,8 +970,8 @@ declare namespace image {
      * Recommended exposure index
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     RECOMMENDED_EXPOSURE_INDEX = 'RecommendedExposureIndex',
  
@@ -979,8 +979,8 @@ declare namespace image {
      * Indicates the ISO Speed and ISO Latitude of the camera or input device as specified in ISO 12232.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     ISO_SPEED = 'ISOSpeedRatings',
  
@@ -988,8 +988,8 @@ declare namespace image {
      * The lens aperture. The unit is the APEX((Additive System of Photographic Exposure) value.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     APERTURE_VALUE = 'ApertureValue',
  
@@ -997,8 +997,8 @@ declare namespace image {
      * Exposure bias value
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     EXPOSURE_BIAS_VALUE = 'ExposureBiasValue',
  
@@ -1006,8 +1006,8 @@ declare namespace image {
      * Metering mode
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     METERING_MODE = 'MeteringMode',
  
@@ -1015,8 +1015,8 @@ declare namespace image {
      * Light source
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     LIGHT_SOURCE = 'LightSource',
  
@@ -1024,8 +1024,8 @@ declare namespace image {
      * Flash
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     FLASH = 'Flash',
  
@@ -1033,8 +1033,8 @@ declare namespace image {
      * Focal length
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     FOCAL_LENGTH = 'FocalLength',
  
@@ -1042,8 +1042,8 @@ declare namespace image {
      * User comment
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     USER_COMMENT = 'UserComment',
  
@@ -1051,8 +1051,8 @@ declare namespace image {
      * Pixel x dimension
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     PIXEL_X_DIMENSION = 'PixelXDimension',
  
@@ -1060,8 +1060,8 @@ declare namespace image {
      * Pixel y dimension
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     PIXEL_Y_DIMENSION = 'PixelYDimension',
  
@@ -1069,8 +1069,8 @@ declare namespace image {
      * White balance
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     WHITE_BALANCE = 'WhiteBalance',
  
@@ -1078,8 +1078,8 @@ declare namespace image {
      * Focal length in 35mm film
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     FOCAL_LENGTH_IN_35_MM_FILM = 'FocalLengthIn35mmFilm',
  
@@ -1087,8 +1087,8 @@ declare namespace image {
      * Capture mode
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     CAPTURE_MODE = 'HwMnoteCaptureMode',
  
@@ -1096,8 +1096,8 @@ declare namespace image {
      * Physical aperture
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     PHYSICAL_APERTURE = 'HwMnotePhysicalAperture',
 
@@ -1106,8 +1106,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     ROLL_ANGLE = 'HwMnoteRollAngle',
 
@@ -1116,8 +1116,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     PITCH_ANGLE = 'HwMnotePitchAngle',
 
@@ -1126,8 +1126,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     SCENE_FOOD_CONF = 'HwMnoteSceneFoodConf',
 
@@ -1136,8 +1136,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     SCENE_STAGE_CONF = 'HwMnoteSceneStageConf',
 
@@ -1146,8 +1146,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     SCENE_BLUE_SKY_CONF = 'HwMnoteSceneBlueSkyConf',
 
@@ -1156,8 +1156,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     SCENE_GREEN_PLANT_CONF = 'HwMnoteSceneGreenPlantConf',
 
@@ -1166,8 +1166,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     SCENE_BEACH_CONF = 'HwMnoteSceneBeachConf',
 
@@ -1176,8 +1176,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     SCENE_SNOW_CONF = 'HwMnoteSceneSnowConf',
 
@@ -1186,8 +1186,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     SCENE_SUNSET_CONF = 'HwMnoteSceneSunsetConf',
 
@@ -1196,8 +1196,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     SCENE_FLOWERS_CONF = 'HwMnoteSceneFlowersConf',
 
@@ -1206,8 +1206,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     SCENE_NIGHT_CONF = 'HwMnoteSceneNightConf',
 
@@ -1216,8 +1216,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     SCENE_TEXT_CONF = 'HwMnoteSceneTextConf',
 
@@ -1226,8 +1226,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     FACE_COUNT = 'HwMnoteFaceCount',
 
@@ -1236,8 +1236,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     FOCUS_MODE = 'HwMnoteFocusMode',
   
@@ -1246,8 +1246,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     COMPRESSION = 'Compression',
 
@@ -1256,8 +1256,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     PHOTOMETRIC_INTERPRETATION = 'PhotometricInterpretation',
 
@@ -1266,8 +1266,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     STRIP_OFFSETS = 'StripOffsets',
 
@@ -1277,8 +1277,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SAMPLES_PER_PIXEL = 'SamplesPerPixel',
 
@@ -1287,8 +1287,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     ROWS_PER_STRIP = 'RowsPerStrip',
 
@@ -1297,8 +1297,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     STRIP_BYTE_COUNTS = 'StripByteCounts',
 
@@ -1307,8 +1307,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     X_RESOLUTION = 'XResolution',
 
@@ -1317,8 +1317,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     Y_RESOLUTION = 'YResolution',
 
@@ -1327,8 +1327,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     PLANAR_CONFIGURATION = 'PlanarConfiguration',
 
@@ -1337,8 +1337,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     RESOLUTION_UNIT = 'ResolutionUnit',
 
@@ -1347,8 +1347,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     TRANSFER_FUNCTION = 'TransferFunction',
 
@@ -1357,8 +1357,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SOFTWARE = 'Software',
 
@@ -1367,8 +1367,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     ARTIST = 'Artist',
 
@@ -1377,8 +1377,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     WHITE_POINT = 'WhitePoint',
 
@@ -1387,8 +1387,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     PRIMARY_CHROMATICITIES = 'PrimaryChromaticities',
 
@@ -1397,8 +1397,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     YCBCR_COEFFICIENTS = 'YCbCrCoefficients',
 
@@ -1407,8 +1407,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     YCBCR_SUB_SAMPLING = 'YCbCrSubSampling',
 
@@ -1417,8 +1417,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     YCBCR_POSITIONING = 'YCbCrPositioning',
 
@@ -1427,8 +1427,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     REFERENCE_BLACK_WHITE = 'ReferenceBlackWhite',
 
@@ -1437,8 +1437,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     COPYRIGHT = 'Copyright',
 
@@ -1447,8 +1447,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     JPEG_INTERCHANGE_FORMAT = 'JPEGInterchangeFormat',
 
@@ -1457,8 +1457,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     JPEG_INTERCHANGE_FORMAT_LENGTH = 'JPEGInterchangeFormatLength',
 
@@ -1467,8 +1467,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     EXPOSURE_PROGRAM = 'ExposureProgram',
 
@@ -1477,8 +1477,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SPECTRAL_SENSITIVITY = 'SpectralSensitivity',
 
@@ -1487,8 +1487,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     OECF = 'OECF',
 
@@ -1497,8 +1497,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     EXIF_VERSION = 'ExifVersion',
 
@@ -1509,8 +1509,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     DATE_TIME_DIGITIZED = 'DateTimeDigitized',
 
@@ -1519,8 +1519,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     COMPONENTS_CONFIGURATION = 'ComponentsConfiguration',
 
@@ -1529,8 +1529,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SHUTTER_SPEED = 'ShutterSpeedValue',
 
@@ -1539,8 +1539,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     BRIGHTNESS_VALUE = 'BrightnessValue',
 
@@ -1549,8 +1549,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     MAX_APERTURE_VALUE = 'MaxApertureValue',
 
@@ -1559,8 +1559,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SUBJECT_DISTANCE = 'SubjectDistance',
 
@@ -1569,8 +1569,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SUBJECT_AREA = 'SubjectArea',
 
@@ -1579,8 +1579,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     MAKER_NOTE = 'MakerNote',
 
@@ -1589,8 +1589,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SUBSEC_TIME = 'SubsecTime',
 
@@ -1599,8 +1599,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SUBSEC_TIME_ORIGINAL = 'SubsecTimeOriginal',
 
@@ -1609,8 +1609,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SUBSEC_TIME_DIGITIZED = 'SubsecTimeDigitized',
 
@@ -1619,8 +1619,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FLASHPIX_VERSION = 'FlashpixVersion',
 
@@ -1629,8 +1629,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     COLOR_SPACE = 'ColorSpace',
 
@@ -1639,8 +1639,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     RELATED_SOUND_FILE = 'RelatedSoundFile',
 
@@ -1649,8 +1649,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FLASH_ENERGY = 'FlashEnergy',
 
@@ -1659,8 +1659,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SPATIAL_FREQUENCY_RESPONSE = 'SpatialFrequencyResponse',
 
@@ -1669,8 +1669,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FOCAL_PLANE_X_RESOLUTION = 'FocalPlaneXResolution',
 
@@ -1679,8 +1679,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FOCAL_PLANE_Y_RESOLUTION = 'FocalPlaneYResolution',
 
@@ -1689,8 +1689,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FOCAL_PLANE_RESOLUTION_UNIT = 'FocalPlaneResolutionUnit',
 
@@ -1699,8 +1699,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SUBJECT_LOCATION = 'SubjectLocation',
 
@@ -1709,8 +1709,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     EXPOSURE_INDEX = 'ExposureIndex',
 
@@ -1719,8 +1719,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SENSING_METHOD = 'SensingMethod',
 
@@ -1729,8 +1729,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FILE_SOURCE = 'FileSource',
 
@@ -1739,8 +1739,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     CFA_PATTERN = 'CFAPattern',
 
@@ -1749,8 +1749,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     CUSTOM_RENDERED = 'CustomRendered',
 
@@ -1759,8 +1759,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     EXPOSURE_MODE = 'ExposureMode',
 
@@ -1769,8 +1769,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     DIGITAL_ZOOM_RATIO = 'DigitalZoomRatio',
 
@@ -1779,8 +1779,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SCENE_CAPTURE_TYPE = 'SceneCaptureType',
 
@@ -1789,8 +1789,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GAIN_CONTROL = 'GainControl',
 
@@ -1799,8 +1799,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     CONTRAST = 'Contrast',
 
@@ -1809,8 +1809,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SATURATION = 'Saturation',
 
@@ -1819,8 +1819,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SHARPNESS = 'Sharpness',
 
@@ -1829,8 +1829,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     DEVICE_SETTING_DESCRIPTION = 'DeviceSettingDescription',
 
@@ -1839,8 +1839,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SUBJECT_DISTANCE_RANGE = 'SubjectDistanceRange',
 
@@ -1849,8 +1849,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     IMAGE_UNIQUE_ID = 'ImageUniqueID',
 
@@ -1859,8 +1859,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_VERSION_ID = 'GPSVersionID',
 
@@ -1869,8 +1869,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_ALTITUDE_REF = 'GPSAltitudeRef',
 
@@ -1879,8 +1879,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_ALTITUDE = 'GPSAltitude',
 
@@ -1889,8 +1889,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_SATELLITES = 'GPSSatellites',
 
@@ -1899,8 +1899,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_STATUS = 'GPSStatus',
 
@@ -1909,8 +1909,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_MEASURE_MODE = 'GPSMeasureMode',
 
@@ -1919,8 +1919,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_DOP = 'GPSDOP',
 
@@ -1929,8 +1929,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_SPEED_REF = 'GPSSpeedRef',
 
@@ -1939,8 +1939,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_SPEED = 'GPSSpeed',
 
@@ -1949,8 +1949,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_TRACK_REF = 'GPSTrackRef',
 
@@ -1959,8 +1959,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_TRACK = 'GPSTrack',
 
@@ -1969,8 +1969,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_IMG_DIRECTION_REF = 'GPSImgDirectionRef',
 
@@ -1979,8 +1979,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_IMG_DIRECTION = 'GPSImgDirection',
 
@@ -1989,8 +1989,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_MAP_DATUM = 'GPSMapDatum',
 
@@ -1999,8 +1999,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_DEST_LATITUDE_REF = 'GPSDestLatitudeRef',
 
@@ -2009,8 +2009,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_DEST_LATITUDE = 'GPSDestLatitude',
 
@@ -2019,8 +2019,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_DEST_LONGITUDE_REF = 'GPSDestLongitudeRef',
 
@@ -2029,8 +2029,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_DEST_LONGITUDE = 'GPSDestLongitude',
 
@@ -2039,8 +2039,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_DEST_BEARING_REF = 'GPSDestBearingRef',
 
@@ -2049,8 +2049,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_DEST_BEARING = 'GPSDestBearing',
 
@@ -2059,8 +2059,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_DEST_DISTANCE_REF = 'GPSDestDistanceRef',
 
@@ -2069,8 +2069,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_DEST_DISTANCE = 'GPSDestDistance',
 
@@ -2079,8 +2079,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_PROCESSING_METHOD = 'GPSProcessingMethod',
 
@@ -2089,8 +2089,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_AREA_INFORMATION = 'GPSAreaInformation',
 
@@ -2099,8 +2099,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_DIFFERENTIAL = 'GPSDifferential',
 
@@ -2109,8 +2109,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     BODY_SERIAL_NUMBER = 'BodySerialNumber',
 
@@ -2119,8 +2119,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     CAMERA_OWNER_NAME = 'CameraOwnerName',
 
@@ -2129,8 +2129,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     COMPOSITE_IMAGE = 'CompositeImage',
 
@@ -2139,8 +2139,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     COMPRESSED_BITS_PER_PIXEL = 'CompressedBitsPerPixel',
 
@@ -2149,8 +2149,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     DNG_VERSION = 'DNGVersion',
 
@@ -2159,8 +2159,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     DEFAULT_CROP_SIZE = 'DefaultCropSize',
 
@@ -2169,8 +2169,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GAMMA = 'Gamma',
 
@@ -2179,8 +2179,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     ISO_SPEED_LATITUDE_YYY = 'ISOSpeedLatitudeyyy',
 
@@ -2189,8 +2189,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     ISO_SPEED_LATITUDE_ZZZ = 'ISOSpeedLatitudezzz',
 
@@ -2199,8 +2199,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     LENS_MAKE = 'LensMake',
 
@@ -2209,8 +2209,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     LENS_MODEL = 'LensModel',
 
@@ -2219,8 +2219,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     LENS_SERIAL_NUMBER = 'LensSerialNumber',
 
@@ -2229,8 +2229,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     LENS_SPECIFICATION = 'LensSpecification',
 
@@ -2239,8 +2239,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     NEW_SUBFILE_TYPE = 'NewSubfileType',
 
@@ -2249,8 +2249,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     OFFSET_TIME = 'OffsetTime',
 
@@ -2259,8 +2259,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     OFFSET_TIME_DIGITIZED = 'OffsetTimeDigitized',
 
@@ -2269,8 +2269,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     OFFSET_TIME_ORIGINAL = 'OffsetTimeOriginal',
 
@@ -2279,8 +2279,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SOURCE_EXPOSURE_TIMES_OF_COMPOSITE_IMAGE = 'SourceExposureTimesOfCompositeImage',
 
@@ -2289,8 +2289,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SOURCE_IMAGE_NUMBER_OF_COMPOSITE_IMAGE = 'SourceImageNumberOfCompositeImage',
 
@@ -2299,8 +2299,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SUBFILE_TYPE = 'SubfileType',
 
@@ -2309,8 +2309,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GPS_H_POSITIONING_ERROR = 'GPSHPositioningError',
 
@@ -2319,8 +2319,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     PHOTOGRAPHIC_SENSITIVITY = 'PhotographicSensitivity',
 
@@ -2329,8 +2329,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     BURST_NUMBER = 'HwMnoteBurstNumber',
 
@@ -2339,8 +2339,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FACE_CONF = 'HwMnoteFaceConf',
 
@@ -2349,8 +2349,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FACE_LEYE_CENTER = 'HwMnoteFaceLeyeCenter',
 
@@ -2359,8 +2359,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FACE_MOUTH_CENTER = 'HwMnoteFaceMouthCenter',
 
@@ -2369,8 +2369,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FACE_POINTER = 'HwMnoteFacePointer',
 
@@ -2379,8 +2379,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FACE_RECT = 'HwMnoteFaceRect',
 
@@ -2389,8 +2389,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FACE_REYE_CENTER = 'HwMnoteFaceReyeCenter',
 
@@ -2399,8 +2399,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FACE_SMILE_SCORE = 'HwMnoteFaceSmileScore',
 
@@ -2409,8 +2409,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FACE_VERSION = 'HwMnoteFaceVersion',
 
@@ -2419,8 +2419,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FRONT_CAMERA = 'HwMnoteFrontCamera',
 
@@ -2429,8 +2429,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SCENE_POINTER = 'HwMnoteScenePointer',
 
@@ -2439,8 +2439,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SCENE_VERSION = 'HwMnoteSceneVersion',
 
@@ -2449,8 +2449,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     IS_XMAGE_SUPPORTED = 'HwMnoteIsXmageSupported',
 
@@ -2459,8 +2459,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     XMAGE_MODE = 'HwMnoteXmageMode',
 
@@ -2469,8 +2469,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     XMAGE_LEFT = 'HwMnoteXmageLeft',
 
@@ -2479,8 +2479,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     XMAGE_TOP = 'HwMnoteXmageTop',
 
@@ -2489,8 +2489,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     XMAGE_RIGHT = 'HwMnoteXmageRight',
 
@@ -2499,8 +2499,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     XMAGE_BOTTOM = 'HwMnoteXmageBottom',
 
@@ -2509,8 +2509,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     CLOUD_ENHANCEMENT_MODE = 'HwMnoteCloudEnhancementMode',
 
@@ -2519,8 +2519,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     WIND_SNAPSHOT_MODE = 'HwMnoteWindSnapshotMode',
 
@@ -2530,8 +2530,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GIF_LOOP_COUNT = 'GIFLoopCount'
   }
@@ -2539,18 +2539,18 @@ declare namespace image {
   /**
    * Enum for image formats.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   enum ImageFormat {
     /**
      * YCBCR422 semi-planar format.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     YCBCR_422_SP = 1000,
 
@@ -2558,8 +2558,8 @@ declare namespace image {
      * JPEG encoding format.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     JPEG = 2000
   }
@@ -2567,14 +2567,14 @@ declare namespace image {
   /**
    * Enumerates alpha types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 9
    */
   /**
    * Enumerates alpha types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @since 10
@@ -2582,7 +2582,7 @@ declare namespace image {
   /**
    * Enumerates alpha types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @atomicservice
@@ -2591,13 +2591,13 @@ declare namespace image {
   /**
    * Enumerates alpha types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   enum AlphaType {
     /**
@@ -2628,8 +2628,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     UNKNOWN = 0,
 
@@ -2661,8 +2661,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     OPAQUE = 1,
 
@@ -2694,8 +2694,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     PREMUL = 2,
 
@@ -2727,8 +2727,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     UNPREMUL = 3
   }
@@ -2736,10 +2736,10 @@ declare namespace image {
   /**
    * Enumerates decoding dynamic range.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   enum DecodingDynamicRange {
     /**
@@ -2748,8 +2748,8 @@ declare namespace image {
      * Imagesources created via {@link CreateIncrementalSource} will be decoded as SDR content.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     AUTO = 0,
 
@@ -2757,8 +2757,8 @@ declare namespace image {
      * Decoding to standard dynamic range.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SDR = 1,
 
@@ -2766,8 +2766,8 @@ declare namespace image {
      * Decoding to high dynamic range. Imagesources created via {@link CreateIncrementalSource} will be decoded as SDR content.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     HDR = 2
   }
@@ -2775,10 +2775,10 @@ declare namespace image {
   /**
    * Enumerates packing dynamic range.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   enum PackingDynamicRange {
     /**
@@ -2786,8 +2786,8 @@ declare namespace image {
      * otherwise, it will be encoded as SDR content.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     AUTO = 0,
 
@@ -2795,8 +2795,8 @@ declare namespace image {
      * Packing to standard dynamic range.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SDR = 1,
   }
@@ -2814,8 +2814,8 @@ declare namespace image {
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   enum AntiAliasingLevel {
     /**
@@ -2829,8 +2829,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     NONE = 0,
 
@@ -2845,8 +2845,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     LOW = 1,
 
@@ -2861,8 +2861,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     MEDIUM = 2,
 
@@ -2877,8 +2877,8 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     HIGH = 3,
   }
@@ -2915,8 +2915,8 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   enum ScaleMode {
     /**
@@ -2947,8 +2947,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FIT_TARGET_SIZE = 0,
 
@@ -2980,8 +2980,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     CENTER_CROP = 1
   }
@@ -2989,18 +2989,18 @@ declare namespace image {
   /**
    * The component type of image.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   enum ComponentType {
     /**
      * Luma info.
      *
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     YUV_Y = 1,
 
@@ -3008,8 +3008,8 @@ declare namespace image {
      * Chrominance info.
      *
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     YUV_U = 2,
 
@@ -3017,8 +3017,8 @@ declare namespace image {
      * Chroma info.
      *
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     YUV_V = 3,
 
@@ -3026,8 +3026,8 @@ declare namespace image {
      * Jpeg type.
      *
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     JPEG = 4
   }
@@ -3035,18 +3035,18 @@ declare namespace image {
   /**
    * Enumerates the HDR metadata types that need to be stored in Pixelmap.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   enum HdrMetadataKey {
     /**
      * Indicate the types of metadata that image needs to use.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     HDR_METADATA_TYPE = 0,
 
@@ -3054,8 +3054,8 @@ declare namespace image {
      * Static metadata key.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     HDR_STATIC_METADATA = 1,
 
@@ -3063,8 +3063,8 @@ declare namespace image {
      * Dynamic metadata key.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     HDR_DYNAMIC_METADATA = 2,
 
@@ -3072,8 +3072,8 @@ declare namespace image {
      * Gainmap metadata key.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     HDR_GAINMAP_METADATA = 3,
   }
@@ -3081,18 +3081,18 @@ declare namespace image {
   /**
    * Value for HDR_METADATA_TYPE.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   enum HdrMetadataType {
     /**
      * No metadata.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     NONE = 0,
 
@@ -3100,8 +3100,8 @@ declare namespace image {
      * Indicates that metadata will be used for the base image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     BASE = 1,
 
@@ -3109,8 +3109,8 @@ declare namespace image {
      * Indicates that metadata will be used for the gainmap image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GAINMAP = 2,
 
@@ -3118,8 +3118,8 @@ declare namespace image {
      * Indicates that metadata will be used for the alternate image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     ALTERNATE = 3,
   }
@@ -3127,18 +3127,18 @@ declare namespace image {
   /**
    * Type of allocator used to allocate memory of a PixelMap.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 22 static
    */
   enum AllocatorType {
     /**
      * The system determines which memory to use to create the PixelMap.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     AUTO = 0,
 
@@ -3146,8 +3146,8 @@ declare namespace image {
      * Use DMA buffer to create the PixelMap.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     DMA = 1,
 
@@ -3155,8 +3155,8 @@ declare namespace image {
      * Use share memory to create the PixelMap.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     SHARE_MEMORY = 2,
   }
@@ -3193,8 +3193,8 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface Region {
     /**
@@ -3229,22 +3229,22 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     size: Size;
 
     /**
      * x-coordinate at the upper left corner of the image.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
      * x-coordinate at the upper left corner of the image.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
@@ -3252,7 +3252,7 @@ declare namespace image {
     /**
      * x-coordinate at the upper left corner of the image.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -3266,22 +3266,22 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     x: int;
 
     /**
      * y-coordinate at the upper left corner of the image.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
      * y-coordinate at the upper left corner of the image.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
@@ -3289,7 +3289,7 @@ declare namespace image {
     /**
      * y-coordinate at the upper left corner of the image.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -3303,8 +3303,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     y: int;
   }
@@ -3341,8 +3341,8 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface PositionArea {
     /**
@@ -3377,8 +3377,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     pixels: ArrayBuffer;
 
@@ -3414,8 +3414,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     offset: int;
 
@@ -3451,8 +3451,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     stride: int;
 
@@ -3488,8 +3488,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     region: Region;
   }
@@ -3526,8 +3526,8 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface ImageInfo {
     /**
@@ -3562,22 +3562,22 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     size: Size;
 
     /**
      * Indicates image default density.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
      * Indicates image default density.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
@@ -3585,7 +3585,7 @@ declare namespace image {
     /**
      * Indicates image default density.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -3599,15 +3599,15 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     density: int;
 
     /**
      * The number of byte per row.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @atomicservice
      * @since 11
@@ -3619,8 +3619,8 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     stride: int;
 
@@ -3632,8 +3632,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     pixelFormat: PixelMapFormat;
 
@@ -3645,8 +3645,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     alphaType: AlphaType;
 
@@ -3656,8 +3656,8 @@ declare namespace image {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     mimeType: string;
 
@@ -3666,8 +3666,8 @@ declare namespace image {
      *
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     isHdr: boolean;
   }
@@ -3675,18 +3675,18 @@ declare namespace image {
   /**
    * Enumerates the strategies for executing the cropping and scaling operations when both desiredSize and desiredRegion are specified.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   enum CropAndScaleStrategy {
     /**
      * Scales and then crops the image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     SCALE_FIRST = 1,
 
@@ -3694,8 +3694,8 @@ declare namespace image {
      * Crops and then scales the image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     CROP_FIRST = 2
   }
@@ -3722,8 +3722,8 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   interface PackingOption {
     /**
@@ -3748,22 +3748,22 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     format: string;
 
     /**
      * Quality of the target image. The value is an integer ranging from 0 to 100. A larger value indicates better.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 6
      */
     /**
      * Quality of the target image. The value is an integer ranging from 0 to 100. A larger value indicates better.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
@@ -3775,8 +3775,8 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     quality: int;
 
@@ -3784,7 +3784,7 @@ declare namespace image {
      * BufferSize of the target image.
      * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 9
      */
@@ -3792,7 +3792,7 @@ declare namespace image {
      * BufferSize of the target image.
      * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
@@ -3805,8 +3805,8 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     bufferSize?: int;
 
@@ -3815,8 +3815,8 @@ declare namespace image {
      *
      * @type { ?PackingDynamicRange }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     desiredDynamicRange?: PackingDynamicRange;
 
@@ -3825,8 +3825,8 @@ declare namespace image {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     needsPackProperties?: boolean;
   }
@@ -3836,46 +3836,51 @@ declare namespace image {
    *
    * @typedef PackingOptionsForSequence
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
   interface PackingOptionsForSequence {
     /**
      * Specify the number of frames.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
-    frameCount: number;
+    frameCount: int;
 
     /**
      * Specify the delay time for each frame of the dynamic image.
      * If the length is less than frameCount, the missing parts will be filling with the last value
      *
-     * @type { Array<number> }
+     * @type { Array<int> }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
-    delayTimeList: Array<number>;
+    delayTimeList: Array<int>;
 
     /**
      * Specify the disposal types of each frame in the image sequence packing.
      *
-     * @type { ?Array<number> }
+     * @type { ?Array<int> }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
-    disposalTypes?: Array<number>;
+    disposalTypes?: Array<int>;
 
     /**
      * Specify the number of times the loop should, the range is [0, 65535]
      * If this loop is equal to 0, it will be infinite loop.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
-    loopCount?: number;
+    loopCount?: int;
   }
 
   /**
@@ -3893,7 +3898,7 @@ declare namespace image {
    * @typedef GetImagePropertyOptions
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
-   * @since 10
+   * @since 10 dynamiconly
    * @deprecated since 11
    * @useinstead image.ImagePropertyOptions
    */
@@ -3913,7 +3918,7 @@ declare namespace image {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead image.ImagePropertyOptions#index
      */
@@ -3934,7 +3939,7 @@ declare namespace image {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead image.ImagePropertyOptions#defaultValue
      */
@@ -3947,8 +3952,8 @@ declare namespace image {
    * @typedef ImagePropertyOptions
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   interface ImagePropertyOptions {
     /**
@@ -3957,8 +3962,8 @@ declare namespace image {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     index?: int;
 
@@ -3968,8 +3973,8 @@ declare namespace image {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     defaultValue?: string;
   }
@@ -4006,21 +4011,21 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface DecodingOptions {
     /**
      * Number of image frames.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 7
      */
     /**
      * Number of image frames.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -4028,7 +4033,7 @@ declare namespace image {
     /**
      * Number of image frames.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @atomicservice
@@ -4042,22 +4047,22 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     index?: int;
 
     /**
      * Sampling ratio of the image pixel map.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 7
      */
     /**
      * Sampling ratio of the image pixel map.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -4065,7 +4070,7 @@ declare namespace image {
     /**
      * Sampling ratio of the image pixel map.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @atomicservice
@@ -4079,22 +4084,22 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     sampleSize?: int;
 
     /**
      * Rotation angle of the image pixel map. The value ranges from 0 to 360.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 7
      */
     /**
      * Rotation angle of the image pixel map. The value ranges from 0 to 360.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -4102,7 +4107,7 @@ declare namespace image {
     /**
      * Rotation angle of the image pixel map. The value ranges from 0 to 360.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @atomicservice
@@ -4116,8 +4121,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     rotate?: int;
 
@@ -4153,8 +4158,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     editable?: boolean;
 
@@ -4194,8 +4199,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     desiredSize?: Size;
 
@@ -4231,8 +4236,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     desiredRegion?: Region;
 
@@ -4268,22 +4273,22 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     desiredPixelFormat?: PixelMapFormat;
 
     /**
      * The density for image pixel map.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 9
      */
     /**
      * The density for image pixel map.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -4291,7 +4296,7 @@ declare namespace image {
     /**
      * The density for image pixel map.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @atomicservice
@@ -4305,8 +4310,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     fitDensity?: int;
 
@@ -4316,8 +4321,8 @@ declare namespace image {
      * @type { ?colorSpaceManager.ColorSpaceManager }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
     
@@ -4326,8 +4331,8 @@ declare namespace image {
      *
      * @type { ?DecodingDynamicRange }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     desiredDynamicRange?: DecodingDynamicRange;
 
@@ -4337,8 +4342,8 @@ declare namespace image {
      * @type { ?ResolutionQuality }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     resolutionQuality?: ResolutionQuality;
 
@@ -4347,8 +4352,8 @@ declare namespace image {
      *
      * @type { ?CropAndScaleStrategy }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     cropAndScaleStrategy?: CropAndScaleStrategy;
   }
@@ -4358,8 +4363,8 @@ declare namespace image {
    *
    * @typedef Component
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface Component {
     /**
@@ -4368,8 +4373,8 @@ declare namespace image {
      * @type { ComponentType }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly componentType: ComponentType;
 
@@ -4379,8 +4384,8 @@ declare namespace image {
      * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly rowStride: int;
 
@@ -4390,8 +4395,8 @@ declare namespace image {
      * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly pixelStride: int;
 
@@ -4401,8 +4406,8 @@ declare namespace image {
      * @type { ArrayBuffer }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly byteBuffer: ArrayBuffer;
   }
@@ -4439,8 +4444,8 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface InitializationOptions {
     /**
@@ -4475,8 +4480,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     size: Size;
 
@@ -4485,8 +4490,8 @@ declare namespace image {
      *
      * @type { ?PixelMapFormat }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     srcPixelFormat?: PixelMapFormat;
 
@@ -4522,8 +4527,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     pixelFormat?: PixelMapFormat;
 
@@ -4559,8 +4564,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     editable?: boolean;
 
@@ -4596,8 +4601,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     alphaType?: AlphaType;
 
@@ -4633,8 +4638,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     scaleMode?: ScaleMode;
   }
@@ -4671,21 +4676,21 @@ declare namespace image {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface SourceOptions {
     /**
      * The density for ImageSource.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
      * The density for ImageSource.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
@@ -4693,7 +4698,7 @@ declare namespace image {
     /**
      * The density for ImageSource.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -4707,8 +4712,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     sourceDensity: int;
 
@@ -4744,8 +4749,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     sourcePixelFormat?: PixelMapFormat;
 
@@ -4781,8 +4786,8 @@ declare namespace image {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     sourceSize?: Size;
   }
@@ -4792,90 +4797,99 @@ declare namespace image {
    *
    * @typedef HdrStaticMetadata
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface HdrStaticMetadata {
     /**
      * The X-coordinate of the primary colors. Specifies the normalized X-coordinates of the display device's three
      * primary colors. The values are stored in an array of length 3, in the order of red, green, and blue (r, g, b).
      * Each value is represented in units of 0.00002 and must fall within the range [0.0, 1.0].
-     * 
-     * @type { Array<number> }
+     *
+     * @type { Array<double> }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    displayPrimariesX: Array<number>;
+    displayPrimariesX: Array<double>;
 
     /**
      * The Y-coordinate of the primary colors. Specifies the normalized Y-coordinates of the display device's three
      * primary colors. The values are stored in an array of length 3, in the order of red, green, and blue (r, g, b).
      * Each value is represented in units of 0.00002 and must fall within the range [0.0, 1.0].
-     * 
-     * @type { Array<number> }
+     *
+     * @type { Array<double> }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    displayPrimariesY: Array<number>;
+    displayPrimariesY: Array<double>;
 
     /**
      * The X-coordinate of the white point value. Specifies the normalized X-coordinate of the white point. 
      * The value is represented in units of 0.00002 and must fall within the range [0.0, 1.0].
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    whitePointX: number;
+    whitePointX: double;
 
     /**
      * The Y-coordinate of the white point value. Specifies the normalized Y-coordinate of the white point. 
      * The value is represented in units of 0.00002 and must fall within the range [0.0, 1.0].
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    whitePointY: number;
+    whitePointY: double;
 
     /**
      * Maximum luminance of the image's primary display.
      * The value is measured in units of 1, with a maximum allowed value of 65,535.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    maxLuminance: number;
+    maxLuminance: double;
 
     /**
      * Minimum luminance of the image's primary display.
      * The value is measured in units of 0.0001, with a maximum allowed value of 6.55535.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    minLuminance: number;
+    minLuminance: double;
 
     /**
      * Maximum brightness of displayed content.
      * The value is measured in units of 1, with a maximum allowed value of 65,535.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    maxContentLightLevel: number;
+    maxContentLightLevel: double;
 
     /**
      * Maximum average brightness of displayed content.
      * The value is measured in units of 1, with a maximum allowed value of 65,535.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    maxFrameAverageLightLevel: number;
+    maxFrameAverageLightLevel: double;
   }
 
   /**
@@ -4883,53 +4897,59 @@ declare namespace image {
    *
    * @typedef GainmapChannel
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface GainmapChannel {
     /**
      * The per-component max gain map values.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    gainmapMax: number;
+    gainmapMax: double;
 
     /**
      * The per-component min gain map values.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    gainmapMin: number;
+    gainmapMin: double;
 
     /**
      * The per-component gamma values.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    gamma: number;
+    gamma: double;
 
     /**
      * The per-component baseline offset.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    baseOffset: number;
+    baseOffset: double;
 
     /**
      * The per-component alternate offset.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    alternateOffset: number;
+    alternateOffset: double;
   }
 
   /**
@@ -4937,69 +4957,77 @@ declare namespace image {
    *
    * @typedef HdrGainmapMetadata
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface HdrGainmapMetadata {
     /**
      * The version used by the writer.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    writerVersion: number;
+    writerVersion: int;
 
     /**
      * The minimum version a parser needs to understand.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    miniVersion: number;
+    miniVersion: int;
 
     /**
      * The number of gain map channels, with a value of 1 or 3.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    gainmapChannelCount: number;
+    gainmapChannelCount: int;
 
     /**
      * Indicate whether to use the color space of the base image.
      *
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     useBaseColorFlag: boolean;
 
     /**
      * The baseline hdr headroom.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */    
-    baseHeadroom: number;
+    baseHeadroom: double;
 
     /**
      * The alternate hdr headroom.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    alternateHeadroom: number;
+    alternateHeadroom: double;
 
     /**
      * The per-channel metadata.
      *
      * @type { Array<GainmapChannel> }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     channels: Array<GainmapChannel>;
   }
@@ -5009,7 +5037,8 @@ declare namespace image {
    *
    * @typedef {HdrMetadataType | HdrStaticMetadata | ArrayBuffer | HdrGainmapMetadata} HdrMetadataValue
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   type HdrMetadataValue = HdrMetadataType | HdrStaticMetadata | ArrayBuffer | HdrGainmapMetadata;
 
@@ -5030,8 +5059,8 @@ declare namespace image {
    * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function createPixelMap(colors: ArrayBuffer, options: InitializationOptions, callback: AsyncCallback<PixelMap>): void;
 
@@ -5052,8 +5081,8 @@ declare namespace image {
    * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function createPixelMap(colors: ArrayBuffer, options: InitializationOptions): Promise<PixelMap>;
 
@@ -5067,8 +5096,8 @@ declare namespace image {
    * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   function createPixelMapSync(colors: ArrayBuffer, options: InitializationOptions): PixelMap;
 
@@ -5086,7 +5115,7 @@ declare namespace image {
    * @throws { BusinessError } 7600301 - Memory alloc failed.
    * @throws { BusinessError } 7600302 - Memory copy failed.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 20
+   * @since 20 dynamic
    */
   function createPixelMapUsingAllocator(colors: ArrayBuffer, param: InitializationOptions,
     allocatorType?: AllocatorType): Promise<PixelMap>;
@@ -5105,7 +5134,7 @@ declare namespace image {
    * @throws { BusinessError } 7600301 - Memory alloc failed.
    * @throws { BusinessError } 7600302 - Memory copy failed.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 20
+   * @since 20 dynamic
    */
   function createPixelMapUsingAllocatorSync(colors: ArrayBuffer, param: InitializationOptions,
     allocatorType?: AllocatorType): PixelMap;
@@ -5119,8 +5148,8 @@ declare namespace image {
    * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
 function createPixelMapSync(options: InitializationOptions): PixelMap;
 
@@ -5136,7 +5165,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
    * @throws { BusinessError } 7600201 - Unsupported operation.
    * @throws { BusinessError } 7600301 - Memory alloc failed.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 20
+   * @since 20 dynamic
    */
   function createPixelMapUsingAllocatorSync(param: InitializationOptions, allocatorType?: AllocatorType): PixelMap;
 
@@ -5154,7 +5183,8 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
    * @throws { BusinessError } 62980248 - Pixelmap not allow modify.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
 function createPremultipliedPixelMap(src: PixelMap, dst: PixelMap, callback: AsyncCallback<void>): void;
 
@@ -5172,7 +5202,8 @@ function createPremultipliedPixelMap(src: PixelMap, dst: PixelMap, callback: Asy
    * @throws { BusinessError } 62980248 - Pixelmap not allow modify.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
 function createPremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<void>;
 
@@ -5190,7 +5221,8 @@ function createPremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<void
    * @throws { BusinessError } 62980248 - Pixelmap not allow modify.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
 function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap, callback: AsyncCallback<void>): void;
 
@@ -5208,7 +5240,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap, callback: A
    * @throws { BusinessError } 62980248 - Pixelmap not allow modify.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
 function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<void>;
 
@@ -5230,7 +5263,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * Possible cause: 1. Size and address does not match. 2. Memory map in memalloc failed.
    * @throws { BusinessError } 62980246 - Failed to read the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function createPixelMapFromParcel(sequence: rpc.MessageSequence): PixelMap;
 
@@ -5244,8 +5278,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @throws { BusinessError } 62980105 - Failed to get the data.
    * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   function createPixelMapFromSurface(surfaceId: string, region: Region): Promise<PixelMap>;
 
@@ -5260,8 +5294,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @throws { BusinessError } 62980105 - Failed to get the data.
    * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   function createPixelMapFromSurfaceSync(surfaceId: string, region: Region): PixelMap;
 
@@ -5275,7 +5309,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @throws { BusinessError } 62980105 - Failed to get the data.
    * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 15
+   * @since 15 dynamic
+   * @since 22 static
    */
   function createPixelMapFromSurface(surfaceId: string): Promise<PixelMap>;
 
@@ -5289,8 +5324,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @throws { BusinessError } 62980105 - Failed to get the data.
    * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 22 static
    */
   function createPixelMapFromSurfaceSync(surfaceId: string): PixelMap;
 
@@ -5319,8 +5354,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   function createImageSource(uri: string): ImageSource;
 
@@ -5328,6 +5362,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * Creates an ImageSource instance based on the URI.
    *
    * @param { string } uri Image source URI.
+   * @returns { ImageSource | undefined } returns the ImageSource instance if the operation is successful;
+   *     returns undefined otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @since 22 static
+   */
+  function createImageSource(uri: string): ImageSource | undefined;
+
+  /**
+   * Creates an ImageSource instance based on the URI.
+   *
+   * @param { string } uri Image source URI.
    * @param { SourceOptions } options The config of Image source.
    * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -5364,15 +5409,26 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   function createImageSource(uri: string, options: SourceOptions): ImageSource;
 
   /**
+   * Creates an ImageSource instance based on the URI.
+   *
+   * @param { string } uri Image source URI.
+   * @param { SourceOptions } options The config of Image source.
+   * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
+   *     returns undefined otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @since 22 static
+   */
+  function createImageSource(uri: string, options: SourceOptions): ImageSource | undefined;
+
+  /**
    * Creates an ImageSource instance based on the file descriptor.
    *
-   * @param { number } fd ID of a file descriptor.
+   * @param { int } fd ID of a file descriptor.
    * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @since 7
@@ -5380,7 +5436,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Creates an ImageSource instance based on the file descriptor.
    *
-   * @param { number } fd ID of a file descriptor.
+   * @param { int } fd ID of a file descriptor.
    * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
@@ -5394,15 +5450,25 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   function createImageSource(fd: int): ImageSource;
 
   /**
    * Creates an ImageSource instance based on the file descriptor.
    *
-   * @param { number } fd ID of a file descriptor.
+   * @param { int } fd ID of a file descriptor.
+   * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
+   *     returns undefined otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @since 22 static
+   */
+  function createImageSource(fd: int): ImageSource | undefined;
+
+  /**
+   * Creates an ImageSource instance based on the file descriptor.
+   *
+   * @param { int } fd ID of a file descriptor.
    * @param { SourceOptions } options The config of Image source.
    * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -5411,7 +5477,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Creates an ImageSource instance based on the file descriptor.
    *
-   * @param { number } fd ID of a file descriptor.
+   * @param { int } fd ID of a file descriptor.
    * @param { SourceOptions } options The config of Image source.
    * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -5421,7 +5487,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Creates an ImageSource instance based on the file descriptor.
    *
-   * @param { number } fd ID of a file descriptor.
+   * @param { int } fd ID of a file descriptor.
    * @param { SourceOptions } options The config of Image source.
    * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -5439,10 +5505,21 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   function createImageSource(fd: int, options: SourceOptions): ImageSource;
+
+  /**
+   * Creates an ImageSource instance based on the file descriptor.
+   *
+   * @param { int } fd ID of a file descriptor.
+   * @param { SourceOptions } options The config of Image source.
+   * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
+   *     returns undefined otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @since 22 static
+   */
+  function createImageSource(fd: int, options: SourceOptions): ImageSource | undefined;
 
   /**
    * Creates an ImageSource instance based on the buffer.
@@ -5480,8 +5557,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   function createImageSource(buf: ArrayBuffer): ImageSource;
 
@@ -5489,6 +5565,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * Creates an ImageSource instance based on the buffer.
    *
    * @param { ArrayBuffer } buf The buffer of the image.
+   * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
+   *     returns undefined otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @since 22 static
+   */
+  function createImageSource(buf: ArrayBuffer): ImageSource | undefined;
+
+  /**
+   * Creates an ImageSource instance based on the buffer.
+   *
+   * @param { ArrayBuffer } buf The buffer of the image.
    * @param { SourceOptions } options The config of Image source.
    * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -5525,10 +5612,21 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   function createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSource;
+
+  /**
+   * Creates an ImageSource instance based on the buffer.
+   *
+   * @param { ArrayBuffer } buf The buffer of the image.
+   * @param { SourceOptions } options The config of Image source.
+   * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
+   *     returns undefined otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @since 22 static
+   */
+  function createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSource | undefined;
 
   /**
    * Creates an ImageSource instance based on the raw file descriptor.
@@ -5539,10 +5637,22 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   function createImageSource(rawfile: resourceManager.RawFileDescriptor, options?: SourceOptions): ImageSource;
+
+  /**
+   * Creates an ImageSource instance based on the raw file descriptor.
+   *
+   * @param { resourceManager.RawFileDescriptor } rawfile The raw file descriptor of the image.
+   * @param { SourceOptions } [options] The config of Image source.
+   * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
+   *     returns undefined otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @since 22 static
+   */
+  function createImageSource(rawfile: resourceManager.RawFileDescriptor, options?: SourceOptions)
+    : ImageSource | undefined;
 
   /**
    * Creates an ImageSource instance based on the buffer in incremental.
@@ -5559,7 +5669,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   function CreateIncrementalSource(buf: ArrayBuffer): ImageSource;
 
@@ -5567,6 +5677,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * Creates an ImageSource instance based on the buffer in incremental.
    *
    * @param { ArrayBuffer } buf The buffer of the image.
+   * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
+   *     returns undefined otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @since 22 static
+   */
+  function createIncrementalSource(buf: ArrayBuffer): ImageSource | undefined;
+
+  /**
+   * Creates an ImageSource instance based on the buffer in incremental.
+   *
+   * @param { ArrayBuffer } buf The buffer of the image.
    * @param { SourceOptions } options The config of source.
    * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -5580,9 +5701,21 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   function CreateIncrementalSource(buf: ArrayBuffer, options?: SourceOptions): ImageSource;
+
+  /**
+   * Creates an ImageSource instance based on the buffer in incremental.
+   *
+   * @param { ArrayBuffer } buf The buffer of the image.
+   * @param { SourceOptions } [options] The config of source.
+   * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
+   *     returns undefined otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @since 22 static
+   */
+  function createIncrementalSource(buf: ArrayBuffer, options?: SourceOptions): ImageSource | undefined;
 
   /**
    * Creates an ImagePacker instance.
@@ -5606,8 +5739,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   function createImagePacker(): ImagePacker;
 
@@ -5621,7 +5754,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @param { number } capacity The maximum number of images the user will want to access simultaneously.
    * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 11
    * @useinstead image#createImageReceiver
    */
@@ -5637,10 +5770,23 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   function createImageReceiver(size: Size, format: ImageFormat, capacity: int): ImageReceiver;
+
+  /**
+   * Creates an ImageReceiver instance.
+   *
+   * @param { Size } size - The default {@link Size} in pixels of the Images that this receiver will produce.
+   * @param { ImageFormat } format - The format of the Image that this receiver will produce. This must be one of the
+   *     {@link ImageFormat} constants.
+   * @param { int } capacity - The maximum number of images the user will want to access simultaneously.
+   * @returns { ImageReceiver | undefined } Returns the ImageReceiver instance if the operation is successful;
+   *     returns undefined otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+   * @since 22 static
+   */
+  function createImageReceiver(size: Size, format: ImageFormat, capacity: int): ImageReceiver | undefined;
 
   /**
    * Creates an ImageCreator instance.
@@ -5652,7 +5798,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @param { number } capacity The maximum number of images the user will want to access simultaneously.
    * @returns { ImageCreator } Returns the ImageCreator instance if the operation is successful; returns null otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageCreator
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 11
    * @useinstead image#createImageCreator
    */
@@ -5668,8 +5814,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageCreator } Returns the ImageCreator instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
    * @syscap SystemCapability.Multimedia.Image.ImageCreator
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   function createImageCreator(size: Size, format: ImageFormat, capacity: int): ImageCreator;
   /**
@@ -5704,8 +5850,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface PixelMap {
     /**
@@ -5744,7 +5890,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     readonly isEditable: boolean;
 
@@ -5788,8 +5935,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     readPixelsToBuffer(dst: ArrayBuffer): Promise<void>;
 
@@ -5833,7 +5980,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     readPixelsToBuffer(dst: ArrayBuffer, callback: AsyncCallback<void>): void;
 
@@ -5848,8 +5996,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     readPixelsToBufferSync(dst: ArrayBuffer): void;
 
@@ -5889,7 +6037,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     readPixels(area: PositionArea): Promise<void>;
 
@@ -5929,7 +6078,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     readPixels(area: PositionArea, callback: AsyncCallback<void>): void;
 
@@ -5943,8 +6093,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     readPixelsSync(area: PositionArea): void;
 
@@ -5988,7 +6138,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     writePixels(area: PositionArea): Promise<void>;
 
@@ -6032,7 +6183,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     writePixels(area: PositionArea, callback: AsyncCallback<void>): void;
 
@@ -6047,7 +6199,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     writePixelsSync(area: PositionArea): void;
     /**
@@ -6090,7 +6243,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     writeBufferToPixels(src: ArrayBuffer): Promise<void>;
 
@@ -6134,7 +6288,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     writeBufferToPixels(src: ArrayBuffer, callback: AsyncCallback<void>): void;
 
@@ -6148,8 +6303,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     writeBufferToPixelsSync(src: ArrayBuffer): void;
 
@@ -6159,7 +6314,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @throws { BusinessError } 62980137 - Invalid image operation.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     toSdr(): Promise<void>;
   
@@ -6195,8 +6351,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     getImageInfo(): Promise<ImageInfo>;
 
@@ -6236,8 +6392,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     getImageInfo(callback: AsyncCallback<ImageInfo>): void;
 
@@ -6250,8 +6406,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     getImageInfoSync(): ImageInfo;
 
@@ -6287,8 +6443,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     getBytesNumberPerRow(): int;
 
@@ -6324,8 +6480,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     getPixelBytesNumber(): int;
 
@@ -6356,14 +6512,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Obtains the density of the image pixel map.
      *
-     * @returns { number } The number of density.
+     * @returns { int } The number of density.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    getDensity(): number;
+    getDensity(): int;
 
     /**
      * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
@@ -6401,8 +6558,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     opacity(rate: double, callback: AsyncCallback<void>): void;
 
@@ -6442,8 +6599,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     opacity(rate: double): Promise<void>;
 
@@ -6457,8 +6614,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     opacitySync(rate: double): void;
     /**
@@ -6493,8 +6650,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     createAlphaPixelmap(): Promise<PixelMap>;
 
@@ -6530,8 +6687,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     createAlphaPixelmap(callback: AsyncCallback<PixelMap>): void;
 
@@ -6544,8 +6701,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     createAlphaPixelmapSync(): PixelMap;
     /**
@@ -6588,8 +6745,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     scale(x: double, y: double, callback: AsyncCallback<void>): void;
 
@@ -6633,8 +6790,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     scale(x: double, y: double): Promise<void>;
 
@@ -6649,8 +6806,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     scaleSync(x: double, y: double): void;
 
@@ -6668,8 +6825,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     scale(x: double, y: double, level: AntiAliasingLevel): Promise<void>;
 
@@ -6685,8 +6842,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     scaleSync(x: double, y: double, level: AntiAliasingLevel): void;
 
@@ -6701,8 +6858,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     createScaledPixelMap(x: double, y: double, level?: AntiAliasingLevel): Promise<PixelMap>;
 
@@ -6717,8 +6874,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     createScaledPixelMapSync(x: double, y: double, level?: AntiAliasingLevel): PixelMap;
 
@@ -6762,8 +6919,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     translate(x: double, y: double, callback: AsyncCallback<void>): void;
 
@@ -6807,8 +6964,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     translate(x: double, y: double): Promise<void>;
 
@@ -6823,8 +6980,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     translateSync(x: double, y: double): void;
 
@@ -6864,8 +7021,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     rotate(angle: double, callback: AsyncCallback<void>): void;
 
@@ -6905,8 +7062,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     rotate(angle: double): Promise<void>;
 
@@ -6920,8 +7077,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     rotateSync(angle: double): void;
 
@@ -6965,8 +7122,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     flip(horizontal: boolean, vertical: boolean, callback: AsyncCallback<void>): void;
 
@@ -7010,8 +7167,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     flip(horizontal: boolean, vertical: boolean): Promise<void>;
 
@@ -7026,8 +7183,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     flipSync(horizontal: boolean, vertical: boolean): void;
 
@@ -7067,8 +7224,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     crop(region: Region, callback: AsyncCallback<void>): void;
 
@@ -7108,8 +7265,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     crop(region: Region): Promise<void>;
 
@@ -7123,8 +7280,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     cropSync(region: Region): void;
 
@@ -7147,7 +7304,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform  
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     getColorSpace(): colorSpaceManager.ColorSpaceManager;
 
@@ -7159,7 +7317,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
      * 3. Decode process exception. 4. Insufficient memory.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     marshalling(sequence: rpc.MessageSequence): void;
 
@@ -7174,7 +7333,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
      * 2. Decoding process exception. 3. Insufficient memory.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     unmarshalling(sequence: rpc.MessageSequence): Promise<PixelMap>;
 
@@ -7217,7 +7377,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform 
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager): void;
 
@@ -7227,8 +7388,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     readonly isStrideAlignment: boolean;
 
@@ -7247,7 +7408,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager, callback: AsyncCallback<void>): void;
 
@@ -7266,7 +7428,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager): Promise<void>;
 
@@ -7281,7 +7444,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980276 - The type to be converted is an unsupported target pixel format.
      * @throws { BusinessError } 62980178 - Failed to create the pixelmap.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
      convertPixelFormat(targetPixelFormat: PixelMapFormat): Promise<void>;
      
@@ -7310,15 +7474,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 11
      */
     /**
-     * Releases this PixelMap object. This method uses a callback to return the result.
+     * Releases this PixelMap object. After release, any method call that accesses the object's internal data will fail. This method uses a callback to return the result.
      *
      * @param { AsyncCallback<void> } callback Callback invoked for instance release. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -7347,15 +7511,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 11
      */
     /**
-     * Releases this PixelMap object. This method uses a promise to return the result.
+     * Releases this PixelMap object. After release, any method call that accesses the object's internal data will fail. This method uses a promise to return the result.
      *
      * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     release(): Promise<void>;
 
@@ -7367,7 +7531,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * detachment feature.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     setTransferDetached(detached: boolean): void;
 
@@ -7382,7 +7547,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980173 - The DMA memory does not exist.
      * @throws { BusinessError } 62980302 - Memory copy failed. Possibly caused by invalid metadata value.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     getMetadata(key: HdrMetadataKey): HdrMetadataValue;
 
@@ -7395,8 +7561,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 501 - Resource unavailable.
      * @throws { BusinessError } 62980286 - Memory format not supported.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     setMemoryNameSync(name: string): void;
 
@@ -7407,10 +7573,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 501 - Resource unavailable.
      * @throws { BusinessError } 62980102 - Image malloc abnormal. This status code is thrown when an error occurs during the process of copying data.
      * @throws { BusinessError } 62980103 - Image YUV And ASTC types are not supported.
-     * @throws { BusinessError } 62980104 - Image initialization abnormal. This status code is thrown when an error occurs during the process of createing empty pixelmap.
-     * @throws { BusinessError } 62980106 - The image data is to large.This status code is thrown when an error occurs during the process of checking size.
+     * @throws { BusinessError } 62980104 - Image initialization abnormal. This status code is thrown when an error occurs during the process of creating empty pixelmap.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
     cloneSync(): PixelMap;    
 
@@ -7421,10 +7588,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 501 - Resource unavailable.
      * @throws { BusinessError } 62980102 - Image malloc abnormal. This status code is thrown when an error occurs during the process of copying data.
      * @throws { BusinessError } 62980103 - Image YUV And ASTC types are not supported.
-     * @throws { BusinessError } 62980104 - Image initialization abnormal. This status code is thrown when an error occurs during the process of createing empty pixelmap.
-     * @throws { BusinessError } 62980106 - The image data is to large.This status code is thrown when an error occurs during the process of checking size.
+     * @throws { BusinessError } 62980104 - Image initialization abnormal. This status code is thrown when an error occurs during the process of creating empty pixelmap.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
     clone(): Promise<PixelMap>;
 
@@ -7441,9 +7609,65 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980173 - The DMA memory does not exist.
      * @throws { BusinessError } 62980302 - Memory copy failed. Possibly caused by invalid metadata value.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     setMetadata(key: HdrMetadataKey, value: HdrMetadataValue): Promise<void>;
+
+    /**
+     * Checks whether the PixelMap is released. If so, then any method call that accesses the object's internal data will fail.
+     * 
+     * @returns { boolean } True if the PixelMap is released, false otherwise.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 dynamic&static
+     */
+    isReleased(): boolean;
+
+    /**
+     * Gets the unique ID of the PixelMap.
+     * 
+     * @returns { int } The unique ID of the PixelMap.
+     * @throws { BusinessError } 7600201 - The PixelMap has been released.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 dynamic&static
+     */
+    getUniqueId(): int;
+
+    /**
+     * Creates a cropped and scaled PixelMap based on current PixelMap.
+     *
+     * @param { Region } region The region of the source pixelmap to be cropped.
+     * @param { double } x The scale ratio of width.
+     * @param { double } y The scale ratio of height.
+     * @param { AntiAliasingLevel } [level] The anti-aliasing algorithm to be used.
+     *     The default value is AntiAliasingLevel.NONE.
+     * @returns { PixelMap } return the new cropped and scaled pixelmap.
+     * @throws { BusinessError } 7600201 - The PixelMap has been released.
+     * @throws { BusinessError } 7600204 - Invalid region.
+     * @throws { BusinessError } 7600205 - Unsupported memory format or pixel format.
+     * @throws { BusinessError } 7600301 - Memory alloc failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 dynamic&static
+     */
+    createCroppedAndScaledPixelMapSync(region: Region, x: double, y: double, level?: AntiAliasingLevel): PixelMap;
+
+    /**
+     * Creates a cropped and scaled PixelMap based on current PixelMap.
+     *
+     * @param { Region } region The region of the source pixelmap to be cropped.
+     * @param { double } x The scale ratio of width.
+     * @param { double } y The scale ratio of height.
+     * @param { AntiAliasingLevel } [level] The anti-aliasing algorithm to be used.
+     *     The default value is AntiAliasingLevel.NONE.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @throws { BusinessError } 7600201 - The PixelMap has been released.
+     * @throws { BusinessError } 7600204 - Invalid region.
+     * @throws { BusinessError } 7600205 - Unsupported memory format or pixel format.
+     * @throws { BusinessError } 7600301 - Memory alloc failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 dynamic&static
+     */
+    createCroppedAndScaledPixelMap(region: Region, x: double, y: double, level?: AntiAliasingLevel): Promise<PixelMap>;
   }
 
   /**
@@ -7453,8 +7677,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef Picture
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 22 static
    */
   interface Picture {
     /**
@@ -7462,10 +7686,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { PixelMap } Returns the pixel map.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
      */
     getMainPixelmap(): PixelMap;
+
+    /**
+     * Obtains the pixel map of the main image.
+     *
+     * @returns { PixelMap | undefined } Returns the pixel map.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 static
+     */
+    getMainPixelmap(): PixelMap | undefined;
 
     /**
      * Obtains the hdr pixel map. This method uses a promise to return the PixelMap object.
@@ -7475,15 +7707,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600201 - Unsupported operation. e.g.,1. The picture does not has a gainmap.
      * 2. MainPixelMap's allocator type is not DMA.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 13 dynamic
      */
     getHdrComposedPixelmap(): Promise<PixelMap>;
+
+    /**
+     * Obtains the hdr pixel map. This method uses a promise to return the PixelMap object.
+     *
+     * @returns { Promise<PixelMap | undefined> } A Promise instance used to return the PixelMap object.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7600201 - Unsupported operation.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 static
+     */
+    getHdrComposedPixelmap(): Promise<PixelMap | undefined>;
 
     /**
      * Obtains the gain map pixel map.
      * @returns { PixelMap | null } Returns the pixel map if the operation is successful; returns null otherwise.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 13 dynamic
+     * @since 22 static
      */
     getGainmapPixelmap(): PixelMap | null;
 
@@ -7495,7 +7739,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 13 dynamic
+     * @since 22 static
      */
     setAuxiliaryPicture(type: AuxiliaryPictureType, auxiliaryPicture: AuxiliaryPicture): void;
 
@@ -7507,7 +7752,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 13 dynamic
+     * @since 22 static
      */
     getAuxiliaryPicture(type: AuxiliaryPictureType): AuxiliaryPicture | null;
 
@@ -7522,7 +7768,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 13 dynamic
+     * @since 22 static
      */
     setMetadata(metadataType: MetadataType, metadata: Metadata): Promise<void>
 
@@ -7536,9 +7783,20 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 13 dynamic
      */
-    getMetadata(metadataType: MetadataType): Promise<Metadata>
+    getMetadata(metadataType: MetadataType): Promise<Metadata>;
+
+    /**
+     * Obtains the metadata of main picture.
+     *
+     * @param { MetadataType } metadataType The type of metadata.
+     * @returns { Promise<Metadata | undefined> } Return the metadata of main picture.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: Unsupported metadata type.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 static
+     */
+    getMetadata(metadataType: MetadataType): Promise<Metadata | undefined>;
 
     /**
      * Marshalling picture and write into MessageSequence.
@@ -7549,15 +7807,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
      * 3. Decode process exception. 4. Insufficient memory.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 13 dynamic
+     * @since 22 static
      */
     marshalling(sequence: rpc.MessageSequence): void
 
     /**
      * Releases this Picture object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     release(): void
   }
@@ -7570,8 +7829,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 22 static
    */
   function createPicture(mainPixelmap : PixelMap): Picture;
 
@@ -7589,7 +7848,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * RGBA_8888\NV21\NV12, or its color space is not P3.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function createPictureByHdrAndSdrPixelMap(hdrPixelMap: PixelMap, sdrPixelMap: PixelMap): Promise<Picture>;
 
@@ -7603,7 +7863,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
    * 3. Decode process exception. 4. Insufficient memory.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since 13 dynamic
+   * @since 22 static
    */
   function createPictureFromParcel(sequence: rpc.MessageSequence): Picture;
 
@@ -7617,8 +7878,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 22 static
    */
   function createAuxiliaryPicture(buffer: ArrayBuffer, size: Size, type: AuxiliaryPictureType): AuxiliaryPicture;
 
@@ -7627,8 +7888,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef AuxiliaryPicture
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 22 static
    */
   interface AuxiliaryPicture {
     /**
@@ -7641,8 +7902,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     writePixelsFromBuffer(data: ArrayBuffer): Promise<void>;
 
@@ -7652,20 +7913,37 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<ArrayBuffer> } A Promise instance used to return the pixel map data.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
      */
     readPixelsToBuffer(): Promise<ArrayBuffer>;
+
+    /**
+     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
+     * a promise to return the result.
+     *
+     * @returns { Promise<ArrayBuffer | undefined> } A Promise instance used to return the pixel map data.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 static
+     */
+    readPixelsToBuffer(): Promise<ArrayBuffer | undefined>;
 
     /**
      * Obtains the type of auxiliary picture.
      *
      * @returns { AuxiliaryPictureType } Returns the type of auxiliary picture.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
      */
     getType(): AuxiliaryPictureType;
+
+    /**
+     * Obtains the type of auxiliary picture.
+     *
+     * @returns { AuxiliaryPictureType | undefined } Returns the type of auxiliary picture.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 static
+     */
+    getType(): AuxiliaryPictureType | undefined;
 
     /**
      * Set the metadata of auxiliary picture.
@@ -7678,8 +7956,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     setMetadata(metadataType: MetadataType, metadata: Metadata): Promise<void>
 
@@ -7693,10 +7971,21 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
      */
-    getMetadata(metadataType: MetadataType): Promise<Metadata>
+    getMetadata(metadataType: MetadataType): Promise<Metadata>;
+
+    /**
+     * Obtains the metadata of auxiliary picture.
+     *
+     * @param { MetadataType } metadataType The type of metadata.
+     * @returns { Promise<Metadata | undefined> } Return the metadata of auxiliary picture.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
+     *     metadata type does not match the auxiliary picture type.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 static
+     */
+    getMetadata(metadataType: MetadataType): Promise<Metadata | undefined>;
 
     /**
      * Obtains the information about this auxiliary picture.
@@ -7704,9 +7993,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { AuxiliaryPictureInfo } Returns the auxiliary picture information. If the operation fails, an error
      * message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 13 dynamic
      */
     getAuxiliaryPictureInfo(): AuxiliaryPictureInfo;
+
+    /**
+     * Obtains the information about this auxiliary picture.
+     *
+     * @returns { AuxiliaryPictureInfo | undefined } Returns the auxiliary picture information. If the operation fails,
+     *     an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 static
+     */
+    getAuxiliaryPictureInfo(): AuxiliaryPictureInfo | undefined;
 
     /**
      * Set the information about this auxiliary picture.
@@ -7715,15 +8014,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 13 dynamic
+     * @since 22 static
      */
     setAuxiliaryPictureInfo(info: AuxiliaryPictureInfo): void
 
     /**
      * Releases this AuxiliaryPicture object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     release():void
   }
@@ -7731,10 +8031,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Enumerates auxiliary picture type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 22 static
    */
   enum AuxiliaryPictureType {
     /**
@@ -7743,8 +8043,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * convert a Standard Dynamic Range (SDR) image into a High Dynamic Range (HDR) image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     GAINMAP = 1,
 
@@ -7754,8 +8054,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * reconstruction and scene understanding.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     DEPTH_MAP = 2,
 
@@ -7765,8 +8065,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * It helps users select the focus area during post-processing, enhancing creative flexibility.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     UNREFOCUS_MAP = 3,
 
@@ -7775,8 +8075,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * visual effects. It can contain a linear representation of lighting, color, or other visual elements in the scene.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     LINEAR_MAP = 4,
 
@@ -7786,8 +8086,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * and visual clarity.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     FRAGMENT_MAP = 5,
   }
@@ -7795,18 +8095,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Enumerates metadata type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 22 static
    */
   enum MetadataType {
     /**
      * EXIF metadata.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     EXIF_METADATA = 1,
 
@@ -7814,15 +8114,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Fragment metadata. 
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     FRAGMENT_METADATA = 2,
 
     /**
      * Metadata of a GIF image.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     GIF_METADATA = 5
   }
@@ -7832,8 +8133,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef Metadata
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 22 static
    */
   interface Metadata {
     /**
@@ -7847,8 +8148,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     getProperties(key: Array<string>): Promise<Record<string, string | null>>
 
@@ -7863,8 +8164,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     setProperties(records: Record<string, string | null>): Promise<void>
 
@@ -7874,20 +8175,38 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<Record<string, string | null>> } Array of Records instance used to return the property values.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
      */
-    getAllProperties(): Promise<Record<string, string | null>>
+    getAllProperties(): Promise<Record<string, string | null>>;
+
+    /**
+     * Obtains the value of all properties in an image. This method uses a promise to return the property values
+     * in array of records.
+     *
+     * @returns { Promise<Record<string, string | null> | undefined> } Array of Records instance used to
+     *     return the property values.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 static
+     */
+    getAllProperties(): Promise<Record<string, string | null> | undefined>;
 
     /**
      * Obtains a clone of metadata. This method uses a promise to return the metadata.
      *
      * @returns { Promise<Metadata> } A Promise instance used to return the metadata.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
      */
-    clone(): Promise<Metadata>
+    clone(): Promise<Metadata>;
+
+    /**
+     * Obtains a clone of metadata. This method uses a promise to return the metadata.
+     *
+     * @returns { Promise<Metadata | undefined> } A Promise instance used to return the metadata.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 static
+     */
+    clone(): Promise<Metadata | undefined>;
   }
 
   /**
@@ -7895,15 +8214,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since 13 dynamic
+   * @since 22 static
    */
   enum FragmentMapPropertyKey {
     /**
      * The x-coordinate of the top left corner of the mark cup map in the original image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     X_IN_ORIGINAL = 'XInOriginal',
 
@@ -7911,8 +8231,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * The y-coordinate of the top left corner of the mark cup map in the original image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     Y_IN_ORIGINAL = 'YInOriginal',
 
@@ -7920,8 +8240,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Mark cut map width.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     WIDTH = 'FragmentImageWidth',
 
@@ -7929,8 +8249,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Mark cut map width.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     HEIGHT = 'FragmentImageHeight'
   }
@@ -7939,14 +8259,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * Enumerates the properties available for the metadata of a GIF image.
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum GifPropertyKey {
     /**
      * Delay of each frame in the image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     GIF_DELAY_TIME = 'GifDelayTime',
 
@@ -7954,7 +8276,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Disposal type of each frame in the image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     GIF_DISPOSAL_TYPE = 'GifDisposalType'
   }
@@ -7964,7 +8287,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef DecodingOptionsForPicture
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 13
+   * @since 13 dynamic
+   * @since 22 static
    */
   interface DecodingOptionsForPicture {
     /**
@@ -7972,7 +8296,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @type { Array<AuxiliaryPictureType> }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 13
+     * @since 13 dynamic
+     * @since 22 static
      */
     desiredAuxiliaryPictures: Array<AuxiliaryPictureType>;
   }
@@ -7982,8 +8307,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef AuxiliaryPictureInfo
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 22 static
    */
   interface AuxiliaryPictureInfo {
     /**
@@ -7991,8 +8316,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @type { AuxiliaryPictureType }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     auxiliaryPictureType: AuxiliaryPictureType;
 
@@ -8001,8 +8326,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @type { Size }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     size: Size;
 
@@ -8011,8 +8336,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     rowStride: int;
 
@@ -8021,8 +8346,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @type { PixelMapFormat }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
      pixelFormat: PixelMapFormat;
 
@@ -8031,8 +8356,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @type { colorSpaceManager.ColorSpaceManager }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
      colorSpace: colorSpaceManager.ColorSpaceManager;
   }
@@ -8069,8 +8394,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface ImageSource {
     /**
@@ -8119,10 +8444,20 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     getImageInfo(index: int, callback: AsyncCallback<ImageInfo>): void;
+
+    /**
+     * Obtains information about an image with the specified sequence number and uses a callback
+     * to return the result.
+     *
+     * @param { int } index Sequence number of an image.
+     * @param { AsyncCallback<ImageInfo | undefined> } callback Callback used to return the image information.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 static
+     */
+    getImageInfo(index: int, callback: AsyncCallback<ImageInfo | undefined>): void;
 
     /**
      * Obtains information about this image and uses a callback to return the result.
@@ -8156,10 +8491,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     getImageInfo(callback: AsyncCallback<ImageInfo>): void;
+
+    /**
+     * Obtains information about this image and uses a callback to return the result.
+     *
+     * @param { AsyncCallback<ImageInfo | undefined> } callback Callback used to return the image information.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 static
+     */
+    getImageInfo(callback: AsyncCallback<ImageInfo | undefined>): void;
 
     /**
      * Get image information from image source.
@@ -8203,10 +8546,20 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     getImageInfo(index?: int): Promise<ImageInfo>;
+
+    /**
+     * Get image information from image source.
+     *
+     * @param { int } [index] Sequence number of an image.
+     *     If this parameter is not specified, the default value 0 is used.
+     * @returns { Promise<ImageInfo | undefined> } A Promise instance used to return the image information.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 static
+     */
+    getImageInfo(index?: int): Promise<ImageInfo | undefined>;
 
     /**
      * Get image information from image source synchronously.
@@ -8215,12 +8568,21 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { ImageInfo } The image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     getImageInfoSync(index?: int): ImageInfo;
 
     /**
+     * Get image information from image source synchronously.
+     *
+     * @param { int } [index] Index of sequence image. If this parameter is specified, default value is 0.
+     * @returns { ImageInfo | undefined } The image information.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 static
+     */
+    getImageInfoSync(index?: int): ImageInfo | undefined;
+
+    /**
      * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
      * return the object.
      *
@@ -8260,12 +8622,22 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     createPixelMap(options?: DecodingOptions): Promise<PixelMap>;
 
     /**
+     * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
+     * return the object.
+     *
+     * @param { DecodingOptions } [options] Image decoding parameters.
+     * @returns { Promise<PixelMap | undefined> } A Promise instance used to return the PixelMap object.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 static
+     */
+    createPixelMap(options?: DecodingOptions): Promise<PixelMap | undefined>;
+
+    /**
      * Creates a PixelMap object. This method uses a callback to return the object.
      *
      * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
@@ -8297,10 +8669,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     createPixelMap(callback: AsyncCallback<PixelMap>): void;
+
+    /**
+     * Creates a PixelMap object. This method uses a callback to return the object.
+     *
+     * @param { AsyncCallback<PixelMap | undefined> } callback Callback used to return the PixelMap object.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 static
+     */
+    createPixelMap(callback: AsyncCallback<PixelMap | undefined>): void;
 
     /**
      * Creates a PixelMap object based on image decoding parameters. This method uses a callback to
@@ -8342,10 +8722,20 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     createPixelMap(options: DecodingOptions, callback: AsyncCallback<PixelMap>): void;
+
+    /**
+     * Creates a PixelMap object based on image decoding parameters. This method uses a callback to
+     * return the object.
+     *
+     * @param { DecodingOptions } options Image decoding parameters.
+     * @param { AsyncCallback<PixelMap | undefined> } callback Callback used to return the PixelMap object.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 static
+     */
+    createPixelMap(options: DecodingOptions, callback: AsyncCallback<PixelMap | undefined>): void;
 
     /**
      * Creates a PixelMap based on decoding parameters, the memory type used by the PixelMap can be specified by
@@ -8369,10 +8759,33 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7700301 - Failed to decode image.
      * @throws { BusinessError } 7700302 - Failed to allocate memory.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     createPixelMapUsingAllocator(options?: DecodingOptions, allocatorType?: AllocatorType): Promise<PixelMap>;
+
+    /**
+     * Creates a PixelMap based on decoding parameters, the memory type used by the PixelMap can be specified by
+     * allocatorType. By default, the system selects the memory type based on the image type, image size, platform
+     * capability, etc. When processing the PixelMap returned by this interface, please always consider the impact of
+     * stride.
+     *
+     * @param { DecodingOptions } [options] Image decoding parameters.
+     * @param { AllocatorType } [allocatorType] Indicate which memory type will be used by the returned PixelMap.
+     * @returns { Promise<PixelMap | undefined> } A Promise instance used to return the PixelMap object.
+     * @throws { BusinessError } 7700101 - Bad source.
+     * @throws { BusinessError } 7700102 - Unsupported mimetype.
+     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700201 - Unsupported allocator type. For example, use share memory to decode
+     *     HDR image as only DMA supported HDR metadata.
+     * @throws { BusinessError } 7700203 - Unsupported options, For example, unsupported desiredPixelFormat causes
+     *     a failure in converting an imagge into the desired pixel format.
+     * @throws { BusinessError } 7700301 - Failed to decode image.
+     * @throws { BusinessError } 7700302 - Failed to allocate memory.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 static
+     */
+    createPixelMapUsingAllocator(options?: DecodingOptions, allocatorType?: AllocatorType)
+      : Promise<PixelMap | undefined>;
 
     /**
      * Create a PixelMap object based on image decoding parameters synchronously.
@@ -8381,10 +8794,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { PixelMap } Return the PixelMap. If decoding fails, return undefined.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     createPixelMapSync(options?: DecodingOptions): PixelMap;
+
+    /**
+     * Create a PixelMap object based on image decoding parameters synchronously.
+     *
+     * @param { DecodingOptions } [options] - Image decoding parameters.
+     * @returns { PixelMap | undefined } Return the PixelMap. If decoding fails, return undefined.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 static
+     */
+    createPixelMapSync(options?: DecodingOptions): PixelMap | undefined;
 
     /**
      * Creates a PixelMap based on decoding parameters synchronously, the memory type used by the PixelMap can be
@@ -8408,10 +8830,32 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7700301 - Failed to decode image.
      * @throws { BusinessError } 7700302 - Failed to allocate memory.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     createPixelMapUsingAllocatorSync(options?: DecodingOptions, allocatorType?: AllocatorType): PixelMap;
+
+    /**
+     * Creates a PixelMap based on decoding parameters synchronously, the memory type used by the PixelMap can be
+     * specified by allocatorType. By default, the system selects the memory type based on the image type, image size,
+     * platform capability, etc. When processing the PixelMap returned by this interface, please always consider the
+     * impact of stride.
+     *
+     * @param { DecodingOptions } [options] Image decoding parameters.
+     * @param { AllocatorType } [allocatorType] Indicate which memory type will be used by the returned PixelMap.
+     * @returns { PixelMap | undefined } Return the PixelMap. If decoding fails, return undefined.
+     * @throws { BusinessError } 7700101 - Bad source.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700201 - Unsupported allocator type. For example, use share memory to decode
+     *     HDR image as only DMA supported HDR metadata.
+     * @throws { BusinessError } 7700203 - Unsupported options, For example, unsupported desiredPixelFormat cause
+     *     a failure in converting an image into the desired pixel format.
+     * @throws { BusinessError } 7700301 - Failed to decode image.
+     * @throws { BusinessError } 7700302 - Failed to allocate memory.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 static
+     */
+    createPixelMapUsingAllocatorSync(options?: DecodingOptions, allocatorType?: AllocatorType): PixelMap | undefined;
 
     /**
      * Creates a PixelMap array based on image decoding parameters. This method uses a promise to
@@ -8461,8 +8905,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     createPixelMapList(options?: DecodingOptions): Promise<Array<PixelMap>>;
 
@@ -8512,8 +8956,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     createPixelMapList(callback: AsyncCallback<Array<PixelMap>>): void;
 
@@ -8565,15 +9009,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     createPixelMapList(options: DecodingOptions, callback: AsyncCallback<Array<PixelMap>>): void;
 
     /**
      * Obtains the array of delay time in an image. This method uses a promise to return the array.
      *
-     * @returns { Promise<Array<number>> } A Promise instance used to return the array.
+     * @returns { Promise<Array<int>> } A Promise instance used to return the array.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
      * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
@@ -8602,15 +9046,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     getDelayTimeList(): Promise<Array<int>>;
 
     /**
      * Obtains the array of delay time in an image. This method uses a callback to return the array.
      *
-     * @param { AsyncCallback<Array<number>> } callback Callback used to return the array.
+     * @param { AsyncCallback<Array<int>> } callback Callback used to return the array.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
      * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
@@ -8639,15 +9083,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     getDelayTimeList(callback: AsyncCallback<Array<int>>): void;
 
     /**
      * Obtains the array of disposal type in a gif image. This method uses a promise to return the array.
      *
-     * @returns { Promise<Array<number>> } A Promise instance used to return the array.
+     * @returns { Promise<Array<int>> } A Promise instance used to return the array.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
      * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
@@ -8655,14 +9099,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    getDisposalTypeList(): Promise<Array<number>>;
+    getDisposalTypeList(): Promise<Array<int>>;
 
     /**
      * Obtains the count of frame in an image. This method uses a promise to return the number.
      *
-     * @returns { Promise<number> } A Promise instance used to return the number.
+     * @returns { Promise<int> } A Promise instance used to return the number.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
      * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
@@ -8681,7 +9126,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Obtains the count of frame in an image. This method uses a promise to return the number.
      *
-     * @returns { Promise<number> } A Promise instance used to return the number.
+     * @returns { Promise<int> } A Promise instance used to return the number.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
      * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
@@ -8695,14 +9140,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    getFrameCount(): Promise<number>;
+    getFrameCount(): Promise<int>;
 
     /**
      * Obtains the count of frame in an image. This method uses a callback to return the number.
      *
-     * @param { AsyncCallback<number> } callback Callback used to return the number.
+     * @param { AsyncCallback<int> } callback Callback used to return the number.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
      * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
@@ -8721,7 +9167,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Obtains the count of frame in an image. This method uses a callback to return the number.
      *
-     * @param { AsyncCallback<number> } callback Callback used to return the number.
+     * @param { AsyncCallback<int> } callback Callback used to return the number.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
      * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
@@ -8735,9 +9181,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    getFrameCount(callback: AsyncCallback<number>): void;
+    getFrameCount(callback: AsyncCallback<int>): void;
 
     /**
      * Obtains the value of a property in an image with the specified index. This method uses a
@@ -8787,8 +9234,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980135 - The EXIF value is invalid.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     getImageProperty(key: PropertyKey, options?: ImagePropertyOptions): Promise<string>;
 
@@ -8813,7 +9260,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead image.ImageSource#getImageProperty
      */
@@ -8838,7 +9285,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<string> } callback Callback used to return the property value. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead image.ImageSource#getImageProperty
      */
@@ -8865,7 +9312,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<string> } callback Callback used to return the property value. If the operation fails, the default value is returned.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead image.ImageSource#getImageProperty
      */
@@ -8887,8 +9334,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     getImageProperties(key: Array<PropertyKey>): Promise<Record<PropertyKey, string|null>>;
 
@@ -8902,9 +9349,23 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7700102 - Unsupported MIME type.
      * @throws { BusinessError } 7700202 - Unsupported metadata. For example, key is not supported.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 20
+     * @since 20 dynamic
      */
     getImagePropertySync(key: PropertyKey): string;
+
+    /**
+     * Obtains the value of a property in the image.
+     *
+     * @param { PropertyKey } key Property name.
+     * @returns { string | undefined } Value of the property.
+     * @throws { BusinessError } 7700101  - Bad source. e.g.,1. Image has invalid width or height. 2. Image
+     * source incomplete. 3. Read image data failed. 4. Codec create failed.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700202 - Unsupported metadata. For example, key is not supported.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 static
+     */
+    getImagePropertySync(key: PropertyKey): string | undefined;
 
     /**
      * Modify the value of a property in an image with the specified key. This method uses a
@@ -8936,8 +9397,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     modifyImageProperty(key: PropertyKey, value: string): Promise<void>;
 
@@ -8962,7 +9423,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<void> } A Promise instance used to return the property value.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead image.ImageSource#modifyImageProperty
      */
@@ -8989,7 +9450,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead image.ImageSource#modifyImageProperty
      */
@@ -9008,12 +9469,30 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     modifyImageProperties(records: Record<PropertyKey, string|null>): Promise<void>;
 
     /**
+     * Modify the value of properties in an image with the specified keys. The method is more efficient than
+     * modifyImageProperties, as it completes batch data modifications in memory with a single write operation
+     * to the file.
+     *
+     * @param { Record<string, string|null> } records - Property Records whose values are to be modified,
+     *     when the value is set to null the tag will be removed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails,
+     *     an error message is returned.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700202 - Unsupported metadata. For example, the property key is not supported,
+     *     or the property value is invalid.
+     * @throws { BusinessError } 7700304 - Failed to write image properties to the file.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 dynamic&static
+     */
+    modifyImagePropertiesEnhanced(records: Record<string, string | null>): Promise<void>;
+
+    /**
      * Update the data in the incremental ImageSource.
      *
      * @param { ArrayBuffer } buf The data to be updated.
@@ -9041,14 +9520,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { ArrayBuffer } buf The data to be updated.
      * @param { boolean } isFinished If is it finished.
-     * @param { number } offset The offset of data.
-     * @param { number } length The length fo buf.
+     * @param { int } offset The offset of data.
+     * @param { int } length The length fo buf.
      * @returns { Promise<void> } A Promise instance used to return the property value.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
-    updateData(buf: ArrayBuffer, isFinished: boolean, offset: number, length: number): Promise<void>;
+    updateData(buf: ArrayBuffer, isFinished: boolean, offset: int, length: int): Promise<void>;
 
     /**
      * Update the data in the incremental ImageSource.
@@ -9078,18 +9558,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { ArrayBuffer } buf The data to be updated.
      * @param { boolean } isFinished If is it finished.
-     * @param { number } offset The offset of data.
-     * @param { number } length The length fo buf.
+     * @param { int } offset The offset of data.
+     * @param { int } length The length fo buf.
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     updateData(
       buf: ArrayBuffer,
       isFinished: boolean,
-      offset: number,
-      length: number,
+      offset: int,
+      length: int,
       callback: AsyncCallback<void>
     ): void;
 
@@ -9106,8 +9587,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -9124,8 +9605,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     release(): Promise<void>;
 
@@ -9139,14 +9620,26 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 7700301 - Failed to decode image.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 13
+     * @since 13 dynamic
      */
     createPicture(options?: DecodingOptionsForPicture): Promise<Picture>
 
     /**
+     * Creates a Picture object based on image decoding parameters. This method uses a promise to
+     * return the object.
+     *
+     * @param { DecodingOptionsForPicture } [options] Image decoding parameters.
+     * @returns { Promise<Picture | undefined> } A Promise instance used to return the Picture object.
+     * @throws { BusinessError } 7700301 - Failed to decode image.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 static
+     */
+    createPicture(options?: DecodingOptionsForPicture): Promise<Picture | undefined>
+
+    /**
      * Decodes an image at the specified index into a Picture object.
      *
-     * @param { number } index Image index.
+     * @param { int } index Image index.
      * @returns { Promise<Picture> } Promise that returns the Picture object.
      * @throws { BusinessError } 7700101 - Bad source.
      * @throws { BusinessError } 7700102 - Unsupported MIME type.
@@ -9154,9 +9647,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7700203 - Unsupported options. For example, index is invalid.
      * @throws { BusinessError } 7700301 - Decoding failed.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 20
+     * @since 20 dynamic
      */
-    createPictureAtIndex(index: number): Promise<Picture>;
+    createPictureAtIndex(index: int): Promise<Picture>;
+
+    /**
+     * Decodes an image at the specified index into a Picture object.
+     *
+     * @param { int } index Image index.
+     * @returns { Promise<Picture | undefined> } Promise that returns the Picture object.
+     * @throws { BusinessError } 7700101 - Bad source.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700203 - Unsupported options. For example, index is invalid.
+     * @throws { BusinessError } 7700301 - Decoding failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 static
+     */
+    createPictureAtIndex(index: int): Promise<Picture | undefined>;
 
     /**
      * Decodes to a SDR PixelMap, using a as wide gamut as possible.
@@ -9172,9 +9680,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7700301 - Decoding failed.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     createWideGamutSdrPixelMap(): Promise<PixelMap>
+
+    /**
+     * Decodes to a SDR PixelMap, using a as wide gamut as possible.
+     * For a SDR ImageSource, decodes to a SDR PixelMap using its native color space.
+     * For a HDR ImageSource with a single-channel gainmap, decodes its base(SDR) image and ingores its gainmap.
+     * For a HDR ImageSource with a three-channel gainmap, decodes to a SDR PixelMap using CM_DISPLAY_BT2020_SRGB
+     * color space.
+     * 
+     * @returns { Promise<PixelMap | undefined> } Decoded PixelMap.
+     * @throws { BusinessError } 7700101 - Bad source.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700301 - Decoding failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @systemapi
+     * @since 22 static
+     */
+    createWideGamutSdrPixelMap(): Promise<PixelMap | undefined>
 
     /**
      * Supported image formats.
@@ -9191,8 +9717,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     readonly supportedFormats: Array<string>;
   }
@@ -9219,8 +9745,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   interface ImagePacker {
     /**
@@ -9255,7 +9781,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 13
      * @useinstead image.ImagePacker#packToData
      */
@@ -9293,7 +9819,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 13
      * @useinstead image.ImagePacker#packToData
      */
@@ -9319,7 +9845,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 13 dynamic
+     * @since 22 static
      */
     packToData(source: ImageSource, options: PackingOption): Promise<ArrayBuffer>;
 
@@ -9355,7 +9882,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 13
      * @useinstead image.ImagePacker#packToData
      */
@@ -9393,7 +9920,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 13
      * @useinstead image.ImagePacker#packToData
      */
@@ -9419,7 +9946,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 13 dynamic
+     * @since 22 static
      */
     packToData(source: PixelMap, options: PackingOption): Promise<ArrayBuffer>;
 
@@ -9433,7 +9961,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types;3.Parameter verification failed.
      * @throws { BusinessError } 7800301 - Failed to encode image.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
     packToDataFromPixelmapSequence(pixelmapSequence: Array<PixelMap>, options: PackingOptionsForSequence): Promise<ArrayBuffer>;
 
@@ -9457,8 +9986,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980252 - Failed to create surface.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     packToFile(source: ImageSource, fd: int, options: PackingOption, callback: AsyncCallback<void>): void;
 
@@ -9482,8 +10011,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980252 - Failed to create surface.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     packToFile(source: ImageSource, fd: int, options: PackingOption): Promise<void>;
 
@@ -9507,8 +10036,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980252 - Failed to create surface.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     packToFile(source: PixelMap, fd: int, options: PackingOption, callback: AsyncCallback<void>): void;
 
@@ -9532,8 +10061,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980252 - Failed to create surface.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     packToFile(source: PixelMap, fd: int, options: PackingOption): Promise<void>;
 
@@ -9541,16 +10070,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Compresses a Pixelmap sequence into gif.
      *
      * @param { Array<PixelMap> } pixelmapSequence PixelMaps to be encoded.
-     * @param { number } fd File descriptor of the output encoded file.
+     * @param { int } fd File descriptor of the output encoded file.
      * @param { PackingOptionsForSequence } options Options for image packing.
      * @returns { Promise<void> } void.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types;3.Parameter verification failed.
      * @throws { BusinessError } 7800301 - Failed to encode image.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
-    packToFileFromPixelmapSequence(pixelmapSequence: Array<PixelMap>, fd: number, options: PackingOptionsForSequence): Promise<void>;
+    packToFileFromPixelmapSequence(pixelmapSequence: Array<PixelMap>, fd: int, options: PackingOptionsForSequence): Promise<void>;
 
      /**
      * Releases an ImagePacker instance and uses a callback to return the result.
@@ -9565,8 +10095,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -9583,8 +10113,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     release(): Promise<void>;
 
@@ -9598,8 +10128,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7800301 - Encode failed.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     packing(picture: Picture, options: PackingOption): Promise<ArrayBuffer>;
 
@@ -9614,8 +10144,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7800301 - Encode failed.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     packToFile(picture: Picture, fd: int, options: PackingOption): Promise<void>
 
@@ -9634,8 +10164,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     readonly supportedFormats: Array<string>;
   }
@@ -9645,8 +10175,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef Image
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface Image {
     /**
@@ -9654,8 +10184,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @type { Region }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     clipRect: Region;
 
@@ -9665,8 +10195,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @type { Size }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly size: Size;
 
@@ -9676,21 +10206,21 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly format: int;
 
     /**
      * Image timestamp.
      *
-     * @type { number }
+     * @type { long }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
-    readonly timestamp: number;
+    readonly timestamp: long;
 
     /**
      * Get component buffer from image and uses a callback to return the result.
@@ -9698,8 +10228,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ComponentType } componentType The component type of image.
      * @param { AsyncCallback<Component> } callback Callback used to return the component buffer.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     getComponent(componentType: ComponentType, callback: AsyncCallback<Component>): void;
 
@@ -9709,8 +10239,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ComponentType } componentType The component type of image.
      * @returns { Promise<Component> } A Promise instance used to return the component buffer.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     getComponent(componentType: ComponentType): Promise<Component>;
 
@@ -9719,8 +10249,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -9729,8 +10259,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     release(): Promise<void>;
   }
@@ -9740,8 +10270,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef ImageReceiver
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface ImageReceiver {
     /**
@@ -9750,8 +10280,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @type { Size }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly size: Size;
 
@@ -9761,8 +10291,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly capacity: int;
 
@@ -9772,8 +10302,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @type { ImageFormat }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly format: ImageFormat;
 
@@ -9783,8 +10313,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { AsyncCallback<string> } callback Callback used to return the surface id.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     getReceivingSurfaceId(callback: AsyncCallback<string>): void;
 
@@ -9794,8 +10324,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<string> } A Promise instance used to return the surface id.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     getReceivingSurfaceId(): Promise<string>;
 
@@ -9804,8 +10334,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { AsyncCallback<Image> } callback Callback used to return the latest image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     readLatestImage(callback: AsyncCallback<Image>): void;
 
@@ -9814,8 +10344,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<Image> } A Promise instance used to return the latest image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     readLatestImage(): Promise<Image>;
 
@@ -9824,7 +10354,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { AsyncCallback<Image> } callback Callback used to return the next image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     readNextImage(callback: AsyncCallback<Image>): void;
 
@@ -9833,7 +10364,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<Image> } A Promise instance used to return the next image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     readNextImage(): Promise<Image>;
 
@@ -9843,10 +10375,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { 'imageArrival' } type Callback used to return the next image.
      * @param { AsyncCallback<void> } callback Callback used to return image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
      */
     on(type: 'imageArrival', callback: AsyncCallback<void>): void;
+
+    /**
+     * Subscribe callback when receiving an image
+     *
+     * @param { AsyncCallback<void> } callback Callback used to return image.
+     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+     * @since 22 static
+     */
+    onImageArrival(callback: AsyncCallback<void>): void;
 
     /**
      * Remove callback subscriptions when releasing buffer
@@ -9854,18 +10394,26 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { 'imageArrival' } type - Event type.
      * @param { AsyncCallback<void> } callback Callback to be removed.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
      */
     off(type: 'imageArrival', callback?: AsyncCallback<void>): void;
+
+    /**
+     * Remove callback subscriptions when releasing buffer
+     *s
+     * @param { AsyncCallback<void> } callback Callback to be removed.
+     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+     * @since 22 static
+     */
+    offImageArrival(callback?: AsyncCallback<void>): void;
 
     /**
      * Release image receiver instance and uses a callback to return the result.
      *
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -9874,8 +10422,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     release(): Promise<void>;
   }
@@ -9885,8 +10433,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef ImageCreator
    * @syscap SystemCapability.Multimedia.Image.ImageCreator
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface ImageCreator {
     /**
@@ -9895,8 +10443,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly capacity: int;
 
@@ -9906,8 +10454,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @type { ImageFormat }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly format: ImageFormat;
 
@@ -9916,7 +10464,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { AsyncCallback<Image> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     dequeueImage(callback: AsyncCallback<Image>): void;
 
@@ -9925,7 +10474,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<Image> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     dequeueImage(): Promise<Image>;
 
@@ -9935,7 +10485,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { Image } image
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     queueImage(image: Image, callback: AsyncCallback<void>): void;
 
@@ -9945,7 +10496,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { Image } image
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     queueImage(image: Image): Promise<void>;
 
@@ -9955,9 +10507,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { 'imageRelease' } type Callback used to return the operation result.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
-     * @since 9
+     * @since 9 dynamic
      */
     on(type: 'imageRelease', callback: AsyncCallback<void>): void;
+
+    /**
+     * Subscribe callback when releasing buffer
+     *
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImageCreator
+     * @since 22 static
+     */
+    onImageRelease(callback: AsyncCallback<void>): void;
 
     /**
      * Remove callback subscriptions when releasing buffer
@@ -9965,17 +10526,26 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { 'imageRelease' } type - Event type.
      * @param { AsyncCallback<void> } callback Callback to be removed.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
-     * @since 13
+     * @since 13 dynamic
      */
     off(type: 'imageRelease', callback?: AsyncCallback<void>): void;
+
+    /**
+     * Remove callback subscriptions when releasing buffer
+     *
+     * @param { AsyncCallback<void> } callback Callback to be removed.
+     * @syscap SystemCapability.Multimedia.Image.ImageCreator
+     * @since 22 static
+     */
+    offImageRelease(callback?: AsyncCallback<void>): void;
 
     /**
      * Releases buffer in bufferqueue instance and uses a callback to return the result.
      *
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -9984,8 +10554,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     release(): Promise<void>;
   }
@@ -9994,8 +10564,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * Obtains the image formats (MIME types) that can be decoded.
    *
    * @returns { string[] } Returns an array of the supported image formats.
-   * @syscap SystemCapability.Multimedia.ImageSource
-   * @since 20
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getImageSourceSupportedFormats(): string[];
 
@@ -10003,8 +10574,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * Obtains the image formats (MIME types) that can be encoded.
    *
    * @returns { string[] } Returns an array of the supported image formats.
-   * @syscap SystemCapability.Multimedia.ImagePacker
-   * @since 20
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getImagePackerSupportedFormats(): string[];
 }

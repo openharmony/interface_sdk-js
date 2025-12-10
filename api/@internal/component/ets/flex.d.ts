@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { LengthMetrics } from '../Graphics';
-import { PointLightStyle, CommonMethod } from './common';
-import { FlexWrap, FlexDirection, ItemAlign, FlexAlign } from './enums';
-/*** endif */
-
 /**
  * Defines the options of Flex.
  * 
@@ -56,8 +50,7 @@ import { FlexWrap, FlexDirection, ItemAlign, FlexAlign } from './enums';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface FlexOptions {
   /**
@@ -93,8 +86,7 @@ declare interface FlexOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   direction?: FlexDirection;
 
@@ -131,8 +123,7 @@ declare interface FlexOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   wrap?: FlexWrap;
 
@@ -169,8 +160,7 @@ declare interface FlexOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   justifyContent?: FlexAlign;
 
@@ -207,8 +197,7 @@ declare interface FlexOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   alignItems?: ItemAlign;
 
@@ -246,8 +235,7 @@ declare interface FlexOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   alignContent?: FlexAlign;
 
@@ -259,8 +247,7 @@ declare interface FlexOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   space?: FlexSpaceOptions;
 }
@@ -272,8 +259,7 @@ declare interface FlexOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 
 declare interface FlexSpaceOptions {
@@ -284,8 +270,7 @@ declare interface FlexSpaceOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   main?: LengthMetrics;
 
@@ -296,8 +281,7 @@ declare interface FlexSpaceOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   cross?: LengthMetrics;
 }
@@ -334,8 +318,7 @@ declare interface FlexSpaceOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 interface FlexInterface {
   /**
@@ -374,8 +357,7 @@ interface FlexInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (value?: FlexOptions): FlexAttribute;
 }
@@ -412,8 +394,7 @@ interface FlexInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class FlexAttribute extends CommonMethod<FlexAttribute> {
   /**
@@ -423,8 +404,7 @@ declare class FlexAttribute extends CommonMethod<FlexAttribute> {
    * @returns { FlexAttribute } The attribute of the flex.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   pointLight(value: PointLightStyle): FlexAttribute;
 }
@@ -457,7 +437,7 @@ declare class FlexAttribute extends CommonMethod<FlexAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Flex: FlexInterface;
 
@@ -489,6 +469,6 @@ declare const Flex: FlexInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const FlexInstance: FlexAttribute;

@@ -38,7 +38,6 @@
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask",
     "SystemCapability.PowerManager.BatteryManager.Core",
-    "SystemCapability.PowerManager.BatteryManager.Extension",
     "SystemCapability.PowerManager.BatteryStatistics",
     "SystemCapability.Communication.Bluetooth.Core",
     "SystemCapability.BundleManager.BundleFramework",
@@ -149,7 +148,6 @@
     "SystemCapability.Multimedia.Media.VideoRecorder",
     "SystemCapability.Multimedia.SystemSound.Core",
     "SystemCapability.PowerManager.PowerManager.Core",
-    "SystemCapability.PowerManager.PowerManager.Extension",
     "SystemCapability.DistributedDataManager.Preferences.Core",
     "SystemCapability.DistributedDataManager.CommonType",
     "SystemCapability.DistributedDataManager.RelationalStore.Core",
@@ -182,6 +180,7 @@
     "SystemCapability.Communication.WiFi.Core",
     "SystemCapability.Location.Location.Core",
     "SystemCapability.Location.Location.Gnss",
+    "SystemCapability.Location.Location.Geocoder",
     "SystemCapability.Test.UiTest",
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
     "SystemCapability.ArkUi.Graphics3D",
@@ -189,6 +188,12 @@
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.ResourceSchedule.SystemLoad",
     "SystemCapability.ArkUI.ArkUI.Lite",
-    "SystemCapability.Communication.IPC.Core"
+    "SystemCapability.Communication.IPC.Core",
+    "SystemCapability.Base",
+    "SystemCapability.Startup.SystemInfo",
+    "SystemCapability.Multimedia.Media.Core",
+    "SystemCapability.Communication.SoftBus.Core",
+    "SystemCapability.Security.CertificateManager",
+    "SystemCapability.MiscServices.Pasteboard"
   ]
 }

@@ -18,11 +18,11 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import { Callback } from './@ohos.base';
 /*** endif */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { Callback } from './@ohos.base';
 /*** endif */
 
@@ -58,8 +58,8 @@ import { Callback } from './@ohos.base';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 22 static
  */
 declare namespace mediaquery {
   
@@ -95,8 +95,8 @@ declare namespace mediaquery {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface MediaQueryResult {
     /**
@@ -139,8 +139,8 @@ declare namespace mediaquery {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts { '1.1':'12','1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     readonly matches: boolean;
 
@@ -184,8 +184,8 @@ declare namespace mediaquery {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts { '1.1':'12','1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     readonly media: string;
   }
@@ -226,8 +226,8 @@ declare namespace mediaquery {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface MediaQueryListener extends MediaQueryResult {
     /**
@@ -270,8 +270,8 @@ declare namespace mediaquery {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts { '1.1':'12','1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     on(type: 'change', callback: Callback<MediaQueryResult>): void;
 
@@ -315,8 +315,8 @@ declare namespace mediaquery {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts { '1.1':'12','1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     off(type: 'change', callback?: Callback<MediaQueryResult>): void;
   }
@@ -357,7 +357,7 @@ declare namespace mediaquery {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.MediaQuery#matchMediaSync
    */

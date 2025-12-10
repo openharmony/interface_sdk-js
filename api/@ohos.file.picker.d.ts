@@ -59,7 +59,7 @@ import type { CustomColors } from './@ohos.arkui.theme';
  * @syscap SystemCapability.FileManagement.UserFileService
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare namespace picker {
   /**
@@ -75,7 +75,7 @@ declare namespace picker {
    * @enum { string } PhotoViewMIMETypes
    * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 12
    * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewMIMETypes
    */
@@ -91,7 +91,7 @@ declare namespace picker {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewMIMETypes.IMAGE_TYPE
      */
@@ -108,7 +108,7 @@ declare namespace picker {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewMIMETypes.VIDEO_TYPE
      */
@@ -125,7 +125,7 @@ declare namespace picker {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewMIMETypes.IMAGE_VIDEO_TYPE
      */
@@ -143,7 +143,7 @@ declare namespace picker {
    *
    * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 12
    * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectOptions
    */
@@ -161,7 +161,7 @@ declare namespace picker {
      * @type { ?PhotoViewMIMETypes }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectOptions.MIMEType
      */
@@ -182,7 +182,7 @@ declare namespace picker {
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectOptions.maxSelectNumber
      */
@@ -200,7 +200,7 @@ declare namespace picker {
    *
    * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 12
    * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectResult
    */
@@ -220,7 +220,7 @@ declare namespace picker {
      * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectResult.photoUris
      */
@@ -241,7 +241,7 @@ declare namespace picker {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoSelectResult.isOriginalPhoto
      */
@@ -252,8 +252,9 @@ declare namespace picker {
    * Defines the options for saving images or videos.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead save_button/SaveButtonOptions
    */
   class PhotoSaveOptions {
     /**
@@ -261,8 +262,9 @@ declare namespace picker {
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 18
+     * @useinstead save_button/SaveButtonOptions
      */
     newFileNames?: Array<string>;
   }
@@ -282,7 +284,7 @@ declare namespace picker {
    *
    * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 12
    * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewPicker
    */
@@ -293,8 +295,9 @@ declare namespace picker {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewPicker
      */
     constructor();
 
@@ -304,8 +307,9 @@ declare namespace picker {
      *
      * @param { Context } context - represents the context.
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.file.photoAccessHelper/photoAccessHelper#PhotoViewPicker
      */
     constructor(context: Context);
 
@@ -332,7 +336,7 @@ declare namespace picker {
      * @returns { Promise<PhotoSelectResult> } Promise used to return the URIs of the images or videos selected.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 12
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper.PhotoViewPicker#select
      */
@@ -357,7 +361,7 @@ declare namespace picker {
      * @param { AsyncCallback<PhotoSelectResult> } callback - Callback used to return the images or videos selected.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 12
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper.PhotoViewPicker#select
      */
@@ -378,7 +382,7 @@ declare namespace picker {
      * @param { AsyncCallback<PhotoSelectResult> } callback - Callback used to return the images or videos selected.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 12
      * @useinstead ohos.file.photoAccessHelper/photoAccessHelper.PhotoViewPicker#select
      */
@@ -393,7 +397,7 @@ declare namespace picker {
      * a photoPicker page will be displayed for the user to enter the names of the files to save.
      * @returns { Promise<Array<string>> } Returns the uris for the saved files.
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 12
      * @useinstead save_button/SaveButton
      */
@@ -407,7 +411,7 @@ declare namespace picker {
      * @param { PhotoSaveOptions } option - Options for saving images or videos.
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the images or videos saved.
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 12
      * @useinstead save_button/SaveButton
      */
@@ -419,7 +423,7 @@ declare namespace picker {
      *
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the images or videos saved.
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 12
      * @useinstead save_button/SaveButton
      */
@@ -442,7 +446,7 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export enum DocumentSelectMode {
     /**
@@ -459,7 +463,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     FILE = 0,
 
@@ -477,7 +481,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     FOLDER = 1,
 
@@ -494,7 +498,7 @@ declare namespace picker {
      *
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     MIXED = 2,
   }
@@ -505,7 +509,7 @@ declare namespace picker {
    * @enum { number } DocumentPickerMode
    * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
     export enum DocumentPickerMode {
       /**
@@ -513,7 +517,7 @@ declare namespace picker {
        *
        * @syscap SystemCapability.FileManagement.UserFileService
        * @atomicservice
-       * @since 12
+       * @since 12 dynamic
        */
       DEFAULT = 0,
   
@@ -522,7 +526,7 @@ declare namespace picker {
        *
        * @syscap SystemCapability.FileManagement.UserFileService
        * @atomicservice
-       * @since 12
+       * @since 12 dynamic
        */
       DOWNLOAD = 1,
     }
@@ -533,7 +537,7 @@ declare namespace picker {
    * @enum { number } DocumentPickerMode
    * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   export enum MergeTypeMode {
     /**
@@ -541,7 +545,7 @@ declare namespace picker {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     DEFAULT = 0,
 
@@ -551,7 +555,7 @@ declare namespace picker {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     AUDIO = 1,
 
@@ -561,7 +565,7 @@ declare namespace picker {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     VIDEO = 2,
 
@@ -571,7 +575,7 @@ declare namespace picker {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     DOCUMENT = 3,
 
@@ -581,7 +585,7 @@ declare namespace picker {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     PICTURE = 4,
   }
@@ -598,7 +602,7 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   class DocumentSelectOptions {
     /**
@@ -617,7 +621,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     defaultFilePathUri?: string;
 
@@ -649,7 +653,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     fileSuffixFilters?: Array<string>;
 
@@ -675,7 +679,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     maxSelectNumber?: number;
 
@@ -693,7 +697,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     selectMode?: DocumentSelectMode;
 
@@ -705,7 +709,7 @@ declare namespace picker {
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     authMode?: boolean;
 
@@ -719,7 +723,7 @@ declare namespace picker {
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     multiAuthMode?: boolean;
 
@@ -732,7 +736,7 @@ declare namespace picker {
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     multiUriArray?: Array<string>;  
 
@@ -745,7 +749,7 @@ declare namespace picker {
      * @type { ?MergeTypeMode }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     mergeMode?: MergeTypeMode;
 
@@ -758,7 +762,7 @@ declare namespace picker {
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
      */
     isEncryptionSupported?: boolean;
     
@@ -768,7 +772,7 @@ declare namespace picker {
      * @type { ?CustomColors }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     themeColor?: CustomColors;
   }
@@ -785,7 +789,7 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   class DocumentSaveOptions {
     /**
@@ -804,7 +808,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     newFileNames?: Array<string>;
 
@@ -822,7 +826,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     defaultFilePathUri?: string;
 
@@ -845,7 +849,7 @@ declare namespace picker {
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     fileSuffixChoices?: Array<string>;
     /**
@@ -856,7 +860,7 @@ declare namespace picker {
      * @type { ?DocumentPickerMode }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     pickerMode?: DocumentPickerMode;
 
@@ -866,7 +870,7 @@ declare namespace picker {
      * @type { ?CustomColors }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     themeColor?: CustomColors;
   }
@@ -885,7 +889,7 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   class DocumentViewPicker {
     /**
@@ -894,7 +898,7 @@ declare namespace picker {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     constructor();
 
@@ -906,7 +910,7 @@ declare namespace picker {
      * For details about the application context of the stage model, see Context.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     constructor(context: Context);
 
@@ -918,7 +922,7 @@ declare namespace picker {
      * For details about the application context of the stage model, see Context.
      * @param { window.Window } window - Window instance created by the application.
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 13
+     * @since 13 dynamic
      */
     constructor(context: Context, window: window.Window);
 
@@ -944,7 +948,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     select(option?: DocumentSelectOptions): Promise<Array<string>>;
 
@@ -968,7 +972,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     select(option: DocumentSelectOptions, callback: AsyncCallback<Array<string>>): void;
 
@@ -988,7 +992,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     select(callback: AsyncCallback<Array<string>>): void;
 
@@ -1014,7 +1018,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     save(option?: DocumentSaveOptions): Promise<Array<string>>;
 
@@ -1038,7 +1042,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     save(option: DocumentSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
@@ -1058,7 +1062,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     save(callback: AsyncCallback<Array<string>>): void;
 
@@ -1076,7 +1080,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     getSelectedIndex(): number;
   }
@@ -1093,7 +1097,7 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
     class AudioSelectOptions {
       /**
@@ -1104,7 +1108,7 @@ declare namespace picker {
        * @syscap SystemCapability.FileManagement.UserFileService
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since 12 dynamic
        */
       maxSelectNumber?: number;
     }
@@ -1121,7 +1125,7 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   class AudioSaveOptions {
     /**
@@ -1140,7 +1144,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     newFileNames?: Array<string>;
   }
@@ -1159,7 +1163,7 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   class AudioViewPicker {
     /**
@@ -1168,7 +1172,7 @@ declare namespace picker {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     constructor();
 
@@ -1180,7 +1184,7 @@ declare namespace picker {
      * For details about the application context of the stage model, see Context.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     constructor(context: Context);
 
@@ -1206,7 +1210,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     select(option?: AudioSelectOptions): Promise<Array<string>>;
 
@@ -1229,7 +1233,7 @@ declare namespace picker {
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips selected.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     select(option: AudioSelectOptions, callback: AsyncCallback<Array<string>>): void;
 
@@ -1248,7 +1252,7 @@ declare namespace picker {
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips selected.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     select(callback: AsyncCallback<Array<string>>): void;
 
@@ -1276,7 +1280,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     save(option?: AudioSaveOptions): Promise<Array<string>>;
 
@@ -1301,7 +1305,7 @@ declare namespace picker {
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips saved.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     save(option: AudioSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
@@ -1322,7 +1326,7 @@ declare namespace picker {
      * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the URIs of the audio clips saved.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     save(callback: AsyncCallback<Array<string>>): void;
   }

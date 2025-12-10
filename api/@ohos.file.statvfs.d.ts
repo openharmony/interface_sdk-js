@@ -33,8 +33,8 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace statfs
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare namespace statfs {
   /**
@@ -62,7 +62,7 @@ declare namespace statfs {
    * Get the number of free bytes on the specified path.
    *
    * @param { string } path - path
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<long> } return Promise
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -78,10 +78,10 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
-  function getFreeSize(path: string): Promise<number>;
+  function getFreeSize(path: string): Promise<long>;
 
   /**
    * Get the number of free bytes on the specified path.
@@ -108,7 +108,7 @@ declare namespace statfs {
    * Get the number of free bytes on the specified path.
    *
    * @param { string } path - path
-   * @param { AsyncCallback<number> } [callback] - callback
+   * @param { AsyncCallback<long> } [callback] - callback
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -124,10 +124,10 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
-  function getFreeSize(path: string, callback: AsyncCallback<number>): void;
+  function getFreeSize(path: string, callback: AsyncCallback<long>): void;
 
   /**
    * Get the number of free bytes on the specified path with sync interface.
@@ -154,7 +154,7 @@ declare namespace statfs {
    * Get the number of free bytes on the specified path with sync interface.
    *
    * @param { string } path - path
-   * @returns { number } return the number of free bytes on the specified path
+   * @returns { long } return the number of free bytes on the specified path
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -170,10 +170,10 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
-  function getFreeSizeSync(path: string): number;
+  function getFreeSizeSync(path: string): long;
 
   /**
    * Get the number of total bytes on the specified path.
@@ -200,7 +200,7 @@ declare namespace statfs {
    * Get the number of total bytes on the specified path.
    *
    * @param { string } path - path
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<long> } return Promise
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -216,10 +216,10 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
-  function getTotalSize(path: string): Promise<number>;
+  function getTotalSize(path: string): Promise<long>;
 
   /**
    * Get the number of total bytes on the specified path.
@@ -246,7 +246,7 @@ declare namespace statfs {
    * Get the number of total bytes on the specified path.
    *
    * @param { string } path - path
-   * @param { AsyncCallback<number> } [callback] - callback
+   * @param { AsyncCallback<long> } [callback] - callback
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -262,10 +262,10 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
-  function getTotalSize(path: string, callback: AsyncCallback<number>): void;
+  function getTotalSize(path: string, callback: AsyncCallback<long>): void;
 
   /**
    * Get the number of total bytes on the specified path with sync interface.
@@ -292,7 +292,7 @@ declare namespace statfs {
    * Get the number of total bytes on the specified path with sync interface.
    *
    * @param { string } path - path
-   * @returns { number } return the number of total bytes
+   * @returns { long } return the number of total bytes
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -308,10 +308,10 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
-  function getTotalSizeSync(path: string): number;
+  function getTotalSizeSync(path: string): long;
 }
 
 export default statfs;

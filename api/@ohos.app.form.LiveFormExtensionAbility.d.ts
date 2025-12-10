@@ -29,7 +29,8 @@ import formInfo from './@ohos.app.form.formInfo';
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
+ * @since 22 static
  */
 export interface LiveFormInfo {
   /**
@@ -39,7 +40,8 @@ export interface LiveFormInfo {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   formId: string;
 
@@ -50,7 +52,8 @@ export interface LiveFormInfo {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   rect: formInfo.Rect;
 
@@ -61,7 +64,8 @@ export interface LiveFormInfo {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   borderRadius: number;
 }
@@ -73,7 +77,8 @@ export interface LiveFormInfo {
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare class LiveFormExtensionAbility extends ExtensionAbility {
   /**
@@ -83,7 +88,8 @@ declare class LiveFormExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   context: LiveFormExtensionContext;
 
@@ -95,7 +101,8 @@ declare class LiveFormExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   onLiveFormCreate(liveFormInfo: LiveFormInfo, session: UIExtensionContentSession): void;
 
@@ -106,7 +113,8 @@ declare class LiveFormExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   onLiveFormDestroy(liveFormInfo: LiveFormInfo): void;
 }

@@ -26,8 +26,8 @@ import type notificationManager from '../@ohos.notificationManager';
  * @typedef NotificationSubscribeInfo
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 22 static
  */
 export interface NotificationSubscribeInfo {
   /**
@@ -36,21 +36,21 @@ export interface NotificationSubscribeInfo {
    * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
   bundleNames?: Array<string>;
 
   /**
    * Specify which user to subscribe to the notification from.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
-  userId?: number;
+  userId?: int;
 
   /**
    * Subscribing to Notifications Synchronized to Devices of a Specified Type.
@@ -58,8 +58,8 @@ export interface NotificationSubscribeInfo {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   deviceType?: string;
 
@@ -69,18 +69,19 @@ export interface NotificationSubscribeInfo {
    * @type { ?Array<notificationManager.SlotType> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
   slotTypes?: Array<notificationManager.SlotType>;
 
   /**
    * Filtered notification type range.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
-  filterLimit?: number;
+  filterLimit?: long;
 }

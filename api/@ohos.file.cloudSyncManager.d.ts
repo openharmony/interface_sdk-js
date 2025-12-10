@@ -25,8 +25,8 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace cloudSyncManager
  * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
- * @since arkts{ '1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 22 static
  */
 declare namespace cloudSyncManager {
   /**
@@ -42,8 +42,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since arkts{ '1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean): Promise<void>;
 
@@ -60,8 +60,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since arkts{ '1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function changeAppCloudSwitch(
     accountId: string,
@@ -82,8 +82,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since arkts{ '1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function notifyDataChange(accountId: string, bundleName: string): Promise<void>;
 
@@ -99,8 +99,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since arkts{ '1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function notifyDataChange(accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -117,8 +117,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since arkts{ '1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function enableCloud(accountId: string, switches: Record<string, boolean>): Promise<void>;
 
@@ -135,8 +135,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since arkts{ '1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function enableCloud(accountId: string, switches: Record<string, boolean>, callback: AsyncCallback<void>): void;
 
@@ -152,8 +152,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since arkts{ '1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function disableCloud(accountId: string): Promise<void>;
 
@@ -169,19 +169,19 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since arkts{ '1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function disableCloud(accountId: string, callback: AsyncCallback<void>): void;
 
   /**
    * Describes the clear action type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since arkts{ '1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   enum Action {
     /**
@@ -189,8 +189,8 @@ declare namespace cloudSyncManager {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     RETAIN_DATA,
 
@@ -199,8 +199,8 @@ declare namespace cloudSyncManager {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     CLEAR_DATA
   }
@@ -218,8 +218,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since arkts{ '1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function clean(accountId: string, appActions: Record<string, Action>): Promise<void>;
 
@@ -236,8 +236,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since arkts{ '1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function clean(accountId: string, appActions: Record<string, Action>, callback: AsyncCallback<void>): void;
 
@@ -245,7 +245,7 @@ declare namespace cloudSyncManager {
    * Notify the change of data in cloud.
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { number } userId - The Id of the user whose cloud data changed
+   * @param { int } userId - The Id of the user whose cloud data changed
    * @param { ExtraData } extraData - The change info from push notification
    * @returns { Promise<void> } Return Promise
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
@@ -255,16 +255,16 @@ declare namespace cloudSyncManager {
    * @throws { BusinessError } 13600001 - IPC error.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
-  function notifyDataChange(userId: number, extraData: ExtraData): Promise<void>;
+  function notifyDataChange(userId: int, extraData: ExtraData): Promise<void>;
 
   /**
    * Notify the change of data in cloud.
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { number } userId - The Id of the user whose cloud data changed
+   * @param { int } userId - The Id of the user whose cloud data changed
    * @param { ExtraData } extraData - The change info from push notification
    * @param { AsyncCallback<void> } callback - Callback function
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
@@ -274,10 +274,10 @@ declare namespace cloudSyncManager {
    * @throws { BusinessError } 13600001 - IPC error.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
-  function notifyDataChange(userId: number, extraData: ExtraData, callback: AsyncCallback<void>): void;
+  function notifyDataChange(userId: int, extraData: ExtraData, callback: AsyncCallback<void>): void;
 
   /**
    * The change info from push notification.
@@ -285,8 +285,8 @@ declare namespace cloudSyncManager {
    * @interface ExtraData
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   interface ExtraData {
     /**
@@ -295,8 +295,8 @@ declare namespace cloudSyncManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     eventId: string;
     /**
@@ -305,108 +305,108 @@ declare namespace cloudSyncManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     extraData: string;
   }
 
   /**
    * Describes the reason why the download task stop.
-   * @enum { number } DownloadStopReason
+   * @enum { int } DownloadStopReason
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum DownloadStopReason {
 
     /**
      * download task is not stopped.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     NO_STOP = 0,
 
     /**
      * Network is unavailable.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     NETWORK_UNAVAILABLE = 1,
 
     /**
      * The local storage space is full.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     LOCAL_STORAGE_FULL = 2,
 
     /**
      * Temperature control Limits.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     TEMPERATURE_LIMIT = 3,
 
     /**
      * User stopped the download task.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     USER_STOPPED = 4,
 
     /**
      * The local application has been unloaded.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     APP_UNLOAD = 5,
 
     /**
      * Other reasons of some internal error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     OTHER_REASON = 6
   }
 
   /**
    * Describes the state type of downgrade download.
-   * @enum { number } DownloadState
+   * @enum { int } DownloadState
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum DownloadState {
 
     /**
      * Indicates that the download task in process now.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     RUNNING = 0,
 
     /**
      * Indicates that the download task finished.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     COMPLETED = 1,
 
     /**
      * Indicates that the download task stopped.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     STOPPED = 2
   }
@@ -415,71 +415,71 @@ declare namespace cloudSyncManager {
    * Defines the CloudFileInfo data structure.
    * @typedef CloudFileInfo
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface CloudFileInfo {
 
     /**
      * Total number of files located in the cloud.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
-    cloudFileCount: number;
+    cloudFileCount: int;
 
     /**
      * Total size of files located in the cloud, in units of bytes.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
-    cloudFileTotalSize: number;
+    cloudFileTotalSize: long;
 
     /**
      * Total number of files located locally.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
-    localFileCount: number;
+    localFileCount: int;
 
     /**
      * Total size of files located locally, in units of bytes.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
-    localFileTotalSize: number;
+    localFileTotalSize: long;
 
     /**
      * Total number of files located both locally and in the cloud.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
-    bothFileCount: number;
+    bothFileCount: int;
 
     /**
      * Total size of files located both locally and in the cloud, in units of bytes.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
-    bothFileTotalSize: number;
+    bothFileTotalSize: long;
   }
 
   /**
    * Defines DownloadProgress object.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   class DownloadProgress {
 
@@ -487,62 +487,62 @@ declare namespace cloudSyncManager {
      * The current download task state.
      * @type { DownloadState }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     state: DownloadState;
 
     /**
      * The number of files that downloaded successfully
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
-    successfulCount: number;
+    successfulCount: int;
 
     /**
      * The number of files that fail to be downloaded.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
-    failedCount: number;
+    failedCount: int;
 
     /**
      * Total number of all files to be downloaded.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
-    totalCount: number;
+    totalCount: int;
 
     /**
      * Total size of downloaded files.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
-    downloadedSize: number;
+    downloadedSize: long;
 
     /**
      * Total size of all files to be downloaded.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
-    totalSize: number;
+    totalSize: long;
 
     /**
      * The reason for stopping the download task.
      * @type { DownloadStopReason }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     stopReason: DownloadStopReason;
   }
@@ -552,8 +552,8 @@ declare namespace cloudSyncManager {
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   class DowngradeDownload {
 
@@ -571,8 +571,8 @@ declare namespace cloudSyncManager {
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     constructor(bundleName: string);
 
@@ -591,8 +591,8 @@ declare namespace cloudSyncManager {
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     getCloudFileInfo(): Promise<CloudFileInfo>;
 
@@ -615,8 +615,8 @@ declare namespace cloudSyncManager {
      * @throws { BusinessError } 22400006 - The same task is already in progress.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     startDownload(callback: Callback<DownloadProgress>): Promise<void>;
 
@@ -634,11 +634,67 @@ declare namespace cloudSyncManager {
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     stopDownload(): Promise<void>;
   }
+
+  /**
+   * The existence status of files
+   *     <br>that have not been uploaded to the cloud for application that has been connected to the cloud disk.
+   * 
+   * @interface LocalFilePresentStatus
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  interface LocalFilePresentStatus {
+    /**
+     * BundleName of the application that has been connected to the cloud disk.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    bundleName: string;
+    /**
+     * The existence status of files that have not been uploaded to the cloud.
+     * 
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    isLocalFilePresent: boolean;
+  }
+
+    /**
+     * Check whether there are files in the applications that have been connected to the cloud disk
+     *     <br>that have not been uploaded to the cloud.
+     * 
+     * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+     * @param { Array<string> } bundleNames - The bundle names of the applications
+     *     <br>that have been connected to the cloud disk.
+     * @returns { Promise<Array<LocalFilePresentStatus>> } - Return the existence status of files
+     *     <br>that have not been uploaded to the cloud for the queryed applications.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 13600001 - IPC error. Possible causes:
+     *     <br>1.IPC failed or timed out. 2.Failed to load the service.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified. 2.The length of the input parameter exceeds the upper limit.
+     *     <br>3.The input parameter contains a invalid bundleName.
+     * @throws { BusinessError } 22400005 - Inner error. Possible causes:
+     *     <br>1.Failed to access the database or execute the SQL statement.
+     *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+  function getBundlesLocalFilePresentStatus(bundleNames: Array<string>): Promise<Array<LocalFilePresentStatus>>;
 }
 
 export default cloudSyncManager;

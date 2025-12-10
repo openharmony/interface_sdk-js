@@ -25,22 +25,25 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @namespace certificateManager
  * @syscap SystemCapability.Security.CertificateManager
- * @since 11
+ * @since 11 dynamic
+ * @since 22 static
  */
 declare namespace certificateManager {
   /**
    * Enum for result code
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   export enum CMErrorCode {
     /**
      * Indicates that the application has no permission to call the API.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_ERROR_NO_PERMISSION = 201,
 
@@ -49,24 +52,27 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_ERROR_NOT_SYSTEM_APP = 202,
 
     /**
      * Indicates that the input parameters are invalid.
+     * For example, the number of parameters or the parameter type is incorrect.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_ERROR_INVALID_PARAMS = 401,
 
     /**
-     * Indicates that internal error. Possible causes: 1. IPC communication failed;
-     * <br>2. Memory operation error; 3. File operation error.
+     * Indicates that internal error.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_ERROR_GENERIC = 17500001,
 
@@ -74,7 +80,8 @@ declare namespace certificateManager {
      * Indicates that the certificate does not exist.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_ERROR_NO_FOUND = 17500002,
 
@@ -82,7 +89,8 @@ declare namespace certificateManager {
      * Indicates that the keystore is in an invalid format or the keystore password is incorrect.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_ERROR_INCORRECT_FORMAT = 17500003,
 
@@ -90,7 +98,8 @@ declare namespace certificateManager {
      * Indicates that the number of certificates or credentials reaches the maximum allowed.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     CM_ERROR_MAX_CERT_COUNT_REACHED = 17500004,
 
@@ -98,7 +107,8 @@ declare namespace certificateManager {
      * Indicates that the application is not authorized by the user.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     CM_ERROR_NO_AUTHORIZATION = 17500005,
 
@@ -106,7 +116,8 @@ declare namespace certificateManager {
      * Indicates that the device enters advanced security mode.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
     CM_ERROR_DEVICE_ENTER_ADVSECMODE = 17500007,
 
@@ -114,9 +125,27 @@ declare namespace certificateManager {
      * Indicates that the device does not support the specified certificate store path.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
-    CM_ERROR_STORE_PATH_NOT_SUPPORTED = 17500009
+    CM_ERROR_STORE_PATH_NOT_SUPPORTED = 17500009,
+
+    /**
+     * Indicates that access USB key service failed.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 22 dynamic&static
+     */
+    CM_ERROR_ACCESS_UKEY_SERVICE_FAILED = 17500010,
+
+    /**
+     * Indicates that the input parameters validation failed.
+     * For example, the parameter format is incorrect or the value range is invalid.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 22 dynamic&static
+     */
+    CM_ERROR_PARAMETER_VALIDATION_FAILED = 17500011,
   }
 
   /**
@@ -124,7 +153,8 @@ declare namespace certificateManager {
    *
    * @typedef CertInfo
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   export interface CertInfo {
     /**
@@ -132,7 +162,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     uri: string;
 
@@ -141,7 +172,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     certAlias: string;
 
@@ -150,7 +182,8 @@ declare namespace certificateManager {
      *
      * @type { boolean }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     state: boolean;
 
@@ -159,7 +192,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     issuerName: string;
 
@@ -168,7 +202,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     subjectName: string;
 
@@ -177,7 +212,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     serial: string;
 
@@ -186,7 +222,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     notBefore: string;
 
@@ -195,7 +232,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     notAfter: string;
 
@@ -204,7 +242,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     fingerprintSha256: string;
 
@@ -213,7 +252,8 @@ declare namespace certificateManager {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     cert: Uint8Array;
   }
@@ -223,7 +263,8 @@ declare namespace certificateManager {
    *
    * @typedef CertAbstract
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   export interface CertAbstract {
     /**
@@ -231,7 +272,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     uri: string;
 
@@ -240,7 +282,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     certAlias: string;
 
@@ -249,7 +292,8 @@ declare namespace certificateManager {
      *
      * @type { boolean }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     state: boolean;
 
@@ -258,7 +302,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     subjectName: string;
   }
@@ -268,7 +313,8 @@ declare namespace certificateManager {
    *
    * @typedef Credential
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   export interface Credential {
     /**
@@ -276,7 +322,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     type: string;
 
@@ -285,7 +332,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     alias: string;
 
@@ -294,36 +342,49 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     keyUri: string;
 
     /**
      * Indicates the number of certificates included in the credential.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
-    certNum: number;
+    certNum: int;
 
     /**
-     * Indicates the number of key included in the credential.
+     * Indicates the number of keys included in the credential.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
-    keyNum: number;
+    keyNum: int;
 
     /**
      * Indicates the credential binary data.
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     credentialData: Uint8Array;
+
+    /**
+     * Indicates the certificate purpose.
+     *
+     * @type { ?CertificatePurpose }
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 22 dynamic&static
+     */
+    certPurpose?: CertificatePurpose;
   }
 
   /**
@@ -331,7 +392,8 @@ declare namespace certificateManager {
    *
    * @typedef CredentialAbstract
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   export interface CredentialAbstract {
     /**
@@ -339,7 +401,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     type: string;
 
@@ -348,7 +411,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     alias: string;
 
@@ -357,7 +421,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     keyUri: string;
   }
@@ -367,7 +432,8 @@ declare namespace certificateManager {
    *
    * @typedef CMResult
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   export interface CMResult {
     /**
@@ -375,7 +441,8 @@ declare namespace certificateManager {
      *
      * @type { ?Array<CertAbstract> }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     certList?: Array<CertAbstract>;
 
@@ -384,7 +451,8 @@ declare namespace certificateManager {
      *
      * @type { ?CertInfo }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     certInfo?: CertInfo;
 
@@ -393,7 +461,8 @@ declare namespace certificateManager {
      *
      * @type { ?Array<CredentialAbstract> }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     credentialList?: Array<CredentialAbstract>;
 
@@ -402,7 +471,8 @@ declare namespace certificateManager {
      *
      * @type { ?Credential }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     credential?: Credential;
 
@@ -411,7 +481,8 @@ declare namespace certificateManager {
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     appUidList?: Array<string>;
 
@@ -420,7 +491,8 @@ declare namespace certificateManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     uri?: string;
 
@@ -429,24 +501,36 @@ declare namespace certificateManager {
      *
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     outData?: Uint8Array;
+
+    /**
+     * Indicates the credential detail list of CMResult.
+     *
+     * @type { ?Array<Credential> }
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 22 dynamic&static
+     */
+    credentialDetailList?: Array<Credential>;
   }
 
   /**
    * Enum for Key Purpose
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   export enum CmKeyPurpose {
     /**
      * Indicates that key for signature.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_KEY_PURPOSE_SIGN = 4,
 
@@ -454,7 +538,8 @@ declare namespace certificateManager {
      * Indicates that key for verify.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_KEY_PURPOSE_VERIFY = 8
   }
@@ -462,16 +547,18 @@ declare namespace certificateManager {
   /**
    * Enum for Key Digest
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   export enum CmKeyDigest {
     /**
      * Indicates that key digest is none.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_DIGEST_NONE = 0,
 
@@ -479,7 +566,8 @@ declare namespace certificateManager {
      * Indicates that key digest is md5.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_DIGEST_MD5 = 1,
 
@@ -487,7 +575,8 @@ declare namespace certificateManager {
      * Indicates that key digest is sha1.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_DIGEST_SHA1 = 2,
 
@@ -495,7 +584,8 @@ declare namespace certificateManager {
      * Indicates that key digest is sha224.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_DIGEST_SHA224 = 3,
 
@@ -503,7 +593,8 @@ declare namespace certificateManager {
      * Indicates that key digest is sha256.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_DIGEST_SHA256 = 4,
 
@@ -511,7 +602,8 @@ declare namespace certificateManager {
      * Indicates that key digest is sha384.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_DIGEST_SHA384 = 5,
 
@@ -519,7 +611,8 @@ declare namespace certificateManager {
      * Indicates that key digest is sha512.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_DIGEST_SHA512 = 6,
 
@@ -527,24 +620,27 @@ declare namespace certificateManager {
      * Indicates that key digest is SM3.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
-    CM_DIGEST_SM3 = 7
+    CM_DIGEST_SM3 = 7,
   }
 
   /**
    * Enum for Key Padding
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   export enum CmKeyPadding {
     /**
      * Indicates that key padding is none.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_PADDING_NONE = 0,
 
@@ -552,7 +648,8 @@ declare namespace certificateManager {
      * Indicates that key padding is PSS.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_PADDING_PSS = 1,
 
@@ -560,7 +657,8 @@ declare namespace certificateManager {
      * Indicates that key padding is PKCS1_V1_5.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CM_PADDING_PKCS1_V1_5 = 2
   }
@@ -570,7 +668,8 @@ declare namespace certificateManager {
    *
    * @typedef CMSignatureSpec
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   export interface CMSignatureSpec {
     /**
@@ -578,7 +677,8 @@ declare namespace certificateManager {
      *
      * @type { CmKeyPurpose }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     purpose: CmKeyPurpose;
 
@@ -587,7 +687,8 @@ declare namespace certificateManager {
      *
      * @type { ?CmKeyPadding }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     padding?: CmKeyPadding;
 
@@ -596,7 +697,8 @@ declare namespace certificateManager {
      *
      * @type { ?CmKeyDigest }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     digest?: CmKeyDigest;
   }
@@ -606,7 +708,8 @@ declare namespace certificateManager {
    *
    * @typedef CMHandle
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   export interface CMHandle {
     /**
@@ -614,7 +717,8 @@ declare namespace certificateManager {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     handle: Uint8Array;
   }
@@ -631,7 +735,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
@@ -648,11 +752,12 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
    * @throws { BusinessError } 17500004 - The number of certificates or credentials reaches the maximum allowed.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   function installPrivateCertificate(
     keystore: Uint8Array,
@@ -673,7 +778,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
@@ -690,11 +795,12 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
    * @throws { BusinessError } 17500004 - The number of certificates or credentials reaches the maximum allowed.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string): Promise<CMResult>;
 
@@ -708,10 +814,11 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function uninstallPrivateCertificate(keyUri: string, callback: AsyncCallback<void>): void;
 
@@ -725,10 +832,11 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function uninstallPrivateCertificate(keyUri: string): Promise<void>;
 
@@ -742,10 +850,11 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function getAllAppPrivateCertificates(callback: AsyncCallback<CMResult>): void;
 
@@ -757,10 +866,11 @@ declare namespace certificateManager {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function getAllAppPrivateCertificates(): Promise<CMResult>;
 
@@ -774,10 +884,11 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function getPrivateCertificate(keyUri: string, callback: AsyncCallback<CMResult>): void;
 
@@ -791,10 +902,11 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function getPrivateCertificate(keyUri: string): Promise<CMResult>;
 
@@ -809,7 +921,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
@@ -825,11 +937,12 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @throws { BusinessError } 17500005 - The application is not authorized by the user.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   function init(authUri: string, spec: CMSignatureSpec, callback: AsyncCallback<CMHandle>): void;
 
@@ -844,7 +957,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
@@ -860,11 +973,12 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @throws { BusinessError } 17500005 - The application is not authorized by the user.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   function init(authUri: string, spec: CMSignatureSpec): Promise<CMHandle>;
 
@@ -879,9 +993,10 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function update(handle: Uint8Array, data: Uint8Array, callback: AsyncCallback<void>): void;
 
@@ -896,9 +1011,10 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function update(handle: Uint8Array, data: Uint8Array): Promise<void>;
 
@@ -912,9 +1028,10 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function finish(handle: Uint8Array, callback: AsyncCallback<CMResult>): void;
 
@@ -929,9 +1046,10 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function finish(handle: Uint8Array, signature: Uint8Array, callback: AsyncCallback<CMResult>): void;
 
@@ -946,9 +1064,10 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function finish(handle: Uint8Array, signature?: Uint8Array): Promise<CMResult>;
 
@@ -962,9 +1081,10 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function abort(handle: Uint8Array, callback: AsyncCallback<void>): void;
 
@@ -978,9 +1098,10 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function abort(handle: Uint8Array): Promise<void>;
 
@@ -994,15 +1115,16 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @throws { BusinessError } 17500005 - The application is not authorized by the user.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   function getPublicCertificate(keyUri: string): Promise<CMResult>;
 
-  /**:
+  /**
    * Whether the current application is authorized by the specified public application certificate.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
@@ -1012,9 +1134,10 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   function isAuthorizedApp(keyUri: string): Promise<boolean>;
 
@@ -1025,27 +1148,12 @@ declare namespace certificateManager {
    * @returns { Promise<CMResult> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   function getAllUserTrustedCertificates(): Promise<CMResult>;
-
-  /**
-   * Get a list of all user trusted CA certificates.
-   *
-   * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { CertScope } scope  - Indicates the scope of user ca certificate.
-   * @returns { Promise<CMResult> } The user ca certificates.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
-   */
-  function getAllUserTrustedCertificates(scope: CertScope): Promise<CMResult>;
 
   /**
    * Get the detail of user trusted CA certificate.
@@ -1057,10 +1165,11 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   function getUserTrustedCertificate(certUri: string): Promise<CMResult>;
 
@@ -1072,10 +1181,11 @@ declare namespace certificateManager {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   function getAllSystemAppCertificates(): Promise<CMResult>;
 
@@ -1086,148 +1196,42 @@ declare namespace certificateManager {
    * @returns { Promise<CMResult> } The private certificates installed by the application.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 13
+   * @since 13 dynamic
+   * @since 22 static
    */
   function getPrivateCertificates(): Promise<CMResult>;
 
   /**
-   * Enum for certificate type managed by Certificate Manager.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
-   */
-  export enum CertType {
-    /**
-     * Indicates that ca certificate that installed by HarmonyOS system.
-     *
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
-     */
-    CA_CERT_SYSTEM = 0,
-
-    /**
-     * Indicates that ca certificate that installed by user.
-     *
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
-     */
-    CA_CERT_USER = 1
-  }
-
-  /**
-   * Enum for the scope of user ca certificate.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
-   */
-  export enum CertScope {
-
-    /**
-     * Indicates that the user ca certificate for a current user.
-     *
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
-     */
-    CURRENT_USER = 1,
-
-    /**
-     * Indicates that the user ca certificate for all users.
-     *
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
-     */
-    GLOBAL_USER = 2
-  }
-
-  /**
-   * Enum for the certificate algorithm type.
+   * Obtains the path of the certificate file.
    * 
-   * @enum { number }
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 20
-   */
-  export enum CertAlgorithm {
-    /**
-     * Indicates that the international cryptography algorithms, such as RSA, ECC NIST.
-     * 
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 20
-     */
-    INTERNATIONAL = 1,
-
-    /**
-     * Indicates that the Commercial Password algorithms, such as SM2, SM4.
-     * 
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 20
-     */
-    SM = 2,
-  }
-
- /**
-   * Provides the certificate file store property type.
-   *
-   * @typedef CertStoreProperty
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
-   */
-  export interface CertStoreProperty {
-    /**
-     * Indicates the certificate type managed by Certificate Manager.
-     *
-     * @type { CertType }
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
-     */
-    certType: CertType;
-
-    /**
-     * Indicates the scope of user ca certificate. This parameter is valid only when certType is set to CA_CERT_USER.
-     *
-     * @type { ?CertScope }
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
-     */
-    certScope?: CertScope;
-
-    /**
-     * Indicates the certificate algorithm type. This parameter is valid only when certType is set to CA_CERT_SYSTEM. default value is INTERNATIONAL.
-     * 
-     * @type { ?CertAlgorithm }
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 20
-     */
-    certAlg?: CertAlgorithm;
-  }
-
-  /**
-   * Get the certificate file store path.
-   *
-   * @param { CertStoreProperty } property - Indicates the certificate file store path property.
-   * @returns { string } the certificate file store path.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { CertStoreProperty } property Properties of the certificate file storage path.
+   * @returns { string } Path of the certificate file obtained.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
+   * unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.  For example, CertStoreProperty.certType
+   * is set to CA_CERT_USER, but CertStoreProperty.certScope is not specified.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18
    */
   /**
-   * Get the certificate file store path.
-   * 
-   * @param { CertStoreProperty } property - Indicates the certificate file store path property.
-   * @returns { string } the certificate file store path.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * Obtains the path of the certificate file.
+   * @param { CertStoreProperty } property Properties of the certificate file storage path.
+   * @returns { string } Path of the certificate file obtained.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
+   * unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed. For example, CertStoreProperty.certType
+   * is set to CA_CERT_USER, but CertStoreProperty.certScope is not specified.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
-   * @throws { BusinessError } 17500009 - The device does not support the specified certificate store path, such as the overseas device does not support the certificate which algorithm is SM.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500009 - The device does not support the specified certificate storage path,
+   * For example, the device outside China does not support the certificate that uses SM algorithm.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getCertificateStorePath(property: CertStoreProperty): string;
 
@@ -1242,30 +1246,120 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500003 - Indicates that the certificate is in an invalid format.
    * @throws { BusinessError } 17500004 - Indicates that the number of certificates reaches the maximum allowed.
    * @throws { BusinessError } 17500007 - Indicates that the device enters advanced security mode. In this mode, the user CA certificate cannot be installed.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
-  function installUserTrustedCertificateSync(cert: Uint8Array, certScope: CertScope) : CMResult;
+  function installUserTrustedCertificateSync(cert: Uint8Array, certScope: CertScope): CMResult;
 
   /**
-   * Uninstall the user trusted CA certificate.
+   * Enum for storage authentication level
    *
-   * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
-   * @param { string } certUri - Indicates the certificate uri to be uninstalled.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
-   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
-  function uninstallUserTrustedCertificateSync(certUri: string) : void;
+  export enum AuthStorageLevel {
+    /**
+     * Indicates that the file can be accessed after the device is started.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 18 dynamic
+     * @since 22 static
+     */
+    EL1 = 1,
+
+    /**
+     * Indicates that the file can be accessed after the device is unlocked for the first time.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 18 dynamic
+     * @since 22 static
+     */
+    EL2 = 2,
+
+    /**
+     * Indicates that the file can be accessed when the device is unlocked.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 18 dynamic
+     * @since 22 static
+     */
+    EL4 = 4
+  }
+
+  /**
+   * Provides the certificate file store property type.
+   *
+   * @typedef CertStoreProperty
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 18 dynamic
+   * @since 22 static
+   */
+  export interface CertStoreProperty {
+    /**
+     * Indicates the certificate type managed by Certificate Manager.
+     *
+     * @type { CertType }
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 18 dynamic
+     * @since 22 static
+     */
+    certType: CertType;
+
+    /**
+     * Indicates the scope of user ca certificate. This parameter is valid only when certType is set to CA_CERT_USER.
+     *
+     * @type { ?CertScope }
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 18 dynamic
+     * @since 22 static
+     */
+    certScope?: CertScope;
+
+    /**
+     * Indicates the certificate algorithm type. This parameter is valid only when certType is set to CA_CERT_SYSTEM. default value is INTERNATIONAL.
+     *
+     * @type { ?CertAlgorithm }
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 20 dynamic
+     * @since 22 static
+     */
+    certAlg?: CertAlgorithm;
+  }
+
+  /**
+   * Enum for certificate type managed by Certificate Manager.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 18 dynamic
+   * @since 22 static
+   */
+  export enum CertType {
+    /**
+     * Indicates that CA certificate installed by OS.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 18 dynamic
+     * @since 22 static
+     */
+    CA_CERT_SYSTEM = 0,
+
+    /**
+     * Indicates that CA certificate installed by user.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 18 dynamic
+     * @since 22 static
+     */
+    CA_CERT_USER = 1
+  }
 
   /**
    * Install private application certificate.
@@ -1280,45 +1374,183 @@ declare namespace certificateManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
    * @throws { BusinessError } 17500004 - The number of certificates or credentials reaches the maximum allowed.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
   function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string, level: AuthStorageLevel): Promise<CMResult>;
 
   /**
-   * Enum for storage authentication level
+   * Get a list of all user trusted CA certificates.
    *
-   * @enum { number }
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { CertScope } scope - Indicates the scope of user ca certificate.
+   * @returns { Promise<CMResult> } The user ca certificates.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
-  export enum AuthStorageLevel {
+  function getAllUserTrustedCertificates(scope: CertScope): Promise<CMResult>;
+
+  /**
+   * Enum for the scope of user ca certificate.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 18 dynamic
+   * @since 22 static
+   */
+  export enum CertScope {
     /**
-     * Indicates that the file can be accessed after the device is started.
+     * Indicates that the user ca certificate for a current user.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
-    EL1 = 1,
+    CURRENT_USER = 1,
 
     /**
-     * Indicates that the file can be accessed after the device is unlocked for the first time.
+     * Indicates that the user ca certificate for all users.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
-    EL2 = 2,
+    GLOBAL_USER = 2
+  }
+
+  /**
+   * Uninstall the user trusted CA certificate.
+   *
+   * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
+   * @param { string } certUri - Indicates the certificate uri to be uninstalled.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 18 dynamic
+   * @since 22 static
+   */
+  function uninstallUserTrustedCertificateSync(certUri: string): void;
+
+  /**
+   * Enum for the certificate algorithm type.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 20 dynamic
+   * @since 22 static
+   */
+  export enum CertAlgorithm {
+    /**
+     * Indicates that the international cryptography algorithms, such as RSA, ECC NIST.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 20 dynamic
+     * @since 22 static
+     */
+    INTERNATIONAL = 1,
 
     /**
-     * Indicates that the file can be accessed when the device is unlocked.
+     * Indicates that the Commercial Password algorithms, such as SM2, SM4.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
+     * @since 20 dynamic
+     * @since 22 static
      */
-    EL4 = 4,
+    SM = 2,
+  }
+
+  /**
+   * Enum for certificate purpose
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 22 dynamic&static
+   */
+  export enum CertificatePurpose {
+    /**
+     * Indicates default certificate purpose.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 22 dynamic&static
+     */
+    PURPOSE_DEFAULT = 0,
+
+    /**
+     * Indicates all certificate purposes, used for query certificates function.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 22 dynamic&static
+     */
+    PURPOSE_ALL = 1,
+
+    /**
+     * Indicates certificate for signature.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 22 dynamic&static
+     */
+    PURPOSE_SIGN = 2,
+
+    /**
+     * Indicates certificate for encryption.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 22 dynamic&static
+     */
+    PURPOSE_ENCRYPT = 3,
+  }
+
+  /**
+   * Get the detail of USB key certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } keyUri - Indicates the USB key certificate uri.
+   * @param { UkeyInfo } ukeyInfo - Indicates USB key certificate attribute information.
+   * @returns { Promise<CMResult> } Indicates the USB key certificate detail.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @throws { BusinessError } 17500010 - Indicates that access USB key service failed.
+   * @throws { BusinessError } 17500011 - Indicates that the input parameters validation failed.
+   *     For example, the parameter format is incorrect or the value range is invalid.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 22 dynamic&static
+   */
+  function getUkeyCertificate(keyUri: string, ukeyInfo: UkeyInfo): Promise<CMResult>;
+
+  /**
+   * Provides the USB key certificate attribute information.
+   *
+   * @typedef UkeyInfo
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 22 dynamic&static
+   */
+  export interface UkeyInfo {
+    /**
+     * Indicates the purpose of certificate.
+     *
+     * @type { ?CertificatePurpose }
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 22 dynamic&static
+     */
+     certPurpose?: CertificatePurpose;
   }
 }
 

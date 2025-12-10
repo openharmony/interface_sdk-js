@@ -20,9 +20,9 @@
 
 import { NotificationRequest } from './notificationRequest';
 import { NotificationSortingMap } from './notificationSortingMap';
-/*** if arkts 1.1 */
-import notification from '../@ohos.notification';
 import type notificationManager from '../@ohos.notificationManager';
+/*** if arkts dynamic */
+import notification from '../@ohos.notification';
 /*** endif */
 
 /**
@@ -32,8 +32,8 @@ import type notificationManager from '../@ohos.notificationManager';
  * @interface NotificationSubscriber
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 22 static
  */
 export interface NotificationSubscriber {
   /**
@@ -42,7 +42,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   onConsume?: (data: SubscribeCallbackData) => void;
 
@@ -52,7 +53,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   onCancel?: (data: SubscribeCallbackData) => void;
 
@@ -62,7 +64,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   onUpdate?: (data: NotificationSortingMap) => void;
 
@@ -72,7 +75,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   onConnect?: () => void;
 
@@ -82,7 +86,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   onDisconnect?: () => void;
 
@@ -92,7 +97,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   onDestroy?: () => void;
 
@@ -102,7 +108,7 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 11
    * @useinstead NotificationSubscriber#onDoNotDisturbChanged
    */
@@ -114,7 +120,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   onDoNotDisturbChanged?: (mode: notificationManager.DoNotDisturbDate) => void;
 
@@ -124,9 +131,30 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   onEnabledNotificationChanged?: (callbackData: EnabledNotificationCallbackData) => void;
+
+  /**
+   * Callback when the priority notification switch is changed.
+   * 
+   * @type { ?function }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  onEnabledPriorityChanged?: (callbackData: EnabledPriorityNotificationCallbackData) => void;
+
+  /**
+   * Callback when the priority notification switch by bundle is changed.
+   * 
+   * @type { ?function }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  onEnabledPriorityByBundleChanged?: (callbackData: EnabledPriorityNotificationByBundleCallbackData) => void;
 
   /**
    * Callback when badge number changed.
@@ -134,7 +162,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   onBadgeChanged?: (data: BadgeNumberCallbackData) => void;
 
@@ -144,7 +173,8 @@ export interface NotificationSubscriber {
    * @type { ?BadgeEnabledChangedCallback }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   onBadgeEnabledChanged?: BadgeEnabledChangedCallback;
 
@@ -154,7 +184,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   onBatchCancel?: (data: Array<SubscribeCallbackData>) => void;
 }
@@ -166,8 +197,8 @@ export interface NotificationSubscriber {
  * @typedef SubscribeCallbackData
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 22 static
  */
 export interface SubscribeCallbackData {
   /**
@@ -177,8 +208,8 @@ export interface SubscribeCallbackData {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
   readonly request: NotificationRequest;
 
@@ -189,22 +220,22 @@ export interface SubscribeCallbackData {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
   readonly sortingMap?: NotificationSortingMap;
 
   /**
    * The reason for the deletion.(1:CLICK_REASON_REMOVE,2:CANCEL_REASON_REMOVE)
    *
-   * @type { ?number }
+   * @type { ?int }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
-  readonly reason?: number;
+  readonly reason?: int;
 
   /**
    * Notification sound.
@@ -213,33 +244,32 @@ export interface SubscribeCallbackData {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
   readonly sound?: string;
 
   /**
    * Notice the vibration.
    *
-   * @type { ?Array<number> }
+   * @type { ?Array<long> }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
-  readonly vibrationValues?: Array<number>;
+  readonly vibrationValues?: Array<long>;
 }
 
 /**
- * Describes the properties of the application that the permission to send notifications 
- * or the badge enabled state has changed.
+ * Describes the switch state to Restrict notification capability.
  *
  * @typedef EnabledNotificationCallbackData
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'8', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 8 dynamic
+ * @since 22 static
  */
 export interface EnabledNotificationCallbackData {
   /**
@@ -249,22 +279,22 @@ export interface EnabledNotificationCallbackData {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   readonly bundle: string;
 
   /**
    * The uid of the application.
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
-  readonly uid: number;
+  readonly uid: int;
 
   /**
    * Apply notification enable status.
@@ -273,10 +303,74 @@ export interface EnabledNotificationCallbackData {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   readonly enable: boolean;
+}
+
+/**
+ * Describes the main switch state for priority notification.
+ *
+ * @typedef EnabledPriorityNotificationCallbackData
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export interface EnabledPriorityNotificationCallbackData {
+  /**
+   * The main switch state for priority notification.
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  readonly enable: boolean;
+}
+
+/**
+ * Describes the switch state to Restrict notification capability.
+ *
+ * @typedef EnabledPriorityNotificationByBundleCallbackData
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export interface EnabledPriorityNotificationByBundleCallbackData {
+  /**
+   * The bundle name of the application.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  readonly bundle: string;
+
+  /**
+   * The uid of the application.
+   *
+   * @type { int }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  readonly uid: int;
+
+  /**
+   * Apply notification enable status.
+   *
+   * @type { notificationManager.PriorityEnableStatus }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  readonly enableStatus: notificationManager.PriorityEnableStatus;
 }
 
 /**
@@ -285,8 +379,8 @@ export interface EnabledNotificationCallbackData {
  * @typedef BadgeNumberCallbackData
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 22 static
  */
 export interface BadgeNumberCallbackData {
   /**
@@ -296,34 +390,34 @@ export interface BadgeNumberCallbackData {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   readonly bundle: string;
 
   /**
    * The uid of the application.
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
-  readonly uid: number;
+  readonly uid: int;
 
   /**
    * badge number
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
-  readonly badgeNumber: number;
+  readonly badgeNumber: int;
 
   /**
    * Application instance key.
@@ -332,7 +426,7 @@ export interface BadgeNumberCallbackData {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 15
    * @useinstead BadgeNumberCallbackData#appInstanceKey
    */
@@ -345,8 +439,8 @@ export interface BadgeNumberCallbackData {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 22 static
    */
   readonly appInstanceKey?: string;
 }
@@ -355,7 +449,7 @@ export interface BadgeNumberCallbackData {
  * Defines the callback of BadgeEnabledChanged.
  * @typedef BadgeEnabledChangedCallback
  * @syscap SystemCapability.Notification.Notification
- * @since 12
+ * @since 12 dynamic
  */
 export interface BadgeEnabledChangedCallback {
   /**
@@ -363,7 +457,7 @@ export interface BadgeEnabledChangedCallback {
    * @param { EnabledNotificationCallbackData } data
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   (data: EnabledNotificationCallbackData): void;
 }
@@ -373,7 +467,6 @@ export interface BadgeEnabledChangedCallback {
  * @param { EnabledNotificationCallbackData } data
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since 20
- * @arkts 1.2
+ * @since 22 static
  */
 export type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData) => void;

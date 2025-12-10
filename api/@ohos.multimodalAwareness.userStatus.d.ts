@@ -96,8 +96,8 @@ declare namespace userStatus {
    * <br>3. Node-API invocation exception, such as invalid Node-API status.
    * <br>4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   function on(type: 'userAgeGroupDetected', callback: Callback<UserClassification>): void;
 
@@ -115,8 +115,8 @@ declare namespace userStatus {
    * <br>2. Node-API invocation exception, such as invalid Node-API status.
    * <br>3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   function off(type: 'userAgeGroupDetected', callback?: Callback<UserClassification>): void;
 }

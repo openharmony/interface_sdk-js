@@ -22,71 +22,71 @@ import UIAbilityContext from './application/UIAbilityContext';
 import { KioskStatus as _KioskStatus } from './application/KioskStatus';
 
 /**
- * The class of kiosk manager.
+ * The class of Kiosk manager.
  *
  * @namespace kioskManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare namespace kioskManager {
   /**
-   * Enter kiosk mode.
+   * Enter Kiosk mode.
    *
-   * @param { UIAbilityContext } context - The context that initiates to enter kiosk mode.
+   * @param { UIAbilityContext } context - The context that initiates to enter Kiosk mode.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000050 - Failed to connect to the system service.
-   * @throws { BusinessError } 16000110 - Current application is not in kiosk app list, can not enter kiosk mode.
-   * @throws { BusinessError } 16000111 - System is already in kiosk mode, can not enter again.
+   * @throws { BusinessError } 16000110 - The current application is not in Kiosk app list and cannot enter Kiosk mode.
+   * @throws { BusinessError } 16000111 - The system is already in Kiosk mode and cannot enter Kiosk mode again.
    * @throws { BusinessError } 16000113 - Current ability is not in foreground.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   function enterKioskMode(context: UIAbilityContext): Promise<void>;
 
   /**
-   * Exit kiosk mode.
+   * Exit Kiosk mode.
    *
-   * @param { UIAbilityContext } context - The context that initiates to exit kiosk mode.
+   * @param { UIAbilityContext } context - The context that initiates to exit Kiosk mode.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000050 - Failed to connect to the system service.
-   * @throws { BusinessError } 16000110 - Current application is not in kiosk app list, can not exit kiosk mode.
-   * @throws { BusinessError } 16000112 - Current application is not in kiosk mode, can not exit.
+   * @throws { BusinessError } 16000110 - The current application is not in Kiosk app list and cannot enter Kiosk mode.
+   * @throws { BusinessError } 16000112 - The current application is not in Kiosk mode and cannot exit Kiosk mode.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   function exitKioskMode(context: UIAbilityContext): Promise<void>;
 
   /**
-   * Get current kiosk status.
+   * Get current Kiosk status.
    *
-   * @returns { Promise<KioskStatus> } Current kiosk status.
+   * @returns { Promise<KioskStatus> } Current Kiosk status.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000050 - Failed to connect to the system service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getKioskStatus(): Promise<KioskStatus>;
 
   /**
-   * The kiosk status data.
+   * The Kiosk status data.
    *
    * @typedef { _KioskStatus }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   export type KioskStatus = _KioskStatus;
 }

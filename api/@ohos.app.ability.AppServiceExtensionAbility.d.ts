@@ -29,16 +29,18 @@ import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
  * @extends ExtensionAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 20
+ * @since 20 dynamic
+ * @since 22 static
  */
-export default class AppServiceExtensionAbility extends ExtensionAbility {
+declare class AppServiceExtensionAbility extends ExtensionAbility {
   /**
    * Indicates app service extension ability context.
    *
    * @type { AppServiceExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   context: AppServiceExtensionContext;
 
@@ -48,7 +50,8 @@ export default class AppServiceExtensionAbility extends ExtensionAbility {
    * @param { Want } want - Indicates the want of created app service extension.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   onCreate(want: Want): void;
 
@@ -57,7 +60,8 @@ export default class AppServiceExtensionAbility extends ExtensionAbility {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   onDestroy(): void;
 
@@ -65,13 +69,14 @@ export default class AppServiceExtensionAbility extends ExtensionAbility {
    * Called back when an app service extension is started.
    *
    * @param { Want } want - Indicates the want of app service extension to start.
-   * @param { number } startId - Indicates the number of times the app service extension has been started.
+   * @param { int } startId - Indicates the number of times the app service extension has been started.
    *                             The {@code startId} is incremented by 1 every time the app service extension is started.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
-  onRequest(want: Want, startId: number): void;
+  onRequest(want: Want, startId: int): void;
 
   /**
    * Called back when an app service extension is first connected to an ability.
@@ -80,7 +85,8 @@ export default class AppServiceExtensionAbility extends ExtensionAbility {
    * @returns { rpc.RemoteObject } A RemoteObject for communication between the client and server.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   onConnect(want: Want): rpc.RemoteObject;
 
@@ -90,7 +96,9 @@ export default class AppServiceExtensionAbility extends ExtensionAbility {
    * @param { Want } want - Indicates disconnection information about the app service extension.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   onDisconnect(want: Want): void;
 }
+export default AppServiceExtensionAbility;

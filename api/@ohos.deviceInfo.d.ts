@@ -32,7 +32,7 @@
  * @syscap SystemCapability.Startup.SystemInfo
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare namespace deviceInfo {
   /**
@@ -41,7 +41,7 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   enum DeviceTypes {
     /**
@@ -50,7 +50,7 @@ declare namespace deviceInfo {
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     TYPE_DEFAULT = 'default',
 
@@ -60,7 +60,7 @@ declare namespace deviceInfo {
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     TYPE_PHONE = 'phone',
 
@@ -70,7 +70,7 @@ declare namespace deviceInfo {
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     TYPE_TABLET = 'tablet',
 
@@ -80,7 +80,7 @@ declare namespace deviceInfo {
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     TYPE_2IN1 = '2in1',
 
@@ -90,7 +90,7 @@ declare namespace deviceInfo {
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     TYPE_TV = 'tv',
 
@@ -100,7 +100,7 @@ declare namespace deviceInfo {
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     TYPE_WEARABLE = 'wearable',
 
@@ -110,7 +110,7 @@ declare namespace deviceInfo {
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     TYPE_CAR = 'car'
   }
@@ -139,7 +139,7 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   const deviceType: string;
 
@@ -154,7 +154,7 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const manufacture: string;
 
@@ -177,7 +177,7 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */  
   const brand: string;
 
@@ -194,7 +194,7 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const marketName: string;
 
@@ -210,7 +210,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const productSeries: string;
 
@@ -233,7 +233,7 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   const productModel: string;
 
@@ -243,7 +243,7 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   const productModelAlias: string;
 
@@ -258,7 +258,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const softwareModel: string;
 
@@ -273,7 +273,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const hardwareModel: string;
 
@@ -281,7 +281,7 @@ declare namespace deviceInfo {
    * Obtains the hardware profile represented by a string.
    *
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 9
    */
   const hardwareProfile: string;
@@ -292,7 +292,7 @@ declare namespace deviceInfo {
    * @permission ohos.permission.sec.ACCESS_UDID
    * 
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 6
+   * @since 6 dynamic
    */
   const serial: string;
 
@@ -307,7 +307,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const bootloaderVersion: string;
 
@@ -323,7 +323,7 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const abiList: string;
 
@@ -338,7 +338,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const securityPatchTag: string;
 
@@ -353,7 +353,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const displayVersion: string;
 
@@ -368,7 +368,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const incrementalVersion: string;
 
@@ -387,7 +387,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const osReleaseType: string;
 
@@ -410,7 +410,7 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   const osFullName: string;
 
@@ -427,7 +427,7 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const majorVersion: number;
 
@@ -446,7 +446,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const seniorVersion: number;
 
@@ -463,7 +463,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const featureVersion: number;
 
@@ -480,7 +480,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const buildVersion: number;
 
@@ -503,7 +503,7 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   const sdkApiVersion: number;
 
@@ -518,7 +518,7 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const firstApiVersion: number;
 
@@ -533,7 +533,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const versionId: string;
 
@@ -548,7 +548,7 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const buildType: string;
 
@@ -563,7 +563,7 @@ declare namespace deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const buildUser: string;
 
@@ -578,7 +578,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const buildHost: string;
 
@@ -593,7 +593,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const buildTime: string;
 
@@ -608,7 +608,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   const buildRootHash: string;
 
@@ -618,7 +618,7 @@ declare namespace deviceInfo {
    * @permission ohos.permission.sec.ACCESS_UDID
    * 
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 7
+   * @since 7 dynamic
    */
   const udid: string;
 
@@ -629,7 +629,7 @@ declare namespace deviceInfo {
    * If ISV not specified, it will return an empty string
    *
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 10
+   * @since 10 dynamic
    */
   const distributionOSName: string;
 
@@ -640,7 +640,7 @@ declare namespace deviceInfo {
    * If ISV not specified, it will return the same value as osFullName
    * 
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 10
+   * @since 10 dynamic
    */
   const distributionOSVersion: string;
 
@@ -651,7 +651,7 @@ declare namespace deviceInfo {
    * If ISV not specified, it will return the same value as sdkApiVersion
    * 
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 10
+   * @since 10 dynamic
    */
   const distributionOSApiVersion: number;
 
@@ -661,7 +661,7 @@ declare namespace deviceInfo {
    * distributionOSApiName will return the ISV OS api name
    *
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 13
+   * @since 13 dynamic
    */
   const distributionOSApiName: string;
 
@@ -672,7 +672,7 @@ declare namespace deviceInfo {
    * If ISV not specified, it will return the same value as osReleaseType
    * 
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 10
+   * @since 10 dynamic
    */
   const distributionOSReleaseType: string;
 
@@ -692,7 +692,7 @@ declare namespace deviceInfo {
    * For apps from different developers, which are running on different devices, each of them has its own ODID.
    *
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 12
+   * @since 12 dynamic
    */
   const ODID: string;
 
@@ -701,7 +701,7 @@ declare namespace deviceInfo {
    *
    * @permission ohos.permission.ACCESS_DISK_PHY_INFO
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 15
+   * @since 15 dynamic
    */
   const diskSN: string;
 
@@ -711,7 +711,7 @@ declare namespace deviceInfo {
    * @enum { number }
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 19
+   * @since 19 dynamic
    */
   export enum PerformanceClassLevel {
     /**
@@ -719,7 +719,7 @@ declare namespace deviceInfo {
      * 
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 19
+     * @since 19 dynamic
      */
     CLASS_LEVEL_HIGH,
     /**
@@ -727,7 +727,7 @@ declare namespace deviceInfo {
      * 
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 19
+     * @since 19 dynamic
      */
     CLASS_LEVEL_MEDIUM,
     /**
@@ -735,7 +735,7 @@ declare namespace deviceInfo {
      * 
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 19
+     * @since 19 dynamic
      */
     CLASS_LEVEL_LOW
   }
@@ -745,7 +745,7 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 19
+   * @since 19 dynamic
    */
   const performanceClass: PerformanceClassLevel;
 
@@ -754,7 +754,7 @@ declare namespace deviceInfo {
    * 
    * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 21
+   * @since 21 dynamic
    */
     const chipType: string;
 
@@ -764,7 +764,7 @@ declare namespace deviceInfo {
      * 
      * @type { number }
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 21
+     * @since 21 dynamic
      */
     const bootCount: number;
 }

@@ -18,7 +18,9 @@
  * @kit CameraKit
  */
 
+/*** if arkts dynamic&static */
 import camera from '@ohos.multimedia.camera';
 import cameraPicker from '@ohos.multimedia.cameraPicker';
 
 export { camera, cameraPicker };
+/*** endif */

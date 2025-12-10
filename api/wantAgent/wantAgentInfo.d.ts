@@ -18,12 +18,14 @@
  * @kit AbilityKit
  */
 
+import type abilityWantAgent from '../@ohos.app.ability.wantAgent';
 import Want from '../@ohos.app.ability.Want';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import wantAgent from '../@ohos.wantAgent';
 /*** endif */
-import type abilityWantAgent from '../@ohos.app.ability.wantAgent';
-
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
 
 /**
  * Provides the information required for triggering a WantAgent.
@@ -38,8 +40,8 @@ import type abilityWantAgent from '../@ohos.app.ability.wantAgent';
  * @typedef WantAgentInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 22 static
  */
 export interface WantAgentInfo {
   /**
@@ -55,8 +57,8 @@ export interface WantAgentInfo {
    * @type { Array<Want> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   wants: Array<Want>;
 
@@ -75,7 +77,7 @@ export interface WantAgentInfo {
    * @type { ?wantAgent.OperationType }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 11
    * @useinstead WantAgentInfo#actionType
    */
@@ -94,8 +96,8 @@ export interface WantAgentInfo {
    * @type { ?abilityWantAgent.OperationType }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   actionType?: abilityWantAgent.OperationType;
 
@@ -109,12 +111,13 @@ export interface WantAgentInfo {
   /**
    * Request code defined by the user.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
-  requestCode: number;
+  requestCode: int;
 
   /**
    * An array of flags for using the WantAgent.
@@ -131,7 +134,7 @@ export interface WantAgentInfo {
    * @type { ?Array<wantAgent.WantAgentFlags> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 11
    * @useinstead WantAgentInfo#actionFlags
    */
@@ -150,8 +153,8 @@ export interface WantAgentInfo {
    * @type { ?Array<abilityWantAgent.WantAgentFlags> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   actionFlags?: Array<abilityWantAgent.WantAgentFlags>;
 
@@ -170,7 +173,7 @@ export interface WantAgentInfo {
    * @type { ?object }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   extraInfo?: { [key: string]: any };
 
@@ -178,12 +181,11 @@ export interface WantAgentInfo {
    * Extra information about how the Want starts an ability.
    * If there is no extra information to set, this constant can be left empty.
    *
-   * @type { ?Record<string, Object> }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
-  extraInfo?: Record<string, Object>;
+  extraInfo?: Record<string, RecordData>;
 
   /**
    * Extra information about how the Want starts an ability.
@@ -202,10 +204,31 @@ export interface WantAgentInfo {
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   extraInfos?: Record<string, Object>;
+
+  /**
+   * Extra information about how the Want starts an ability.
+   * If there is no extra information to set, this constant can be left empty.
+   * The ability of this property is same as extraInfo. If both are set, this property will be used.
+   *
+   * @type { ?Record<string, RecordData> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 22 static
+   */
+  extraInfos?: Record<string, RecordData>;
+
+  /**
+   * Indicates the target user upon whom the WantAgent takes effect.
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  userId?: int;
 }
 
 /**
@@ -215,7 +238,8 @@ export interface WantAgentInfo {
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 20
+ * @since 20 dynamic
+ * @since 22 static
  */
 export interface LocalWantAgentInfo {
   /**
@@ -225,7 +249,8 @@ export interface LocalWantAgentInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   wants: Array<Want>;
 
@@ -236,18 +261,20 @@ export interface LocalWantAgentInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   operationType?: abilityWantAgent.OperationType;
 
   /**
    * Request code defined by the user.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
-  requestCode: number;
+  requestCode: int;
 }

@@ -17,10 +17,7 @@
  * @file
  * @kit ArkUI
  */
-/*** if arkts 1.2 */
-import { CommonMethod} from './common';
 
-/*** endif */
 /**
  * Provides an Effect Component, which is invisible, but setting properties on this component defines an effect template
  * that child components can apply by setting useEffect(true).
@@ -28,8 +25,7 @@ import { CommonMethod} from './common';
  * @interface EffectComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
  */
 interface EffectComponentInterface {
   /**
@@ -38,8 +34,7 @@ interface EffectComponentInterface {
    * @returns { EffectComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
    */
   (): EffectComponentAttribute;
   
@@ -50,7 +45,7 @@ interface EffectComponentInterface {
    * @returns { EffectComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   (options?: EffectComponentOptions): EffectComponentAttribute;
 }
@@ -61,7 +56,7 @@ interface EffectComponentInterface {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 20 dynamic
  */
 declare enum EffectLayer {
   /**
@@ -69,7 +64,7 @@ declare enum EffectLayer {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   NONE = 0,
 
@@ -78,7 +73,7 @@ declare enum EffectLayer {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   CHARGE_MOTION = 1,
 
@@ -87,7 +82,7 @@ declare enum EffectLayer {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   CHARGE_TEXT = 2
 }
@@ -98,7 +93,7 @@ declare enum EffectLayer {
  * @interface EffectComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 20 dynamic
  */
 declare interface EffectComponentOptions {
   /** 
@@ -107,7 +102,7 @@ declare interface EffectComponentOptions {
    * @type { ?EffectLayer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   effectLayer?: EffectLayer;
 }
@@ -118,8 +113,7 @@ declare interface EffectComponentOptions {
  * @extends CommonMethod<EffectComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
  */
 declare class EffectComponentAttribute extends CommonMethod<EffectComponentAttribute> {
   /**
@@ -130,7 +124,7 @@ declare class EffectComponentAttribute extends CommonMethod<EffectComponentAttri
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 19
+   * @since 19 dynamic
    */
   alwaysSnapshot(enable: boolean): EffectComponentAttribute;
 }
@@ -140,7 +134,7 @@ declare class EffectComponentAttribute extends CommonMethod<EffectComponentAttri
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 10
+ * @since 10 dynamic
  */
 declare const EffectComponent: EffectComponentInterface;
 
@@ -149,6 +143,6 @@ declare const EffectComponent: EffectComponentInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 10
+ * @since 10 dynamic
  */
 declare const EffectComponentInstance: EffectComponentAttribute;

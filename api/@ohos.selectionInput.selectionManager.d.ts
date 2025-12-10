@@ -27,7 +27,7 @@ import type { PanelInfo } from './@ohos.selectionInput.SelectionPanel';
  * @namespace selectionManager
  * @syscap SystemCapability.SelectionInput.Selection
  * @systemapi
- * @since 20
+ * @since 20 dynamic
  */
 
 declare namespace selectionManager {
@@ -39,7 +39,7 @@ declare namespace selectionManager {
    * @throws { BusinessError } 33600003 Invalid operation. The selection app is not valid.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   function on(type: 'selectionCompleted', callback: Callback<SelectionInfo>): void;
 
@@ -50,9 +50,25 @@ declare namespace selectionManager {
    * completion event.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   function off(type: 'selectionCompleted', callback?: Callback<SelectionInfo>): void;
+
+  /**
+   * Obtains the selected content.
+   * @returns { Promise<string> } Promise used to return the selected content.
+   * @throws { BusinessError } 202 Permission denied. Called by non-system application.
+   * @throws { BusinessError } 33600001 Selection service exception.
+   * @throws { BusinessError } 33600004 The interface is called too frequently.
+   * @throws { BusinessError } 33600005 The interface is called at the wrong time.
+   * @throws { BusinessError } 33600006 The current application is prohibited from accessing content.
+   * @throws { BusinessError } 33600007 The length of selected content is out of range.
+   * @throws { BusinessError } 33600008 Getting the selected content times out.
+   * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi
+   * @since 22 dynamic
+   */
+  function getSelectionContent(): Promise<string>;
 
   /**
    * Creates a word selection panel.
@@ -63,7 +79,7 @@ declare namespace selectionManager {
    * @throws { BusinessError } 33600003 Invalid operation. The selection app is not valid.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   function createPanel(ctx: Context, info: PanelInfo): Promise<Panel>;
 
@@ -74,7 +90,7 @@ declare namespace selectionManager {
    * @throws { BusinessError } 33600001 Selection service exception.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   function destroyPanel(panel: Panel): Promise<void>;
 
@@ -83,25 +99,16 @@ declare namespace selectionManager {
    * @typedef SelectionInfo
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   interface SelectionInfo {
-    /**
-     * Selected text.
-     * @type { string }
-     * @syscap SystemCapability.SelectionInput.Selection
-     * @systemapi
-     * @since 20
-     */
-    text: string;
-
     /**
      * Operation for selecting words.
      * @type { SelectionType }
      * @default MOUSE_MOVE
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     selectionType: SelectionType;
 
@@ -110,7 +117,7 @@ declare namespace selectionManager {
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     startDisplayX: number;
 
@@ -119,7 +126,7 @@ declare namespace selectionManager {
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     startDisplayY: number;
 
@@ -128,7 +135,7 @@ declare namespace selectionManager {
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     endDisplayX: number;
 
@@ -137,7 +144,7 @@ declare namespace selectionManager {
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     endDisplayY: number;
 
@@ -146,7 +153,7 @@ declare namespace selectionManager {
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     startWindowX: number;
 
@@ -155,7 +162,7 @@ declare namespace selectionManager {
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     startWindowY: number;
 
@@ -164,7 +171,7 @@ declare namespace selectionManager {
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     endWindowX: number;
 
@@ -173,7 +180,7 @@ declare namespace selectionManager {
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     endWindowY: number;
 
@@ -182,7 +189,7 @@ declare namespace selectionManager {
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     displayID: number;
 
@@ -191,7 +198,7 @@ declare namespace selectionManager {
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     windowID: number;
 
@@ -200,7 +207,7 @@ declare namespace selectionManager {
      * @type { string }
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     bundleName: string;
   }
@@ -210,7 +217,7 @@ declare namespace selectionManager {
    * @typedef Panel
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   interface Panel {
     /**
@@ -221,7 +228,7 @@ declare namespace selectionManager {
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     setUiContent(path: string): Promise<void>;
 
@@ -232,7 +239,7 @@ declare namespace selectionManager {
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     show(): Promise<void>;
 
@@ -243,7 +250,7 @@ declare namespace selectionManager {
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     hide(): Promise<void>;
 
@@ -254,7 +261,7 @@ declare namespace selectionManager {
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     startMoving(): Promise<void>;
 
@@ -267,7 +274,7 @@ declare namespace selectionManager {
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     moveTo(x: number, y: number): Promise<void>;
 
@@ -278,7 +285,7 @@ declare namespace selectionManager {
      * panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     on(type: 'destroyed', callback: Callback<void>): void;
 
@@ -289,7 +296,7 @@ declare namespace selectionManager {
      * selection panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     off(type: 'destroyed', callback?: Callback<void>): void;
 
@@ -300,7 +307,7 @@ declare namespace selectionManager {
      * panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     on(type: 'hidden', callback: Callback<void>): void;
 
@@ -311,7 +318,7 @@ declare namespace selectionManager {
      * panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     off(type: 'hidden', callback?: Callback<void>): void;
   }
@@ -321,14 +328,14 @@ declare namespace selectionManager {
    * @enum { number }
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   enum SelectionType {
     /**
      * Move the cursor to select words.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     MOUSE_MOVE = 1,
 
@@ -336,7 +343,7 @@ declare namespace selectionManager {
      * Double-click to select words.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     DOUBLE_CLICK = 2,
 
@@ -344,7 +351,7 @@ declare namespace selectionManager {
      * Triple-click to select words.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     TRIPLE_CLICK = 3
   }

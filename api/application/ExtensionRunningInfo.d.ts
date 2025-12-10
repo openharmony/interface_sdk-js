@@ -27,7 +27,8 @@ import bundle from '../@ohos.bundle.bundleManager';
  * @typedef ExtensionRunningInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 9
+ * @since 9 dynamic
+ * @since 22 static
  */
 export interface ExtensionRunningInfo {
   /**
@@ -35,52 +36,58 @@ export interface ExtensionRunningInfo {
    * @default Indicates the extension of the extension info
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   extension: ElementName;
 
   /**
-   * @type { number }
+   * @type { int }
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
-  pid: number;
+  pid: int;
 
   /**
-   * @type { number }
+   * @type { int }
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
-  uid: number;
+  uid: int;
 
   /**
    * @type { string }
    * @default the name of the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   processName: string;
 
   /**
-   * @type { number }
+   * @type { long }
    * @default ability start time
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
-  startTime: number;
+  startTime: long;
 
   /**
    * @type { Array<String> }
    * @default All package names under the current process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   clientPackage: Array<String>;
 
@@ -89,7 +96,8 @@ export interface ExtensionRunningInfo {
    * @default Enumerates types of the extension info
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   type: bundle.ExtensionAbilityType;
 }

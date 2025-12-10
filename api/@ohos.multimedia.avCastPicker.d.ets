@@ -31,7 +31,7 @@ import { AVCastPickerColorMode } from './@ohos.multimedia.avCastPickerParam';
  * A picker view to show availale streaming device list.
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 @Component
 declare struct AVCastPicker {
@@ -48,7 +48,7 @@ declare struct AVCastPicker {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   @Prop
   normalColor?: Color | number | string;
@@ -66,7 +66,7 @@ declare struct AVCastPicker {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   @Prop
   activeColor?: Color | number | string;
@@ -76,7 +76,7 @@ declare struct AVCastPicker {
    * @type { ? AVCastPickerStyle }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   @Prop
   pickerStyle?: AVCastPickerStyle;
@@ -86,7 +86,7 @@ declare struct AVCastPicker {
    * @type { ? AVCastPickerColorMode }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   @Prop
   colorMode?: AVCastPickerColorMode;
@@ -97,7 +97,7 @@ declare struct AVCastPicker {
    * @type { ? string }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   @Prop
   sessionType?: string;
@@ -108,7 +108,7 @@ declare struct AVCastPicker {
    * @type { ? CustomBuilder }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   @Prop
   customPicker?: CustomBuilder;
@@ -126,7 +126,7 @@ declare struct AVCastPicker {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   onStateChange?: (state: AVCastPickerState) => void;
 }

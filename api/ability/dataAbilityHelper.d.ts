@@ -18,12 +18,14 @@
  * @kit AbilityKit
  */
 
+/*** if arkts dynamic */
 import { AsyncCallback } from '../@ohos.base';
 import { ResultSet } from '../data/rdb/resultSet';
 import { DataAbilityOperation } from './dataAbilityOperation';
 import { DataAbilityResult } from './dataAbilityResult';
 import dataAbility from '../@ohos.data.dataAbility';
 import rdb from '../@ohos.data.rdb';
+/*** endif */
 
 /**
  * DataAbilityHelper
@@ -31,7 +33,7 @@ import rdb from '../@ohos.data.rdb';
  * @interface DataAbilityHelper
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @FAModelOnly
- * @since 7
+ * @since 7 dynamiconly
  */
 export interface DataAbilityHelper {
   /**
@@ -46,7 +48,7 @@ export interface DataAbilityHelper {
    * @param { AsyncCallback<number> } callback - Indicates the callback when openfile success
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   openFile(uri: string, mode: string, callback: AsyncCallback<number>): void;
 
@@ -62,7 +64,7 @@ export interface DataAbilityHelper {
    * @returns { Promise<number> } Returns the file descriptor.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   openFile(uri: string, mode: string): Promise<number>;
 
@@ -74,7 +76,7 @@ export interface DataAbilityHelper {
    * @param { AsyncCallback<void> } callback - Indicates the callback when dataChange.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
 
@@ -86,7 +88,7 @@ export interface DataAbilityHelper {
    * @param { AsyncCallback<void> } [callback] - Indicates the registered callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
 
@@ -98,7 +100,7 @@ export interface DataAbilityHelper {
    *                                             returning the media resource type that matches the uri pointing data.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   getType(uri: string, callback: AsyncCallback<string>): void;
 
@@ -109,7 +111,7 @@ export interface DataAbilityHelper {
    * @returns { Promise<string> } Returns the MIME type that matches the data specified by uri.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   getType(uri: string): Promise<string>;
 
@@ -122,7 +124,7 @@ export interface DataAbilityHelper {
    *                                                    types, returning an array of matching media resource types.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   getFileTypes(uri: string, mimeTypeFilter: string, callback: AsyncCallback<Array<string>>): void;
 
@@ -134,7 +136,7 @@ export interface DataAbilityHelper {
    * @returns { Promise<Array<string>> } Returns the matched MIME types Array.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   getFileTypes(uri: string, mimeTypeFilter: string): Promise<Array<string>>;
 
@@ -147,7 +149,7 @@ export interface DataAbilityHelper {
    *                                             Otherwise return null.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   normalizeUri(uri: string, callback: AsyncCallback<string>): void;
 
@@ -158,7 +160,7 @@ export interface DataAbilityHelper {
    * @returns { Promise<string> } Returns normalized uri object if Data ability supports URI normalization or null.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   normalizeUri(uri: string): Promise<string>;
 
@@ -170,7 +172,7 @@ export interface DataAbilityHelper {
    *                                             denormalization succeeds,the denormalization uri object is returned.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   denormalizeUri(uri: string, callback: AsyncCallback<string>): void;
 
@@ -181,7 +183,7 @@ export interface DataAbilityHelper {
    * @returns { Promise<string> } Returns the denormalized uri object if the denormalization is successful.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   denormalizeUri(uri: string): Promise<string>;
 
@@ -192,7 +194,7 @@ export interface DataAbilityHelper {
    * @param { AsyncCallback<void> } callback - callback method.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   notifyChange(uri: string, callback: AsyncCallback<void>): void;
 
@@ -203,7 +205,7 @@ export interface DataAbilityHelper {
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   notifyChange(uri: string): Promise<void>;
 
@@ -217,7 +219,7 @@ export interface DataAbilityHelper {
    *                                             of the inserted data record.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   insert(uri: string, valuesBucket: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
 
@@ -230,7 +232,7 @@ export interface DataAbilityHelper {
    * @returns { Promise<number> } Returns the index of the inserted data record.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   insert(uri: string, valuesBucket: rdb.ValuesBucket): Promise<number>;
 
@@ -243,7 +245,7 @@ export interface DataAbilityHelper {
    *                                             of inserted data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   batchInsert(uri: string, valuesBuckets: Array<rdb.ValuesBucket>, callback: AsyncCallback<number>): void;
 
@@ -255,7 +257,7 @@ export interface DataAbilityHelper {
    * @returns { Promise<number> } Returns the number of data records inserted.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   batchInsert(uri: string, valuesBuckets: Array<rdb.ValuesBucket>): Promise<number>;
 
@@ -269,7 +271,7 @@ export interface DataAbilityHelper {
    *                                             deleted data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   delete(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
 
@@ -282,7 +284,7 @@ export interface DataAbilityHelper {
    * @returns { Promise<number> } Returns the number of data records deleted.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   delete(uri: string, predicates?: dataAbility.DataAbilityPredicates): Promise<number>;
 
@@ -294,7 +296,7 @@ export interface DataAbilityHelper {
    *                                             the number of deleted data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   delete(uri: string, callback: AsyncCallback<number>): void;
 
@@ -309,7 +311,7 @@ export interface DataAbilityHelper {
    *                                             updated data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   update(
     uri: string,
@@ -328,7 +330,7 @@ export interface DataAbilityHelper {
    * @returns { Promise<number> } Returns the number of data records updated.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   update(uri: string, valuesBucket: rdb.ValuesBucket, predicates?: dataAbility.DataAbilityPredicates): Promise<number>;
 
@@ -341,7 +343,7 @@ export interface DataAbilityHelper {
    *                                             updated data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   update(uri: string, valuesBucket: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
 
@@ -356,7 +358,7 @@ export interface DataAbilityHelper {
    *                                                number of queried data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   query(
     uri: string,
@@ -373,7 +375,7 @@ export interface DataAbilityHelper {
    *                                                number of queried data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   query(uri: string, callback: AsyncCallback<ResultSet>): void;
 
@@ -386,7 +388,7 @@ export interface DataAbilityHelper {
    *                                                number of queried data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   query(uri: string, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
 
@@ -400,7 +402,7 @@ export interface DataAbilityHelper {
    *                                                number of queried data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   query(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<ResultSet>): void;
 
@@ -414,7 +416,7 @@ export interface DataAbilityHelper {
    * @returns { Promise<ResultSet> } Returns the query result {@link ResultSet}.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   query(uri: string, columns?: Array<string>, predicates?: dataAbility.DataAbilityPredicates): Promise<ResultSet>;
 
@@ -429,7 +431,7 @@ export interface DataAbilityHelper {
    *                                             result of the operation.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   call(uri: string, method: string, arg: string, extras: PacMap, callback: AsyncCallback<PacMap>): void;
 
@@ -443,7 +445,7 @@ export interface DataAbilityHelper {
    * @returns { Promise<PacMap> } Returns the query result {@link PacMap}.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   call(uri: string, method: string, arg: string, extras: PacMap): Promise<PacMap>;
 
@@ -458,7 +460,7 @@ export interface DataAbilityHelper {
    *                                                               DataAbilityResult array.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   executeBatch(
     uri: string,
@@ -476,7 +478,7 @@ export interface DataAbilityHelper {
    *                                                in array {@link DataAbilityResult}.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   executeBatch(uri: string, operations: Array<DataAbilityOperation>): Promise<Array<DataAbilityResult>>;
 }
@@ -494,7 +496,7 @@ export interface DataAbilityHelper {
  *
  * @typedef PacMap
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @since 11
+ * @since 11 dynamic
  */
 export interface PacMap {
   /**
@@ -518,7 +520,20 @@ export interface PacMap {
    *
    * @type { number | string | boolean | Array<string | number | boolean> | null }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @since 11
+   * @since 11 dynamic
    */
   [key: string]: number | string | boolean | Array<string | number | boolean> | null;
 }
+
+/**
+ * Indicates the parameter of the PacMap type.
+ * If a custom Sequenceable object is put in the PacMap object and will be transferred across processes,
+ * you must call BasePacMap.setClassLoader(ClassLoader) to set a class loader for the custom object.
+ * If the PacMap object is to be transferred to a non-OHOS process,
+ * values of primitive types are supported, but not custom Sequenceable objects.
+ *
+ * @typedef { Record<string, int | double | string | boolean | Array<string | int | double | boolean> | null> }
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @since 22 static
+ */
+export type PacMap = Record<string, int | double | string | boolean | Array<string | int | double | boolean> | null>;

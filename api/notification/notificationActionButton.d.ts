@@ -19,11 +19,12 @@
  */
 
 import { NotificationUserInput } from './notificationUserInput';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import { WantAgent } from '../@ohos.wantAgent';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { WantAgent } from '../@ohos.app.ability.wantAgent';
+import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
@@ -31,8 +32,8 @@ import { WantAgent } from '../@ohos.app.ability.wantAgent';
  *
  * @typedef NotificationActionButton
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 22 static
  */
 export interface NotificationActionButton {
   /**
@@ -40,8 +41,8 @@ export interface NotificationActionButton {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
   title: string;
 
@@ -50,8 +51,8 @@ export interface NotificationActionButton {
    *
    * @type { WantAgent }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
   wantAgent: WantAgent;
 
@@ -60,27 +61,26 @@ export interface NotificationActionButton {
    *
    * @type { ?object }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since 7 dynamic
    */
   extras?: { [key: string]: any };
 
   /**
    * Extra information of the button.
    *
-   * @type { ?object }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
-  extras?: Record<string, Object>;
+  extras?: Record<string, RecordData>;
 
   /**
    * User input object. ID entered by a subscriber.
    *
    * @type { ?NotificationUserInput }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   userInput?: NotificationUserInput;
 }

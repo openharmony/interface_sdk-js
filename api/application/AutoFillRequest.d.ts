@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,10 +18,20 @@
  * @kit AbilityKit
  */
 
+/*** if arkts dynamic */
 import type { AutoFillType } from './AutoFillType';
 import type CustomData from './CustomData';
 import type AutoFillPopupConfig from './AutoFillPopupConfig';
 import type ViewData from './ViewData';
+import type { AutoFillTriggerType } from './AutoFillTriggerType';
+/*** endif */
+/*** if arkts static */
+import { AutoFillType } from './AutoFillType';
+import CustomData from './CustomData';
+import AutoFillPopupConfig from './AutoFillPopupConfig';
+import ViewData from './ViewData';
+import { AutoFillTriggerType } from './AutoFillTriggerType';
+/*** endif */
 
 /**
  * Fill request for automatic filling.
@@ -30,7 +40,8 @@ import type ViewData from './ViewData';
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
+ * @since 22 static
  */
 export interface FillRequest {
   /**
@@ -40,7 +51,8 @@ export interface FillRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   type: AutoFillType;
 
@@ -51,7 +63,8 @@ export interface FillRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   viewData: ViewData;
 
@@ -62,7 +75,8 @@ export interface FillRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 13
+   * @since 13 dynamic
+   * @since 22 static
    */
   customData: CustomData;
 
@@ -73,9 +87,21 @@ export interface FillRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   isPopup: boolean;
+
+  /**
+   * The trigger type of autofill service.
+   *
+   * @type { ?AutoFillTriggerType }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  triggerType?: AutoFillTriggerType;
 }
 
 /**
@@ -85,7 +111,8 @@ export interface FillRequest {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
+ * @since 22 static
  */
 export interface SaveRequest {
   /**
@@ -95,7 +122,8 @@ export interface SaveRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   viewData: ViewData;
 }
@@ -107,7 +135,8 @@ export interface SaveRequest {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 12
+ * @since 12 dynamic
+ * @since 22 static
  */
 export interface UpdateRequest {
   /**
@@ -117,7 +146,8 @@ export interface UpdateRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   viewData: ViewData;
 }
@@ -129,7 +159,8 @@ export interface UpdateRequest {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
+ * @since 22 static
  */
 export interface FillResponse {
   /**
@@ -139,7 +170,8 @@ export interface FillResponse {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   viewData: ViewData;
 }
@@ -151,7 +183,8 @@ export interface FillResponse {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
+ * @since 22 static
  */
 export interface FillRequestCallback {
   /**
@@ -164,7 +197,8 @@ export interface FillRequestCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   onSuccess(response: FillResponse): void;
 
@@ -176,7 +210,8 @@ export interface FillRequestCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   onFailure(): void;
 
@@ -201,7 +236,8 @@ export interface FillRequestCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   onCancel(fillContent?: string): void;
 
@@ -215,7 +251,8 @@ export interface FillRequestCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
    setAutoFillPopupConfig(autoFillPopupConfig: AutoFillPopupConfig): void;
 }
@@ -227,7 +264,8 @@ export interface FillRequestCallback {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
+ * @since 22 static
  */
 export interface SaveRequestCallback {
   /**
@@ -238,7 +276,8 @@ export interface SaveRequestCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   onSuccess(): void;
 
@@ -250,7 +289,8 @@ export interface SaveRequestCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   onFailure(): void;
 }

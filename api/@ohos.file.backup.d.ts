@@ -26,7 +26,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @namespace backup
  * @syscap SystemCapability.FileManagement.StorageService.Backup
  * @systemapi
- * @since 10
+ * @since 10 dynamic
  */
 declare namespace backup {
   /**
@@ -35,7 +35,7 @@ declare namespace backup {
    * @interface FileMeta
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   interface FileMeta {
     /**
@@ -44,7 +44,7 @@ declare namespace backup {
      * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     bundleName: string;
 
@@ -54,7 +54,7 @@ declare namespace backup {
      * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     uri: string;
   }
@@ -65,7 +65,7 @@ declare namespace backup {
    * @interface FileData
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   interface FileData {
     /**
@@ -74,7 +74,7 @@ declare namespace backup {
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     fd: number;
   }
@@ -85,7 +85,7 @@ declare namespace backup {
    * @interface IncrementalBackupTime
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   interface IncrementalBackupTime {
     /**
@@ -94,7 +94,7 @@ declare namespace backup {
      * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     bundleName: string;
 
@@ -104,7 +104,7 @@ declare namespace backup {
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     lastIncrementalTime: number;
   }
@@ -115,7 +115,7 @@ declare namespace backup {
    * @interface FileManifestData
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   interface FileManifestData {
     /**
@@ -124,7 +124,7 @@ declare namespace backup {
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     manifestFd: number;
   }
@@ -135,7 +135,7 @@ declare namespace backup {
    * @interface BackupParams
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   interface BackupParams {
     /**
@@ -144,7 +144,7 @@ declare namespace backup {
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     parameters?: string;
   }
@@ -155,7 +155,7 @@ declare namespace backup {
    * @interface BackupPriority
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   interface BackupPriority {
     /**
@@ -164,7 +164,7 @@ declare namespace backup {
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     priority?: number;
   }
@@ -176,7 +176,7 @@ declare namespace backup {
    * @interface IncrementalBackupData
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   interface IncrementalBackupData extends IncrementalBackupTime, FileManifestData, BackupParams, BackupPriority {}
 
@@ -198,7 +198,7 @@ declare namespace backup {
    * @interface File
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   interface File extends FileMeta, FileData, FileManifestData {}
 
@@ -211,7 +211,7 @@ declare namespace backup {
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
    */
   function getBackupVersion(): string;
 
@@ -228,7 +228,7 @@ declare namespace backup {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function getLocalCapabilities(): Promise<FileData>;
 
@@ -245,7 +245,7 @@ declare namespace backup {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function getLocalCapabilities(callback: AsyncCallback<FileData>): void;
 
@@ -267,7 +267,7 @@ declare namespace backup {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   function getLocalCapabilities(dataList: Array<IncrementalBackupTime>): Promise<FileData>;
 
@@ -283,7 +283,7 @@ declare namespace backup {
     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
     * @syscap SystemCapability.FileManagement.StorageService.Backup
     * @systemapi
-    * @since 12
+    * @since 12 dynamic
     */
   function getBackupInfo(bundleToBackup: string): string;
 
@@ -300,7 +300,7 @@ declare namespace backup {
    * <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   function updateTimer(bundleName: string, timeout: number): boolean;
 
@@ -317,7 +317,7 @@ declare namespace backup {
    * <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
   */
   function updateSendRate(bundleName: string, sendRate: number): boolean;
 
@@ -328,7 +328,7 @@ declare namespace backup {
    * @param {string} reportInfo -the scanned backup datasize infos.
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
    */
    type OnBackupSizeReport = (reportInfo: string) => void;
 
@@ -339,7 +339,7 @@ declare namespace backup {
    * @interface GeneralCallbacks
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   interface GeneralCallbacks {
     /**
@@ -356,7 +356,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     onFileReady: AsyncCallback<File>;
 
@@ -392,7 +392,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     onBundleBegin: AsyncCallback<string, void | string>;
 
@@ -428,7 +428,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     onBundleEnd: AsyncCallback<string, void | string>;
 
@@ -444,7 +444,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     onAllBundlesEnd: AsyncCallback<undefined>;
 
@@ -454,7 +454,7 @@ declare namespace backup {
      * @type { Callback<undefined> }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     onBackupServiceDied: Callback<undefined>;
 
@@ -475,7 +475,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     onResultReport(bundleName: string, result: string);
 
@@ -498,7 +498,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900025 - No space left on device
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     onProcess(bundleName: string, process: string);
 
@@ -509,7 +509,7 @@ declare namespace backup {
      * @type {OnBackupSizeReport}.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     onBackupSizeReport?: OnBackupSizeReport;
   }
@@ -519,7 +519,7 @@ declare namespace backup {
    *
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   class SessionBackup {
     /**
@@ -529,7 +529,7 @@ declare namespace backup {
      * @param { GeneralCallbacks } callbacks Callbacks to be registered for the backup.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     constructor(callbacks: GeneralCallbacks);
 
@@ -547,7 +547,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Internal error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     getLocalCapabilities(): Promise<FileData>;
 
@@ -568,7 +568,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Internal error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     getBackupDataSize(isPreciseScan: boolean, dataList: Array<IncrementalBackupTime>): Promise<void>;
 
@@ -605,7 +605,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     appendBundles(bundlesToBackup: string[], infos?: string[]): Promise<void>;
 
@@ -624,7 +624,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     appendBundles(bundlesToBackup: string[], callback: AsyncCallback<void>): void;
 
@@ -643,7 +643,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     release(): Promise<void>;
 
@@ -659,7 +659,7 @@ declare namespace backup {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     cancel(bundleName: string): number;
 
@@ -674,7 +674,8 @@ declare namespace backup {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     cleanBundleTempDir(bundleName: string): Promise<boolean>;
 
@@ -689,7 +690,8 @@ declare namespace backup {
      *     application which is not a system application uses system API.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     getCompatibilityInfo(bundleName: string, extInfo: string): Promise<string>;
   }
@@ -699,7 +701,7 @@ declare namespace backup {
    *
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   class SessionRestore {
     /**
@@ -709,7 +711,7 @@ declare namespace backup {
      * @param { GeneralCallbacks } callbacks Callbacks to be registered for the restore.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     constructor(callbacks: GeneralCallbacks);
 
@@ -727,7 +729,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Internal error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     getLocalCapabilities(): Promise<FileData>;
 
@@ -768,7 +770,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     appendBundles(remoteCapabilitiesFd: number, bundlesToBackup: string[], infos?: string[]): Promise<void>;
 
@@ -789,7 +791,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     appendBundles(remoteCapabilitiesFd: number, bundlesToBackup: string[], callback: AsyncCallback<void>): void;
 
@@ -807,7 +809,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     publishFile(fileMeta: FileMeta): Promise<void>;
 
@@ -825,7 +827,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     publishFile(fileMeta: FileMeta, callback: AsyncCallback<void>): void;
 
@@ -844,7 +846,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     getFileHandle(fileMeta: FileMeta): Promise<void>;
 
@@ -863,7 +865,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     getFileHandle(fileMeta: FileMeta, callback: AsyncCallback<void>): void;
 
@@ -882,7 +884,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     release(): Promise<void>;
 
@@ -898,7 +900,7 @@ declare namespace backup {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     cancel(bundleName: string): number;
 
@@ -913,7 +915,8 @@ declare namespace backup {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     cleanBundleTempDir(bundleName: string): Promise<boolean>;
 
@@ -928,7 +931,8 @@ declare namespace backup {
      *     application which is not a system application uses system API.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     getCompatibilityInfo(bundleName: string, extInfo: string): Promise<string>;
   }
@@ -938,7 +942,7 @@ declare namespace backup {
    *
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   class IncrementalBackupSession {
     /**
@@ -952,7 +956,7 @@ declare namespace backup {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     constructor(callbacks: GeneralCallbacks);
 
@@ -970,7 +974,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Internal error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     getLocalCapabilities(): Promise<FileData>;
 
@@ -991,7 +995,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Internal error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     getBackupDataSize(isPreciseScan: boolean, dataList: Array<IncrementalBackupTime>): Promise<void>;
 
@@ -1013,7 +1017,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     appendBundles(bundlesToBackup: Array<IncrementalBackupData>): Promise<void>;
 
@@ -1036,7 +1040,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     appendBundles(bundlesToAppend: Array<IncrementalBackupData>, infos: string[]): Promise<void>;
 
@@ -1055,7 +1059,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     release(): Promise<void>;
 
@@ -1071,7 +1075,7 @@ declare namespace backup {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     cancel(bundleName: string): number;
 
@@ -1086,7 +1090,8 @@ declare namespace backup {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     cleanBundleTempDir(bundleName: string): Promise<boolean>;
 
@@ -1101,7 +1106,8 @@ declare namespace backup {
      *     application which is not a system application uses system API.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     getCompatibilityInfo(bundleName: string, extInfo: string): Promise<string>;
   }

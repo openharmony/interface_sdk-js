@@ -32,8 +32,8 @@
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 export interface CommonEventSubscribeInfo {
   /**
@@ -50,8 +50,8 @@ export interface CommonEventSubscribeInfo {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   events: Array<string>;
 
@@ -68,8 +68,8 @@ export interface CommonEventSubscribeInfo {
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   publisherPermission?: string;
 
@@ -86,8 +86,8 @@ export interface CommonEventSubscribeInfo {
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   publisherDeviceId?: string;
 
@@ -103,13 +103,13 @@ export interface CommonEventSubscribeInfo {
    * User ID. If this parameter is not specified, the default value, which is the ID of the current user, will be used.
    * The value must be an existing user ID in the system. Use getOsAccountLocalId to obtain the system account ID and use it as the user ID of the subscriber.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
-  userId?: number;
+  userId?: int;
 
   /**
    * Subscriber priority. The value ranges from –100 to +1000. If the value exceeds the upper or lower limit, the upper or lower limit is used.
@@ -121,13 +121,13 @@ export interface CommonEventSubscribeInfo {
   /**
    * Subscriber priority. The value ranges from –100 to +1000. If the value exceeds the upper or lower limit, the upper or lower limit is used.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
-  priority?: number;
+  priority?: int;
 
   /**
    * Bundle name of the publisher to subscribe to.
@@ -135,8 +135,8 @@ export interface CommonEventSubscribeInfo {
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   publisherBundleName?: string;
 }

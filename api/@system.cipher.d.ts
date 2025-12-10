@@ -23,8 +23,9 @@
  *
  * @typedef CipherResponse
  * @syscap SystemCapability.Security.Cipher
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 11
+ * @useinstead ohos.security.cryptoFramework.Cipher
  */
 export interface CipherResponse {
   /**
@@ -32,8 +33,9 @@ export interface CipherResponse {
    *
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   text: string;
 }
@@ -43,8 +45,9 @@ export interface CipherResponse {
  *
  * @typedef CipherRsaOptions
  * @syscap SystemCapability.Security.Cipher
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 11
+ * @useinstead ohos.security.cryptoFramework.Cipher
  */
 export interface CipherRsaOptions {
   /**
@@ -55,8 +58,9 @@ export interface CipherRsaOptions {
    *
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   action: string;
 
@@ -70,8 +74,9 @@ export interface CipherRsaOptions {
    *
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   text: string;
 
@@ -82,8 +87,9 @@ export interface CipherRsaOptions {
    *
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   key: string;
 
@@ -93,8 +99,9 @@ export interface CipherRsaOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   transformation?: string;
 
@@ -103,8 +110,9 @@ export interface CipherRsaOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   success: (data: CipherResponse) => void;
 
@@ -113,8 +121,9 @@ export interface CipherRsaOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   fail: (data: string, code: number) => void;
 
@@ -123,8 +132,9 @@ export interface CipherRsaOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   complete: () => void;
 }
@@ -134,8 +144,9 @@ export interface CipherRsaOptions {
  *
  * @typedef CipherAesOptions
  * @syscap SystemCapability.Security.Cipher
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 11
+ * @useinstead ohos.security.cryptoFramework.Cipher
  */
 export interface CipherAesOptions {
   /**
@@ -146,8 +157,9 @@ export interface CipherAesOptions {
    *
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   action: string;
 
@@ -159,8 +171,9 @@ export interface CipherAesOptions {
    *
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   text: string;
 
@@ -169,8 +182,9 @@ export interface CipherAesOptions {
    *
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   key: string;
 
@@ -180,8 +194,9 @@ export interface CipherAesOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   transformation?: string;
 
@@ -192,8 +207,9 @@ export interface CipherAesOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   iv?: string;
 
@@ -203,8 +219,9 @@ export interface CipherAesOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   ivOffset?: string;
 
@@ -214,8 +231,9 @@ export interface CipherAesOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   ivLen?: string;
 
@@ -224,8 +242,9 @@ export interface CipherAesOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   success: (data: CipherResponse) => void;
 
@@ -234,8 +253,9 @@ export interface CipherAesOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   fail: (data: string, code: number) => void;
 
@@ -244,8 +264,9 @@ export interface CipherAesOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   complete: () => void;
 }
@@ -254,7 +275,7 @@ export interface CipherAesOptions {
  * Defines the cipher functions.
  *
  * @syscap SystemCapability.Security.Cipher
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.security.cryptoFramework.Cipher
  */
@@ -264,7 +285,7 @@ export default class Cipher {
    *
    * @param { CipherRsaOptions } options - RSA options
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.security.cryptoFramework.Cipher
    */
@@ -275,7 +296,7 @@ export default class Cipher {
    *
    * @param { CipherAesOptions } options - AES options
    * @syscap SystemCapability.Security.Cipher
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.security.cryptoFramework.Cipher
    */

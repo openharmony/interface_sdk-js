@@ -25,8 +25,9 @@
  * @implements AttributeModifier<NavRouterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  * @deprecated since 20
+ * @useinstead NavigationModifier
  */
 export declare class NavRouterModifier extends NavRouterAttribute implements AttributeModifier<NavRouterAttribute> {
 
@@ -37,7 +38,7 @@ export declare class NavRouterModifier extends NavRouterAttribute implements Att
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    * @deprecated since 20
    */
   applyNormalAttribute?(instance: NavRouterAttribute): void;

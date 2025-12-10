@@ -76,6 +76,7 @@
     { "filePath": "@internal/component/ets/paste_button.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/path.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/pattern_lock.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
+    { "filePath": "@internal/component/ets/picker.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/plugin_component.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/polygon.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/polyline.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
@@ -171,6 +172,7 @@
     { "filePath": "@ohos.app.ability.AbilityConstant.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.abilityDelegatorRegistry.d.ts", "kitName": "TestKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.AbilityLifecycleCallback.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
+    { "filePath": "@ohos.app.ability.InteropAbilityLifecycleCallback.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.abilityManager.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.AbilityStage.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.ActionExtensionAbility.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
@@ -207,6 +209,7 @@
     { "filePath": "@ohos.app.ability.insightIntent.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.InsightIntentContext.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.insightIntentDriver.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
+    { "filePath": "@ohos.app.ability.insightIntentProvider.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.InsightIntentExecutor.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.verticalPanelManager.d.ts", "kitName": "AbilityKit", "subSystem": "元能力"},
     {
@@ -700,6 +703,7 @@
     { "filePath": "application/AutoFillRect.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "application/AutoFillRequest.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "application/AutoFillType.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
+    { "filePath": "application/AutoFillTriggerType.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "application/AutoStartupCallback.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "application/AutoStartupInfo.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "application/BaseContext.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
@@ -786,6 +790,7 @@
     { "filePath": "arkui/PanelModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/PathModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/PatternLockModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
+    { "filePath": "arkui/PickerModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/PolygonModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/PolylineModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/ProgressModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
@@ -921,6 +926,7 @@
     { "filePath": "application/AbilityFirstFrameStateObserver.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.graphics.text.d.ts", "kitName": "ArkGraphics2D", "subSystem": "图形图像" },
     { "filePath": "wantAgent/wantAgentInfo.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
-    { "filePath": "permissions.d.ts", "kitName": "NA", "subSystem": "NA" }
+    { "filePath": "permissions.d.ts", "kitName": "NA", "subSystem": "NA" },
+    { "filePath": "@ohos.arkui.uiMaterial.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" }
   ]
 }

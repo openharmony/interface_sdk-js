@@ -18,12 +18,9 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CustomBuilder } from './arkui/component/builder';
-/*** endif */
-
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
+import colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 
 /**
  * This module allows developers to export snapshot image from a component or a custom builder.
@@ -40,8 +37,7 @@ import image from './@ohos.multimedia.image';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare namespace componentSnapshot {
   /**
@@ -51,10 +47,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
    */
-  export interface SnapshotRegion {
+  interface SnapshotRegion {
     /**
      * Left side position of rectangle, in PX.
      *
@@ -62,8 +57,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     left: number;
 
@@ -74,8 +68,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     right: number;
 
@@ -86,8 +79,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     top: number;
 
@@ -98,8 +90,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     bottom: number;
   }
@@ -112,10 +103,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
    */
-  export interface LocalizedSnapshotRegion {
+  interface LocalizedSnapshotRegion {
     /**
      * Left/Right side position of rectangle, in PX
      *
@@ -123,8 +113,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     start: number;
 
@@ -135,8 +124,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     end: number;
 
@@ -147,8 +135,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     top: number;
 
@@ -159,8 +146,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     bottom: number;
   }
@@ -172,10 +158,93 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
    */
-  export type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion;
+  type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion;
+
+  /**
+   * Defines the color mode used for current snapshot taking.
+   * By default, the system draws snapshot in sRGB mode. Therefore, snapshot for components with wide color display
+   * mode enabled will lose some effect. If you know the color space used in the component to be taken snapshot,
+   * you can specify the colorSpace parameter and set isAuto to false, for achieving the expected screenshot effect.
+   * But it is difficult to know which color space is used by the component to be taken. Therefore, in general,
+   * you can just set isAuto to true for letting the system to determine the color space to use based on the actual
+   * situation automaticly. When isAuto is set to true, value set by the colorSpace field will be ignored.
+   *
+   * @typedef ColorModeOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  interface ColorModeOptions {  
+    /**
+     * Set one specific color space which want to be used.
+     *
+     * @type { ?colorSpaceManager.ColorSpace }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    colorSpace?: colorSpaceManager.ColorSpace;
+
+    /**
+     * Indicate that if the system should decide the color space automaticlly.
+     * If set this to true, the one specificed by colorSpace parameter will be ignored.
+     *
+     * When setting isAuto to true, it is recommended to also set the waitUntilRenderFinished field
+     * in SnapshotOptions to true to ensure that the system can properly detect the mode being used.
+     *
+     * @type { ?boolean } - Whether to let the system automatically determine the color space used for screenshots.
+     *     True means ignoring the value set via the colorSpace field and letting the system decide based on the
+     *     actual component situation. False means using the value set via the colorSpace field.
+     *     The default value is false.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    isAuto?: boolean;
+  }
+
+  /**
+   * Defines the color mode used for current snapshot taking.
+   * By default, the system draws snapshot in STANDARD mode. You can set the dynamicRangeMode parameter
+   * and set isAuto to false, for using one specific dynamic range mode.
+   * Also you can just set isAuto to true for letting the system to determine the dynamic range mode automaticly.
+   * When isAuto is set to true, value set by the dynamicRangeMode field will be ignored.
+   *
+   * @typedef DynamicRangeModeOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  interface DynamicRangeModeOptions {  
+    /**
+     * Set one specific dynamic range mode which want to be used.
+     *
+     * @type { ?DynamicRangeMode }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    dynamicRangeMode?: DynamicRangeMode;
+
+    /**
+     * Indicate that if the system should decide the dynamic range mode automaticlly.
+     * If set this to true, the one specificed by dynamicRangeMode parameter will be ignored.
+     *
+     * When setting isAuto to true, it is recommended to also set the waitUntilRenderFinished field
+     * in SnapshotOptions to true to ensure that the system can properly detect the mode being used.
+     *
+     * @type { ?boolean } - Whether to let the system determine the dynamic range mode used automatically.
+     *     True means ignoring the value set via the dynamicRangeMode field and letting the system decide
+     *     based on the actual component situation. False means using the value set via the dynamicRangeMode field.
+     *     The default value is false.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    isAuto?: boolean;
+  }
 
   /**
    * Defines the extra options for snapshot taking.
@@ -184,10 +253,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
-  export interface SnapshotOptions {
+  interface SnapshotOptions {
     /**
      * Defines the scale property to render the snapshot.
      *
@@ -195,8 +263,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     scale?: number
 
@@ -207,8 +274,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     waitUntilRenderFinished?: boolean
 
@@ -219,10 +285,29 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     region?: SnapshotRegionType
+
+    /**
+     * Set the color space options for current snapshot taking.
+     *
+     * @type { ?ColorModeOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    colorMode?: ColorModeOptions;
+
+    /**
+     * Set the dynamic range mode options for current snapshot taking.
+     *
+     * @type { ?DynamicRangeModeOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    dynamicRangeMode?: DynamicRangeModeOptions;
   }
 
   /**
@@ -253,10 +338,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#get
-   * @arkts 1.1&1.2
    */
   function get(id: string, callback: AsyncCallback<image.PixelMap>, options?: SnapshotOptions): void;
 
@@ -288,10 +372,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#get
-   * @arkts 1.1&1.2
    */
   function get(id: string, options?: SnapshotOptions): Promise<image.PixelMap>;
 
@@ -327,10 +410,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#createFromBuilder
-   * @arkts 1.1&1.2
    */
   function createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>,
     delay?: number, checkImageStatus?: boolean, options?: SnapshotOptions): void;
@@ -367,10 +449,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#createFromBuilder
-   * @arkts 1.1&1.2
    */
   function createFromBuilder(builder: CustomBuilder, delay?: number,
     checkImageStatus?: boolean, options?: SnapshotOptions): Promise<image.PixelMap>;
@@ -392,10 +473,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
-  export function getSync(id: string, options?: SnapshotOptions): image.PixelMap;
+  function getSync(id: string, options?: SnapshotOptions): image.PixelMap;
 }
 
 export default componentSnapshot;

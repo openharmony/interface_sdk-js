@@ -18,10 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonMethod } from './common'
-/*** endif */
-
 /**
  * ItemState
  *
@@ -44,8 +40,8 @@ import { CommonMethod } from './common'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @deprecated since 22
  */
 declare enum ItemState {
   /**
@@ -67,8 +63,8 @@ declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @deprecated since 22
    */
   Normal,
 
@@ -91,8 +87,8 @@ declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @deprecated since 22
    */
   Disabled,
 
@@ -115,8 +111,8 @@ declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @deprecated since 22
    */
   Waiting,
 
@@ -139,8 +135,8 @@ declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @deprecated since 22
    */
   Skip,
 }
@@ -167,8 +163,8 @@ declare enum ItemState {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @deprecated since 22
  */
 interface StepperItemInterface {
   /**
@@ -193,8 +189,8 @@ interface StepperItemInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @deprecated since 22
    */
   (): StepperItemAttribute;
 }
@@ -221,8 +217,8 @@ interface StepperItemInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @deprecated since 22
  */
 declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
   /**
@@ -250,8 +246,8 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @deprecated since 22
    */
   prevLabel(value: string): StepperItemAttribute;
 
@@ -280,8 +276,8 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @deprecated since 22
    */
   nextLabel(value: string): StepperItemAttribute;
 
@@ -310,8 +306,8 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @deprecated since 22
    */
   status(value?: ItemState): StepperItemAttribute;
 }
@@ -335,7 +331,8 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @deprecated since 22
  */
 declare const StepperItemInstance: StepperItemAttribute;
 
@@ -358,6 +355,7 @@ declare const StepperItemInstance: StepperItemAttribute;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
+ * @deprecated since 22
  */
 declare const StepperItem: StepperItemInterface;

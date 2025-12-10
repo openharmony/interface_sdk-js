@@ -23,8 +23,8 @@
  *
  * @typedef BundleOption
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 22 static
  */
 export interface BundleOption {
   /**
@@ -32,18 +32,57 @@ export interface BundleOption {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   bundle: string;
 
   /**
    * UID of an application, which is obtained from ApplicationInfo. The default value is 0.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
-  uid?: number;
+  uid?: int;
+}
+
+/**
+ * The NotificationCommonDef module provides APIs for describing the GrantedBundleInfo, that is,
+ *  the bundle information of a specified application granted to third party wearable application by user.
+ *
+ * @typedef GrantedBundleInfo
+ * @syscap SystemCapability.Notification.Notification
+ * @since 22 dynamic&static
+ */
+export interface GrantedBundleInfo {
+  /**
+   * Name of the bundle.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 22 dynamic&static
+   */
+  bundleName: string;
+
+  /**
+   * The appIndex of application that creates the notification, only work in appClone mode.
+   *
+   * @type { int }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @since 22 dynamic&static
+   */
+  readonly appIndex: int;
+
+  /**
+   * Name of the application.
+   *
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @since 22 dynamic&static
+   */
+  readonly appName?: string;
 }

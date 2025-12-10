@@ -26,7 +26,8 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace shortKey
  * @syscap SystemCapability.MultimodalInput.Input.ShortKey
  * @systemapi hide for inner use
- * @since 10
+ * @since 10 dynamic
+ * @since 22 static
  */
 
 declare namespace shortKey {
@@ -36,7 +37,7 @@ declare namespace shortKey {
    * 
    * @param { string } businessKey - Unique service ID registered on the multimodal side. 
    * It corresponds to businessId in the ability_launch_config.json file. You need to query this parameter on your own before calling the API.
-   * @param { number } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is invalid only when shortcut keys are used.
+   * @param { int } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is invalid only when shortcut keys are used.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. 
    * If the operation is successful, err is undefined. Otherwise, err is an error object.
    * @throws { BusinessError } 202 - SystemAPI permission error.
@@ -44,9 +45,10 @@ declare namespace shortKey {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
    * @systemapi hide for inner use
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
-  function setKeyDownDuration(businessKey: string, delay: number, callback: AsyncCallback<void>): void;
+  function setKeyDownDuration(businessKey: string, delay: int, callback: AsyncCallback<void>): void;
 
   /**
    * Sets the delay for starting an ability using shortcut keys. 
@@ -54,16 +56,17 @@ declare namespace shortKey {
    * 
    * @param { string } businessKey - Unique service ID registered on the multimodal side. 
    * It corresponds to businessId in the ability_launch_config.json file. You need to query this parameter on your own before calling the API.
-   * @param { number } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is invalid only when shortcut keys are used.
+   * @param { int } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is invalid only when shortcut keys are used.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
    * @systemapi hide for inner use
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
-  function setKeyDownDuration(businessKey: string, delay: number): Promise<void>;
+  function setKeyDownDuration(businessKey: string, delay: int): Promise<void>;
 
 }
 export default shortKey;
@@ -74,7 +77,8 @@ export default shortKey;
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
- * @since 12
+ * @since 12 dynamic
+ * @since 22 static
  */
 export declare enum FingerprintAction {
   /**
@@ -82,7 +86,8 @@ export declare enum FingerprintAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   DOWN = 0,
 
@@ -91,7 +96,8 @@ export declare enum FingerprintAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   UP = 1,
 
@@ -100,7 +106,8 @@ export declare enum FingerprintAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   SLIDE = 2,
 
@@ -109,7 +116,8 @@ export declare enum FingerprintAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   RETOUCH = 3,
 
@@ -118,7 +126,8 @@ export declare enum FingerprintAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   CLICK = 4,
 }
@@ -129,7 +138,8 @@ export declare enum FingerprintAction {
  * @interface FingerprintEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
- * @since 12
+ * @since 12 dynamic
+ * @since 22 static
  */
 export declare interface FingerprintEvent {
   /**
@@ -138,7 +148,8 @@ export declare interface FingerprintEvent {
    * @type { FingerprintAction }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   action: FingerprintAction;
 
@@ -152,12 +163,13 @@ export declare interface FingerprintEvent {
    * and the horizontal rightward direction stands for the positive direction of the X axis.
    * This way, a rectangular coordinate system is constructed.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
-  distanceX: number;
+  distanceX: double;
 
   /**
    * This value indicates the sliding percentage of the fingerprint key on the Y axis,
@@ -169,10 +181,11 @@ export declare interface FingerprintEvent {
    * and the horizontal rightward direction stands for the positive direction of the X axis.
    * This way, a rectangular coordinate system is constructed.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
-  distanceY: number;
+  distanceY: double;
 }

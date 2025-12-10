@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { Resource } from './../../../api/global/resource'
-import { CommonMethod } from './common'
-import { Color } from './enums'
-/*** endif */
-
 /**
  * Defines the hyperlink interface.
  *
@@ -46,8 +40,7 @@ import { Color } from './enums'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic
  */
 interface HyperlinkInterface {
   /**
@@ -84,8 +77,7 @@ interface HyperlinkInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   (address: string | Resource, content?: string | Resource): HyperlinkAttribute;
 }
@@ -112,8 +104,7 @@ interface HyperlinkInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic
  */
 declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
   /**
@@ -141,8 +132,7 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   color(value: Color | number | string | Resource): HyperlinkAttribute;
 }
@@ -166,7 +156,7 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare const Hyperlink: HyperlinkInterface;
 
@@ -189,6 +179,6 @@ declare const Hyperlink: HyperlinkInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare const HyperlinkInterface: HyperlinkAttribute;

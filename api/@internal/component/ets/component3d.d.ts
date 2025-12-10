@@ -18,19 +18,13 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { Scene } from './../../../api/@ohos.graphics.scene';
-import { ResourceStr, Dimension } from './units';
-import { CommonMethod } from './common';
-/*** endif */
-
 /**
  * Provides methods for controlling the 3d scene 
  *
  * @typedef { import('../api/@ohos.graphics.scene').Scene }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice 
- * @since 12 
+ * @since 12 dynamic
  */
 declare type Scene = import('../api/@ohos.graphics.scene').Scene;
 
@@ -39,8 +33,7 @@ declare type Scene = import('../api/@ohos.graphics.scene').Scene;
  * @enum { number }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare enum ModelType {
   /**
@@ -48,8 +41,7 @@ declare enum ModelType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   TEXTURE = 0,
 
@@ -58,8 +50,7 @@ declare enum ModelType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   SURFACE = 1,
 }
@@ -70,8 +61,7 @@ declare enum ModelType {
  * @interface SceneOptions
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare interface SceneOptions {
   /**
@@ -80,8 +70,7 @@ declare interface SceneOptions {
    * @type { ?(ResourceStr | Scene) }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   scene?: ResourceStr | Scene;
 
@@ -92,8 +81,7 @@ declare interface SceneOptions {
    * @default ModelType.SURFACE 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   modelType?: ModelType; 
 }
@@ -104,8 +92,7 @@ declare interface SceneOptions {
  * @interface Component3DInterface
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 interface Component3DInterface {
   /**
@@ -115,8 +102,7 @@ interface Component3DInterface {
    * @returns { Component3DAttribute }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   (sceneOptions?: SceneOptions): Component3DAttribute;
 }
@@ -125,8 +111,7 @@ interface Component3DInterface {
  * @extends CommonMethod<Component3DAttribute>
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
   /**
@@ -136,8 +121,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   environment(uri: ResourceStr): Component3DAttribute;
 
@@ -149,8 +133,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   customRender(uri: ResourceStr, selfRenderUpdate: boolean): Component3DAttribute;
 
@@ -161,8 +144,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   shader(uri: ResourceStr): Component3DAttribute;
 
@@ -173,8 +155,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   shaderImageTexture(uri: ResourceStr): Component3DAttribute;
   
@@ -185,8 +166,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   shaderInputBuffer(buffer: Array<number>): Component3DAttribute;
 
@@ -197,8 +177,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   renderWidth(value: Dimension): Component3DAttribute;
 
@@ -209,8 +188,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   renderHeight(value: Dimension): Component3DAttribute;
 }
@@ -220,7 +198,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare const Component3D: Component3DInterface;
 
@@ -229,6 +207,6 @@ declare const Component3D: Component3DInterface;
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare const Component3DInstance: Component3DAttribute;

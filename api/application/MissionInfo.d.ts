@@ -26,28 +26,31 @@ import Want from '../@ohos.app.ability.Want';
  * @typedef MissionInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since 8
+ * @since 8 dynamic
+ * @since 22 static
  */
 export interface MissionInfo {
   /**
    * Indicates mission id.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
-  missionId: number;
+  missionId: int;
 
   /**
    * Indicates running state.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
-  runningState: number;
+  runningState: int;
 
   /**
    * Indicates locked state.
@@ -55,7 +58,8 @@ export interface MissionInfo {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   lockedState: boolean;
 
@@ -65,7 +69,8 @@ export interface MissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   timestamp: string;
 
@@ -75,7 +80,8 @@ export interface MissionInfo {
    * @type { Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   want: Want;
 
@@ -85,7 +91,8 @@ export interface MissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   label: string;
 
@@ -95,7 +102,8 @@ export interface MissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   iconPath: string;
 
@@ -105,19 +113,21 @@ export interface MissionInfo {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   continuable: boolean;
 
   /**
    * Indicates the ability state of this mission.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
-  abilityState: number;
+  abilityState: int;
 
   /**
    * Indicates whether the mission is unclearable.
@@ -125,7 +135,8 @@ export interface MissionInfo {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   unclearable: boolean;
 }

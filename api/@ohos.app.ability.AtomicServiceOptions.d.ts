@@ -20,6 +20,9 @@
 
 import CompletionHandlerForAtomicService from './@ohos.app.ability.CompletionHandlerForAtomicService';
 import StartOptions from './@ohos.app.ability.StartOptions';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * AtomicServiceOptions is the basic communication component of the system.
@@ -28,19 +31,21 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
+ * @since 22 static
  */
 export default class AtomicServiceOptions extends StartOptions {
   /**
    * The options of the flags in this AtomicServiceOptions.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
-  flags?: number;
+  flags?: int;
 
   /**
    * The description of the WantParams object in an AtomicServiceOptions
@@ -49,9 +54,19 @@ export default class AtomicServiceOptions extends StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   parameters?: Record<string, Object>;
+
+  /**
+   * The description of the WantParams object in an AtomicServiceOptions
+   *
+   * @type { ?Record<string, RecordData> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  parameters?: Record<string, RecordData>;
 
   /**
    * The completion handler of openAtomicService.
@@ -60,8 +75,8 @@ export default class AtomicServiceOptions extends StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   completionHandlerForAtomicService?: CompletionHandlerForAtomicService;
 }

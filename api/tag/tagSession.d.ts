@@ -38,7 +38,7 @@ import { AsyncCallback } from '../@ohos.base';
  * @typedef TagSession
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface TagSession {
   /**
@@ -47,7 +47,7 @@ export interface TagSession {
    * @permission ohos.permission.NFC_TAG
    * @returns { tag.TagInfo } Returns the tag information, which is a {@link TagInfo} object.
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.nfc.tag/tag#getTagInfo
    */
@@ -60,7 +60,7 @@ export interface TagSession {
    * @permission ohos.permission.NFC_TAG
    * @returns { boolean } Returns {@code true} if the connection is set up; returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead tagSession.TagSession#connect
    */
@@ -85,7 +85,7 @@ export interface TagSession {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   connect(): void;
 
@@ -94,7 +94,7 @@ export interface TagSession {
    *
    * @permission ohos.permission.NFC_TAG
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead tagSession.TagSession#resetConnection
    */
@@ -119,7 +119,7 @@ export interface TagSession {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   resetConnection(): void;
 
@@ -129,7 +129,7 @@ export interface TagSession {
    * @returns { boolean } Returns {@code true} if a connection has been set up with the tag;
    * returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead tagSession.TagSession#isConnected
    */
@@ -150,7 +150,7 @@ export interface TagSession {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   isConnected(): boolean;
 
@@ -162,7 +162,7 @@ export interface TagSession {
    * @param { number } timeout Indicates the timeout duration to be set.
    * @returns { boolean } Returns {@code true} if the setting is successful; returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead tagSession.TagSession#setTimeout
    */
@@ -197,7 +197,7 @@ export interface TagSession {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   setTimeout(timeout: number): void;
 
@@ -207,7 +207,7 @@ export interface TagSession {
    * @permission ohos.permission.NFC_TAG
    * @returns { number } Returns the timeout duration.
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead tagSession.TagSession#getTimeout
    */
@@ -234,7 +234,7 @@ export interface TagSession {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getTimeout(): number;
 
@@ -246,7 +246,7 @@ export interface TagSession {
    * @returns { Promise<number[]> } Returns bytes received in response. Or bytes with a length of 0 if the
    * data fails to be written to the tag.
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead tagSession.TagSession#transmit
    */
@@ -260,7 +260,7 @@ export interface TagSession {
    * @param { AsyncCallback<number[]> } callback The callback.
    * data fails to be written to the tag.
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead tagSession.TagSession#transmit
    */
@@ -300,7 +300,7 @@ export interface TagSession {
    * @throws { BusinessError } 3100204 - The tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   transmit(data: number[]): Promise<number[]>;
 
@@ -336,7 +336,7 @@ export interface TagSession {
    * @throws { BusinessError } 3100204 - The tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   transmit(data: number[], callback: AsyncCallback<number[]>): void;
 
@@ -346,7 +346,7 @@ export interface TagSession {
    * @permission ohos.permission.NFC_TAG
    * @returns { number } Returns the maximum length of the data to be sent to the tag.
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead tagSession.TagSession#getMaxTransmitSize
    */
@@ -373,7 +373,7 @@ export interface TagSession {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getMaxTransmitSize(): number;
 }

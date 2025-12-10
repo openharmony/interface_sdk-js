@@ -20,7 +20,7 @@
 
 import type common from './@ohos.app.ability.common';
 import { AbilityResult } from './ability/abilityResult';
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { RecordData } from './@ohos.base';
 /*** endif */
 
@@ -34,8 +34,8 @@ import { RecordData } from './@ohos.base';
  * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'20', '1.2':'22'}
- * @arkts 1.1&1.2
+ * @since 20 dynamic
+ * @since 22 static
  */
 type OnErrorFn = (code: number, name: string, message: string) => void;
 
@@ -47,8 +47,8 @@ type OnErrorFn = (code: number, name: string, message: string) => void;
  * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'20', '1.2':'22'}
- * @arkts 1.1&1.2
+ * @since 20 dynamic
+ * @since 22 static
  */
 type OnResultFn = (parameter: AbilityResult) => void;
 
@@ -59,8 +59,8 @@ type OnResultFn = (parameter: AbilityResult) => void;
  * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'20', '1.2':'22'}
- * @arkts 1.1&1.2
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare namespace verticalPanelManager {
 
@@ -81,7 +81,7 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   function startVerticalPanel(
       context: common.UIAbilityContext,
@@ -107,8 +107,7 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function startVerticalPanel(
       context: common.UIAbilityContext,
@@ -124,8 +123,8 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'20', '1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface PanelConfig {
     /**
@@ -135,8 +134,8 @@ declare namespace verticalPanelManager {
      * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'20', '1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     type: VerticalType;
 
@@ -155,8 +154,8 @@ declare namespace verticalPanelManager {
      * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'20', '1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     sourceAppInfo: Record<string, string>;
   }
@@ -168,8 +167,8 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'20', '1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   export enum VerticalType {
     /**
@@ -178,8 +177,8 @@ declare namespace verticalPanelManager {
      * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'20', '1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     NAVIGATION = 'navigation',
   }
@@ -191,8 +190,8 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'20', '1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface PanelStartCallback {
     /**
@@ -202,8 +201,8 @@ declare namespace verticalPanelManager {
      * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'20', '1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     onError: OnErrorFn;
     
@@ -214,8 +213,8 @@ declare namespace verticalPanelManager {
      * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'20', '1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     onResult?: OnResultFn;
   }
@@ -226,8 +225,8 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'20', '1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   export const SOURCE_APP_BUNDLE_NAME = 'bundleName';
 
@@ -237,8 +236,8 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'20', '1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   export const SOURCE_APP_MODULE_NAME = 'moduleName';
 
@@ -248,8 +247,8 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'20', '1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   export const SOURCE_APP_ABILITY_NAME = 'abilityName';
 
@@ -259,8 +258,8 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'20', '1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   export const SOURCE_APP_WINDOW_ID = 'windowId';
 
@@ -270,8 +269,8 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'20', '1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   export const SOURCE_APP_SCREEN_MODE = 'screenMode';
 }

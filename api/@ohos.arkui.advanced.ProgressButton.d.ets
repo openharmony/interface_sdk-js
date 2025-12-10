@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -29,6 +29,13 @@
  * @atomicservice
  * @since 11
  */
+/**
+ * Declare Component ProgressButton
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
 @Component
 export declare struct ProgressButton {
   /**
@@ -43,6 +50,14 @@ export declare struct ProgressButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Sets the ProgressButton progress.
+   * @type { number }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   @Prop progress: number;
 
@@ -65,7 +80,7 @@ export declare struct ProgressButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   @Prop content: ResourceStr;
 
@@ -82,6 +97,14 @@ export declare struct ProgressButton {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets the ProgressButton progressButtonWidth.
+   * @type { ?Length }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   progressButtonWidth?: Length;
 
   /**
@@ -96,6 +119,14 @@ export declare struct ProgressButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Sets the ProgressButton clickCallback.
+   * @type { () => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   clickCallback: () => void;
 
@@ -112,6 +143,14 @@ export declare struct ProgressButton {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets the ProgressButton enable state.
+   * @type { boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   @Prop enable: boolean;
 
   /**
@@ -122,6 +161,15 @@ export declare struct ProgressButton {
    * @atomicservice
    * @since 18
    */
+  /**
+   * Set Color options of the ProgressButton.
+   *
+   * @type { ?ProgressButtonColorOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   @Prop colorOptions?: ProgressButtonColorOptions;
   
   /**
@@ -131,7 +179,7 @@ export declare struct ProgressButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Prop progressButtonRadius?: LengthMetrics;
 }
@@ -144,6 +192,15 @@ export declare struct ProgressButton {
  * @atomicservice
  * @since 18
  */
+/**
+ * Declare Color options of the ProgressButton.
+ *
+ * @interface ProgressButtonColorOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
 export declare interface ProgressButtonColorOptions {
 
   /**
@@ -153,6 +210,15 @@ export declare interface ProgressButtonColorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
+   */
+  /**
+   * Set progress color of the ProgressButton.
+   *
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   progressColor?: ResourceColor;
 
@@ -164,6 +230,15 @@ export declare interface ProgressButtonColorOptions {
    * @atomicservice
    * @since 18
    */
+  /**
+   * Set border color of the ProgressButton.
+   *
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   borderColor?: ResourceColor;
 
   /**
@@ -174,6 +249,15 @@ export declare interface ProgressButtonColorOptions {
    * @atomicservice
    * @since 18
    */
+  /**
+   * Set text color of the ProgressButton.
+   *
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   textColor?: ResourceColor;
 
   /**
@@ -183,6 +267,15 @@ export declare interface ProgressButtonColorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
+   */
+  /**
+   * Set background color of the ProgressButton.
+   *
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   backgroundColor?: ResourceColor;
 }

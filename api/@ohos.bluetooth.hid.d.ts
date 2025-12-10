@@ -25,8 +25,8 @@ import type baseProfile from './@ohos.bluetooth.baseProfile';
  *
  * @namespace hid
  * @syscap SystemCapability.Communication.Bluetooth.Core
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 22 static
  */
 declare namespace hid {
   /**
@@ -34,8 +34,8 @@ declare namespace hid {
    *
    * @typedef { baseProfile.BaseProfile } BaseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   type BaseProfile = baseProfile.BaseProfile;
 
@@ -47,8 +47,8 @@ declare namespace hid {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function createHidHostProfile(): HidHostProfile;
 
@@ -58,8 +58,8 @@ declare namespace hid {
    * @extends BaseProfile
    * @typedef HidHostProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   interface HidHostProfile extends BaseProfile {
     /**
@@ -78,7 +78,8 @@ declare namespace hid {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     connect(deviceId: string): void;
 
@@ -98,7 +99,8 @@ declare namespace hid {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     disconnect(deviceId: string): void;
   }
