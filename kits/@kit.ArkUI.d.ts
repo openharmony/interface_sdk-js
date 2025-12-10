@@ -120,7 +120,7 @@ import {
   AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager,
   PromptAction, Router, UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MeasureUtils, FrameCallback,
   OverlayManagerOptions, TargetInfo, MarqueeDynamicSyncScene, MarqueeDynamicSyncSceneType, TextMenuController,
-  NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, Magnifier
+  NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, Magnifier, ResolvedUIContext
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
 import {
@@ -317,5 +317,5 @@ export {
   ExpandMode, Magnifier,
   HalfScreenLaunchComponent, ArcSliderPosition, ArcSwiper, ArcSwiperAttribute, ArcDotIndicator, ArcDirection, ArcSwiperController, TargetInfo, UIState,
   StepperModifier, TextMenuController, InputEventType, GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback,
-  SwiperContentInfo, SwiperItemInfo, PickerModifier, imageGeneration
+  SwiperContentInfo, SwiperItemInfo, PickerModifier, imageGeneration, ResolvedUIContext
 };
