@@ -2797,7 +2797,7 @@ declare enum Edge {
    * Center horizontal and vertical.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   Center,
@@ -2829,7 +2829,7 @@ declare enum Edge {
    * Cross axis direction text baseline alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   Baseline,
@@ -2861,7 +2861,7 @@ declare enum Edge {
    * Middle
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   Middle,
@@ -8005,7 +8005,7 @@ declare enum CopyOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 12
    */
   CROSS_DEVICE = 3,

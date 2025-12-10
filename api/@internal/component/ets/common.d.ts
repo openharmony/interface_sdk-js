@@ -30062,8 +30062,9 @@ declare interface MotionBlurOptions {
  * @interface LayoutBorderInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
- * @since 9 dynamic
+ * @since 9 dynamiconly
  * @deprecated since 10
+ * @useinstead Measurable/Layoutable
  */
 declare interface LayoutBorderInfo {
   /**
@@ -30072,8 +30073,9 @@ declare interface LayoutBorderInfo {
    * @type { EdgeWidths }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead getBorderWidth
    */
   borderWidth: EdgeWidths;
 
@@ -30083,8 +30085,9 @@ declare interface LayoutBorderInfo {
    * @type { Margin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead getMargin
    */
   margin: Margin,
 
@@ -30094,8 +30097,9 @@ declare interface LayoutBorderInfo {
    * @type { Padding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead getPadding
    */
   padding: Padding,
 }
@@ -30106,8 +30110,9 @@ declare interface LayoutBorderInfo {
  * @interface LayoutInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
- * @since 9 dynamic
+ * @since 9 dynamiconly
  * @deprecated since 10
+ * @useinstead Layoutable
  */
 declare interface LayoutInfo {
   /**
@@ -30116,8 +30121,9 @@ declare interface LayoutInfo {
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Layoutable
    */
   position: Position,
 
@@ -30127,8 +30133,9 @@ declare interface LayoutInfo {
    * @type { ConstraintSizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Layoutable
    */
   constraint: ConstraintSizeOptions,
 }
@@ -30139,8 +30146,9 @@ declare interface LayoutInfo {
  * @interface LayoutChild
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
- * @since 9 dynamic
+ * @since 9 dynamiconly
  * @deprecated since 10
+ * @useinstead Measurable/Layoutable
  */
 declare interface LayoutChild {
   /**
@@ -30149,8 +30157,9 @@ declare interface LayoutChild {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Measurable/Layoutable
    */
   name: string,
 
@@ -30160,8 +30169,9 @@ declare interface LayoutChild {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Measurable/Layoutable
    */
   id: string,
 
@@ -30171,8 +30181,9 @@ declare interface LayoutChild {
    * @type { ConstraintSizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Measurable/Layoutable
    */
   constraint: ConstraintSizeOptions,
 
@@ -30182,8 +30193,9 @@ declare interface LayoutChild {
    * @type { LayoutBorderInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Measurable/Layoutable
    */
   borderInfo: LayoutBorderInfo,
 
@@ -30193,8 +30205,9 @@ declare interface LayoutChild {
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Measurable/Layoutable
    */
   position: Position,
 
@@ -30204,8 +30217,9 @@ declare interface LayoutChild {
    * @param { ConstraintSizeOptions } childConstraint
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Measurable/Layoutable
    */
   measure(childConstraint: ConstraintSizeOptions);
 
@@ -30215,8 +30229,9 @@ declare interface LayoutChild {
    * @param { LayoutInfo } childLayoutInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Measurable/Layoutable
    */
   layout(childLayoutInfo: LayoutInfo);
 }
@@ -30558,7 +30573,7 @@ declare interface SizeResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12 dynamic
+ * @since 11 dynamic
  */
 declare interface MeasureResult extends SizeResult {
 
