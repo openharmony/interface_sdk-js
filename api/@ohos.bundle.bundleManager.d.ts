@@ -1019,7 +1019,7 @@ declare namespace bundleManager {
     /**
      * Indicates extension info with type of the crypto
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 22 dynamic&static
+     * @since 22 dynamic
      */
     CRYPTO = 35,
 
