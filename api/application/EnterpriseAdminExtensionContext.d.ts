@@ -19,7 +19,7 @@
  */
 
 import ExtensionContext from './ExtensionContext';
-import Want from '@ohos.app.ability.Want';
+import Want from '../@ohos.app.ability.Want';
 
 /**
  * The context of enterpriseAdmin extension. It allows access to enterpriseAdminExtension-specific resources.
