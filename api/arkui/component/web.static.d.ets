@@ -481,35 +481,35 @@ export declare enum MessageLevel {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 22 static
      */
-    DEBUG = 0,
+    DEBUG,
     /**
      * Error level.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 22 static
      */
-    ERROR = 1,
+    ERROR,
     /**
      * Info level.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 22 static
      */
-    INFO = 2,
+    INFO,
     /**
      * Log level.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 22 static
      */
-    LOG = 3,
+    LOG,
     /**
      * Warn level.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 22 static
      */
-    WARN = 4
+    WARN
 }
 /**
  * The source of console message.
