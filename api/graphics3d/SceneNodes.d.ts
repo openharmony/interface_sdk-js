@@ -109,6 +109,7 @@ export enum NodeType {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
+   * @since 23 static
    */
   CUSTOM = 255
 }
