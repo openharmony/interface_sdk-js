@@ -3714,6 +3714,7 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10 dynamic
+     * @since 22 static
      */
     /**
      * Certificate proving the identity of the client
