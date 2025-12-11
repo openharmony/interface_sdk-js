@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -39,6 +39,7 @@ import type { ContinuationExtraParams as _ContinuationExtraParams } from './cont
  *
  * @namespace continuationManager
  * @syscap SystemCapability.Ability.DistributedAbilityManager
+ * @stagemodelonly
  * @atomicservice
  * @since 11 dynamiconly
  * @deprecated since 22
@@ -80,9 +81,11 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @throws { BusinessError } 16600004 - The specified callback has been registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead ohos.distributedDeviceManager
    */
   function on(type: 'deviceSelected', token: number, callback: Callback<Array<ContinuationResult>>): void;
 
@@ -116,9 +119,11 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @throws { BusinessError } 16600004 - The specified callback has been registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead ohos.distributedDeviceManager
    */
   function off(type: 'deviceSelected', token: number): void;
 
@@ -158,9 +163,11 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @throws { BusinessError } 16600004 - The specified callback has been registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead ohos.distributedDeviceManager
    */
   function on(type: 'deviceUnselected', token: number, callback: Callback<Array<ContinuationResult>>): void;
 
@@ -194,9 +201,11 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @throws { BusinessError } 16600004 - The specified callback has been registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead ohos.distributedDeviceManager
    */
   function off(type: 'deviceUnselected', token: number): void;
 
@@ -209,6 +218,7 @@ declare namespace continuationManager {
    *                                                    module, returning the device ID,device type, and device name for
    *                                                    developers to use.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.continuation.continuationManager/continuationManager#on
@@ -224,6 +234,7 @@ declare namespace continuationManager {
    *                                                      selection module, returning the device ID,device type,
    *                                                      and device name for developers to use.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.continuation.continuationManager/continuationManager#off
@@ -238,6 +249,7 @@ declare namespace continuationManager {
    * @param { Callback<string> } callback - Called when the user disconnects the device from the device selection
    *                                        module, returning the device ID for developers to use.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.continuation.continuationManager/continuationManager#on
@@ -252,6 +264,7 @@ declare namespace continuationManager {
    * @param { Callback<string> } [callback] - Called when the user selects a device from the device selection module,
    *                                          returning the device ID,device type, and device name for developers to use.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.continuation.continuationManager/continuationManager#off
@@ -265,6 +278,7 @@ declare namespace continuationManager {
    * @param { AsyncCallback<number> } callback - The AsyncCallback form returns the token generated after connecting to
    *                                             the flow management service.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.continuation.continuationManager/continuationManager#registerContinuation
@@ -280,6 +294,7 @@ declare namespace continuationManager {
    * @param { AsyncCallback<number> } callback - The AsyncCallback form returns the token generated after
    *                                             connecting to the flow management service.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.continuation.continuationManager/continuationManager#registerContinuation
@@ -295,6 +310,7 @@ declare namespace continuationManager {
    * @returns { Promise<number> } callback Indicates the callback to be invoked when the continuation manager service
    *                              is connected.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.continuation.continuationManager/continuationManager#registerContinuation
@@ -308,6 +324,7 @@ declare namespace continuationManager {
    * @param { number } token - Indicates the registration token of the ability.
    * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.continuation.continuationManager/continuationManager#unregisterContinuation
@@ -322,6 +339,7 @@ declare namespace continuationManager {
    * @returns { Promise<void> } callback Indicates the callback to be invoked when the continuation manager
    *                            service is connected.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.continuation.continuationManager/continuationManager#unregisterContinuation
@@ -336,6 +354,7 @@ declare namespace continuationManager {
    * @param { DeviceConnectState } status - Indicates the connection state to update.
    * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.continuation.continuationManager/continuationManager#updateContinuationState
@@ -356,6 +375,7 @@ declare namespace continuationManager {
    * @returns { Promise<void> } callback Indicates the callback to be invoked when the continuation
    *                            manager service is connected.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.continuation.continuationManager/continuationManager#updateContinuationState
@@ -368,6 +388,7 @@ declare namespace continuationManager {
    * @param { number } token - Indicates the registration token of the ability.
    * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.continuation.continuationManager/continuationManager#startContinuationDeviceManager
@@ -382,6 +403,7 @@ declare namespace continuationManager {
    *                                            used to filter the list of available devices. This parameter is null.
    * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.continuation.continuationManager/continuationManager#startContinuationDeviceManager
@@ -397,6 +419,7 @@ declare namespace continuationManager {
    * @returns { Promise<void> } callback Indicates the callback to be invoked when the continuation manager service
    *                            is connected.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.continuation.continuationManager/continuationManager#startContinuationDeviceManager
@@ -431,6 +454,7 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -469,6 +493,7 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -507,6 +532,7 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -543,6 +569,7 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -577,6 +604,7 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -613,6 +641,7 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -656,6 +685,7 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -688,6 +718,7 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -724,6 +755,7 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -764,6 +796,7 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -782,6 +815,7 @@ declare namespace continuationManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -797,6 +831,7 @@ declare namespace continuationManager {
      * Initial state of device connection.
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
+     * @stagemodelonly
      * @atomicservice
      * @since 11 dynamiconly
      * @deprecated since 22
@@ -813,6 +848,7 @@ declare namespace continuationManager {
      * Device connection status.
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
+     * @stagemodelonly
      * @atomicservice
      * @since 11 dynamiconly
      * @deprecated since 22
@@ -829,6 +865,7 @@ declare namespace continuationManager {
      * The device is connected.
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
+     * @stagemodelonly
      * @atomicservice
      * @since 11 dynamiconly
      * @deprecated since 22
@@ -845,6 +882,7 @@ declare namespace continuationManager {
      * The device is disconnected.
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
+     * @stagemodelonly
      * @atomicservice
      * @since 11 dynamiconly
      * @deprecated since 22
@@ -864,6 +902,7 @@ declare namespace continuationManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -879,6 +918,7 @@ declare namespace continuationManager {
      * Collaboration with a single device.
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
+     * @stagemodelonly
      * @atomicservice
      * @since 11 dynamiconly
      * @deprecated since 22
@@ -895,6 +935,7 @@ declare namespace continuationManager {
      * Collaboration with multiple devices.
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
+     * @stagemodelonly
      * @atomicservice
      * @since 11 dynamiconly
      * @deprecated since 22
@@ -912,9 +953,11 @@ declare namespace continuationManager {
    * Indicates the description of transfer results for continuation.
    * @typedef { _ContinuationResult }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead ohos.distributedDeviceManager
    */
   export type ContinuationResult = _ContinuationResult;
 
@@ -928,9 +971,11 @@ declare namespace continuationManager {
    * Indicates the description of additional parameters for continuation.
    * @typedef { _ContinuationExtraParams }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead ohos.distributedDeviceManager
    */
   export type ContinuationExtraParams = _ContinuationExtraParams;
 }
