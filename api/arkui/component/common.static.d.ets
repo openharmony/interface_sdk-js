@@ -7907,6 +7907,36 @@ export declare enum HapticFeedbackMode {
      */
     AUTO = 2
 }
+
+/**
+ * Define the mode of menu how to avoid keyboard.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare enum MenuKeyboardAvoidMode {
+  /**
+   * Menu will not avoid keyboard.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  NONE = 0,
+
+  /**
+   * First menu will avoid keyboard by changing its placement.
+   * And then menu will avoid by resizing height when new placement is still not high enough.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  TRANSLATE_AND_RESIZE = 1
+}
+
 /**
  * Defines the context menu options.
  *
@@ -8252,34 +8282,57 @@ export declare interface ContextMenuOptions {
      */
     anchorPosition?: Position;
 
-  /**
-   * Defines the max height of menu.
-   *
-   * @type { ?LengthMetrics }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  maxHeight?: LengthMetrics;
+    /**
+     * Defines the max height of menu.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    maxHeight?: LengthMetrics;
 
-  /**
-   * Define the menu theme color mode.
-   *
-   * @type { ?AnchoredColorMode }
-   * @default AnchoredColorMode.SYSTEM
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  colorMode?: AnchoredColorMode;
+    /**
+     * Define the menu theme color mode.
+     *
+     * @type { ?AnchoredColorMode }
+     * @default AnchoredColorMode.SYSTEM
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    colorMode?: AnchoredColorMode;
 
-  /**
-   * Determine if preview scale maintain aspect ratio.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  maintainScaleEnabled?: boolean;
+    /**
+     * Determine if preview scale maintain aspect ratio.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    maintainScaleEnabled?: boolean;
+
+    /**
+     * Determine the mode of menu how to avoid keyboard.
+     *
+     * No avoiding by default
+     *
+     * @type { ?MenuKeyboardAvoidMode }
+     * @default MenuKeyboardAvoidMode.NONE
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    keyboardAvoidMode?: MenuKeyboardAvoidMode;
+
+    /**
+     * Defines the minimum distance between menu and keyboard.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    minKeyboardAvoidDistance?: LengthMetrics;
 }
 /**
  * Defines the menu options.
