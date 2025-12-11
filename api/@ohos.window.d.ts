@@ -6067,7 +6067,7 @@ declare namespace window {
      * @param { int } width - Indicates the width of the window. The width should be greater than 0.
      * @param { int } height - Indicates the height of the window. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: Invalid parameter range;
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: Invalid parameter range.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
