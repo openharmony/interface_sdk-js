@@ -580,6 +580,15 @@ declare namespace distributedDataObject {
     on(type: 'change', callback: DataObserver): void;
 
     /**
+     * On watch of change.
+     *
+     * @param { DataObserver } callback - The observer of object data changed.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 22 static
+     */
+    onChange(callback: DataObserver): void;
+
+    /**
      * Off watch of change.
      *
      * @param { 'change' } type - Event type, fixed as 'change', indicates data change.
@@ -588,6 +597,16 @@ declare namespace distributedDataObject {
      * @since 20 dynamic
      */
     off(type: 'change', callback?: DataObserver): void;
+
+    /**
+     * Off watch of change.
+     *
+     * @param { DataObserver } [callback] - The observer of object data changed, if not null, off the callback, if 
+     *     undefined, off all callbacks.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 22 static
+     */
+    offChange(callback?: DataObserver): void;
 
     /**
      * On watch of status.
@@ -600,6 +619,15 @@ declare namespace distributedDataObject {
     on(type: 'status', callback: StatusObserver): void;
 
     /**
+     * On watch of status.
+     *
+     * @param { StatusObserver } callback - The observer of object status changed.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 22 static
+     */
+    onStatus(callback: StatusObserver): void
+
+    /**
      * Off watch of status.
      *
      * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
@@ -608,6 +636,16 @@ declare namespace distributedDataObject {
      * @since 20 dynamic
      */
     off(type: 'status', callback?: StatusObserver): void;
+
+    /**
+     * Off watch of status.
+     *
+     * @param { StatusObserver } [callback] - The observer of object status changed, if not null, off the callback, if 
+     *     undefined, off all callbacks.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 22 static
+     */
+    offStatus(callback?: StatusObserver): void;
 
     /**
      * On watch of progress.
@@ -621,6 +659,15 @@ declare namespace distributedDataObject {
     on(type: 'progressChanged', callback: ProgressObserver): void;
 
     /**
+     * Subscribes to the asset sync progress.
+     *
+     * @param { ProgressObserver } callback Observer to be registered.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 22 static
+     */
+    onProgressChanged(callback: ProgressObserver): void;
+
+    /**
      * Off watch of process.
      *
      * @param { 'progressChanged' } type - Event type, fixed as 'progressChanged', indicates the progress of asset sync
@@ -631,6 +678,16 @@ declare namespace distributedDataObject {
      * @since 20 dynamic
      */
     off(type: 'progressChanged', callback?: ProgressObserver): void;
+
+    /**
+     * Unsubscribes from the asset sync progress.
+     *
+     * @param { ProgressObserver } [callback] Observer to be unregistered.
+     *     If this parameter is not set, all observers will be unregistered.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 22 static
+     */
+    offProgressChanged(callback?: ProgressObserver): void;
 
     /**
      * Mark an attribute of a distributed object as an asset type. This interface must be called before setSessionId.
