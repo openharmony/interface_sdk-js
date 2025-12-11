@@ -4178,7 +4178,7 @@ declare namespace notificationManager {
   function setAdditionalConfig(key: string, value: string): Promise<int>;
 
   /**
-   * Set priority config of bundle for intelligent identification.
+   * Sets the priority configuration of an application.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
@@ -4198,7 +4198,7 @@ declare namespace notificationManager {
   function setBundlePriorityConfig(bundle: BundleOption, value: string): Promise<void>;
 
   /**
-   * Get priority config of bundle for intelligent identification.
+   * Obtains the priority configuration of an application.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
@@ -4450,7 +4450,7 @@ declare namespace notificationManager {
   function getDistributedDeviceList(): Promise<Array<string>>;
 
   /**
-   * Set priority notification switch for bundle.
+   * Sets the enabling status of the priority notification for an application.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
@@ -4470,7 +4470,7 @@ declare namespace notificationManager {
   function setPriorityEnabledByBundle(bundle: BundleOption, enableStatus: PriorityEnableStatus): Promise<void>;
 
   /**
-   * Get priority notification switch for bundle.
+   * Checks whether the priority notification for a specified application is enabled.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
@@ -4489,7 +4489,7 @@ declare namespace notificationManager {
   function isPriorityEnabledByBundle(bundle: BundleOption): Promise<PriorityEnableStatus>;
 
   /**
-   * Get priority notification switch.
+   * Checks whether the priority notification is enabled.
    * 
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<boolean> } The promise returned by the function.
@@ -4504,7 +4504,7 @@ declare namespace notificationManager {
   function isPriorityEnabled(): Promise<boolean>;
 
   /**
-   * Set priority notification switch.
+   * Sets the enabling status of the priority notification.
    * 
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { boolean } enable - Set enable or not.
