@@ -11466,7 +11466,8 @@ declare namespace window {
      * @param { Record<string, Object> } [wantParameters] - Want parameters.
      *     Custom parameters deliverd when restoring the main window.
      * @returns { Promise<void> } - Promise that returns no value.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is not created or destroyed.
+     *                                                                                    2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @throws { BusinessError } 1300007 - Restore parent main window failed.
