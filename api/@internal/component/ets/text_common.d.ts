@@ -1205,6 +1205,19 @@ declare class TextMenuItemId {
    * @since 23 dynamic
    */
   static readonly autoFill: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId for password vault.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  static readonly passwordVault: TextMenuItemId;
 }
  
 /**
