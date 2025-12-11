@@ -8956,6 +8956,24 @@ declare namespace audio {
     readonly highQualityRecordingSupported?: boolean;
 
     /**
+     * Specific model of device
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 dynamic&static
+     */
+    readonly model?: string;
+
+    /**
+     * Supported audio capabilities.
+     * @type { ?Array<AudioStreamInfo> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 dynamic&static
+     */
+    readonly capabilities?: Array<AudioStreamInfo>;
+
+    /**
      * Extended information for distributed device, includes whether the device supports
      * stereo, Device SN, etc.
      * @type { ?string }
