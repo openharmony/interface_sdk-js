@@ -855,6 +855,34 @@ export declare class FrameNode {
   convertPosition(position: NodePosition, targetNode: FrameNode): NodePosition;
 
   /**
+   * Converts a point's coordinates from the current node's coordinate system
+   * to the current window's coordinate system.
+   *
+   * @param { NodePosition } positionByLocal - The point's coordinates in the current node's local coordinate system.
+   * @returns { NodePosition } - The converted coordinates in the current window's coordinate system.
+   * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
+   * @throws { BusinessError } 100028 - The current FrameNode is not on the main tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  convertPositionToWindow(positionByLocal: NodePosition): NodePosition;
+
+  /**
+   * Converts a point's coordinates from the current window's coordinate system
+   * to the current node's coordinate system.
+   *
+   * @param { NodePosition } positionByWindow - The point's coordinates in the current window's coordinate system.
+   * @returns { NodePosition } - The converted coordinates in the current node's local coordinate system.
+   * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
+   * @throws { BusinessError } 100028 - The current FrameNode is not on the main tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  convertPositionFromWindow(positionByWindow: NodePosition): NodePosition;
+
+  /**
    * Get if the FrameNode is in the render state. A FrameNode is considered to be in the render state if its
    * corresponding RenderNode is on the render tree.
    * @returns { boolean } - Returns whether the node is in the render state. True indicates it is in the
