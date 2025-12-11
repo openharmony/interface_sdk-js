@@ -8554,6 +8554,28 @@ declare namespace photoAccessHelper {
      * @since 21 dynamic
      */
     contextRecoveryInfo?: ContextRecoveryInfo;
+
+    /**
+     * Support setting the max photo select number.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    maxPhotoSelectNumber?: int;
+
+    /**
+     * Support setting the max video select number.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    maxVideoSelectNumber?: int;
   }
 
   /**
