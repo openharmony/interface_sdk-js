@@ -1020,7 +1020,6 @@ declare namespace display {
    * @param { long } [displayId] - The optional display id indicate the display relative to. 
    * If not specified,use the display where the coodinates are located.
    * @returns { RelativePosition } The relative coordinates.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -1035,7 +1034,6 @@ declare namespace display {
    *
    * @param { RelativePosition } relativePosition - The relative coordinates to be converted.
    * @returns { Position } The global coordinates.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
