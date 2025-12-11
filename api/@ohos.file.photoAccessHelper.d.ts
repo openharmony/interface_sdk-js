@@ -8627,6 +8627,17 @@ declare namespace photoAccessHelper {
      * @since 21 dynamic
      */
     contextRecoveryInfo?: ContextRecoveryInfo;
+
+    /**
+     * Support destruction with navigation.
+     * 
+     * @type {?boolean}
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    isDestroyedWithNavigation?: boolean;
   }
 
   /**
