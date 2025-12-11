@@ -2873,6 +2873,15 @@ declare namespace request {
      */
     const VISIBILITY_COMPLETION: 1;
     /**
+     * Indicates to show completion notification.
+     * 
+     * @constant
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @stagemodelonly
+     * @since 23 static
+     */
+    const VISIBILITY_COMPLETION: int = 1;
+    /**
      * Indicates to show progress notification.
      * 
      * @constant
@@ -2880,6 +2889,15 @@ declare namespace request {
      * @since 21 dynamic
      */
     const VISIBILITY_PROGRESS: 2;
+    /**
+     * Indicates to show progress notification.
+     * 
+     * @constant
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @stagemodelonly
+     * @since 23 static
+     */
+    const VISIBILITY_PROGRESS:int = 2;
     /**
      * The action options.
      *
