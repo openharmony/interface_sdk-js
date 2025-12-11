@@ -869,7 +869,6 @@ declare namespace vibrator {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @crossplatform
    * @systemapi
    * @since 22 dynamic&static
    */
