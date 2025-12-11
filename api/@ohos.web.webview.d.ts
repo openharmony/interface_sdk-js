@@ -2128,7 +2128,7 @@ declare namespace webview {
      * @param { boolean } lazy - Controls whether to delay the initialization of the web engine.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 23 dynamic
+     * @since 22 dynamic
      */
     static setLazyInitializeWebEngine(lazy: boolean): void;
 
