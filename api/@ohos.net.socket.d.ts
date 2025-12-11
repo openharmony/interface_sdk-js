@@ -3715,7 +3715,14 @@ declare namespace socket {
      * @crossplatform
      * @since 10 dynamic
      */
-    cert?: string;
+    /**
+     * Certificate proving the identity of the client
+     * @type {?(string | Array<string>)}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    cert?: string | Array<string>;
 
     /**
      * Private key of client certificate
