@@ -10733,8 +10733,7 @@ declare namespace camera {
    * @typedef IsoInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since 22 dynamic&static
    */
   interface IsoInfo {
     /**
@@ -10753,8 +10752,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20 dynamic
-     * @since 22 static
+     * @since 22 dynamic&static
      */
     readonly iso?: int;
   }
