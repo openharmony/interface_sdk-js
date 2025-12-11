@@ -265,34 +265,34 @@ declare namespace cloudExtension {
     NULL = 0,
 
     /**
-     * LONG.
+     * Number.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
      * @since 22 static
      */
-    LONG = 1,
+    NUMBER = 1,
 
     /**
-     * DOUBLE.
+     * Real.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
      * @since 22 static
      */
-    DOUBLE = 2,
+    REAL = 2,
 
     /**
-     * STRING.
+     * Text.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
      * @since 22 static
      */
-    STRING = 3,
+    TEXT = 3,
 
     /**
      * Boolean.
@@ -302,17 +302,17 @@ declare namespace cloudExtension {
      * @since 11 dynamic
      * @since 22 static
      */
-    BOOLEAN = 4,
+    BOOL = 4,
 
     /**
-     * UINT8ARRAY.
+     * BLOB.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
      * @since 22 static
      */
-    UINT8ARRAY = 5,
+    BLOB = 5,
 
     /**
      * Asset. For details, see {@link relationalStore.Asset}.
