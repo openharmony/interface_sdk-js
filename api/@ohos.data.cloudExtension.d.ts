@@ -1311,7 +1311,7 @@ declare namespace cloudExtension {
      * Obtains the brief application information.
      *
      * @returns { Promise<Record<string, AppBriefInfo>> }
-    * Returns the key-value pairs corresponding to <b>bundle</b> and
+     * Returns the key-value pairs corresponding to <b>bundle</b> and
      * <b>AppBriefInfo</b>.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
