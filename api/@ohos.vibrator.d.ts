@@ -863,6 +863,7 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @systemapi
    * @since 12 dynamic
+   * @since 22 static
    */
     systemUsage?: boolean;
   }
