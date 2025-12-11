@@ -20,6 +20,7 @@
 
 import type systemManager from './@ohos.enterprise.systemManager';
 import common from './@ohos.enterprise.common';
+import EnterpriseAdminExtensionContext from './application/EnterpriseAdminExtensionContext';
 
 /**
  * Class of the enterprise admin extension ability.
@@ -30,13 +31,11 @@ import common from './@ohos.enterprise.common';
  */
 export default class EnterpriseAdminExtensionAbility {
   /**
-   * Context of the EnterpriseAdminExtensionAbility.
+   * Indicates enterpriseAdmin extension context.
    *
    * @type { EnterpriseAdminExtensionContext }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
    * @since 23
    */
   context: EnterpriseAdminExtensionContext;
