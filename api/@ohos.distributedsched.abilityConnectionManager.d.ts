@@ -28,7 +28,7 @@ import colorSpaceManager from './@ohos.graphics.colorSpaceManager';
  *
  * @namespace abilityConnectionManager
  * @syscap SystemCapability.DistributedSched.AppCollaboration
- * @stagemodelonly
+ * @stagemodelonly
  * @since 18 dynamic
  * @since 23 static
  */
@@ -38,7 +38,7 @@ declare namespace abilityConnectionManager {
    * Collaborative application information.
    * @interface PeerInfo
    * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @stagemodelonly
+   * @stagemodelonly
    * @since 18 dynamic
    * @since 23 static
    */
@@ -49,7 +49,7 @@ declare namespace abilityConnectionManager {
      * the obtained ID will change.
      * @type { string }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -59,7 +59,7 @@ declare namespace abilityConnectionManager {
      * bundle name.
      * @type { string }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -69,7 +69,7 @@ declare namespace abilityConnectionManager {
      * module name.
      * @type { string }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -79,7 +79,7 @@ declare namespace abilityConnectionManager {
      * ability name.
      * @type { string }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -89,7 +89,7 @@ declare namespace abilityConnectionManager {
      * Service name.
      * @type { ?string }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -109,7 +109,7 @@ declare namespace abilityConnectionManager {
      * Send Data Configuration Options. WiFi needs to be turned on.
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -120,7 +120,7 @@ declare namespace abilityConnectionManager {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -131,7 +131,7 @@ declare namespace abilityConnectionManager {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -151,7 +151,7 @@ declare namespace abilityConnectionManager {
      * Additional information about the ability connection request.
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -171,7 +171,7 @@ declare namespace abilityConnectionManager {
      * Connection is accepted or rejected.
      * @type { boolean }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -181,7 +181,7 @@ declare namespace abilityConnectionManager {
      * Connection failure error code.
      * @type { ?ConnectErrorCode }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -191,7 +191,7 @@ declare namespace abilityConnectionManager {
      * Indicates the reason for reject.
      * @type { ?string }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -210,7 +210,7 @@ declare namespace abilityConnectionManager {
     /**
      * A connected session exists between the two application.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -219,7 +219,7 @@ declare namespace abilityConnectionManager {
     /**
      * The peer application rejects the collaboration request.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -228,7 +228,7 @@ declare namespace abilityConnectionManager {
     /**
      * Connection failed due to the device's WiFi being off.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -237,7 +237,7 @@ declare namespace abilityConnectionManager {
     /**
      * Connection failed due to the peer's WiFi being off.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -246,7 +246,7 @@ declare namespace abilityConnectionManager {
     /**
      * Connection failed due to the peer ability has not implemented the onCollaborate method.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -255,7 +255,7 @@ declare namespace abilityConnectionManager {
     /**
      * The connection failed due to an internal system error.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -267,7 +267,7 @@ declare namespace abilityConnectionManager {
    *
    * @enum { int }
    * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @stagemodelonly
+   * @stagemodelonly
    * @since 18 dynamic
    * @since 23 static
    */
@@ -275,7 +275,7 @@ declare namespace abilityConnectionManager {
     /**
      * Launching the peer application to the foreground.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -285,7 +285,7 @@ declare namespace abilityConnectionManager {
      * Launching the peer application to the background.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -296,7 +296,7 @@ declare namespace abilityConnectionManager {
    * Connection event callback information.
    * @interface EventCallbackInfo
    * @syscap SystemCapability.DistributedSched.AppCollaboration
-   * @stagemodelonly
+   * @stagemodelonly
    * @since 18 dynamic
    * @since 23 static
    */
@@ -305,7 +305,7 @@ declare namespace abilityConnectionManager {
      * Ability connection Session id.
      * @type { int }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -315,7 +315,7 @@ declare namespace abilityConnectionManager {
      * Indicates the reason of ability disconnection.
      * @type { ?DisconnectReason }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -325,7 +325,7 @@ declare namespace abilityConnectionManager {
      * Received message data.
      * @type { ?string }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -335,7 +335,7 @@ declare namespace abilityConnectionManager {
      * Received data.
      * @type { ?ArrayBuffer }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -346,22 +346,11 @@ declare namespace abilityConnectionManager {
      * @type { ?image.PixelMap }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
     image?: image.PixelMap;
-
-    /**
-     * Received image.
-     * @type { ?image.PixelMap }
-     * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @systemapi
-     * @stagemodelonly
-     * @since 18 dynamic
-     * @since 23 static
-     */
-    pixelMap?: image.PixelMap;
     }
 
   /**
@@ -377,7 +366,7 @@ declare namespace abilityConnectionManager {
      * Indicates the type of collaborate event.
      * @type { CollaborateEventType }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly
+     * @stagemodelonly
      * @since 18 dynamic
      * @since 23 static
      */
@@ -823,6 +812,7 @@ declare namespace abilityConnectionManager {
    * @returns { int}  Returns the Ability connection Session id.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 18 dynamic
