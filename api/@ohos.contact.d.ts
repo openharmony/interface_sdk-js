@@ -20,6 +20,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
+import type image from './@ohos.multimedia.image';
 
 /**
  * Contains variety of system contact, provides functions for adding, updating and deleting these system contact
@@ -3808,6 +3809,16 @@ declare namespace contact {
      * @since 22 static
      */
     uri: string;
+    /**
+     * Indicates the contact portrait in image.PixelMap format
+     * If you want to set contact portrait in this format, the uri needs to be set to empty.
+     *
+     * @type { ?image.PixelMap }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    photo?: image.PixelMap;
   }
 
   /**

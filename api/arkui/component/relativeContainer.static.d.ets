@@ -18,7 +18,7 @@
  */
 import { Dimension } from './units';
 import { Axis } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Specifies the position of guideLine
@@ -262,16 +262,14 @@ export declare interface RelativeContainerAttribute extends CommonMethod {
 /**
  * Defines RelativeContainer Component.
  *
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { RelativeContainerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function RelativeContainer(
     
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): RelativeContainerAttribute

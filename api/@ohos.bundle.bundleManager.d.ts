@@ -1017,6 +1017,13 @@ declare namespace bundleManager {
     NOTIFICATION_SUBSCRIBER = 34,
 
     /**
+     * Indicates extension info with type of the crypto
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 22 dynamic
+     */
+    CRYPTO = 35,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2011,6 +2018,41 @@ declare namespace bundleManager {
   }
 
   /**
+   * Bundle install status.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  export enum BundleInstallStatus {
+    /**
+     * Indicates the bundle does not exist.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    BUNDLE_NOT_EXIST = 1,
+    /**
+     * Indicates the bundle is is being installed.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    BUNDLE_INSTALLING = 2,
+    /**
+     * Indicates the bundle has been installed.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    BUNDLE_INSTALLED = 3,
+  }
+
+  /**
    * This enumeration value is used to identify various flags of application
    *
    * @enum { int }
@@ -2061,7 +2103,7 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2080,7 +2122,7 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2103,7 +2145,7 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle info result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2113,7 +2155,7 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle info result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2136,7 +2178,7 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { BundleInfo } The result of getting the bundle info.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2146,7 +2188,7 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { BundleInfo } The result of getting the bundle info.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -3763,6 +3805,25 @@ declare namespace bundleManager {
   function getAppProvisionInfo(bundleName: string, userId?: int): Promise<AppProvisionInfo>;
 
   /**
+   * Get all app provision info of a specified user.
+   * If you need to get all app provision info under the current user, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * needs to be applied for.
+   * If you need to get all app provision info under other users, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { int } [userId] - Indicates the user ID.
+   * @returns { Promise<Array<AppProvisionInfo>> } Returns a list of AppProvisionInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function getAllAppProvisionInfo(userId?: int): Promise<Array<AppProvisionInfo>>;
+
+  /**
    * Obtains the profile file information of a specified bundle.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -3912,7 +3973,6 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
    */
   function enableDynamicIcon(bundleName: string, moduleName: string): Promise<void>;
 
@@ -3957,7 +4017,6 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
    */
   function disableDynamicIcon(bundleName: string): Promise<void>;
 
@@ -4477,6 +4536,20 @@ declare namespace bundleManager {
    * @since 22 static
    */
   function removeBackupBundleData(bundleName: string, userId: int, appIndex: int): Promise<void>;
+
+  /**
+   * Get the bundle install status.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundle name.
+   * @returns { BundleInstallStatus } Returns the bundle install status.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function getBundleInstallStatus(bundleName: string): BundleInstallStatus;
 
   /**
    * Obtains configuration information about an application.

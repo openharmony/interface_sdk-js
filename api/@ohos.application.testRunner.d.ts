@@ -24,7 +24,7 @@
  * @typedef { Function }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 22 dynamic&static
+ * @since 23 dynamic&static
  */
 type OnPrepareFn = () => void;
 
@@ -34,7 +34,7 @@ type OnPrepareFn = () => void;
  * @typedef { Function }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 22 dynamic&static
+ * @since 23 dynamic&static
  */
 type OnRunFn = () => void;
 
@@ -76,7 +76,7 @@ interface TestRunner {
    * @type { OnPrepareFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   onPrepare: OnPrepareFn;
 
@@ -99,7 +99,7 @@ interface TestRunner {
    * @typedef { OnRunFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   onRun: OnRunFn;
 }

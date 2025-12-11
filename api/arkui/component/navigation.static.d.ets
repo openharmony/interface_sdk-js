@@ -30,7 +30,8 @@ import { Length, ResourceStr, ResourceColor, Dimension, VoidCallback } from './u
 import { TitleHeight } from './enums';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
 import { NavDestinationContext, NavDestinationMode } from './navDestination';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
+import { ComponentContent } from '@ohos.arkui.node';
 
 /**
  * Import the SystemBarStyle type for Navigation.
@@ -866,6 +867,21 @@ export type NavBar = 'navBar';
 export type InterceptionShowCallback = (from: NavDestinationContext | NavBar, to: NavDestinationContext | NavBar, operation: NavigationOperation, isAnimated: boolean) => void;
 
 /**
+ * navigation interception callback.
+ *
+ * @typedef { function } InterceptionCallback
+ * @param { NavPathInfo | NavBar } from - Indicates the info of NavDestination or NavBar.
+ * @param { NavPathInfo | NavBar } to - Indicates the info of NavDestination or NavBar.
+ * @param { NavPathStack } pathStack - The NavPathStack of current Navigation.
+ * @param { NavigationOperation } operation - Indicates the type of navigation operation.
+ * @param { boolean } isAnimated - Indicates whether the transition is animated.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export type InterceptionCallback = (from: NavPathInfo | NavBar, to: NavPathInfo | NavBar, pathStack: NavPathStack, operation: NavigationOperation, isAnimated: boolean) => void;
+
+
+/**
  * navigation interception callback using in navigation mode change
  *
  * @typedef { function } InterceptionModeCallback
@@ -910,6 +926,42 @@ export declare interface NavigationInterception {
      * @since 22 static
      */
     modeChange?: InterceptionModeCallback;
+
+    /**
+     * Called before destination is created.For details, see { @Link InterceptionCallback}.
+     *
+     * @type { ?InterceptionCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    interception?: InterceptionCallback;
+}
+
+/**
+ * Indicates the information of home destination.
+ *
+ * @interface HomePathInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+declare interface HomePathInfo {
+  /**
+   * Name of the home destination.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  name: string;
+
+  /**
+   * Detailed parameters of the home destination.
+   *
+   * @type { ?Object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  param?: Object;
 }
 
 /**
@@ -1608,6 +1660,30 @@ export declare interface NavigationAttribute extends CommonMethod {
     default enableModeChangeAnimation(isEnabled: boolean | undefined): this;
 
     /**
+     * Set placeholder in split mode.
+     *
+     * @param { ComponentContent } placeholder - Set placeholder in split mode.
+     * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default splitPlaceholder(placeholder: ComponentContent): this;
+
+    /**
+     * Whether to enable the show or hide lifecycle with bindContentCover.
+     * The true means that bindContentCover can affect the show or hide lifecycle of Navigation, and the false not.
+     *
+     * @param { boolean | undefined } isEnabled - enable the show or hide lifecycle with bindContentCover.
+     *                                          Default value: **true**.
+     *                                          **true**: The bindContentCover can affect the show or hide lifecycle of Navigation.
+     *                                          **false**: The bindContentCover can not affect the show or hide lifecycle of Navigation.
+     * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default enableVisibilityLifecycleWithContentCover(isEnabled: boolean | undefined): this;
+
+    /**
      * Set the attribute modifier of navigation.
      *
      * @param { AttributeModifier<NavigationAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -1796,16 +1872,14 @@ export declare interface NavContentInfo {
  * Defines Navigation Component
  *
  * @param { NavPathStack } [pathInfos] - Navigation constructor options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { NavigationAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Navigation(
     pathInfos?: NavPathStack, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder
 ): NavigationAttribute

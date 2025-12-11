@@ -17,14 +17,14 @@
  * @file
  * @kit ArkUI
  */
-import { CommonConfiguration, CommonMethod, ContentModifier, Optional, BlurStyle, Bindable } from './common';
+import { CommonConfiguration, CommonMethod, ContentModifier, BlurStyle, Bindable } from './common';
 import { ControlSize } from './button';
 import { DividerOptions } from './textPicker';
 import { ResourceStr, Dimension, EdgeOutlineWidths, ResourceColor, EdgeColors, Resource, Font, Length, Offset, DividerStyleOptions } from './units';
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
 import { TextModifier } from '../TextModifier';
 import { OptionWidthMode } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder,  CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * The declare of selectOption.
@@ -437,6 +437,38 @@ export declare interface SelectAttribute extends CommonMethod {
      */
     default menuOutline(outline: MenuOutlineOptions | undefined): this;
     /**
+     * Sets whether to display menu in the sub window.
+     *
+     * Device Behavior Differences:Setting to display in sub windows is only supported on 2-in-1 devices.
+     *
+     * @param { boolean | undefined } showInSubWindow - Set whether the Select menu is displayed in the sub window.
+     *     true means the Select menu is displayed in the sub window, and this setting is only takes effect on 2-in-1 devices.
+     *     false means the select menu is not displayed in the sub window.
+     *     <br>Default value:2-in-1 device is true, other devices are false.
+     * @returns { SelectAttribute } - The attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default showInSubWindow(showInSubWindow: boolean | undefined): this;
+    /**
+    * Set whether to display the default selected icon.
+    *
+    * @param { boolean | undefined } show - Set whether to display the default selection icon.
+    *     true means display the default selected icon
+    *     false or undefined means do not display the default selected icon, instead indicate selection by
+    *     highlighting the background color.
+    *     <br> show is set to true, if the background color of the selected option is set using
+    *     selectedOptionBgColor, both the background color of the selected item and the default
+    *     selection icon will be displayed. If the background color of the selected option is not set
+    *     using selectedOptionBgColor, the background color will1 not be highlighted, and only the default
+    *     selection icon will be displayed.
+    * @returns { SelectAttribute } - the attribute of the select.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    */
+    default showDefaultSelectedIcon(show:boolean | undefined): this
+    /**
      * Set the attribute modifier of select.
      *
      * @param { AttributeModifier<SelectAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -511,15 +543,13 @@ export declare interface MenuItemConfiguration extends CommonConfiguration<MenuI
  * Defines Select Component.
  *
  * @param { Array<SelectOptions> } options - the options of Select.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { SelectAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Select(
     options: Array<SelectOption>,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): SelectAttribute

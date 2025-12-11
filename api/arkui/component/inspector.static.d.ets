@@ -19,7 +19,6 @@
  * @kit ArkUI
  */
 
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
 import { Callback } from '../../@ohos.base';
 

@@ -20,7 +20,34 @@
  */
 
 import image from './@ohos.multimedia.image';
+import drawing from './@ohos.graphics.drawing';
+import { AnimationStatus, ResourceStr } from '@ohos.arkui.component';
 
+/**
+ * The result of loading image.
+ *
+ * @typedef DrawableDescriptorLoadedResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export interface DrawableDescriptorLoadedResult {
+  /**
+   * The width of the image, in px.
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  imageWidth: int;
+  /**
+   * The height of the image, in px.
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  imageHeight: int;
+}
 /**
  * Use the DrawableDescriptor class to get drawable image.
  *
@@ -40,11 +67,31 @@ export declare class DrawableDescriptor {
   /**
    * Get pixelMap of drawable image.
    *
-   * @returns { image.PixelMap | undefined } Return the PixelMap of the calling DrawableDescriptor object.
+   * @returns { image.PixelMap | undefined } - Return the PixelMap of the calling DrawableDescriptor object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
   getPixelMap(): image.PixelMap | undefined;
+
+  /**
+   * Synchronously loads the image and returns the loading result.
+   * 
+   * @returns { DrawableDescriptorLoadedResult } - loading outcome.
+   * @throws { BusinessError } 111001 - resource loading failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  loadSync(): DrawableDescriptorLoadedResult;
+
+  /**
+   * Asynchronously loads image and returns loading result.
+   *
+   * @returns { Promise<DrawableDescriptorLoadedResult> } - The image loading result.
+   * @throws { BusinessError } 111001 - resource loading failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  load(): Promise<DrawableDescriptorLoadedResult>;
 }
 
 /**
@@ -106,6 +153,15 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @since 22 static
    */
   static getMaskClipPath(): string;
+
+  /**
+   * Set the composition mode.
+   *
+   * @param { drawing.BlendMode | undefined } mode - Indicates the composition mode to set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  setBlendMode(mode: drawing.BlendMode | undefined): void;
 }
 
 /**
@@ -118,6 +174,7 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
 export declare class PixelMapDrawableDescriptor extends DrawableDescriptor {
   /**
    * Creates a new PixelMapDrawableDescriptor.
+   *
    * @param { image.PixelMap } [src] - Indicates the resource to create PixelMapDrawableDescriptor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
@@ -136,19 +193,85 @@ export interface AnimationOptions {
   /**
    * The duration of animation playback once.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  duration?: number;
+  duration?: int;
   /**
    * Animation playback times.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  iterations?: number;
+  iterations?: int;
+ /**
+   * Animation frames duration of playback once.
+   *
+   * @type { ?Array<int> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  frameDurations?: Array<int>;
+  /**
+   * Auto play animated images, default value is true.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  autoPlay?: boolean;
+}
+
+/**
+ * Define the data structure for PixelMap animations.
+ *
+ * @interface AnimationController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export interface AnimationController {
+  /**
+   * Start animtion playback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  start(): void;
+
+  /**
+   * Stop animation playback, and reset to first frame.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  stop(): void;
+
+  /**
+   * Pause animation playback, and keep it to the current frame.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  pause(): void;
+
+  /**
+   * Resume animation playback from the current frame.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  resume(): void;
+
+  /**
+   * Get animtion status of the current component.
+   *
+   * @returns { AnimationStatus } - Return the status of animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  getStatus(): AnimationStatus;
 }
 
 /**
@@ -168,4 +291,24 @@ export declare class AnimatedDrawableDescriptor extends DrawableDescriptor {
    * @since 22 static
    */
   constructor(pixelMaps: Array<image.PixelMap>, options?: AnimationOptions);
+
+  /**
+   * Creates a new AnimatedDrawableDescriptor.
+   *
+   * @param { ResourceStr | Array<image.PixelMap> } src - animated images or local resource.
+   * @param { AnimationOptions } [options] - Animation control options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  constructor(src: ResourceStr | Array<image.PixelMap>, options?: AnimationOptions);
+
+  /**
+   * Get the animation controller of the component based on the component id.
+   *
+   * @param { string } [id] - component id.
+   * @returns { AnimationController | undefined } - Return the component of animation controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  getAnimationController(id?: string): AnimationController | undefined;
 }

@@ -17,7 +17,6 @@
  * @kit ArkUI
  */
 import { LengthMetricsUnit } from '../Graphics';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -175,16 +174,9 @@ export declare class Matrix2D {
     /**
      * Constructs a 2D change matrix object. The default value is the unit matrix.
      *
+     * @param { LengthMetricsUnit } [unit] - the unit mode
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    constructor();
-    /**
-     * Constructs a 2D change matrix object. The default value is the unit matrix.
-     *
-     * @param { LengthMetricsUnit } unit - the unit mode
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    constructor(unit: LengthMetricsUnit);
+    constructor(unit?: LengthMetricsUnit);
 }

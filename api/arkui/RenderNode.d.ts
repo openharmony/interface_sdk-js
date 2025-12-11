@@ -80,7 +80,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   appendChild(node: RenderNode): void;
 
@@ -117,7 +117,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   insertChildAfter(child: RenderNode, sibling: RenderNode | null): void;
 

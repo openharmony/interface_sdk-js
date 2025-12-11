@@ -650,6 +650,7 @@ declare namespace router {
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 18
+   * @reserved ["liteWearable"]
    * @useinstead ohos.arkui.UIContext.Router#replaceUrl
    */
   function replaceUrl(options: RouterOptions, callback: AsyncCallback<void>): void;
@@ -683,6 +684,7 @@ declare namespace router {
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 18
+   * @reserved ["liteWearable"]
    * @useinstead ohos.arkui.UIContext.Router#replaceUrl
    */
   function replaceUrl(options: RouterOptions): Promise<void>;
@@ -718,6 +720,7 @@ declare namespace router {
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 18
+   * @reserved ["liteWearable"]
    * @useinstead ohos.arkui.UIContext.Router#replaceUrl
    */
   function replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
@@ -753,6 +756,7 @@ declare namespace router {
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 18
+   * @reserved ["liteWearable"]
    * @useinstead ohos.arkui.UIContext.Router#replaceUrl
    */
   function replaceUrl(options: RouterOptions, mode: RouterMode): Promise<void>;

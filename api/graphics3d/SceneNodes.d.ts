@@ -18,9 +18,6 @@
  * @kit ArkGraphics3D
  */
 
-/*** if arkts static */
-import { SceneResource, Morpher } from './SceneResources';
-/*** endif */
 /*** if arkts dynamic */
 import { Effect } from './SceneResources';
 /*** endif */
@@ -443,7 +440,7 @@ export interface SpotLight extends Light {
    * @type { ?double }
    * @default 0
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   innerAngle?: double;
 
@@ -453,7 +450,7 @@ export interface SpotLight extends Light {
    * @type { ?double }
    * @default PI / 4.0
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   outerAngle?: double;
 }

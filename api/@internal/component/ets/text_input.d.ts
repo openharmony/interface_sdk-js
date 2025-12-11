@@ -2689,6 +2689,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11 dynamic
    */
+  /**
+   * Define bar state of the text input.
+   *
+   * @param { BarState } value - Default value is BarState.Auto.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   barState(value: BarState): TextInputAttribute;
 
   /**
@@ -2898,6 +2908,20 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamic
+   */
+  /**
+   * Set the cancel button style
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute is not available for the inline input style.
+   * </p>
+   *
+   * @param { CancelButtonSymbolOptions } symbolOptions - indicates the style of the cancel button.Default value is { style: CancelButtonStyle.INPUT }.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   cancelButton(symbolOptions: CancelButtonSymbolOptions): TextInputAttribute;
 
@@ -3357,6 +3381,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 15 dynamic
    */
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   stopBackPress(isStopped: Optional<boolean>): TextInputAttribute;
 
   /**
@@ -3429,6 +3463,55 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 20 dynamic
    */
   enableAutoSpacing(enabled: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+   *
+   * @param { Optional<boolean> } include - Whether enable the feature, the default value is false.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  includeFontPadding(include: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+   *
+   * @param { Optional<boolean> } enabled - Whether enable the feature, the default value is false.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fallbackLineSpacing(enabled: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * Whether to compress punctuation at the beginning of line.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  compressLeadingPunctuation(enabled: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * Used to set the selected drag preview style.
+   *
+   * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+   *     If set undefined will reset the style.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextInputAttribute;
 }
 
 /**

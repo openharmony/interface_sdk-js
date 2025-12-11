@@ -27,6 +27,7 @@ import { WantAgent } from '../@ohos.wantAgent';
 /*** endif */
 /*** if arkts static */
 import { WantAgent } from '../@ohos.app.ability.wantAgent';
+import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
@@ -245,7 +246,25 @@ export enum LiveViewStatus {
    * @since 11 dynamic
    * @since 22 static
    */
-  LIVE_VIEW_FULL_UPDATE = 3
+  LIVE_VIEW_FULL_UPDATE = 3,
+  /**
+   * Create live view notification by trigger.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  LIVE_VIEW_PENDING_CREATE = 4,
+  /**
+   * Complete the live view notification by trigger.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  LIVE_VIEW_PENDING_END = 6
 }
 
 /**
@@ -329,9 +348,18 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
    */
   extraInfo?: Record<string, Object>;
+
+  /**
+   * Additional information of the live view notification.
+   *
+   * @type { ?Record<string, RecordData>}
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 static
+   */
+  extraInfo?: Record<string, RecordData>;
 
   /**
    * The picture information list of the live view notification.
@@ -655,6 +683,7 @@ export interface NotificationCapsule {
  *
  * @typedef NotificationIconButton
  * @syscap SystemCapability.Notification.Notification
+ * @systemapi
  * @since 18 dynamic
  * @since 22 static
  */

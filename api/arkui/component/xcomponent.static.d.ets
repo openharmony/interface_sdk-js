@@ -20,7 +20,7 @@ import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
 import { CommonMethod, AttributeModifier, Callback } from "./common";
 import { XComponentType } from "./enums";
 import { VoidCallback } from "./units";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Surface Rectangle information.
@@ -382,15 +382,13 @@ export declare interface XComponentParameters {
  *
  * @param { XComponentParameters | XComponentOptions | NativeXComponentParameters } params -
  *     The options to create an XComponent
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { XComponentAttribute } The attribute of the XComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function XComponent(
     params: XComponentParameters | XComponentOptions | NativeXComponentParameters, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): XComponentAttribute

@@ -17,11 +17,11 @@
  * @file
  * @kit ArkUI
  */
-import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Optional, Bindable } from './common';
+import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceColor, MarkStyle } from './units';
 import { CheckBoxShape } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the options of Checkbox.
@@ -190,15 +190,13 @@ export declare interface CheckboxAttribute extends CommonMethod {
  * Defines Checkbox Component.
  *
  * @param { CheckboxOptions } [options] - the options of Checkbox.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { CheckboxAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Checkbox(
-    options?: CheckboxOptions,
-    @memo
-    content_?: () => void,
+    options?: CheckboxOptions, 
+    content_?: CustomBuilder,
 ): CheckboxAttribute

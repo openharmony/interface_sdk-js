@@ -18,7 +18,7 @@
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { ShapePoint } from "./line";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Define options used to construct a polygon.
@@ -79,15 +79,13 @@ export declare interface PolygonAttribute extends CommonShapeMethod {
  * Polygon is returned when the parameter is transferred.
  *
  * @param { PolygonOptions } [options] - The options to create a Polygon
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { PolygonAttribute } The attribute of the Polygon.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Polygon(
     options?: PolygonOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder
 ): PolygonAttribute

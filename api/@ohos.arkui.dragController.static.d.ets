@@ -106,41 +106,38 @@ declare namespace dragController {
      * @since 22 static
      */
     interface DragAction {
-        
-        
         /**
          * trigger drag action
          *
-         * @returns { Promise<void> } A Promise can indicate the start result.
+         * @returns { Promise<void> | null } A Promise can indicate the start result is returned, or null is returned
+         *     if it's failed for some errors, for example: execution environment broken or excess parameters passed in.
          * @throws { BusinessError } 100001 - Internal handling failed.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        startDrag(): Promise<void>;
+        startDrag(): Promise<void> | null;
         
         
         /**
          * Registers a callback for listening on drag status changes.
          * This callback is triggered when the drag status change.
          *
-         * @param { 'statusChange' } type for status changing
          * @param { Callback<DragAndDropInfo> } callback with drag event and status information
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        on(type: 'statusChange', callback: Callback<DragAndDropInfo>): void;
+        onStatusChange(callback: Callback<DragAndDropInfo>): void;
         
         
         /**
          * Deregisters a callback for listening on drag status changes.
          * This callback is not triggered when the drag status change.
          *
-         * @param { 'statusChange' } type for status changing
-         * @param { Callback<DragAndDropInfo> } callback with drag event and status information
+         * @param { Callback<DragAndDropInfo> } [callback] with drag event and status information
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        off(type: 'statusChange', callback?: Callback<DragAndDropInfo>): void;
+        offStatusChange(callback?: Callback<DragAndDropInfo>): void;
     }
     
     
@@ -156,11 +153,11 @@ declare namespace dragController {
         
         /**
          * A unique identifier to identify which touch point.
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        pointerId: number;
+        pointerId: int;
         
         
         /**
@@ -212,11 +209,11 @@ declare namespace dragController {
         
         /**
          * Animation duration, in ms.
-         * @type { ?number }
+         * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        duration?: number;
+        duration?: int;
         
         
         /**

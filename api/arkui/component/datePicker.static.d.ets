@@ -19,11 +19,11 @@
  * @kit ArkUI
  */
 
-import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Callback, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, DateTimeOptions, Bindable } from './common';
+import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Callback, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, DateTimeOptions, Bindable } from './common';
 import { ResourceColor, Offset, VoidCallback } from "./units";
 import { DialogAlignment } from "./alertDialog";
 import { CrownSensitivity } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -42,11 +42,11 @@ export declare interface DatePickerResult {
      * If start and end are not set, the default range is [1970, 2100].
      * </p>
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
      * @since 22 static
      */
-    year?: number;
+    year?: int;
     /**
      * Month index of the selected date.
      * The index is zero-based. 0 indicates January, and 11 indicates December.
@@ -55,11 +55,11 @@ export declare interface DatePickerResult {
      * <br>Value range: depends on start and end. If start and end are not set, the default range is [0, 11].
      * </p>
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
      * @since 22 static
      */
-    month?: number;
+    month?: int;
     /**
      * Day of the selected date.
      *
@@ -67,16 +67,16 @@ export declare interface DatePickerResult {
      * <br>Value range: depends on start and end. If start and end are not set, the default range is [1, 31].
      * </p>
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full    
      * @since 22 static
      */
-    day?: number;
+    day?: int;
 }
 /**
  * Defines the mode of the date picker.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -241,6 +241,15 @@ export declare interface DatePickerAttribute extends CommonMethod {
      * @since 22 static
      */
     default enableHapticFeedback(enable: boolean | undefined): this;
+    /**
+     * Can scroll loop if true is set, on the contrary it can not.
+     *
+     * @param { boolean | undefined } isLoop
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */  
+    default canLoop(isLoop: boolean | undefined): this;
     /**
      * Set the attribute modifier
      *
@@ -625,6 +634,15 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @since 22 static
      */
     enableHapticFeedback?: boolean;
+    /**
+     * Can scroll loop if true is set, on the contrary it can not.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    canLoop?: boolean;
 }
 /**
  * Defines DatePickerDialog which uses show method to show DatePicker dialog.
@@ -637,16 +655,14 @@ export declare class DatePickerDialog {}
  * Defines the DatePicker component.
  * 
  * @param { DatePickerOptions } [options] - date picker options.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { DatePickerAttribute } The attribute of the DatePicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function DatePicker(
     options?: DatePickerOptions, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): DatePickerAttribute;

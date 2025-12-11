@@ -18,12 +18,14 @@
  * @kit AbilityKit
  */
 
+import type abilityWantAgent from '../@ohos.app.ability.wantAgent';
 import Want from '../@ohos.app.ability.Want';
 /*** if arkts dynamic */
 import wantAgent from '../@ohos.wantAgent';
 /*** endif */
-import type abilityWantAgent from '../@ohos.app.ability.wantAgent';
-
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
 
 /**
  * Provides the information required for triggering a WantAgent.
@@ -179,11 +181,11 @@ export interface WantAgentInfo {
    * Extra information about how the Want starts an ability.
    * If there is no extra information to set, this constant can be left empty.
    *
-   * @type { ?Record<string, Object> }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 22 static
    */
-  extraInfo?: Record<string, Object>;
+  extraInfo?: Record<string, RecordData>;
 
   /**
    * Extra information about how the Want starts an ability.
@@ -203,9 +205,19 @@ export interface WantAgentInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   extraInfos?: Record<string, Object>;
+
+  /**
+   * Extra information about how the Want starts an ability.
+   * If there is no extra information to set, this constant can be left empty.
+   * The ability of this property is same as extraInfo. If both are set, this property will be used.
+   *
+   * @type { ?Record<string, RecordData> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 22 static
+   */
+  extraInfos?: Record<string, RecordData>;
 
   /**
    * Indicates the target user upon whom the WantAgent takes effect.

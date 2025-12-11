@@ -17,11 +17,11 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod, Optional, Bindable } from './common';
+import { CommonMethod, Bindable } from './common';
 import { ResourceColor, MarkStyle } from './units';
 import { CheckBoxShape } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { ComponentBuilder, CustomBuilder } from './builder';
+import { AttributeModifier, CommonMethod, ContentModifier, CommonConfiguration } from './common';
 /**
  * CheckboxGroup SelectStatus
  *
@@ -93,6 +93,43 @@ export declare interface CheckboxGroupResult {
      * @since 22 static
      */
     status: SelectStatus;
+}
+/**
+ * CheckBoxGroupConfiguration used by content modifier.
+ *
+ * @extends CommonConfiguration<CheckBoxGroupConfiguration>
+ * @interface CheckBoxGroupConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface CheckBoxGroupConfiguration extends CommonConfiguration<CheckBoxGroupConfiguration> {
+    /**
+     * Current name of checkboxgroup.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    name: string;
+
+    /**
+     * Defines the select status of CheckboxGroup.
+     *
+     * @type { SelectStatus }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    status: SelectStatus;
+
+    /**
+     * Trigger checkboxgroup select change.
+     *
+     * @param { boolean } isSelect - Whether the checkbox group is selected.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    triggerChange(isSelect: boolean): void;
 }
 /**
  * Defines a CheckboxGroup callback when onChange.
@@ -179,21 +216,28 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
      */
     default attributeModifier(
         modifier: AttributeModifier<CheckboxGroupAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Set the content modifier of checkboxgroup.
+     *
+     * @param { ContentModifier<CheckBoxGroupConfiguration> | undefined } modifier - The content modifier of checkboxgroup.
+     * @returns { CheckboxGroupAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default contentModifier(modifier: ContentModifier<CheckBoxGroupConfiguration> | undefined): this;
 }
 
 /**
  * Defines CheckboxGroup Component.
  *
  * @param { CheckboxGroupOptions } [options] - the options of CheckboxGroup.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { CheckboxGroupAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function CheckboxGroup(
-    options?: CheckboxGroupOptions,
-    @memo
-    content_?: () => void,
+    options?: CheckboxGroupOptions, 
+    content_?: CustomBuilder,
 ): CheckboxGroupAttribute

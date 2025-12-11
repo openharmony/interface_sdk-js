@@ -17,9 +17,9 @@
  * @file
  * @kit ArkUI
  */
-import { CommonConfiguration, Callback, CommonMethod, Optional, ContentModifier, Bindable } from './common';
+import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Bindable } from './common';
 import { ResourceStr } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Define options used to construct a rating.
@@ -58,20 +58,20 @@ export declare interface StarStyleOptions {
      * Background URI option.
      * Anonymous Object Rectification.
      *
-     * @type { ResourceStr }
+     * @type { ResourceStr | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    backgroundUri: ResourceStr;
+    backgroundUri: ResourceStr | undefined;
     /**
      * Foreground URI option.
      * Anonymous Object Rectification.
      *
-     * @type { ResourceStr }
+     * @type { ResourceStr | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    foregroundUri: ResourceStr;
+    foregroundUri: ResourceStr | undefined;
     /**
      * Secondary URI option.
      * Anonymous Object Rectification.
@@ -212,15 +212,13 @@ export declare interface RatingAttribute extends CommonMethod {
  * Defines Rating Component.
  *
  * @param { RatingOptions } [options] - the options of Rating.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { RatingAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Rating(
     options?: RatingOptions,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): RatingAttribute

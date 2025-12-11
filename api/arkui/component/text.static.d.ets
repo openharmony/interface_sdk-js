@@ -17,14 +17,14 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod, ShadowOptions, Optional, Callback, AttributeModifier, SelectionOptions } from "./common";
+import { CommonMethod, ShadowOptions, Callback, AttributeModifier, SelectionOptions } from "./common";
 import { CustomBuilder } from './builder';
 import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode } from "./enums";
 import { Resource, ResourceColor, Font, Length, LengthMetrics } from "./units";
-import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions } from "./textCommon";
+import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle } from "./textCommon";
 import { DecorationStyleInterface, StyledString } from "./styledString";
 import { SelectionMenuOptions } from "./richEditor";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder } from './builder';
 /**
  * Text overflow options.
  *
@@ -35,15 +35,15 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  */
 export declare interface TextOverflowOptions {
     /**
-     * Text overflow option.
+     * Text overflow option. Use TextOverflow::NONE when the value is undefined.
      *
      * Anonymous Object Rectification.
-     * @type { TextOverflow }
+     * @type { TextOverflow | undefined }
      * @default TextOverflow.Clip
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    overflow: TextOverflow;
+    overflow: TextOverflow | undefined;
 }
 /**
  * TextAttribute.
@@ -671,6 +671,26 @@ export declare interface TextAttribute extends CommonMethod {
      */
     default enableHapticFeedback(isEnabled: boolean | undefined): this;
     /**
+     * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+     *
+     * @param { boolean | undefined } include - Whether enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAttribute } returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default includeFontPadding(include: boolean | undefined): this;
+    /**
+     * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+     *
+     * @param { boolean | undefined } enabled - Whether enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAttribute } returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default fallbackLineSpacing(enabled: boolean | undefined): this;
+    /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<TextAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
@@ -679,6 +699,28 @@ export declare interface TextAttribute extends CommonMethod {
      * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<TextAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    
+    /**
+     * Whether to compress punctuation at the beginning of line.
+     *
+     * @param { boolean | undefined } enabled - Whether to enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAttribute } - returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default compressLeadingPunctuation(enabled: boolean | undefined): this;
+
+    /**
+     * Used to set the selected drag preview style.
+     *
+     * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+     *     If set undefined will reset the style.
+     * @returns { TextAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): this;
 }
 /**
  * Defines span type.
@@ -808,7 +850,14 @@ export declare enum MarqueeState {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    FINISH = 2
+    FINISH = 2,
+    /**
+     * The marquee is stoped.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    STOP = 3,
 }
 /**
  * Defines marquee start policy.
@@ -833,6 +882,32 @@ export declare enum MarqueeStartPolicy {
      */
     ON_FOCUS = 1
 }
+
+/**
+ * Marquee scrolling policy after text update.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare enum MarqueeUpdatePolicy {
+  /**
+   * Reset scroll position and restart scroll.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  DEFAULT = 0,
+
+  /**
+   * Preserve scroll position, just change to new text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  PRESERVE_POSITION = 1
+}
+
 /**
  * Defines the options of Text.
  *
@@ -875,6 +950,18 @@ export declare interface TextMarqueeOptions {
      */
     step?: double;
     /**
+     * The spacing between two rounds of marquee.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>Default value is 48vp.
+     * </p>
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    spacing?: LengthMetrics;
+    /**
      * The rounds of the marquee.
      *
      * @type { ?int }
@@ -914,6 +1001,20 @@ export declare interface TextMarqueeOptions {
      * @since 22 static
      */
     marqueeStartPolicy?: MarqueeStartPolicy;
+    /**
+     * Marquee scrolling policy after text update.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>This attribute takes effect when the marquee is in the playing state
+     *     and the text content width exceeds the width of the marquee component.
+     *     Default value is MarqueeUpdatePolicy.DEFAULT.
+     * </p>
+     *
+     * @type { ?MarqueeUpdatePolicy }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    marqueeUpdatePolicy?: MarqueeUpdatePolicy;
 }
 /**
  * Defines the controller of Text.
@@ -944,11 +1045,11 @@ export declare class TextController {
     /**
      * Get LayoutManager.
      *
-     * @returns { LayoutManager } - Return the LayoutManager.
+     * @returns { LayoutManager | undefined } - Return the LayoutManager.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getLayoutManager(): LayoutManager;
+    getLayoutManager(): LayoutManager | undefined;
     /**
      * Text selection is achieved by specifying the start and end positions of the text.
      *
@@ -975,15 +1076,13 @@ export declare class TextController {
  *
  * @param { string | Resource } [content]
  * @param { TextOptions } [value]
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { TextAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Text(
     content?: string | Resource, value?: TextOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): TextAttribute

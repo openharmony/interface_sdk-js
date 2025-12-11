@@ -23,7 +23,7 @@ import { LengthMetrics } from './../Graphics';
 import { Resource } from './../../../api/global/resource';
 import { FontStyle, FontWeight, TextCase } from "./enums";
 import { DecorationStyleInterface } from "./styledString";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 /**
  * Define the background style of span.
  *
@@ -275,16 +275,14 @@ export declare interface SpanAttribute {
  * Defines Span Component.
  *
  * @param { string | Resource } value
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { SpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Span(
     value: string | Resource, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): SpanAttribute

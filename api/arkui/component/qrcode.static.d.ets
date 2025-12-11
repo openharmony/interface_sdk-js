@@ -21,7 +21,7 @@
 import { CommonMethod } from './common';
 import { ResourceColor, ResourceStr } from "./units";
 import { Resource } from '../../global/resource';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -54,12 +54,12 @@ export declare interface QRCodeAttribute extends CommonMethod {
     default backgroundColor(value: ResourceColor | undefined): this;
     /**
      * Set the opacity of the QR code content color.
-     * @param { number | Resource | undefined } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
+     * @param { double | Resource | undefined } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
      * @returns { QRCodeAttribute } the attribute of the QR code
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default contentOpacity(value: number | Resource | undefined): this;
+    default contentOpacity(value: double | Resource | undefined): this;
     /**
      * Set the attribute modifier
      *
@@ -74,16 +74,14 @@ export declare interface QRCodeAttribute extends CommonMethod {
  * Defines the QRCode component.
  *
  * @param { ResourceStr } value - qrcode string.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { QRCodeAttribute } The attribute of the QRCode.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function QRCode(
     value: ResourceStr, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): QRCodeAttribute;

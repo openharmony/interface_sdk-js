@@ -21,13 +21,13 @@
 import { ResourceColor, Length, Position, Resource, ResourceStr } from "./units";
 import { FontWeight } from "./enums";
 import { CommonMethod } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
  * Defines the badge position property.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -74,19 +74,19 @@ export declare interface BadgeStyle {
     /**
      * Text size.
      *
-     * @type { ?(number | ResourceStr) }
+     * @type { ?(double | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    fontSize?: number | ResourceStr;
+    fontSize?: double | ResourceStr;
     /**
      * Size of a badge.
      *
-     * @type { ?(number | ResourceStr) }
+     * @type { ?(double | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    badgeSize?: number | ResourceStr;
+    badgeSize?: double | ResourceStr;
     /**
      * Badge color.
      *
@@ -119,11 +119,11 @@ export declare interface BadgeStyle {
     /**
      * Define the font weight of the badge.
      *
-     * @type { ?(number | FontWeight | ResourceStr) }
+     * @type { ?(int | FontWeight | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    fontWeight?: number | FontWeight | ResourceStr;
+    fontWeight?: int | FontWeight | ResourceStr;
 }
 /**
  * Provides basic parameters for creating a badge.
@@ -178,11 +178,11 @@ export declare interface BadgeParamWithNumber extends BadgeParam {
      * <br>If the value is not an integer, it is rounded off to the nearest integer.
      * </p>
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    count: number;
+    count: int;
     /**
      * Maximum number of notifications. When the maximum number is reached, only maxCount+ is displayed.
      *
@@ -193,12 +193,12 @@ export declare interface BadgeParamWithNumber extends BadgeParam {
      * <br>If the value is not an integer, it is rounded off to the nearest integer.
      * </p>
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 99
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    maxCount?: number;
+    maxCount?: int;
 }
 /**
  * Inherits from BadgeParam and has all attributes of BadgeParam.
@@ -242,16 +242,14 @@ export declare interface BadgeAttribute extends CommonMethod {
  * Defines Badge Component.
  *
  * @param { BadgeParamWithNumber | BadgeParamWithString } value
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { BadgeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Badge(
     value: BadgeParamWithNumber | BadgeParamWithString, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): BadgeAttribute;

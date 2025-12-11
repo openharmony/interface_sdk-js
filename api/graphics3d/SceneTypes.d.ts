@@ -361,7 +361,15 @@ export enum GeometryType {
    * @since 18 dynamic
    * @since 22 static
    */
-  SPHERE = 3
+  SPHERE = 3,
+
+  /**
+   * A cylinder.
+   *
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  CYLINDER = 4
 }
 
 /**
@@ -747,6 +755,71 @@ export declare class SphereGeometry extends GeometryDefinition {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
    * @since 22 static
+   */
+  set segmentCount(value: int);
+}
+
+/**
+ * Define a cylinder.
+ *
+ * @extends GeometryDefinition
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 23 dynamic&static
+ */
+export declare class CylinderGeometry extends GeometryDefinition {
+  /**
+   * The radius of the base of the cylinder.
+   *
+   * @return { double }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  get radius(): double;
+
+  /**
+   * The radius of the base of the cylinder.
+   *
+   * @param { double } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  set radius(value: double);
+
+  /**
+   * The height of the cylinder.
+   *
+   * @return { double }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  get height(): double;
+
+  /**
+   * The height of the cylinder.
+   *
+   * @param { double } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  set height(value: double);
+
+  /**
+   * Use regular polygons to approximate the circular base of the cylinder,
+   * where segmentCount is the number of sides of the regular polygon used.
+   *
+   * @return { int }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  get segmentCount(): int;
+
+  /**
+   * Use regular polygons to approximate the circular base of the cylinder,
+   * where segmentCount is the number of sides of the regular polygon used.
+   *
+   * @param { int } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
    */
   set segmentCount(value: int);
 }

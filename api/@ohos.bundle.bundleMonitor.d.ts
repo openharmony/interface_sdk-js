@@ -82,7 +82,6 @@ declare namespace bundleMonitor {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
    */
   type BundleChangedEvent = 'add' | 'update' | 'remove';
 
@@ -98,9 +97,47 @@ declare namespace bundleMonitor {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
    */
   function on(type: BundleChangedEvent, callback: Callback<BundleChangedInfo>): void;
+
+  /**
+   * Register installation listener.
+   *
+   * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the callback to be registered.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function onAdd(callback: Callback<BundleChangedInfo>): void;
+
+  /**
+   * Register update listener.
+   *
+   * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the callback to be registered.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function onUpdate(callback: Callback<BundleChangedInfo>): void;
+
+  /**
+   * Register uninstallation listener.
+   *
+   * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the callback to be registered.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function onRemove(callback: Callback<BundleChangedInfo>): void;
 
   /**
    * Unregister to monitor the installation status
@@ -114,9 +151,47 @@ declare namespace bundleMonitor {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
    */
   function off(type: BundleChangedEvent, callback?: Callback<BundleChangedInfo>): void;
+
+  /**
+   * Unregister installation listener.
+   *
+   * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the callback to be unregistered.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function offAdd(callback?: Callback<BundleChangedInfo>): void;
+
+  /**
+   * Unregister update listener.
+   *
+   * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the callback to be unregistered.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function offUpdate(callback?: Callback<BundleChangedInfo>): void;
+
+  /**
+   * Unregister uninstallation listener.
+   *
+   * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the callback to be unregistered.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function offRemove(callback?: Callback<BundleChangedInfo>): void;
 }
 
 export default bundleMonitor;

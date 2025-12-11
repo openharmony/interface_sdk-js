@@ -28,17 +28,17 @@ import rpc from './../@ohos.rpc';
  * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
  * @param { rpc.IRemoteObject } remote - The remote object instance
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 22 dynamic&static
+ * @since 23 dynamic&static
  */
 type OnConnectFn = (elementName: ElementName, remote: rpc.IRemoteObject) => void;
 
 /**
  * The callback interface was disconnect successfully.
  *
- * typedef { Function }
+ * @typedef { Function }
  * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 22 dynamic&static
+ * @since 23 dynamic&static
  */
 type OnDisconnectFn = (elementName: ElementName) => void;
 
@@ -48,7 +48,7 @@ type OnDisconnectFn = (elementName: ElementName) => void;
  * @typedef { Function }
  * @param { int } code - The error code of the failed.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 22 dynamic&static
+ * @since 23 dynamic&static
  */
 type OnFailedFn = (code: int) => void;
 
@@ -83,7 +83,7 @@ export interface ConnectOptions {
    *
    * @type { OnConnectFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   onConnect: OnConnectFn;
 
@@ -102,11 +102,11 @@ export interface ConnectOptions {
    * @since 12
    */
   /**
-   * The callback interface was connect successfully.
+   * The callback interface was disconnect successfully.
    *
-   * @type { OnConnectFn }
+   * @type { OnDisconnectFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   onDisconnect: OnDisconnectFn;
 
@@ -122,7 +122,7 @@ export interface ConnectOptions {
    *
    * @typedef { OnFailedFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   onFailed: OnFailedFn;
 }

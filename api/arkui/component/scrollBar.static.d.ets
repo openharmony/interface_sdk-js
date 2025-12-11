@@ -19,13 +19,13 @@
  */
 import { Scroller } from "./scroll";
 import { BarState } from './enums';
-import { Optional, CommonMethod } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { CommonMethod } from './common';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Content scroll direction.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -111,15 +111,13 @@ export declare interface ScrollBarAttribute extends CommonMethod {
  * Defines ScrollBar Component.
  *
  * @param { ScrollBarOptions } value - value
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ScrollBarAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function ScrollBar(
     value: ScrollBarOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ScrollBarAttribute

@@ -339,6 +339,14 @@ declare namespace photoAccessHelper {
      */
     BURST = 4,
     /**
+     * Slow Motion Video Type
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    SLOW_MOTION_VIDEO = 6,
+    /**
      * Spatial 3DGS Type
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -943,7 +951,16 @@ declare namespace photoAccessHelper {
      * @since 12 dynamic
      * @since 22 static
      */
-    NO_HIDE_SENSITIVE_TYPE = 3
+    NO_HIDE_SENSITIVE_TYPE = 3,
+
+    /**
+     * Refer MEDIA_LOCATION permission to hide location and shooting parameters.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    DEFAULT = 4,
   }
 
   /**
@@ -1792,7 +1809,6 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Obtains the thumbnail of this file. This API uses an asynchronous callback to return the result.
@@ -1822,7 +1838,6 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Obtains the file thumbnail of the given size. This API uses an asynchronous callback to return the result.
@@ -1853,7 +1868,6 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Obtains the file thumbnail of the given size. This API uses a promise to return the result.
@@ -3044,7 +3058,12 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     */
+    /**
+     * Owner album id of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 22 dynamic&static
      */
     OWNER_ALBUM_ID = 'owner_album_id',
     /**
@@ -3131,6 +3150,30 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic&static
      */
     COMPOSITE_DISPLAY_STATUS = 'composite_display_status',
+    /**
+     * Video mode, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    VIDEO_MODE = 'video_mode',
+    /**
+     * width/height of a photo
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    ASPECT_RATIO = 'aspect_ratio',
+    /**
+     * Edit data of asset exists, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    EDIT_DATA_EXIST = 'edit_data_exist',
   }
 
   /**
@@ -3193,7 +3236,12 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     */
+    /**
+     * Virtual path of the album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 22 dynamic&static
      */
     ALBUM_LPATH = 'lpath',
     /**
@@ -3453,7 +3501,6 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   /**
    * Options for creating an image or video asset.
@@ -3479,7 +3526,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     /**
      * Title of the asset
@@ -4167,7 +4213,12 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     */
+    /**
+     * Album created by app.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 22 dynamic&static
      */
     SOURCE = 2048,
     /**
@@ -4309,7 +4360,12 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     */
+    /**
+     * Source album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 22 dynamic&static
      */
     SOURCE_GENERIC = 2049,
     /**
@@ -4599,7 +4655,14 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     */
+    /**
+     * Lpath for the album, one album has a virtual path
+     *
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 22 dynamic&static
      */
     readonly lpath?: string;
     /**
@@ -5392,7 +5455,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     /**
      * Creates an image or video asset with the specified file type, file name extension, and options.
@@ -5446,7 +5508,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     /**
      * Creates an image or video asset with the specified file type and file name extension.
@@ -5501,7 +5562,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     /**
      * Creates an image or video asset with the specified file type, file name extension, and options.
@@ -5847,7 +5907,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Get analysis progress of the asset.
@@ -6615,6 +6674,70 @@ declare namespace photoAccessHelper {
     off(type: 'trashedAlbumChange', callback?: Callback<AlbumChangeInfos>): void;
 
     /**
+    * Subscribes to single album changes.
+    *
+    * @permission ohos.permission.READ_IMAGEVIDEO
+    * @param { Album } album Album to be listened.
+    * @param { Callback<AlbumChangeInfos> } callback Callback used to notify the application of the changes.
+    * @throws { BusinessError } 201 - Permission denied
+    * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes：
+    *     1. The same callback is registered repeatedly. 2. Album has been removed. 3. The uri of the a invalid.
+    * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+    *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @since 23 dynamic&static
+    */
+    onSinglePhotoAlbumChange(album: Album, callback: Callback<AlbumChangeInfos>): void;
+
+    /**
+    * Unsubscribes from single album changes.
+    *
+    * @permission ohos.permission.READ_IMAGEVIDEO
+    * @param { Album } [album] Album to be listened.
+    * @param { Callback<AlbumChangeInfos> } [callback] Callback used for unsubscriptions.
+    * @throws { BusinessError } 201 - Permission denied
+    * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes：
+    *     1. The same callback is unregistered repeatedly. 2. The uri of the album invalid.
+    * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+    *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @since 23 dynamic&static
+    */
+    offSinglePhotoAlbumChange(album?: Album, callback?: Callback<AlbumChangeInfos>): void;
+
+    /**
+    * Subscribes to changes of single photos and videos.
+    *
+    * @permission ohos.permission.READ_IMAGEVIDEO
+    * @param { PhotoAsset } asset Asset to be listened.
+    * @param { Callback<PhotoAssetChangeInfos> } callback Callback used to notify the application of the changes.
+    * @throws { BusinessError } 201 - Permission denied
+    * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes：
+    *     1. The same callback is registered repeatedly. 2. Asset has been removed. 3. The uri of the asset invalid.
+    * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+    *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @since 23 dynamic&static
+    */
+    onSinglePhotoChange(asset: PhotoAsset, callback: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
+    * Unsubscribes from changes of single photos and videos.
+    *
+    * @permission ohos.permission.READ_IMAGEVIDEO
+    * @param { PhotoAsset } [asset] Asset to be listened.
+    * @param { Callback<PhotoAssetChangeInfos> } [callback] Callback used for unsubscription.
+    * @throws { BusinessError } 201 - Permission denied
+    * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes：
+    *     1. The same callback is unregistered repeatedly. 2. The uri of the asset invalid.
+    * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+    *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @since 23 dynamic&static
+    */
+    offSinglePhotoChange(asset?: PhotoAsset, callback?: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
      * Get the PhotoPickerComponent default album name.
      *
      * @returns { Promise<string> } - Returns the default album name.
@@ -6824,6 +6947,39 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic&static
      */
     releaseDebugDatabase(betaIssueId: string, dbFd: int): Promise<void>;
+
+    /**
+     * Get the corresponding albumId of a bundleName.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } bundleName - The app bundleName.
+     * @returns { Promise<int> } - Return the corresponding albumId of the a bundleName.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The bundleName is invalid, such as null, undefined and empty.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stageModelOnly
+     * @since 22 dynamic&static
+     */
+    getAlbumIdByBundleName(bundleName: string): Promise<int>;
+
+    /**
+     * Get the corresponding albumId of an album's lpath, which only supports camera album, screenshot album
+     *     and screen recording album.
+     *
+     * @param { string } lpath - The album's lpath.
+     * @returns { Promise<int> } - Return the corresponding albumId of an album's lpath.
+     * @throws { BusinessError } 23800151 - The lpath is invalid, such as null, undefined and empty.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stageModelOnly
+     * @since 22 dynamic&static
+     */
+    getAlbumIdByLpath(lpath: string): Promise<int>;
   }
 
   /**
@@ -7010,6 +7166,7 @@ declare namespace photoAccessHelper {
    * @interface PhotoAssetChangeInfos
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20 dynamic
+   * @since 22 static
    */
   interface PhotoAssetChangeInfos {
     /**
@@ -7267,6 +7424,7 @@ declare namespace photoAccessHelper {
    * @interface AlbumChangeInfos
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20 dynamic
+   * @since 22 static
    */
   interface AlbumChangeInfos {
     /**
@@ -8133,6 +8291,66 @@ declare namespace photoAccessHelper {
      * @since 20 dynamic
      */
     photoViewMimeTypeFileSizeFilters?: Array<PhotoViewMimeTypeFileSizeFilter>;
+
+    /**
+     * Support showing moving photo badge.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    isMovingPhotoBadgeShown?: boolean
+
+    /**
+     * Media asset filtering configuration.
+     *
+     * @type { ?Array<OperationItem> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    assetFilter?: Array<OperationItem>;   
+  }
+
+  /**
+   * Enumerates the types of the moving photo badge.
+   *
+   * @enum { int } MovingPhotoBadgeStateType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  export enum MovingPhotoBadgeStateType {
+    /**
+     * NOT_MOVING_PHOTO indicates that non-moving photos.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    NOT_MOVING_PHOTO = 0,
+    /**
+     * MOVING_PHOTO_ENABLED indicates that the motion photo effect is activated.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    MOVING_PHOTO_ENABLED = 1,
+    /**
+     * MOVING_PHOTO_DISABLED indicates that the motion photo effect is deactivated.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    MOVING_PHOTO_DISABLED =	2
   }
 
   /**
@@ -8260,6 +8478,61 @@ declare namespace photoAccessHelper {
        */
       sizeFilter: FileSizeFilter;
     }
+
+    /**
+     * Indicates possible value types
+     * 
+     * @typedef { long | double | string | boolean } OperationValueType
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    export type OperationValueType = long | double | string | boolean;
+
+    /**
+     * Operation item
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    export class OperationItem {
+      /**
+       * The type of the operation
+       * 
+       * @type { OperationType }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @stagemodelonly
+       * @atomicservice
+       * @since 22 dynamic&static
+       */
+      operationType: OperationType;
+
+      /**
+       * The field of the operation.
+       * 
+       * @type { ?PhotoKeys }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @stagemodelonly
+       * @atomicservice
+       * @since 22 dynamic&static
+       */
+      field?: PhotoKeys;
+
+      /**
+       * The value of the operation. The value length follows operationType-specific limit N (max 10),
+       * truncated to first N if exceeded.
+       * 
+       * @type { ?Array<OperationValueType> }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @stagemodelonly
+       * @atomicservice
+       * @since 22 dynamic&static
+       */
+      value?: Array<OperationValueType>;
+  }
 
   /**
    * PhotoSelectOptions Object
@@ -8506,6 +8779,18 @@ declare namespace photoAccessHelper {
      * @since 21 dynamic
      */
     contextRecoveryInfo: ContextRecoveryInfo;
+
+    /**
+     * Moving photo badge states for the selected media files in the gallery.
+     * When isShowMovingPhotoBadge is true, movingPhotoBadgeStates contains the moving photo states;
+     * otherwise, it is empty.
+     *
+     * @type { Array<MovingPhotoBadgeStateType> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    movingPhotoBadgeStates: Array<MovingPhotoBadgeStateType>;
   }
 
   /**
@@ -8914,6 +9199,161 @@ declare namespace photoAccessHelper {
      * @since 22 static
      */
     QUALITY_ENHANCEMENT_LOCAL_AND_CLOUD = 2
+  }
+
+  /**
+   * Enumeration type of operation.
+   * 
+   * @enum { int } OperationType 
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @Stagemodelonly
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  export enum OperationType {
+    /**
+     * Matches fields that are equal to the specified value. The value length is limited to 1.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    EQUAL_TO = 1,
+
+    /**
+     * Matches fields that are not equal to the specified value. The value length is limited to 1.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    NOT_EQUAL_TO = 2,
+
+    /**
+     * Matches fields that are greater than the specified value. The value length is limited to 1.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    GREATER_THAN = 3,
+
+    /**
+     * Matches fields that are less than the specified value. The value length is limited to 1.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    LESS_THAN = 4,
+
+    /**
+     * Matches fields that are greater than or equal to the specified value. The value length is limited to 1.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    GREATER_THAN_OR_EQUAL_TO = 5,
+
+    /**
+     * Matches fields that are less than or equal to the specified value. The value length is limited to 1.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    LESS_THAN_OR_EQUAL_TO = 6,
+
+    /**
+     * Equivalent to the "AND" operator in SQL. No field or value parameters required.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    AND = 7,
+    
+    /**
+     * Equivalent to the "OR" operator in SQL. No field or value parameters required.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    OR = 8,
+
+    /**
+     * Matches fields within the specified range. The value length is limited to 10.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    IN = 9,
+
+    /**
+     * Matches fields outside the specified range. The value length is limited to 10.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    NOT_IN = 10,
+
+    /**
+     * Used to add a left parenthesis to the predicate, equivalent to the "(" in SQL.
+     * Must be used together with a right parenthesis. No field or value parameters required.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    BEGIN_WRAP = 11,
+
+    /**
+     * Used to add a right parenthesis to the predicate, equivalent to the ")" in SQL.
+     * Must be used together with a left parenthesis. No field or value parameters required.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    END_WRAP = 12,
+
+    /**
+     * Matches fields within the specified range. The interval is inclusive of both endpoints (closed interval).
+     * The value length is limited to 2, representing the left and right boundaries.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    BETWEEN = 13,
+
+    /**
+     * Matches fields outside the specified range. The interval is exclusive of both endpoints (open interval).
+     * The value length is limited to 2, representing the left and right boundaries.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    NOT_BETWEEN = 14,
   }
 
   /**
@@ -12267,6 +12707,30 @@ declare namespace photoAccessHelper {
      * @since 22
      */
     HDR_VIVID_DUAL = 5,
+  }
+
+  /**
+   * Enumeration of video mode type
+   *
+   * @enum { int } VideoMode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 22 dynamic&static
+   */
+  enum VideoMode {
+    /**
+     * Default type
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 22 dynamic&static
+     */
+    DEFAULT = 0,
+    /**
+     * Log video
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 22 dynamic&static
+     */
+    LOG_VIDEO = 1,
   }
 
   /**

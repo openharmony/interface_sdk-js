@@ -20,7 +20,7 @@
 
 import { CustomTheme } from '../../@ohos.arkui.theme';
 import { ThemeColorMode, AttributeModifier, CommonMethod } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Defines the struct of WithThemeOptions.
@@ -60,16 +60,15 @@ export declare interface WithThemeAttribute {}
 /**
  * Defines WithTheme Component
  *
- * @param { WithThemeOptions } options - options of WithTheme.
- * @param { function } [content_] - container
+ * @param { WithThemeOptions | undefined } options - options of WithTheme.
+ * @param { CustomBuilder } [content_] - the content of the component
  * @returns { WithThemeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function WithTheme(
-    options: WithThemeOptions, 
-    @memo
-    content_?: () => void,
+    options: WithThemeOptions | undefined, 
+    content_?: CustomBuilder,
 ): WithThemeAttribute

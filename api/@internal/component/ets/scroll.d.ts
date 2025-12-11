@@ -95,8 +95,9 @@ declare enum ScrollDirection {
    * Vertical or horizontal scrolling is supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ScrollDirection#FREE
    */
   Free,
 
@@ -619,8 +620,9 @@ declare class Scroller {
    * The value <em>true</em> means to scroll to the next page, and <em>false</em> means to scroll to the previous page.
    * @param { Axis } direction - Scrolling direction: horizontal or vertical.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead Scroller#scrollPage
    */
   scrollPage(value: { next: boolean; direction?: Axis });
 
@@ -1358,7 +1360,6 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
 
   /**
    * Enable bounces zoom scale.
-   * This parameter supports !! for two-way binding of variables.
    *
    * @param { boolean } enable - Enable bounces zoom scale.
    * <br>Default value: true.

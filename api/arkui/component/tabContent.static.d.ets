@@ -25,7 +25,7 @@ import { TextHeightAdaptivePolicy, TextOverflow, VerticalAlign } from './enums';
 import { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VoidCallback } from './units';
 import { ComponentContent } from '../ComponentContent';
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -171,27 +171,27 @@ export declare interface TabBarLabelStyle {
   /**
    * Label max lines.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  maxLines?: number;
+  maxLines?: int;
   /**
    * Min font size for adapted height.
    *
-   * @type { ?(number | ResourceStr) }
+   * @type { ?(double | ResourceStr) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  minFontSize?: number | ResourceStr;
+  minFontSize?: double | ResourceStr;
   /**
    * Max font size for adapted height.
    *
-   * @type { ?(number | ResourceStr) }
+   * @type { ?(double | ResourceStr) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  maxFontSize?: number | ResourceStr;
+  maxFontSize?: double | ResourceStr;
   /**
    * Adapt text height option.
    *
@@ -579,15 +579,13 @@ export declare interface TabContentAttribute extends CommonMethod {
 /**
  * Defines TabContent Component
  *
- * @param { function } [content_] - TabContent
+ * @param { CustomBuilder } [content_] - TabContent
  * @returns { TabContentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function TabContent(
     
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): TabContentAttribute;

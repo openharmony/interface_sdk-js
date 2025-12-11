@@ -20,13 +20,13 @@
  */
 import { ResourceColor, Length } from "./units";
 import { CommonMethod, ContentModifier, CommonConfiguration, MultiShadowOptions } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
  * DataPanelType enum
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -114,19 +114,19 @@ export declare interface DataPanelOptions {
     /**
      * Current data value. the max length is 9.
      *
-     * @type { number[] }
+     * @type { double[] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    values: number[];
+    values: double[];
     /**
      * Maximum value of the current data.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    max?: number;
+    max?: double;
     /**
      * DataPanel Type
      *
@@ -148,19 +148,19 @@ export declare interface DataPanelConfiguration extends CommonConfiguration<Data
     /**
      * Current data value. the max length is 9.
      *
-     * @type { number[] }
+     * @type { double[] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    values: number[];
+    values: double[];
     /**
      * Maximum value of the current data.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    maxValue: number;
+    maxValue: double;
 }
 /**
  * Defines the Button component attributes.
@@ -211,12 +211,12 @@ export declare interface DataPanelAttribute extends CommonMethod {
     /**
      * Set the shadow width of the data ratio chart.
      *
-     * @param {  DataPanelShadowOptions | undefined } value - the track shadow width of the data ratio chart.
+     * @param { DataPanelShadowOptions | undefined | null } value - the track shadow width of the data ratio chart.
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default trackShadow(value: DataPanelShadowOptions | undefined): this;
+    default trackShadow(value: DataPanelShadowOptions | undefined | null): this;
     /**
      * Set the content modifier of data panel.
      *
@@ -240,16 +240,14 @@ export declare interface DataPanelAttribute extends CommonMethod {
  * Defines the DataPanel component.
  *
  * @param { DataPanelOptions } options - data panel options.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { DataPanelAttribute } The attribute of the DataPanel.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function DataPanel(
     options: DataPanelOptions, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): DataPanelAttribute;

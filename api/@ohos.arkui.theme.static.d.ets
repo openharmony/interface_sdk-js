@@ -489,10 +489,10 @@ export declare class ThemeControl {
     * Sets the default Theme:
     * - for whole Ability when invoked from the Ability level code.
     * - for the ArkUI page and for later opened pages when invoked at the ArkUI page level.
-    *
-    * @param { CustomTheme } theme
+    * @param { CustomTheme | undefined } theme
+    * @static
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 22 static
     */
-    static setDefaultTheme(theme: CustomTheme): void;
+    static setDefaultTheme(theme: CustomTheme | undefined): void;
 }

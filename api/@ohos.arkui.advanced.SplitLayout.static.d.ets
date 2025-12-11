@@ -27,6 +27,7 @@ import { BuilderParam, Builder } from '@ohos.arkui.component';
  * @struct { SplitLayout }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
+ * @noninterop
  */
 @Component
 export declare struct SplitLayout {
@@ -77,9 +78,8 @@ export declare struct SplitLayout {
     tertiaryText?: ResourceStr;
     /**
      * The method to build component.
-     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 staticonly
+     * @since 22 staticonly
      */
     @Builder
     build(): void;

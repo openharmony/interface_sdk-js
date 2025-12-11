@@ -459,6 +459,18 @@ function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void
  *
  * @param { string } src - source path.
  * @param { string } dest - destination path.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
+ * @throws { BusinessError } 13900015 - File exists
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 22 static
+ */
+function copyDirWithConflictFiles(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+
+/**
+ * Copy directory.
+ *
+ * @param { string } src - source path.
+ * @param { string } dest - destination path.
  * @param { int } mode - mode.
  * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -482,6 +494,20 @@ function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void
  * @since 22 static
  */
 function copyDir(src: string, dest: string, mode: int, callback: AsyncCallback<void>): void;
+
+/**
+ * Copy directory.
+ *
+ * @param { string } src - source path.
+ * @param { string } dest - destination path.
+ * @param { int } mode - mode.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
+ * @throws { BusinessError } 13900015 - File exists
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 22 static
+ */
+function copyDirWithConflictFiles(src: string, dest: string, mode: int,
+  callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
  * Copy directory with sync interface.
@@ -1306,24 +1332,6 @@ function listFileSync(
 function lseek(fd: int, offset: long, whence?: WhenceType): long;
 
 /**
- * Stat link file.
- *
- * @param { string } path - path.
- * @returns { Promise<Stat> } Returns the Stat object in promise mode.
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
- */
-/**
  * Obtains information about a symbolic link that is used to refer to a file or directory.
  * This API uses a promise to return the result.
  *
@@ -1346,24 +1354,6 @@ function lseek(fd: int, offset: long, whence?: WhenceType): long;
 function lstat(path: string): Promise<Stat>;
 
 /**
- * Stat link file.
- *
- * @param { string } path - path.
- * @param { AsyncCallback<Stat> } callback - The callback is used to return the Stat object.
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
- */
-/**
  * Obtains information about a symbolic link that is used to refer to a file or directory.
  * This API uses a promise to return the result.
  *
@@ -1385,24 +1375,6 @@ function lstat(path: string): Promise<Stat>;
  */
 function lstat(path: string, callback: AsyncCallback<Stat>): void;
 
-/**
- * Stat link file with sync interface.
- *
- * @param { string } path - path.
- * @returns { Stat } Returns the Stat object.
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
- */
 /**
  * Obtains information about a symbolic link that is used to refer to a file or directory.
  * This API uses an asynchronous callback to return the result.
@@ -1716,6 +1688,18 @@ function moveDir(src: string, dest: string, callback: AsyncCallback<void>): void
  *
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
+ * @throws { BusinessError } 13900015 - File exists
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 22 static
+ */
+function moveDirWithConflictFiles(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+
+/**
+ * Move directory.
+ *
+ * @param { string } src - source file path.
+ * @param { string } dest - destination file path.
  * @param { int } mode - move mode when duplicate file name exists.
  * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -1740,6 +1724,20 @@ function moveDir(src: string, dest: string, callback: AsyncCallback<void>): void
  * @since 22 static
  */
 function moveDir(src: string, dest: string, mode: int, callback: AsyncCallback<void>): void;
+
+/**
+ * Move directory.
+ *
+ * @param { string } src - source file path.
+ * @param { string } dest - destination file path.
+ * @param { int } mode - move mode when duplicate file name exists.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
+ * @throws { BusinessError } 13900015 - File exists
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 22 static
+ */
+function moveDirWithConflictFiles(src: string, dest: string, mode: int,
+  callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
  * Move directory with sync interface.
@@ -2495,27 +2493,6 @@ function rmdir(path: string, callback: AsyncCallback<void>): void;
 function rmdirSync(path: string): void;
 
 /**
- * Get file information.
- *
- * @param { string | int } file - path or file descriptor.
- * @returns { Promise<Stat> } Returns the Stat object in promise mode.
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900005 - I/O error
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900031 - Function not implemented
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
- */
-/**
  * Obtains detailed attribute information of a file or directory. This API uses a promise to return the result.
  *
  * @param { string | int } file - Application sandbox path, URI, or FD of the file or directory.
@@ -2539,27 +2516,6 @@ function rmdirSync(path: string): void;
  */
 function stat(file: string | int): Promise<Stat>;
 
-/**
- * Get file information.
- *
- * @param { string | int } file - path or file descriptor.
- * @param { AsyncCallback<Stat> } callback - The callback is used to return the Stat object.
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900005 - I/O error
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900031 - Function not implemented
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
- */
 /**
  * Obtains detailed attribute information of a file or directory.
  * This API uses an asynchronous callback to return the result.
@@ -2585,27 +2541,6 @@ function stat(file: string | int): Promise<Stat>;
  */
 function stat(file: string | int, callback: AsyncCallback<Stat>): void;
 
-/**
- * Get file information with sync interface.
- *
- * @param { string | int } file - path or file descriptor.
- * @returns { Stat } Returns the Stat object.
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900005 - I/O error
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900031 - Function not implemented
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
- */
 /**
  * Obtains detailed attribute information of a file or directory. This API returns the result synchronously.
  *
@@ -4668,6 +4603,34 @@ export interface Filter {
    * @since 22 static
    */
   excludeMedia?: boolean;
+}
+
+/**
+ * Conflict Files type
+ *
+ * @interface ConflictFiles
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 22 static
+ */
+export interface ConflictFiles {
+
+  /**
+   * The path of the source file.
+   * 
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 22 static
+   */
+  srcFile: string;
+
+  /**
+   * The path of the destination file.
+   * 
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 22 static
+   */
+  destFile: string;
 }
 
 /**

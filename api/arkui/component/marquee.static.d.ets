@@ -18,10 +18,10 @@
  * @kit ArkUI
  */
 import { ResourceColor, Length } from "./units";
-import { CommonMethod, AttributeModifier } from "./common";
+import { CommonMethod, AttributeModifier, Callback } from "./common";
 import { FontWeight, MarqueeUpdateStrategy } from "./enums";
 import { Resource } from './../../../api/global/resource';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Defines Marquee constructor options.
@@ -226,6 +226,19 @@ export declare interface MarqueeAttribute extends CommonMethod {
      */
     default onFinish(event: (() => void) | undefined): this;
     /**
+     * Called when scrolling is stoped.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>If event is set to undefined, the current event will be unbound.
+     * </p>
+     * 
+     * @param { Callback<void> | undefined } event
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default onStop(event: Callback<void> | undefined): this;
+    /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<MarqueeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
@@ -240,16 +253,14 @@ export declare interface MarqueeAttribute extends CommonMethod {
  * Defines Marquee Component.
  *
  * @param { MarqueeOptions } options
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { MarqueeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Marquee(
     options: MarqueeOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): MarqueeAttribute

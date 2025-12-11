@@ -219,14 +219,24 @@ declare namespace certificateManagerDialog {
      */    
     CREDENTIAL_APP = 3, 
 
-   /**
+    /**
      * Indicates USB key certificate credential.
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 22 dynamic&static
      */
-    CREDENTIAL_UKEY = 4,  
+    CREDENTIAL_UKEY = 4,
+
+    /**
+     * Indicates certificate credential for system service, such as WLAN certificate credential,
+     * VPN certificate credential.
+     * 
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    CREDENTIAL_SYSTEM = 5
   }
 
   /**

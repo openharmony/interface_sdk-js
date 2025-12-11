@@ -18,8 +18,66 @@
  * @kit ArkUI
  */
 
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
+import { CustomBuilder } from '@ohos.arkui.component';
+
+/**
+ * Effect layer enum.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 22 static
+ */
+declare enum EffectLayer {
+  /**
+   * No layer.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 22 static
+   */
+  NONE = 0,
+
+  /**
+   * Charge motion layer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 22 static
+   */
+  CHARGE_MOTION = 1,
+
+  /**
+   * Charge text layer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 22 static
+   */
+  CHARGE_TEXT = 2
+}
+
+/**
+ * Defines the Effect Component constructor options.
+ *
+ * @interface EffectComponentOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 22 static
+ */
+declare interface EffectComponentOptions {
+
+  /** Use this to determine the component layer 1evel. Default value is none.
+   *
+   * @type { ?EffectLayer }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 22 static
+   */
+  effectLayer?: EffectLayer;
+}
 
 /**
  * Define the EffectComponentAttribute.
@@ -57,16 +115,31 @@ export declare interface EffectComponentAttribute extends CommonMethod {
 /**
  * Defines EffectComponent Component
  *
- * @param { function } [content_] - EffectComponent
+ * @param { CustomBuilder } [content_] - EffectComponent
  * @returns { EffectComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function EffectComponent(
 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
+): EffectComponentAttribute
+
+/**
+ * Defines EffectComponent Component
+ *
+ * @param { EffectComponentOptions } options - The options to create an EffectComponent.
+ * @param { CustomBuilder } [content_] - EffectComponent
+ * @returns{EffectComponentAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 22 static
+ * @noninterop
+ */
+@ComponentBuilder
+export declare function EffectComponent(
+    options:EffectComponentOptions,
+    content_ ?:CustomBuilder,
 ): EffectComponentAttribute

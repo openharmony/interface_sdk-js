@@ -55,14 +55,14 @@ declare namespace preferences {
    *
    * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean>}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-   * @since 9
+   * @since 9 dynamic
    */
   /**
    * Indicates possible value types
    *
    * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean>}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Indicates possible value types
@@ -70,19 +70,40 @@ declare namespace preferences {
    * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   /**
    * Indicates possible value types
    *
-   * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object |
-   * bigint}
+   * @typedef {number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object | bigint}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @FaAndStageModel
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object | bigint;
+
+  /**
+   * RrcordData is used for input parameter obj of the equal function
+   *
+   * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @FaAndStageModel
+   * @since 22 static
+   */
+  type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
+
+  /**
+   * Indicates possible value types
+   * 
+   * @typedef {long | double | string | boolean | Array<long> | Array<double> | Array<string> | Array<boolean>
+   *  | Uint8Array | RecordData | bigint}
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @FaAndStageModel
+   * @since 22 static
+   */
+  type ValueType = long | double | string | boolean | Array<long> | Array<double> | Array<string> | Array<boolean>
+    | Uint8Array | RecordData | bigint;
 
   /**
    * Indicates the maximum length of a key (80 characters).
@@ -160,6 +181,7 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 18 dynamic
+   * @since 22 static
    */
   enum StorageType {
     /**
@@ -168,6 +190,7 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     XML = 0,
 
@@ -177,6 +200,7 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     GSKV
   }
@@ -245,6 +269,7 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     storageType?: StorageType | null | undefined;
   }
@@ -485,6 +510,7 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 18 dynamic
+   * @since 22 static
    */
   function isStorageTypeSupported(type: StorageType): boolean;
   /**
@@ -1867,9 +1893,19 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
      */
     on(type: 'change', callback: Callback<string>): void;
+
+    /**
+     * Registers an observer to listen for the change of a {@link Preferences} object.
+     *
+     * @param { Callback<string> } callback - Indicates the callback function.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    onChange(callback: Callback<string>): void;
 
     /**
      * Registers an observer to listen for the change of a {@link Preferences} object.
@@ -1896,9 +1932,19 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
      */
     on(type: 'multiProcessChange', callback: Callback<string>): void;
+
+    /**
+     * Registers an observer to listen for the change of a {@link Preferences} object.
+     *
+     * @param { Callback<string> } callback - Indicates the callback function.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500019 - Failed to obtain the subscription service.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @since 22 static
+     */
+    onMultiProcessChange(callback: Callback<string>): void;
 
     /**
      * Registers an observer to listen for changes to the {@ link Preferences} object.
@@ -1928,9 +1974,20 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     on(type: 'dataChange', keys: Array<string>, callback: Callback<Record<string, ValueType>>): void;
+
+    /**
+     * Registers an observer to listen for changes to the {@ link Preferences} object.
+     *
+     * @param { Array<string> } keys - Indicates one or more keys to listen for.
+     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback used to return the data change.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    onDataChange(keys: Array<string>, callback: Callback<Record<string, ValueType>>): void;
 
     /**
      * Unregisters an existing observer.
@@ -1968,9 +2025,19 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
      */
     off(type: 'change', callback?: Callback<string>): void;
+
+    /**
+     * Unregisters an existing observer.
+     *
+     * @param { Callback<string> } callback - Indicates the callback function.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    offChange(callback?: Callback<string>): void;
 
     /**
      * Unregisters an existing observer.
@@ -1995,9 +2062,18 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
      */
     off(type: 'multiProcessChange', callback?: Callback<string>): void;
+
+    /**
+     * Unregisters an existing observer.
+     *
+     * @param { Callback<string> } callback - Indicates the callback function.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @since 22 static
+     */
+    offMultiProcessChange(callback?: Callback<string>): void;
 
     /**
      * Unregisters an observer for changes to the {@ link Preferences} object.
@@ -2027,9 +2103,20 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     off(type: 'dataChange', keys: Array<string>, callback?: Callback<Record<string, ValueType>>): void;
+
+    /**
+     * Unregisters an observer for changes to the {@ link Preferences} object.
+     *
+     * @param { Array<string> } keys - Indicates the data whose changes are not observed.
+     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback to unregister.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    offDataChange(keys: Array<string>, callback?: Callback<Record<string, ValueType>>): void;
   }
 }
 

@@ -354,7 +354,7 @@ declare namespace uiObserver {
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        uniqueId: number;
+        uniqueId: int;
         /**
          * Changed ScrollEvent type.
          *
@@ -370,7 +370,7 @@ declare namespace uiObserver {
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        offset: number;
+        offset: double;
     }
     /**
      * TabContent info.
@@ -391,11 +391,11 @@ declare namespace uiObserver {
         /**
          * TabContent uniqueId.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        tabContentUniqueId: number;
+        tabContentUniqueId: int;
         /**
          * The state of TabContent.
          *
@@ -407,11 +407,11 @@ declare namespace uiObserver {
         /**
          * The index of TabContent in Tabs.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        index: number;
+        index: int;
         /**
          * Tabs id.
          *
@@ -423,11 +423,11 @@ declare namespace uiObserver {
         /**
          * Tabs uniqueId.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        uniqueId: number;
+        uniqueId: int;
 
        /**
          * The last focus index of TabContent in Tabs.
@@ -535,11 +535,11 @@ declare namespace uiObserver {
         /**
          * The changed screen density.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        density: number;
+        density: double;
     }
     /**
      * NavDestination switch info
@@ -679,47 +679,43 @@ declare namespace uiObserver {
      */
     export function offNavDestinationUpdate(callback?: Callback<NavDestinationInfo>): void;
     /**
-     * Registers a callback function to be called when the scroll event start or stop.
+     * Registers a callback function to be called when the scroll event starts or stops.
      *
-     * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
      * @param { ObserverOptions } options - The options object.
      * @param { Callback<ScrollEventInfo> } callback - The callback function to be called when the scroll event
      *     start or stop.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    export function on(type: 'scrollEvent', options: ObserverOptions, callback: Callback<ScrollEventInfo>): void;
+    export function onScrollEvent(options: ObserverOptions, callback: Callback<ScrollEventInfo>): void;
     /**
-     * Removes a callback function that was previously registered with `on()`.
+     * Removes a callback function that was previously registered with `onScrollEvent()`.
      *
-     * @param { 'scrollEvent' } type - The type of event to remove the listener for. Must be 'scrollEvent'.
      * @param { ObserverOptions } options - The options object.
      * @param { Callback<ScrollEventInfo> } callback - The callback function to remove. If not provided, all callbacks
      *     for the given event type and scroll ID will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    export function off(type: 'scrollEvent', options: ObserverOptions, callback?: Callback<ScrollEventInfo>): void;
+    export function offScrollEvent(options: ObserverOptions, callback?: Callback<ScrollEventInfo>): void;
     /**
-     * Registers a callback function to be called when the scroll event start or stop.
+     * Registers a callback function to be called when the scroll event starts or stops.
      *
-     * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
      * @param { Callback<ScrollEventInfo> } callback - The callback function to be called when the scroll event
      *     start or stop.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    export function on(type: 'scrollEvent', callback: Callback<ScrollEventInfo>): void;
+    export function onScrollEvent(callback: Callback<ScrollEventInfo>): void;
     /**
-     * Removes a callback function that was previously registered with `on()`.
+     * Removes a callback function that was previously registered with `onScrollEvent()`.
      *
-     * @param { 'scrollEvent'} type - The type of event to remove the listener for. Must be 'scrollEvent'.
      * @param { Callback<ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all
      *     callbacks for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    export function off(type: 'scrollEvent', callback?: Callback<ScrollEventInfo>): void;
+    export function offScrollEvent(callback?: Callback<ScrollEventInfo>): void;
     
     /**
      * Registers a callback function to be called when the router page is updated.
@@ -746,109 +742,99 @@ declare namespace uiObserver {
     /**
      * Registers a callback function to be called when the screen density is updated.
      *
-     * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
      * @param { UIContext } context - The context scope of the observer.
      * @param { Callback<DensityInfo> } callback - The callback function to be called when the screen density
      *     is updated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    export function on(type: 'densityUpdate', context: UIContext, callback: Callback<DensityInfo>): void;
+    export function onDensityUpdate(context: UIContext, callback: Callback<DensityInfo>): void;
     /**
      * Removes a callback function that was previously registered with `on()`.
      *
-     * @param { 'densityUpdate' } type - The type of event to remove the listener for. Must be 'densityUpdate'.
      * @param { UIContext } context - The context scope of the observer.
      * @param { Callback<DensityInfo> } [callback] - The callback function to remove. If not provided, all callbacks
      *     for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    export function off(type: 'densityUpdate', context: UIContext, callback?: Callback<DensityInfo>): void;
+    export function offDensityUpdate(context: UIContext, callback?: Callback<DensityInfo>): void;
     /**
      * Registers a callback function to be called when the draw command will be drawn.
      *
-     * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
      * @param { UIContext } context - The context scope of the observer.
      * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    export function on(type: 'willDraw', context: UIContext, callback: Callback<void>): void;
+    export function onWillDraw(context: UIContext, callback: Callback<void>): void;
     /**
      * Removes a callback function that was previously registered with `on()`.
      *
-     * @param { 'willDraw' } type - The type of event to remove the listener for. Must be 'willDraw'.
      * @param { UIContext } context - The context scope of the observer.
      * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks
      *     for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    export function off(type: 'willDraw', context: UIContext, callback?: Callback<void>): void;
+    export function offWillDraw(context: UIContext, callback?: Callback<void>): void;
     /**
      * Registers a callback function to be called when the layout is done.
      *
-     * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
      * @param { UIContext } context - The context scope of the observer.
      * @param { Callback<void> } callback - The callback function to be called when the layout is done.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    export function on(type: 'didLayout', context: UIContext, callback: Callback<void>): void;
+    export function onDidLayout(context: UIContext, callback: Callback<void>): void;
     /**
      * Removes a callback function that was previously registered with `on()`.
      *
-     * @param { 'didLayout' } type - The type of event to remove the listener for. Must be 'didLayout'.
      * @param { UIContext } context - The context scope of the observer.
      * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks
      *     for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    export function off(type: 'didLayout', context: UIContext, callback?: Callback<void>): void;
+    export function offDidLayout(context: UIContext, callback?: Callback<void>): void;
     /**
-     * Registers a callback function to be called when the tabContent is showed or hidden.
-     *
-     * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
-     * @param { ObserverOptions } options - The options object.
-     * @param { Callback<TabContentInfo> } callback - The callback function to be called when when the tabContent
-     *     is showed or hidden.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    export function on(type: 'tabContentUpdate', options: ObserverOptions, callback: Callback<TabContentInfo>): void;
+    * Registers a callback function to be called when the tabContent is showed or hidden.
+    *
+    * @param { ObserverOptions } options - The options object.
+    * @param { Callback<TabContentInfo> } callback - The callback function to be called when when the tabContent is
+    *     showed or hidden.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 22 static
+    */
+    export function onTabContentUpdate(options: ObserverOptions, callback: Callback<TabContentInfo>): void;
     /**
-     * Removes a callback function that was previously registered with `on()`.
-     *
-     * @param { 'tabContentUpdate' } type - The type of event to remove the listener for. Must be 'tabContentUpdate'.
-     * @param { ObserverOptions } options - The options object.
-     * @param { Callback<TabContentInfo> } callback - The callback function to remove. If not provided, all callbacks
-     *     for the given event type and Tabs ID will be removed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    export function off(type: 'tabContentUpdate', options: ObserverOptions, callback?: Callback<TabContentInfo>): void;
+    * Removes a callback function that was previously registered with `on()`.
+    *
+    * @param { ObserverOptions } options - The options object.
+    * @param { Callback<TabContentInfo> } [callback] - The callback function to remove. If not provided, all callbacks for
+    *     the given event type and Tabs ID will be removed.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 22 static
+    */
+    export function offTabContentUpdate(options: ObserverOptions, callback?: Callback<TabContentInfo>): void;
     /**
-     * Registers a callback function to be called when the tabContent is showed or hidden.
-     *
-     * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
-     * @param { Callback<TabContentInfo> } callback - The callback function to be called when the tabContent
-     *     is showed or hidden.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    export function on(type: 'tabContentUpdate', callback: Callback<TabContentInfo>): void;
+    * Registers a callback function to be called when the tabContent is showed or hidden.
+    *
+    * @param { Callback<TabContentInfo> } callback - The callback function to be called when the tabContent is
+    *     showed or hidden.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 22 static
+    */
+    export function onTabContentUpdate(callback: Callback<TabContentInfo>): void;
     /**
-     * Removes a callback function that was previously registered with `on()`.
-     *
-     * @param { 'tabContentUpdate'} type - The type of event to remove the listener for. Must be 'tabContentUpdate'.
-     * @param { Callback<TabContentInfo> } [callback] - The callback function to remove. If not provided, all
-     *     callbacks for the given event type will be removed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    export function off(type: 'tabContentUpdate', callback?: Callback<TabContentInfo>): void;
+    * Removes a callback function that was previously registered with `on()`.
+    *
+    * @param { Callback<TabContentInfo> } [callback] - The callback function to remove. If not provided, all callbacks
+    *     for the given event type will be removed.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 22 static
+    */
+    export function offTabContentUpdate(callback?: Callback<TabContentInfo>): void;
     /**
      * Registers a callback function to be called when the navigation switched to a new navDestination.
      *
@@ -905,47 +891,5 @@ declare namespace uiObserver {
         observerOptions: NavDestinationSwitchObserverOptions,
         callback?: Callback<NavDestinationSwitchInfo>
     ): void;
-
-    /**
-     * Registers a callback function to be called when the tabContent is showed or hidden.
-     *
-     * @param { ObserverOptions } config - The options object.
-     * @param { Callback<TabContentInfo> } callback - The callback function to be called when when the tabContent is
-     *     showed or hidden.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    export function onTabChange(config: ObserverOptions, callback: Callback<TabContentInfo>): void;
-
-    /**
-     * Removes a callback function that was previously registered with `on()`.
-     *
-     * @param { ObserverOptions } config - The options object.
-     * @param { Callback<TabContentInfo> } [callback] - The callback function to remove.
-     *     If not provided, all callbacks for the given event type and Tabs ID will be removed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    export function offTabChange(config: ObserverOptions, callback?: Callback<TabContentInfo>): void;
-
-    /**
-     * Registers a callback function to be called when the tabContent is showed or hidden.
-     *
-     * @param { Callback<TabContentInfo> } callback - The callback function to be called when the tabContent is
-     *     showed or hidden.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    export function onTabChange(callback: Callback<TabContentInfo>): void;
-
-    /**
-     * Removes a callback function that was previously registered with `on()`.
-     *
-     * @param { Callback<TabContentInfo> } [callback] - The callback function to remove. If not provided, all callbacks
-     *     for the given event type will be removed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    export function offTabChange(callback?: Callback<TabContentInfo>): void;
 }
 export default uiObserver;

@@ -18,12 +18,12 @@
  * @kit ArkUI
  */
 import { CommonMethod, Bindable } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Defines the grid item style.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -72,39 +72,39 @@ export declare interface GridItemAttribute extends CommonMethod {
     /**
      * This parameter specifies the start line number of the current element.
      *
-     * @param { numnumber | undefinedber } value
+     * @param { int | undefined } value
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default rowStart(value: number | undefined): this;
+    default rowStart(value: int | undefined): this;
     /**
      * Specifies the end line number of the current element.
      *
-     * @param { number | undefined } value
+     * @param { int | undefined } value
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default rowEnd(value: number | undefined): this;
+    default rowEnd(value: int | undefined): this;
     /**
      * This parameter specifies the start column number of the current element.
      *
-     * @param { number | undefined } value
+     * @param { int | undefined } value
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default columnStart(value: number | undefined): this;
+    default columnStart(value: int | undefined): this;
     /**
      * This parameter specifies the end column number of the current element.
      *
-     * @param { number | undefined } value
+     * @param { int | undefined } value
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default columnEnd(value: number | undefined): this;
+    default columnEnd(value: int | undefined): this;
     /**
      * Called when judging whether it is selectable.
      *
@@ -148,15 +148,13 @@ export declare interface GridItemAttribute extends CommonMethod {
  * Defines GridItem Component.
  *
  * @param { GridItemOptions } [value] - options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { GridItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function GridItem(
     value?: GridItemOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): GridItemAttribute

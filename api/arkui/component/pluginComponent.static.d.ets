@@ -18,7 +18,7 @@
  */
 
 import { VoidCallback } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * PluginComponentTemplate
@@ -176,16 +176,14 @@ export declare interface PluginComponentAttribute extends CommonMethod {
 /**
  * Defines PluginComponent Component.
  * @param { PluginComponentOptions } options - The options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { PluginComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function PluginComponent(
     options: PluginComponentOptions,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): PluginComponentAttribute

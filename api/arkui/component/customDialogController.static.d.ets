@@ -23,10 +23,10 @@ import { DialogAlignment } from './alertDialog';
 import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles, VoidCallback } from './units';
 import { BorderStyle } from './enums';
 import { LengthMetrics } from '../Graphics';
+import promptAction from '../../@ohos.promptAction';
 import { LevelMode, LevelOrder, ImmersiveMode } from '../../@ohos.promptAction';
 import { CustomBuilder } from './builder';
 import { DismissDialogAction } from './actionSheet';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the options of CustomDialogController.
@@ -368,6 +368,14 @@ export declare interface CustomDialogControllerExternalOptions {
     customStyle?: boolean;
 }
 /**
+ * Import the CommonState type from promptAction.
+ *
+ * @typedef { promptAction.CommonState } PromptActionCommonState
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare type PromptActionCommonState = promptAction.CommonState;
+/**
  * Use the CustomDialogController class to display the custom pop-up window.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -404,4 +412,12 @@ export declare class CustomDialogController {
      * @since 22 static
      */
     getExternalOptions(): CustomDialogControllerExternalOptions;
+    /**
+     * Get the state of the custom pop-up window.
+     *
+     * @returns { PromptActionCommonState } return the state of dialog.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    getState(): PromptActionCommonState;
 }

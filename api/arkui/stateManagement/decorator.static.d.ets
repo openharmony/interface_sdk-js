@@ -21,6 +21,8 @@
 /**
  * Define a custom component API that provides variables-related functionality.
  *
+ * @interface IVariableOwner
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -651,17 +653,6 @@ export declare interface IObjectLinkDecoratedVariable<T> extends IDecoratedImmut
 export declare interface IStorageLinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
 /**
- * Define StorageProp decoration variable interface.
- *
- * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
- * @interface IStoragePropDecoratedVariable<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
- */
-export declare interface IStoragePropDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
-}
-
-/**
  * Define StoragePropRef decoration variable interface.
  *
  * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
@@ -860,6 +851,26 @@ export declare interface IObservedObject extends IWatchSubscriberRegister {
 }
 
 /**
+ * Define ConsumeOptions interface.
+ * 
+ * @typedef ConsumeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface ConsumeOptions<T> {
+
+  /**
+   * Default value set by developer.
+   * @type { ?T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  defaultValue?: T;
+}
+
+/**
  * Define STATE_MGMT_FACTORY.
  *
  * @type { IStateMgmtFactory }
@@ -895,7 +906,7 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a State variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { T } initValue - state variable initValue.
    * @param { WatchFuncType } [watchFunc] - watch type
@@ -909,7 +920,7 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a PropRef variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { T } initValue - state variable initValue.
    * @param { WatchFuncType } [watchFunc] - watch type
@@ -923,7 +934,7 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a Link variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { LinkSourceType<T> } source - state variable sync source.
    * @param { WatchFuncType } [watchFunc] - watch type
@@ -937,7 +948,7 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a Provide variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { string } provideAlias - provide alias.
    * @param { T } initValue - init value.
@@ -953,7 +964,7 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a Consume variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { string } provideAlias - provide alias.
    * @param { WatchFuncType } [watchFunc] - watch type
@@ -963,11 +974,27 @@ export declare interface IStateMgmtFactory {
    */
   makeConsume<T>(owner: IVariableOwner, varName: string,
     provideAlias: string, watchFunc?: WatchFuncType): IConsumeDecoratedVariable<T>;
+  
+  /**
+   * Create a Consume variable instance. It is used to establish two-way data binding with @Provide.
+   *
+   * @param { IVariableOwner } owner - instance of the custom component where this state variable is located.
+   * @param { string } varName - state variable name.
+   * @param { string } provideAlias - provide alias.
+   * @param { WatchFuncType } [watchFunc] - watch callback function type.
+   * @param { ConsumeOptions<T> } [consumeOptions] - interface containing default value set by developer.
+   * @returns { IConsumeDecoratedVariable<T> } Consume instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  makeConsume<T>(owner: IVariableOwner, varName: string,
+    provideAlias: string, watchFunc?: WatchFuncType, consumeOptions?: ConsumeOptions<T>): IConsumeDecoratedVariable<T>;
 
   /**
    * Create a ObjectLink variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { T } initValue - init value.
    * @param { WatchFuncType } [watchFunc] - watch type
@@ -981,7 +1008,7 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a StorageLink variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } propName - property name.
    * @param { string } varName - state variable name.
    * @param { T } initValue - init value.
@@ -995,7 +1022,7 @@ export declare interface IStateMgmtFactory {
    /**
     * Create a StoragePropRef variable instance.
     *
-    * @param { IVariableOwner } owner - owner of the variable being created.
+    * @param { IVariableOwner } owner - owner of this variable.
     * @param { string } propName - property name.
     * @param { string } varName - state variable name.
     * @param { T } initValue - init value.
@@ -1009,7 +1036,7 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a LocalStoragePropRef variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } propName - property name.
    * @param { string } varName - state variable name.
    * @param { T } initValue - init value.
@@ -1024,7 +1051,7 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a LocalStorageLink variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } propName - property name.
    * @param { string } varName - state variable name.
    * @param { T } initValue - init value.
@@ -1039,7 +1066,7 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a Local variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { T } localInitValue - state variable initValue.
    * @returns { ILocalDecoratedVariable<T> } Local instance
@@ -1062,7 +1089,7 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a Param variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { T } initValue - param variable initValue.
    * @returns { IParamDecoratedVariable<T> } Param instance
@@ -1074,7 +1101,7 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a param once variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { T } initValue - param once variable initValue.
    * @returns { IParamOnceDecoratedVariable<T> } Param Once instance
@@ -1086,7 +1113,7 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a provider variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - provider variable name.
    * @param { string } providerAlias - provider alias.
    * @param { T } localInitValue - provider local variable value.
@@ -1099,7 +1126,7 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a consumer variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - consumer variable name.
    * @param { string } providerAlias - consumer alias.
    * @param { T } defaultValue - consumer default value.
@@ -1125,7 +1152,7 @@ export declare interface IStateMgmtFactory {
    * 
    * @param { Array<IMonitorPathInfo> } pathInfos - monitor path to its accessor
    * @param { MonitorCallback } monitorCallback - callback when monitor triggers
-   * @param { IVariableOwner } [owner] - owner of the variable being created
+   * @param { IVariableOwner } [owner] - owner of this monitor
    * @returns { IMonitorDecoratedVariable } Monitor variable instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
@@ -1175,6 +1202,7 @@ type ComputedCallback<T> = () => T;
 
 /**
  * Defines IMonitor callback function
+ *
  * @typedef { function } MonitorCallback
  * @param { IMonitor } iMonitor MonitorValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1184,6 +1212,7 @@ export type MonitorCallback = (iMonitor: IMonitor) => void;
 
 /**
  * Defines IMonitor value callback function
+ *
  * @typedef { function } MonitorValueCallback
  * @returns { Any }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1255,7 +1284,7 @@ export declare interface ISubscribedWatches extends IWatchSubscriberRegister {
 }
 
 /**
- * Defines Computed decoration variable interface.
+ * Defines computed decoration variable interface.
  *
  * @extends IDecoratedReadableVariable<T>
  * @interface IComputedDecoratedVariable<T>
@@ -1266,7 +1295,7 @@ export declare interface IComputedDecoratedVariable<T> extends IDecoratedReadabl
     /**
      * Set owner for the computed variable. Used to detect component freezing.
      *
-     * @param { IVariableOwner } owner - new owner of this variable
+     * @param { IVariableOwner } owner - owner of this variable
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */

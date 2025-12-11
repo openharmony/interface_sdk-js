@@ -19,10 +19,10 @@
  * @kit ArkUI
  */
 import { ResourceColor, Offset, VoidCallback } from "./units";
-import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback, DateTimeOptions, Bindable } from './common';
+import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Callback, DateTimeOptions, Bindable } from './common';
 import { DialogAlignment } from "./alertDialog";
 import { CrownSensitivity } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -36,31 +36,31 @@ export declare interface TimePickerResult {
     /**
      * Hour portion of the selected time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    hour: number;
+    hour: int;
     /**
      * Minute portion of the selected time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    minute: number;
+    minute: int;
     /**
      * Second portion of the selected time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    second: number;
+    second: int;
 }
 /**
  * Type of the TimePicker that need to be displayed.
- * @enum {number}
+ * @enum {int}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -490,15 +490,13 @@ export declare class TimePickerDialog {
  * Defines the TimePicker component.
  *
  * @param { TimePickerOptions } [options] - timer picker options.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { TimePickerAttribute } The attribute of the TimePicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function TimePicker(
     options?: TimePickerOptions, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): TimePickerAttribute;

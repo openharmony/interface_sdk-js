@@ -23,10 +23,10 @@ import { Axis, CrownSensitivity, BarState } from '@ohos.arkui.component';
 import { Scroller } from '@ohos.arkui.component';
 import { VoidCallback } from '@ohos.arkui.component';
 import { LengthMetrics, ColorMetrics } from './arkui/Graphics';
-import { memo, ComponentBuilder } from '@ohos.arkui.stateManagement';
+import { ComponentBuilder, CustomBuilder } from '@ohos.arkui.component';
 import { ComponentContentBase } from './arkui/ComponentContent';
 import { AttributeModifier, CommonMethod } from '@ohos.arkui.component';
-import { SwipeActionOptions } from '.@ohos.arkui.component';
+import { SwipeActionOptions } from '@ohos.arkui.component';
 /**
  * Called when the start, end and center positions of the display change.
  *
@@ -307,32 +307,28 @@ export declare interface ArcListItemAttribute extends CommonMethod {
  * Defines ArcList Component.
  *
  * @param { ArkListOptions } [options]
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { ArcListAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function ArcList(
     options?: ArkListOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ArcListAttribute
 
 /**
  * Defines ArcListItem Component.
  *
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { ArcListItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function ArcListItem(
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ArcListItemAttribute

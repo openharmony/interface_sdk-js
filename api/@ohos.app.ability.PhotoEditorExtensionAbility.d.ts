@@ -30,8 +30,9 @@ import type Want from './@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
  * @StageModelOnly
  * @since 12 dynamic
+ * @since 22 static
  */
-export default class PhotoEditorExtensionAbility extends ExtensionAbility {
+declare class PhotoEditorExtensionAbility extends ExtensionAbility {
      /**
       * Indicates configuration information about an Photo editor extension ability context.
       *
@@ -39,6 +40,7 @@ export default class PhotoEditorExtensionAbility extends ExtensionAbility {
       * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
       * @StageModelOnly
       * @since 12 dynamic
+      * @since 22 static
       */
     context: PhotoEditorExtensionContext;
 
@@ -48,6 +50,7 @@ export default class PhotoEditorExtensionAbility extends ExtensionAbility {
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @StageModelOnly
      * @since 12 dynamic
+     * @since 22 static
      */
     onCreate(): void;
 
@@ -57,6 +60,7 @@ export default class PhotoEditorExtensionAbility extends ExtensionAbility {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 12 dynamic
+     * @since 22 static
      */
     onForeground(): void;
 
@@ -66,6 +70,7 @@ export default class PhotoEditorExtensionAbility extends ExtensionAbility {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 12 dynamic
+     * @since 22 static
      */
     onBackground(): void;
 
@@ -80,6 +85,16 @@ export default class PhotoEditorExtensionAbility extends ExtensionAbility {
     onDestroy(): void | Promise<void>;
 
     /**
+     * Called back before an UI extension is destroyed.
+     *
+     * @returns { Promise<void> | undefined } the promise returned by the function.
+     * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
+     * @StageModelOnly
+     * @since 22 static
+     */
+    onDestroy(): Promise<void> | undefined;
+
+    /**
      * Called back when an UI extension session is created and original image is ready.
      *
      * @param { string } uri - Indicates the uri info of the original image.
@@ -88,6 +103,9 @@ export default class PhotoEditorExtensionAbility extends ExtensionAbility {
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @StageModelOnly
      * @since 12 dynamic
+     * @since 22 static
      */
     onStartContentEditing(uri: string, want: Want, session: UIExtensionContentSession): void;
 }
+
+export default PhotoEditorExtensionAbility;

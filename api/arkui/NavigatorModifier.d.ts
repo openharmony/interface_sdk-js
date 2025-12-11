@@ -25,8 +25,9 @@
  * @implements AttributeModifier<NavigatorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  * @deprecated since 20
+ * @useinstead NavigationModifier
  */
 export declare class NavigatorModifier extends NavigatorAttribute implements AttributeModifier<NavigatorAttribute> {
 

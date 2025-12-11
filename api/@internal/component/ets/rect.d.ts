@@ -808,8 +808,9 @@ declare const Rect: RectInterface;
  * Rect attribute.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7 dynamic
+ * @since 7 dynamiconly
  * @deprecated since 9
+ * @useinstead RectInstance
  */
 declare const RectInStance: RectAttribute;
 

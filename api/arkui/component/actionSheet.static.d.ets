@@ -23,7 +23,6 @@ import { Callback, DismissReason, Rectangle, BlurStyle, TransitionEffect, Shadow
 import { DialogButtonStyle, BorderStyle } from './enums';
 import { DialogAlignment } from './alertDialog';
 import { LevelOrder, LevelMode, ImmersiveMode } from '../../@ohos.promptAction';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * The information of sheet.

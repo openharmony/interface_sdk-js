@@ -93,6 +93,7 @@ export * from './arkui/component/particle';
 export * from './arkui/component/pasteButton';
 export * from './arkui/component/path';
 export * from './arkui/component/patternLock';
+export * from './arkui/component/picker';
 export * from './arkui/component/pluginComponent';
 export * from './arkui/component/polygon';
 export * from './arkui/component/polyline';

@@ -6324,7 +6324,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamiconly
      */
     toLocaleString(): string;
     /**

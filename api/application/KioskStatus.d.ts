@@ -53,11 +53,11 @@ export interface KioskStatus {
   /**
    * The budle uid of Kiosk app.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
    * @since 22 static
    */
-  kioskBundleUid: number;
+  kioskBundleUid: int;
 }

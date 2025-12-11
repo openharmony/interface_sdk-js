@@ -23,8 +23,8 @@ import { Resource } from './../../../api/global/resource';
 /**
  * Obtain the resource in resources, used by plugin.
  *
- * @param { number } id - Indicates the id of resource.
- * @param { number } type - Indicates the type of resource.
+ * @param { long } id - Indicates the id of resource.
+ * @param { long } type - Indicates the type of resource.
  * @param { string } bundleName - Indicates the name of bundle.
  * @param { string } moduleName - Indicates the name of module.
  * @param { Object[] } params - Custom parameters.
@@ -33,13 +33,13 @@ import { Resource } from './../../../api/global/resource';
  * @since 22 static
  */
 export declare function _r(
-    id: number, type: number, bundleName: string, moduleName: string, ...params: Object[]): Resource;
+    id: long, type: long, bundleName: string, moduleName: string, ...params: Object[]): Resource;
 
 /**
  * Obtain the resource in resources/rawfile, used by plugin.
  *
- * @param { number } id - Indicates the id of resource.
- * @param { number } type - Indicates the type of resource.
+ * @param { long } id - Indicates the id of resource.
+ * @param { long } type - Indicates the type of resource.
  * @param { string } bundleName - Indicates the name of bundle.
  * @param { string } moduleName - Indicates the name of module.
  * @param { Object[] } params - Custom parameters.
@@ -48,4 +48,4 @@ export declare function _r(
  * @since 22 static
  */
 export declare function _rawfile(
-    id: number, type: number, bundleName: string, moduleName: string, ...params: Object[]): Resource;
+    id: long, type: long, bundleName: string, moduleName: string, ...params: Object[]): Resource;

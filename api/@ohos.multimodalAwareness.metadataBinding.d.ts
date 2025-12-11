@@ -84,7 +84,7 @@ declare namespace metadataBinding {
   function submitMetadata(metadata: string): void;
 
   /**
-   * Third-party app registration screenshot event
+   * Subscribes to a system event to obtain the encoded metadata.
    * @param { 'operationSubmitMetadata' } type - Event Type
    * @param { string } bundleName - Bundle name of a third-party application
    * @param { Callback<int> } callback - Call back the screenshot event
@@ -99,7 +99,7 @@ declare namespace metadataBinding {
   function on(type: 'operationSubmitMetadata', bundleName: string, callback: Callback<int>): void;
  
   /**
-   * Third-party app unregistration screenshot event
+   * Unsubscribes from system events that are used to obtain the encoded metadata. 
    * @param { 'operationSubmitMetadata' } type - Event Type
    * @param { string } bundleName - Bundle name of a third-party application
    * @param { Callback<int> } callback - Call back the screenshot event

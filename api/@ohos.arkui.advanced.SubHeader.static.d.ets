@@ -32,6 +32,7 @@ import { BuilderParam, Builder } from '@ohos.arkui.component';
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
+ * @noninterop
  */
 export declare enum OperationType {
     /**
@@ -68,6 +69,7 @@ export declare enum OperationType {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
+ * @noninterop
  */
 export declare class OperationOption {
     /**
@@ -182,11 +184,11 @@ export declare class SymbolOptions {
     /**
      * The size of symbol icon.
      *
-     * @type { ?(int | string | Resource) }
+     * @type { ?(double | string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    public fontSize?: int | string | Resource;
+    public fontSize?: double | string | Resource;
     /**
      * The color of symbol icon.
      *
@@ -347,9 +349,8 @@ export declare struct SubHeader {
     contentPadding?: LocalizedPadding;
     /**
      * The method to build component.
-     * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 staticonly
+     * @since 22 staticonly
      */
     @Builder
     build(): void;

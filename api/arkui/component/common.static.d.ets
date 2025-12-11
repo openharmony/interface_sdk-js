@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { memo, ComponentBuilder } from '../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 import OriginalContext from '../../application/Context';
 import { Resource } from '../../global/resource';
 import pointer from '../../@ohos.multimodalInput.pointer';
@@ -39,15 +39,17 @@ import { ComponentContent } from '../../arkui/ComponentContent';
 import { ResizableOptions } from "./image";
 import intl from '../../@ohos.intl';
 import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
-import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics } from "./units";
+import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions } from "./units";
 import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
 import { ScrollState } from "./list";
-import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType } from "./enums";
+import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType } from "./enums";
 import { TextRange } from "./textCommon";
 import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
 import curves from '../../@ohos.curves';
 import matrix4 from '../../@ohos.matrix4';
+import { AvoidanceMode } from './select';
+import uiMaterial from '../../@ohos.arkui.uiMaterial';
 /**
  * Define the ratio of characters entered by the the percentage of InputCounterOptions.
  *
@@ -110,7 +112,7 @@ export declare interface TextDecorationOptions {
     /**
      * The decoration type.
      *
-     * @type { TextDecorationType }
+     * @type { TextDecorationType | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
@@ -211,12 +213,12 @@ export declare interface AnimatableArithmetic<T> {
     /**
      * Defines the multiplication rule of the data type.
      *
-     * @param { number } scale - scale value
+     * @param { double } scale - scale value
      * @returns { AnimatableArithmetic<T> } new value which implements AnimatableArithmetic<T> interface
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    multiply(scale: number): AnimatableArithmetic<T>;
+    multiply(scale: double): AnimatableArithmetic<T>;
     /**
      * Defines the equality judgment rule of the data type.
      *
@@ -341,6 +343,64 @@ export declare interface Rectangle {
     height?: Length;
 }
 /**
+ * Defines the response region interface.
+ * 
+ * @interface ResponseRegion
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare interface ResponseRegion {
+  /**
+   *  The event tool type applicable to this response region.
+   * 
+   * @type { ?ResponseRegionSupportedTool }
+   * @default ResponseRegionSupportedTool.ALL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  tool?: ResponseRegionSupportedTool;
+
+  /**
+   * Horizontal axis coordinate
+   * 
+   * @type { ?LengthMetrics }
+   * @default LengthMetrics.vp(0)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  x?: LengthMetrics;
+
+  /**
+   * Vertical axis coordinate.
+   * 
+   * @type { ?LengthMetrics }
+   * @default LengthMetrics.vp(0)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  y?: LengthMetrics;
+
+  /**
+   * Sets the width of the current touchRect.
+   * 
+   * @type { ?(LengthMetrics | string) }
+   * @default LengthMetrics.percent(1)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  width?: LengthMetrics | string;
+
+  /**
+   * Sets the height of the current touchRect.
+   * 
+   * @type { ?(LengthMetrics | string) }
+   * @default LengthMetrics.percent(1)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  height?: LengthMetrics | string;
+}
+/**
  * Interface for ExpectedFrameRateRange.
  *
  * @interface ExpectedFrameRateRange
@@ -351,29 +411,29 @@ export declare interface ExpectedFrameRateRange {
     /**
      * The minimum animation drawing FPS.
      * The minimum value should be less than or equal to the maximum value.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    min: number;
+    min: int;
     /**
      * The maximum animation drawing FPS.
      * The maximum value should be greater than or equal to the minimum value.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    max: number;
+    max: int;
     /**
      * The expected frame rate of dynamical callback rate range.
      * The value should be between the minimum and maximum value.
      * Otherwise, the actual callback rate will be dynamically
      * adjusted to better align with other animation sources.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    expected: number;
+    expected: int;
 }
 /**
  * global $r function
@@ -1312,22 +1372,22 @@ export declare interface AnimateParam {
     /**
      * Animation duration, in ms.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    duration?: number;
+    duration?: int;
     /**
      * Animation playback speed. A larger value indicates faster animation playback, and a smaller value indicates slower
      * animation playback. The value 0 means that there is no animation.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 1.0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    tempo?: number;
+    tempo?: double;
     /**
      * Animation curve.
      *
@@ -1340,23 +1400,23 @@ export declare interface AnimateParam {
     /**
      * Animation delay time, in ms. By default, the animation has no delay.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    delay?: number;
+    delay?: int;
     /**
      * Number of times that the animation is played. By default, the animation is played once.
      * The value **-1** indicates that the animation is played for an unlimited number of times.
      * The value **0** indicates that there is no animation.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    iterations?: number;
+    iterations?: int;
     /**
      * Playback mode. By default, the animation is played from the beginning after the playback is complete.
      *
@@ -1433,24 +1493,24 @@ export declare interface MotionPathOptions {
      * Value range: [0, 1].
      * A value less than 0 or greater than 1 evaluates to the default value **0**.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 0.0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    from?: number;
+    from?: double;
     /**
      * End point of the motion path.
      * Value range: [0, 1].
      * A value less than 0 or greater than 1 evaluates to the default value **1**,
      * provided that the value of **to** is greater than or equal to the value of **from**.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 1.0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    to?: number;
+    to?: double;
     /**
      * Whether to rotate along the path.
      *
@@ -1475,12 +1535,12 @@ export declare interface sharedTransitionOptions {
      * <br>Unit: ms.
      * <br>Value range: [0, +∞).
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    duration?: number;
+    duration?: int;
     /**
      * Animation curve.<br>You are advised to specify the curve using the **Curve** or
      * ** ICurve** type.<br>For the string type, this parameter indicates an animation
@@ -1497,12 +1557,12 @@ export declare interface sharedTransitionOptions {
     /**
      * Animation delay time, in ms.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    delay?: number;
+    delay?: int;
     /**
      * The motion path info.
      *
@@ -1514,11 +1574,11 @@ export declare interface sharedTransitionOptions {
     /**
      * Z index info.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    zIndex?: number;
+    zIndex?: int;
     /**
      * the animate type.
      *
@@ -1570,12 +1630,12 @@ export declare interface LinearGradientOptions {
      * Defines starting angle of linear gradient.
      *
      * Anonymous Object Rectification.
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @default 180
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    angle?: number | string;
+    angle?: double | string;
     /**
      * Defines the direction of linear gradient.
      *
@@ -1590,13 +1650,13 @@ export declare interface LinearGradientOptions {
      * Defines color description for gradients.
      *
      * Anonymous Object Rectification.
-     * @type { Array<[ResourceColor, number]> }
+     * @type { Array<[ResourceColor, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
     colors: Array<[
         ResourceColor,
-        number
+        double
     ]>;
     /**
      * Defines gradient colors with repeated coloring.
@@ -1621,7 +1681,7 @@ export declare interface LinearGradientOptions {
  * @systemapi
  * @since 22 static
  */
-declare enum TransitionHierarchyStrategy {
+export declare enum TransitionHierarchyStrategy {
 
   /**
    * None mode.
@@ -1669,43 +1729,55 @@ export declare interface SweepGradientOptions {
      * Defines the starting point of angle gradient.
      *
      * Anonymous Object Rectification.
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    start?: number | string;
+    start?: double | string;
     /**
      * Defines end point of angle gradient.
      *
      * Anonymous Object Rectification.
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    end?: number | string;
+    end?: double | string;
     /**
      * Defines the rotation angle of the gradient.
      *
      * Anonymous Object Rectification.
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    rotation?: number | string;
+    rotation?: double | string;
     /**
      * Defines color description for gradients.
      *
      * Anonymous Object Rectification.
-     * @type { Array<[ResourceColor, number]> }
+     * @type { Array<[ResourceColor, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
     colors: Array<[
         ResourceColor,
-        number
+        double
+    ]>;
+    /**
+     * Defines color description in ColorMetrics format for gradients.
+     * This parameter takes precedence over colors parameter.
+     *
+     * @type { ?Array<[ColorMetrics, double]> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    metricsColors?: Array<[
+        ColorMetrics,
+        double
     ]>;
     /**
      * Defines gradient colors with repeated coloring.
@@ -1751,13 +1823,13 @@ export declare interface RadialGradientOptions {
      * Defines color description for gradients.
      *
      * Anonymous Object Rectification.
-     * @type { Array<[ResourceColor, number]> }
+     * @type { Array<[ResourceColor, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
     colors: Array<[
         ResourceColor,
-        number
+        double
     ]>;
     /**
      * Defines gradient colors with repeated coloring.
@@ -1783,30 +1855,30 @@ export declare interface TranslateOptions {
      * For the number type, the unit is VP, and the value range is (-∞, +∞).
      * For the string type, the value follows the format of length string type.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    x?: number | string;
+    x?: double | string;
     /**
      * Translation distance along the y-axis.
      * For the number type, the unit is VP, and the value range is (-∞, +∞).
      * For the string type, the value follows the format of length string type.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    y?: number | string;
+    y?: double | string;
     /**
      * Distance to translate along the z-axis. The value is a floating
      * point number, the default value is 0.0, and the unit is px.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    z?: number | string;
+    z?: double | string;
 }
 /**
  * Defines the options of scale.
@@ -1822,48 +1894,48 @@ export declare interface ScaleOptions {
      * 0 < x < 1: The component is scaled down along the x-axis.
      * x < 0: The component is scaled in the reverse direction of the x-axis.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    x?: number;
+    x?: double;
     /**
      * Scale ratio along the y-axis.
      * y > 1: The component is scaled up along the y-axis.
      * 0 < y < 1: The component is scaled down along the y-axis.
      * y < 0: The component is scaled in the reverse direction of the y-axis.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    y?: number;
+    y?: double;
     /**
      * Scale ratio along the z-axis. z > 1: The component is scaled up along the z-axis.
      * <br>0 < z < 1: The component is scaled down along the z-axis.
      * <br>z < 0: The component is scaled in the reverse direction of the z-axis.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    z?: number;
+    z?: double;
     /**
      * X coordinate of the transformation center point (anchor). Unit is vp.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    centerX?: number | string;
+    centerX?: double | string;
     /**
      * Y coordinate of the transformation center point (anchor). Unit is vp.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    centerY?: number | string;
+    centerY?: double | string;
 }
 /**
  * Defines the align rule options of relative container.
@@ -2144,71 +2216,148 @@ export declare interface RotateOptions {
     /**
      * X coordinate of the rotation axis vector.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    x?: number;
+    x?: double;
     /**
      * Y coordinate of the rotation axis vector.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    y?: number;
+    y?: double;
     /**
      * Z coordinate of the rotation axis vector.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    z?: number;
+    z?: double;
     /**
      * X coordinate of the transformation center point (anchor). Unit is vp.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    centerX?: number | string;
+    centerX?: double | string;
     /**
      * Y coordinate of the transformation center point (anchor). Unit is vp.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    centerY?: number | string;
+    centerY?: double | string;
     /**
      * Z-axis anchor, that is, the z-component of the 3D rotation center point.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    centerZ?: number;
+    centerZ?: double;
     /**
      * Distance from the user to the z=0 plane.
      * The axis and center of rotation are set based on the coordinate system,
      * which remains where it is when the component is moved.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    perspective?: number;
+    perspective?: double;
     /**
      * The param of angle.
      *
-     * @type { number | string }
+     * @type { double | string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    angle: number | string;
+    angle: double | string;
+}
+/**
+ * The rotation parameters containing multi-axis angle information.
+ *
+ * @interface RotateAngleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+declare interface RotateAngleOptions {
+  /**
+   * the angle of the x-axis direction.
+   *
+   * @type { ?(double | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  angleX?: double | string;
+
+  /**
+   * the angle of the y-axis direction.
+   *
+   * @type { ?(double | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  angleY?: double | string;
+
+  /**
+   * the angle of the z-axis direction.
+   *
+   * @type { ?(double | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  angleZ?: double | string;
+
+  /**
+   * The param of center point of x.
+   *
+   * @type { ?(double | string) }
+   * @default '50%'
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  centerX?: double | string;
+
+  /**
+   * The param of center point of y.
+   *
+   * @type { ?(double | string) }
+   * @default '50%'
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  centerY?: double | string;
+
+  /**
+   * The param of center point of z.
+   *
+   * @type { ?double }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  centerZ?: double;
+
+  /**
+   * The param of camera distance, value range (-∞, ∞).
+   * @type { ?double }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  perspective?: double;
 }
 /**
  * Defines the Edge object.
@@ -2306,6 +2455,17 @@ export declare class DrawModifier {
      * @since 22 static
      */
      drawFront(drawContext: DrawContext): void;
+    /**
+     * Draws content in the overlay layer after the associated Node and all its children have been drawn.
+     *
+     * Custom drawing consists of five layers: Behind, Content, Front, Foreground, and Overlay.
+     * - The Foreground and Overlay layers are drawn after child nodes.
+     * - The Overlay layer differs from Foreground in that it can draw outside the bounds of the component.
+     * @param { DrawContext } drawContext - The drawContext used to draw
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    drawOverlay(drawContext: DrawContext): void;
     /**
      * Invalidate the component, which will cause a re-render of the component.
      * No overloading is allowed or needed.
@@ -2411,7 +2571,7 @@ export declare class TransitionEffect {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    static opacity(alpha: number): TransitionEffect;
+    static opacity(alpha: double): TransitionEffect;
     /**
      * Creates a move transition effect
      *
@@ -2450,7 +2610,7 @@ export declare class TransitionEffect {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    constructor(type: 'opacity', effect: number);
+    constructor(type: 'opacity', effect: double);
     /**
      * move TransitionEffect constructor
      *
@@ -2526,23 +2686,19 @@ export declare interface ItemDragInfo {
     /**
      * Obtains the X coordinate of the drag window, in vp.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    x: number;
+    x: double;
     /**
      * Obtains the Y coordinate of the drag window, in vp.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    y: number;
+    y: double;
 }
 /**
  * Enum of using the effects template mode.
@@ -2665,64 +2821,6 @@ export declare interface DragItemInfo {
      */
     extraInfo?: string;
 }
-/**
- * Defining animation function.
- *
- * @param { AnimateParam } value
- * @param { function } event
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 22 static
- * @deprecated since 18
- * @useinstead ohos.arkui.UIContext.UIContext#animateTo
- */
-export declare function animateTo(value: AnimateParam, event: () => void): void;
-/**
- * Implements immediate delivery of an explicit animation through a **UIContext** object.
- * When multiple property animations are loaded at once, you can call this API to immediately
- * execute the transition animation for state changes caused by the specified closure function.
- *
- * @param { AnimateParam } value - Set animation effect parameters.
- * @param { function } event - Specify the closure function that displays dynamic effects,
- *     and the system will automatically insert transition animations for state changes caused by the closure function.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
- * @deprecated since 22
- * @useinstead ohos.arkui.UIContext.UIContext#animateToImmediately
- */
-export declare function animateToImmediately(value: AnimateParam, event: () => void): void;
-/**
- * Converts a value in vp units to a value in px.
- * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
- * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
- * @deprecated since 18
- * @useinstead ohos.arkui.UIContext.UIContext#vp2px
- */
-export declare function vp2px(value: number): number;
-/**
- * Converts a number in units of px to a number in units of vp.
- * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
- * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
- * @deprecated since 18
- * @useinstead ohos.arkui.UIContext.UIContext#px2vp
- */
-export declare function px2vp(value: number): number;
 /**
  * Defines the namespace of focus controller.
  *
@@ -3218,13 +3316,13 @@ export declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {
 export declare interface BlurOptions {
     /**
      * Fuzzy gray scale parameter.
-     * @type { [number, number] }
+     * @type { [double, double] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
     grayscale: [
-        number,
-        number
+        double,
+        double
     ];
 }
 /**
@@ -3277,12 +3375,12 @@ export declare interface BlurStyleOptions {
      * <br>Default value: **1.0**.
      * <br>Value range: [0.0, 1.0].
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 1.0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    scale?: number;
+    scale?: double;
     /**
      * Defines the options of blur
      *
@@ -3306,33 +3404,33 @@ export declare interface BackgroundEffectOptions {
      * Value range: [0, +∞).
      * Default value: **0**.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    radius: number;
+    radius: double;
     /**
      * Saturation.
      * Value range: [0, +∞).
      * Recommended value range: [0, 50].
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    saturation?: number;
+    saturation?: double;
     /**
      * Brightness.
      * <br>Value range: [0, +∞).
      * <br>Default value: **1** Recommended value range: [0, 2].
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    brightness?: number;
+    brightness?: double;
     /**
      * Color.
      *
@@ -3390,11 +3488,11 @@ export declare interface ForegroundEffectOptions {
     /**
      * Define the radius size of ForegroundEffect.The range of this value is [0, ∞)
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    radius: number;
+    radius: double;
 }
 /**
  * Provide an interface for the text style of picker
@@ -3472,11 +3570,11 @@ export declare interface PickerDialogButtonStyle {
     /**
      * Describes the button font weight.
      *
-     * @type { ?(FontWeight | number | string) }
+     * @type { ?(FontWeight | int | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    fontWeight?: FontWeight | number | string;
+    fontWeight?: FontWeight | int | string;
     /**
      * Describes the button font style.
      *
@@ -3552,11 +3650,11 @@ export declare interface ShadowOptions {
     /**
      * Blur radius of the shadow.
      *
-     * @type { number | Resource }
+     * @type { double | Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    radius: number | Resource;
+    radius: double | Resource;
     /**
      * Shadow type.
      * <br>Default value: **COLOR**.
@@ -3578,19 +3676,19 @@ export declare interface ShadowOptions {
     /**
      * Offset of the shadow along the x-axis. Unit is px. Default value is 0.
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    offsetX?: number | Resource;
+    offsetX?: double | Resource;
     /**
      * Offset of the shadow along the y-axis. Unit is px. Default value is 0.
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    offsetY?: number | Resource;
+    offsetY?: double | Resource;
     /**
      * Whether to fill the inside of the component with shadow. **true**: Fill
      * the inside of the component with shadow.
@@ -3671,32 +3769,32 @@ export declare interface MultiShadowOptions {
      * <br>A value less than or equal to 0 is handled as the default value.
      * </p>
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @default 20
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    radius?: number | Resource;
+    radius?: double | Resource;
     /**
      * Offset on the x-axis.
      * Unit: vp.
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @default 5
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    offsetX?: number | Resource;
+    offsetX?: double | Resource;
     /**
      * Offset on the y-axis.
      * Unit: vp.
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @default 5
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    offsetY?: number | Resource;
+    offsetY?: double | Resource;
 }
 /**
  * The types of expanded safe areas.
@@ -3802,7 +3900,42 @@ export declare enum LayoutSafeAreaEdge {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    BOTTOM = 1
+    BOTTOM = 1,
+    /**
+     * Start edge of the safe area.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    START = 2,
+    /**
+     * End edge of the safe area.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    END = 3,
+    /**
+     * Vertical edge of the safe area.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    VERTICAL = 4,
+    /**
+     * Horizontal edge of the safe area.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    HORIZONTAL = 5,
+    /**
+     * All edges of the safe area.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    ALL = 6
 }
 /**
  * Defines sheet size type.
@@ -3863,91 +3996,67 @@ export declare interface BaseEvent {
     /**
      * Timestamp of the event.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 22 static
      */
-    timestamp: number;
+    timestamp: long;
     /**
      * Event input device.
      *
      * @type { SourceType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 22 static
      */
     source: SourceType;
     /**
      * the Horizontal axis coordinate.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 22 static
      */
-    axisHorizontal?: number;
+    axisHorizontal?: double;
     /**
      * the Vertical axis coordinate.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 22 static
      */
-    axisVertical?: number;
+    axisVertical?: double;
     /**
      * Press pressure.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 22 static
      */
-    pressure: number;
+    pressure: double;
     /**
      * Angle between the projection of the stylus on the device plane and the x-axis.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 22 static
      */
-    tiltX: number;
+    tiltX: double;
     /**
      * Angle between the projection of the stylus on the device plane and the y-axis.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 22 static
      */
-    tiltY: number;
+    tiltY: double;
     /**
      * Indicates the angle at which the stylus rotates around the Z-axis.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 22 static
      */
-    rollAngle?: number;
+    rollAngle?: double;
     /**
      * Event input source.
      *
@@ -3967,23 +4076,27 @@ export declare interface BaseEvent {
     /**
      * Indicates the ID of the input device that triggers the current event.
      *
-     * @type { ?number } [deviceId] The ID of the input device that triggers the current event
+     * @type { ?int } [deviceId] The ID of the input device that triggers the current event
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    deviceId?: number;
+    deviceId?: int;
     /**
      * Indicates the screen ID on which the event occurred.
      *
-     * @type { ?number } [targetDisplayId] The screen ID on which the event occurred.
+     * @type { ?int } [targetDisplayId] The screen ID on which the event occurred.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    targetDisplayId?: number;
+    targetDisplayId?: int;
+    /**
+     * Indicates the Pinch axis coordinate.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    axisPinch?: double;
 }
 /**
  * Border image option
@@ -4067,6 +4180,29 @@ export declare class LayoutPolicy {
      * @since 22 static
      */
     static readonly matchParent: LayoutPolicy;
+
+    /**
+     * The component fills its content which means its size is as large as its children but it is constained by its
+     *     parent.
+     *
+     * @type { LayoutPolicy }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    static readonly wrapContent: LayoutPolicy;
+
+    /**
+     * The component fills its content which means its size is as large as its children.
+     *
+     * @type { LayoutPolicy }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    static readonly fixAtIdealSize: LayoutPolicy;
 }
 /**
  * The tap action triggers this method invocation.
@@ -4080,72 +4216,56 @@ export declare interface ClickEvent extends BaseEvent {
     /**
      * X coordinate of the click relative to the upper left corner of the application screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    displayX: number;
+    displayX: double;
     /**
      * Y coordinate of the click relative to the upper left corner of the application screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    displayY: number;
+    displayY: double;
     /**
      * X coordinate of the click relative to the upper left corner of the application window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    windowX: number;
+    windowX: double;
     /**
      * Y coordinate of the click relative to the upper left corner of the application window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    windowY: number;
+    windowY: double;
     /**
      * X coordinate of the click point relative to the left edge of the clicked element.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 22 static
      */
-    x: number;
+    x: double;
     /**
      * Y coordinate of the click point relative to the left edge of the clicked element.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 22 static
      */
-    y: number;
+    y: double;
     /**
      * Whether the event is triggered by a left-hand or right-hand tap.
      *
      * @type { InteractionHand }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
     hand?: InteractionHand;
@@ -4154,8 +4274,6 @@ export declare interface ClickEvent extends BaseEvent {
      *
      * @throws { BusinessError } 100017 - Component does not support prevent function.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
     preventDefault(): void;
@@ -4172,57 +4290,51 @@ export declare interface HoverEvent extends BaseEvent {
     /**
      * X coordinate of the hover point relative to the left edge of the hover element.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    x?: number;
+    x?: double;
     /**
      * Y coordinate of the hover point relative to the upper edge of the hover element.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    y?: number;
+    y?: double;
     /**
      * X coordinate of the hover point relative to the left edge of the current window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    windowX?: number;
+    windowX?: double;
     /**
      * Y coordinate of the hover point relative to the upper edge of the current window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    windowY?: number;
+    windowY?: double;
     /**
      * X coordinate of the hover point relative to the left edge of the device screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    displayX?: number;
+    displayX?: double;
     /**
      * Y coordinate of the hover point relative to the upper edge of the device screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    displayY?: number;
+    displayY?: double;
     /**
      * The blocking hover event pops up.
      *
@@ -4230,7 +4342,7 @@ export declare interface HoverEvent extends BaseEvent {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    stopPropagation: () => void;
+    stopPropagation(): void;
 }
 /**
  * The mouse click action triggers this method invocation.
@@ -4246,7 +4358,6 @@ export declare interface MouseEvent extends BaseEvent {
      *
      * @type { MouseButton }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
     button: MouseButton;
@@ -4255,64 +4366,57 @@ export declare interface MouseEvent extends BaseEvent {
      *
      * @type { MouseAction }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
     action: MouseAction;
     /**
      * X coordinate of the mouse pointer relative to the upper left corner of the application screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    displayX: number;
+    displayX: double;
     /**
      * Y coordinate of the mouse pointer relative to the upper left corner of the application screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    displayY: number;
+    displayY: double;
     /**
      * X coordinate of the mouse pointer relative to the upper left corner of the application window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    windowX: number;
+    windowX: double;
     /**
      * Y coordinate of the mouse pointer relative to the upper left corner of the application window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    windowY: number;
+    windowY: double;
     /**
      * X coordinate of the mouse pointer relative to the upper left corner of the component being clicked.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    x: number;
+    x: double;
     /**
      * Y coordinate of the mouse pointer relative to the upper left corner of the component being clicked.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    y: number;
+    y: double;
     /**
      * Stops the event from bubbling upwards or downwards.
      *
@@ -4325,22 +4429,20 @@ export declare interface MouseEvent extends BaseEvent {
      * X axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
      * the edge of the screen, the value may be less than the difference of the X coordinate reported twice.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    rawDeltaX?: number;
+    rawDeltaX?: double;
     /**
      * Y axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
      * the edge of the screen, the value may be less than the difference of the Y coordinate reported twice.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    rawDeltaY?: number;
+    rawDeltaY?: double;
     /**
      * Array of all mouse buttons that are currently pressed.
      *
@@ -4435,123 +4537,99 @@ export declare interface TouchObject {
     /**
      * Unique identifier of a finger.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    id: number;
+    id: int;
     /**
      * X coordinate of the touch point relative to the upper left corner of the application screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    displayX: number;
+    displayX: double;
     /**
      * Y coordinate of the touch point relative to the upper left corner of the application screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    displayY: number;
+    displayY: double;
     /**
      * X coordinate of the touch point relative to the upper left corner of the application window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    windowX: number;
+    windowX: double;
     /**
      * Y coordinate of the touch point relative to the upper left corner of the application window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    windowY: number;
+    windowY: double;
     /**
      * X coordinate of the touch point relative to the upper left corner of the event responding component.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    x: number;
+    x: double;
     /**
      * Y coordinate of the touch point relative to the upper left corner of the event responding component.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    y: number;
+    y: double;
     /**
      * Whether the event is triggered by a left-hand or right-hand tap.
      *
      * @type { InteractionHand }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
     hand?: InteractionHand;
     /**
      * Time when the finger is pressed.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    pressedTime?: number;
+    pressedTime?: long;
     /**
    * Pressure value of the finger press.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
    * @since 22 static
    */
-    pressure?: number;
+    pressure?: double;
     /**
      * Width of the area pressed by the finger.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    width?: number;
+    width?: double;
     /**
      * Height of the area pressed by the finger.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    height?: number;
+    height?: double;
 }
 /**
  * TouchObject getHistoricalPoints Function Parameters
@@ -4572,33 +4650,27 @@ export declare interface HistoricalPoint {
     /**
      * Contact area between the finger pad and the screen.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    size: number;
+    size: int;
     /**
      * Pressure of the touch event.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    force: number;
+    force: double;
     /**
      * Timestamp of the touch event.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    timestamp: number;
+    timestamp: long;
 }
 /**
  * Touch Action Function Parameters
@@ -4643,11 +4715,12 @@ export declare interface TouchEvent extends BaseEvent {
     /**
      * Obtains all historical points of the current frame.
      *
-     * @returns { Array<HistoricalPoint> } - return all historical points.
+     * @returns { Array<HistoricalPoint> | undefined } - return all historical points. Undefined will be returned
+     *     if the internal runtime environment is broken.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getHistoricalPoints(): Array<HistoricalPoint>;
+    getHistoricalPoints(): Array<HistoricalPoint> | undefined;
     /**
      * Blocks the default event.
      *
@@ -4671,99 +4744,96 @@ export declare interface AxisEvent extends BaseEvent {
      *
      * @type { AxisAction }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
     action: AxisAction;
     /**
      * X coordinate of the mouse cursor relative to the left edge of the device screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    displayX: number;
+    displayX: double;
     /**
      * Y coordinate of the mouse cursor relative to the upper edge of the device screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    displayY: number;
+    displayY: double;
     /**
      * X coordinate of the mouse cursor relative to the left edge of the current window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    windowX: number;
+    windowX: double;
     /**
      * Y coordinate of the mouse cursor relative to the upper edge of the current window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    windowY: number;
+    windowY: double;
     /**
      * X coordinate of the mouse cursor relative to the left edge of the axis event hit element.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    x: number;
+    x: double;
     /**
      * Y coordinate of the mouse cursor relative to the upper edge of the axis event hit element.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    y: number;
+    y: double;
     /**
      * Scroll step configuration which is only mouse wheel has.
      *  *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    scrollStep?: number;
+    scrollStep?: int;
     /**
      * Active event bubbling.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
     propagation(): void;
     /**
      * Obtains the value of the horizontal scroll axis for this axis event.
      *
-     * @returns { number }
+     * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    getHorizontalAxisValue(): number;
+    getHorizontalAxisValue(): double;
     /**
      * Obtains the value of the vertical scroll axis for this axis event.
      *
-     * @returns { number }
+     * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    getVerticalAxisValue(): number;
+    getVerticalAxisValue(): double;
+    /**
+     * Obtains the value of the pinch axis for this axis event.
+     *
+     * @returns { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    getPinchAxisScaleValue(): double;
     /**
      * Checks whether this event contains a specified axis type.
      *
@@ -5207,7 +5277,17 @@ export declare enum BlendApplyType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    OFFSCREEN = 1
+    OFFSCREEN = 1,
+    /**
+    * The content of the component and its child components are drawn on the
+    * offscreen canvas, and then blended with the existing content on the canvas.
+    * The offscreen canvas will copy background to initialize itself when created.
+    * 
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @systemapi
+    * @since 23 static
+    */
+    OFFSCREEN_WITH_BACKGROUND = 2
 }
 /**
  * DragEvent object description
@@ -5220,43 +5300,35 @@ export declare interface DragEvent {
     /**
      * X coordinate of the touch point relative to the left edge of the device screen.
      *
-     * @returns { number }
+     * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    getDisplayX(): number;
+    getDisplayX(): double;
     /**
      * Y coordinate of the touch point relative to the upper edge of the device screen.
      *
-     * @returns { number }
+     * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    getDisplayY(): number;
+    getDisplayY(): double;
     /**
      * X coordinate of the touch point relative to the left edge of the current window.
      *
-     * @returns { number }
+     * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    getWindowX(): number;
+    getWindowX(): double;
     /**
      * Y coordinate of the touch point relative to the left edge of the current window.
      *
-     * @returns { number }
+     * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    getWindowY(): number;
+    getWindowY(): double;
     /**
     * If copy is COPY, this DragEvent is a copy event.
     * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
@@ -5284,21 +5356,21 @@ export declare interface DragEvent {
     /**
      * Get dragData from DragEvent.
      *
-     * @returns { UnifiedData } - get dragData.
+     * @returns { UnifiedData | undefined } - get dragData, undefined will be returned if the internal runtime environment is broken.
      * @throws { BusinessError } 190001 - Data not found.
      * @throws { BusinessError } 190002 - Data error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getData(): UnifiedData;
+    getData(): UnifiedData | undefined;
     /**
      * Get dragData summary from DragEvent.
      *
-     * @returns { Summary } - get Summary Data.
+     * @returns { Summary | undefined } - get Summary Data, undefined will be returned if the internal runtime environment is broken.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getSummary(): Summary;
+    getSummary(): Summary | undefined;
     /**
      * Set dragEvent result to DragEvent.
      *
@@ -5326,33 +5398,27 @@ export declare interface DragEvent {
     /**
      * Get the x axis velocity of drag gesture.
      *
-     * @returns { number } - get x axis velocity.
+     * @returns { double } - get x axis velocity.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    getVelocityX(): number;
+    getVelocityX(): double;
     /**
      * Get the y axis velocity of drag gesture.
      *
-     * @returns { number } - get y axis velocity.
+     * @returns { double } - get y axis velocity.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    getVelocityY(): number;
+    getVelocityY(): double;
     /**
      * Get the velocity of drag gesture.
      *
-     * @returns { number } - get velocity.
+     * @returns { double } - get velocity.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    getVelocity(): number;
+    getVelocity(): double;
     /**
      * Query the modifier key press state, support 'ctrl'|'alt'|'shift'
      *
@@ -5456,13 +5522,11 @@ export declare interface KeyEvent {
     /**
      * Key code of a key
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    keyCode: number;
+    keyCode: int;
     /**
      * Key value of a key.
      *
@@ -5482,41 +5546,35 @@ export declare interface KeyEvent {
     /**
      * Indicates the ID of the input device that triggers the current key.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    deviceId: number;
+    deviceId: int;
     /**
      * Indicates the status of the key when the key is pressed.
      * The value 1 indicates the pressed state, and the value 0 indicates the unpressed state.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    metaKey: number;
+    metaKey: int;
     /**
      * Timestamp when the key was pressed.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    timestamp: number;
+    timestamp: long;
     /**
      * Block event bubbling.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    stopPropagation(): void;
+    stopPropagation: () => void;
     /**
      * Intention code of a key or modifier keys.
      *
@@ -5537,12 +5595,11 @@ export declare interface KeyEvent {
     /**
      * Unicode of a key
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    unicode?: number;
+    unicode?: long;
 }
 /**
  * Focus axis event object description.
@@ -5556,12 +5613,11 @@ export declare interface FocusAxisEvent extends BaseEvent {
     /**
      * The axis values of axis event.
      *
-     * @type { Map<AxisModel, number> }
+     * @type { Map<AxisModel, double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    axisMap: Map<AxisModel, number>;
+    axisMap: Map<AxisModel, double>;
     /**
      * The blocking event pops up.
      *
@@ -5581,30 +5637,27 @@ export declare interface CrownEvent {
     /**
      *The timestamp of the rotating crown event.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    timestamp: number;
+    timestamp: long;
     /**
      * The angular velocity of a rotating crown.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    angularVelocity: number;
+    angularVelocity: double;
     /**
      * The rotation angle of the rotating crown.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    degree: number;
+    degree: double;
     /**
      * The behavior of rotating crown.
      *
@@ -5617,7 +5670,6 @@ export declare interface CrownEvent {
      * The blocking event pops up.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
     stopPropagation(): void;
@@ -5731,6 +5783,15 @@ export declare interface ContentCoverOptions extends BindOptions {
      * @since 22 static
      */
     transition?: TransitionEffect;
+    /**
+     * Set contentCover content adapts to safeArea.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    enableSafeArea?: boolean;
 }
 /**
  * Component sheet title options
@@ -5785,7 +5846,21 @@ export declare enum SheetType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    POPUP = 2
+    POPUP = 2,
+    /**
+     * Defines side sheet type.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    SIDE = 3,
+    /**
+     * Defines content cover type.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    CONTENT_COVER = 4
 }
 /**
  * Define the display mode of the sheet.
@@ -5880,7 +5955,14 @@ export declare enum SheetKeyboardAvoidMode {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    TRANSLATE_AND_SCROLL = 3
+    TRANSLATE_AND_SCROLL = 3,
+    /**
+     * Popup sheet will avoid keyboard by default.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    POPUP_SHEET = 4
 }
 /**
  * Component sheet dismiss
@@ -6003,6 +6085,24 @@ export declare interface SheetOptions extends BindOptions {
      * @since 22 static
      */
     dragBar?: boolean;
+    /**
+     * Defines whether the sheet dragbar is floating, when it's displayed.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    enableFloatingDragBar?: boolean;
+    /**
+     * Defines transition type when preferType is SheetType.CONTENT_COVER.
+     *
+     * @type { ?ModalTransition }
+     * @default ModalTransition.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    modalTransition?: ModalTransition;
     /**
      * Mask color of the sheet.
      *
@@ -6214,20 +6314,20 @@ export declare interface SheetOptions extends BindOptions {
      * <br>For a bottom sheet, the final height is returned when there are changes in detents.
      * <br>The return value is in px.
      * </p>
-     * @type { ?Callback<number> }
+     * @type { ?Callback<int> }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onDetentsDidChange?: Callback<number>;
+    onDetentsDidChange?: Callback<int>;
     /**
      * Called when width of the sheet changed
      *
-     * @type { ?Callback<number> }
+     * @type { ?Callback<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onWidthDidChange?: Callback<number>;
+    onWidthDidChange?: Callback<int>;
     /**
      * Called when the sheet type changed
      *
@@ -6289,7 +6389,7 @@ export declare interface SheetOptions extends BindOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    effectEdge?: number;
+    effectEdge?: int;
     /**
      * Defines sheet radius
      *
@@ -6465,7 +6565,16 @@ export declare enum DismissReason {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 22 static
     */
-    SLIDE_DOWN = 3
+    SLIDE_DOWN = 3,
+    /**
+     * Slide, not slide down.
+     * Default means slide right, after mirroring it means slide left.
+     * Choosing to slide left or slide right is not supported.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    SLIDE = 4
 }
 /**
  * Component popup dismiss
@@ -6536,35 +6645,36 @@ export declare interface PopupMaskType {
      */
     color: ResourceColor;
 }
-
 /**
  * Popup border LinearGradient
  *
  * @interface PopupBorderLinearGradient
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface PopupBorderLinearGradient {
-  /**
-   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
-   *
-   * @type { ?GradientDirection }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  direction?: GradientDirection;
-
-  /**
-   * Defines color description for gradients.
-   * number: The position of the color stop. The value range is 0 to 1.
-   *
-   * @type { Array<[ResourceColor, double]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  colors: Array<[ResourceColor, double]>;
+    /**
+     * direction: Direction of Linear Gradient.
+     *
+     * @type { ?GradientDirection }
+     * @default GradientDirection.Bottom
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    direction?: GradientDirection;
+    /**
+     * Sets the colors and positions of the gradient.
+     *
+     * When the color setting is undefined, use the default value Color.Black.
+     * The position setting ranges from 0 to 1.
+     *
+     * @type { Array<[ResourceColor | undefined, double]> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    colors: Array<[ResourceColor | undefined, double]>;
 }
-
 /**
  * Popup common options
  *
@@ -6763,6 +6873,47 @@ export declare interface PopupCommonOptions {
      * @since 22 static
      */
     followTransformOfTarget?: boolean;
+    /**
+     * Determine if popup can avoid the target when the display space is insufficient.
+     *
+     * @type { ?AvoidanceMode }
+     * @default AvoidanceMode.COVER_TARGET
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    avoidTarget?: AvoidanceMode;
+    /**
+     * The width of popup's outline.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineWidth?: Dimension;
+    /**
+     * The width of popup's border.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderWidth?: Dimension;
+    /**
+     * The LinearGradient of popup's outline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineLinearGradient?: PopupBorderLinearGradient;
+    /**
+     * The LinearGradient of popup's innerline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
    * Define the popup theme color mode.
@@ -6885,6 +7036,16 @@ export declare interface TipsOptions {
      * @since 22 static
      */
     arrowHeight?: Dimension;
+    /**
+     * Set the display location mode for tips. Tips can be shown around the component or follow the mouse cursor.
+     *
+     * @type { ?TipsAnchorType }
+     * @default TipsAnchorType.TARGET
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    showAtAnchor?: TipsAnchorType;
 }
 /**
  * Defines the popup button.
@@ -7141,6 +7302,47 @@ export declare interface PopupOptions {
      * @since 22 static
      */
     keyboardAvoidMode?: KeyboardAvoidMode;
+    /**
+     * Determine if popup can avoid the target when the display space is insufficient.
+     *
+     * @type { ?AvoidanceMode }
+     * @default AvoidanceMode.COVER_TARGET
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    avoidTarget?: AvoidanceMode;
+    /**
+     * The width of popup's outline.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineWidth?: Dimension;
+    /**
+     * The width of popup's border.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderWidth?: Dimension;
+    /**
+     * The LinearGradient of popup's outline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineLinearGradient?: PopupBorderLinearGradient;
+    /**
+     * The LinearGradient of popup's innerline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
    * Define the popup theme color mode.
@@ -7443,6 +7645,47 @@ export declare interface CustomPopupOptions {
      * @since 22 static
      */
     keyboardAvoidMode?: KeyboardAvoidMode;
+    /**
+     * Determine if popup can avoid the target when the display space is insufficient.
+     *
+     * @type { ?AvoidanceMode }
+     * @default AvoidanceMode.COVER_TARGET
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    avoidTarget?: AvoidanceMode;
+    /**
+     * The width of popup's outline.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineWidth?: Dimension;
+    /**
+     * The width of popup's border.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderWidth?: Dimension;
+    /**
+     * The LinearGradient of popup's outline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineLinearGradient?: PopupBorderLinearGradient;
+    /**
+     * The LinearGradient of popup's innerline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
    * Define the popup theme color mode.
@@ -7558,39 +7801,73 @@ export interface ContextMenuAnimationOptions {
      * @since 22 static
      */
     hoverScale?: AnimationNumberRange;
+    /**
+     * Sets whether support to interrupt the process of hover scale.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    hoverScaleInterruption?: boolean;
 }
-
 /**
  * Defines the scaling mode for custom preview of contextMenu.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum PreviewScaleMode {
+    /**
+     * Automatically resize preview based on the layout area.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    AUTO = 0,
+    /**
+     * Maintain original size of preview content without scaling.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    CONSTANT = 1,
+    /**
+     * Maintain aspect ratio to scale preview.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    MAINTAIN = 2
+}
+/**
+ * Defines the content transition effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export declare class ContentTransitionEffect {
   /**
-   * Automatically resize preview based on the layout area.
+   * When the content changes,there is no animation effect.
    *
+   * @type {ContentTransitionEffect}
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  AUTO = 0,
+  static get IDENTITY(): ContentTransitionEffect;
 
   /**
-   * Maintain original size of preview content without scaling.
+   * When the content changes,there is a smooth fade-in and fade-out effect.
    *
+   * @type {ContentTransitionEffect}
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  CONSTANT = 1,
-
-  /**
-   * Maintain aspect ratio to scale preview.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  MAINTAIN = 2
+  static get OPACITY(): ContentTransitionEffect;
 }
 /**
  * Defines the type of border radius.
@@ -7862,21 +8139,118 @@ export declare interface ContextMenuOptions {
       */
     enableHoverMode?: boolean;
     /**
-      * The color of menu's outer border.
-      *
-      * @type { ?(ResourceColor | EdgeColors) }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 22 static
-      */
+     * Defines the haptic feedback mode of menu.
+     *
+     * @type { ?HapticFeedbackMode }
+     * @default HapticFeedbackMode.DISABLED
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    hapticFeedbackMode?: HapticFeedbackMode;
+    /**
+     * The color of menu's outer border.
+     *
+     * @type { ?(ResourceColor | EdgeColors) }
+     * @default '#19ffffff'
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
     outlineColor?: ResourceColor | EdgeColors;
     /**
-      * The width of menu's outer border.
-      *
-      * @type { ?(Dimension | EdgeOutlineWidths) }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 22 static
-      */
+     * The width of menu's outer border.
+     * If outline effects are required, outlineWidth is required.
+     *
+     * @type { ?(Dimension | EdgeOutlineWidths) }
+     * @default 0vp - Percentage values are not supported.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
     outlineWidth?: Dimension | EdgeOutlineWidths;
+    /**
+     * Whether it is a menu without mask.
+     *
+     * @type { ?(boolean | MenuMaskType) }
+     * @default true when preview is enabled, or is false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    mask?: boolean | MenuMaskType;
+    /**
+     * Defines modal mode of menu.
+     *
+     * @type { ?ModalMode }
+     * @default ModalMode.AUTO
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    modalMode?: ModalMode;
+    /**
+     * Callback function when the menu appears.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onDidAppear?: VoidCallback;
+    /**
+     * Callback function when the menu disappears.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onDidDisappear?: VoidCallback;
+    /**
+     * Callback function before the menu openAnimation starts.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onWillAppear?: VoidCallback;
+    /**
+     * Callback function before the menu closeAnimation starts.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onWillDisappear?: VoidCallback;
+    /**
+     * Defines the scaling mode for custom preview of contextMenu.
+     *
+     * @type { ?PreviewScaleMode }
+     * @default PreviewScaleMode.AUTO
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    previewScaleMode?: PreviewScaleMode;
+    /**
+     * Defines the available layout area of preview.
+     *
+     * @type { ?AvailableLayoutArea }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    availableLayoutArea?: AvailableLayoutArea;
+    /**
+     * Defines the menu position.
+     *
+     * @type { ?Position }
+     * @default { x: 0, y: 0 }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    anchorPosition?: Position;
 
   /**
    * Defines the max height of menu.
@@ -7896,16 +8270,6 @@ export declare interface ContextMenuOptions {
    * @since 23 static
    */
   colorMode?: AnchoredColorMode;
-
-    /**
-     * Defines the haptic feedback mode of menu.
-     *
-     * @type { ?HapticFeedbackMode }
-     * @default HapticFeedbackMode.DISABLED
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    hapticFeedbackMode?: HapticFeedbackMode;
 
   /**
    * Determine if preview scale maintain aspect ratio.
@@ -7954,21 +8318,21 @@ export declare class ProgressMask {
     /**
      * constructor.
      *
-     * @param { number } value - Current value of the progress mask. Value range: [0.0, +∞).
-     * @param { number } total - Maximum value of the progress mask. Value range: [0.0, +∞).
+     * @param { double } value - Current value of the progress mask. Value range: [0.0, +∞).
+     * @param { double } total - Maximum value of the progress mask. Value range: [0.0, +∞).
      * @param { ResourceColor } color - Color of the progress mask.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    constructor(value: number, total: number, color: ResourceColor);
+    constructor(value: double, total: double, color: ResourceColor);
     /**
      * Updates the progress value of the progress mask.
      *
-     * @param { number } value - Current value of the progress mask.
+     * @param { double } value - Current value of the progress mask.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    updateProgress(value: number): void;
+    updateProgress(value: double): void;
     /**
      * Update the color of the mask.
      *
@@ -7996,70 +8360,56 @@ export declare class TouchTestInfo {
    /**
      * Get the X-coordinate relative to the window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    windowX: number;
+    windowX: double;
     /**
      * Get the Y-coordinate relative to the window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    windowY: number;
+    windowY: double;
     /**
      * Get the X-coordinate relative to the current component.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    parentX: number;
+    parentX: double;
     /**
      * Get the Y-coordinate relative to the current component.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    parentY: number;
+    parentY: double;
     /**
      * Get the X-coordinate relative to the sub component.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    x: number;
+    x: double;
     /**
      * Get the Y-coordinate relative to the sub component.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    y: number;
+    y: double;
     /**
      * Get the rectangle of sub component.
      *
      * @type { RectResult }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
     rect: RectResult;
@@ -8068,8 +8418,6 @@ export declare class TouchTestInfo {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
     id: string;
@@ -8162,7 +8510,6 @@ export declare interface ClickEffect {
      * @type { ClickEffectLevel }
      * @default ClickEffectLevel.Light
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
     level: ClickEffectLevel;
@@ -8177,12 +8524,11 @@ export declare interface ClickEffect {
      * <br> If level is set to undefined or null (both of which evaluate to ClickEffectLevel.LIGHT), the default value is 0.90.
      * <br> If scale is set to undefined or null, the default zoom ratio for the set level will be used.
      * </p>
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 22 static
      */
-    scale?: number;
+    scale?: double;
 }
 /**
  * Defines the fadingEdge options.
@@ -8331,6 +8677,18 @@ export declare interface AttributeModifier<T> {
    * @since 22 static
    */
   default applySelectedAttribute(instance: T) : void;
+
+  /**
+   * Specifies the states to be monitored.
+   * Override this method to specify which states (Normal, Pressed, Focused, Disabled, Selected) should be
+   * monitoredby returning a bitmask of ModifierState enum values.
+   *
+   * @returns { int } - Bitmask combination of states to be monitored
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  default monitoredStates(): int;
 }
 /**
  * Defines the content modifier.
@@ -8537,8 +8895,6 @@ export declare interface DragPreviewOptions {
      * @type { ?(DragPreviewMode | Array<DragPreviewMode>) }
      * @default DragPreviewMode.AUTO
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
     mode?: DragPreviewMode | Array<DragPreviewMode>;
@@ -8553,21 +8909,18 @@ export declare interface DragPreviewOptions {
     /**
      * The flag for number showing.
      *
-     * @type { ?(boolean | number) }
+     * @type { ?(boolean | long) }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    numberBadge?: boolean | number;
+    numberBadge?: boolean | long;
     /**
     * Drag start animation effect from drag preview to the handle drag image.
     *
     * @type { ?DraggingSizeChangeEffect }
     * @default DraggingSizeChangeEffect.DEFAULT
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @atomicservice
     * @since 22 static
     */
     sizeChangeEffect?: DraggingSizeChangeEffect;
@@ -8664,35 +9017,35 @@ export declare interface InvertOptions {
     /**
      * Defines the low value of threshold
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    low: number;
+    low: double;
     /**
      * Defines the high value of threshold
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    high: number;
+    high: double;
     /**
      * Defines the threshold
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    threshold: number;
+    threshold: double;
     /**
      *Defines the threshold range
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    thresholdRange: number;
+    thresholdRange: double;
 }
 /**
  * Defines the type that can be undefined.
@@ -8710,84 +9063,78 @@ export type Optional<T> = T | undefined;
  * @since 22 static
  */
 export type TipsMessageType = ResourceStr | StyledString;
-
 /**
- * Define the modal mode of menu
+ * Define the modal mode of menu.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ModalMode {
-  /**
-   * Modal modal automatically.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  AUTO = 0,
-
-  /**
-   * Operation takes effect around menu.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  NONE = 1,
-
-  /**
-   * Operation takes no effect around menu in target window
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  TARGET_WINDOW = 2
+    /**
+     * Modal modal automatically.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    AUTO = 0,
+    /**
+     * Operation takes effect around menu.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    NONE = 1,
+    /**
+     * Operation takes no effect around menu in target window.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    TARGET_WINDOW = 2
 }
-
 /**
  * Menu mask type
  *
  * @interface MenuMaskType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface MenuMaskType {
-  /**
-   * Mask color of menu.
-   *
-   * @type { ?ResourceColor }
-   * @default Color.Transparent
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  color?: ResourceColor;
-
-  /**
-   * Set menu mask background blur Style.
-   *
-   * @type { ?BlurStyle }
-   * @default BlurStyle.COMPONENT_ULTRA_THICK
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  backgroundBlurStyle?: BlurStyle;
+    /**
+     * Mask color of menu.
+     *
+     * @type { ?ResourceColor }
+     * @default Color.Transparent
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    color?: ResourceColor;
+    /**
+     * Set menu mask background blur Style.
+     *
+     * @type { ?BlurStyle }
+     * @default BlurStyle.COMPONENT_ULTRA_THICK
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    backgroundBlurStyle?: BlurStyle;
 }
-
 /**
  * Defines the available layout area.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum AvailableLayoutArea {
-  /**
-   * Size of safe area.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  SAFE_AREA = 0
+    /**
+     * Size of safe area.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    SAFE_AREA = 0
 }
 /**
  * Define the options for background image.
@@ -8845,9 +9192,10 @@ export declare type CustomProperty = undefined | null | Object | Record<string, 
 
 /**
  * CommonMethod
- * 
+ *
  * @interface CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 22 static
  */
 export declare interface CommonMethod {
@@ -8910,6 +9258,18 @@ export declare interface CommonMethod {
      */
     default expandSafeArea(types?: Array<SafeAreaType>, edges?: Array<SafeAreaEdge>): this;
     /**
+     * Expands the layout safe area of a component.
+     *
+     * @param { Array<LayoutSafeAreaType> | undefined } [types] - The region type to expand the component's layout safe area into.
+     *     The default value is LayoutSafeAreaType.SYSTEM.
+     * @param { Array<LayoutSafeAreaEdge> | undefined } [edges] - The set of edges for which to ignore layout safe area.
+     *     The default value is LayoutSafeAreaEdge.ALL.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType> | undefined, edges?: Array<LayoutSafeAreaEdge> | undefined): this;
+    /**
      * Sets the response region of the current component.
      *
      * @param { Array<Rectangle> | Rectangle | undefined } value
@@ -8927,6 +9287,15 @@ export declare interface CommonMethod {
      * @since 22 static
      */
     default mouseResponseRegion(value: Array<Rectangle> | Rectangle | undefined): this;
+    /**
+    * Sets the response region list of the current component.
+    * 
+    * @param { Array<ResponseRegion> | undefined } regions
+    * @returns { this } return the component attribute
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    default responseRegionList(regions: Array<ResponseRegion> | undefined): this;
     /**
      * Sets the size of the component.
      *
@@ -8971,12 +9340,12 @@ export declare interface CommonMethod {
      * along the main axis of its parent container (Row, Column, or Flex) based on its specified weight.
      * Default value: **0**.
      *
-     * @param { number | string | undefined } value
+     * @param { double | string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default layoutWeight(value: number | string | undefined): this;
+    default layoutWeight(value: double | string | undefined): this;
     /**
      * Sets the weight of the component in a chain, which is used to re-lay out components that form the chain.
      * <br>This API has effect only when the parent container is RelativeContainer.
@@ -9031,12 +9400,13 @@ export declare interface CommonMethod {
     /**
      * Background color
      *
-     * @param { Optional<ResourceColor | ColorMetrics> } value
+     * @param { ResourceColor | ColorMetrics | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 22 static
      */
-    default backgroundColor(value: Optional<ResourceColor | ColorMetrics>): this;
+    default backgroundColor(value: ResourceColor | ColorMetrics | undefined): this;
     /**
      * Sets the pixel rounding policy for the current component in the specified direction.
      * <br>If a direction is not set, the pixels are rounded to the nearest whole number in that direction.
@@ -9190,12 +9560,12 @@ export declare interface CommonMethod {
     /**
      * Sets the opacity of the component.
      *
-     * @param { number | Resource | undefined } value - Opacity of the component. The value ranges from 0 to 1.
+     * @param { double | Resource | undefined } value - Opacity of the component. The value ranges from 0 to 1.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default opacity(value: number | Resource | undefined): this;
+    default opacity(value: double | Resource | undefined): this;
     /**
      * Sets the border.
      *
@@ -9236,14 +9606,20 @@ export declare interface CommonMethod {
     default borderColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors | undefined): this;
     /**
      * Sets the radius of the border rounded corners.
-     * <br>The radius is restricted by the component size. The maximum value is half of the component width or height.
-     *
+     *     The radius is restricted by the component size. The maximum value is half of the component width or height.
+     * NOTE
+     *    1. **RenderStrategy.FAST**: The current component and its child components will be drawn directly
+     *        onto the canvas with rounded corners applied.
+     *    2. **RenderStrategy.OFFSCREEN**: The current component and its child components will first be rendered onto
+     *        an off-screen canvas, then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
      * @param { Length | BorderRadiuses | LocalizedBorderRadiuses | undefined } value
+     * @param { RenderStrategy | undefined } [type] - Application types for drawing rounded corners.
+     *     Default value: **RenderStrategy.FAST**.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    default borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses | undefined): this;
+    default borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses | undefined, type?: RenderStrategy | undefined): this;
     /**
      * Sets the border image of the component.
      *
@@ -9520,12 +9896,12 @@ export declare interface CommonMethod {
     /**
      * Set focus index by key tab.
      * The tabIndex and focusScopeId cannot be used together.
-     * @param { number | undefined } index
+     * @param { int | undefined } index
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default tabIndex(index: number | undefined): this;
+    default tabIndex(index: int | undefined): this;
     /**
      * Set default focused component when a page create.
      *
@@ -9619,59 +9995,59 @@ export declare interface CommonMethod {
      * Bind gesture recognition.
      * gesture:Bound Gesture Type,mask:GestureMask;
      *
-     * @param { GestureType | undefined } gesture
+     * @param { GestureType } gesture
      * @param { GestureMask } [mask]
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default gesture(gesture: GestureType | undefined, mask?: GestureMask): this;
+    default gesture(gesture: GestureType, mask?: GestureMask): this;
     /**
      * Binding Preferential Recognition Gestures
      * gesture:Bound Gesture Type,mask:GestureMask;
      *
-     * @param { GestureType | undefined } gesture
+     * @param { GestureType } gesture
      * @param { GestureMask } [mask]
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default priorityGesture(gesture: GestureType | undefined, mask?: GestureMask): this;
+    default priorityGesture(gesture: GestureType, mask?: GestureMask): this;
     /**
      * Binding gestures that can be triggered simultaneously with internal component gestures
      * gesture:Bound Gesture Type,mask:GestureMask;
      *
-     * @param { GestureType | undefined } gesture
+     * @param { GestureType } gesture
      * @param { GestureMask } [mask]
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default parallelGesture(gesture: GestureType | undefined, mask?: GestureMask): this;
+    default parallelGesture(gesture: GestureType, mask?: GestureMask): this;
     /**
      * Adds the content blurring effect for the current component. The input parameter is the blurring radius.
      * The larger the blurring radius, the more blurring the content.
      * If the value is 0, the content blurring effect is not blurring.
      *
-     * @param { number | undefined } blurRadius - value indicates radius of backdrop blur.
+     * @param { double | undefined } blurRadius - value indicates radius of backdrop blur.
      * @param { BlurOptions } [options] - options indicates blur options.
      * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default blur(blurRadius: number | undefined, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): this;
+    default blur(blurRadius: double | undefined, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): this;
     /**
      * Applies a linear gradient foreground blur effect to the component.
      *
-     * @param { number | undefined } value - the blurring radius. The larger the blurring radius, the more
+     * @param { double | undefined } value - the blurring radius. The larger the blurring radius, the more
      *     blurring the content, and if the value is 0, the content blurring effect is not blurring.
      * @param { LinearGradientBlurOptions | undefined } options - the linear gradient blur options.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default linearGradientBlur(value: number | undefined, options: LinearGradientBlurOptions | undefined): this;
+    default linearGradientBlur(value: double | undefined, options: LinearGradientBlurOptions | undefined): this;
     /**
      * Apply a motion blur effect to the component being scaled or moved.
      * 1.Do not use this API in intra-component transitions, shared element transitions,
@@ -9696,7 +10072,7 @@ export declare interface CommonMethod {
     /**
      * Applies a brightness effect to the component.
      *
-     * @param { number | undefined } value - Brightness of the component. The value **1** indicates no effects.
+     * @param { double | undefined } value - Brightness of the component. The value **1** indicates no effects.
      *     The value **0** indicates the complete darkness. If the value is less than **1**, the brightness
      *     decreases. If the value is greater than **1**, the brightness increases. A larger value indicates
      *     a higher brightness. A brightness of 2 turns the component completely white.
@@ -9708,11 +10084,11 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default brightness(value: number | undefined): this;
+    default brightness(value: double | undefined): this;
     /**
      * Applies a contrast effect to the component.
      *
-     * @param { number | undefined } value - Contrast of the component. The input parameter is a
+     * @param { double | undefined } value - Contrast of the component. The input parameter is a
      *     contrast value. If the value is **1**, the source image is displayed. If the
      *     value is greater than 1, a larger value indicates a higher contrast and a clearer
      *     image. If the value is less than 1, a smaller value indicates a lower contrast is.
@@ -9725,11 +10101,11 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default contrast(value: number | undefined): this;
+    default contrast(value: double | undefined): this;
     /**
      * Applies a grayscale effect to the component.
      *
-     * @param { number | undefined } value - Grayscale conversion ratio of the component.
+     * @param { double | undefined } value - Grayscale conversion ratio of the component.
      *     <br>If the value is **1.0**, the component is completely converted to grayscale.
      *     <br>If the value is **0.0**, the component remains unchanged. Between **0** and **1**,
      *     <br>the value applies a linear multiplier on the grayscale effect. The unit is percentage.
@@ -9743,7 +10119,7 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default grayscale(value: number | undefined): this;
+    default grayscale(value: double | undefined): this;
     /**
      * Applies a color blend effect to the component.
      *
@@ -9756,7 +10132,7 @@ export declare interface CommonMethod {
     /**
      * Applies a saturation effect to the component.
      *
-     * @param { number | undefined } value - Saturation of the component. The saturation is the ratio of the
+     * @param { double | undefined } value - Saturation of the component. The saturation is the ratio of the
      *     chromatic component to the achromatic component (gray) in a color. If the value is **1**,
      *     the original image is displayed. If the value is greater than **1**, a higher percentage of
      *     the chromatic component indicates a higher saturation. If the value is less than **1**, a higher
@@ -9769,28 +10145,28 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default saturate(value: number | undefined): this;
+    default saturate(value: double | undefined): this;
     /**
      * Sepia conversion ratio of the component.
      *
-     * @param { number | undefined } value - Sepia conversion ratio of the component. If the value is **1**, the image
+     * @param { double | undefined } value - Sepia conversion ratio of the component. If the value is **1**, the image
      *     is completely sepia. If the value is **0**, the component remains unchanged. The unit is percentage.
      *     <br> Value range: [0, +∞).
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default sepia(value: number | undefined): this;
+    default sepia(value: double | undefined): this;
     /**
      * Invert the input image. Value defines the scale of the conversion. 100% of the value is a complete reversal.
      * A value of 0% does not change the image. (Percentage)
      *
-     * @param { number | InvertOptions | undefined } value - value indicates the scale of the conversion or the options of invert.
+     * @param { double | InvertOptions | undefined } value - value indicates the scale of the conversion or the options of invert.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default invert(value: number | InvertOptions | undefined): this;
+    default invert(value: double | InvertOptions | undefined): this;
     /**
      * Applies a system bar effect to the component, which means to invert colors based on the background and add a blur.
      *
@@ -9802,7 +10178,7 @@ export declare interface CommonMethod {
     /**
      * Rotates the hue of the component.
      *
-     * @param { number | string | undefined } value - Hue rotation angle of the component.
+     * @param { double | string | undefined } value - Hue rotation angle of the component.
      *     <br>A rotation of 360 degrees leaves the color unchanged.
      *     <br>A rotation of 180 degrees and then -180 degrees also leaves the color unchanged.
      *     <br>When the data type is number, the value **90** is equivalent to **'90deg'**.
@@ -9810,7 +10186,7 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default hueRotate(value: number | string | undefined): this;
+    default hueRotate(value: double | string | undefined): this;
     /**
      * Sets whether to draw shadows of child nodes in the component at the same layer,
      * so that the shadows of elements at the same layer overlap.
@@ -9862,14 +10238,14 @@ export declare interface CommonMethod {
      * Adds the background blur effect for the current component. The input parameter is the blur radius.
      * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
      *
-     * @param { number | undefined } radius - radius indicates radius of backdrop blur.
+     * @param { double | undefined } radius - radius indicates radius of backdrop blur.
      * @param { BlurOptions } [options] - options indicates the backdrop blur options.
      * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default backdropBlur(radius: number | undefined, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): this;
+    default backdropBlur(radius: double | undefined, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): this;
     /**
      * Sets whether the component and its child components are rendered off
      * the screen as a whole before being blended with its parent.
@@ -9924,12 +10300,22 @@ export declare interface CommonMethod {
     /**
      * Set component rotation.
      *
-     * @param { RotateOptions | undefined } value default:{x:0,y:0,z:0,centerX:'50%',centerY:'50%',centerZ:0,perspective:0}
+     * @param { RotateOptions | undefined } value
+     *     default:{x:0,y:0,z:0,centerX:'50%',centerY:'50%',centerZ:0,perspective:0}
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    /**
+     * Set component rotation.
+     *
+     * @param { RotateOptions | RotateAngleOptions |undefined } value
+     *     default:{x:0,y:0,z:0,centerX:'50%',centerY:'50%',centerZ:0,perspective:0}
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default rotate(value: RotateOptions | undefined): this;
+    default rotate(value: RotateOptions | RotateAngleOptions | undefined): this;
     /**
      * Sets the transformation matrix of the component. Set undefined value to reset the transform matrix.
      *
@@ -9939,6 +10325,16 @@ export declare interface CommonMethod {
      * @since 22 static
      */
     default transform(value: Matrix4Transit | undefined): this;
+    /**
+     * Sets the transformation matrix for the current component.
+     * The interface can display the effect of three-dimensional natrix transformation.
+     *
+     * @param { Matrix4Transit | undefined } transform - transform3D natrix
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default transform3D(transform: Matrix4Transit | undefined): this;
     /**
      * This callback is triggered when a component mounts a display.
      *
@@ -9997,32 +10393,32 @@ export declare interface CommonMethod {
      * Sets the percentage of the parent container's remaining space that is allocated to the component.
      * Default value: **0**.
      *
-     * @param { number | undefined } value
+     * @param { double | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default flexGrow(value: number | undefined): this;
+    default flexGrow(value: double | undefined): this;
     /**
      * Sets the percentage of the parent container's shrink size that is allocated to the component.
      * Default value: 0 when the parent container is Column or Row, 1 when the parent container is Flex..
      *
-     * @param { number | undefined } value
+     * @param { double | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default flexShrink(value: number | undefined): this;
+    default flexShrink(value: double | undefined): this;
     /**
      * Sets the base size of the component in the main axis of the parent container.
      * Default value: **'auto'**.
      *
-     * @param { number | string | undefined } value
+     * @param { double | string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default flexBasis(value: number | string | undefined): this;
+    default flexBasis(value: double | string | undefined): this;
     /**
      * Sets the alignment mode of the child components along the cross axis of the parent container.
      * Default value: **ItemAlign.Auto**.
@@ -10034,15 +10430,24 @@ export declare interface CommonMethod {
      */
     default alignSelf(value: ItemAlign | undefined): this;
     /**
+     * Defines the align rules of child component in Stack container.
+     *
+     * @param { LocalizedAlignment | undefined } alignment
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default layoutGravity(alignment: LocalizedAlignment | undefined): this;
+    /**
      * Sets the display priority for the component in the layout container.
      * <br>This parameter is only effective in Row, Column, and Flex (single-line) container components.
      *
-     * @param { number | undefined } value
+     * @param { double | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default displayPriority(value: number | undefined): this;
+    default displayPriority(value: double | undefined): this;
     /**
      * The sibling components in the same container are hierarchically displayed. A larger value of z indicates a higher display level.
      *
@@ -10082,12 +10487,12 @@ export declare interface CommonMethod {
      * Sets the alignment mode of the component content in the drawing area.
      * Default value: **Alignment.Center**.
      *
-     * @param { Alignment | undefined } value
+     * @param { Alignment | LocalizedAlignment | undefined } alignment
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    default align(value: Alignment | undefined): this;
+    default align(alignment: Alignment | LocalizedAlignment | undefined): this;
     /**
      * Sets the absolute position of the component relative to the position of the parent component.
      * <br>The attribute is not available for a layout container whose width and height are zero.
@@ -10164,12 +10569,12 @@ export declare interface CommonMethod {
      * calculated using the following formula: width/aspectRatio.
      * <br>This parameter takes effect only when a valid value greater than 0 is specified.
      *
-     * @param { number | undefined } value
+     * @param { double | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default aspectRatio(value: number | undefined): this;
+    default aspectRatio(value: double | undefined): this;
     /**
      * The click effect level and scale number.
      *
@@ -10252,12 +10657,12 @@ export declare interface CommonMethod {
     /**
      * Allowed drop uniformData type for this node.
      *
-     * @param { Array<UniformDataType> | null | undefined } value - the uniformData type for this node.
-     * @returns { this } return the component attribute.
+     * @param { Array<UniformDataType> | null | Array<string> | undefined } value - the uniformData type for this node.
+     * @returns { this } - return the component attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
-    default allowDrop(value: Array<UniformDataType> | null | undefined): this;
+    default allowDrop(value: Array<UniformDataType> | null | Array<string> | undefined): this;
     /**
      * Enable the selectable area can be dragged.
      *
@@ -10416,9 +10821,10 @@ export declare interface CommonMethod {
 
     /**
      * Add a blendMode effect to the current component.Cannot be used together with the blendMode interface.
-     * 
+     *
      * @param { BlendMode | Blender | undefined } effect - When the effect type is BlendMode type, define Different hybrid modes.
      * @param { BlendApplyType } [type] - Different blend apply type
+     *     Default value: BlendApplyType.FAST.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -10557,6 +10963,18 @@ export declare interface CommonMethod {
      */
     default bindContextMenu(content: CustomBuilder | undefined, responseType: ResponseType | undefined, options?: ContextMenuOptions): this;
     /**
+     * Binds a context menu to this component, which is displayed when the user long-presses or right-clicks the
+     * component. Only custom menu items are supported. Long pressing with a mouse device is not supported.
+     *
+     * @param { CustomBuilderT<ResponseType> | undefined } content - Indicates the content of context menu. Undefined
+     *     means unbinding.
+     * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default bindContextMenu(content: CustomBuilderT<ResponseType> | undefined, options?: ContextMenuOptions): this;
+    /**
      * Binds a context menu to the component, whose visibility is subject to the isShown settings.
      *
      * @param { boolean | undefined } isShown - true means display content, false means hide content, default is false.
@@ -10649,7 +11067,7 @@ export declare interface CommonMethod {
     /**
      * Applies a spherical effect to the component.
      *
-     * @param { number | undefined } value - Spherical degree of the component.
+     * @param { double | undefined } value - Spherical degree of the component.
      *     <br>The value ranges from 0 to 1.
      *     <p>**NOTE**:
      *     <br>1. If the value is **0**, the component remains unchanged. If the value is 1, the component is completely
@@ -10663,11 +11081,11 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default sphericalEffect(value: number | undefined): this;
+    default sphericalEffect(value: double | undefined): this;
     /**
      * Applies a light up effect to the component.
      *
-     * @param { number | undefined } value - Light up degree of the component.
+     * @param { double | undefined } value - Light up degree of the component.
      *     <br>The value ranges from 0 to 1.
      *     <br>If the value is **0**, the component is dark. If the value is **1**, the component is fully illuminated.
      *     <br>Between **0** and **1**, a larger value indicates higher luminance.
@@ -10677,7 +11095,7 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default lightUpEffect(value: number | undefined): this;
+    default lightUpEffect(value: double | undefined): this;
     /**
      * Applies a pixel stretch effect to the component.
      *
@@ -10804,6 +11222,15 @@ export declare interface CommonMethod {
      * @since 22 static
      */
     default onAccessibilityFocus(callback: AccessibilityFocusCallback | undefined): this;
+    /**
+     * Register accessibility action intercept callback,
+     * when accessibility action is to be executed,the callback will be executed
+     * @param { AccessibilityActionInterceptCallback | undefined } callback - accessibility action intercept callback function
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default onAccessibilityActionIntercept(callback: AccessibilityActionInterceptCallback | undefined): this;
     /**
      * Sets accessibilityTextHint
      *
@@ -11027,6 +11454,41 @@ export declare interface CommonMethod {
      * @since 22 static
      */
     default accessibilityFocusDrawLevel(drawLevel: FocusDrawLevel | undefined): this;
+    /**
+     * Set system-styled materials for the component. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+     * their computing power.
+     *
+     * @param { SystemUiMaterial | undefined } material - System-styled material. Undefined indicates reverting to
+     *     the effect of no system material.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default systemMaterial(material: SystemUiMaterial | undefined): this;
+    /**
+     * Sets the state anouncement text of the component under accessibility.
+     *
+     * @param { string | Resource | undefined } description the state anouncement text of the component under accessibility.
+     *     if incoming is undefined, it will be processed as empty string.
+     * @returns { this } return component instance who call the method.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default accessibilityStateDescription(description: string | Resource | undefined): this;
+    /**
+     * Sets AccessibilityActionOptions that can affect operation under accessibility.
+     *
+     * @param { AccessibilityActionOptions | undefined } option - set accessibility specific operation options.
+     * @returns { this } return component instance who call the method.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default accessibilityActionOptions(option: AccessibilityActionOptions | undefined): this;
 }
 /**
  * CommonAttribute for ide.
@@ -11099,13 +11561,13 @@ export declare interface OverlayOffset {
  * The second element means the stop position.
  * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
  *
- * @typedef { [ number, number ] } FractionStop
+ * @typedef { [ double, double ] } FractionStop
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
 export type FractionStop = [
-    number,
-    number
+    double,
+    double
 ];
 
 /**
@@ -11321,19 +11783,19 @@ export declare interface MotionBlurAnchor {
     /**
      * Define anchor coordinate x-value.Value range [0.0, 1.0].
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    x: number;
+    x: double;
     /**
      * Define anchor coordinate y-value.Value range [0.0, 1.0].
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    y: number;
+    y: double;
 }
 /**
  * Define motion blur options.
@@ -11346,11 +11808,11 @@ export declare interface MotionBlurOptions {
     /**
      * Define the size of motion blur radius.The range of this value is  [0.0, ∞).
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    radius: number;
+    radius: double;
     /**
      * Define motion blur anchor coordinates.
      *
@@ -11429,27 +11891,30 @@ export declare interface Layoutable {
     /**
      * Obtains the margin of the child component.
      *
-     * @returns { DirectionalEdgesT<number> } the margin of sub component, unit is vp
+     * @returns { DirectionalEdgesT<double> | undefined } the margin of sub component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getMargin(): DirectionalEdgesT<number>;
+    getMargin(): DirectionalEdgesT<double> | undefined;
     /**
      * Call this method to get the padding of sub component.
      *
-     * @returns { DirectionalEdgesT<number> } Padding of the child component, unit is vp.
+     * @returns { DirectionalEdgesT<double> | undefined } Padding of the child component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getPadding(): DirectionalEdgesT<number>;
+    getPadding(): DirectionalEdgesT<double> | undefined;
     /**
      * Obtains the border width of the child component.
      *
-     * @returns { DirectionalEdgesT<number> } the borderWidth of sub component, unit is vp
+     * @returns { DirectionalEdgesT<double> | undefined } the borderWidth of sub component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getBorderWidth(): DirectionalEdgesT<number>;
+    getBorderWidth(): DirectionalEdgesT<double> | undefined;
 }
 /**
  * Sub component info passed from framework when measure happens.
@@ -11462,44 +11927,48 @@ export declare interface Measurable {
     /**
      * Unique ID that the system assigns to the child component.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    uniqueId?: number;
+    uniqueId?: long;
     /**
      * Applies the size constraint to the child component.
      *
      * @param { ConstraintSizeOptions } constraint
-     * @returns { MeasureResult } Provides the measurement result of the component.
+     * @returns { MeasureResult | undefined } Provides the measurement result of the component. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    measure(constraint: ConstraintSizeOptions): MeasureResult;
+    measure(constraint: ConstraintSizeOptions): MeasureResult | undefined;
     /**
      * Obtains the margin of the child component.
      *
-     * @returns { DirectionalEdgesT<number> } Margin of the child component, unit is vp.
+     * @returns { DirectionalEdgesT<double> | undefined } Margin of the child component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getMargin(): DirectionalEdgesT<number>;
+    getMargin(): DirectionalEdgesT<double> | undefined;
     /**
      * Obtains the padding of the child component.
      *
-     * @returns { DirectionalEdgesT<number> } the padding of sub component, unit is vp
+     * @returns { DirectionalEdgesT<double> | undefined } the padding of sub component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getPadding(): DirectionalEdgesT<number>;
+    getPadding(): DirectionalEdgesT<double> | undefined;
     /**
      * Obtains the border width of the child component.
      *
-     * @returns { DirectionalEdgesT<number> } Border width of the child component, unit is vp.
+     * @returns { DirectionalEdgesT<double> | undefined } Border width of the child component, unit is vp. If some errors
+     * occur in the internal runtime environment, returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getBorderWidth(): DirectionalEdgesT<number>;
+    getBorderWidth(): DirectionalEdgesT<double> | undefined;
 }
 /**
  * Provides the component size information.
@@ -11512,19 +11981,19 @@ export declare interface SizeResult {
     /**
      * Width obtained from the measurement result. Unit: vp.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    width: number;
+    width: double;
     /**
      * Height obtained from the measurement result. Unit: vp.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    height: number;
+    height: double;
 }
 /**
  * Provides the measurement result of the component.
@@ -11594,6 +12063,16 @@ export type VisualEffect = uiEffect.VisualEffect;
  * @since 22 static
  */
 export type Filter = uiEffect.Filter;
+/**
+ * SystemUiMaterial
+ *
+ * @typedef { uiMaterial.Material } SystemUiMaterial
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 static
+ */
+export type SystemUiMaterial = uiMaterial.Material;
 
 /**
  * Blender
@@ -11722,11 +12201,11 @@ export declare abstract class TextContentControllerBase {
      * <br>The location information in the return value is the location of the caret relative to the editable component.
      * </p>
      *
-     * @returns { CaretOffset } index and relative position of the CaretOffset.
+     * @returns { CaretOffset | undefined } index and relative position of the CaretOffset.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getCaretOffset(): CaretOffset;
+    getCaretOffset(): CaretOffset | undefined;
     /**
      * Get the start and end positions of the text content.
      *
@@ -11738,30 +12217,30 @@ export declare abstract class TextContentControllerBase {
      * <br>If there is input, the width in the return value is the fixed width of the editable area.
      * </p>
      *
-     * @returns { RectResult } Text content rect.The unit of the return value is pixel.
+     * @returns { RectResult | undefined } Text content rect.The unit of the return value is pixel.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getTextContentRect(): RectResult;
+    getTextContentRect(): RectResult | undefined;
     /**
      * Get the lines number of the text content.
      * The getTextContentLineCount type is used to obtain the number of lines of the edited text.
      *
-     * @returns { int } Text content line count
+     * @returns { int | undefined } Text content line count
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getTextContentLineCount(): int;
+    getTextContentLineCount(): int | undefined;
     /**
      * Add a text.
      *
      * @param { string } text - text value.
      * @param { TextContentControllerOptions } [textOperationOptions] - operation info.
-     * @returns { int } caret index
+     * @returns { int | undefined } caret index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    addText(text: string, textOperationOptions?: TextContentControllerOptions): int;
+    addText(text: string, textOperationOptions?: TextContentControllerOptions): int | undefined;
     /**
      * Delete text in TextRange.
      *
@@ -11773,11 +12252,11 @@ export declare abstract class TextContentControllerBase {
     /**
      * Gets the selected range of text content.
      *
-     * @returns { TextRange } range for selecting.
+     * @returns { TextRange | undefined } range for selecting.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getSelection(): TextRange;
+    getSelection(): TextRange | undefined;
     /**
      * Clear the content of preview.
      *
@@ -11789,12 +12268,12 @@ export declare abstract class TextContentControllerBase {
      * Gets the text content of the selected range.
      *
      * @param { TextRange } [range] - selected range.
-     * @returns { string } text content of the selected range.
+     * @returns { string | undefined } text content of the selected range.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
-    getText(range?: TextRange): string;
+    getText(range?: TextRange): string | undefined;
 
     /**
      * Delete the last character of the input field component.
@@ -11803,6 +12282,15 @@ export declare abstract class TextContentControllerBase {
      * @since 23 static
      */
     deleteBackward(): void;
+
+    /**
+     * Scroll the input field component to make the specified content visible.
+     * @param { TextRange } [range] - The visible range.
+     *     If the parameter is invalid, this method will have no effect.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    scrollToVisible(range?: TextRange): void
 }
 /**
  * Enum of scrollable containers' content clip mode.
@@ -11859,7 +12347,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
     /**
      * Sets the scrollbar color.
      *
-     * @param { Color | number | string | undefined } color - Scrollbar color.<br>Default value:
+     * @param { Color | int | string | undefined } color - Scrollbar color.<br>Default value:
      *     <em>'\#182431'</em> (40% opacity). A number value indicates a HEX color in RGB or ARGB
      *     format, for example, <em>0xffffff</em>. A string value indicates a color in RGB or ARGB
      *     format, for example, <em>'#ffffff'</em>.
@@ -11867,7 +12355,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    scrollBarColor(color: Color | number | string | undefined): this;
+    scrollBarColor(color: Color | int | string | undefined): this;
     /**
      * Sets the scrollbar width.
      *
@@ -11879,7 +12367,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    scrollBarWidth(value: number | string | undefined): this;
+    scrollBarWidth(value: double | string | undefined): this;
     /**
      * Sets the effect used when the scroll boundary is reached.
      *
@@ -11930,12 +12418,12 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
     /**
      * Sets the friction coefficient.
      *
-     * @param { number | Resource | undefined } value - Friction coefficient.
+     * @param { double | Resource | undefined } value - Friction coefficient.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    friction(value: number | Resource | undefined): this;
+    friction(value: double | Resource | undefined): this;
     /**
      * Triggered when the scrollable component reaches the start position.
      *
@@ -11977,7 +12465,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
     /**
      * Sets the maximum initial velocity at the start of the fling animation that occurs after gesture-driven scrolling ends.
      *
-     * @param { number | undefined } speedLimit - Maximum initial velocity at the start of the fling animation.
+     * @param { double | undefined } speedLimit - Maximum initial velocity at the start of the fling animation.
      *     <br>Default value: <em>9000</em>
      *     <br>Unit: vp/s
      *     <br>Value range: (0, +∞). If this parameter is set to a value less than or equal to 0, the default value is used.
@@ -11985,7 +12473,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    flingSpeedLimit(speedLimit: number | undefined): this;
+    flingSpeedLimit(speedLimit: double | undefined): this;
     /**
      * Sets the content clipping area for this scrollable component.
      *
@@ -12022,18 +12510,26 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
  */
 export declare class ScrollResult {
     /**
-     * Actual offset by which the scrollable scrolls in vp.
-     * @type { number }
+     * Get the actual offset by which the scrollable scrolls in vp.
+     * @returns { double } actual offset by which the scrollable scrolls in vp.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    offsetRemain: number;
+    get offsetRemain(): double;
+
+    /**
+     * Set the actual offset by which the scrollable scrolls in vp.
+     * @param { double } offsetRemain - actual offset by which the scrollable scrolls in vp.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    set offsetRemain(offsetRemain: double);
 }
 /**
  * Called before scroll to allow developer to control real offset the Scrollable can scroll.
  *
  * @typedef { function } OnWillScrollCallback
- * @param { number } scrollOffset - offset this frame will scroll, which may or may not be reached.
+ * @param { double } scrollOffset - offset this frame will scroll, which may or may not be reached.
  * @param { ScrollState } scrollState - current scroll state.
  * @param { ScrollSource } scrollSource - source of current scroll.
  * @returns { undefined | ScrollResult } the remain offset for the scrollable,
@@ -12041,38 +12537,38 @@ export declare class ScrollResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export type OnWillScrollCallback = (scrollOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => undefined | ScrollResult;
+export type OnWillScrollCallback = (scrollOffset: double, scrollState: ScrollState, scrollSource: ScrollSource) => undefined | ScrollResult;
 /**
   * On scroll callback using in scrollable onDidScroll.
   *
   * @typedef { function } OnScrollCallback
-  * @param { number } scrollOffset - offset this frame did scroll.
+  * @param { double } scrollOffset - offset this frame did scroll.
   * @param { ScrollState } scrollState - current scroll state.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @since 22 static
   */
-export type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
+export type OnScrollCallback = (scrollOffset: double, scrollState: ScrollState) => void;
 /**
   * Defines the callback type used in onItemDragStart.
   *
   * @typedef { function } OnItemDragStartCallback
   * @param { ItemDragInfo } event - Information about the dragged item.
-  * @param { number } itemIndex - The index number of the dragged item.
+  * @param { int } itemIndex - The index number of the dragged item.
   * @returns {CustomBuilder | undefined}
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @since 22 static
   */
-export type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: number) => CustomBuilder | undefined;
+export type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: int) => CustomBuilder | undefined;
 /**
  * Defines the onMove callback.
  *
  * @typedef { function } OnMoveHandler
- * @param { number } from - Index number for moving elements.
- * @param { number } to - Target index number for moving elements.
+ * @param { int } from - Index number for moving elements.
+ * @param { int } to - Target index number for moving elements.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export type OnMoveHandler = (from: number, to: number) => void;
+export type OnMoveHandler = (from: int, to: int) => void;
 /**
  * Define item drag event handler.
  *
@@ -12084,23 +12580,23 @@ export declare interface ItemDragEventHandler {
     /**
      * This callback is triggered when the item is long pressed.
      *
-     * @type { ?Callback<number> }
+     * @type { ?Callback<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onLongPress?: Callback<number>;
+    onLongPress?: Callback<int>;
     /**
      * This callback is triggered when the item is dragged.
      *
-     * @type { ?Callback<number> }
+     * @type { ?Callback<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onDragStart?: Callback<number>;
+    onDragStart?: Callback<int>;
     /**
      * This callback is triggered when an item is moved through other items.
      *
-     * @type { ?Callback<number> }
+     * @type { ?Callback<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
@@ -12108,39 +12604,42 @@ export declare interface ItemDragEventHandler {
     /**
      * This callback is triggered when the item is dropped.
      *
-     * @type { ?Callback<number> }
+     * @type { ?Callback<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onDrop?: Callback<number>;
+    onDrop?: Callback<int>;
 }
 /**
-* Define DynamicNode.
-*
-* @typedef DynamicNode
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 22 static
-*/
+ * Define DynamicNode.
+ *
+ * @typedef DynamicNode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 22 static
+ */
 export declare interface DynamicNode {
     /**
      * Set the move action.
      *
-     * @param { Optional<OnMoveHandler> } handler
+     * @param { OnMoveHandler | undefined } handler
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 22 static
      */
-    onMove(handler: Optional<OnMoveHandler>): this;
+    onMove(handler: OnMoveHandler | undefined): this;
     /**
      * Set the move action.
      *
-     * @param { Optional<OnMoveHandler> } handler
+     * @param { OnMoveHandler | undefined } handler
      * @param { ItemDragEventHandler } eventHandler
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 22 static
      */
-    onMove(handler: Optional<OnMoveHandler>, eventHandler: ItemDragEventHandler): this;
+    onMove(handler: OnMoveHandler | undefined, eventHandler: ItemDragEventHandler): this;
 }
 /**
  * Define EdgeEffect Options.
@@ -12161,16 +12660,16 @@ export declare interface EdgeEffectOptions {
     /**
      * Set the effective edge of the edge effect.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    effectEdge?: number;
+    effectEdge?: int;
 }
 /**
  * Enumerates the effective edge of the edge effect.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -12200,7 +12699,7 @@ export declare class ChildrenMainSize {
     /**
      * Creates an instance of ChildrenMainSize.
      *
-     * @param { number } childDefaultSize - default main size, in vp. If the main axis is vertical, it indicates height.
+     * @param { double } childDefaultSize - default main size, in vp. If the main axis is vertical, it indicates height.
      * If the main axis is horizontal, it indicates width.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
@@ -12209,11 +12708,11 @@ export declare class ChildrenMainSize {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    constructor(childDefaultSize: number);
+    constructor(childDefaultSize: double);
     /**
      * Set default size.
      *
-     * @param { number } value - default main size, in vp. If the main axis is vertical, it indicates height.
+     * @param { double } value - default main size, in vp. If the main axis is vertical, it indicates height.
      * If the main axis is horizontal, it indicates width.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
@@ -12222,22 +12721,22 @@ export declare class ChildrenMainSize {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    set childDefaultSize(value: number);
+    set childDefaultSize(value: double);
     /**
      * Get default size
      *
-     * @returns { number } - default main size, in vp. If the main axis is vertical, it indicates height.
+     * @returns { double } - default main size, in vp. If the main axis is vertical, it indicates height.
      * If the main axis is horizontal, it indicates width.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    get childDefaultSize(): number;
+    get childDefaultSize(): double;
     /**
      * Changes children main size by removing or replacing existing elements and/or adding new elements in place.
      *
-     * @param { number } start - Zero-based index at which to start changing the children main size.
-     * @param { number } [deleteCount] - Indicating the number of children main size to remove from start.
-     * @param { Array<number> } [childrenSize] - Add the new children main size, beginning from start.
+     * @param { int } start - Zero-based index at which to start changing the children main size.
+     * @param { int } [deleteCount] - Indicating the number of children main size to remove from start.
+     * @param { Array<double> } [childrenSize] - Add the new children main size, beginning from start.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -12248,12 +12747,12 @@ export declare class ChildrenMainSize {
      * splice(1, 1), Delete the second child.
      * splice(1, 2, [100, 100]), Change the main size of the second and third children to 100vp.
      */
-    splice(start: number, deleteCount?: number, childrenSize?: Array<number>): void;
+    splice(start: int, deleteCount?: int, childrenSize?: Array<double>): void;
     /**
      * Updates main size for specified child.
      *
-     * @param { number } index - index of child to be updated.
-     * @param { number } childSize - new section options.
+     * @param { int } index - index of child to be updated.
+     * @param { double } childSize - new section options.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -12261,7 +12760,7 @@ export declare class ChildrenMainSize {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    update(index: number, childSize: number): void;
+    update(index: int, childSize: double): void;
 }
 /**
  * Define BackgroundBrightness Options.
@@ -12275,19 +12774,19 @@ export declare interface BackgroundBrightnessOptions {
      * Brightness change rate. A higher rate means that brightness decreases more quickly.
      * If **rate** is set to **0**, **lightUpDegree** will not take effect, meaning no brightening effect will occur.
      *
-     * @type { number } - The default value is 0.0, value range: (0.0, +∞).
+     * @type { double } - The default value is 0.0, value range: (0.0, +∞).
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    rate: number;
+    rate: double;
     /**
      * Light up degree. A greater degree indicates a greater increase in brightness.
      *
-     * @type { number } - The default value is 0.0, value range: [-1.0, 1.0].
+     * @type { double } - The default value is 0.0, value range: [-1.0, 1.0].
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    lightUpDegree: number;
+    lightUpDegree: double;
 }
 
 /**
@@ -12322,13 +12821,13 @@ export declare interface PointLightStyle {
   /**
    * Defines the PointLight bloom.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 22 static
    */
-  bloom?: number;
+  bloom?: double;
 }
 
 /**
@@ -12370,12 +12869,12 @@ declare interface LightSource {
   /**
    * Defines the PointLight light intensity.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 22 static
    */
-  intensity: number;
+  intensity: double;
   /**
    * Defines the PointLight light color.
    *
@@ -12399,21 +12898,21 @@ export declare interface KeyframeAnimateParam {
     /**
      * Animation delay time, in ms.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    delay?: number;
+    delay?: int;
     /**
      * Animation iterations. When set to -1, the animation playing it repeatedly. The value range is greater than or equal to -1.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    iterations?: number;
+    iterations?: int;
     /**
      * Callback invoked when the whole keyframe animation is complete or the ability is about to enter the background.
      *
@@ -12442,11 +12941,11 @@ export declare interface KeyframeState {
     /**
      * Animation duration of this keyframe, in ms.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    duration: number;
+    duration: int;
     /**
      * Animation curve of this keyframe.
      *
@@ -12520,24 +13019,20 @@ export declare interface VisibleAreaEventOptions {
     /**
      * Each number in ratios indicates the value of visibility ratio. Each number in the Array value range in [0, 1].
      *
-     * @type { Array<number> }
+     * @type { Array<double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    ratios: Array<number>;
+    ratios: Array<double>;
     /**
      * The value of expectedUpdateInterval indicates desired update period(ms).
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
-    expectedUpdateInterval?: number;
+    expectedUpdateInterval?: int;
 }
 /**
  * Defines the callback type used in VisibleAreaChange events.
@@ -12545,13 +13040,11 @@ export declare interface VisibleAreaEventOptions {
  * @typedef { function } VisibleAreaChangeCallback
  * @param { boolean } isExpanding - Indicates the ratio of the visible area to its own area compared to the last change.
  * It is true as the ratio increases and false as the ratio decreases.
- * @param { number } currentRatio - The value of currentRatio indicates the visibility ratio of the current component.
+ * @param { double } currentRatio - The value of currentRatio indicates the visibility ratio of the current component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 22 static
  */
-export type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: number) => void;
+export type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: double) => void;
 /**
  * Defines a UICommonEvent which is used to set different common event to target component.
  *
@@ -12889,6 +13382,7 @@ export declare interface TerminationInfo {
  * @since 22 static
  */
 export type DateTimeOptions = intl.DateTimeOptions;
+
 /**
  * Defines a bindable property
  * @interface Bindable<T>
@@ -12905,7 +13399,7 @@ export declare interface Bindable<T> {
      */
     readonly value: T;
     /**
-     * Defines the callback of the bindable property which will be invork when the property is changed..
+     * Defines the callback of the bindable property which will be invoked when the property is changed.
      * @type { Callback<T> }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -12913,6 +13407,18 @@ export declare interface Bindable<T> {
      */
     readonly onChange: Callback<T>;
 }
+
+/**
+ * Create a bindable property instance.
+ *
+ * @param { T } value - indicates the value of a state property.
+ * @param { Callback<T> } onChange - indicates the invoked callback when the property is changed.
+ * @returns { Bindable<T> } bindable property instance.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare function makeBindable<T>(value: T, onChange: Callback<T>): Bindable<T>;
 
 /**
  * Defines the Two-way binding type of ResourceStr.

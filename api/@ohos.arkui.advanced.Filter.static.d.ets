@@ -50,7 +50,7 @@ export declare enum FilterType {
  * This parameter is used to define the input of each filtering dimension.
  * @typedef FilterParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 staticonly
+ * @since 22 static
  * @noninterop
  */
 export declare interface FilterParams {
@@ -76,7 +76,7 @@ export declare interface FilterParams {
  * The index starts from 0.
  * @typedef FilterResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 staticonly
+ * @since 22 static
  * @noninterop
  */
 export declare interface FilterResult {
@@ -112,7 +112,7 @@ export declare interface FilterResult {
  * @typedef { function } OnFilterChangedCallback
  * @param { Array<FilterResult> } filterResults - The result of filter.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 staticonly
+ * @since 22 static
  * @noninterop
  */
 declare type OnFilterChangedCallback = (filterResults: Array<FilterResult>) => void;
@@ -172,9 +172,8 @@ export declare struct Filter {
     filterType?: FilterType;
     /**
      * The method to build component.
-     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 staticonly
+     * @since 22 staticonly
      */
     @Builder
     build(): void;
