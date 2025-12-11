@@ -21088,6 +21088,7 @@ declare type Matrix4Transit = import('../api/@ohos.matrix4').default.Matrix4Tran
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
+ * @form
  * @since 23 dynamic
  */
 declare type SystemUiMaterial = import('../api/@ohos.arkui.uiMaterial').default.Material;
@@ -28734,6 +28735,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
+   * @form
    * @since 23 dynamic
    */
   systemMaterial(material: SystemUiMaterial | undefined): T;

@@ -25,6 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
+ * @form
  * @since 23 dynamic
  */
 declare namespace uiMaterial {
@@ -35,6 +36,7 @@ declare namespace uiMaterial {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
+   * @form
    * @since 23 dynamic
    */
   declare enum MaterialType {
@@ -44,6 +46,7 @@ declare namespace uiMaterial {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
+     * @form
      * @since 23 dynamic
      */
     NONE = 0,
@@ -53,6 +56,7 @@ declare namespace uiMaterial {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
+     * @form
      * @since 23 dynamic
      */
     SEMI_TRANSPARENT = 1,
@@ -65,6 +69,7 @@ declare namespace uiMaterial {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
+   * @form
    * @since 23 dynamic
    */
   declare interface MaterialOptions {
@@ -76,6 +81,7 @@ declare namespace uiMaterial {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
+     * @form
      * @since 23 dynamic
      */
     type?: MaterialType,
@@ -87,6 +93,7 @@ declare namespace uiMaterial {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
+   * @form
    * @since 23 dynamic
    */
   declare class Material {
@@ -98,6 +105,7 @@ declare namespace uiMaterial {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
+     * @form
      * @since 23 dynamic
      */
     constructor(options?: MaterialOptions);
@@ -110,6 +118,7 @@ declare namespace uiMaterial {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
+ * @form
  * @since 23 dynamic
  */
 export default uiMaterial;
