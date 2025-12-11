@@ -5453,6 +5453,15 @@ export declare interface DragEvent {
      */
     startDataLoading(options: DataSyncOptions): string | undefined;
     /**
+     * Get the id of display which the drag event is occuring on.
+     *
+     * @returns { int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+     getDisplayId(): int;
+    /**
      * Enable the internal drop animation, which is only avaiable for system applications.
      *
      * The animations' configuration need to be provided through the input paramerter, and it is a string in json format.
