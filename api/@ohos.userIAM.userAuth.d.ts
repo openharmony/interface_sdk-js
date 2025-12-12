@@ -1512,13 +1512,13 @@ declare namespace userAuth {
     /**
      * Specify the credentials used for comparison.
      *
-     * @type { ?int[] }
+     * @type { ?Uint8Array[] }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
      * @since 23 dynamic&static
      */
-    credentialIdList?: int[];
+    credentialIdList?: Uint8Array[];
   }
 
   /**
