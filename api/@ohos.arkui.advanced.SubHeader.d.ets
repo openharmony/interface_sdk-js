@@ -743,4 +743,16 @@ export declare struct SubHeader {
    * @since 18 dynamic
    */
   @Prop contentPadding?: LocalizedPadding;
+
+  /**
+   * Set the ability to customize the broadcast of the title.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  titleAccessibilityText?: ResourceStr;
 }
