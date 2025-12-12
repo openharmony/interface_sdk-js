@@ -7961,7 +7961,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
      */
     on(type: 'touchOutside', callback: Callback<void>): void;
 
@@ -7984,7 +7983,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
      */
     off(type: 'touchOutside', callback?: Callback<void>): void;
 
@@ -8461,7 +8459,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'noInteractionDetected', callback?: Callback<void>): void;
 
@@ -8624,7 +8621,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     on(type: 'dialogTargetTouch', callback: Callback<void>): void;
 
@@ -8661,7 +8657,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     off(type: 'dialogTargetTouch', callback?: Callback<void>): void;
 
