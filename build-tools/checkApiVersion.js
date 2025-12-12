@@ -135,8 +135,8 @@ function recursionAstCallback(apiVersion, url) {
 
 /**
  * 遍历处理tsnode节点
- * @param {context} 解下过后的内容
- * @param {node} 解下过后的节点
+ * @param {context} 解析过后的内容
+ * @param {node} 解析过后的节点
  * @returns ts.node
  */
 function apiLevelCheck(context, node, apiVersion, url) {
@@ -161,9 +161,10 @@ function apiLevelCheck(context, node, apiVersion, url) {
   }
   function checkVersion(tag) {
     if (tag.tagName.getText() === 'since') {
-      const versionNumber = tag.comment ? tag.comment : tag.getFullText().replace('@' + tag.tagName.getText(), '');
-      if (versionNumber > Number(apiVersion)) {
-        const errVersionStr = recursionParentNode(tag, url);
+      let versionNumber = tag.comment ? tag.comment : tag.getFullText().replace('@' + tag.tagName.getText(), '');
+      versionNumber = versionNumber.match(/\d+(\.\d+)?/g);
+      if (versionNumber && versionNumber[0] && parseFloat(versionNumber[0]) > Number(apiVersion)) {
+        const errVersionStr = recursionParentNode(tag, url, node);
         errVersionArr.push(errVersionStr);
       }
     }
@@ -173,9 +174,10 @@ function apiLevelCheck(context, node, apiVersion, url) {
 /**
  * 处理告警信息
  * @param {ts.Node} tag TypeScript节点
+ * @param {node} 解析后的节点
  * @returns {string} 不符合版本要求的API信息
  */
-function recursionParentNode(tag, url) {
+function recursionParentNode(tag, url, node) {
   let errVersionStr = '';
   let parent = tag.parent;
   while (parent) {
@@ -191,6 +193,26 @@ function recursionParentNode(tag, url) {
     parent = parent.parent;
   }
   errVersionStr = url + '#' + errVersionStr;
+  // 获取到注释的位置，向下遍历找对应的定义，并将找到的行数追加到打印信息中
+  const strArr = errVersionStr.split('#')
+  const start = tag.getStart();
+  const lineAndChar = node.getLineAndCharacterOfPosition(start);
+  const sinceLine = lineAndChar.line;
+
+  const sourceText = node.getFullText();
+  const lines = sourceText.split('\n');
+
+  for (let i = 1; i <= lines.length; i++) {
+    const targetLineIndex = sinceLine + i;
+    if (targetLineIndex >= lines.length) {
+      break;
+    }
+    const lineText = lines[targetLineIndex].trim();
+    const firstChar = lineText.charAt(0);
+    if (lineText.includes(strArr[strArr.length - 1]) && firstChar !== '*') {
+      return errVersionStr = errVersionStr + '(行号：' + (targetLineIndex + 1) + ')';
+    }
+  }
   return errVersionStr;
 }
 
