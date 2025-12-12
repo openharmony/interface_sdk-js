@@ -19,7 +19,7 @@
  */
 
 /*** if arkts static */
-import { Resource } from '../global/resource';
+import { ResourceStr } from '@ohos.arkui.component';
 /*** endif */
 /*** if arkts dynamic */
 import { Effect } from './SceneResources';
@@ -27,15 +27,6 @@ import { Effect } from './SceneResources';
 import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes';
 import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3, Vec4 } from './SceneTypes';
-
-/**
- * Defines the string which can use resource.
- *
- * @typedef { string | Resource } ResourceStr
- * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 22 static
- */
-declare type ResourceStr = string | Resource;
 
 /**
  * The scene resource parameters type.

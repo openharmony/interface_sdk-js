@@ -19,19 +19,10 @@
  */
 
 /*** if arkts static */
-import { Resource } from '../global/resource';
+import { ResourceStr } from '@ohos.arkui.component';
 /*** endif */
 import { Vec2, Vec3, Vec4, Aabb, Quaternion } from './SceneTypes';
 import { Callback } from '../@ohos.base';
-
-/**
- * Defines the string which can use resource.
- *
- * @typedef { string | Resource } ResourceStr
- * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 22 static
- */
-declare type ResourceStr = string | Resource;
 
 /**
  * The enum of SceneResource type.
@@ -250,6 +241,14 @@ export enum MaterialType {
    * @since 23 dynamic&static
    */
   UNLIT = 3,
+
+  /**
+   * The material is an occlusion material.
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  OCCLUSION = 4,
 
   /**
    * Only render the shadows received on the material surface,
@@ -699,6 +698,17 @@ export interface ShaderMaterial extends Material {
    * @since 22 static
    */
   colorShader?: Shader;
+}
+
+/**
+ * Occlusion material resource.
+ *
+ * @extends Material
+ * @interface OcclusionMaterial
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 23 dynamic&static
+ */
+export interface OcclusionMaterial extends Material {
 }
 
 /**
