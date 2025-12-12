@@ -435,7 +435,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     GET_BUNDLE_INFO_WITH_ENTRY_MODULE = 0x00010000,
   }
