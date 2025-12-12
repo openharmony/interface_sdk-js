@@ -321,6 +321,25 @@ export type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
  */
 export type OnAdsBlockedCallback = (details: AdsBlockedDetails) => void;
 /**
+ * The callback when camera capturing state of current page has been changed.
+ *
+ * @typedef { function } OnCameraCaptureStateChangeCallback
+ * @param { CameraCaptureStateChangeInfo } event - the camera capturing state event.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 static
+ */
+export type OnCameraCaptureStateChangeCallback = (event: CameraCaptureStateChangeInfo) => void;
+
+/**
+ * The callback when microphone capturing state of current page has been changed.
+ *
+ * @typedef { function } OnMicrophoneCaptureStateChangeCallback
+ * @param { MicrophoneCaptureStateChangeInfo } event - the microphone capturing state event.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 static
+ */
+export type OnMicrophoneCaptureStateChangeCallback = (event: MicrophoneCaptureStateChangeInfo) => void;
+/**
  * Defines the ads block details.
  *
  * @interface AdsBlockedDetails
@@ -6495,6 +6514,26 @@ export declare interface WebAttribute extends CommonMethod {
     */
     default enableImageAnalyzer(enable: boolean | undefined): this;
     /**
+     *  Triggered after camera capture state changed.
+     *
+     * @param { OnCameraCaptureStateChangeCallback } callback -  Callback triggered to
+     *    report current page camera capture state changing event.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    default onCameraCaptureStateChange(callback: OnCameraCaptureStateChangeCallback | undefined): this;
+    /**
+     *  Triggered after microphone capture state changed.
+     *
+     * @param { OnMicrophoneCaptureStateChangeCallback } callback -  callback triggered to
+     *    report current page microphone capture state changing event.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 static
+     */
+    default onMicrophoneCaptureStateChange(callback: OnMicrophoneCaptureStateChangeCallback | undefined): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<WebAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -6790,3 +6829,106 @@ export declare enum CredentialType {
      */
     CREDENTIAL_UKEY = 4,
   }
+/**
+ * Defines the camera capture state change info.
+ *
+ * @typedef CameraCaptureStateChangeInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 static
+ */
+export declare interface CameraCaptureStateChangeInfo {
+  /**
+   * The original camera capture state.
+   *
+   * @type { CameraCaptureState }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 static
+   */
+  originalState: CameraCaptureState;
+
+  /**
+   * The new camera capture state.
+   *
+   * @type { CameraCaptureState }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 static
+   */
+  newState: CameraCaptureState;
+}
+/**
+ * Indicates current camera capture state of current web page.
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 static
+ */
+export declare enum CameraCaptureState {
+  /**
+   * None of any cameras are in use.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 static
+   */
+  NONE = 0,
+  /**
+   * This web page is not actively using camera capturing.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 static
+   */
+  PAUSED = 1,
+  /**
+   * This web page is actively using camera capturing.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 static
+   */
+  ACTIVE = 2,
+}
+/**
+ * Defines the microphone capture state change info.
+ *
+ * @typedef MicrophoneCaptureStateChangeInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 static
+ */
+export declare interface MicrophoneCaptureStateChangeInfo {
+  /**
+   * the original microphone capture state.
+   * @type { MicrophoneCaptureState}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 static
+   */
+  originalState: MicrophoneCaptureState;
+
+  /**
+   * the new microphone capture state.
+   *
+   * @type { MicrophoneCaptureState }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 static
+   */
+  newState: MicrophoneCaptureState;
+}
+/**
+ * Indicates current microphone capture state of current web page.
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 static
+ */
+export declare enum MicrophoneCaptureState {
+  /**
+   * None of any microphone are in use.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 static
+   */
+  NONE = 0,
+  /**
+   * This web page is not actively using microphone capturing.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 static
+   */
+  PAUSED = 1,
+  /**
+   * This web page is actively using microphone capturing.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 static
+   */
+  ACTIVE = 2,
+}
