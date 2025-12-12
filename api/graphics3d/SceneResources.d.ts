@@ -19,19 +19,10 @@
  */
 
 /*** if arkts static */
-import { Resource } from '../global/resource';
+import { ResourceStr } from '@ohos.arkui.component';
 /*** endif */
 import { Vec2, Vec3, Vec4, Aabb, Quaternion } from './SceneTypes';
 import { Callback } from '../@ohos.base';
-
-/**
- * Defines the string which can use resource.
- *
- * @typedef { string | Resource } ResourceStr
- * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 22 static
- */
-declare type ResourceStr = string | Resource;
 
 /**
  * The enum of SceneResource type.
