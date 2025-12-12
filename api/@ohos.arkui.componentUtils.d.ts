@@ -842,7 +842,7 @@ declare namespace componentUtils {
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 23 dynamic
      */
     angle: double;
@@ -852,7 +852,7 @@ declare namespace componentUtils {
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 23 dynamic
      */
     centerX: double;
@@ -862,7 +862,7 @@ declare namespace componentUtils {
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 23 dynamic
      */
     centerY: double;
@@ -965,7 +965,7 @@ declare namespace componentUtils {
      * @stagemodelonly
      * @since 23 dynamic
      */
-    ratio?: double 
+    ratio?: double;
    }
 
   /**

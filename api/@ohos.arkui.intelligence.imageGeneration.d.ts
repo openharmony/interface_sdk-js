@@ -173,15 +173,15 @@ declare namespace imageGeneration {
     style?: string;
 
     /**
-     * the size information of AI-generated image in one task, like "2K|4:3".
+     * the size information of AI-generated image in one task.
      *
-     * @type { string }
+     * @type { image.Size }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    size: string;
+    imageSize: image.Size;
 
     /**
      * the number of AI-generated image in one task.
@@ -258,7 +258,7 @@ declare namespace imageGeneration {
      * @stagemodelonly
      * @since 23 dynamic
      */
-    partialFail?: BusinessError
+    partialFail?: BusinessError;
   }
 
   /**
@@ -332,7 +332,7 @@ declare namespace imageGeneration {
     cancelImageGeneration(sessionId: int): void;
 
     /**
-     * User use complaint menu to complain the result of AI-generated image task.
+     * User use complaint menu to complain the result of an AI-generated image task.
      *
      * @param { int } sessionId - The session id of AI image generation task.
      *     <br>Value: range: [0, +∞]
@@ -398,7 +398,7 @@ declare namespace imageGeneration {
      * @stagemodelonly
      * @since 23 dynamic
      */
-    partialFail?: BusinessError
+    partialFail?: BusinessError;
   }
 
   /**
@@ -443,7 +443,7 @@ declare namespace imageGeneration {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  interface TextGenerationModel {
+  export interface TextGenerationModel {
     /**
      * Request AI text generation task to get the generated text.
      *
@@ -470,7 +470,7 @@ declare namespace imageGeneration {
      */
     cancelTextGeneration(sessionId: number): void;
     /**
-     * User use complaint menu to complain the result of AI-generated text task.
+     * User use complaint menu to complain the result of an AI-generated text task.
      *
      * @param { int } sessionId - The session id of AI text generation task.
      *     <br>Value: range: [0, +∞]
@@ -654,15 +654,15 @@ declare namespace imageGeneration {
     /**
      * Decoded data of AI-generated images.
      *
-     * @type { image.PixelMap }
+     * @type { ?image.PixelMap }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    image: image.PixelMap;
+    image?: image.PixelMap;
     /**
-     * The local save path for AI-generated images, only when the user saves them.
+     * The path information of AI-generated images.
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full

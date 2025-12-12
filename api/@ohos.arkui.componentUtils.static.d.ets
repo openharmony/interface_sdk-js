@@ -18,7 +18,7 @@
  */
 
 import type image from './@ohos.multimedia.image';
-import type matrix4 from './@ohos.matrix4';
+import type common2D from './@ohos.graphics.common2D';
 
 /**
  * This module provides functionality for component coordinates and sizes.
