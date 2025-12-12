@@ -3279,6 +3279,15 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic
      */
     UPLOAD_STATUS = 'upload_status',
+    /**
+     * hidden state of album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    HIDDEN = 'hidden'
   }
 
   /**
@@ -4686,6 +4695,16 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic
      */
     readonly uploadStatus: boolean;
+    /**
+     * The hidden state of album
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly hidden?: boolean;
     /**
      * Obtains image and video assets. This API uses an asynchronous callback to return the result.
      *
@@ -7649,6 +7668,16 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic
      */
     albumOrder?: number;
+
+    /**
+     * hidden state of the album.
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    hidden?: boolean;
   }
 
   /**
