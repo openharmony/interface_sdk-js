@@ -6365,6 +6365,30 @@ declare namespace photoAccessHelper {
      */
     startThumbnailCreationTask(predicate: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>): int;
     /**
+     * Provides the capability of thumbnail generation according to specified rules.
+     * Support for returning information indicating that all thumbnails have been generated.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { dataSharePredicates.DataSharePredicates } predicate - Rule options for generating thumbnails.
+     * @param { AsyncCallback<void> } callback - Returns void when the task is completed.
+     * @param { AsyncCallback<int> } response - Returns information indicating that all thumbnails have been genrated.
+     * @returns { int } Create task id for generating thumbnails
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails;
+     *    Possible causes: The predicates invalid.
+     * @throws { BusinessError } 23800301 - Internal system error
+     *     It is recommended to retry and check the logs. Possible causes:
+     *     1. Database corrupted;
+     *     2. The file system is abnormal;
+     *     3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    startThumbnailCreationTask(predicate: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>, response: AsyncCallback<int>): int;
+    /**
      * Provides the capability of stop generating thumbnails.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
