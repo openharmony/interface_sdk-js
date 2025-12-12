@@ -5116,6 +5116,7 @@ declare namespace image {
    * @throws { BusinessError } 7600302 - Memory copy failed.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   function createPixelMapUsingAllocator(colors: ArrayBuffer, param: InitializationOptions,
     allocatorType?: AllocatorType): Promise<PixelMap>;
@@ -5135,6 +5136,7 @@ declare namespace image {
    * @throws { BusinessError } 7600302 - Memory copy failed.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   function createPixelMapUsingAllocatorSync(colors: ArrayBuffer, param: InitializationOptions,
     allocatorType?: AllocatorType): PixelMap;
@@ -5166,6 +5168,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
    * @throws { BusinessError } 7600301 - Memory alloc failed.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   function createPixelMapUsingAllocatorSync(param: InitializationOptions, allocatorType?: AllocatorType): PixelMap;
 
@@ -5328,6 +5331,44 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @since 22 static
    */
   function createPixelMapFromSurfaceSync(surfaceId: string): PixelMap;
+
+  /**
+   * Creates a PixelMap object based on the ID of a Surface with transformation.
+   *
+   * @param { string } surfaceId - ID of the Surface.
+   * @param { boolean } transformEnabled - Whether to inverse transform the PixelMap to cancel out the transformation
+   *     from the Surface.
+   *     If true, the PixelMap will be transformed by the same amount from the Surface but in a reversed direction;
+   *     if false, the PixelMap will not be transformed.
+   * @returns { Promise<PixelMap> } A Promise of PixelMap instance if the operation is successful.
+   *     Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 7600206 - Invalid parameter.
+   * @throws { BusinessError } 7600104 - Failed to get the data from Surface.
+   * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function createPixelMapFromSurfaceWithTransformation(surfaceId: string, transformEnabled: boolean): Promise<PixelMap>;
+
+  /**
+   * Creates a PixelMap object based on the ID of a Surface with transformation.
+   *
+   * @param { string } surfaceId - ID of the Surface.
+   * @param { boolean } transformEnabled - Whether to inverse transform the PixelMap to cancel out the transformation
+   *     from the Surface.
+   *     If true, the PixelMap will be transformed by the same amount from the Surface but in a reversed direction;
+   *     if false, the PixelMap will not be transformed.
+   * @returns { PixelMap } A PixelMap instance if the operation is successful.
+   *     Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 7600206 - Invalid parameter.
+   * @throws { BusinessError } 7600104 - Failed to get the data from Surface.
+   * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function createPixelMapFromSurfaceWithTransformationSync(surfaceId: string, transformEnabled: boolean): PixelMap;
 
   /**
    * Creates an ImageSource instance based on the URI.
