@@ -221,4 +221,14 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 23
    */
   onDeviceAdminDisabled(bundleName: string): void;
+
+  /**
+   * Called back when the log has collected.
+   *
+   * @param { common.Result } result - result indicates the result of collect log.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  onLogCollected(result: common.Result): void;
 }
