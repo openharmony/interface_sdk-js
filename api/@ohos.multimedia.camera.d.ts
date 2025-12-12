@@ -966,6 +966,19 @@ declare namespace camera {
     getSupportedOutputCapability(camera: CameraDevice): CameraOutputCapability;
 
     /**
+     * Get supported full output capability for specific camera, inclluding capabilities of yuv, heif and hdr etc.
+     *
+     * @param { CameraDevice } camera - Camera device.
+     * @param { SceneMode } mode - Scene mode.
+     * @returns { CameraOutputCapability } The camera full output capability.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getSupportedFullOutputCapability(camera: CameraDevice, mode: SceneMode): CameraOutputCapability;
+
+    /**
      * Gets supported scene mode for specific camera.
      *
      * @param { CameraDevice } camera - Camera device.
@@ -14220,6 +14233,46 @@ declare namespace camera {
   }
 
   /**
+   * Define image container type.
+   *
+   * @typedef {image.Image | image.Picture}
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  type ImageType = image.Image | image.Picture;
+
+  /**
+   * PhotoEx object, which supports capturing uncompresssed photo, compared to Photo.
+   *
+   * @typedef PhotoEx
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  interface PhotoEx {
+    /**
+     * Main image.
+     *
+     * @type { ImageType }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    main: ImageType;
+
+    /**
+     * Release PhotoEx object.
+     *
+     * @returns { Promise<void> } Promise used to return tthe result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    release(): Promise<void>;
+  }
+
+  /**
    * DeferredPhotoProxy object
    *
    * @typedef DeferredPhotoProxy
@@ -14692,6 +14745,24 @@ declare namespace camera {
      * @since 22 static
      */
     offPhotoAvailable(callback?: AsyncCallback<Photo>): void;
+
+    /**
+     * Subscribes photo available event callback, which supports delivery of uncompressed photo.
+     *
+     * @param { Callback<PhotoEx> } callback - Callback used to getthe PhotoEx
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 23 dynamic&static
+     */
+    onPhotoAvailable(callback: Callback<PhotoEx>): void;
+
+    /**
+     * Unsubscribes photo available event callback, which supports delivery of uncompressed photo.
+     *
+     * @param { Callback<PhotoEx> } [callback] - Callback used to get the PhotoEx.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 23 dynamic&static
+     */
+    offPhotoAvailable(callback?: Callback<PhotoEx>): void;
 
     /**
      * Subscribes deferred photo proxy available event callback.
