@@ -770,6 +770,18 @@ export declare class TextMenuItemId {
      * @since 23 static
      */
     static readonly autoFill: TextMenuItemId;
+
+    /**
+     * Indicates the TextMenuItemId for password vault.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    static readonly passwordVault: TextMenuItemId;
 }
 /**
  * TextMenuItem
