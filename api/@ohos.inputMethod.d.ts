@@ -402,7 +402,7 @@ declare namespace inputMethod {
    * @param { Callback<AttachFailureReason> } callback - the callback is invoked only when the attachment
    *     triggered by the registrant's process fails.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   function onAttachmentDidFail(callback: Callback<AttachFailureReason>): void;
 
@@ -413,7 +413,7 @@ declare namespace inputMethod {
    *     triggered by the registrant's process fails. When subscriber unsubscribes all callback, this parameter
    *     can be left blank.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   function offAttachmentDidFail(callback?: Callback<AttachFailureReason>): void;
 
@@ -2998,14 +2998,14 @@ declare namespace inputMethod {
    *
    * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   export enum AttachFailureReason {
     /**
      * The attachment failure reason is CALLER_NOT_FOCUSED.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 23 dynamic
+     * @since 22 dynamic
      */
     CALLER_NOT_FOCUSED = 0,
 
@@ -3013,7 +3013,7 @@ declare namespace inputMethod {
      * The attachment failure reason is IME_ABNORMAL.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 23 dynamic
+     * @since 22 dynamic
      */
     IME_ABNORMAL,
 
@@ -3021,7 +3021,7 @@ declare namespace inputMethod {
      * The attachment failure reason is SERVICE_ABNORMAL.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 23 dynamic
+     * @since 22 dynamic
      */
     SERVICE_ABNORMAL
   }
