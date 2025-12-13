@@ -753,7 +753,47 @@ declare namespace photoAccessHelper {
      * @since 18 dynamic
      * @since 22 static
      */
-    COLOR_STYLE_PHOTO = 12
+    COLOR_STYLE_PHOTO = 12,
+
+    /**
+     * CAT indicates that cat photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    CAT = 13,
+
+    /**
+     * DOG indicates that dog photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    DOG = 14,
+
+    /**
+     * ARCHITECTURE indicates that architecture photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    ARCHITECTURE = 15,
+
+    /**
+     * LANDSCAPE indicates that landscape photos can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    LANDSCAPE = 16
   }
 
   /**
@@ -8745,6 +8785,17 @@ declare namespace photoAccessHelper {
      * @since 22 static
      */
     textContextInfo?: TextContextInfo;
+
+    /**
+     * List of recommended image types.
+     *
+     * @type { ?Array<RecommendationType> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    recommendationTypeList?: Array<RecommendationType>;
   }
 
   /**
