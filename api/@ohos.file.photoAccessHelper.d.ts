@@ -3174,6 +3174,13 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic&static
      */
     EDIT_DATA_EXIST = 'edit_data_exist',
+    /**
+     * change time of photo
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 23 dynamic&static
+     */
+    CHANGE_TIME = 'change_time',
   }
 
   /**
@@ -3287,7 +3294,14 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 23 dynamic&static
      */
-    HIDDEN = 'hidden'
+    HIDDEN = 'hidden',
+    /**
+     * change time of album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 23 dynamic&static
+     */
+    CHANGE_TIME = 'change_time',
   }
 
   /**
@@ -4705,6 +4719,14 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     readonly hidden?: boolean;
+    /**
+     * The change time of album
+     * @type { ?long }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 23 dynamic&static
+     */
+    readonly changeTime?: long;
     /**
      * Obtains image and video assets. This API uses an asynchronous callback to return the result.
      *
