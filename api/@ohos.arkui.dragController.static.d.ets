@@ -109,12 +109,13 @@ declare namespace dragController {
         /**
          * trigger drag action
          *
-         * @returns { Promise<void> } A Promise can indicate the start result.
+         * @returns { Promise<void> | null } A Promise can indicate the start result is returned, or null is returned
+         *     if it's failed for some errors, for example: execution environment broken or excess parameters passed in.
          * @throws { BusinessError } 100001 - Internal handling failed.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        startDrag(): Promise<void>;
+        startDrag(): Promise<void> | null;
         
         
         /**
@@ -152,11 +153,11 @@ declare namespace dragController {
         
         /**
          * A unique identifier to identify which touch point.
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        pointerId: number;
+        pointerId: int;
         
         
         /**
@@ -208,11 +209,11 @@ declare namespace dragController {
         
         /**
          * Animation duration, in ms.
-         * @type { ?number }
+         * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        duration?: number;
+        duration?: int;
         
         
         /**

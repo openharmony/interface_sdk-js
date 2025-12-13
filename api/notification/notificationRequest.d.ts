@@ -33,7 +33,193 @@ import type { BundleOption } from './NotificationCommonDef';
 /*** if arkts static */
 import { WantAgent } from '../@ohos.app.ability.wantAgent';
 import { BundleOption } from './NotificationCommonDef';
+import { RecordData } from '../@ohos.base';
 /*** endif */
+
+/**
+ * The monitor event of a geofence.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export enum MonitorEvent {
+  /**
+   * The entry geofence.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  MONITOR_TYPE_ENTRY = 1,
+
+  /**
+   * The leave geofence.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  MONITOR_TYPE_LEAVE = 2
+}
+
+/**
+ * The coordinate type of a geofence.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export enum CoordinateSystemType {
+  /**
+   * The WGS84 type.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  COORDINATE_TYPE_WGS84 = 1,
+
+  /**
+   * The GCJ02 type.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  COORDINATE_TYPE_GCJ02 = 2
+}
+
+/**
+ * The type of a trigger condition.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export enum TriggerType {
+  /**
+   * The Geofence trigger type.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  TRIGGER_TYPE_GEOFENCE = 1
+}
+
+/**
+ * Defines a geofence.
+ *
+ * @typedef Geofence
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export interface Geofence {
+  /**
+   * The longitude of the geofence.
+   *
+   * @type { double }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  longitude:double;
+
+  /**
+   * The latitude of the geofence.
+   *
+   * @type { double }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  latitude:double;
+
+  /**
+   * The radius of the geofence.
+   *
+   * @type { double }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  radius:double;
+
+  /**
+   * the delay time of the geofence.
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  delayTime?:int;
+
+  /**
+   * the coordinate of the geofence.
+   *
+   * @type { CoordinateSystemType }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  coordinateSystemType:CoordinateSystemType;
+
+  /**
+   * the monitor event type of the geofence.
+   *
+   * @type { MonitorEvent }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  monitorEvent:MonitorEvent;
+}
+
+/**
+ * Defines a TriggerCondition instance.
+ *
+ * @typedef Trigger
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export interface Trigger {
+  /**
+   * trigger type.
+   *
+   * @type { TriggerType }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  type:TriggerType;
+
+  /**
+   * Trigger description.
+   *
+   * @type { Geofence }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  condition:Geofence;
+  
+  /**
+   * The auto delete time to live view.
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  displayTime?:int;
+}
 
 /**
  * Defines a NotificationRequest instance.
@@ -69,6 +255,16 @@ export interface NotificationRequest {
    * @since 22 static
    */
   content: NotificationContent;
+
+  /**
+   * notification trigger
+   *
+   * @type { ?Trigger }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  trigger?:Trigger;
 
   /**
    * Notification ID. The default value is 0. If the same notification ID exists, the notification content is updated.
@@ -258,11 +454,11 @@ export interface NotificationRequest {
   /**
    * Expand parameters to provide customized services for applications.
    *
-   * @type { ?Record<string, Object> }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
    * @since 22 static
    */
-  extraInfo?: Record<string, Object>;
+  extraInfo?: Record<string, RecordData>;
 
   /**
    * Extended parameter. Recommendation system application usage.
@@ -271,9 +467,17 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
    */
   extendInfo?: Record<string, Object>;
+  /**
+   * Extended parameter. Recommendation system application usage.
+   *
+   * @type { ?Record<string, RecordData> }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 static
+   */
+  extendInfo?: Record<string, RecordData>;
 
   /**
    * Background color of the notification.
@@ -427,7 +631,13 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   */
+  /**
+   * Overlay notification icon.
+   *
+   * @type { ?image.PixelMap }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 23 dynamic&static
    */
   overlayIcon?: image.PixelMap;
 
@@ -613,7 +823,15 @@ export interface NotificationRequest {
    * @since 8 dynamic
    * @since 22 static
    */
-  readonly notificationFlags?: NotificationFlags;
+  /**
+   * Notification flags.
+   *
+   * @type { ?NotificationFlags }
+   * @syscap SystemCapability.Notification.Notification
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  notificationFlags?: NotificationFlags;
 
   /**
    * WantAgent instance to which the notification will be redirected when it is removed.

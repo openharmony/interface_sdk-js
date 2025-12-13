@@ -31,21 +31,21 @@ import { LengthMetrics } from 'arkui.Graphics';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export enum LevelMode {
     /**
      * Display above all page levels.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     OVERLAY = 0,
     /**
      * Display within the current page.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     EMBEDDED = 1
 }
@@ -54,21 +54,21 @@ export enum LevelMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export enum ImmersiveMode {
     /**
      * Mask covering the parent node.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     DEFAULT = 0,
     /**
      * Mask extend safe area includes status bar and navigation bar.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     EXTEND = 1
 }
@@ -76,7 +76,7 @@ export enum ImmersiveMode {
  * Defines level order.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare class LevelOrder {
     /**
@@ -86,7 +86,7 @@ export declare class LevelOrder {
      * @returns { LevelOrder } the order object.
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     static clamp(order: double): LevelOrder;
     /**
@@ -94,7 +94,7 @@ export declare class LevelOrder {
      *
      * @returns { double } the order number.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     getOrder(): double;
 }
@@ -105,7 +105,7 @@ export declare class LevelOrder {
  *
  * @namespace promptAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 declare namespace promptAction {
     
@@ -115,7 +115,7 @@ declare namespace promptAction {
      *
      * @typedef ShowToastOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export interface ShowToastOptions {
         
@@ -125,7 +125,7 @@ declare namespace promptAction {
          *
          * @type { string | Resource }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         message: string | Resource;
         
@@ -137,7 +137,7 @@ declare namespace promptAction {
          *
          * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         duration?: int;
         
@@ -147,7 +147,7 @@ declare namespace promptAction {
          *
          * @type { ?(string | double) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         bottom?: string | double;
         
@@ -157,7 +157,7 @@ declare namespace promptAction {
          * @type { ?ToastShowMode }
          * @default ToastShowMode.DEFAULT
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         showMode?: ToastShowMode;
         /**
@@ -165,7 +165,7 @@ declare namespace promptAction {
          *
          * @type { ?Alignment }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         alignment?: Alignment;
         /**
@@ -173,7 +173,7 @@ declare namespace promptAction {
          *
          * @type { ?Offset }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         offset?: Offset;
         /**
@@ -181,7 +181,7 @@ declare namespace promptAction {
          *
          * @type { ?ResourceColor }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         backgroundColor?: ResourceColor;
         /**
@@ -189,7 +189,7 @@ declare namespace promptAction {
          *
          * @type { ?ResourceColor }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         textColor?: ResourceColor;
         /**
@@ -197,7 +197,7 @@ declare namespace promptAction {
          *
          * @type { ?BlurStyle }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         backgroundBlurStyle?: BlurStyle;
         /**
@@ -205,7 +205,7 @@ declare namespace promptAction {
          *
          * @type { ?(ShadowOptions | ShadowStyle) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         shadow?: ShadowOptions | ShadowStyle;
         /**
@@ -214,7 +214,7 @@ declare namespace promptAction {
          * @type { ?boolean }
          * @default false
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         enableHoverMode?: boolean;
         /**
@@ -223,7 +223,7 @@ declare namespace promptAction {
          * @type { ?HoverModeAreaType }
          * @default HoverModeAreaType.BOTTOM_SCREEN
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         hoverModeArea?: HoverModeAreaType;
     }
@@ -233,7 +233,7 @@ declare namespace promptAction {
      *
      * @enum { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export enum ToastShowMode {
         
@@ -241,7 +241,7 @@ declare namespace promptAction {
          * Toast shows in app.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         DEFAULT = 0,
         
@@ -249,7 +249,7 @@ declare namespace promptAction {
          * Toast shows at the top.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         TOP_MOST = 1,
         /**
@@ -257,7 +257,7 @@ declare namespace promptAction {
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @systemapi
-         * @since 20 static
+         * @since 22 static
          */
         SYSTEM_TOP_MOST = 2
     }
@@ -268,7 +268,7 @@ declare namespace promptAction {
      *
      * @typedef Button
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export interface Button {
         
@@ -278,7 +278,7 @@ declare namespace promptAction {
          *
          * @type { string | Resource }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         text: string | Resource;
         
@@ -288,7 +288,7 @@ declare namespace promptAction {
          *
          * @type { string | Resource }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         color: string | Resource;
         /**
@@ -296,7 +296,7 @@ declare namespace promptAction {
          *
          * @type { ?boolean }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         primary?: boolean;
     }
@@ -305,7 +305,7 @@ declare namespace promptAction {
      *
      * @typedef { [Button] } PromptActionSingleButton
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 staticonly
+     * @since 22 staticonly
      */
     export type PromptActionSingleButton = [
         Button
@@ -315,7 +315,7 @@ declare namespace promptAction {
      *
      * @typedef { [Button, Button | undefined] } PromptActionDoubleButtons
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 staticonly
+     * @since 22 staticonly
      */
     export type PromptActionDoubleButtons = [
         Button,
@@ -326,7 +326,7 @@ declare namespace promptAction {
      *
      * @typedef { [Button, Button | undefined, Button | undefined] } PromptActionTripleButtons
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 staticonly
+     * @since 22 staticonly
      */
     export type PromptActionTripleButtons = [
         Button,
@@ -338,7 +338,7 @@ declare namespace promptAction {
      *
      * @typedef { [Button, Button | undefined, Button | undefined, Button | undefined] } PromptActionQuadrupleButtons
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 staticonly
+     * @since 22 staticonly
      */
     export type PromptActionQuadrupleButtons = [
         Button,
@@ -352,7 +352,7 @@ declare namespace promptAction {
      * @typedef { [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined] }
      *     PromptActionQuintupleButtons
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 staticonly
+     * @since 22 staticonly
      */
     export type PromptActionQuintupleButtons = [
         Button,
@@ -367,7 +367,7 @@ declare namespace promptAction {
      * @typedef { [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined, Button |
      *     undefined] } PromptActionSextupleButtons
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 staticonly
+     * @since 22 staticonly
      */
     export type PromptActionSextupleButtons = [
         Button,
@@ -384,7 +384,7 @@ declare namespace promptAction {
      *
      * @typedef ShowDialogSuccessResponse
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export interface ShowDialogSuccessResponse {
         
@@ -394,7 +394,7 @@ declare namespace promptAction {
          *
          * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         index: int;
     }
@@ -405,7 +405,7 @@ declare namespace promptAction {
      *
      * @typedef ShowDialogOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export interface ShowDialogOptions {
         
@@ -415,7 +415,7 @@ declare namespace promptAction {
          *
          * @type { ?(string | Resource) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         title?: string | Resource;
         
@@ -425,7 +425,7 @@ declare namespace promptAction {
          *
          * @type { ?(string | Resource) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         message?: string | Resource;
         
@@ -437,7 +437,7 @@ declare namespace promptAction {
          *
          * @type { ?Array<Button> }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         buttons?: Array<Button>;
         
@@ -446,7 +446,7 @@ declare namespace promptAction {
          *
          * @type { ?Rectangle }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         maskRect?: Rectangle;
         
@@ -455,7 +455,7 @@ declare namespace promptAction {
          *
          * @type { ?DialogAlignment }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         alignment?: DialogAlignment;
         
@@ -464,7 +464,7 @@ declare namespace promptAction {
          *
          * @type { ?Offset }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         offset?: Offset;
         
@@ -474,7 +474,7 @@ declare namespace promptAction {
          * @type { ?boolean }
          * @default false
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         showInSubWindow?: boolean;
         
@@ -483,7 +483,7 @@ declare namespace promptAction {
          * @type { ?boolean }
          * @default true
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         isModal?: boolean;
         /**
@@ -492,7 +492,7 @@ declare namespace promptAction {
          * @type { ?ResourceColor }
          * @default Color.Transparent
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         backgroundColor?: ResourceColor;
         /**
@@ -501,7 +501,7 @@ declare namespace promptAction {
          * @type { ?BlurStyle }
          * @default BlurStyle.COMPONENT_ULTRA_THICK
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         backgroundBlurStyle?: BlurStyle;
         /**
@@ -509,7 +509,7 @@ declare namespace promptAction {
          *
          * @type { ?BackgroundBlurStyleOptions }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
         /**
@@ -517,7 +517,7 @@ declare namespace promptAction {
          *
          * @type { ?BackgroundEffectOptions }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         backgroundEffect?: BackgroundEffectOptions;
         /**
@@ -525,7 +525,7 @@ declare namespace promptAction {
          *
          * @type { ?(ShadowOptions | ShadowStyle) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         shadow?: ShadowOptions | ShadowStyle;
         /**
@@ -534,7 +534,7 @@ declare namespace promptAction {
          * @type { ?boolean }
          * @default false
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         enableHoverMode?: boolean;
         /**
@@ -543,7 +543,7 @@ declare namespace promptAction {
          * @type { ?HoverModeAreaType }
          * @default HoverModeAreaType.BOTTOM_SCREEN
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         hoverModeArea?: HoverModeAreaType;
         /**
@@ -551,7 +551,7 @@ declare namespace promptAction {
          *
          * @type { ?VoidCallback }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         onDidAppear?: VoidCallback;
         /**
@@ -559,7 +559,7 @@ declare namespace promptAction {
          *
          * @type { ?VoidCallback }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         onDidDisappear?: VoidCallback;
         /**
@@ -567,7 +567,7 @@ declare namespace promptAction {
          *
          * @type { ?VoidCallback }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         onWillAppear?: VoidCallback;
         /**
@@ -575,7 +575,7 @@ declare namespace promptAction {
          *
          * @type { ?VoidCallback }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         onWillDisappear?: VoidCallback;
         /**
@@ -584,7 +584,7 @@ declare namespace promptAction {
          * @type { ?LevelMode }
          * @default LevelMode.OVERLAY
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         levelMode?: LevelMode;
         /**
@@ -592,7 +592,7 @@ declare namespace promptAction {
          *
          * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         levelUniqueId?: int;
         /**
@@ -601,7 +601,7 @@ declare namespace promptAction {
          * @type { ?ImmersiveMode }
          * @default ImmersiveMode.DEFAULT
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         immersiveMode?: ImmersiveMode;
         /**
@@ -610,38 +610,97 @@ declare namespace promptAction {
          * @type { ?LevelOrder }
          * @default The value returns by LevelOrder.clamp(0)
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         levelOrder?: LevelOrder;
+    }
+    /**
+     * Enum for state.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    enum CommonState {
+        /**
+         * Indicates it is uninitialized.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        UNINITIALIZED = 0,
+        /**
+         * Indicates it is initialized.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        INITIALIZED = 1,
+        /**
+         * Indicates it is appearing.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        APPEARING = 2,
+        /**
+         * Indicates it is appeared.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        APPEARED = 3,
+        /**
+         * Indicates it is disappearing.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        DISAPPEARING = 4,
+        /**
+         * Indicates it is disappeared.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        DISAPPEARED = 5
     }
     /**
      * The class used to control common dialog.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export class CommonController {
         /**
          * The constructor.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         constructor();
         /**
          * Close the corresponding common dialog.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         close(): void;
+        /**
+         * Get the state.
+         *
+         * @returns { CommonState } return the state.
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        getState(): CommonState;
     }
     /**
      * The class used to control dialog.
      *
      * @extends CommonController
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export class DialogController extends CommonController {
     }
@@ -651,7 +710,7 @@ declare namespace promptAction {
      *
      * @typedef BaseDialogOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export interface BaseDialogOptions {
         
@@ -660,7 +719,7 @@ declare namespace promptAction {
          *
          * @type { ?Rectangle }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         maskRect?: Rectangle;
         
@@ -669,7 +728,7 @@ declare namespace promptAction {
          *
          * @type { ?DialogAlignment }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         alignment?: DialogAlignment;
         
@@ -678,7 +737,7 @@ declare namespace promptAction {
          *
          * @type { ?Offset }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         offset?: Offset;
         
@@ -688,7 +747,7 @@ declare namespace promptAction {
          * @type { ?boolean }
          * @default false
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         showInSubWindow?: boolean;
         
@@ -697,7 +756,7 @@ declare namespace promptAction {
          * @type { ?boolean }
          * @default true
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         isModal?: boolean;
         /**
@@ -706,7 +765,7 @@ declare namespace promptAction {
          * @type { ?boolean }
          * @default true
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         autoCancel?: boolean;
         /**
@@ -714,7 +773,7 @@ declare namespace promptAction {
          *
          * @type { ?TransitionEffect }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         transition?: TransitionEffect;
         /**
@@ -722,7 +781,7 @@ declare namespace promptAction {
          *
          * @type { ?TransitionEffect }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         dialogTransition?: TransitionEffect;
         /**
@@ -730,7 +789,7 @@ declare namespace promptAction {
          *
          * @type { ?TransitionEffect }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         maskTransition?: TransitionEffect;
         /**
@@ -738,7 +797,7 @@ declare namespace promptAction {
          *
          * @type { ?ResourceColor }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         maskColor?: ResourceColor;
         /**
@@ -746,7 +805,7 @@ declare namespace promptAction {
         *
         * @type { ?Callback<DismissDialogAction> }
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20 static
+        * @since 22 static
         */
         onWillDismiss?: Callback<DismissDialogAction>;
         /**
@@ -754,7 +813,7 @@ declare namespace promptAction {
          *
          * @type { ?VoidCallback }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         onDidAppear?: VoidCallback;
         /**
@@ -762,7 +821,7 @@ declare namespace promptAction {
          *
          * @type { ?VoidCallback }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         onDidDisappear?: VoidCallback;
         /**
@@ -770,7 +829,7 @@ declare namespace promptAction {
          *
          * @type { ?VoidCallback }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         onWillAppear?: VoidCallback;
         /**
@@ -778,7 +837,7 @@ declare namespace promptAction {
          *
          * @type { ?VoidCallback }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         onWillDisappear?: VoidCallback;
         /**
@@ -787,7 +846,7 @@ declare namespace promptAction {
          * @type { ?KeyboardAvoidMode }
          * @default KeyboardAvoidMode.DEFAULT
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         keyboardAvoidMode?: KeyboardAvoidMode;
         /**
@@ -796,7 +855,7 @@ declare namespace promptAction {
          * @type { ?boolean }
          * @default false
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         enableHoverMode?: boolean;
         /**
@@ -805,7 +864,7 @@ declare namespace promptAction {
          * @type { ?HoverModeAreaType }
          * @default HoverModeAreaType.BOTTOM_SCREEN
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         hoverModeArea?: HoverModeAreaType;
         /**
@@ -813,7 +872,7 @@ declare namespace promptAction {
          *
          * @type { ?BackgroundBlurStyleOptions }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
         /**
@@ -821,7 +880,7 @@ declare namespace promptAction {
          *
          * @type { ?BackgroundEffectOptions }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         backgroundEffect?: BackgroundEffectOptions;
         /**
@@ -829,7 +888,7 @@ declare namespace promptAction {
          *
          * @type { ?LengthMetrics }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         keyboardAvoidDistance?: LengthMetrics;
         /**
@@ -838,7 +897,7 @@ declare namespace promptAction {
          * @type { ?LevelMode }
          * @default LevelMode.OVERLAY
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         levelMode?: LevelMode;
         /**
@@ -846,7 +905,7 @@ declare namespace promptAction {
          *
          * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         levelUniqueId?: int;
         /**
@@ -855,7 +914,7 @@ declare namespace promptAction {
          * @type { ?ImmersiveMode }
          * @default ImmersiveMode.DEFAULT
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         immersiveMode?: ImmersiveMode;
         /**
@@ -864,7 +923,7 @@ declare namespace promptAction {
          * @type { ?LevelOrder }
          * @default The value returns by LevelOrder.clamp(0)
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         levelOrder?: LevelOrder;
         /**
@@ -873,7 +932,7 @@ declare namespace promptAction {
          * @type { ?boolean }
          * @default true
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         focusable?: boolean;
     }
@@ -884,7 +943,7 @@ declare namespace promptAction {
      * @extends BaseDialogOptions
      * @interface CustomDialogOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export interface CustomDialogOptions extends BaseDialogOptions {
         
@@ -893,7 +952,7 @@ declare namespace promptAction {
          *
          * @type { CustomBuilder }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         builder: CustomBuilder;
         /**
@@ -901,7 +960,7 @@ declare namespace promptAction {
          *
          * @type { ?ResourceColor }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         backgroundColor?: ResourceColor;
         /**
@@ -909,7 +968,7 @@ declare namespace promptAction {
          *
          * @type { ?(Dimension | BorderRadiuses) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         cornerRadius?: Dimension | BorderRadiuses;
         /**
@@ -917,7 +976,7 @@ declare namespace promptAction {
          *
          * @type { ?Dimension }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         width?: Dimension;
         /**
@@ -925,7 +984,7 @@ declare namespace promptAction {
          *
          * @type { ?Dimension }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         height?: Dimension;
         /**
@@ -933,7 +992,7 @@ declare namespace promptAction {
          *
          * @type { ?(Dimension | EdgeWidths) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         borderWidth?: Dimension | EdgeWidths;
         /**
@@ -941,7 +1000,7 @@ declare namespace promptAction {
          *
          * @type { ?(ResourceColor | EdgeColors) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         borderColor?: ResourceColor | EdgeColors;
         /**
@@ -949,7 +1008,7 @@ declare namespace promptAction {
          *
          * @type { ?(BorderStyle | EdgeStyles) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         borderStyle?: BorderStyle | EdgeStyles;
         /**
@@ -957,7 +1016,7 @@ declare namespace promptAction {
          *
          * @type { ?(ShadowOptions | ShadowStyle) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         shadow?: ShadowOptions | ShadowStyle;
         /**
@@ -966,7 +1025,7 @@ declare namespace promptAction {
          * @type { ?BlurStyle }
          * @default BlurStyle.COMPONENT_ULTRA_THICK
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         backgroundBlurStyle?: BlurStyle;
     }
@@ -975,7 +1034,7 @@ declare namespace promptAction {
      *
      * @typedef { Dimension | BorderRadiuses } DialogOptionsCornerRadius
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export type DialogOptionsCornerRadius = Dimension | BorderRadiuses;
     /**
@@ -983,7 +1042,7 @@ declare namespace promptAction {
      *
      * @typedef { Dimension | EdgeWidths } DialogOptionsBorderWidth
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export type DialogOptionsBorderWidth = Dimension | EdgeWidths;
     /**
@@ -991,7 +1050,7 @@ declare namespace promptAction {
      *
      * @typedef { ResourceColor | EdgeColors } DialogOptionsBorderColor
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export type DialogOptionsBorderColor = ResourceColor | EdgeColors;
     /**
@@ -999,7 +1058,7 @@ declare namespace promptAction {
      *
      * @typedef { BorderStyle | EdgeStyles } DialogOptionsBorderStyle
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export type DialogOptionsBorderStyle = BorderStyle | EdgeStyles;
     /**
@@ -1007,7 +1066,7 @@ declare namespace promptAction {
      *
      * @typedef { ShadowOptions | ShadowStyle } DialogOptionsShadow
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export type DialogOptionsShadow = ShadowOptions | ShadowStyle;
     /**
@@ -1016,7 +1075,7 @@ declare namespace promptAction {
      * @extends BaseDialogOptions
      * @typedef DialogOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export interface DialogOptions extends BaseDialogOptions {
         /**
@@ -1024,7 +1083,7 @@ declare namespace promptAction {
          *
          * @type { ?ResourceColor }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         backgroundColor?: ResourceColor;
         /**
@@ -1032,7 +1091,7 @@ declare namespace promptAction {
          *
          * @type { ?DialogOptionsCornerRadius }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         cornerRadius?: DialogOptionsCornerRadius;
         /**
@@ -1040,7 +1099,7 @@ declare namespace promptAction {
          *
          * @type { ?Dimension }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         width?: Dimension;
         /**
@@ -1048,7 +1107,7 @@ declare namespace promptAction {
          *
          * @type { ?Dimension }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         height?: Dimension;
         /**
@@ -1056,7 +1115,7 @@ declare namespace promptAction {
          *
          * @type { ?DialogOptionsBorderWidth }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         borderWidth?: DialogOptionsBorderWidth;
         /**
@@ -1064,7 +1123,7 @@ declare namespace promptAction {
          *
          * @type { ?DialogOptionsBorderColor }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         borderColor?: DialogOptionsBorderColor;
         /**
@@ -1072,7 +1131,7 @@ declare namespace promptAction {
          *
          * @type { ?DialogOptionsBorderStyle }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         borderStyle?: DialogOptionsBorderStyle;
         /**
@@ -1080,7 +1139,7 @@ declare namespace promptAction {
          *
          * @type { ?DialogOptionsShadow }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         shadow?: DialogOptionsShadow;
         /**
@@ -1089,7 +1148,7 @@ declare namespace promptAction {
          * @type { ?BlurStyle }
          * @default BlurStyle.COMPONENT_ULTRA_THICK
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         backgroundBlurStyle?: BlurStyle;
     }
@@ -1100,7 +1159,7 @@ declare namespace promptAction {
      *
      * @typedef ActionMenuSuccessResponse
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export interface ActionMenuSuccessResponse {
         
@@ -1110,7 +1169,7 @@ declare namespace promptAction {
          *
          * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         index: int;
     }
@@ -1121,7 +1180,7 @@ declare namespace promptAction {
      *
      * @typedef ActionMenuOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export interface ActionMenuOptions {
         
@@ -1131,7 +1190,7 @@ declare namespace promptAction {
          *
          * @type { ?(string | Resource) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         title?: string | Resource;
         /**
@@ -1142,7 +1201,7 @@ declare namespace promptAction {
          * @type { PromptActionSingleButton | PromptActionDoubleButtons | PromptActionTripleButtons |
          *     PromptActionQuadrupleButtons | PromptActionQuintupleButtons | PromptActionSextupleButtons }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         buttons: PromptActionSingleButton | PromptActionDoubleButtons | PromptActionTripleButtons |
             PromptActionQuadrupleButtons | PromptActionQuintupleButtons | PromptActionSextupleButtons;
@@ -1153,7 +1212,7 @@ declare namespace promptAction {
          * @type { ?boolean }
          * @default false
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         showInSubWindow?: boolean;
         
@@ -1162,7 +1221,7 @@ declare namespace promptAction {
          * @type { ?boolean }
          * @default true
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         isModal?: boolean;
         /**
@@ -1171,7 +1230,7 @@ declare namespace promptAction {
          * @type { ?LevelMode }
          * @default LevelMode.OVERLAY
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         levelMode?: LevelMode;
         /**
@@ -1179,7 +1238,7 @@ declare namespace promptAction {
          *
          * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         levelUniqueId?: int;
         /**
@@ -1188,9 +1247,41 @@ declare namespace promptAction {
          * @type { ?ImmersiveMode }
          * @default ImmersiveMode.DEFAULT
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20 static
+         * @since 22 static
          */
         immersiveMode?: ImmersiveMode;
+         /**
+         * Callback function when the menu appears.
+         *
+         * @type { ?VoidCallback }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        onDidAppear?: VoidCallback;
+        /**
+         * Callback function when the menu disappears.
+         *
+         * @type { ?VoidCallback }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        onDidDisappear?: VoidCallback;
+        /**
+         * Callback function before the menu openAnimation starts.
+         *
+         * @type { ?VoidCallback }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        onWillAppear?: VoidCallback;
+        /**
+         * Callback function before the menu closeAnimation starts.
+         *
+         * @type { ?VoidCallback }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        onWillDisappear?: VoidCallback;
     }
     /**
      * Displays the notification text.
@@ -1203,7 +1294,7 @@ declare namespace promptAction {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export function openToast(options: ShowToastOptions): Promise<int>;
     /**
@@ -1217,7 +1308,7 @@ declare namespace promptAction {
      * @throws { BusinessError } 100001 - Internal error.
      * @throws { BusinessError } 103401 - Cannot find the toast.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     export function closeToast(toastId: int): void;
 }

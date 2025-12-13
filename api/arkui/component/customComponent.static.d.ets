@@ -280,8 +280,6 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
      *
      * @param { ReuseObject } params - Custom component init params.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
     aboutToReuse(params: ReuseObject): void;

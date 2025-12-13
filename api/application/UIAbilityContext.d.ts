@@ -174,7 +174,6 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   /**
    * Indicates windowStage information.
@@ -1295,7 +1294,9 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed.
+   * 2.Sending restart message to system service failed. 3.System service failed to communicate with dependency module.
+   * 4.Non-system applications are only allowed to call this interface across devices, not on the current device.
    * @throws { BusinessError } 16000071 - App clone is not supported.
    * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
    * @throws { BusinessError } 16000073 - The app clone index is invalid.
@@ -4752,7 +4753,8 @@ declare class UIAbilityContext extends Context {
 
   /**
    * Show current ability. The ability needs to be started by UIAbilityContext.startAbility
-   * with input parameter options.processMode setting to NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM.
+   * with input parameter options.processMode setting to NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM
+   * or ATTACH_TO_STATUS_BAR_ITEM.
    *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not support.
@@ -4767,7 +4769,8 @@ declare class UIAbilityContext extends Context {
 
   /**
    * Hide current ability. The ability needs to be started by UIAbilityContext.startAbility
-   * with input parameter options.processMode setting to NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM.
+   * with input parameter options.processMode setting to NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM
+   * or ATTACH_TO_STATUS_BAR_ITEM.
    *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not support.

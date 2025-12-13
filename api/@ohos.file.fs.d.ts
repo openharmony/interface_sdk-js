@@ -18,7 +18,7 @@
  * @kit CoreFileKit
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, Callback } from './@ohos.base';
 import stream from './@ohos.util.stream';
 
 export default fileIo;
@@ -544,7 +544,7 @@ declare function access(path: string, callback: AsyncCallback<boolean>): void;
 
 /**
  * Checks whether the file or directory is stored locally or has the operation permission.
- * This API uses a promise to return the result.If the read, write, or read and write permission verification fails,
+ * This API uses a promise to return the result. If the read, write, or read and write permission verification fails,
  * the error code 13900012 (Permission denied) will be thrown.
  *
  * @param { string } path - Application sandbox path of the file to check.
@@ -553,7 +553,7 @@ declare function access(path: string, callback: AsyncCallback<boolean>): void;
  * @returns { Promise<boolean> } Promise used to return a Boolean value.
  *     <br>The value true means the file is a local file and has the related permission.
  *     <br>The value false means the file does not exist or is on the cloud or a distributed device.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900011 - Out of memory
@@ -635,7 +635,7 @@ declare function access(path: string, mode: AccessModeType, flag: AccessFlagType
 /**
  *
  * Checks whether a file or directory exists or has the operation permission.
- * This API returns the result synchronously.If the read, write, or read and write permission verification fails,
+ * This API returns the result synchronously. If the read, write, or read and write permission verification fails,
  * the error code 13900012 (Permission denied) will be thrown.
  *
  * @param { string } path - Application sandbox path of the file to check.
@@ -672,7 +672,7 @@ declare function accessSync(path: string, mode?: AccessModeType): boolean;
  * @param { AccessFlagType } flag - Location of the file to verify.
  * @returns { boolean } Returns true if the file is a local file and has the related permission;
  *     <br>returns false if the file does not exist or is on the cloud or a distributed device.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900011 - Out of memory
@@ -836,7 +836,7 @@ declare function closeSync(file: number | File): void;
  * @param { string } destUri - dest uri.
  * @param { CopyOptions } [options] - options.
  * @returns { Promise<void> } The promise returned by the function.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -876,7 +876,7 @@ declare function closeSync(file: number | File): void;
  * @param { CopyOptions } [options] - Callback invoked to provide the copy progress.
  *     <br>If this parameter is not set, the callback will not be invoked.
  * @returns { Promise<void> } Promise that returns no value.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -911,13 +911,13 @@ declare function copy(srcUri: string, destUri: string, options?: CopyOptions): P
 /**
  * Copies a file or directory. This API uses an asynchronous callback to return the result.
  * File copy across devices is supported. This API forcibly overwrites the file or directory.
- * The file or directory URI is supported.A maximum of 10 cross-device copy tasks are allowed at the same time,
+ * The file or directory URI is supported. A maximum of 10 cross-device copy tasks are allowed at the same time,
  * and the number of files to be copied at a time cannot exceed 500.
  *
  * @param { string } srcUri - URI of the file or directory to copy.
  * @param { string } destUri - URI of the destination file or directory.
  * @param { AsyncCallback<void> } callback - Callback used to return the result.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -958,7 +958,7 @@ declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<v
  * @param { string } destUri - URI of the destination file or directory.
  * @param { CopyOptions } options - Callback used to return the copy progress.
  * @param { AsyncCallback<void> } callback - Callback used to return the result.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -1024,8 +1024,8 @@ declare function copy(srcUri: string, destUri: string, options: CopyOptions, cal
  * @param { number } [mode = 0] - Copy mode. The default value is 0.
  *     <br>0: Throw an exception if a file conflict occurs.
  *     <br>An exception will be thrown if the destination directory contains a directory with
- *     <br> the same name as the source directory, and a file with the same name exists in the conflict directory.
- *     <br> All the non-conflicting files in the source directory will be moved
+ *     <br>the same name as the source directory, and a file with the same name exists in the conflict directory.
+ *     <br>All the non-conflicting files in the source directory will be moved
  *     <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
  *     <br>The data attribute in the error returned provides information about the
  *     <br>conflicting files in the Array<ConflictFiles> format.
@@ -1063,8 +1063,8 @@ declare function copy(srcUri: string, destUri: string, options: CopyOptions, cal
  * @param { number } [mode = 0] - Copy mode. The default value is 0.
  *     <br>0: Throw an exception if a file conflict occurs.
  *     <br>An exception will be thrown if the destination directory contains a directory with
- *     <br> the same name as the source directory, and a file with the same name exists in the conflict directory.
- *     <br> All the non-conflicting files in the source directory will be moved
+ *     <br>the same name as the source directory, and a file with the same name exists in the conflict directory.
+ *     <br>All the non-conflicting files in the source directory will be moved
  *     <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
  *     <br>The data attribute in the error returned provides information about the
  *     <br>conflicting files in the Array<ConflictFiles> format.
@@ -1188,8 +1188,8 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
  * @param { number } mode - Copy mode. The default value is 0.
  *     <br>0: Throw an exception if a file conflict occurs.
  *     <br>An exception will be thrown if the destination directory contains a directory with
- *     <br> the same name as the source directory, and a file with the same name exists in the conflict directory.
- *     <br> All the non-conflicting files in the source directory will be moved
+ *     <br>the same name as the source directory, and a file with the same name exists in the conflict directory.
+ *     <br>All the non-conflicting files in the source directory will be moved
  *     <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
  *     <br>The data attribute in the error returned provides information about the
  *     <br>conflicting files in the Array<ConflictFiles> format.
@@ -1227,8 +1227,8 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
  * @param { number } mode - Copy mode. The default value is 0.
  *     <br>0: Throw an exception if a file conflict occurs.
  *     <br>An exception will be thrown if the destination directory contains a directory with
- *     <br> the same name as the source directory, and a file with the same name exists in the conflict directory.
- *     <br> All the non-conflicting files in the source directory will be moved
+ *     <br>the same name as the source directory, and a file with the same name exists in the conflict directory.
+ *     <br>All the non-conflicting files in the source directory will be moved
  *     <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
  *     <br>The data attribute in the error returned provides information about the
  *     <br>conflicting files in the Array<ConflictFiles> format.
@@ -1269,8 +1269,8 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * @param { number } mode - Copy mode. The default value is 0.
  *     <br>0: Throw an exception if a file conflict occurs.
  *     <br>An exception will be thrown if the destination directory contains a directory with
- *     <br> the same name as the source directory, and a file with the same name exists in the conflict directory.
- *     <br> All the non-conflicting files in the source directory will be moved
+ *     <br>the same name as the source directory, and a file with the same name exists in the conflict directory.
+ *     <br>All the non-conflicting files in the source directory will be moved
  *     <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
  *     <br>The data attribute in the error returned provides information about the
  *     <br>conflicting files in the Array<ConflictFiles> format.
@@ -1292,8 +1292,8 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * @param { number } mode - Copy mode. The default value is 0.
  *     <br>0: Throw an exception if a file conflict occurs.
  *     <br>An exception will be thrown if the destination directory contains a directory with
- *     <br> the same name as the source directory, and a file with the same name exists in the conflict directory.
- *     <br> All the non-conflicting files in the source directory will be moved
+ *     <br>the same name as the source directory, and a file with the same name exists in the conflict directory.
+ *     <br>All the non-conflicting files in the source directory will be moved
  *     <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
  *     <br>The data attribute in the error returned provides information about the
  *     <br>conflicting files in the Array<ConflictFiles> format.
@@ -1344,8 +1344,8 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * @param { number } [mode = 0] - Copy mode. The default value is 0.
  *     <br>0: Throw an exception if a file conflict occurs.
  *     <br>An exception will be thrown if the destination directory contains a directory with
- *     <br> the same name as the source directory, and a file with the same name exists in the conflict directory.
- *     <br> All the non-conflicting files in the source directory will be moved
+ *     <br>the same name as the source directory, and a file with the same name exists in the conflict directory.
+ *     <br>All the non-conflicting files in the source directory will be moved
  *     <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
  *     <br>The data attribute in the error returned provides information about the
  *     <br>conflicting files in the Array<ConflictFiles> format.
@@ -1383,8 +1383,8 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * @param { number } [mode = 0] - Copy mode. The default value is 0.
  *     <br>0: Throw an exception if a file conflict occurs.
  *     <br>An exception will be thrown if the destination directory contains a directory with
- *     <br> the same name as the source directory, and a file with the same name exists in the conflict directory.
- *     <br> All the non-conflicting files in the source directory will be moved
+ *     <br>the same name as the source directory, and a file with the same name exists in the conflict directory.
+ *     <br>All the non-conflicting files in the source directory will be moved
  *     <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
  *     <br>The data attribute in the error returned provides information about the
  *     <br>conflicting files in the Array<ConflictFiles> format.
@@ -1589,8 +1589,8 @@ declare function copyFile(src: string | number, dest: string | number, mode?: nu
  * @since 10
  */
 /**
- * Copies a file. This API overwrites the file with the same name in the destination directory and truncates the part that is not overwritten.
- * This API uses an asynchronous callback to return the result.
+ * Copies a file. This API overwrites the file with the same name in the destination directory
+ * and truncates the part that is not overwritten. This API uses an asynchronous callback to return the result.
  *
  * @param { string | number } src - Path or FD of the file to copy.
  * @param { string | number } dest - Destination path of the file or FD of the file created.
@@ -2729,7 +2729,7 @@ declare function createReadStream(path: string, options?: ReadStreamOptions): Re
  *
  * @param { string } path - Path of the file.
  * @param { WriteStreamOptions } [options] - Defines the options used in createWriteStream().
- * @returns { WriteStream } ReadStream instance obtained.
+ * @returns { WriteStream } WriteStream instance obtained.
  * @throws { BusinessError } 401 - Parameter error
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2760,7 +2760,7 @@ declare function createReadStream(path: string, options?: ReadStreamOptions): Re
  *     <br>By default, data is written from the current position.
  *     <br>mode (number): mode for creating the writeable stream. This parameter is optional.
  *     <br>The default value is the write-only mode.
- * @returns { WriteStream } ReadStream instance obtained.
+ * @returns { WriteStream } WriteStream instance obtained.
  * @throws { BusinessError } 401 - Parameter error
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -3398,9 +3398,7 @@ declare function listFile(
  * List file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array
- *     <br>containing the name of files or directories that meet the filter criteria in promise mode.
- *     <br>If present, Include the subdirectory structure.
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3413,9 +3411,7 @@ declare function listFile(
  * List file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array
- *     <br>containing the name of files or directories that meet the filter criteria in promise mode.
- *     <br>If present, Include the subdirectory structure.
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3426,10 +3422,11 @@ declare function listFile(
  * @since 10
  */
 /**
- * Lists all file names in a directory. This API uses a promise to return the result.
+ * Lists the names of all files and directories in the current path.
+ * This API uses an asynchronous callback to return the result.
  *
  * @param { string } path - Application sandbox path of the directory.
- * @param { AsyncCallback<string[]> } callback - Options for filtering files. The files are not filtered by default
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3447,9 +3444,7 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  *
  * @param { string } path - path.
  * @param { object } [options] - options.
- * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name
- *     <br>of files or directories that meet the filter criteria in promise mode.
- *     <br>If present, Include the subdirectory structure.
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3463,9 +3458,7 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  *
  * @param { string } path - path.
  * @param { object } [options] - options.
- * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name
- *     <br>of files or directories that meet the filter criteria in promise mode.
- *     <br>If present, Include the subdirectory structure.
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -5228,7 +5221,8 @@ declare function open(path: string, mode?: number): Promise<File>;
  * @since 10
  */
 /**
- * Opens a file or directory. This API uses an asynchronous callback to return the result. This API supports the use of a URI.
+ * Opens a file or directory. This API uses an asynchronous callback to return the result.
+ * This API supports the use of a URI.
  *
  * @param { string } path - Application sandbox path or URI of the file.
  * @param { AsyncCallback<File> } callback - Callback used to return the result.
@@ -5358,7 +5352,8 @@ declare function open(path: string, callback: AsyncCallback<File>): void;
  *     <br>The write permission is not allowed.
  *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
  *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
- * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record the file descriptor.
+ * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record
+ *     <br>the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -6187,7 +6182,7 @@ declare function readLinesSync(filePath: string, options?: Options): ReaderItera
  *     <br>offset (number): start position to read the data. This parameter is optional.
  *     <br>By default, data is read from the current position.
  *     <br>length (number): length of the data to read. This parameter is optional.
- *     <br>The default value is the buffer length.
+ *     <br>The default value is the file length.
  *     <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
  *     <br>The default value is 'utf-8', which is the only value supported.
  * @returns { Promise<string> } Promise used to return the file content read.
@@ -6336,7 +6331,7 @@ declare function readText(filePath: string, callback: AsyncCallback<string>): vo
  *     <br>offset (number): start position to read the data. This parameter is optional.
  *     <br>By default, data is read from the current position.
  *     <br>length (number): length of the data to read. This parameter is optional.
- *     <br>The default value is the buffer length.
+ *     <br>The default value is the file length.
  *     <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
  *     <br>The default value is 'utf-8', which is the only value supported.
  * @param { AsyncCallback<string> } callback - Callback used to return the content read.
@@ -6441,7 +6436,7 @@ declare function readText(
  *     <br>offset (number): start position to read the data. This parameter is optional.
  *     <br>By default, data is read from the current position.
  *     <br>length (number): length of the data to read. This parameter is optional.
- *     <br>The default value is the buffer length.
+ *     <br>The default value is the file length.
  *     <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
  *     <br>The default value is 'utf-8', which is the only value supported.
  * @returns { string } Returns the contents of the read file.
@@ -8036,7 +8031,8 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
  * @param { WriteOptions } [options] - The options are as follows:
- *     <br>length (number): length of the data to write. This parameter is optional. The default value is the buffer length.
+ *     <br>length (number): length of the data to write. This parameter is optional.
+ *     <br>The default value is the buffer length.
  *     <br>offset (number): start position to write the data in the file. This parameter is optional.
  *     <br>By default, data is written from the current position.
  *     <br>encoding (string): format of the data to be encoded when the data is a string.
@@ -8117,7 +8113,8 @@ declare function write(
  * @param { number } fd - FD of the file.
  * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
  * @param { WriteOptions } [options] - The options are as follows:
- *     <br>length (number): length of the data to write. This parameter is optional. The default value is the buffer length.
+ *     <br>length (number): length of the data to write. This parameter is optional.
+ *     <br>The default value is the buffer length.
  *     <br>offset (number): start position to write the data in the file. This parameter is optional.
  *     <br>By default, data is written from the current position.
  *     <br>encoding (string): format of the data to be encoded when the data is a string.
@@ -8186,7 +8183,7 @@ declare function disconnectDfs(networkId: string): Promise<void>;
  *     <br>The value is a string of less than 256 bytes and can contain only the user. prefix.
  * @param { string } value -Value of the extended attribute to set.
  * @returns { Promise<void> } Promise that returns no value.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -8208,7 +8205,7 @@ declare function disconnectDfs(networkId: string): Promise<void>;
  *     <br>The value is a string of less than 256 bytes and can contain only the user. prefix.
  * @param { string } value -Value of the extended attribute to set.
  * @returns { Promise<void> } Promise that returns no value.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -8232,7 +8229,7 @@ declare function setxattr(path: string, key: string, value: string): Promise<voi
  * @param { string } key - Key of the extended attribute to obtain.
  *     <br>The value is a string of less than 256 bytes and can contain only the user. prefix.
  * @param { string } value - Value of the extended attribute to set.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -8253,7 +8250,7 @@ declare function setxattr(path: string, key: string, value: string): Promise<voi
  * @param { string } key - Key of the extended attribute to obtain.
  *     <br>The value is a string of less than 256 bytes and can contain only the user. prefix.
  * @param { string } value - Value of the extended attribute to set.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -8276,7 +8273,7 @@ declare function setxattrSync(path: string, key: string, value: string): void;
  * @param { string } path - Application sandbox path of the directory.
  * @param { string } key - Key of the extended attribute to obtain.
  * @returns { Promise<string> } Promise used to return the value of the extended attribute obtained.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900007 - Arg list too long
@@ -8294,7 +8291,7 @@ declare function setxattrSync(path: string, key: string, value: string): void;
  * @param { string } path - Application sandbox path of the directory.
  * @param { string } key - Key of the extended attribute to obtain.
  * @returns { Promise<string> } Promise used to return the value of the extended attribute obtained.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900007 - Arg list too long
@@ -8315,7 +8312,7 @@ declare function getxattr(path: string, key: string): Promise<string>;
  * @param { string } path - Application sandbox path of the directory.
  * @param { string } key - Key of the extended attribute to obtain.
  * @returns { string } Value of the extended attribute obtained.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900007 - Arg list too long
@@ -8333,7 +8330,7 @@ declare function getxattr(path: string, key: string): Promise<string>;
  * @param { string } path - Application sandbox path of the directory.
  * @param { string } key - Key of the extended attribute to obtain.
  * @returns { string } Value of the extended attribute obtained.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900007 - Arg list too long
@@ -8413,7 +8410,7 @@ export class TaskSignal {
    * @param { Callback<string> } callback - callback of progress callback
    * @throws { BusinessError } 13900020 - Invalid argument
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   onCancel(callback: Callback<string>): void;
 }
@@ -9634,7 +9631,8 @@ export class AtomicFile {
    * The AtomicFile constructor.
    *
    * @param { string } path - Application sandbox path of the file.
-   * @throws { BusinessError } 401 Parameter error.Possible causes:1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 15
    */
@@ -9642,7 +9640,8 @@ export class AtomicFile {
    * The AtomicFile constructor.
    *
    * @param { string } path - Application sandbox path of the file.
-   * @throws { BusinessError } 401 Parameter error.Possible causes:1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 20 dynamic
@@ -10599,7 +10598,6 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9
    */
-  /**
   /**
    * Writes data to this stream. This API uses an asynchronous callback to return the result.
    *
@@ -11655,7 +11653,8 @@ export interface Options {
  */
 export interface ReadOptions {
   /**
-   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
+   * Start position of the file to read (current filePointer plus offset), in bytes. This parameter is optional.
+   * By default, data is read from the filePointer.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -11663,7 +11662,8 @@ export interface ReadOptions {
    * @since 11
    */
   /**
-   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
+   * Start position of the file to read (current filePointer plus offset), in bytes. This parameter is optional.
+   * By default, data is read from the filePointer.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -11673,8 +11673,7 @@ export interface ReadOptions {
    */
   offset?: number;
   /**
-   * Start position of the file to read (current filePointer plus offset), in bytes. This parameter is optional.
-   * By default, data is read from the filePointer.
+   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -11682,8 +11681,7 @@ export interface ReadOptions {
    * @since 11
    */
   /**
-   * Start position of the file to read (current filePointer plus offset), in bytes. This parameter is optional.
-   * By default, data is read from the filePointer.
+   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -11757,21 +11755,8 @@ export interface ReadTextOptions extends ReadOptions {
  */
 export interface WriteOptions extends Options {
   /**
-   * Option for creating the writeable stream. You must specify one of the following options.
-   * OpenMode.READ_ONLY(0o0): read-only, which is the default value.
-   * OpenMode.WRITE_ONLY(0o1): write-only.
-   * OpenMode.READ_WRITE(0o2): read/write.
-   * You can also specify the following options, separated by a bitwise OR operator (|).
-   * By default, no additional options are given.
-   * OpenMode.CREATE(0o100): If the file does not exist, create it.
-   * OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
-   * OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
-   * OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
-   * or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
-   * OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
-   * The write permission is not allowed.
-   * OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
-   * OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+   * Start position of the file to write (current filePointer plus offset), in bytes. This parameter is optional.
+   * By default, data is written from the filePointer.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -11779,21 +11764,8 @@ export interface WriteOptions extends Options {
    * @since 11
    */
   /**
-   * Option for creating the writeable stream. You must specify one of the following options.
-   * OpenMode.READ_ONLY(0o0): read-only, which is the default value.
-   * OpenMode.WRITE_ONLY(0o1): write-only.
-   * OpenMode.READ_WRITE(0o2): read/write.
-   * You can also specify the following options, separated by a bitwise OR operator (|).
-   * By default, no additional options are given.
-   * OpenMode.CREATE(0o100): If the file does not exist, create it.
-   * OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
-   * OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
-   * OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
-   * or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
-   * OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
-   * The write permission is not allowed.
-   * OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
-   * OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+   * Start position of the file to write (current filePointer plus offset), in bytes. This parameter is optional.
+   * By default, data is written from the filePointer.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO

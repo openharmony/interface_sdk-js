@@ -56,6 +56,13 @@ declare namespace sendableColorSpaceManager {
      * @crossplatform
      * @since 12 dynamiconly
      */
+     /**
+     * Get the name of color space type.
+     * @returns { colorSpaceManager.ColorSpace } Returns the name of color space type.
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 23 dynamiconly
+     */
     getColorSpaceName(): colorSpaceManager.ColorSpace;
 
     /**
@@ -66,6 +73,13 @@ declare namespace sendableColorSpaceManager {
      * @crossplatform
      * @since 12 dynamiconly
      */
+     /**
+     * Get white point(x, y) of color space.
+     * @returns { collections.Array<number> } Returns the white point value of color space.
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 23 dynamiconly
+     */
     getWhitePoint(): collections.Array<number>;
 
     /**
@@ -75,6 +89,13 @@ declare namespace sendableColorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 12 dynamiconly
+     */
+     /**
+     * Get gamma value of color space.
+     * @returns { number } Returns the gamma value of color space.
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 23 dynamiconly
      */
     getGamma(): number;
   }

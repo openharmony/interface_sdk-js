@@ -75,6 +75,15 @@ export interface SubHeaderV2TitleOptions {
    * @since 22 static
    */
   secondaryTitleModifier?: TextModifier;
+  /**
+   * Set the ability to customize the broadcast of the title.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  titleAccessibilityText?: ResourceStr;
 }
 /**
  * Declare the SubHeaderV2Title
@@ -129,6 +138,16 @@ export declare class SubHeaderV2Title {
    * @since 22 static
    */
   public constructor(options: SubHeaderV2TitleOptions);
+  /**
+   * Set the ability to customize the broadcast of the title.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  @Trace
+  public titleAccessibilityText?: ResourceStr;
 }
 /**
  * The callback function that will be invoked when the selectedIndex of the SubHeaderV2Select is selected.

@@ -78,7 +78,7 @@ export declare interface GridRowSizeOption {
     xxl?: Length;
 }
 /**
- * Defines the option in number unit of grid-container component.
+ * Defines the option in int unit of grid-container component.
  *
  * @interface GridRowColumnOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -88,51 +88,51 @@ export declare interface GridRowColumnOption {
     /**
      * Grid Row Column Option xs, select xs column num based on gridRow current breakpoint
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    xs?: number;
+    xs?: int;
     /**
      * Grid Row Column Option sm, select sm column num based on gridRow current breakpoint
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    sm?: number;
+    sm?: int;
     /**
      * Grid Row Column Option md
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    md?: number;
+    md?: int;
     /**
      * Grid Row Column Option lg, select lg column num based on gridRow current breakpoint
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    lg?: number;
+    lg?: int;
     /**
      * Grid Row Column Option xl, select xl column num based on gridRow current breakpoint
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    xl?: number;
+    xl?: int;
     /**
      * Grid Row Column Option xxl, select xxl column num based on gridRow current breakpoint
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    xxl?: number;
+    xxl?: int;
 }
 /**
  * Defines the gutter of grid-row component.
@@ -162,7 +162,7 @@ export declare interface GutterOption {
 /**
  * Defines the breakpoint reference of grid-container component.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -185,7 +185,7 @@ export declare enum BreakpointsReference {
 /**
  * Defines the direction of grid-container component.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -249,11 +249,11 @@ export declare interface GridRowOptions {
     /**
      * Sets the total number of columns in the current layout.
      *
-     * @type { ?(number | GridRowColumnOption) }
+     * @type { ?(int | GridRowColumnOption) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    columns?: number | GridRowColumnOption;
+    columns?: int | GridRowColumnOption;
     /**
      * grid-row layout breakpoints.
      *
@@ -285,7 +285,7 @@ export declare interface GridRowAttribute extends CommonMethod {
     /**
      * Callback triggered when the breakpoint changes, breakpoints value can be xs, sm, md, lg, xl, xxl
      *
-     * @param { function } callback
+     * @param { function | undefined } callback
      * @returns { GridRowAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
@@ -294,7 +294,7 @@ export declare interface GridRowAttribute extends CommonMethod {
     /**
      * Cross axis alignment of each line in GridRow.
      *
-     * @param { ItemAlign } value - element alignment
+     * @param { ItemAlign | undefined } value - element alignment
      * @returns { GridRowAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static

@@ -260,6 +260,7 @@ export declare enum GestureJudgeResult {
  *
  * @namespace GestureControl
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 22 static
  */
 export declare namespace GestureControl {
@@ -268,6 +269,7 @@ export declare namespace GestureControl {
      *
      * @enum { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 22 static
      */
     enum GestureType {
@@ -275,6 +277,7 @@ export declare namespace GestureControl {
          * TapGesture.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 22 static
          */
         TAP_GESTURE = 0,
@@ -282,6 +285,7 @@ export declare namespace GestureControl {
          * LongPressGesture.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 22 static
          */
         LONG_PRESS_GESTURE = 1,
@@ -289,6 +293,7 @@ export declare namespace GestureControl {
          * PanGesture.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 22 static
          */
         PAN_GESTURE = 2,
@@ -296,6 +301,7 @@ export declare namespace GestureControl {
          * PinchGesture.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 22 static
          */
         PINCH_GESTURE = 3,
@@ -303,6 +309,7 @@ export declare namespace GestureControl {
          * SwipeGesture.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 22 static
          */
         SWIPE_GESTURE = 4,
@@ -310,6 +317,7 @@ export declare namespace GestureControl {
          * RotationGesture.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 22 static
          */
         ROTATION_GESTURE = 5,
@@ -317,6 +325,7 @@ export declare namespace GestureControl {
          * Drag.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 22 static
          */
         DRAG = 6,
@@ -324,9 +333,50 @@ export declare namespace GestureControl {
          * Click.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 22 static
          */
-        CLICK = 7
+        CLICK = 7,
+        /**
+         * Box selection gesture. A specialized Pan gesture used for rectangular area selection in scrollable
+         * components.
+         * When the mouse is moved with the primary button pressed, it creates a selection rectangle to select multiple
+         * items within scrollable components.
+         * 
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @since 23 static
+         */
+        BOX_SELECT_GESTURE = 8,
+        /**
+         * Web scroll gesture. A specialized Pan gesture designed for scrolling control in web components.
+         * This gesture enables scrolling behavior when panning within the web component.
+         * 
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @since 23 static
+         */
+        WEB_SCROLL_GESTURE = 9,
+        /**
+         * Text field selection gesture. A specialized Pan gesture used for selecting text content within TextField
+         * components. This gesture allows users to drag across text to create or extend text selections,
+         * providing precise text selection control in input fields and text editors.
+         * 
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @since 23 static
+         */
+        TEXT_FIELD_SELECT_GESTURE = 10,
+        /**
+         * Context menu hover gesture. A specialized Long Press gesture that triggers hoverScale animation for context
+         * menus. This gesture is only available when hoverScaleInterruption is set to true, enabling a visual feedback
+         * effect while preparing to show context menus.
+         * 
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @since 23 static
+         */
+        CONTEXT_MENU_HOVER_GESTURE = 11
     }
 }
 /**
@@ -361,6 +411,63 @@ export declare interface GestureInfo {
      * @since 22 static
      */
     isSystemGesture: boolean;
+}
+/**
+ * The location info used in gesture event.
+ *
+ * @interface EventLocationInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export declare interface EventLocationInfo {
+    /**
+     * X-axis coordinates relative to the upper left corner of the component.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    x: double;
+    /**
+     * Y-axis coordinates relative to the upper left corner of the component.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    y: double;
+    /**
+     * X-axis coordinates relative to the upper left corner of the window.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    windowX: double;
+    /**
+     * Y-axis coordinates relative to the upper left corner of the window.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    windowY: double;
+    /**
+     * X-axis coordinates relative to the upper left corner of the screen.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    displayX: double;
+    /**
+     * Y-axis coordinates relative to the upper left corner of the screen.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    displayY: double;
 }
 /**
  * Type of the finger information.
@@ -460,6 +567,15 @@ export interface BaseGestureEvent extends BaseEvent {
      * @since 22 static
      */
     fingerList: FingerInfo[];
+    /**
+     * All finger information when the gesture event is triggered, the return value
+     * is one array, and the array length is just the total fingers count. 
+     * 
+     * @type { ?FingerInfo[] }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    fingerInfos?: FingerInfo[];
 }
 /**
  * Defines event info for tap gesture.
@@ -470,6 +586,14 @@ export interface BaseGestureEvent extends BaseEvent {
  * @since 22 static
  */
 export interface TapGestureEvent extends BaseGestureEvent {
+    /**
+     * The tap location info used in tap gesture.
+     * 
+     * @type {?EventLocationInfo}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    tapLocation?: EventLocationInfo;
 }
 /**
  * Defines event info for long press gesture.
@@ -649,6 +773,15 @@ export interface GestureEvent extends BaseEvent {
      */
     fingerList: FingerInfo[];
     /**
+     * All finger information when the gesture event is triggered, the return value
+     * is one array, and the array length is just the total fingers count. 
+     * 
+     * @type { ?FingerInfo[] }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    fingerInfos?: FingerInfo[];
+    /**
      * Gesture event offset X.
      * The unit is vp.
      * Used in PanGesture.
@@ -738,6 +871,14 @@ export interface GestureEvent extends BaseEvent {
      * @since 22 static
      */
     velocity: double;
+    /**
+     * The tap location info used in tap gesture.
+     * 
+     * @type {?EventLocationInfo}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    tapLocation?: EventLocationInfo;
 }
 /**
  * Defines the BaseHandlerOptions options.
@@ -1235,6 +1376,15 @@ export interface TapGestureHandlerOptions extends BaseHandlerOptions {
      * @since 22 static
      */
     fingers?: int;
+    /**
+     * The limited move distance of click. If the value is less than 0, the default value is used.
+     *
+     * @type { ?double }
+     * @default Infinity
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    distanceThreshold?: double;
 }
 /**
  * Defines the TapGesture handler.

@@ -53,7 +53,7 @@ export enum ErrorCode {
      * No error.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
-     * use multiple description syscap 
+     * use multiple description syscap
      * @since 20
      */
     NO_ERROR = 0

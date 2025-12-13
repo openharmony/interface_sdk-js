@@ -52,7 +52,7 @@ export declare interface StackAttribute extends CommonMethod {
     /**
      * Called when the alignment of items in the container is set.
      *
-     * @param { Alignment } value
+     * @param { Alignment | undefined } value
      * @returns { StackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
@@ -61,13 +61,13 @@ export declare interface StackAttribute extends CommonMethod {
     /**
     * Sets the point light style.
     *
-    * @param { PointLightStyle } value - The point light style.
+    * @param { PointLightStyle | undefined } value - The point light style.
     * @returns { StackAttribute } The attribute of the stack.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @systemapi
     * @since 22 static
     */
-    default pointLight(value: PointLightStyle): StackAttribute;
+    default pointLight(value: PointLightStyle | undefined): StackAttribute;
     /**
      * Set the attribute modifier
      *

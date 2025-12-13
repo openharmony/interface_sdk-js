@@ -79,6 +79,7 @@ declare namespace hfp {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     connect(deviceId: string): void;
 
@@ -99,6 +100,7 @@ declare namespace hfp {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
+     * @since 22 static
      */
     disconnect(deviceId: string): void;
   }

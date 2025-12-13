@@ -30,6 +30,7 @@
  *
  * @typedef ContinuationResult
  * @syscap SystemCapability.Ability.DistributedAbilityManager
+ * @stagemodelonly
  * @atomicservice
  * @since 11 dynamiconly
  * @deprecated since 22
@@ -47,6 +48,7 @@ export interface ContinuationResult {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -65,6 +67,7 @@ export interface ContinuationResult {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -83,6 +86,7 @@ export interface ContinuationResult {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22

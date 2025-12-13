@@ -1030,8 +1030,9 @@ declare namespace matrix4 {
    *
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead Matrix4Transit.copy
    */
   function copy(): Matrix4Transit;
 
@@ -1040,8 +1041,9 @@ declare namespace matrix4 {
    *
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead Matrix4Transit.invert
    */
   function invert(): Matrix4Transit;
 
@@ -1051,8 +1053,9 @@ declare namespace matrix4 {
    * @param { Matrix4Transit } options
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead Matrix4Transit.combine
    */
   function combine(options: Matrix4Transit): Matrix4Transit;
 
@@ -1062,8 +1065,9 @@ declare namespace matrix4 {
    * @param { TranslateOption } options
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead Matrix4Transit.translate
    */
   function translate(options: TranslateOption): Matrix4Transit;
 
@@ -1073,8 +1077,9 @@ declare namespace matrix4 {
    * @param { ScaleOption } options
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead Matrix4Transit.scale
    */
   function scale(options: ScaleOption): Matrix4Transit;
 
@@ -1084,8 +1089,9 @@ declare namespace matrix4 {
    * @param { RotateOption } options
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead Matrix4Transit.rotate
    */
   function rotate(options: RotateOption): Matrix4Transit;
 
@@ -1095,8 +1101,9 @@ declare namespace matrix4 {
    * @param { [number, number] } options
    * @returns { [number, number] } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead Matrix4Transit.transformPoint
    */
   function transformPoint(options: [number, number]): [number, number];
 }

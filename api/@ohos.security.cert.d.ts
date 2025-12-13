@@ -5963,7 +5963,17 @@ declare namespace cert {
      * @atomicservice
      * @since 22 dynamic&static
      */
-    REVOCATION_CHECK_OPTION_LOCAL_CRL_ONLY_CHECK_END_ENTITY_CERT = 5
+    REVOCATION_CHECK_OPTION_LOCAL_CRL_ONLY_CHECK_END_ENTITY_CERT = 5,
+
+    /**
+     * Ignore network access failure error when verifying certificate revocation list in online OCSL or online CRL.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    REVOCATION_CHECK_OPTION_IGNORE_NETWORK_ERROR = 6
   }
 
   /**
@@ -6285,6 +6295,19 @@ declare namespace cert {
      * @since 22 static
      */
     trustSystemCa?: boolean;
+
+    /**
+     * Indicates whether to allow attempts to download missing intermediate CAs from the network. The download address
+     * will be obtained from the certificate AIA extension.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    allowDownloadIntermediateCa?: boolean;
 
     /**
      * The cert and CRL list to build cert chain and verify the certificate chain revocation state.

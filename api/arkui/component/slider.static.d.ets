@@ -17,13 +17,15 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod, CommonConfiguration, ContentModifier, Optional, Bindable } from './common';
+import { CommonMethod, CommonConfiguration, ContentModifier, Bindable } from './common';
 import { Axis, CrownSensitivity } from './enums';
 import { ResourceStr, ResourceColor, Length, Dimension, SizeOptions } from './units';
 import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
 import { LinearGradient } from './dataPanel';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
+import { ComponentContent } from '../ComponentContent';
+import { ColorMetrics } from '../Graphics';
 /**
  * Style of the slider thumb and track.
  *
@@ -369,6 +371,169 @@ export declare interface SliderConfiguration extends CommonConfiguration<SliderC
 }
 
 /**
+ * ColorMetricsStop type
+ * 
+ * @typedef { object } ColorMetricsStop
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface ColorMetricsStop {
+  /**
+   * Color property.
+   * 
+   * @type { ColorMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  color: ColorMetrics;
+
+  /**
+   * the color offset. value range [0, 1].
+   * 
+   * **NOTE**
+   * If the value specified is less than 0, the value **0** is used.
+   * If the value specified is greater than 1, the value **1** is used.
+   * 
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  offset: Length;
+}
+
+/**
+ * ColorMetricsLinearGradient class
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare class ColorMetricsLinearGradient {
+    /**
+     * Constructor.
+     *
+     * @param { ColorMetricsStop[] } colorStops - the LinearGradient constructor parameter.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    constructor(colorStops: ColorMetricsStop[]);
+}
+
+/**
+ * Defines the accessibility information of slider step point.
+ *
+ * @interface SliderStepItemAccessibility
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface SliderStepItemAccessibility {
+    /**
+     * Set the accessibility text of the slider step point. The default value is an empty string.
+     *
+     * @param { ?ResourceStr } value
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    text?: ResourceStr;
+}
+/**
+ * Defines the accessibility information of slider step point.
+ *
+ * @interface SliderShowStepOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface SliderShowStepOptions {
+    /**
+     * Map key value range: [0, INT32_MAX]. When the key value is set to a negative number or a decimal,
+     * the setting does not take effect.
+     *
+     * @param { ?Map<number, SliderStepItemAccessibility> } value
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    stepsAccessibility?: Map<number, SliderStepItemAccessibility>;
+}
+/**
+ * Defines the options for customizing the accessibility of content within a slider.
+ * These options can be used to enhance the user experience for assistive technologies.
+ *
+ * @interface SliderCustomContentOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare interface SliderCustomContentOptions {
+    /**
+     * The text used for accessibility purposes. This text will be read by screen readers
+     * to provide a more descriptive label for the slider content. The default value is an empty string.
+     *
+     * @param { ?ResourceStr } value
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    accessibilityText?: ResourceStr;
+    /**
+     * A more detailed description for accessibility. This can provide additional context
+     * about the slider content for users relying on assistive technologies.
+     * The default value is the device's default accessibility prompt.
+     *
+     * @type { ?ResourceStr } value
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    accessibilityDescription?: ResourceStr;
+    /**
+     * The accessibility level of the slider content. This could be used to indicate the importance
+     * or priority of the content for assistive technologies.
+    
+     *
+     * @param { ?string } value
+     * @default'auto'
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    accessibilityLevel?: string;
+    /**
+     * Indicates whether the slider content should be treated as an accessibility group.
+     *
+     * @param { ?boolean } value
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    accessibilityGroup?: boolean;
+}
+/**
+ * Options used for customizing the prefix part of the slider.
+ * It extends the SliderCustomContentOptions to inherit accessibility customization options.
+ *
+ * @extends SliderCustomContentOptions
+ * @interface SliderPrefixOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare interface SliderPrefixOptions extends SliderCustomContentOptions {
+}
+/**
+ * Options used for customizing the suffix part of the slider.
+ * It extends the SliderCustomContentOptions to inherit accessibility customization options.
+ *
+ * @extends SliderCustomContentOptions
+ * @interface SliderSuffixOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare interface SliderSuffixOptions extends SliderCustomContentOptions {
+}
+/**
  * Defines the attribute functions of Slider.
  *
  * @extends CommonMethod
@@ -385,7 +550,16 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default blockColor(value: ResourceColor | undefined): this;
+    /**
+     * Set the color of the slider bar, supporting gradient colors.
+     * @param { ResourceColor | LinearGradient | undefined } value - the color of the slider bar.
+     *     Undefined indicates using the default color.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default blockColor(value: ResourceColor | LinearGradient | undefined): this;
     /**
      * Called when the track color of the slider is set.
      *
@@ -405,14 +579,55 @@ export declare interface SliderAttribute extends CommonMethod {
      */
     default selectedColor(selectedColor: ResourceColor | LinearGradient | undefined): this;
     /**
-     * Called when setting whether to display step size.
+     * Set whether to display step size.
      *
-     * @param { boolean | undefined } value
+     * @param { boolean | undefined } value - Default value is false, undefined means set to default value.
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 22 static
      */
     default showSteps(value: boolean | undefined): this;
+    /**
+     * Set whether to display step size, and support setting accessibility text configuration parameters.
+     *
+     * @param { boolean | undefined } value - Default value is false, undefined means set to default value.
+     * @param { SliderShowStepOptions | undefined } [options] - Set the accessibility text on slider points.
+     *     undefined means set to default value.
+     * @returns{ SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default showSteps(value: boolean | undefined, options?: SliderShowStepOptions | undefined): this;
+    /**
+     * Set the prefix part of the slider.
+     * The prefix is the content that appears before the main slider component.
+     *
+     * @param { ComponentContent | undefined } content - Custom components that will be displayed as the prefix.
+     *     This can be any valid custom UI component structure. Undefined indicates that no prefix is set.
+     * @param { SliderPrefixOptions | undefined } [options] - Optional options for customizing the prefix.
+     *     These options can include accessibility settings.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default prefix(content: ComponentContent | undefined, options?: SliderPrefixOptions | undefined): this;
+    /**
+     * Set the suffix part of the slider.
+     * The suffix is the content that appears after the main slider component.
+     *
+     * @param { ComponentContent | undefined } content - Custom components that will be displayed as the suffix.
+     *     This can be any valid custom UI component structure. Undefined indicates that no suffix is set.
+     * @param { SliderSuffixOptions | undefined } [options] - Optional options for customizing the suffix.
+     *     These options can include accessibility settings.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default suffix(content: ComponentContent | undefined, options?: SliderSuffixOptions | undefined): this;
     /**
      * Called when the percentage of bubble prompt is set when sliding.
      *
@@ -586,6 +801,18 @@ export declare interface SliderAttribute extends CommonMethod {
      * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<SliderAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set the track color of the slider using the color metrics.
+     *
+     * @param { ColorMetricsLinearGradient | undefined } color - Track color of the slider using the color metrics.
+     *     Undefined indicates using the default color.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default trackColorMetrics(color: ColorMetricsLinearGradient | undefined): this;
 }
 
 /**

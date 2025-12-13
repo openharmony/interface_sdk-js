@@ -24,6 +24,9 @@ import Want from './@ohos.app.ability.Want';
 import window from './@ohos.window';
 import UIAbilityContext from './application/UIAbilityContext';
 import rpc from './@ohos.rpc';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * The prototype of the listener function interface registered by the Caller.
@@ -168,7 +171,6 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
    */
   on(type: 'release', callback: OnReleaseCallback): void;
 
@@ -377,6 +379,15 @@ declare class UIAbility extends Ability {
    * @since 22 static
    */
   callee: Callee;
+
+  /**
+   * Get the string returned by `AbilityStage.onAcceptWant(want: Want)` for the current specified UIAbility.
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  specifiedId?: string;
 
   /**
    * Called back when an ability is started for initialization.
@@ -822,9 +833,26 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
    */
   onSaveState(reason: AbilityConstant.StateType, wantParam: Record<string, Object>): AbilityConstant.OnSaveResult;
+
+  /**
+   * Called when the framework automatically saves the UIAbility state in the case of an application fault.
+   * When an application is faulty, the framework calls onSaveState to save the status of the UIAbility if
+   * auto-save is enabled.
+   *
+   * <p>**NOTE**:
+   * <br>This API is used together with appRecovery.
+   * </p>
+   * 
+   * @param { AbilityConstant.StateType } reason - Reason for triggering the callback to save the UIAbility state.
+   * @param { Record<string, RecordData> } wantParam - want parameter.
+   * @returns { AbilityConstant.OnSaveResult } Whether the UIAbility state is saved.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onSaveState(reason: AbilityConstant.StateType, wantParam: Record<string, RecordData>): AbilityConstant.OnSaveResult;
 
   /**
   * Called back asynchronously when an ability prepares to save.
@@ -856,9 +884,18 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
    */
   onShare(wantParam: Record<string, Object>): void;
+
+  /**
+   * Called by this UIAbility to set data to share in the cross-device sharing scenario.
+   *
+   * @param { Record<string, RecordData> } wantParam - Data to share.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onShare(wantParam: Record<string, RecordData>): void;
 
   /**
    * Called back when an ability prepare to terminate.
@@ -953,6 +990,17 @@ declare class UIAbility extends Ability {
   onBackPressed(): boolean;
 
   /**
+   * Called back when another device start to collaborate.
+   * 
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
+   * @returns { AbilityConstant.CollaborateResult } Return the result of onCollaborate.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult;
+
+  /**
    * Callback invoked to return the collaboration result in multi-device collaboration scenarios.
    * 
    * <p>**NOTE**:
@@ -963,17 +1011,16 @@ declare class UIAbility extends Ability {
    * start, this callback must be invoked before onNewWant.
    * </p>
    * 
-   * @param { Record<string, Object> } wantParam - Want parameter, which supports only the key
-   * "ohos.extra.param.key.supportCollaborateIndex". The key can be used to obtain the data passed by the caller and
-   * perform corresponding processing.
+   * @param { Record<string, RecordData> } wantParam - Want parameter, which supports only the key
+   *     "ohos.extra.param.key.supportCollaborateIndex". The key can be used to obtain the data passed by the caller and
+   *     perform corresponding processing.
    * @returns { AbilityConstant.CollaborateResult } Collaborator result, that is, whether the target application
-   * accepts the collaboration request.	
+   *     accepts the collaboration request.	
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 18 dynamic
    * @since 22 static
    */
-  onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult;
+  onCollaborate(wantParam: Record<string, RecordData>): AbilityConstant.CollaborateResult;
 }
 
 export default UIAbility;

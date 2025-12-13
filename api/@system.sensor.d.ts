@@ -24,6 +24,7 @@
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor#AccelerometerResponse
  */
 export interface AccelerometerResponse {
@@ -33,8 +34,9 @@ export interface AccelerometerResponse {
    * @permission ohos.permission.ACCELEROMETER
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   x: number;
 
@@ -44,8 +46,9 @@ export interface AccelerometerResponse {
     * @permission ohos.permission.ACCELEROMETER
     * @type { number }
     * @syscap SystemCapability.Sensors.Sensor.Lite
-    * @since 3 dynamic
+    * @since 3 dynamiconly
     * @deprecated since 8
+    * @reserved ["liteWearable"]
     */
   y: number;
  
@@ -55,8 +58,9 @@ export interface AccelerometerResponse {
     * @permission ohos.permission.ACCELEROMETER
     * @type { number }
     * @syscap SystemCapability.Sensors.Sensor.Lite
-    * @since 3 dynamic
+    * @since 3 dynamiconly
     * @deprecated since 8
+    * @reserved ["liteWearable"]
     */
   z: number;
 }
@@ -67,6 +71,7 @@ export interface AccelerometerResponse {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor.SensorId#ACCELEROMETER
  */
 export interface subscribeAccelerometerOptions {
@@ -81,8 +86,9 @@ export interface subscribeAccelerometerOptions {
    * @permission ohos.permission.ACCELEROMETER
    * @type { string }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   interval: string;
 
@@ -92,8 +98,9 @@ export interface subscribeAccelerometerOptions {
    * @permission ohos.permission.ACCELEROMETER
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   success: (data: AccelerometerResponse) => void;
 
@@ -103,8 +110,9 @@ export interface subscribeAccelerometerOptions {
    * @permission ohos.permission.ACCELEROMETER
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 }
@@ -114,6 +122,7 @@ export interface subscribeAccelerometerOptions {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor#MagneticFieldResponse
  */
 export interface CompassResponse {
@@ -122,8 +131,9 @@ export interface CompassResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   direction: number;
 }
@@ -133,6 +143,7 @@ export interface CompassResponse {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor.SensorId#MAGNETIC_FIELD
  */
 export interface SubscribeCompassOptions {
@@ -141,8 +152,9 @@ export interface SubscribeCompassOptions {
    * 
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   success: (data: CompassResponse) => void;
 
@@ -151,8 +163,9 @@ export interface SubscribeCompassOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 }
@@ -162,6 +175,7 @@ export interface SubscribeCompassOptions {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor#ProximityResponse
  */
 export interface ProximityResponse {
@@ -170,8 +184,9 @@ export interface ProximityResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   distance: number;
 }
@@ -181,6 +196,7 @@ export interface ProximityResponse {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor.SensorId#PROXIMITY
  */
 export interface SubscribeProximityOptions {
@@ -189,8 +205,9 @@ export interface SubscribeProximityOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   success: (data: ProximityResponse) => void;
 
@@ -199,8 +216,9 @@ export interface SubscribeProximityOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 }
@@ -210,6 +228,7 @@ export interface SubscribeProximityOptions {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor#LightResponse
  */
 export interface LightResponse {
@@ -218,8 +237,9 @@ export interface LightResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   intensity: number;
 }
@@ -229,6 +249,7 @@ export interface LightResponse {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor.SensorId#AMBIENT_LIGHT
  */
 export interface SubscribeLightOptions {
@@ -237,8 +258,9 @@ export interface SubscribeLightOptions {
    * 
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   success: (data: LightResponse) => void;
 
@@ -247,8 +269,9 @@ export interface SubscribeLightOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 }
@@ -259,6 +282,7 @@ export interface SubscribeLightOptions {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor#PedometerResponse
  */
 export interface StepCounterResponse {
@@ -269,8 +293,9 @@ export interface StepCounterResponse {
    * @permission ohos.permission.ACTIVITY_MOTION
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   steps: number;
 }
@@ -281,6 +306,7 @@ export interface StepCounterResponse {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/SensorId#PEDOMETER
  */
 export interface SubscribeStepCounterOptions {
@@ -290,8 +316,9 @@ export interface SubscribeStepCounterOptions {
    * @permission ohos.permission.ACTIVITY_MOTION
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   success: (data: StepCounterResponse) => void;
 
@@ -301,8 +328,9 @@ export interface SubscribeStepCounterOptions {
    * @permission ohos.permission.ACTIVITY_MOTION
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 }
@@ -312,6 +340,7 @@ export interface SubscribeStepCounterOptions {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor#BarometerResponse
  */
 export interface BarometerResponse {
@@ -320,8 +349,9 @@ export interface BarometerResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   pressure: number;
 }
@@ -331,6 +361,7 @@ export interface BarometerResponse {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor.SensorId#BAROMETER
  */
 export interface SubscribeBarometerOptions {
@@ -339,8 +370,9 @@ export interface SubscribeBarometerOptions {
    * 
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   success: (data: BarometerResponse) => void;
 
@@ -349,8 +381,9 @@ export interface SubscribeBarometerOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 }
@@ -361,6 +394,7 @@ export interface SubscribeBarometerOptions {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor#HeartRateResponse
  */
 export interface HeartRateResponse {
@@ -371,8 +405,9 @@ export interface HeartRateResponse {
    * @permission ohos.permission.READ_HEALTH_DATA
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   heartRate: number;
 }
@@ -383,6 +418,7 @@ export interface HeartRateResponse {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor.SensorId#HEART_RATE
  */
 export interface SubscribeHeartRateOptions {
@@ -392,8 +428,9 @@ export interface SubscribeHeartRateOptions {
    * @permission ohos.permission.READ_HEALTH_DATA
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   success: (data: HeartRateResponse) => void;
 
@@ -403,8 +440,9 @@ export interface SubscribeHeartRateOptions {
    * @permission ohos.permission.READ_HEALTH_DATA
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 }
@@ -414,6 +452,7 @@ export interface SubscribeHeartRateOptions {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor#WearDetectionResponse
  */
 export interface OnBodyStateResponse {
@@ -422,8 +461,9 @@ export interface OnBodyStateResponse {
    * 
    * @type { boolean }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   value: boolean;
 }
@@ -433,6 +473,7 @@ export interface OnBodyStateResponse {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor.SensorId#WEAR_DETECTION
  */
 export interface SubscribeOnBodyStateOptions {
@@ -441,8 +482,9 @@ export interface SubscribeOnBodyStateOptions {
    * 
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   success: (data: OnBodyStateResponse) => void;
 
@@ -451,8 +493,9 @@ export interface SubscribeOnBodyStateOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 }
@@ -462,6 +505,7 @@ export interface SubscribeOnBodyStateOptions {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor.SensorId#WEAR_DETECTION
  */
 export interface GetOnBodyStateOptions {
@@ -470,8 +514,9 @@ export interface GetOnBodyStateOptions {
    * 
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   success: (data: OnBodyStateResponse) => void;
 
@@ -480,8 +525,9 @@ export interface GetOnBodyStateOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -490,8 +536,9 @@ export interface GetOnBodyStateOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -501,6 +548,7 @@ export interface GetOnBodyStateOptions {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 6 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor#OrientationResponse
  */
 export interface DeviceOrientationResponse {
@@ -509,8 +557,9 @@ export interface DeviceOrientationResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   alpha: number;
 
@@ -519,8 +568,9 @@ export interface DeviceOrientationResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   beta: number;
 
@@ -529,8 +579,9 @@ export interface DeviceOrientationResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   gamma: number;
 }
@@ -540,6 +591,7 @@ export interface DeviceOrientationResponse {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 6 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor.SensorId#ORIENTATION
  */
 export interface SubscribeDeviceOrientationOptions {
@@ -553,8 +605,9 @@ export interface SubscribeDeviceOrientationOptions {
    * 
    * @type { string }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   interval: string;
 
@@ -563,8 +616,9 @@ export interface SubscribeDeviceOrientationOptions {
    * 
    * @type { function}
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   success: (data: DeviceOrientationResponse) => void;
 
@@ -573,8 +627,9 @@ export interface SubscribeDeviceOrientationOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 }
@@ -585,6 +640,7 @@ export interface SubscribeDeviceOrientationOptions {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 6 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor#GyroscopeResponse
  */
 export interface GyroscopeResponse {
@@ -594,8 +650,9 @@ export interface GyroscopeResponse {
    * @permission ohos.permission.GYROSCOPE
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   x: number;
 
@@ -605,8 +662,9 @@ export interface GyroscopeResponse {
    * @permission ohos.permission.GYROSCOPE
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   y: number;
 
@@ -616,8 +674,9 @@ export interface GyroscopeResponse {
    * @permission ohos.permission.GYROSCOPE
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   z: number;
 }
@@ -628,6 +687,7 @@ export interface GyroscopeResponse {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 6 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor.SensorId#GYROSCOPE
  */
 export interface SubscribeGyroscopeOptions {
@@ -642,8 +702,9 @@ export interface SubscribeGyroscopeOptions {
    * @permission ohos.permission.GYROSCOPE
    * @type { string }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   interval: string;
 
@@ -653,8 +714,9 @@ export interface SubscribeGyroscopeOptions {
    * @permission ohos.permission.GYROSCOPE
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   success: (data: GyroscopeResponse) => void;
 
@@ -664,8 +726,9 @@ export interface SubscribeGyroscopeOptions {
    * @permission ohos.permission.GYROSCOPE
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 }
@@ -674,6 +737,7 @@ export interface SubscribeGyroscopeOptions {
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @since 6 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.sensor/sensor
  */
 export default class Sensor {
@@ -686,6 +750,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#ACCELEROMETER
    */
   static subscribeAccelerometer(options: subscribeAccelerometerOptions): void;
@@ -697,6 +762,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#ACCELEROMETER
    */
   static unsubscribeAccelerometer(): void;
@@ -709,6 +775,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#MAGNETIC_FIELD
    */
   static subscribeCompass(options: SubscribeCompassOptions): void;
@@ -719,6 +786,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#MAGNETIC_FIELD
    */
   static unsubscribeCompass(): void;
@@ -731,6 +799,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#PROXIMITY
    */
   static subscribeProximity(options: SubscribeProximityOptions): void;
@@ -741,6 +810,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#PROXIMITY
    */
   static unsubscribeProximity(): void;
@@ -753,6 +823,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#AMBIENT_LIGHT
    */
   static subscribeLight(options: SubscribeLightOptions): void;
@@ -763,6 +834,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#AMBIENT_LIGHT
    */
   static unsubscribeLight(): void;
@@ -776,6 +848,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#PEDOMETER
    */
   static subscribeStepCounter(options: SubscribeStepCounterOptions): void;
@@ -787,6 +860,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#PEDOMETER
    */
   static unsubscribeStepCounter(): void;
@@ -799,6 +873,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#BAROMETER
    */
   static subscribeBarometer(options: SubscribeBarometerOptions): void;
@@ -809,6 +884,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#BAROMETER
    */
   static unsubscribeBarometer(): void;
@@ -822,6 +898,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#HEART_RATE
    */
   static subscribeHeartRate(options: SubscribeHeartRateOptions): void;
@@ -833,6 +910,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#HEART_RATE
    */
   static unsubscribeHeartRate(): void;
@@ -845,6 +923,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#WEAR_DETECTION
    */
   static subscribeOnBodyState(options: SubscribeOnBodyStateOptions): void;
@@ -855,6 +934,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#WEAR_DETECTION
    */
   static unsubscribeOnBodyState(): void;
@@ -866,6 +946,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#WEAR_DETECTION
    */
   static getOnBodyState(options: GetOnBodyStateOptions): void;
@@ -878,6 +959,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#ORIENTATION
    */
   static subscribeDeviceOrientation(options: SubscribeDeviceOrientationOptions): void;
@@ -888,6 +970,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#ORIENTATION
    */
   static unsubscribeDeviceOrientation(): void;
@@ -901,6 +984,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#GYROSCOPE
    */
   static subscribeGyroscope(options: SubscribeGyroscopeOptions): void;
@@ -912,6 +996,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 6 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.sensor/sensor.SensorId#GYROSCOPE
    */
   static unsubscribeGyroscope(): void;

@@ -16,9 +16,10 @@
  * @file
  * @kit ArkUI
  */
-import { CustomBuilder } from '@ohos.arkui.component';
+import { CustomBuilder, DynamicRangeMode } from '@ohos.arkui.component';
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
+import colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 
 /**
  * This module allows developers to export snapshot image from a component or a custom builder.
@@ -39,35 +40,35 @@ declare namespace componentSnapshot {
         /**
          * Left side position of rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        left: number;
+        left: double;
         /**
          * Right side position of Rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        right: number;
+        right: double;
         /**
          * Top side position of Rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        top: number;
+        top: double;
         /**
          * Bottom side position of Rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        bottom: number;
+        bottom: double;
     }
     /**
      * Defines the extra options for snapshot taking, if this is used, the start and end will
@@ -81,35 +82,35 @@ declare namespace componentSnapshot {
         /**
          * Left/Right side position of rectangle, in PX
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        start: number;
+        start: double;
         /**
          * End side position of Rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        end: number;
+        end: double;
         /**
          * Left/Right side position of rectangle, in PX
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        top: number;
+        top: double;
         /**
          * Bottom side position of Rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        bottom: number;
+        bottom: double;
     }
     /**
      * Defines the snapshot region rect type.
@@ -119,6 +120,85 @@ declare namespace componentSnapshot {
      * @since 22 static
      */
     export type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion;
+
+    /**
+     * Defines the color mode used for current snapshot taking.
+     * By default, the system draws snapshot in sRGB mode. Therefore, snapshot for components with wide color display
+     * mode enabled will lose some effect. If you know the color space used in the component to be taken snapshot,
+     * you can specify the colorSpace parameter and set isAuto to false, for achieving the expected screenshot effect.
+     * But it is difficult to know which color space is used by the component to be taken. Therefore, in general,
+     * you can just set isAuto to true for letting the system to determine the color space to use based on the actual
+     * situation automaticly. When isAuto is set to true, value set by the colorSpace field will be ignored.
+     *
+     * @typedef ColorModeOptions
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    export interface ColorModeOptions {    
+      /**
+       * Set one specific color space which want to be used.
+       *
+       * @type { ?colorSpaceManager.ColorSpace }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @since 23 static
+       */
+      colorSpace?: colorSpaceManager.ColorSpace;
+      /**
+       * Indicate that if the system should decide the color space automaticlly.
+       * If set this to true, the one specificed by colorSpace parameter will be ignored.
+       *
+       * When setting isAuto to true, it is recommended to also set the waitUntilRenderFinished field
+       * in SnapshotOptions to true to ensure that the system can properly detect the mode being used.
+       *
+       * @type { ?boolean } - Whether to let the system automatically determine the color space used for screenshots.
+       *     True means ignoring the value set via the colorSpace field and letting the system decide based on the
+       *     actual component situation. False means using the value set via the colorSpace field.
+       *     The default value is false.
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @since 23 static
+       */
+      isAuto?: boolean;
+    }
+
+    /**
+     * Defines the dynamic range mode used for current snapshot taking.
+     * By default, the system draws snapshot in STANDARD mode. You can set the dynamicRangeMode parameter
+     * and set isAuto to false, for using one specific dynamic range mode.
+     * Also you can just set isAuto to true for letting the system to determine the dynamic range mode automaticly.
+     * When isAuto is set to true, value set by the dynamicRangeMode field will be ignored.
+     *
+     * @typedef DynamicRangeModeOptions
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    export interface DynamicRangeModeOptions {    
+      /**
+       * Set one specific dynamic range mode that you want to use.
+       *
+       * @type { ?DynamicRangeMode }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @since 23 static
+       */
+      dynamicRangeMode?: DynamicRangeMode;
+
+      /**
+       * Indicate that if the system should decide the dynamic range mode automaticlly.
+       * If set this to true, the one specificed by dynamicRangeMode parameter will be ignored.
+       *
+       * When setting isAuto to true, it is recommended to also set the waitUntilRenderFinished field
+       * in SnapshotOptions to true to ensure that the system can properly detect the mode being used.
+       *
+       * @type { ?boolean } - Whether to let the system determine the dynamic range mode used automatically.
+       *     True means ignoring the value set via the dynamicRangeMode field and letting the system decide
+       *     based on the actual component situation. False means using the value set via the dynamicRangeMode field.
+       *     The default value is false.
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @since 23 static
+       */
+      isAuto?: boolean;
+    }
+
     /**
      * Defines the extra options for snapshot taking.
      *
@@ -130,11 +210,11 @@ declare namespace componentSnapshot {
         /**
          * Defines the scale property to render the snapshot.
          *
-         * @type {?number}
+         * @type {?double}
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        scale?: number;
+        scale?: double;
         /**
          * Whether to wait the rendering is finished.
          *
@@ -151,6 +231,23 @@ declare namespace componentSnapshot {
          * @since 22 static
          */
         region?: SnapshotRegionType;
+        /**
+         * Set the color space options for current snapshot taking.
+         *
+         * @type { ?ColorModeOptions }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        colorMode?: ColorModeOptions;
+
+        /**
+         * Set the dynamic range mode options for current snapshot taking.
+         *
+         * @type { ?DynamicRangeModeOptions }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        dynamicRangeMode?: DynamicRangeModeOptions;
     }
     /**
      * Take a screenshot of the specified component in synchronous mode,
@@ -159,16 +256,12 @@ declare namespace componentSnapshot {
      *
      * @param { string } id - Target component ID, set by developer through .id attribute.
      * @param { SnapshotOptions } [options] - Define the snapshot options.
-     * @returns { image.PixelMap } The snapshot result in PixelMap format.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     * @returns { image.PixelMap | null } - The snapshot result in PixelMap format.
      * @throws { BusinessError } 100001 - Invalid ID.
      * @throws { BusinessError } 160002 - Timeout.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    export function getSync(id: string, options?: SnapshotOptions): image.PixelMap;
+    export function getSync(id: string, options?: SnapshotOptions): image.PixelMap | null;
 }
 export default componentSnapshot;

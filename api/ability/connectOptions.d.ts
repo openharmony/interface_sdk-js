@@ -28,7 +28,7 @@ import rpc from './../@ohos.rpc';
  * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
  * @param { rpc.IRemoteObject } remote - The remote object instance
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 22 dynamic&static
+ * @since 23 static
  */
 type OnConnectFn = (elementName: ElementName, remote: rpc.IRemoteObject) => void;
 
@@ -38,7 +38,7 @@ type OnConnectFn = (elementName: ElementName, remote: rpc.IRemoteObject) => void
  * @typedef { Function }
  * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 22 dynamic&static
+ * @since 23 static
  */
 type OnDisconnectFn = (elementName: ElementName) => void;
 
@@ -48,7 +48,7 @@ type OnDisconnectFn = (elementName: ElementName) => void;
  * @typedef { Function }
  * @param { int } code - The error code of the failed.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 22 dynamic&static
+ * @since 23 static
  */
 type OnFailedFn = (code: int) => void;
 
@@ -76,16 +76,9 @@ export interface ConnectOptions {
    * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
    * @param { rpc.IRemoteObject } remote - The remote object instance
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 12
+   * @since 12 dynamic
    */
-  /**
-   * The callback interface was connect successfully.
-   *
-   * @type { OnConnectFn }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 22 dynamic&static
-   */
-  onConnect: OnConnectFn;
+  onConnect(elementName: ElementName, remote: rpc.IRemoteObject): void;
 
   /**
    * The callback interface was disconnect successfully.
@@ -99,30 +92,43 @@ export interface ConnectOptions {
    *
    * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 12
+   * @since 12 dynamic
    */
-  /**
-   * The callback interface was disconnect successfully.
-   *
-   * @type { OnDisconnectFn }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 22 dynamic&static
-   */
-  onDisconnect: OnDisconnectFn;
+  onDisconnect(elementName: ElementName): void;
 
   /**
    * The callback interface was connect failed.
    *
    * @param { int } code - The error code of the failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 7
+   * @since 7 dynamic
    */
+  onFailed(code: int): void;
+
+  /**
+   * The callback interface was connect successfully.
+   *
+   * @type { OnConnectFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 23 static
+   */
+  onConnect: OnConnectFn;
+
+  /**
+   * The callback interface was disconnect successfully.
+   *
+   * @type { OnDisconnectFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 23 static
+   */
+  onDisconnect: OnDisconnectFn;
+
   /**
    * The callback interface was connect failed.
    *
    * @typedef { OnFailedFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 22 dynamic&static
+   * @since 23 static
    */
   onFailed: OnFailedFn;
 }

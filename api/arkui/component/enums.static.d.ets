@@ -357,6 +357,33 @@ export declare enum BorderStyle {
 }
 
 /**
+ * Enum for RenderStrategy.
+ * Define Graphics Rendering Strategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare enum RenderStrategy {
+  /**
+   * The current component and its child components will be drawn directly onto the screen canvas.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  FAST = 0,
+
+  /**
+   * The current component and its child components will first be drawn onto an off-screen canvas,
+   *     then undergo some graphic rendering operations, and finally be drawn onto the main canvas.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  OFFSCREEN = 1
+}
+
+/**
  * Line Join Style
  *
  * @enum { number }
@@ -1101,7 +1128,7 @@ export declare enum Alignment {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-declare enum LocalizedAlignment {
+export declare enum LocalizedAlignment {
   /**
    * Top Start.
    *
@@ -1953,7 +1980,23 @@ export declare enum TextAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  JUSTIFY = 3
+  JUSTIFY = 3,
+
+  /**
+   * The text is aligned in the left direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  LEFT = 4,
+
+  /**
+   * The text is aligned in the right direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  RIGHT = 5
 }
 
 /**
@@ -2141,40 +2184,45 @@ export declare enum ResponseType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 22 static
  */
 export declare enum HoverEffect {
   /**
-   * Default effect
+   * None effect
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 22 static
    */
-  Auto = 0,
+  None = 0,
 
   /**
    * Zoom in and out effect
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 22 static
    */
-  Scale = 1,
+  Scale = 2,
 
   /**
    * Highlight effect
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 22 static
    */
-  Highlight = 2,
+  Highlight = 3,
 
   /**
-   * None effect
+   * Default effect
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 22 static
    */
-  None = 3
+  Auto = 4
 }
 
 /**
@@ -2674,7 +2722,7 @@ export declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  BASELINE = 0,
+  BASELINE = 4,
 
   /**
    * Indicating that the bottom of the ImageSpan should be aligned with the bottom of the surrounding text.
@@ -2682,7 +2730,7 @@ export declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  BOTTOM = 1,
+  BOTTOM = 3,
 
   /**
    * Indicating that the center of the ImageSpan should be aligned with the center of the surrounding text.
@@ -2698,7 +2746,7 @@ export declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  TOP = 3,
+  TOP = 1,
 
   /**
    * Indicating that the ImageSpan should be aligned by the paragraph's textVerticalAlign.
@@ -2706,7 +2754,7 @@ export declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  FOLLOW_PARAGRAPH = 4
+  FOLLOW_PARAGRAPH = 5
 }
 
 /**
@@ -3685,7 +3733,95 @@ export declare enum AxisModel {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  ABS_HAT0Y = 7
+  ABS_HAT0Y = 7,
+
+  /**
+   * ABS_RX axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_RX = 8,
+
+  /**
+   * ABS_RY axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_RY = 9,
+
+  /**
+   * ABS_THROTTLE axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_THROTTLE = 10,
+
+  /**
+   * ABS_RUDDER axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_RUDDER = 11,
+
+  /**
+   * ABS_WHEEL axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_WHEEL = 12,
+
+  /**
+   * ABS_HAT1X axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_HAT1X = 13,
+
+  /**
+   * ABS_HAT1Y axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_HAT1Y = 14,
+
+  /**
+   * ABS_HAT2X axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_HAT2X = 15,
+
+  /**
+   * ABS_HAT2Y axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_HAT2Y = 16,
+
+  /**
+   * ABS_HAT3X axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_HAT3X = 17,
+
+  /**
+   * ABS_HAT3Y axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  ABS_HAT3Y = 18
 }
 
 /**
@@ -3900,14 +4036,16 @@ declare enum EventQueryType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
-declare enum TipsAnchorType {
+export declare enum TipsAnchorType {
   /**
    * Tips display position based on bound component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   TARGET = 0,
 
@@ -3915,9 +4053,10 @@ declare enum TipsAnchorType {
    * Tips display position based on cursor position.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  CURSOR = 1,
+  CURSOR = 1
 }
 
 /**
@@ -4068,4 +4207,69 @@ export declare enum AxisType {
    * @since 22 static
    */
   PINCH_AXIS = 2,
+}
+
+/**
+ * Defines the state types that can be monitored by AttributeModifiers.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
+ * @since 23 staticonly
+ */
+export enum AttributeModifierState {
+
+  /**
+   * Normal state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  NORMAL = 0,
+
+  /**
+   * Pressed state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  PRESSED = 1,
+
+  /**
+   * Focused state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  FOCUSED = 1 << 1,
+
+  /**
+   * Disabled state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  DISABLED = 1 << 2,
+
+  /**
+   * Selected state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  SELECTED = 1 << 3,
+
+  /**
+   * All states.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 staticonly
+   */
+  ALL = (1 << 4) - 1
 }

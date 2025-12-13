@@ -208,6 +208,24 @@ declare namespace telephonyManager {
   * @since 20
   */
   function getIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<string>; 
+
+  /**
+   * Hangup the calling.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function hangupCalling(admin: Want): void;
 }
 
 export default telephonyManager;

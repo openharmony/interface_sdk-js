@@ -30,6 +30,7 @@ import Want from '../@ohos.app.ability.Want';
  * @stagemodelonly
  * @atomicservice
  * @since 20 dynamic
+ * @since 22 static
  */
 declare class LiveFormExtensionContext extends ExtensionContext {
   /**
@@ -46,6 +47,7 @@ declare class LiveFormExtensionContext extends ExtensionContext {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
   startAbilityByLiveForm(want: Want): Promise<void>;
 

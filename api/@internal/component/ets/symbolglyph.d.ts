@@ -1092,6 +1092,24 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @atomicservice
    * @since 20 dynamic
    */
+  /**
+   * Set the shader style of the symbol, such as lineargradient or radialgradient.
+   *
+   * If a single `ShaderStyle` is provided, all layers of the symbol will use this shader style.
+   * If an array is provided, each item corresponds to the shader style of the matching symbol layer.
+   * - If an array item is `undefined`, that layer will use its default color.
+   * - Any layers beyond the length of the array will also use their default color.
+   *
+   * @param { Array<ShaderStyle | undefined> | ShaderStyle } shader - The shader style(s) to apply.
+   *     - `ShaderStyle`: Apply the same shader style to all symbol layers.
+   *     - `Array<ShaderStyle | undefined>`: Specify shader styles per layer; `undefined` means default
+   *     color for that layer.
+   * @returns { SymbolGlyphAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   shaderStyle(shader: Array<ShaderStyle | undefined> | ShaderStyle): SymbolGlyphAttribute;
 
   /**
@@ -1292,6 +1310,21 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @form
    * @atomicservice
    * @since 20 dynamic
+   */
+  /**
+   * Set the shadow of symbol.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>This API does not work with the fill attribute, showType attribute or coloring strategy.
+   * </p>
+   *
+   * @param { Optional<ShadowOptions> } shadow - The shadow options.
+   * @returns { SymbolGlyphAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   symbolShadow(shadow: Optional<ShadowOptions>): SymbolGlyphAttribute;
 }

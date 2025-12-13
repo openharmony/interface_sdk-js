@@ -74,6 +74,39 @@ declare namespace screen {
   function on(eventType: 'connect' | 'disconnect' | 'change', callback: Callback<long>): void;
 
   /**
+   * Register the callback for screen changes.
+   *
+   * @param { Callback<long> } callback Callback used to return the screen ID. This parameter is callable.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onConnect(callback: Callback<long>): void;
+
+  /**
+   * Register the callback for screen changes.
+   *
+   * @param { Callback<long> } callback Callback used to return the screen ID. This parameter is callable.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onDisconnect(callback: Callback<long>): void;
+
+  /**
+   * Register the callback for screen changes.
+   *
+   * @param { Callback<long> } callback Callback used to return the screen ID. This parameter is callable.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onChange(callback: Callback<long>): void;
+
+  /**
    * Unregister the callback for screen changes.
    *
    * @param { 'connect' | 'disconnect' | 'change' } eventType the event of screen changes. This parameter is of string
@@ -89,6 +122,42 @@ declare namespace screen {
    * @since 22 static
    */
   function off(eventType: 'connect' | 'disconnect' | 'change', callback?: Callback<long>): void;
+
+  /**
+   * Unregister the callback for screen changes.
+   *
+   * @param { Callback<long> } [callback] - Unregister the callback function.
+   *		If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offConnect(callback?: Callback<long>): void;
+
+  /**
+   * Unregister the callback for screen changes.
+   *
+   * @param { Callback<long> } [callback] - Unregister the callback function.
+   *		If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offDisconnect(callback?: Callback<long>): void;
+
+  /**
+   * Unregister the callback for screen changes.
+   *
+   * @param { Callback<long> } [callback] - Unregister the callback function.
+   *		If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offChange(callback?: Callback<long>): void;
 
   /**
    * Make screens as expand-screen
@@ -205,6 +274,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 19 dynamic
+   * @since 22 static
    */
   function makeMirrorWithRegion(mainScreen: long, mirrorScreen: Array<long>, mainScreenRegion: Rect): Promise<long>;
 
@@ -221,6 +291,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
   function stopMirror(mirrorScreen: Array<long>, callback: AsyncCallback<void>): void;
 
@@ -237,6 +308,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 22 static
    */
   function stopMirror(mirrorScreen: Array<long>): Promise<void>;
   
@@ -254,6 +326,7 @@ declare namespace screen {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
+   * @since 22 static
    */
   function makeUnique(uniqueScreen: Array<long>): Promise<Array<long>>;
 
@@ -271,6 +344,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function createVirtualScreen(options: VirtualScreenOption, callback: AsyncCallback<Screen>): void;
 
@@ -288,6 +362,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function createVirtualScreen(options: VirtualScreenOption): Promise<Screen>;
 
@@ -299,10 +374,12 @@ declare namespace screen {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400002 - Unauthorized operation.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function destroyVirtualScreen(screenId: long, callback: AsyncCallback<void>): void;
 
@@ -314,10 +391,12 @@ declare namespace screen {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400002 - Unauthorized operation.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function destroyVirtualScreen(screenId: long): Promise<void>;
 
@@ -336,6 +415,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function setVirtualScreenSurface(screenId: long, surfaceId: string, callback: AsyncCallback<void>): void;
 
@@ -354,6 +434,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function setVirtualScreenSurface(screenId: long, surfaceId: string): Promise<void>;
 
@@ -373,6 +454,7 @@ declare namespace screen {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @since 19 dynamic
+   * @since 22 static
    */
   function setScreenPrivacyMaskImage(screenId: long, image?: image.PixelMap): Promise<void>;
 
@@ -384,6 +466,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function isScreenRotationLocked(callback: AsyncCallback<boolean>): void;
 
@@ -395,6 +478,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function isScreenRotationLocked(): Promise<boolean>;
 
@@ -409,6 +493,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function setScreenRotationLocked(isLocked: boolean, callback: AsyncCallback<void>): void;
 
@@ -423,6 +508,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   function setScreenRotationLocked(isLocked: boolean): Promise<void>;
 
@@ -440,6 +526,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 13 dynamic
+   * @since 22 static
    */
   function setMultiScreenMode(primaryScreenId: long, secondaryScreenId: long,
     secondaryScreenMode: MultiScreenMode): Promise<void>;
@@ -453,10 +540,12 @@ declare namespace screen {
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *                                                                   2. Incorrect parameter types.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 13 dynamic
+   * @since 22 static
    */
   function setMultiScreenRelativePosition(mainScreenOptions: MultiScreenPositionOptions,
     secondaryScreenOptions: MultiScreenPositionOptions): Promise<void>;
@@ -468,6 +557,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 13 dynamic
+   * @since 22 static
    */
   enum MultiScreenMode {
 
@@ -477,6 +567,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 13 dynamic
+     * @since 22 static
      */
     SCREEN_MIRROR = 0,
 
@@ -486,6 +577,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 13 dynamic
+     * @since 22 static
      */
     SCREEN_EXTEND = 1
   }
@@ -497,6 +589,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 13 dynamic
+   * @since 22 static
    */
   interface MultiScreenPositionOptions {
     /**
@@ -506,6 +599,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 13 dynamic
+     * @since 22 static
      */
     id: long;
 
@@ -516,6 +610,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 13 dynamic
+     * @since 22 static
      */
     startX: long;
 
@@ -526,6 +621,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 13 dynamic
+     * @since 22 static
      */
     startY: long;
   }
@@ -537,6 +633,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   interface ExpandOption {
     /**
@@ -546,6 +643,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     screenId: long;
 
@@ -556,6 +654,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     startX: long;
 
@@ -566,6 +665,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     startY: long;
   }
@@ -577,6 +677,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 22 static
    */
   interface VirtualScreenOption {
     /**
@@ -586,6 +687,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     name: string;
 
@@ -596,6 +698,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     width: long;
 
@@ -606,6 +709,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     height: long;
 
@@ -616,6 +720,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     density: double;
 
@@ -626,6 +731,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     surfaceId: string;
 
@@ -809,6 +915,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     setOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
 
@@ -824,6 +931,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     setOrientation(orientation: Orientation): Promise<void>;
 
@@ -839,6 +947,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     setScreenActiveMode(modeIndex: long, callback: AsyncCallback<void>): void;
 
@@ -854,6 +963,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 22 static
      */
     setScreenActiveMode(modeIndex: long): Promise<void>;
 

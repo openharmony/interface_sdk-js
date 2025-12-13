@@ -19,6 +19,9 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
+/*** if arkts static */
+import type { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * This module provides the capability to manage distributed accounts.
@@ -130,6 +133,7 @@ declare namespace distributedAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     getOsAccountDistributedInfoByLocalId(localId: int, callback: AsyncCallback<DistributedInfo>): void;
 
@@ -163,6 +167,7 @@ declare namespace distributedAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     getOsAccountDistributedInfoByLocalId(localId: int): Promise<DistributedInfo>;
 
@@ -207,6 +212,7 @@ declare namespace distributedAccount {
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
      * @since 9 dynamic
+     * @since 22 static
      */
     setOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback<void>): void;
 
@@ -225,6 +231,7 @@ declare namespace distributedAccount {
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
      * @since 9 dynamic
+     * @since 22 static
      */
     setOsAccountDistributedInfo(accountInfo: DistributedInfo): Promise<void>;
 
@@ -246,6 +253,7 @@ declare namespace distributedAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 22 static
      */
     setOsAccountDistributedInfoByLocalId(localId: int, distributedInfo: DistributedInfo, callback: AsyncCallback<void>): void;
 
@@ -267,6 +275,7 @@ declare namespace distributedAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 22 static
      */
     setOsAccountDistributedInfoByLocalId(localId: int, distributedInfo: DistributedInfo): Promise<void>;
   }
@@ -375,9 +384,17 @@ declare namespace distributedAccount {
      * @type { ?object }
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
-     * @since 22 static
      */
     scalableData?: object;
+
+    /**
+     * The scalable data in the distributed information of the OS account.
+     *
+     * @type { ?Record<string, RecordData> }
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 22 static
+     */
+    scalableData?: Record<string, RecordData>;
   }
 }
 

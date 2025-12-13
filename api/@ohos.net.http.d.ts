@@ -616,6 +616,14 @@ declare namespace http {
      * @since 15 dynamic
      */
     addressFamily?: AddressFamily;
+	
+	/**
+     * Supports specifying the user custom defined http request method
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 23 dynamic&static
+     */
+    customMethod?: string;
   }
 
    /**

@@ -67,14 +67,14 @@ declare namespace huks {
    * 
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
-   * and key length are mandatory.
+   *     and key length are mandatory.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   * this API does not return the key content because the key is always protected in a TEE. If an exception occurs in
-   * the generation process, an error is captured.
+   *     this API does not return the key content because the key is always protected in a TEE. If an exception
+   *     occurs in the generation process, an error is captured.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -94,14 +94,14 @@ declare namespace huks {
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
-   * and key length are mandatory.
+   *     and key length are mandatory.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   * this API does not return the key content because the key is always protected in a TEE. If an exception occurs in
-   * the generation process, an error is captured.
+   *     this API does not return the key content because the key is always protected in a TEE. If an exception
+   *     occurs in the generation process, an error is captured.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -122,14 +122,14 @@ declare namespace huks {
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
-   * and key length are mandatory.
+   *     and key length are mandatory.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   * this API does not return the key content because the key is always protected in a TEE. If an exception occurs in
-   * the generation process, an error is captured.
+   *     this API does not return the key content because the key is always protected in a TEE. If an exception
+   *     occurs in the generation process, an error is captured.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -145,6 +145,36 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 20
+   */
+  /**
+   * Generates a key. This API uses an asynchronous callback to return the result.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   *     and key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     this API does not return the key content because the key is always protected in a TEE. If an exception
+   *     occurs in the generation process, an error is captured.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 23
    */
   function generateKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
 
@@ -155,12 +185,12 @@ declare namespace huks {
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
-   * and key length are mandatory.
+   *     and key length are mandatory.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -182,12 +212,12 @@ declare namespace huks {
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
-   * and key length are mandatory.
+   *     and key length are mandatory.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -210,12 +240,12 @@ declare namespace huks {
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
-   * and key length are mandatory.
+   *     and key length are mandatory.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -231,6 +261,36 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 20
+   */
+  /**
+   * Generates a key. This API uses a promise to return the result. Because the key is always
+   * protected in a trusted environment (such as a TEE), the promise does not return the key content.
+   * It returns only the information indicating whether the API is successfully called.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   *     and key length are mandatory.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 23
    */
   function generateKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
 
@@ -243,12 +303,12 @@ declare namespace huks {
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
-   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   *     <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -273,12 +333,12 @@ declare namespace huks {
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   * <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -327,16 +387,16 @@ declare namespace huks {
    * Deletes a key. This API uses an asynchronous callback to return the result.
    *
    * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
-   * was generated.
+   *     was generated.
    * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
-   * to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the default
-   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
+   *     default value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   * no err value is returned; otherwise, an error code is returned.
+   *     no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -350,16 +410,16 @@ declare namespace huks {
    * Deletes a key. This API uses an asynchronous callback to return the result.
    *
    * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
-   * was generated.
+   *     was generated.
    * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
-   * to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the default
-   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
+   *     default value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   * no err value is returned; otherwise, an error code is returned.
+   *     no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -370,21 +430,46 @@ declare namespace huks {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Deletes a key. This API uses an asynchronous callback to return the result.
+   *
+   * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
+   *     was generated.
+   * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
+   *     to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
+   *     default value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     no err value is returned; otherwise, an error code is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 23
+   */
   function deleteKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Deletes a key. This API uses a promise to return the result.
    *
    * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
-   * was generated.
-   * @param { HuksOptions } options - Options for deleting the key. For example, you can pass in HuksAuthStorageLevel to
-   * specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the default
-   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     was generated.
+   * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
+   *     to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
+   *     default value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -398,15 +483,15 @@ declare namespace huks {
    * Deletes a key. This API uses a promise to return the result.
    *
    * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
-   * was generated.
-   * @param { HuksOptions } options - Options for deleting the key. For example, you can pass in HuksAuthStorageLevel to
-   * specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the default
-   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     was generated.
+   * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
+   *     to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
+   *     default value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -416,6 +501,30 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Deletes a key. This API uses a promise to return the result.
+   *
+   * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
+   *     was generated.
+   * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
+   *     to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
+   *     default value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 23
    */
   function deleteKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
 
@@ -428,12 +537,12 @@ declare namespace huks {
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   * <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -477,13 +586,13 @@ declare namespace huks {
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
-   * key length are mandatory.
+   *     key length are mandatory.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-   * error value is returned; otherwise, an error code is returned.
+   *     error value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -504,13 +613,13 @@ declare namespace huks {
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
-   * key length are mandatory.
+   *     key length are mandatory.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-   * error value is returned; otherwise, an error code is returned.
+   *     error value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -532,13 +641,13 @@ declare namespace huks {
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
-   * key length are mandatory.
+   *     key length are mandatory.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-   * error value is returned; otherwise, an error code is returned.
+   *     error value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -560,13 +669,13 @@ declare namespace huks {
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
-   * key length are mandatory.
+   *     key length are mandatory.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
-   * error value is returned; otherwise, an error code is returned.
+   *     error value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -583,6 +692,35 @@ declare namespace huks {
    * @atomicservice
    * @since 20
    */
+  /**
+   * Imports a key in plaintext. This API uses an asynchronous callback to return the result.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
+   *     key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+   *     error value is returned; otherwise, an error code is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 23
+   */
   function importKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
 
   /**
@@ -590,7 +728,7 @@ declare namespace huks {
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
-   * key length are mandatory.
+   *     key length are mandatory.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -616,12 +754,12 @@ declare namespace huks {
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
-   * key length are mandatory.
+   *     key length are mandatory.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -643,12 +781,12 @@ declare namespace huks {
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
-   * key length are mandatory.
+   *     key length are mandatory.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -665,6 +803,34 @@ declare namespace huks {
    * @atomicservice
    * @since 20
    */
+  /**
+   * Imports a key in plaintext. This API uses a promise to return the result.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
+   *     key length are mandatory.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 23
+   */
   function importKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
 
   /**
@@ -676,12 +842,12 @@ declare namespace huks {
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
-   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   *     <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -707,12 +873,12 @@ declare namespace huks {
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   * <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -738,13 +904,13 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the wrapped key to import.
    * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
    * @param { HuksOptions } options - Tags required for the import and the wrapped key to import.
-   * The algorithm, key purpose, and key length are mandatory.
+   *     The algorithm, key purpose, and key length are mandatory.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   * no err value is returned; otherwise, an error code is returned.
+   *     no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -766,13 +932,13 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the wrapped key to import.
    * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
    * @param { HuksOptions } options - Tags required for the import and the wrapped key to import.
-   * The algorithm, key purpose, and key length are mandatory.
+   *     The algorithm, key purpose, and key length are mandatory.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   * no err value is returned; otherwise, an error code is returned.
+   *     no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -795,13 +961,13 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the wrapped key to import.
    * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
    * @param { HuksOptions } options - Tags required for the import and the wrapped key to import.
-   * The algorithm, key purpose, and key length are mandatory.
+   *     The algorithm, key purpose, and key length are mandatory.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   * no err value is returned; otherwise, an error code is returned.
+   *     no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -818,6 +984,37 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 20
+   */
+  /**
+   * Imports a wrapped key. This API uses an asynchronous callback to return the result.
+   *
+   * @param { string } keyAlias - Alias of the wrapped key to import.
+   * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
+   * @param { HuksOptions } options - Tags required for the import and the wrapped key to import.
+   *     The algorithm, key purpose, and key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     no err value is returned; otherwise, an error code is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 23
    */
   function importWrappedKeyItem(
     keyAlias: string,
@@ -832,16 +1029,17 @@ declare namespace huks {
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the name of key to be imported.
-   * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key to be imported.
+   * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key
+   *     to be imported.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
-   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   *     <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -864,16 +1062,17 @@ declare namespace huks {
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { number } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the name of key to be imported.
-   * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key to be imported.
+   * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key
+   *     to be imported.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   * <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -891,7 +1090,11 @@ declare namespace huks {
    * @systemapi this method can be used only by system applications.
    * @since 20
    */
-  function importWrappedKeyItemAsUser(userId: number, keyAlias: string, wrappingKeyAlias: string, huksOptions: HuksOptions): Promise<void>;
+  function importWrappedKeyItemAsUser(
+    userId: number, keyAlias: string,
+    wrappingKeyAlias: string,
+    huksOptions: HuksOptions
+  ): Promise<void>;
 
   /**
    * Imports a wrapped key. This API uses a promise to return the result.
@@ -899,12 +1102,12 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the wrapped key to import.
    * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
    * @param { HuksOptions } options - Tags required for the import and the wrapped key to import. The algorithm, key
-   * purpose, and key length are mandatory.
+   *     purpose, and key length are mandatory.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -926,12 +1129,12 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the wrapped key to import.
    * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
    * @param { HuksOptions } options - Tags required for the import and the wrapped key to import. The algorithm, key
-   * purpose, and key length are mandatory.
+   *     purpose, and key length are mandatory.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -954,12 +1157,12 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the wrapped key to import.
    * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
    * @param { HuksOptions } options - Tags required for the import and the wrapped key to import. The algorithm, key
-   * purpose, and key length are mandatory.
+   *     purpose, and key length are mandatory.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -976,6 +1179,36 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 20
+   */
+  /**
+   * Imports a wrapped key. This API uses a promise to return the result.
+   *
+   * @param { string } keyAlias - Alias of the wrapped key to import.
+   * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
+   * @param { HuksOptions } options - Tags required for the import and the wrapped key to import. The algorithm, key
+   *     purpose, and key length are mandatory.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 23
    */
   function importWrappedKeyItem(keyAlias: string, wrappingKeyAlias: string, options: HuksOptions): Promise<void>;
 
@@ -1011,12 +1244,12 @@ declare namespace huks {
    * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
    * @param { HuksOptions } options - Empty object (leave this parameter empty).
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
-   * successful, no err value is returned and outData contains the public key exported. Otherwise,
-   * an error code is returned.
+   *     successful, no err value is returned and outData contains the public key exported. Otherwise,
+   *     an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1036,12 +1269,12 @@ declare namespace huks {
    * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
    * @param { HuksOptions } options - Empty object (leave this parameter empty).
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
-   * successful, no err value is returned and outData contains the public key exported. Otherwise,
-   * an error code is returned.
+   *     successful, no err value is returned and outData contains the public key exported. Otherwise,
+   *     an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000004 - operating file failed
@@ -1054,6 +1287,31 @@ declare namespace huks {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Exports a key. This API uses an asynchronous callback to return the result.
+   *
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   *     successful, no err value is returned and outData contains the public key exported. Otherwise,
+   *     an error code is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 23
+   */
   function exportKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
   /**
@@ -1065,12 +1323,12 @@ declare namespace huks {
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   * <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1093,11 +1351,11 @@ declare namespace huks {
    * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
    * @param { HuksOptions } options - Empty object (leave this parameter empty).
    * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful, outData
-   * in HuksReturnResult is the public key exported.
+   *     in HuksReturnResult is the public key exported.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1117,11 +1375,11 @@ declare namespace huks {
    * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
    * @param { HuksOptions } options - Empty object (leave this parameter empty).
    * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful, outData
-   * in HuksReturnResult is the public key exported.
+   *     in HuksReturnResult is the public key exported.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000004 - operating file failed
@@ -1133,6 +1391,30 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Exports a key. This API uses a promise to return the result.
+   *
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful, outData
+   *     in HuksReturnResult is the public key exported.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 23
    */
   function exportKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
@@ -1168,12 +1450,12 @@ declare namespace huks {
    * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
    * @param { HuksOptions } options - Empty object (leave this parameter empty).
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
-   * successful, no err value is returned and properties contains the parameters required for generating the key. If the
-   * operation fails, an error code is returned.
+   *     successful, no err value is returned and properties contains the parameters required for generating the key.
+   *     If the operation fails, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1193,12 +1475,12 @@ declare namespace huks {
    * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
    * @param { HuksOptions } options - Empty object (leave this parameter empty).
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
-   * successful, no err value is returned and properties contains the parameters required for generating the key. If the
-   * operation fails, an error code is returned.
+   *     successful, no err value is returned and properties contains the parameters required for generating the key.
+   *     If the operation fails, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000004 - operating file failed
@@ -1210,6 +1492,31 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Obtains key properties. This API uses an asynchronous callback to return the result.
+   *
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   *     successful, no err value is returned and properties contains the parameters required for generating the key.
+   *     If the operation fails, an error code is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 23
    */
   function getKeyItemProperties(
     keyAlias: string,
@@ -1226,12 +1533,12 @@ declare namespace huks {
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   * <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1246,7 +1553,11 @@ declare namespace huks {
    * @systemapi this method can be used only by system applications.
    * @since 12
    */
-  function getKeyItemPropertiesAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
+  function getKeyItemPropertiesAsUser(
+    userId: number,
+    keyAlias: string,
+    huksOptions: HuksOptions
+  ): Promise<HuksReturnResult>;
 
   /**
    * Obtains key properties. This API uses a promise to return the result.
@@ -1254,11 +1565,11 @@ declare namespace huks {
    * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
    * @param { HuksOptions } options - Empty object (leave this parameter empty).
    * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
-   * properties in HuksReturnResult holds the parameters required for generating the key.
+   *     properties in HuksReturnResult holds the parameters required for generating the key.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1278,11 +1589,11 @@ declare namespace huks {
    * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
    * @param { HuksOptions } options - Empty object (leave this parameter empty).
    * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
-   * properties in HuksReturnResult holds the parameters required for generating the key.
+   *     properties in HuksReturnResult holds the parameters required for generating the key.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000004 - operating file failed
@@ -1294,6 +1605,30 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Obtains key properties. This API uses a promise to return the result.
+   *
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   *     properties in HuksReturnResult holds the parameters required for generating the key.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 23
    */
   function getKeyItemProperties(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
@@ -1328,14 +1663,14 @@ declare namespace huks {
    *
    * @param { string } keyAlias - Alias of the key to check.
    * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
-   * specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
-   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
+   *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
    * If the key does not exist, error is the error code.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -1346,6 +1681,30 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
+  /**
+   * Checks whether a key exists. This API uses an asynchronous callback to return the result.
+   *
+   * @param { string } keyAlias - Alias of the key to check.
+   * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
+   *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
+   *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
+   * If the key does not exist, error is the error code.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @since 23
+   */
   function isKeyItemExist(keyAlias: string, options: HuksOptions, callback: AsyncCallback<boolean>): void;
 
   /**
@@ -1353,13 +1712,13 @@ declare namespace huks {
    *
    * @param { string } keyAlias - Alias of the key to check.
    * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
-   * specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
-   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
+   *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @returns { Promise<boolean> } Promise used to return the result. If the key exists, then() performs subsequent
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -1370,6 +1729,29 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
+  /**
+   * Checks whether a key exists. This API uses a promise to return the result.
+   *
+   * @param { string } keyAlias - Alias of the key to check.
+   * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
+   *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
+   *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @returns { Promise<boolean> } Promise used to return the result. If the key exists, then() performs subsequent
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @since 23
+   */
   function isKeyItemExist(keyAlias: string, options: HuksOptions): Promise<boolean>;
 
   /**
@@ -1377,14 +1759,14 @@ declare namespace huks {
    *
    * @param { string } keyAlias - Alias of the key to check.
    * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
-   * specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
-   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
+   *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
    * Otherwise, data is false.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -1394,6 +1776,30 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Checks whether a key exists. This API uses an asynchronous callback to return the result.
+   *
+   * @param { string } keyAlias - Alias of the key to check.
+   * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
+   *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
+   *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
+   * Otherwise, data is false.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 23
    */
   function hasKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<boolean>): void;
 
@@ -1406,12 +1812,12 @@ declare namespace huks {
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   * <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -1431,14 +1837,14 @@ declare namespace huks {
    *
    * @param { string } keyAlias - Alias of the key to check.
    * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
-   * specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default 
-   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default 
+   *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @returns { Promise<boolean> } Promise used to return the result. If the key exists, true is returned. If the key
    * does not exist, false is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -1448,6 +1854,30 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Checks whether a key exists. This API uses a promise to return the result.
+   *
+   * @param { string } keyAlias - Alias of the key to check.
+   * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
+   *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default 
+   *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @returns { Promise<boolean> } Promise used to return the result. If the key exists, true is returned. If the key
+   * does not exist, false is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 23
    */
   function hasKeyItem(keyAlias: string, options: HuksOptions): Promise<boolean>;
 
@@ -1484,11 +1914,11 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key involved in the initSession operation.
    * @param { HuksOptions } options - Parameter set used for the initSession operation.
    * @param { AsyncCallback<HuksSessionHandle> } callback - Callback used to return a session handle for subsequent
-   * operations.
+   *     operations.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1510,11 +1940,11 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key involved in the initSession operation.
    * @param { HuksOptions } options - Parameter set used for the initSession operation.
    * @param { AsyncCallback<HuksSessionHandle> } callback - Callback used to return a session handle for subsequent
-   * operations.
+   *     operations.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1537,23 +1967,29 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key involved in the initSession operation.
    * @param { HuksOptions } options - Parameter set used for the initSession operation.
    * @param { AsyncCallback<HuksSessionHandle> } callback - Callback used to return a session handle for subsequent
-   * operations.
+   *     operations.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000018 - the input parameter is invalid
+   * @throws { BusinessError } 12000018 - the input parameter is invalid. Possible causes:
+   *     1. the aead length is invalid.
+   *     2. the group id specified by the access group tag is invalid.
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 22
@@ -1568,9 +2004,9 @@ declare namespace huks {
    * @param { HuksOptions } options - Parameter set used for the initSession operation.
    * @returns { Promise<HuksSessionHandle> } Promise used to return a session handle for subsequent operations.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1593,9 +2029,9 @@ declare namespace huks {
    * @param { HuksOptions } options - Parameter set used for the initSession operation.
    * @returns { Promise<HuksSessionHandle> } Promise used to return a session handle for subsequent operations.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1619,21 +2055,27 @@ declare namespace huks {
    * @param { HuksOptions } options - Parameter set used for the initSession operation.
    * @returns { Promise<HuksSessionHandle> } Promise used to return a session handle for subsequent operations.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000018 - the input parameter is invalid
+   * @throws { BusinessError } 12000018 - the input parameter is invalid. Possible causes:
+   *     1. the aead length is invalid.
+   *     2. the group id specified by the access group tag is invalid.
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 22
@@ -1649,12 +2091,12 @@ declare namespace huks {
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<HuksSessionHandle> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   * <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1708,9 +2150,9 @@ declare namespace huks {
    * @param { HuksOptions } options - Parameter set used for the updateSession operation.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1735,9 +2177,9 @@ declare namespace huks {
    * @param { HuksOptions } options - Parameter set used for the updateSession operation.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1755,6 +2197,71 @@ declare namespace huks {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Updates the key operation by segment. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 22
+   */
+  /**
+   * Updates the key operation by segment. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 23
+   */
   function updateSession(handle: long, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
   /**
@@ -1766,9 +2273,9 @@ declare namespace huks {
    * @param { Uint8Array } token - Authentication token for refined key access control.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1794,9 +2301,9 @@ declare namespace huks {
    * @param { Uint8Array } token - Authentication token for refined key access control.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1814,6 +2321,36 @@ declare namespace huks {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Updates the key operation by segment. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 23
+   */
   function updateSession(
     handle: long,
     options: HuksOptions,
@@ -1828,12 +2365,12 @@ declare namespace huks {
    * @param { long } handle - Handle for the updateSession operation.
    * @param { HuksOptions } options - Parameter set used for the updateSession operation.
    * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
-   * refined key access control is not performed.
+   *     refined key access control is not performed.
    * @returns { Promise<HuksReturnResult> } Promise used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1857,12 +2394,12 @@ declare namespace huks {
    * @param { long } handle - Handle for the updateSession operation.
    * @param { HuksOptions } options - Parameter set used for the updateSession operation.
    * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
-   * refined key access control is not performed.
+   *     refined key access control is not performed.
    * @returns { Promise<HuksReturnResult> } Promise used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1879,6 +2416,75 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Updates the key operation by segment. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   *     refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the updateSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 22
+   */
+  /**
+   * Updates the key operation by segment. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   *     refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the updateSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 23
    */
   function updateSession(handle: long, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
 
@@ -1912,13 +2518,13 @@ declare namespace huks {
    * Finishes the key operation. This API uses an asynchronous callback to return the result.
    * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the finishSession operation.
+   * @param { long } handle - Handle for the finishSession operation.
    * @param { HuksOptions } options - Parameter set used for the finishSession operation.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1939,13 +2545,13 @@ declare namespace huks {
    * Finishes the key operation. This API uses an asynchronous callback to return the result.
    * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the finishSession operation.
+   * @param { long } handle - Handle for the finishSession operation.
    * @param { HuksOptions } options - Parameter set used for the finishSession operation.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1967,13 +2573,13 @@ declare namespace huks {
    * Finishes the key operation. This API uses an asynchronous callback to return the result.
    * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the finishSession operation.
+   * @param { long } handle - Handle for the finishSession operation.
    * @param { HuksOptions } options - Parameter set used for the finishSession operation.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -1992,6 +2598,73 @@ declare namespace huks {
    * @atomicservice
    * @since 20
    */
+  /**
+   * Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 22
+   */
+  /**
+   * Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 23
+   */
   function finishSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
   /**
@@ -2003,9 +2676,9 @@ declare namespace huks {
    * @param { Uint8Array } token - Authentication token for refined key access control.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -2031,9 +2704,9 @@ declare namespace huks {
    * @param { Uint8Array } token - Authentication token for refined key access control.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -2060,9 +2733,9 @@ declare namespace huks {
    * @param { Uint8Array } token - Authentication token for refined key access control.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -2081,6 +2754,37 @@ declare namespace huks {
    * @atomicservice
    * @since 20
    */
+  /**
+   * Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 23
+   */
   function finishSession(
     handle: number,
     options: HuksOptions,
@@ -2092,15 +2796,15 @@ declare namespace huks {
    * Finishes the key operation. This API uses a promise to return the result. huks.initSession,
    * huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the finishSession operation.
+   * @param { long } handle - Handle for the finishSession operation.
    * @param { HuksOptions } options - Parameter set used for the finishSession operation.
    * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
-   * refined key access control is not performed.
+   *     refined key access control is not performed.
    * @returns { Promise<HuksReturnResult> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -2121,15 +2825,15 @@ declare namespace huks {
    * Finishes the key operation. This API uses a promise to return the result. huks.initSession,
    * huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the finishSession operation.
+   * @param { long } handle - Handle for the finishSession operation.
    * @param { HuksOptions } options - Parameter set used for the finishSession operation.
    * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
-   * refined key access control is not performed.
+   *     refined key access control is not performed.
    * @returns { Promise<HuksReturnResult> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -2151,15 +2855,15 @@ declare namespace huks {
    * Finishes the key operation. This API uses a promise to return the result. huks.initSession,
    * huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the finishSession operation.
+   * @param { long } handle - Handle for the finishSession operation.
    * @param { HuksOptions } options - Parameter set used for the finishSession operation.
    * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
-   * refined key access control is not performed.
+   *     refined key access control is not performed.
    * @returns { Promise<HuksReturnResult> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -2177,6 +2881,77 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 20
+   */
+  /**
+   * Finishes the key operation. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   *     refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 22
+   */
+  /**
+   * Finishes the key operation. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   *     refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 23
    */
   function finishSession(handle: number, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
 
@@ -2209,13 +2984,13 @@ declare namespace huks {
   /**
    * Aborts a key operation. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } handle - Handle for the abortSession operation.
+   * @param { long } handle - Handle for the abortSession operation.
    * @param { HuksOptions } options - Parameter set used for the abortSession operation.
    * @param { AsyncCallback<void> } callback - Callback used to return the abortSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -2228,13 +3003,13 @@ declare namespace huks {
   /**
    * Aborts a key operation. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } handle - Handle for the abortSession operation.
+   * @param { long } handle - Handle for the abortSession operation.
    * @param { HuksOptions } options - Parameter set used for the abortSession operation.
    * @param { AsyncCallback<void> } callback - Callback used to return the abortSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -2245,18 +3020,63 @@ declare namespace huks {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Aborts a key operation. This API uses an asynchronous callback to return the result.
+   *
+   * @param { long } handle - Handle for the abortSession operation.
+   * @param { HuksOptions } options - Parameter set used for the abortSession operation.
+   * @param { AsyncCallback<void> } callback - Callback used to return the abortSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 22
+   */
+  /**
+   * Aborts a key operation. This API uses an asynchronous callback to return the result.
+   *
+   * @param { long } handle - Handle for the abortSession operation.
+   * @param { HuksOptions } options - Parameter set used for the abortSession operation.
+   * @param { AsyncCallback<void> } callback - Callback used to return the abortSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 23
+   */
   function abortSession(handle: number, options: HuksOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Aborts a key operation. This API uses a promise to return the result.
    *
-   * @param { number } handle - Handle for the abortSession operation.
+   * @param { long } handle - Handle for the abortSession operation.
    * @param { HuksOptions } options - Parameter set used for the abortSession operation.
    * @returns { Promise<void> } Promise used to return the abortSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -2269,13 +3089,13 @@ declare namespace huks {
   /**
    * Aborts a key operation. This API uses a promise to return the result.
    *
-   * @param { number } handle - Handle for the abortSession operation.
+   * @param { long } handle - Handle for the abortSession operation.
    * @param { HuksOptions } options - Parameter set used for the abortSession operation.
    * @returns { Promise<void> } Promise used to return the abortSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -2286,6 +3106,50 @@ declare namespace huks {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Aborts a key operation. This API uses a promise to return the result.
+   *
+   * @param { long } handle - Handle for the abortSession operation.
+   * @param { HuksOptions } options - Parameter set used for the abortSession operation.
+   * @returns { Promise<void> } Promise used to return the abortSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 22
+   *//**
+   * Aborts a key operation. This API uses a promise to return the result.
+   *
+   * @param { long } handle - Handle for the abortSession operation.
+   * @param { HuksOptions } options - Parameter set used for the abortSession operation.
+   * @returns { Promise<void> } Promise used to return the abortSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 23
+   */
   function abortSession(handle: number, options: HuksOptions): Promise<void>;
 
   /**
@@ -2295,12 +3159,12 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
    * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
-   * successful, no err value is returned; otherwise, an error code is returned.
+   *     successful, no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 201 - check permission failed
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000004 - operating file failed
@@ -2311,6 +3175,31 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
+   */
+  /**
+   * Obtains the certificate used to attest a key. This API uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.ATTEST_KEY
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   *     successful, no err value is returned; otherwise, an error code is returned.
+   * @throws { BusinessError } 201 - check permission failed
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @since 23
    */
   function attestKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
@@ -2323,12 +3212,12 @@ declare namespace huks {
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key attestation operation.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   * <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -2352,12 +3241,12 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
    * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
    * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
-   * certChains in HuksReturnResult is the certificate chain obtained.
+   *     certChains in HuksReturnResult is the certificate chain obtained.
    * @throws { BusinessError } 201 - check permission failed
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000004 - operating file failed
@@ -2368,6 +3257,31 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
+   */
+  /**
+   * Obtains the certificate used to attest a key. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.ATTEST_KEY
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   *     certChains in HuksReturnResult is the certificate chain obtained.
+   * @throws { BusinessError } 201 - check permission failed
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @since 23
    */
   function attestKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
@@ -2380,11 +3294,11 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
    * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
-   * successful, no err value is returned; otherwise, an error code is returned.
+   *     successful, no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000004 - operating file failed
@@ -2405,11 +3319,11 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
    * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
-   * successful, no err value is returned; otherwise, an error code is returned.
+   *     successful, no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000004 - operating file failed
@@ -2422,6 +3336,33 @@ declare namespace huks {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Obtains the certificate for anonymous attestation. This API uses an asynchronous callback to return
+   * the result. This operation requires Internet access and takes time. If error code 12000012 is returned, the network
+   * is abnormal. If the device is not connected to the network, display a message, indicating that the network is not
+   * connected. If the network is connected, the failure may be caused by network jitter. Try again later.
+   *
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   *     successful, no err value is returned; otherwise, an error code is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 23
+   */
   function anonAttestKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
   /**
@@ -2433,12 +3374,12 @@ declare namespace huks {
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key attestation operation.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   * <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -2464,11 +3405,11 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
    * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
    * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
-   * certChains in HuksReturnResult is the certificate chain obtained.
+   *     certChains in HuksReturnResult is the certificate chain obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
@@ -2491,11 +3432,11 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
    * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
    * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
-   * certChains in HuksReturnResult is the certificate chain obtained.
+   *     certChains in HuksReturnResult is the certificate chain obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000004 - operating file failed
@@ -2507,6 +3448,33 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Obtains the certificate for anonymous attestation. This API uses a promise to return the result. This
+   * operation requires Internet access and takes time. If error code 12000012 is returned, the network is abnormal. If
+   * the device is not connected to the network, display a message, indicating that the network is not connected. If the
+   * network is connected, the failure may be caused by network jitter. Try again later.
+   *
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   *     certChains in HuksReturnResult is the certificate chain obtained.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 23
    */
   function anonAttestKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
@@ -2527,9 +3495,9 @@ declare namespace huks {
    * @param { HuksOptions } options - Parameters for listing key aliases.
    * @returns { Promise<HuksListAliasesReturnResult> } Promise used to return the key aliases obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1. Mandatory parameters are left unspecified.
-   *                                 2. Incorrect parameter types.
-   *                                 3. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
@@ -2537,6 +3505,24 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Lists key aliases. This API uses a promise to return the result.
+   *
+   * @param { HuksOptions } options - Parameters for listing key aliases.
+   * @returns { Promise<HuksListAliasesReturnResult> } Promise used to return the key aliases obtained.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 23
    */
   function listAliases(options: HuksOptions): Promise<HuksListAliasesReturnResult>;
 
@@ -3567,6 +4553,62 @@ declare namespace huks {
      * @since 20
      */
     HUKS_ERR_CODE_INVALID_ARGUMENT = 12000018,
+    /**
+     * The item already exists.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 22
+     */
+    HUKS_ERR_CODE_ITEM_EXISTS = 12000019,
+    /**
+     * An error occurred in the external module.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 22
+     */
+    HUKS_ERR_CODE_EXTERNAL_MODULE = 12000020,
+    /**
+     * The Ukey PIN is locked.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @atomicservice
+     * @since 22
+     */
+    HUKS_ERR_CODE_PIN_LOCKED = 12000021,
+    /**
+     * The Ukey PIN is incorrect.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @atomicservice
+     * @since 22
+     */
+    HUKS_ERR_CODE_PIN_INCORRECT = 12000022,
+    /**
+     * The Ukey PIN is not authenticated.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @atomicservice
+     * @since 22
+     */
+    HUKS_ERR_CODE_PIN_NO_AUTH = 12000023,
+    /**
+     * The device or resource is busy.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 22
+     */
+    HUKS_ERR_CODE_BUSY = 12000024,
+    /**
+     * The resource exceeds the limit.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 22
+     */
+    HUKS_ERR_CODE_EXCEED_LIMIT = 12000025
   }
 
   /**
@@ -4679,7 +5721,15 @@ declare namespace huks {
      * @atomicservice
      * @since 12
      */
-    HUKS_UNWRAP_SUITE_ECDH_AES_256_GCM_NOPADDING = 2
+    HUKS_UNWRAP_SUITE_ECDH_AES_256_GCM_NOPADDING = 2,
+    /**
+     * Use SM2 and then use SM4-ECB-NoPadding to encrypt the key.
+     * 
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 23
+     */
+    HUKS_UNWRAP_SUITE_SM2_SM4_ECB_NOPADDING = 5,
   }
 
   /**
@@ -6351,6 +7401,14 @@ declare namespace huks {
      * @since 22
      */
     HUKS_TAG_KEY_CLASS = HuksTagType.HUKS_TAG_TYPE_UINT | 522,
+    /**
+     * The tag indicates a group of shared keys among applications with the same developer ID.
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @atomicservice
+     * @since 23
+     */
+    HUKS_TAG_KEY_ACCESS_GROUP = HuksTagType.HUKS_TAG_TYPE_BYTES | 523,
 
     /*
      * Other reserved TAG: 601 - 1000

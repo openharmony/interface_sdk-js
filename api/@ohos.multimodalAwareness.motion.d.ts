@@ -187,9 +187,6 @@ declare namespace motion {
    * @since 20 dynamic
    */
   function off(type: 'holdingHandChanged', callback?: Callback<HoldingHandStatus>): void;
-
-
-
   /**
    * Subscribe to detect the operating hand changed event.
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE

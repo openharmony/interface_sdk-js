@@ -435,7 +435,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     GET_BUNDLE_INFO_WITH_ENTRY_MODULE = 0x00010000,
   }
@@ -1019,7 +1019,7 @@ declare namespace bundleManager {
     /**
      * Indicates extension info with type of the crypto
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 22 dynamic&static
+     * @since 22 dynamic
      */
     CRYPTO = 35,
 
@@ -3803,6 +3803,25 @@ declare namespace bundleManager {
    * @since 22 static
    */
   function getAppProvisionInfo(bundleName: string, userId?: int): Promise<AppProvisionInfo>;
+
+  /**
+   * Get all app provision info of a specified user.
+   * If you need to get all app provision info under the current user, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * needs to be applied for.
+   * If you need to get all app provision info under other users, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { int } [userId] - Indicates the user ID.
+   * @returns { Promise<Array<AppProvisionInfo>> } Returns a list of AppProvisionInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function getAllAppProvisionInfo(userId?: int): Promise<Array<AppProvisionInfo>>;
 
   /**
    * Obtains the profile file information of a specified bundle.

@@ -884,9 +884,18 @@ declare namespace scan {
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
-     * @since 22 static
      */
     function on(type: 'scanDeviceFound', callback: Callback<ScannerDevice>): void;
+
+    /**
+     * Register event callback for scanner device found.
+     * @permission ohos.permission.PRINT
+     * @param { Callback<ScannerDevice> } callback - Callback for device found event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 22 static
+     */
+    function onScanDeviceFound(callback: Callback<ScannerDevice>): void;
 
     /**
      * Unregister event callback for scanner device found.
@@ -896,9 +905,18 @@ declare namespace scan {
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
-     * @since 22 static
      */
     function off(type: 'scanDeviceFound', callback?: Callback<ScannerDevice>): void;
+
+    /**
+     * Unregister event callback for scanner device found.
+     * @permission ohos.permission.PRINT
+     * @param { Callback<ScannerDevice> } [callback] - Optional callback to unregister.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 22 static
+     */
+    function offScanDeviceFound(callback?: Callback<ScannerDevice>): void;
 
     /**
      * Register event callback for scanner device sync.
@@ -908,9 +926,18 @@ declare namespace scan {
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
-     * @since 22 static
      */
     function on(type: 'scanDeviceSync', callback: Callback<ScannerSyncDevice>): void;
+
+    /**
+     * Register event callback for scanner device sync.
+     * @permission ohos.permission.MANAGE_PRINT_JOB
+     * @param { Callback<ScannerSyncDevice> } callback - Callback for device sync event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 22 static
+     */
+    function onScanDeviceSync(callback: Callback<ScannerSyncDevice>): void;
 
     /**
      * Unregister event callback for scanner device sync.
@@ -920,9 +947,18 @@ declare namespace scan {
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
-     * @since 22 static
      */
     function off(type: 'scanDeviceSync', callback?: Callback<ScannerSyncDevice>): void;
+
+    /**
+     * Unregister event callback for scanner device sync.
+     * @permission ohos.permission.MANAGE_PRINT_JOB
+     * @param { Callback<ScannerSyncDevice> } [callback] - Optional callback to unregister.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 22 static
+     */
+    function offScanDeviceSync(callback?: Callback<ScannerSyncDevice>): void;
 
     /**
      * Register event callback for scanner device add (system API).
@@ -934,9 +970,20 @@ declare namespace scan {
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
      */
     function on(type: 'scanDeviceAdd', callback: Callback<ScannerDevice>): void;
+
+    /**
+     * Register event callback for scanner device add (system API).
+     * @permission ohos.permission.MANAGE_PRINT_JOB
+     * @param { Callback<ScannerDevice> } callback - Callback for device add event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    function onScanDeviceAdd(callback: Callback<ScannerDevice>): void;
 
     /**
      * Unregister event callback for scanner device add (system API).
@@ -948,9 +995,20 @@ declare namespace scan {
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
      */
     function off(type: 'scanDeviceAdd', callback?: Callback<ScannerDevice>): void;
+
+    /**
+     * Unregister event callback for scanner device add (system API).
+     * @permission ohos.permission.MANAGE_PRINT_JOB
+     * @param { Callback<ScannerDevice> } [callback] - Optional callback to unregister.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    function offScanDeviceAdd(callback?: Callback<ScannerDevice>): void;
 
     /**
      * Register event callback for scanner device delete (system API).
@@ -962,9 +1020,20 @@ declare namespace scan {
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
      */
     function on(type: 'scanDeviceDel', callback: Callback<ScannerDevice>): void;
+
+    /**
+     * Register event callback for scanner device delete (system API).
+     * @permission ohos.permission.MANAGE_PRINT_JOB
+     * @param { Callback<ScannerDevice> } callback - Callback for device delete event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    function onScanDeviceDel(callback: Callback<ScannerDevice>): void;
 
     /**
      * Unregister event callback for scanner device delete (system API).
@@ -976,8 +1045,19 @@ declare namespace scan {
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
      */
     function off(type: 'scanDeviceDel', callback?: Callback<ScannerDevice>): void;
+
+    /**
+     * Unregister event callback for scanner device delete (system API).
+     * @permission ohos.permission.MANAGE_PRINT_JOB
+     * @param { Callback<ScannerDevice> } [callback] - Optional callback to unregister.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    function offScanDeviceDel(callback?: Callback<ScannerDevice>): void;
 }
 export default scan;

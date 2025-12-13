@@ -20,13 +20,13 @@
  */
 import { ResourceColor, Length } from "./units";
 import { LengthMetrics } from '../Graphics';
-import { CommonMethod, Callback, Optional } from './common';
+import { CommonMethod, Callback } from './common';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
  * The challenge result based on input pattern for control pattern lock component.
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -206,21 +206,21 @@ export declare interface PatternLockAttribute extends CommonMethod {
      * <br>If this attribute is set to **0** or a negative value, the path stroke is not displayed.
      * </p>
      *
-     * @param { number | string | undefined } value - Width of the path stroke, Default value is 12vp.
+     * @param { double | string | undefined } value - Width of the path stroke, Default value is 12vp.
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default pathStrokeWidth(value: number | string | undefined): this;
+    default pathStrokeWidth(value: double | string | undefined): this;
     /**
      * Invoked when the pattern password input is complete.
      *
-     * @param { function | undefined } callback
+     * @param { Callback<Array<int>> | undefined } callback
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default onPatternComplete(callback: ((input: Array<number>) => void) | undefined): this;
+    default onPatternComplete(callback: Callback<Array<int>> | undefined): this;
     /**
      * Sets whether to allow the user to reset the component status (that is, clear the input) by touching the component
      * again after the input is complete.
@@ -235,12 +235,12 @@ export declare interface PatternLockAttribute extends CommonMethod {
     default autoReset(value: boolean | undefined): this;
     /**
      * Called when connecting to a grid dot.
-     * @param {  Callback<number> | undefined } callback - A callback instance used when connection to a grid dot.
+     * @param {  Callback<int> | undefined } callback - A callback instance used when connection to a grid dot.
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default onDotConnect(callback: Callback<number> | undefined): this;
+    default onDotConnect(callback: Callback<int> | undefined): this;
     /**
      * Sets the background circle style for the dots in a grid when they are in the activated state.
      *

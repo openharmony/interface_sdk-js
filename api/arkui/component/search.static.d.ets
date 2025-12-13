@@ -17,10 +17,10 @@
  * @file
  * @kit ArkUI
  */
-import { TextContentControllerBase, SelectionOptions, Callback, CommonMethod, Optional, TextDecorationOptions, Bindable, AttributeModifier } from "./common";
+import { TextContentControllerBase, SelectionOptions, Callback, CommonMethod, TextDecorationOptions, Bindable, AttributeModifier } from "./common";
 import { CustomBuilder } from './builder';
 import { ResourceStr, Length, ResourceColor, Dimension, Font, ColorMetrics } from "./units";
-import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions, KeyboardAppearance, EditableTextChangeValue, AutoCapitalizationMode } from "./textCommon";
+import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions, KeyboardAppearance, EditableTextChangeValue, AutoCapitalizationMode, SelectedDragPreviewStyle } from "./textCommon";
 import { EnterKeyType, OnTextSelectionChangeCallback, OnContentScrollCallback, OnPasteCallback, SubmitEvent } from "./textInput";
 import { CopyOptions, TextAlign } from "./enums";
 import { KeyboardOptions } from "./richEditor";
@@ -1014,6 +1014,16 @@ export declare interface SearchAttribute extends CommonMethod {
      */
     default keyboardAppearance(appearance: KeyboardAppearance | undefined): this;
     /**
+     * Whether to compress punctuation at the beginning of line.
+     *
+     * @param { boolean | undefined } enabled - Whether to enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { SearchAttribute } - returns the instance of the SearchAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default compressLeadingPunctuation(enabled: boolean | undefined): this;
+    /**
      * Set the divider color.
      * 
      * @param { ColorMetrics | undefined } color - Color of the divider.
@@ -1023,6 +1033,27 @@ export declare interface SearchAttribute extends CommonMethod {
      */
     default dividerColor(color: ColorMetrics | undefined): this;
     /**
+     * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+     *
+     * @param { boolean | undefined } include - Whether enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default includeFontPadding(include: boolean | undefined): this;
+    /**
+     * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+     *
+     * @param { boolean | undefined } enabled - Whether enable the feature, the default value is false.
+     *     True means enable the feature. Passing `undefined` resets it to the default value.
+     * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default fallbackLineSpacing(enabled: boolean | undefined): this;
+    /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<SearchAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
@@ -1031,6 +1062,17 @@ export declare interface SearchAttribute extends CommonMethod {
      * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<SearchAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Used to set the selected drag preview style.
+     *
+     * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+     *     If set undefined will reset the style.
+     * @returns { SearchAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): this;
 }
 
 /**

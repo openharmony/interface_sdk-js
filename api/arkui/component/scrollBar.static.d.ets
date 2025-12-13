@@ -19,7 +19,7 @@
  */
 import { Scroller } from "./scroll";
 import { BarState } from './enums';
-import { Optional, CommonMethod } from './common';
+import { CommonMethod } from './common';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**

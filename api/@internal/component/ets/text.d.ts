@@ -1784,7 +1784,66 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @atomicservice
    * @since 20 dynamic
    */
+  /**
+   * Set text transition.
+   *
+   * @param { Optional<ContentTransition> } transition - The transition of text.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   contentTransition(transition: Optional<ContentTransition>): TextAttribute;
+
+  /**
+   * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+   *
+   * @param { Optional<boolean> } include - Whether enable the feature, the default value is false.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  includeFontPadding(include: Optional<boolean>): TextAttribute;
+
+  /**
+   * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+   *
+   * @param { Optional<boolean> } enabled - Whether enable the feature, the default value is false.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fallbackLineSpacing(enabled: Optional<boolean>): TextAttribute;
+
+  /**
+   * Whether to compress punctuation at the beginning of line.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { TextAttribute } - returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  compressLeadingPunctuation(enabled: Optional<boolean>): TextAttribute;
+
+  /**
+   * Used to set the selected drag preview style.
+   *
+   * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+   *     If set undefined will reset the style.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextAttribute;
 }
 
 /**
@@ -2120,6 +2179,37 @@ declare enum MarqueeStartPolicy {
 }
 
 /**
+ * Marquee scrolling policy after text update.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare enum MarqueeUpdatePolicy {
+  /**
+   * Reset scroll position and restart scroll.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  DEFAULT = 0,
+
+  /**
+   * Preserve scroll position, just change to new text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  PRESERVE_POSITION = 1
+}
+
+/**
  * Defines the options of Text.
  *
  * @interface TextOptions
@@ -2190,6 +2280,21 @@ declare interface TextMarqueeOptions {
   step?: number;
 
   /**
+   * The spacing between two rounds of marquee.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>Default value is 48vp.
+   * </p>
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  spacing?: LengthMetrics;
+
+  /**
    * The rounds of the marquee.
    *
    * @type { ?number }
@@ -2243,6 +2348,23 @@ declare interface TextMarqueeOptions {
    * @since 18 dynamic
    */
   marqueeStartPolicy?: MarqueeStartPolicy;
+
+  /**
+   * Marquee scrolling policy after text update.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute takes effect when the marquee is in the playing state
+   *     and the text content width exceeds the width of the marquee component.
+   *     Default value is MarqueeUpdatePolicy.DEFAULT.
+   * </p>
+   *
+   * @type { ?MarqueeUpdatePolicy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  marqueeUpdatePolicy?: MarqueeUpdatePolicy;
 }
 
 /**

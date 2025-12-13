@@ -62,6 +62,22 @@ export { SceneResourceType, SceneResource, Shader, MaterialType, Material, Shade
   Sampler, SamplerFilter, SamplerAddressMode } from './graphics3d/SceneResources';
 
 /**
+ * Export scene resources
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 23 dynamic&static
+ */
+export { PolygonMode, UnlitMaterial } from './graphics3d/SceneResources';
+
+/**
+ * Export scene resources
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic&static
+ */
+export { UnlitShadowAlphaMaterial, OcclusionMaterial } from './graphics3d/SceneResources';
+
+/**
  * Export scene nodes
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic

@@ -118,6 +118,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
+   * @since 22 static
    */
   function getCellularRxBytes(callback: AsyncCallback<long>): void;
 
@@ -131,6 +132,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
+   * @since 22 static
    */
   function getCellularRxBytes(): Promise<long>;
 
@@ -144,6 +146,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
+   * @since 22 static
    */
   function getCellularTxBytes(callback: AsyncCallback<long>): void;
 
@@ -157,6 +160,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
+   * @since 22 static
    */
   function getCellularTxBytes(): Promise<long>;
 
@@ -267,6 +271,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
+   * @since 22 static
    */
   function getUidRxBytes(uid: int, callback: AsyncCallback<long>): void;
 
@@ -281,6 +286,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
+   * @since 22 static
    */
   function getUidRxBytes(uid: int): Promise<long>;
 
@@ -295,6 +301,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
+   * @since 22 static
    */
   function getUidTxBytes(uid: int, callback: AsyncCallback<long>): void;
   
@@ -309,6 +316,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
+   * @since 22 static
    */
   function getUidTxBytes(uid: int): Promise<long>;
 
@@ -343,6 +351,20 @@ declare namespace statistics {
   function on(type: 'netStatsChange', callback: Callback<NetStatsChangeInfo>): void;
 
   /**
+   * Register notifications of network traffic updates.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { Callback<NetStatsChangeInfo> } callback - The callback of on.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onNetStatsChange(callback: Callback<NetStatsChangeInfo>): void;
+
+  /**
    * Unregister notifications of network traffic updates.
    * @permission ohos.permission.GET_NETWORK_STATS
    * @param { 'netStatsChange' } type - Indicates Event name.
@@ -371,6 +393,20 @@ declare namespace statistics {
    * @since 11 dynamic
    */
   function off(type: 'netStatsChange', callback?: Callback<NetStatsChangeInfo>): void;
+
+  /**
+   * Unregister notifications of network traffic updates.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { Callback<NetStatsChangeInfo> } [callback] - The callback of off.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offNetStatsChange(callback?: Callback<NetStatsChangeInfo>): void;
 
   /**
    * Get the traffic usage details of the network interface in the specified time period.
@@ -458,6 +494,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11 dynamic
+   * @since 22 static
    */
   function getSockfdRxBytes(sockfd: int, callback: AsyncCallback<long>): void;
 
@@ -471,6 +508,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11 dynamic
+   * @since 22 static
    */
   function getSockfdRxBytes(sockfd: int): Promise<long>;
 
@@ -484,6 +522,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11 dynamic
+   * @since 22 static
    */
   function getSockfdTxBytes(sockfd: int, callback: AsyncCallback<long>): void;
 
@@ -497,6 +536,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11 dynamic
+   * @since 22 static
    */
   function getSockfdTxBytes(sockfd: int): Promise<long>;
 
@@ -576,7 +616,6 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
    */
   /**
    * Detailed information of statistics.
@@ -591,7 +630,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Bytes of received.
@@ -607,7 +645,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Bytes of send.
@@ -623,7 +660,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Packets of received.
@@ -639,7 +675,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Packets of send.
@@ -691,7 +726,48 @@ declare namespace statistics {
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12 dynamic
+     * @since 12
+     */
+    startTime: int;
+    /**
+     * End time for querying traffic.
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    endTime: int;
+    /**
+     * Detailed information of statistics.
+     * @type { NetStatsInfo }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    info: NetStatsInfo;
+  }[];
+
+  /**
+   * Array of {@link NetStatsInfoSequenceItem}.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  export type NetStatsInfoSequence = Array<NetStatsInfoSequenceItem>;
+
+  /**
+   * Parameters for an {@link NetStatsInfo} with start time and end time.
+   * @interface NetStatsInfoSequenceItem
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  export interface NetStatsInfoSequenceItem {
+    /**
+     * Start time for querying traffic.
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 22 static
      */
     startTime: int;
@@ -700,7 +776,6 @@ declare namespace statistics {
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12 dynamic
      * @since 22 static
      */
     endTime: int;
@@ -709,11 +784,10 @@ declare namespace statistics {
      * @type { NetStatsInfo }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12 dynamic
      * @since 22 static
      */
     info: NetStatsInfo;
-  }[];
+  }
 
   /**
    * {@link NetStatsInfo} for every UID. Key is UID.
@@ -726,12 +800,19 @@ declare namespace statistics {
   };
 
   /**
+   * {@link NetStatsInfo} for every UID. Key is UID.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  export type UidNetStatsInfo = Record<int, NetStatsInfo>;
+
+  /**
    * Parameters for obtaining detailed information on specified network traffic usage.
    * @interface NetworkInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
    */
   /**
    * Parameters for obtaining detailed information on specified network traffic usage.
@@ -746,7 +827,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Network type for querying traffic.
@@ -761,7 +841,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Start time for querying traffic.
@@ -776,7 +855,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * End time for querying traffic.
@@ -791,7 +869,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * SIM card id for querying traffic.
@@ -817,6 +894,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 22 static
    */
   function getTrafficStatsByNetwork(networkInfo: NetworkInfo): Promise<UidNetStatsInfo>;
   /**
@@ -835,6 +913,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 22 static
    */
   function getTrafficStatsByUidNetwork(uid: int, networkInfo: NetworkInfo): Promise<NetStatsInfoSequence>;
 
@@ -852,6 +931,23 @@ declare namespace statistics {
    * @since 22 dynamic&static
    */
   function getSelfTrafficStats(networkInfo: NetworkInfo): Promise<NetStatsInfo>;
+
+  /**
+   * Get this month traffic data of the cellular network.
+   *
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { int } simId - The id of the specified sim card.
+   * @returns { Promise<long> } The statistics of the simId in this month.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  function getMonthTrafficStats(simId: int): Promise<long>;
 }
 
 export default statistics;

@@ -21,6 +21,8 @@ import { DecorationStyleInterface, MutableStyledString, StyledString } from './s
 import { SelectionOptions, Callback } from './common';
 import { TextDecorationType, TextDecorationStyle } from './enums';
 import { AttributeModifier, CommonMethod } from './common';
+import text from '../../@ohos.graphics.text';
+
 /**
  * Defines the text data detector type.
  *
@@ -326,11 +328,11 @@ export declare interface TextBaseController {
     /**
      * Get LayoutManager.
      *
-     * @returns { LayoutManager } - Return the LayoutManager.
+     * @returns { LayoutManager | undefined } - Return the LayoutManager.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getLayoutManager(): LayoutManager;
+    getLayoutManager(): LayoutManager | undefined;
 }
 /**
  * Define the text extended editing controller.
@@ -344,11 +346,11 @@ export declare interface TextEditControllerEx extends TextBaseController {
     /**
      * Judge whether is in editing state
      *
-     * @returns { boolean } - true means that the component is in editing state, false means is non in editing status
+     * @returns { boolean | undefined } - true means that the component is in editing state, false means is non in editing status
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    isEditing(): boolean;
+    isEditing(): boolean | undefined;
     /**
      * Stop editing state.
      *
@@ -360,27 +362,27 @@ export declare interface TextEditControllerEx extends TextBaseController {
      * Set caret offset.
      *
      * @param { int } offset - caret offset.
-     * @returns { boolean } - Return true if the caret offset was successfully set, false otherwise.
+     * @returns { boolean | undefined } - Return true if the caret offset was successfully set, false otherwise.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    setCaretOffset(offset: int): boolean;
+    setCaretOffset(offset: int): boolean | undefined;
     /**
      * Get caret offset from controller.
      *
-     * @returns { int }
+     * @returns { int | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getCaretOffset(): int;
+    getCaretOffset(): int | undefined;
     /**
      * Get PreviewText.
      *
-     * @returns { PreviewText } - Return the PreviewText.
+     * @returns { PreviewText | undefined } - Return the PreviewText.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getPreviewText(): PreviewText;
+    getPreviewText(): PreviewText | undefined;
 }
 /**
  * The previewText.
@@ -425,11 +427,11 @@ export declare interface StyledStringController {
     /**
      * Get the StyledString of the component.
      *
-     * @returns { MutableStyledString }
+     * @returns { MutableStyledString | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getStyledString(): MutableStyledString;
+    getStyledString(): MutableStyledString | undefined;
 }
 /**
  * Define the StyledString changed listener.
@@ -500,21 +502,42 @@ export declare interface LayoutManager {
     /**
      * Get the line count.
      *
-     * @returns { int } The line count value returned to the caller.
+     * @returns { int | undefined } The line count value returned to the caller.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getLineCount(): int;
+    getLineCount(): int | undefined;
     /**
      * Get the glyph position at coordinate.
      *
      * @param { double } x - the positionX of typography.
      * @param { double } y - the positionY of typography.
-     * @returns { PositionWithAffinity } TextBlob object.
+     * @returns { PositionWithAffinity | undefined } TextBlob object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getGlyphPositionAtCoordinate(x: double, y: double): PositionWithAffinity;
+    getGlyphPositionAtCoordinate(x: double, y: double): PositionWithAffinity | undefined;
+
+    /**
+     * Get LineMetrics.
+     * 
+     * @param { int } lineNumber - the number of line.
+     * @returns { LineMetrics | undefined } The line Metrics.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    getLineMetrics(lineNumber: int): LineMetrics | undefined;
+
+    /**
+     * Get the rects for range.
+     * @param { TextRange } range - The range to set.
+     * @param { RectWidthStyle } widthStyle - Width style to set.
+     * @param { RectHeightStyle } heightStyle - Height style to set.
+     * @returns { Array<TextBox> | undefined } The rects for range.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox> | undefined;
 }
 /**
  * Position and affinity.
@@ -532,7 +555,59 @@ export interface PositionWithAffinity {
      * @since 22 static
      */
     position: int;
+
+    /**
+     * Affinity of the position.
+     * @type { Affinity }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 22 static
+     */
+    affinity: Affinity;
 }
+/**
+ * Define the Affinity type.
+ *
+ * @typedef { text.Affinity } Affinity
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+declare type Affinity = text.Affinity;
+
+/**
+ * Define the LineMetrics type.
+ *
+ * @typedef { text.LineMetrics } LineMetrics
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+declare type LineMetrics = text.LineMetrics;
+
+/**
+ * Define the RectWidthStyle type.
+ *
+ * @typedef { text.RectWidthStyle } RectWidthStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+declare type RectWidthStyle = text.RectWidthStyle;
+
+/**
+ * Define the RectHeightStyle type.
+ *
+ * @typedef { text.RectHeightStyle } RectHeightStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+declare type RectHeightStyle = text.RectHeightStyle;
+
+/**
+ * Define the TextBox type.
+ *
+ * @typedef { text.TextBox } TextBox
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+declare type TextBox = text.TextBox;
 /**
  * Defines the cursor style
  *
@@ -684,6 +759,29 @@ export declare class TextMenuItemId {
      * @since 22 static
      */
     static readonly SHARE: TextMenuItemId;
+
+    /**
+     * Indicates the TextMenuItemId for auto fill.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    static readonly autoFill: TextMenuItemId;
+
+    /**
+     * Indicates the TextMenuItemId for password vault.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    static readonly passwordVault: TextMenuItemId;
 }
 /**
  * TextMenuItem
@@ -757,20 +855,22 @@ export type OnMenuItemClickCallback = (menuItem: TextMenuItem, range: TextRange)
 export declare interface EditMenuOptions {
     /**
      * Passes the default menu, invokes before every display to generate a menu for triggering click events.
+     * If `undefined` is passed, the existing registered event will be removed.
      *
-     * @type { OnCreateMenuCallback }
+     * @type { OnCreateMenuCallback | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onCreateMenu: OnCreateMenuCallback;
+    onCreateMenu: OnCreateMenuCallback | undefined;
     /**
      * Invoke upon clicking an item, capable of intercepting the default system menu execution behavior.
+     * If `undefined` is passed, the existing registered event will be removed.
      *
-     * @type { OnMenuItemClickCallback }
+     * @type { OnMenuItemClickCallback | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onMenuItemClick: OnMenuItemClickCallback;
+    onMenuItemClick: OnMenuItemClickCallback | undefined;
 }
 /**
  * Defines the font decoration result.
@@ -972,4 +1072,104 @@ export declare enum KeyboardAppearance {
      * @since 22 static
      */
     DARK_IMMERSIVE = 3
+}
+
+/**
+ * Configuration for Accessibility .
+ *
+ * @interface AccessibilitySpanOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface AccessibilitySpanOptions {
+    /**
+     * Indicates the accessibility text of component.
+     *
+     * @type { ?ResourceStr } - accessibility text, Default value is "".
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+  accessibilityText?: ResourceStr;
+    /**
+     * Indicates more detailed description text of component,
+     *     which is used to further describe the component.
+     *
+     * @type { ?ResourceStr } - accessibility description, Default value is "".
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+  accessibilityDescription?: ResourceStr;
+    /**
+     * Set accessibility level.
+     *
+     * @type { ?string } - The accessibility level for component. The options are as follows:<br/>
+     *     "auto":The value is converted to "yes" or "no" based on the component.
+     *     "yes": the current component is selectable for the accessibility service.
+     *     "no": The current component is not selectable for the accessibility service.
+     * @default "auto".
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+  accessibilityLevel?:string;
+}
+
+/**
+ * Selected drag preview style configuration.
+ *
+ * @interface SelectedDragPreviewStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare interface SelectedDragPreviewStyle {
+    /**
+     * The color of background.
+     *
+     * @type { ?ResourceColor } - Default value is '#ffffff' (100% opacity).
+     *                            Default value in dark mode is '#202224' (95% opacity).
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+  color?: ResourceColor;
+}
+
+/**
+ * Defines text direction.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export declare enum TextDirection {
+    /**
+     * Left to right.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    LTR = 0,
+    /**
+     * Right to left.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    RTL = 1,
+    /**
+     * The text direction follows the component layout.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    DEFAULT = 2,
+    /**
+     * The text direction follows the actual text.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    AUTO = 3
 }

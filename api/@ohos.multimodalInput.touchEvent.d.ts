@@ -409,21 +409,21 @@ export declare interface Touch {
 
   /**
    * globalX - Global X coordinate.
-   * @type { ?number }
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 20 dynamic
-   * @since 22 static
-   */	
-  globalX?: number;	
-
-  /**
-   * globalY - Global Y coordinate.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 20 dynamic
    * @since 22 static
    */
-  globalY?: number;
+  globalX?: int;
+
+  /**
+   * globalY - Global Y coordinate.
+   * @type { ?int }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 20 dynamic
+   * @since 22 static
+   */
+  globalY?: int;
 }
 
 /**
@@ -474,7 +474,7 @@ export declare interface TouchEvent extends InputEvent {
 
   /**
    * fixedMode - Fixed mode of Touch.
-   * 
+   *
    * @type { FixedMode }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -489,6 +489,7 @@ export declare interface TouchEvent extends InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
+   * @since 22 static
    */
   isInject?: boolean;
 }

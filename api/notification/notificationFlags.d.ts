@@ -102,7 +102,14 @@ export interface NotificationFlags {
    * @since 8 dynamic
    * @since 22 static
    */
-  readonly soundEnabled?: NotificationFlagStatus;
+  /**
+   * Whether to enable sound reminder.
+   *
+   * @type { ?NotificationFlagStatus }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 23 dynamic&static
+   */
+  soundEnabled?: NotificationFlagStatus;
 
   /**
    * Whether to enable vibration reminder.
@@ -113,7 +120,32 @@ export interface NotificationFlags {
    * @since 8 dynamic
    * @since 22 static
    */
-  readonly vibrationEnabled?: NotificationFlagStatus;
+  /**
+   * Whether to enable vibration reminder.
+   *
+   * @type { ?NotificationFlagStatus }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 23 dynamic&static
+   */
+  vibrationEnabled?: NotificationFlagStatus;
+
+  /**
+   * Whether to enable banner reminder.
+   *
+   * @type { ?NotificationFlagStatus }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 23 dynamic&static
+   */
+  bannerEnabled?: NotificationFlagStatus;
+
+  /**
+   * Whether to enable lockScreen reminder.
+   *
+   * @type { ?NotificationFlagStatus }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 23 dynamic&static
+   */
+  lockScreenEnabled?: NotificationFlagStatus;
 
   /**
    * Read-only the prompt entry information allowed by the current channel.

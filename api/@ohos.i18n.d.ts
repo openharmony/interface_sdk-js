@@ -441,7 +441,7 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     static setSystemLocale(locale: string): void;

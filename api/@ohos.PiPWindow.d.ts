@@ -1043,13 +1043,13 @@ declare namespace PiPWindow {
      */
     /**
      * Update source content size to adjust PiP window aspect ratio.
-     * @param { number } width - Indicate the width of the content. The width can consist of only digits and above 0.
-     * @param { number } height - Indicate the height of the content. The height can consist of only digits and above 0.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *                                                                2. Incorrect parameter types.
+     * @param { int } width - Indicate the width of the content. The width can consist of only digits and above 0.
+     * @param { int } height - Indicate the height of the content. The height can consist of only digits and above 0.
+     * @throws { BusinessError } 401 - Params error. Possible causes: The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     updateContentSize(width: number, height: number): void;
 
@@ -1057,12 +1057,11 @@ declare namespace PiPWindow {
      * Set dashboard control status.
      * @param { PiPControlType } controlType - Describe picture-in-picture control type.
      * @param { PiPControlStatus } status - Describe picture-in-picture control Status.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *                                                                2. Incorrect parameter types.
-     *                                                                3. Parameter verification failed
+     * @throws { BusinessError } 401 - Params error. Possible causes: The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
 
@@ -1085,12 +1084,11 @@ declare namespace PiPWindow {
      * Set Dashboard control enable status.
      * @param { PiPControlType } controlType - Describe picture-in-picture control type.
      * @param { boolean } enabled - Describe picture-in-picture control enable Status.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *                                                                2. Incorrect parameter types.
-     *                                                                3. Parameter verification failed
+     * @throws { BusinessError } 401 - Params error. Possible causes: The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
 
@@ -1208,9 +1206,7 @@ declare namespace PiPWindow {
      * @param { 'pipWindowSizeChange' } type - The value is fixed at 'pipWindowSizeChange', indicating the picture-in-picture
      * window size change event.
      * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *                                                                2. Incorrect parameter types.
-     *                                                                3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Params error. Possible causes: Callback is already registered.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager

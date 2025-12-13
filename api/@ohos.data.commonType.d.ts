@@ -187,8 +187,9 @@ declare namespace commonType {
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
    * @since 11 dynamic
+   * @since 22 static
    */
-  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets;
+  type ValueType = null | long | double | string | boolean | Uint8Array | Asset | Assets;
 
   /**
    * Values in buckets are stored in key-value pairs.

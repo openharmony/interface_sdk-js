@@ -48,7 +48,7 @@ export enum ErrorCode {
     /**
      * No error.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic   
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core.dynamic
      * @since 20
      */
     NO_ERROR = 0

@@ -1780,8 +1780,9 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.usbManager/usbManager.USBDeviceRequestParams
      */
     request: number;
 
@@ -1790,8 +1791,9 @@ declare namespace usbManager {
      *
      * @type { USBRequestTargetType }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.usbManager/usbManager.USBDeviceRequestParams
      */
     target: USBRequestTargetType;
 
@@ -1800,8 +1802,9 @@ declare namespace usbManager {
      *
      * @type { USBControlRequestType }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.usbManager/usbManager.USBDeviceRequestParams
      */
     reqType: USBControlRequestType;
 
@@ -1810,8 +1813,9 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.usbManager/usbManager.USBDeviceRequestParams
      */
     value: number;
 
@@ -1820,8 +1824,9 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.usbManager/usbManager.USBDeviceRequestParams
      */
     index: number;
 
@@ -1830,8 +1835,9 @@ declare namespace usbManager {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.usbManager/usbManager.USBDeviceRequestParams
      */
     data: Uint8Array;
   }

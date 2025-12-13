@@ -180,7 +180,7 @@ declare namespace commonEventManager {
    * @systemapi
    * @since 9
    */
-/**
+  /**
    * Publishes an ordered, sticky, or standard common event to a specified user.
    *
    * @param { string } event - Specified the names of the common events.
@@ -232,7 +232,7 @@ declare namespace commonEventManager {
    * @systemapi
    * @since 9
    */
-    /**
+  /**
    * Publishes an ordered, sticky, or standard common event to a specified user.
    *
    * @param { string } event - Specified the names of the common events.
@@ -296,6 +296,23 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   */
+  function createSubscriber(
+    subscribeInfo: CommonEventSubscribeInfo,
+    callback: AsyncCallback<CommonEventSubscriber>
+  ): void;
+
+  /**
+   * Creates a CommonEventSubscriber for the SubscribeInfo.
+   *
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @param { AsyncCallback<CommonEventSubscriber> } callback - The callback is used to return the
+   *     CommonEventSubscriber object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1500001 - Internal error.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
    * @since 22 static
    */
   function createSubscriber(
@@ -324,6 +341,19 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   */
+  function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
+
+  /**
+   * Creates a CommonEventSubscriber for the SubscribeInfo.
+   *
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @returns { Promise<CommonEventSubscriber> } Returns the CommonEventSubscriber object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1500001 - Internal error.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
    * @since 22 static
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
@@ -348,6 +378,18 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
+   */
+  function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber;
+
+  /**
+   * Creates a CommonEventSubscriber for the SubscribeInfo.
+   *
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @returns { CommonEventSubscriber } Returns the CommonEventSubscriber object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1500001 - Internal error.
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 22 static
    */
   function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber;
@@ -531,16 +573,33 @@ declare namespace commonEventManager {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
    */
   function setStaticSubscriberState(enable: boolean, events?: Array<string>): Promise<void>;
+
+  /**
+   * Set static subscriber state.
+   *
+   * @param { boolean } enable - static subscribe event enable/disable state.
+   * @param { Array<string> } events - The events array.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi Hide this for inner system use.
+   * @StageModelOnly
+   * @since 22 static
+   */
+  function setStaticSubscriberState(enable: boolean, events: Array<string>): Promise<void>;
 
   /**
    * The event type that the commonEvent supported.
@@ -2813,6 +2872,22 @@ declare namespace commonEventManager {
      * @since 22 static
      */
     COMMON_EVENT_CLOUD_DISK_STATE_CHANGED = 'usual.event.CLOUD_DISK_STATE_CHANGED',
+
+    /**
+     * This common event means that the open and closed state of the stand associated with the tablet mode has changed.
+     * This is a protected common event that can only be sent by system.
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 22 dynamic&static
+     */
+    COMMON_EVENT_TABLET_MODE_CHANGED = 'usual.event.TABLET_MODE_CHANGED',
+
+    /**
+     * This common event means that the state (open or closed) of the laptop lid has changed.
+     * This is a protected common event that can only be sent by system.
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 22 dynamic&static
+     */
+    COMMON_EVENT_LID_STATE_CHANGED = 'usual.event.LID_STATE_CHANGED',
   }
 
   /**

@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, RecordData } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
 import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
@@ -58,6 +58,7 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
   const MAX_RECORD_NUM = 512;
   /**
@@ -87,6 +88,7 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
   const MIMETYPE_TEXT_WANT = 'text/want';
   /**
@@ -131,6 +133,7 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
   const MIMETYPE_PIXELMAP = 'pixelMap';
 
@@ -307,6 +310,7 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
   function createRecord(mimeType: string, value: ValueType): PasteDataRecord;
 
@@ -376,7 +380,7 @@ declare namespace pasteboard {
      * CROSSDEVICE indicates that paste is allowed in any application across devices.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11 dynamiconly
      * @deprecated since 12
      */
     CROSSDEVICE
@@ -408,6 +412,7 @@ declare namespace pasteboard {
      * Email address pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 13 dynamic
+     * @since 22 static
      */
     EMAIL_ADDRESS = 2,
   }
@@ -446,6 +451,13 @@ declare namespace pasteboard {
       [key: string]: object
     }
     /**
+     * additional property data. key-value pairs.
+     * @type { Record<string, RecordData> }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 22 static
+     */
+    additions: Record<string, RecordData>;
+    /**
      * non-repeating MIME types of all records in PasteData.
      * @type { Array<string> }
      * @readonly
@@ -459,6 +471,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     readonly mimeTypes: Array<string>;
     /**
@@ -505,6 +518,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     localOnly: boolean;
     /**
@@ -553,6 +567,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     htmlText: string;
     /**
@@ -567,6 +582,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     want: Want;
     /**
@@ -640,11 +656,17 @@ declare namespace pasteboard {
      * @type { object }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      */
-    data: {
-      [mimeType: string]: ArrayBuffer
-    }
+    /**
+     * Custom data in a record, string indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
+     * @type { Record<string, ArrayBuffer> }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 20 dynamic
+     * @since 22 static
+     */
+    data: Record<string, ArrayBuffer>;
 
     /**
      * Converts data in PasteData to text format.
@@ -692,6 +714,7 @@ declare namespace pasteboard {
      *    3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 14 dynamic
+     * @since 22 static
      */
     addEntry(type: string, value: ValueType): void;
 
@@ -704,6 +727,7 @@ declare namespace pasteboard {
      *    3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 14 dynamic
+     * @since 22 static
      */
     getValidTypes(types: Array<string>): Array<string>;
 
@@ -935,6 +959,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     getPrimaryPixelMap(): image.PixelMap;
 
@@ -1074,6 +1099,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     hasType(mimeType: string): boolean;
 
@@ -1101,15 +1127,18 @@ declare namespace pasteboard {
      */
     /**
      * Removes a Record based on a specified index.
-     * @param { number } index - indicates the record index in PasteData.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     * @param { int } index - indicates the record index in PasteData.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * 3. Parameter verification failed.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
-    removeRecord(index: number): void;
+    removeRecord(index: int): void;
 
     /**
      * Replaces a specified record with a new one.
@@ -1135,21 +1164,25 @@ declare namespace pasteboard {
      */
     /**
      * Replaces a specified record with a new one.
-     * @param { number } index - indicates the record index in PasteData.
+     * @param { int } index - indicates the record index in PasteData.
      * @param { PasteDataRecord } record - the content of the replaced record.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * 3. Parameter verification failed.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
-    replaceRecord(index: number, record: PasteDataRecord): void;
+    replaceRecord(index: int, record: PasteDataRecord): void;
 
     /**
      * Utilized to notify pasteboard service while reading PasteData, in this case, the service will help to preserve the context and resources
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 12 dynamic
+     * @since 22 static
      */
     pasteStart(): void;
 
@@ -1157,6 +1190,7 @@ declare namespace pasteboard {
      * Invoked to notify pasteboard service the utilization of PasteData has completed and occupied resources can be released for further usage
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 12 dynamic
+     * @since 22 static
      */
     pasteComplete(): void;
   }
@@ -1167,6 +1201,7 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 15 dynamic
+   * @since 22 static
    */
   enum FileConflictOptions {
     /**
@@ -1174,6 +1209,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     OVERWRITE,
 
@@ -1182,6 +1218,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     SKIP
   }
@@ -1192,6 +1229,7 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 15 dynamic
+   * @since 22 static
    */
   enum ProgressIndicator {
     /**
@@ -1199,6 +1237,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     NONE,
 
@@ -1207,6 +1246,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     DEFAULT
   }
@@ -1217,16 +1257,18 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 15 dynamic
+   * @since 22 static
    */
   interface ProgressInfo {
     /**
      * Progress when getting PasteData without using default system progress.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
-    progress: number;
+    progress: int;
   }
 
   /**
@@ -1235,6 +1277,7 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 15 dynamic
+   * @since 22 static
    */
   type ProgressListener = (progress: ProgressInfo) => void;
 
@@ -1244,6 +1287,7 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 15 dynamic
+   * @since 22 static
    */
   export class ProgressSignal {
     /**
@@ -1251,6 +1295,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     cancel(): void;
   }
@@ -1261,6 +1306,7 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 15 dynamic
+   * @since 22 static
    */
   interface GetDataParams {
     /**
@@ -1270,6 +1316,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     destUri?: string;
 
@@ -1280,6 +1327,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     fileConflictOptions?: FileConflictOptions;
 
@@ -1289,6 +1337,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     progressIndicator: ProgressIndicator;
 
@@ -1299,6 +1348,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     progressListener?: ProgressListener;
 
@@ -1309,6 +1359,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     progressSignal?: ProgressSignal;
   }
@@ -1336,7 +1387,6 @@ declare namespace pasteboard {
      *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamic
-     * @since 22 static
      */
     on(type: 'update', callback: () => void): void;
 
@@ -1357,19 +1407,36 @@ declare namespace pasteboard {
      *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamic
-     * @since 22 static
      */
     off(type: 'update', callback?: () => void): void;
 
-    /**
-     * Remove a callback invoked when remote pasteboard content changes.
-     * @param { UpdateCallback } [callback] - the callback to remove. If this parameter is not filled in, it indicates
+    /**	
+     * Remove a callback invoked when remote pasteboard content changes.	
+     * @param { UpdateCallback } [callback] - the callback to remove. If this parameter is not filled in, it indicates	
      * that all callbacks for this application will be cleared. Otherwise, it indicates that the specified callback
      * will be cleared.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 22 dynamic&static
-     */
+     * @syscap SystemCapability.MiscServices.Pasteboard	
+     * @since 22 dynamic&static	
+     */	
     offRemoteUpdate(callback?: UpdateCallback): void;
+
+    /**
+     * Add a callback invoked when pasteboard content changes.
+     * @param { UpdateCallback } callback - the callback to add.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 22 static
+     */
+    onUpdate(callback: UpdateCallback): void;
+
+    /**
+     * Remove a callback invoked when pasteboard content changes.
+     * @param { UpdateCallback } [callback] - the callback to remove. If this parameter is not filled in, it indicates
+     *     that all callbacks for this application will be cleared. Otherwise, it indicates that the specified callback
+     *     will be cleared.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 22 static
+     */
+    offUpdate(callback?: UpdateCallback): void;
 
     /**
      * Checks whether the data is remote.
@@ -1378,6 +1445,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     isRemoteData(): boolean;
 
@@ -1736,6 +1804,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     setDataSync(data: PasteData): void;
 
@@ -1749,6 +1818,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     getUnifiedData(): Promise<unifiedDataChannel.UnifiedData>;
 
@@ -1762,6 +1832,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     getUnifiedDataSync(): unifiedDataChannel.UnifiedData;
 
@@ -1776,6 +1847,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     setUnifiedData(data: unifiedDataChannel.UnifiedData): Promise<void>;
 
@@ -1788,6 +1860,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     setUnifiedDataSync(data: unifiedDataChannel.UnifiedData): void;
 
@@ -1817,6 +1890,7 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900006 - Settings already exist.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 14 dynamic
+     * @since 22 static
      */
     setAppShareOptions(shareOptions: ShareOption): void;
 
@@ -1836,6 +1910,7 @@ declare namespace pasteboard {
      *    permission required to call the API.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 14 dynamic
+     * @since 22 static
      */
     removeAppShareOptions(): void;
 
@@ -1849,6 +1924,7 @@ declare namespace pasteboard {
      *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 13 dynamic
+     * @since 22 static
      */
     detectPatterns(patterns: Array<Pattern>): Promise<Array<Pattern>>;
 
@@ -1866,12 +1942,13 @@ declare namespace pasteboard {
     /**
      * Gets the number of Pasteboard data changes.
      * 
-     * @returns { number } The number of Pasteboard data changes.
+     * @returns { long } The number of Pasteboard data changes.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
-    getChangeCount(): number;
+    getChangeCount(): long;
     
     /**
      * Gets pastedata from the system pasteboard with system progress.
@@ -1890,6 +1967,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     getDataWithProgress(params: GetDataParams): Promise<PasteData>;
   }

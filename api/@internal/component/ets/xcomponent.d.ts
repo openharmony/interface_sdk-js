@@ -604,8 +604,9 @@ interface XComponentInterface {
    * @param { object } value - Indicates the options of the xcomponent.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 12
+   * @useinstead (value: { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController })
    */
   (value: { id: string; type: string; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
 

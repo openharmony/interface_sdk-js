@@ -22,7 +22,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core.static
- * use multiple description syscap 
+ * use multiple description syscap
  * @since 20
  */
 export enum ErrorCode {
@@ -30,7 +30,7 @@ export enum ErrorCode {
      * Permission denied.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core.static
-     * use multiple description syscap 
+     * use multiple description syscap
      * @since 20
      */
     PERMISSION_DENY = -3,
@@ -54,7 +54,7 @@ export enum ErrorCode {
      * No error.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core.static
-     * use multiple description syscap  
+     * use multiple description syscap
      * @since 20
      */
     NO_ERROR = 0

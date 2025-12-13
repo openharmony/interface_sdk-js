@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Optional, Bindable } from './common';
+import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceColor, MarkStyle } from './units';
 import { CheckBoxShape } from './enums';

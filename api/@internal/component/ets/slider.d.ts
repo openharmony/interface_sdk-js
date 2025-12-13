@@ -1100,6 +1100,69 @@ interface SliderSuffixOptions extends SliderCustomContentOptions {
 }
 
 /**
+ * ColorMetricsStop type
+ * 
+ * @interface ColorMetricsStop
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare interface ColorMetricsStop {
+  /**
+   * Color property.
+   * 
+   * @type { ColorMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  color: ColorMetrics;
+
+  /**
+   * the color offset. value range [0, 1].
+   * 
+   * **NOTE**
+   * If the value specified is less than 0, the value **0** is used.
+   * If the value specified is greater than 1, the value **1** is used.
+   * 
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  offset: Length;
+}
+
+/**
+ * ColorMetricsLinearGradient class
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare class ColorMetricsLinearGradient {
+    /**
+     * Constructor.
+     *
+     * @param { ColorMetricsStop[] } colorStops - the LinearGradient constructor parameter.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    constructor(colorStops: ColorMetricsStop[]);
+}
+
+/**
  * Defines the attribute functions of Slider.
  *
  * @extends CommonMethod<SliderAttribute>
@@ -1749,6 +1812,19 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
      * @since 20 dynamic
      */
     suffix(content: ComponentContent, options?: SliderSuffixOptions): SliderAttribute;
+
+    /**
+     * Set the track color of the slider.
+     *
+     * @param { ColorMetricsLinearGradient } color - The Track color of the slider
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    trackColorMetrics(color: ColorMetricsLinearGradient): SliderAttribute;
 }
 
 /**

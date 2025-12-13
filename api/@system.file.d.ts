@@ -15,6 +15,7 @@
 
 /**
  * @file
+ * @kit API10LessDeprecatedModules
  */
 
 /**
@@ -22,6 +23,7 @@
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileResponse {
   /**
@@ -30,6 +32,7 @@ export interface FileResponse {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
@@ -40,6 +43,7 @@ export interface FileResponse {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   length: number;
 
@@ -50,6 +54,7 @@ export interface FileResponse {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   lastModifiedTime: number;
 
@@ -61,6 +66,7 @@ export interface FileResponse {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   type: 'dir' | 'file';
 
@@ -71,6 +77,7 @@ export interface FileResponse {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   subFiles?: Array<FileResponse>;
 }
@@ -80,6 +87,7 @@ export interface FileResponse {
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileMoveOption {
   /**
@@ -91,6 +99,7 @@ export interface FileMoveOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   srcUri: string;
 
@@ -103,6 +112,7 @@ export interface FileMoveOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   dstUri: string;
 
@@ -113,6 +123,7 @@ export interface FileMoveOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: (uri: string) => void;
 
@@ -122,6 +133,7 @@ export interface FileMoveOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -131,6 +143,7 @@ export interface FileMoveOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -140,12 +153,14 @@ export interface FileMoveOption {
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileListResponse {
   /**
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fileList: Array<FileResponse>;
 }
@@ -155,6 +170,7 @@ export interface FileListResponse {
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileListOption {
   /**
@@ -166,6 +182,7 @@ export interface FileListOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
@@ -175,6 +192,7 @@ export interface FileListOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: (data: FileListResponse) => void;
 
@@ -184,6 +202,7 @@ export interface FileListOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -193,6 +212,7 @@ export interface FileListOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -202,6 +222,7 @@ export interface FileListOption {
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileCopyOption {
   /**
@@ -213,6 +234,7 @@ export interface FileCopyOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   srcUri: string;
 
@@ -225,6 +247,7 @@ export interface FileCopyOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   dstUri: string;
 
@@ -235,6 +258,7 @@ export interface FileCopyOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: (uri: string) => void;
 
@@ -244,6 +268,7 @@ export interface FileCopyOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -253,6 +278,7 @@ export interface FileCopyOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -262,6 +288,7 @@ export interface FileCopyOption {
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileGetOption {
   /**
@@ -273,6 +300,7 @@ export interface FileGetOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
@@ -283,6 +311,7 @@ export interface FileGetOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   recursive?: boolean;
 
@@ -292,6 +321,7 @@ export interface FileGetOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: (file: FileResponse) => void;
 
@@ -301,6 +331,7 @@ export interface FileGetOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -310,6 +341,7 @@ export interface FileGetOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -319,6 +351,7 @@ export interface FileGetOption {
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileDeleteOption {
   /**
@@ -330,6 +363,7 @@ export interface FileDeleteOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
@@ -339,6 +373,7 @@ export interface FileDeleteOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: () => void;
 
@@ -348,6 +383,7 @@ export interface FileDeleteOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -357,6 +393,7 @@ export interface FileDeleteOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -366,6 +403,7 @@ export interface FileDeleteOption {
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileWriteTextOption {
   /**
@@ -377,6 +415,7 @@ export interface FileWriteTextOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
@@ -386,6 +425,7 @@ export interface FileWriteTextOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   text: string;
 
@@ -395,6 +435,7 @@ export interface FileWriteTextOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   encoding?: string;
 
@@ -404,6 +445,7 @@ export interface FileWriteTextOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   append?: boolean;
 
@@ -413,6 +455,7 @@ export interface FileWriteTextOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: () => void;
 
@@ -422,6 +465,7 @@ export interface FileWriteTextOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -431,6 +475,7 @@ export interface FileWriteTextOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -440,12 +485,14 @@ export interface FileWriteTextOption {
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileReadTextResponse {
   /**
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   text: string;
 }
@@ -455,6 +502,7 @@ export interface FileReadTextResponse {
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileReadTextOption {
   /**
@@ -466,6 +514,7 @@ export interface FileReadTextOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
@@ -476,6 +525,7 @@ export interface FileReadTextOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   encoding?: string;
 
@@ -486,6 +536,7 @@ export interface FileReadTextOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   position?: number;
 
@@ -496,6 +547,7 @@ export interface FileReadTextOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   length?: number;
 
@@ -505,6 +557,7 @@ export interface FileReadTextOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: (data: FileReadTextResponse) => void;
 
@@ -514,6 +567,7 @@ export interface FileReadTextOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -523,6 +577,7 @@ export interface FileReadTextOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -532,6 +587,7 @@ export interface FileReadTextOption {
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileWriteArrayBufferOption {
   /**
@@ -543,6 +599,7 @@ export interface FileWriteArrayBufferOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
@@ -552,6 +609,7 @@ export interface FileWriteArrayBufferOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   buffer: Uint8Array;
 
@@ -561,6 +619,7 @@ export interface FileWriteArrayBufferOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   position?: number;
 
@@ -571,6 +630,7 @@ export interface FileWriteArrayBufferOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   append?: boolean;
 
@@ -580,6 +640,7 @@ export interface FileWriteArrayBufferOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: () => void;
 
@@ -589,6 +650,7 @@ export interface FileWriteArrayBufferOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -598,6 +660,7 @@ export interface FileWriteArrayBufferOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -607,12 +670,14 @@ export interface FileWriteArrayBufferOption {
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileReadArrayBufferResponse {
   /**
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   buffer: Uint8Array;
 }
@@ -622,6 +687,7 @@ export interface FileReadArrayBufferResponse {
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileReadArrayBufferOption {
   /**
@@ -633,6 +699,7 @@ export interface FileReadArrayBufferOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
@@ -643,6 +710,7 @@ export interface FileReadArrayBufferOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   position?: number;
 
@@ -653,6 +721,7 @@ export interface FileReadArrayBufferOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   length?: number;
 
@@ -662,6 +731,7 @@ export interface FileReadArrayBufferOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: (data: FileReadArrayBufferResponse) => void;
 
@@ -671,6 +741,7 @@ export interface FileReadArrayBufferOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -680,6 +751,7 @@ export interface FileReadArrayBufferOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -689,6 +761,7 @@ export interface FileReadArrayBufferOption {
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileAccessOption {
   /**
@@ -700,6 +773,7 @@ export interface FileAccessOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
@@ -709,6 +783,7 @@ export interface FileAccessOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: () => void;
 
@@ -718,6 +793,7 @@ export interface FileAccessOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -727,6 +803,7 @@ export interface FileAccessOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -736,6 +813,7 @@ export interface FileAccessOption {
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileMkdirOption {
   /**
@@ -748,6 +826,7 @@ export interface FileMkdirOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
@@ -758,6 +837,7 @@ export interface FileMkdirOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   recursive?: boolean;
 
@@ -767,6 +847,7 @@ export interface FileMkdirOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: () => void;
 
@@ -776,6 +857,7 @@ export interface FileMkdirOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -785,6 +867,7 @@ export interface FileMkdirOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -794,6 +877,7 @@ export interface FileMkdirOption {
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileRmdirOption {
   /**
@@ -805,6 +889,7 @@ export interface FileRmdirOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
@@ -815,6 +900,7 @@ export interface FileRmdirOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   recursive?: boolean;
 
@@ -824,6 +910,7 @@ export interface FileRmdirOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: () => void;
 
@@ -833,6 +920,7 @@ export interface FileRmdirOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
@@ -842,6 +930,7 @@ export interface FileRmdirOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
@@ -850,6 +939,7 @@ export interface FileRmdirOption {
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export default class File {
   /**
@@ -859,6 +949,7 @@ export default class File {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    * @useinstead ohos.file.fs.moveFile
    */
   static move(options: FileMoveOption): void;
@@ -870,6 +961,7 @@ export default class File {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    * @useinstead ohos.file.fs.copyFile
    */
   static copy(options: FileCopyOption): void;
@@ -881,6 +973,7 @@ export default class File {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    * @useinstead ohos.file.fs.listFile
    */
   static list(options: FileListOption): void;
@@ -892,6 +985,7 @@ export default class File {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    * @useinstead ohos.file.fs.stat
    */
   static get(options: FileGetOption): void;
@@ -903,6 +997,7 @@ export default class File {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    * @useinstead ohos.file.fs.unlink
    */
   static delete(options: FileDeleteOption): void;
@@ -914,6 +1009,7 @@ export default class File {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    * @useinstead ohos.file.fs.write
    */
   static writeText(options: FileWriteTextOption): void;
@@ -925,6 +1021,7 @@ export default class File {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    * @useinstead ohos.file.fs.readText
    */
   static readText(options: FileReadTextOption): void;
@@ -936,6 +1033,7 @@ export default class File {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    * @useinstead ohos.file.fs.write
    */
   static writeArrayBuffer(options: FileWriteArrayBufferOption): void;
@@ -947,6 +1045,7 @@ export default class File {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    * @useinstead ohos.file.fs.read
    */
   static readArrayBuffer(options: FileReadArrayBufferOption): void;
@@ -958,6 +1057,7 @@ export default class File {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    * @useinstead ohos.file.fs.access
    */
   static access(options: FileAccessOption): void;
@@ -969,6 +1069,7 @@ export default class File {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    * @useinstead ohos.file.fs.mkdir
    */
   static mkdir(options: FileMkdirOption): void;
@@ -980,6 +1081,7 @@ export default class File {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    * @useinstead ohos.file.fs.rmdir
    */
   static rmdir(options: FileRmdirOption): void;

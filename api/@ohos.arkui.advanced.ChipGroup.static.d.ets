@@ -111,18 +111,20 @@ export interface SuffixImageIconOptions extends IconOptions {
 /**
  * Defines label options.
  *
- * @interface LabelOptions
+ * @interface ChipItemLabelOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 22 static
  * @noninterop
  */
-export interface LabelOptions {
+export interface ChipItemLabelOptions {
 
     /**
      * Text content.
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 22 static
      * @noninterop
      */
@@ -163,12 +165,13 @@ export interface ChipGroupItemOptions {
     /**
      * Chip label.
      *
-     * @type { LabelOptions }
+     * @type { ChipItemLabelOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 22 static
      * @noninterop
      */
-    label: LabelOptions;
+    label: ChipItemLabelOptions;
 
     /**
      * Suffix icon.

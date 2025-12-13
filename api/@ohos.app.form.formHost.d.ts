@@ -550,6 +550,20 @@ declare namespace formHost {
   function getAllFormsInfo(): Promise<Array<formInfo.FormInfo>>;
 
   /**
+   * Obtains the template FormInfo objects provided by all applications on the device.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @returns { Promise<Array<formInfo.FormInfo>> } Returns the FormInfo list.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+    function getAllTemplateFormsInfo(): Promise<Array<formInfo.FormInfo>>;
+
+  /**
    * Obtains the FormInfo objects provided by a specified application on the device.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -617,6 +631,22 @@ declare namespace formHost {
    * @since 22 static
    */
   function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
+
+  /**
+   * Obtains the template FormInfo objects provided by a specified application on the device.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { string } [moduleName] - Indicates the module name of the application.
+   * @returns { Promise<Array<formInfo.FormInfo>> } Returns the FormInfo list.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+    function getTemplateFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
 
   /**
    * Obtains the FormInfo objects provided by all application with filter on the device.
@@ -738,9 +768,22 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
    */
   function on(type: 'formUninstall', callback: Callback<string>): void;
+
+  /**
+   * Listens to the event of uninstall form.
+   * <p>You can use this method to listen to the event of uninstall form.</p>
+   *
+   * @param { Callback<string> } callback - The callback of formUninstall.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onFormUninstall(callback: Callback<string>): void;
 
   /**
    * Cancels listening to the event of uninstall form.
@@ -754,9 +797,22 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
    */
   function off(type: 'formUninstall', callback?: Callback<string>): void;
+
+  /**
+   * Cancels listening to the event of uninstall form.
+   * <p>You can use this method to cancel listening to the event of uninstall form.</p>
+   *
+   * @param { Callback<string> } [callback] - The callback of formUninstall.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function offFormUninstall(callback?: Callback<string>): void;
 
   /**
    * Listens to the event of form's overflow.
@@ -1433,11 +1489,21 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
    */
   function on(type: 'getLiveFormStatus', 
     callback: formInfo.GetLiveFormStatusCallback): void;
   
+  /**
+   * Listens to the event of get live form status.
+   *
+   * @param { formInfo.GetLiveFormStatusCallback } callback  - The callback of get live form status.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onGetLiveFormStatus(callback: formInfo.GetLiveFormStatusCallback): void;
+
   /**
    * Cancels Listening to the event of get live form status.
    *
@@ -1447,10 +1513,20 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
    */
   function off(type: 'getLiveFormStatus', 
     callback?: formInfo.GetLiveFormStatusCallback): void;
+
+  /**
+   * Cancels Listening to the event of get live form status.
+   *
+   * @param { formInfo.GetLiveFormStatusCallback } [callback]  - The callback of get live form status.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function offGetLiveFormStatus(callback?: formInfo.GetLiveFormStatusCallback): void;
 
   /**
    * Update size of the form.
@@ -1472,7 +1548,7 @@ declare namespace formHost {
   function updateFormSize(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void;
 
   /**
-   * Notify form lock state update.
+   * Update form lock state.
    *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { string } formId - Indicates the form id.
@@ -1490,5 +1566,37 @@ declare namespace formHost {
    * @since 22 dynamic&static
    */
   function updateFormLockedState(formId: string, isLocked: boolean): Promise<void>
+
+  /**
+   * Register the callback of the template form detail info change event.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.TemplateFormDetailInfoCallback } callback - Indicates the callback of the template form detail info
+   *     change event.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function onTemplateFormDetailInfoChange(callback: formInfo.TemplateFormDetailInfoCallback): void;
+
+  /**
+   * Unregister the callback of the template form detail info change event.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.TemplateFormDetailInfoCallback } [callback] - Indicates the callback of the template form detail
+   *     info change event.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function offTemplateFormDetailInfoChange(callback?: formInfo.TemplateFormDetailInfoCallback): void;
 }
 export default formHost;

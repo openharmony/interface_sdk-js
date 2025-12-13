@@ -18,11 +18,11 @@
  * @kit ArkUI
  */
 import { CancelButtonSymbolOptions, CancelButtonOptions } from "./search";
-import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions, Optional, Bindable, AttributeModifier } from "./common";
+import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions, Bindable, AttributeModifier } from "./common";
 import { CustomBuilder } from './builder';
 import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextContentStyle, EllipsisMode } from "./enums";
 import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length } from "./units";
-import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance } from "./textCommon";
+import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle } from "./textCommon";
 import { KeyboardOptions, PasteEvent } from "./richEditor";
 import { ComponentBuilder } from './builder';
 /**
@@ -1749,6 +1749,26 @@ export declare interface TextInputAttribute extends CommonMethod {
      */
     default keyboardAppearance(appearance: KeyboardAppearance | undefined): this;
     /**
+     * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+     *
+     * @param { boolean | undefined } include - Whether enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default includeFontPadding(include: boolean | undefined): this;
+    /**
+     * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+     *
+     * @param { boolean | undefined } enabled - Whether enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default fallbackLineSpacing(enabled: boolean | undefined): this;
+    /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<TextInputAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
@@ -1757,6 +1777,28 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @since 22 static
      */
     attributeModifier(modifier: AttributeModifier<TextInputAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    
+    /**
+     * Whether to compress punctuation at the beginning of line.
+     *
+     * @param { boolean | undefined } enabled - Whether to enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default compressLeadingPunctuation(enabled: boolean | undefined): this;
+
+    /**
+     * Used to set the selected drag preview style.
+     *
+     * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+     *     If set undefined will reset the style.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): this;
 }
 
 /**

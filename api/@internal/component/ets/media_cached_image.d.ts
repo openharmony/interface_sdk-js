@@ -17,12 +17,7 @@
  * @file
  * @kit ArkUI
  */
-/*** if arkts static */
-import { ImageAttribute } from './image';
-import image from '../../@ohos.multimedia.image';
-import { ResourceStr } from './units'
-import { DrawableDescriptor } from '../../@ohos.arkui.drawableDescriptor';
-/*** endif */
+
 /**
  * Defines the resource which can use ASTC.
  *
@@ -30,7 +25,6 @@ import { DrawableDescriptor } from '../../@ohos.arkui.drawableDescriptor';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12 dynamic
- * @since 22 static
  */
 interface ASTCResource {
   /**
@@ -39,7 +33,6 @@ interface ASTCResource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
    */
   sources: Array<string>;
   /**
@@ -48,7 +41,6 @@ interface ASTCResource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
    */
   column: number;
 }
@@ -58,7 +50,7 @@ interface ASTCResource {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12 dynamic
- * @since 22 static
+ * @noninterop
  */
 interface MediaCachedImageInterface {
   /**
@@ -71,16 +63,6 @@ interface MediaCachedImageInterface {
    * @since 12 dynamic
    */
   (src: PixelMap | ResourceStr | DrawableDescriptor | ASTCResource): MediaCachedImageAttribute;
-  /**
-   * Image resource to be obtained.
-   *
-   * @param { PixelMap | ResourceStr | DrawableDescriptor | ASTCResource } src
-   * @returns { MediaCachedImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 22 static
-   */
-  (src: image.PixelMap | ResourceStr | DrawableDescriptor | ASTCResource): MediaCachedImageAttribute;
 }
 
 /**
@@ -90,7 +72,7 @@ interface MediaCachedImageInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12 dynamic
- * @since 22 static
+ * @noninterop
  */
 declare class MediaCachedImageAttribute extends ImageAttribute {}
 
@@ -100,6 +82,7 @@ declare class MediaCachedImageAttribute extends ImageAttribute {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12 dynamic
+ * @noninterop
  */
 declare const MediaCachedImage: MediaCachedImageInterface;
 
@@ -109,5 +92,6 @@ declare const MediaCachedImage: MediaCachedImageInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12 dynamic
+ * @noninterop
  */
 declare const MediaCachedImageInstance: MediaCachedImageAttribute;

@@ -55,6 +55,15 @@ declare namespace common {
        * @since 22 static
        */
       addressType: BluetoothAddressType;
+      /**
+       * Address type defined by the Bluetooth Core Specification.
+       * It is used only when the {@link BluetoothAddress#addressType} is {@link BluetoothAddressType#REAL}.
+       *
+       * @type { ?BluetoothRawAddressType }
+       * @syscap SystemCapability.Communication.Bluetooth.Core
+       * @since 23 dynamic&static
+       */
+      rawAddressType?: BluetoothRawAddressType;
     }
 
     /**
@@ -82,6 +91,31 @@ declare namespace common {
        * @since 22 static
        */
       REAL = 2
+    }
+
+    /**
+     * Enum for the type of Bluetooth raw address.
+     * The enum is used only when the {@link BluetoothAddress#addressType} is {@link BluetoothAddressType#REAL}.
+     *
+     * @enum { int }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 23 dynamic&static
+     */
+    export enum BluetoothRawAddressType {
+      /**
+       * Public address type defined by the Bluetooth Core Specification.
+       *
+       * @syscap SystemCapability.Communication.Bluetooth.Core
+       * @since 23 dynamic&static
+       */
+      PUBLIC = 0,
+      /**
+       * Random address type defined by the Bluetooth Core Specification.
+       *
+       * @syscap SystemCapability.Communication.Bluetooth.Core
+       * @since 23 dynamic&static
+       */
+      RANDOM = 1
     }
   }
 

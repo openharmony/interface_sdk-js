@@ -24,12 +24,10 @@ import { NotificationSubscribeInfo as _NotificationSubscribeInfo } from './notif
 import { NotificationSubscriber as _NotificationSubscriber } from './notification/notificationSubscriber';
 import { SubscribeCallbackData as _SubscribeCallbackData } from './notification/notificationSubscriber';
 import { EnabledNotificationCallbackData as _EnabledNotificationCallbackData } from './notification/notificationSubscriber';
-/*** if arkts dynamic */
+import { EnabledPriorityNotificationCallbackData as _EnabledPriorityNotificationCallbackData } from './notification/notificationSubscriber';
+import { EnabledPriorityNotificationByBundleCallbackData as _EnabledPriorityNotificationByBundleCallbackData } from './notification/notificationSubscriber';
 import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
-/*** endif */
-/*** if arkts static */
-import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
-/*** endif */
+
 
 /**
  * @namespace notificationSubscribe
@@ -635,6 +633,26 @@ declare namespace notificationSubscribe {
    * @since 22 static
    */
   export type EnabledNotificationCallbackData = _EnabledNotificationCallbackData;
+
+  /**
+   * Describes the main switch state for priority notification.
+   *
+   * @typedef { _EnabledPriorityNotificationCallbackData } EnabledPriorityNotificationCallbackData
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  export type EnabledPriorityNotificationCallbackData = _EnabledPriorityNotificationCallbackData;
+
+  /**
+   * Describes the bundle switch state for priority notification.
+   *
+   * @typedef { _EnabledPriorityNotificationByBundleCallbackData } EnabledPriorityNotificationByBundleCallbackData
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  export type EnabledPriorityNotificationByBundleCallbackData = _EnabledPriorityNotificationByBundleCallbackData;
 
   /**
    * Describes the badge number of the application has changed.

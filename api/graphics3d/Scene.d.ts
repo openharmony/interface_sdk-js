@@ -19,7 +19,7 @@
  */
 
 /*** if arkts static */
-import { Resource } from '../global/resource';
+import { ResourceStr } from '@ohos.arkui.component';
 /*** endif */
 /*** if arkts dynamic */
 import { Effect } from './SceneResources';
@@ -27,15 +27,6 @@ import { Effect } from './SceneResources';
 import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes';
 import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3, Vec4 } from './SceneTypes';
-
-/**
- * Defines the string which can use resource.
- *
- * @typedef { string | Resource } ResourceStr
- * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 22 static
- */
-declare type ResourceStr = string | Resource;
 
 /**
  * The scene resource parameters type.
@@ -455,6 +446,27 @@ export interface RenderContext {
 }
 
 /**
+ * Global render configuration control
+ * 
+ * @interface RenderConfiguration
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 23 dynamic&static
+ */
+export interface RenderConfiguration {
+  /**
+   * resolution for single shadow map buffer, undefined by default,
+   *  which means we use (1024, 1024) as the resolution of a single shadow map.
+   * You need to provide the same x and y value to get the right shadow effect
+   *
+   * @type { ?Vec2 }
+   * @default { 1024, 1024 }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  shadowResolution?: Vec2;
+}
+
+/**
  * Defines parameters for manual rendering.
  *
  * @interface RenderParameters
@@ -630,6 +642,15 @@ export declare class Scene {
    * @since 22 static
    */
   createComponent(node: Node, name: string): Promise<SceneComponent>;
+
+  /**
+   * render configuration settings
+   *
+   * @returns { RenderConfiguration }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  get renderConfiguration(): RenderConfiguration;
 
   /**
     * Get component by name.

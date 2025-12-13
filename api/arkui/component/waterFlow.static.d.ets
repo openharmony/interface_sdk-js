@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { ScrollableCommonMethod, NestedScrollOptions, CommonMethod, Optional, OnWillScrollCallback, OnScrollCallback } from './common';
+import { ScrollableCommonMethod, NestedScrollOptions, CommonMethod, OnWillScrollCallback, OnScrollCallback } from './common';
 import { CustomBuilder } from './builder';
 import { Length, Dimension, Margin, ConstraintSizeOptions, Resource } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from "./scroll";

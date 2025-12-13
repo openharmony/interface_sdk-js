@@ -3420,6 +3420,14 @@ declare namespace sensor {
      * @since 19 dynamic
      */
     isLocalSensor?: boolean;
+
+    /**
+     * Is the device a mock device or a real device
+     * @type { ?boolean }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 23 dynamic&static
+     */
+    isMockSensor?: boolean;
   }
 
   /**
@@ -4246,168 +4254,189 @@ declare namespace sensor {
     /**
      * Acceleration sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#ACCELEROMETER
      */
     SENSOR_TYPE_ID_ACCELEROMETER = 1,
 
     /**
      * Gyroscope sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#GYROSCOPE
      */
     SENSOR_TYPE_ID_GYROSCOPE = 2,
 
     /**
      * Ambient light sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#AMBIENT_LIGHT
      */
     SENSOR_TYPE_ID_AMBIENT_LIGHT = 5,
 
     /**
      * Magnetic field sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#MAGNETIC_FIELD
      */
     SENSOR_TYPE_ID_MAGNETIC_FIELD = 6,
 
     /**
      * Barometric pressure sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#BAROMETER
      */
     SENSOR_TYPE_ID_BAROMETER = 8,
 
     /**
      * Hall effect sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#HALL
      */
     SENSOR_TYPE_ID_HALL = 10,
 
     /**
      * Proximity sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#PROXIMITY
      */
     SENSOR_TYPE_ID_PROXIMITY = 12,
 
     /**
      * Humidity sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#HUMIDITY
      */
     SENSOR_TYPE_ID_HUMIDITY = 13,
 
     /**
      * Orientation sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#ORIENTATION
      */
     SENSOR_TYPE_ID_ORIENTATION = 256,
 
     /**
      * Gravity sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#GRAVITY
      */
     SENSOR_TYPE_ID_GRAVITY = 257,
 
     /**
      * Linear acceleration sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#LINEAR_ACCELEROMETER
      */
     SENSOR_TYPE_ID_LINEAR_ACCELERATION = 258,
 
     /**
      * Rotation vector sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#ROTATION_VECTOR
      */
     SENSOR_TYPE_ID_ROTATION_VECTOR = 259,
 
     /**
      * Ambient temperature sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#AMBIENT_TEMPERATURE
      */
     SENSOR_TYPE_ID_AMBIENT_TEMPERATURE = 260,
 
     /**
      * Uncalibrated magnetic field sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#MAGNETIC_FIELD_UNCALIBRATED
      */
     SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED = 261,
 
     /**
      * Uncalibrated gyroscope sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#GYROSCOPE_UNCALIBRATED
      */
     SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED = 263,
 
     /**
      * Significant motion sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#SIGNIFICANT_MOTION
      */
     SENSOR_TYPE_ID_SIGNIFICANT_MOTION = 264,
 
     /**
      * Pedometer detection sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#PEDOMETER_DETECTION
      */
     SENSOR_TYPE_ID_PEDOMETER_DETECTION = 265,
 
     /**
      * Pedometer sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#PEDOMETER
      */
     SENSOR_TYPE_ID_PEDOMETER = 266,
 
     /**
      * Heart rate sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#HEART_RATE
      */
     SENSOR_TYPE_ID_HEART_RATE = 278,
 
     /**
      * Wear detection sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#WEAR_DETECTION
      */
     SENSOR_TYPE_ID_WEAR_DETECTION = 280,
 
     /**
      * Uncalibrated acceleration sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead sensor.SensorId#ACCELEROMETER_UNCALIBRATED
      */
     SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED = 281
   }

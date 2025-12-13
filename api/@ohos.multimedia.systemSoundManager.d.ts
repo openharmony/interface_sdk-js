@@ -304,7 +304,17 @@ declare namespace systemSoundManager {
    * @constant
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
+   * @stagemodelonly
    * @since 20 dynamic
+   */
+  const TONE_CATEGORY_CONTACTS: 16;
+
+  /**
+   * Define the contact tone category.
+   * @constant
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @stagemodelonly
    * @since 22 static
    */
   const TONE_CATEGORY_CONTACTS: int;
@@ -314,8 +324,7 @@ declare namespace systemSoundManager {
    * @constant
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 21 dynamic
-   * @since 22 static
+   * @since 22 dynamic&static
    */
   const TONE_CATEGORY_NOTIFICATION_APP: int;
 
@@ -670,8 +679,7 @@ declare namespace systemSoundManager {
      * @throws{ BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 21 dynamic
-     * @since 22 static
+     * @since 22 dynamic&static
      */
     getGentleUri(): string | null;
 
@@ -681,8 +689,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 21 dynamic
-     * @since 22 static
+     * @since 22 dynamic&static
      */
     getGentleTitle(): string | null;
 
@@ -692,8 +699,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 21 dynamic
-     * @since 22 static
+     * @since 22 dynamic&static
      */
     getGentleFileName(): string | null;
   }
@@ -903,9 +909,21 @@ declare namespace systemSoundManager {
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     getRingtonePlayer(context: BaseContext, type: RingtoneType): Promise<RingtonePlayer>;
+
+    /**
+     * Gets the ringtone player.
+     * @param { BaseContext } context - Current application context.
+     * @param { RingtoneType } type - Ringtone type to get.
+     * @returns { Promise<RingtonePlayer | null> } Promise used to return a ringtone player instance,
+     *     or null when an error happens.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 22 static
+     */
+    getRingtonePlayer(context: BaseContext, type: RingtoneType): Promise<RingtonePlayer | null>;
 
     /**
      * Sets the system tone uri to system.
@@ -989,9 +1007,21 @@ declare namespace systemSoundManager {
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     getSystemTonePlayer(context: BaseContext, type: SystemToneType): Promise<SystemTonePlayer>;
+
+    /**
+     * Gets the system tone player.
+     * @param { BaseContext } context - Current application context.
+     * @param { SystemToneType } type - System tone type to get.
+     * @returns { Promise<SystemTonePlayer | null> } Promise used to return the SystemTonePlayer, or
+     *     null when an error happens.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 22 static
+     */
+    getSystemTonePlayer(context: BaseContext, type: SystemToneType): Promise<SystemTonePlayer | null>;
 
     /**
      * Gets attributes of the default alarm tone.

@@ -966,6 +966,19 @@ declare namespace camera {
     getSupportedOutputCapability(camera: CameraDevice): CameraOutputCapability;
 
     /**
+     * Get supported full output capability for specific camera, inclluding capabilities of yuv, heif and hdr etc.
+     *
+     * @param { CameraDevice } camera - Camera device.
+     * @param { SceneMode } mode - Scene mode.
+     * @returns { CameraOutputCapability } The camera full output capability.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getSupportedFullOutputCapability(camera: CameraDevice, mode: SceneMode): CameraOutputCapability;
+
+    /**
      * Gets supported scene mode for specific camera.
      *
      * @param { CameraDevice } camera - Camera device.
@@ -1466,6 +1479,20 @@ declare namespace camera {
      * @since 22 static
      */
     getCameraDevice(position: CameraPosition, type: CameraType): CameraDevice;
+
+    /**
+     * Queries specified devices based on camera position, camera type and connection type.
+     * 
+     * @param { CameraPosition } position - Camera position.
+     * @param { Array<CameraType> } types - Camera type array.
+     * @param { ConnectionType } connectType - Camera connection type.
+     * @returns { Array<CameraDevice> } camera device list queried base on position, type and connection type.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getCameraDevices(position: CameraPosition, types: Array<CameraType>, connectType: ConnectionType): Array<CameraDevice>;
 
     /**
      * Obtains the concurrent information of specified cameras,
@@ -9645,6 +9672,28 @@ declare namespace camera {
      * @since 22 static
      */
     offLightStatusChange(callback?: AsyncCallback<LightStatus>): void;
+
+    /**
+     * Subscribes ISO info change event callback.
+     *
+     * @param { Callback<IsoInfo> } callback - Callback used to get the ISO info change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    onIsoInfoChange(callback: Callback<IsoInfo>): void
+
+    /**
+     * Unsubscribes from ISO info change event callback.
+     *
+     * @param { Callback<IsoInfo> } [callback] - Callback used to get the ISO info change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    offIsoInfoChange(callback?: Callback<IsoInfo>): void
   }
 
   /**
@@ -10689,8 +10738,15 @@ declare namespace camera {
    * @typedef IsoInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 12 dynamic
-   * @since 22 static
+   * @since 12
+   */
+  /**
+   * ISO info object
+   *
+   * @typedef IsoInfo
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   interface IsoInfo {
     /**
@@ -10700,8 +10756,16 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12 dynamic
-     * @since 22 static
+     * @since 12
+     */
+    /**
+     * ISO value.
+     *
+     * @type { ?int }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 22 dynamic&static
      */
     readonly iso?: int;
   }
@@ -12514,7 +12578,6 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
    */
   /**
    * Quick shot photo session object.
@@ -13630,6 +13693,7 @@ declare namespace camera {
      * Enable bandwidth compression.
      *
      * @param { boolean } enabled - Target state for bandwidth compression.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -14169,6 +14233,46 @@ declare namespace camera {
   }
 
   /**
+   * Define image container type.
+   *
+   * @typedef {image.Image | image.Picture}
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  type ImageType = image.Image | image.Picture;
+
+  /**
+   * PhotoEx object, which supports capturing uncompresssed photo, compared to Photo.
+   *
+   * @typedef PhotoEx
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  interface PhotoEx {
+    /**
+     * Main image.
+     *
+     * @type { ImageType }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    main: ImageType;
+
+    /**
+     * Release PhotoEx object.
+     *
+     * @returns { Promise<void> } Promise used to return tthe result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    release(): Promise<void>;
+  }
+
+  /**
    * DeferredPhotoProxy object
    *
    * @typedef DeferredPhotoProxy
@@ -14641,6 +14745,24 @@ declare namespace camera {
      * @since 22 static
      */
     offPhotoAvailable(callback?: AsyncCallback<Photo>): void;
+
+    /**
+     * Subscribes photo available event callback, which supports delivery of uncompressed photo.
+     *
+     * @param { Callback<PhotoEx> } callback - Callback used to getthe PhotoEx
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 23 dynamic&static
+     */
+    onPhotoAvailable(callback: Callback<PhotoEx>): void;
+
+    /**
+     * Unsubscribes photo available event callback, which supports delivery of uncompressed photo.
+     *
+     * @param { Callback<PhotoEx> } [callback] - Callback used to get the PhotoEx.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 23 dynamic&static
+     */
+    offPhotoAvailable(callback?: Callback<PhotoEx>): void;
 
     /**
      * Subscribes deferred photo proxy available event callback.
@@ -16567,7 +16689,17 @@ declare namespace camera {
      * @since 13 dynamic
      * @since 22 static
      */
-    BAR_CODE_DETECTION = 7
+    BAR_CODE_DETECTION = 7,
+
+    /**
+     * Basic face detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    BASIC_FACE_DETECTION = 8
+
   }
 
   /**
@@ -16951,6 +17083,72 @@ declare namespace camera {
      * @since 22 static
      */
     readonly rollAngle: int;
+  }
+
+  /**
+   * Metadata object for basic face.
+   *
+   * @extends MetadataObject
+   * @typedef MetadataBasicFaceObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface MetadataBasicFaceObject extends MetadataObject {
+    /**
+     * Bounding box for left eye.
+     *
+     * @type { ?Rect }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    readonly leftEyeBoundingBox?: Rect;
+
+    /**
+     * Bounding box for right eye.
+     *
+     * @type { ?Rect }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    readonly rightEyeBoundingBox?: Rect;
+
+    /**
+     * Pitch angle for face.
+     *
+     * @type { ?int }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    readonly pitchAngle?: int;
+
+    /**
+     * Yaw angle for face.
+     *
+     * @type { ?int }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    readonly yawAngle?: int;
+
+    /**
+     * Roll angle for face.
+     *
+     * @type { ?int }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    readonly rollAngle?: int;
   }
 
   /**

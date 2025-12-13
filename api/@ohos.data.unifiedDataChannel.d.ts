@@ -404,13 +404,31 @@ declare namespace unifiedDataChannel {
     /**
      * A map for each type and data size, key is data type, value is the corresponding data size
      *
-     * @type { Record<string, long> }
+     * @returns { Record<string, long> } Type and size information of data
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11 dynamic
      * @since 22 static
      */
-    summary: Record<string, long>;
+    get summary(): Record<string, long>;
+
+    /**
+     * A map for each type and data size, key is data type, value is the corresponding data size
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    /**
+     * A map for each type and data size, key is data type, value is the corresponding data size
+     *
+     * @param { Record<string, long> } Type and size information of data
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 11 dynamic
+     * @since 22 static
+     */
+    set summary(value: Record<string, long>);
+
     /**
      * Total data size of data in Bytes
      *
@@ -420,14 +438,31 @@ declare namespace unifiedDataChannel {
     /**
      * Total data size of data in Bytes
      *
-     * @type { long }
+     * @returns { long } Total size information of data
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11 dynamic
      * @since 22 static
      */
-    totalSize: long;
-    
+    get totalSize(): long;
+
+    /**
+     * Total data size of data in Bytes
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    /**
+     * Total data size of data in Bytes
+     *
+     * @param { long } Total size information of data
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 11 dynamic
+     * @since 22 static
+     */
+    set totalSize(value: long);
+
     /**
      * Indicates the overview information of unifiedData.
      *
@@ -3499,6 +3534,21 @@ declare namespace unifiedDataChannel {
   type DataLoadHandler = (acceptableInfo?: DataLoadInfo) => UnifiedData | null;
 
   /**
+   * Indicates the callback function for deferred and non-blocking data loading.
+   * 
+   * @typedef { function } DelayedDataLoadHandler
+   * @param { DataLoadInfo } [acceptableInfo] - Indicates the type and number of data
+   *    that can be accepted by the receiver.
+   * @returns { Promise<UnifiedData | null> } - Asynchronously return the {@link UnifiedData} object
+   *    that needs to be loaded.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  type DelayedDataLoadHandler = (acceptableInfo?: DataLoadInfo) => Promise<UnifiedData | null>;
+
+  /**
    * Indicates data loading params.
    *
    * @interface DataLoadParams
@@ -3525,6 +3575,19 @@ declare namespace unifiedDataChannel {
      * @since 20 dynamic
      */
     dataLoadInfo: DataLoadInfo;
+
+    /**
+     * Indicates the callback function for deferred and non-blocking data loading.
+     * This handler is optional. If it is provided, it will take precedence over
+     *    the synchronous DataLoadHandler. (i.e., DataLoadHandler will be ignored).
+     * 
+     * @type { ?DelayedDataLoadHandler }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    delayedDataLoadHandler?: DelayedDataLoadHandler;
   }
 
   /**

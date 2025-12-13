@@ -114,6 +114,15 @@ declare class AbilityStateData {
    * @since 22 static
    */
   appCloneIndex?: int;
+
+  /**
+   * The caller bundle name.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 23 dynamic&static
+   */
+  callerBundleName?: string;
 }
 
 export default AbilityStateData;

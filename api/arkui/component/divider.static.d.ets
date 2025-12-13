@@ -35,7 +35,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * Indicates whether to use a horizontal splitter or a vertical splitter.
      * The options are as follows: false: horizontal splitter; true: vertical splitter.
      *
-     * @param { boolean } value
+     * @param { boolean | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
@@ -44,7 +44,7 @@ export declare interface DividerAttribute extends CommonMethod {
     /**
      * Sets the color of the divider line.
      *
-     * @param { ResourceColor } value
+     * @param { ResourceColor | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
@@ -53,16 +53,16 @@ export declare interface DividerAttribute extends CommonMethod {
     /**
      * Sets the width of the dividing line.
      *
-     * @param { number | string } value
+     * @param { double | string | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default strokeWidth(value: number | string | undefined): this;
+    default strokeWidth(value: double | string | undefined): this;
     /**
      * Sets the end style of the split line. The default value is Butt.
      *
-     * @param { LineCapStyle } value
+     * @param { LineCapStyle | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static

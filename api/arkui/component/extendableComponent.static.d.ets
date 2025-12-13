@@ -21,7 +21,7 @@
 import { Builder } from './builder';
 import { Theme } from '@ohos.arkui.theme';
 import { UIContext } from '@ohos.arkui.UIContext';
-import { Optional, NavDestinationInfo, NavigationInfo, RouterPageInfo } from './common';
+import { NavDestinationInfo, NavigationInfo, RouterPageInfo } from './common';
 import { IVariableOwner } from '../stateManagement/decorator';
 import promptAction from '@ohos.promptAction'
 
@@ -78,6 +78,7 @@ export declare interface LifeCycle {
  *
  * @implements { LifeCycle, IVariableOwner }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 22 static
  */
 export declare abstract class ExtendableComponent implements LifeCycle, IVariableOwner {
@@ -118,14 +119,16 @@ export declare abstract class ExtendableComponent implements LifeCycle, IVariabl
     queryNavDestinationInfo(): NavDestinationInfo | undefined;
 
     /**
-    * Queries the navigation destination information.
-    *
-    * @param { Optional<boolean> } isInner
-    * @returns { NavDestinationInfo | undefined } The navigation destination information, or undefined if it is not available.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 22 static
-    */
-    queryNavDestinationInfo(isInner: Optional<boolean>): NavDestinationInfo | undefined;
+     * Queries the navigation destination information.
+     *
+     * @param { boolean | undefined } isInner
+     * @returns { NavDestinationInfo | undefined } - The navigation destination information,
+     *     or undefined if it is not available.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 22 static
+     */
+    queryNavDestinationInfo(isInner: boolean | undefined): NavDestinationInfo | undefined;
 
     /**
     * Query the navigation information of the current custom component.

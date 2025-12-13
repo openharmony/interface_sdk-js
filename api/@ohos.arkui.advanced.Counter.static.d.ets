@@ -134,7 +134,9 @@ declare class CommonOptions {
 /**
  * Defines the inline style options.
  *
+ * @extends CommonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 22 static
  * @noninterop
  */
@@ -142,35 +144,38 @@ declare class InlineStyleOptions extends CommonOptions {
     /**
      * Set initial value of the counter component, ranges from min to max.
      *
-     * @type { ?double }
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      * @noninterop
      */
-    value?: double;
+    value?: int;
 
     /**
-     * Set minimum value of the counter component
+     * Set minimum value of the counter component, ranges greater than equal to 0.
      *
-     * @type { ?double }
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      * @noninterop
      */
-    min?: double;
+    min?: int;
 
     /**
-     * Set maximum value of the counter component
+     * Set maximum value of the counter component, ranges greater than equal to 0.
      *
-     * @type { ?double }
+     * @type { ?int }
      * @default 999
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      * @noninterop
      */
-    max?: double;
+    max?: int;
 
     /**
      * Set text width  of the counter component,  ranges greater than or equal to 0
@@ -257,12 +262,13 @@ declare class NumberStyleOptions extends InlineStyleOptions {
  * The change callback of the inline counter.
  *
  * @typedef { function } OnInlineCounterChange
- * @param { double } value - value
+ * @param { int } value - value
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
-export type OnInlineCounterChange = (value: double) => void;
+export type OnInlineCounterChange = (value: int) => void;
 
 /**
  * Defines the date data.

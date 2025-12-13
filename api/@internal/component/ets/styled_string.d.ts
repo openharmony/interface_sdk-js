@@ -157,6 +157,21 @@ declare class StyledString {
      * @atomicservice
      * @since 12 dynamic
      */
+    /**
+     * Returns StyledString from the provided HTML string.
+     *
+     * @param { string } html - the html text will be converted to a StyledString.
+     * @returns { Promise<StyledString> }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 170001 - Convert Error.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
     static fromHtml(html: string): Promise<StyledString>;
 
     /**
@@ -1065,6 +1080,18 @@ declare class ParagraphStyle {
      * @since 22 dynamic
      */
     readonly leadingMarginSpan?: LeadingMarginSpan;
+
+    /**
+     * Get the text direction of the StyledString.
+     *
+     * @type { ?TextDirection } - the text direction of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    readonly textDirection?: TextDirection;
 }
 
 /**
@@ -1175,6 +1202,17 @@ declare interface ParagraphStyleInterface {
      * @since 22 dynamic
      */
     leadingMarginSpan?: LeadingMarginSpan;
+
+    /**
+     * Set the text direction of the StyledString.
+     *
+     * @type { ?TextDirection }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    textDirection?: TextDirection;
 }
 
 /**
@@ -1254,9 +1292,10 @@ declare class UrlStyle {
  * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan |
  * UserDataSpan } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 
 /**
@@ -1266,6 +1305,7 @@ declare class UrlStyle {
  * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
  * UserDataSpan | BackgroundColorStyle } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 14 dynamic
@@ -2132,10 +2172,12 @@ declare interface LeadingMarginSpanDrawInfo {
     baseline: number;
 
     /**
-     * The direction of text.
+     * The direction of text. The default value is TextDirection.DEFAULT.
      *
      * @type { TextDirection }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
      * @since 22 dynamic
      */
     direction: TextDirection;

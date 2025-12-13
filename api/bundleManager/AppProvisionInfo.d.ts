@@ -173,6 +173,17 @@ export interface AppProvisionInfo {
    * @since 22 static
    */
   readonly organization: string;
+
+  /**
+   * Indicates the bundleName.
+   *
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  readonly bundleName?: string;
 }
 
 /**

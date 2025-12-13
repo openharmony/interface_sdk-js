@@ -23,6 +23,9 @@ import type Want from '../@ohos.app.ability.Want';
 import type StartOptions from '../@ohos.app.ability.StartOptions';
 import type AbilityStartCallback from './AbilityStartCallback';
 import { ConnectOptions } from '../ability/connectOptions';
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
 
 /**
  * The context of UI service extension. It allows access to UIServiceExtension-specific resources.
@@ -102,9 +105,29 @@ declare class UIServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
+    abilityStartCallback: AbilityStartCallback): Promise<void>;
+
+  /**
+   * Starts the UIAbility or UIExtensionAbility by type.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the caller application is in the background, it is not allowed to call this interface.
+   *
+   * @param { string } type - The type of target ability.
+   * @param { Record<string, RecordData> } wantParam - Indicates the want parameter.
+   * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 22 static
+   */
+  startAbilityByType(type: string, wantParam: Record<string, RecordData>,
     abilityStartCallback: AbilityStartCallback): Promise<void>;
 
   /**

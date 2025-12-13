@@ -150,7 +150,7 @@ interface DecimalConfig {
    * toHexadecimal, toNearest, toOctal, toPrecision and toSignificantDigits methods.
    * Default value: 4 (ROUND_HALF_UP)
    *
-   * @type { Rounding } integer, integer, 0 to 8 inclusive
+   * @type { ?Rounding } integer, integer, 0 to 8 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -171,7 +171,7 @@ interface DecimalConfig {
    * The negative exponent value at and below which toString returns exponential notation.
    * Default value: -7
    *
-   * @type { double } integer, -9e15 to 0 inclusive
+   * @type { ?double } integer, -9e15 to 0 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -255,7 +255,7 @@ interface DecimalConfig {
    * The value that determines whether cryptographically-secure pseudo-random number generation is used.
    * Default value: false
    *
-   * @type { boolean }
+   * @type { ?boolean }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -276,7 +276,7 @@ interface DecimalConfig {
    * The modulo mode used when calculating the modulus: a mod n.
    * Default value: 1 (ROUND_DOWN)
    *
-   * @type { Modulo } integer, 0 to 9 inclusive
+   * @type { ?Modulo } integer, 0 to 9 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -297,7 +297,7 @@ interface DecimalConfig {
    * If object has a 'defaults' property with value true then the new constructor will use the default configuration.
    * Default value: false
    *
-   * @type { boolean }
+   * @type { ?boolean }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice

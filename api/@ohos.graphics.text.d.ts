@@ -44,9 +44,7 @@ import { Resource } from './global/resource';
  *
  * @namespace text
  * @syscap SystemCapability.Graphics.Drawing
- * @since 12 dynamic
- * @since 20 static
- */
+ * @since 12 dynamic */
 /**
  * The Text module provides a set of APIs for text layout and font management.
  * It aims to deliver high-quality typesetting through features like character-to-glyph
@@ -78,9 +76,7 @@ declare namespace text {
    * Refers to how to align the horizontal position of text when displaying text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Refers to how to align the horizontal position of text when displaying text.
    * @enum { number }
@@ -92,9 +88,7 @@ declare namespace text {
     /**
      * Use the left side of the text as a reference line for alignment.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Use the left side of the text as a reference line for alignment.
      * @syscap SystemCapability.Graphics.Drawing
@@ -106,9 +100,7 @@ declare namespace text {
     /**
      * Use the right side of the text as a reference line for alignment.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Use the right side of the text as a reference line for alignment.
      * @syscap SystemCapability.Graphics.Drawing
@@ -120,9 +112,7 @@ declare namespace text {
     /**
      * Use the midpoint line the text as a reference line for alignment.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Use the midpoint line the text as a reference line for alignment.
      * @syscap SystemCapability.Graphics.Drawing
@@ -135,9 +125,7 @@ declare namespace text {
      * Justified, which means that each line (except the last line) is stretched so that every line has equal width,
      * and the left and right margins are straight.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Justified, which means that each line (except the last line) is stretched so that every line has equal width,
      * and the left and right margins are straight.
@@ -150,9 +138,7 @@ declare namespace text {
     /**
      * Align text from start, based on the TextDirection, such as left-to-right or right-to-left.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Align text from start, based on the TextDirection, such as left-to-right or right-to-left.
      * @syscap SystemCapability.Graphics.Drawing
@@ -164,9 +150,7 @@ declare namespace text {
     /**
      * Align text from end, based on the TextDirection, such as left-to-right or right-to-left, opposite to START.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Align text from end, based on the TextDirection, such as left-to-right or right-to-left, opposite to START.
      * @syscap SystemCapability.Graphics.Drawing
@@ -180,7 +164,7 @@ declare namespace text {
    * Enumerates the vertical alignment modes.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   /**
    * Enumerates the vertical alignment modes.
@@ -193,7 +177,7 @@ declare namespace text {
     /**
      * Baseline alignment in the vertical direction.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Baseline alignment in the vertical direction.
@@ -205,7 +189,7 @@ declare namespace text {
     /**
      * Bottom alignment in the vertical direction.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Bottom alignment in the vertical direction.
@@ -217,7 +201,7 @@ declare namespace text {
     /**
      * Center alignment in the vertical direction.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Center alignment in the vertical direction.
@@ -229,7 +213,7 @@ declare namespace text {
     /**
      * Top alignment in the vertical direction.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Top alignment in the vertical direction.
@@ -244,9 +228,7 @@ declare namespace text {
    * Enumerate text runs direction.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Enumerate text runs direction.
    * @enum { number }
@@ -258,9 +240,7 @@ declare namespace text {
     /**
      * The text is oriented from right to left.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * The text is oriented from right to left.
      * @syscap SystemCapability.Graphics.Drawing
@@ -272,9 +252,7 @@ declare namespace text {
     /**
      * The text is oriented from left to right.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * The text is oriented from left to right.
      * @syscap SystemCapability.Graphics.Drawing
@@ -288,9 +266,7 @@ declare namespace text {
    * Enumerate text segmentation strategy.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Enumerate text segmentation strategy.
    * @enum { number }
@@ -302,9 +278,7 @@ declare namespace text {
     /**
      * Fills the current line as much as possible without adding hyphens.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Fills the current line as much as possible without adding hyphens.
      * @syscap SystemCapability.Graphics.Drawing
@@ -316,9 +290,7 @@ declare namespace text {
     /**
      * Optimizes layout and may add hyphens when necessary.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Optimizes layout and may add hyphens when necessary.
      * @syscap SystemCapability.Graphics.Drawing
@@ -330,9 +302,7 @@ declare namespace text {
     /**
      * Ensures consistent line width in a paragraph, adding hyphens if needed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Ensures consistent line width in a paragraph, adding hyphens if needed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -346,9 +316,7 @@ declare namespace text {
    * Enumerate word break strategy.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Enumerate word break strategy.
    * @enum { number }
@@ -360,9 +328,7 @@ declare namespace text {
     /**
      * Default mode that break words based on language-specific conventions.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Default mode that break words based on language-specific conventions.
      * @syscap SystemCapability.Graphics.Drawing
@@ -376,9 +342,7 @@ declare namespace text {
      * This value is suitable for Asian text that contains some non-Asian text. For example, 
      * it can be used to break consecutive English characters.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Allows breaks within any character in non-CJK text. (CJK means Chinese, Japanese, and Korean.)
      * This value is suitable for Asian text that contains some non-Asian text. For example, 
@@ -394,9 +358,7 @@ declare namespace text {
      * or other natural breakpoints to keep words intact. If no breakpoints are found, it breaks between
      * any two characters. For CJK text, this behaves like NORMAL.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Allows breaks between any two characters in non-CJK text. It prioritizes breaking at whitespace
      * or other natural breakpoints to keep words intact. If no breakpoints are found, it breaks between
@@ -411,9 +373,7 @@ declare namespace text {
      * Attempts to break words at the end of a line using a hyphen. If a hyphen cannot be added,
      * it behaves like BREAK_WORD.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Attempts to break words at the end of a line using a hyphen. If a hyphen cannot be added,
      * it behaves like BREAK_WORD.
@@ -428,9 +388,7 @@ declare namespace text {
    * Describes a text decoration.
    * @typedef Decoration
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Describes a text decoration.
    * @typedef Decoration
@@ -443,9 +401,7 @@ declare namespace text {
      * Type of the decoration. The default value is NONE.
      * @type { ?TextDecorationType }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Type of the decoration. The default value is NONE.
      * @type { ?TextDecorationType }
@@ -459,9 +415,7 @@ declare namespace text {
      * Color of the decoration. The default value is transparent.
      * @type { ?common2D.Color }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Color of the decoration. The default value is transparent.
      * @type { ?common2D.Color }
@@ -475,9 +429,7 @@ declare namespace text {
      * Style of the decoration. The default value is SOLID.
      * @type { ?TextDecorationStyle }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Style of the decoration. The default value is SOLID.
      * @type { ?TextDecorationStyle }
@@ -492,9 +444,7 @@ declare namespace text {
      * The default value is 1.0.
      * @type { ?double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Scale factor for the thickness of the decoration line. The value is a floating point number.
      * The default value is 1.0.
@@ -510,9 +460,7 @@ declare namespace text {
    * Enumerates the text decoration types.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Enumerates the text decoration types.
    * @enum { number }
@@ -524,9 +472,7 @@ declare namespace text {
     /**
      * There are no text decoration.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * There are no text decoration.
      * @syscap SystemCapability.Graphics.Drawing
@@ -538,9 +484,7 @@ declare namespace text {
     /**
      * There is a decoration line below the text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * There is a decoration line below the text.
      * @syscap SystemCapability.Graphics.Drawing
@@ -552,9 +496,7 @@ declare namespace text {
     /**
      * There is a decoration line above the text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * There is a decoration line above the text.
      * @syscap SystemCapability.Graphics.Drawing
@@ -566,9 +508,7 @@ declare namespace text {
     /**
      * There is a decoration line through the middle of the text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * There is a decoration line through the middle of the text.
      * @syscap SystemCapability.Graphics.Drawing
@@ -582,9 +522,7 @@ declare namespace text {
    * Enumerates the text decoration styles.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Enumerates the text decoration styles.
    * @enum { number }
@@ -596,9 +534,7 @@ declare namespace text {
     /**
      * Decoration line is solid line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Decoration line is solid line.
      * @syscap SystemCapability.Graphics.Drawing
@@ -610,9 +546,7 @@ declare namespace text {
     /**
      * Decoration line is double line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Decoration line is double line.
      * @syscap SystemCapability.Graphics.Drawing
@@ -624,9 +558,7 @@ declare namespace text {
     /**
      * Decoration line is dotted line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Decoration line is dotted line.
      * @syscap SystemCapability.Graphics.Drawing
@@ -638,9 +570,7 @@ declare namespace text {
     /**
      * Decoration line is dashed line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Decoration line is dashed line.
      * @syscap SystemCapability.Graphics.Drawing
@@ -652,9 +582,7 @@ declare namespace text {
     /**
      * Decoration line is wavy line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Decoration line is wavy line.
      * @syscap SystemCapability.Graphics.Drawing
@@ -668,9 +596,7 @@ declare namespace text {
    * Enumeration of font weight of text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Enumeration of font weight of text.
    * @enum { number }
@@ -682,9 +608,7 @@ declare namespace text {
     /**
      * Thin
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Thin
      * @syscap SystemCapability.Graphics.Drawing
@@ -696,9 +620,7 @@ declare namespace text {
     /**
      * Extra-light
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Extra-light
      * @syscap SystemCapability.Graphics.Drawing
@@ -710,9 +632,7 @@ declare namespace text {
     /**
      * Light
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Light
      * @syscap SystemCapability.Graphics.Drawing
@@ -724,9 +644,7 @@ declare namespace text {
     /**
      * Normal/Regular
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Normal/Regular
      * @syscap SystemCapability.Graphics.Drawing
@@ -738,9 +656,7 @@ declare namespace text {
     /**
      * Medium
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Medium
      * @syscap SystemCapability.Graphics.Drawing
@@ -752,9 +668,7 @@ declare namespace text {
     /**
      * Semi-bold
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Semi-bold
      * @syscap SystemCapability.Graphics.Drawing
@@ -766,9 +680,7 @@ declare namespace text {
     /**
      * Bold
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Bold
      * @syscap SystemCapability.Graphics.Drawing
@@ -780,9 +692,7 @@ declare namespace text {
     /**
      * Extra-bold
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Extra-bold
      * @syscap SystemCapability.Graphics.Drawing
@@ -794,9 +704,7 @@ declare namespace text {
     /**
      * Black
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Black
      * @syscap SystemCapability.Graphics.Drawing
@@ -810,9 +718,7 @@ declare namespace text {
    * Enumeration of font style of text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Enumeration of font style of text.
    * @enum { number }
@@ -824,9 +730,7 @@ declare namespace text {
     /**
      * Upright font type.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Upright font type.
      * @syscap SystemCapability.Graphics.Drawing
@@ -838,9 +742,7 @@ declare namespace text {
     /**
      * Slant font. If no italic version is available for the current font, the oblique version will be used instead.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Slant font. If no italic version is available for the current font, the oblique version will be used instead.
      * @syscap SystemCapability.Graphics.Drawing
@@ -852,9 +754,7 @@ declare namespace text {
     /**
      * Oblique font. If no oblique version is available for the current font, the italic version will be used instead.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Oblique font. If no oblique version is available for the current font, the italic version will be used instead.
      * @syscap SystemCapability.Graphics.Drawing
@@ -868,9 +768,7 @@ declare namespace text {
    * Enumeration of font width of text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Enumeration of font width of text.
    * @enum { number }
@@ -882,9 +780,7 @@ declare namespace text {
     /**
      * Ultra condensed font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Ultra condensed font width.
      * @syscap SystemCapability.Graphics.Drawing
@@ -896,9 +792,7 @@ declare namespace text {
     /**
      * Extra condensed font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Extra condensed font width.
      * @syscap SystemCapability.Graphics.Drawing
@@ -910,9 +804,7 @@ declare namespace text {
     /**
      * Condensed font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Condensed font width.
      * @syscap SystemCapability.Graphics.Drawing
@@ -924,9 +816,7 @@ declare namespace text {
     /**
      * Semi condensed font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Semi condensed font width.
      * @syscap SystemCapability.Graphics.Drawing
@@ -938,9 +828,7 @@ declare namespace text {
     /**
      * Normal font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Normal font width.
      * @syscap SystemCapability.Graphics.Drawing
@@ -952,9 +840,7 @@ declare namespace text {
     /**
      * Semi expanded font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Semi expanded font width.
      * @syscap SystemCapability.Graphics.Drawing
@@ -966,9 +852,7 @@ declare namespace text {
     /**
      * Expanded font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Expanded font width.
      * @syscap SystemCapability.Graphics.Drawing
@@ -980,9 +864,7 @@ declare namespace text {
     /**
      * Extra expanded font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Extra expanded font width.
      * @syscap SystemCapability.Graphics.Drawing
@@ -994,9 +876,7 @@ declare namespace text {
     /**
      * Ultra expanded font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Ultra expanded font width.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1010,9 +890,7 @@ declare namespace text {
    * Enumerates the text height modifier patterns.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Enumerates the text height modifier patterns.
    * @enum { number }
@@ -1024,9 +902,7 @@ declare namespace text {
     /**
      * Allows the first line of the paragraph to rise and the last line to drop.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Allows the first line of the paragraph to rise and the last line to drop.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1038,9 +914,7 @@ declare namespace text {
     /**
      * Prevents the first line of a paragraph from rising.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Prevents the first line of a paragraph from rising.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1052,9 +926,7 @@ declare namespace text {
     /**
      * Prevents the last line of a paragraph from dropping.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Prevents the last line of a paragraph from dropping.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1066,9 +938,7 @@ declare namespace text {
     /**
      * Combines the effects of disabling the first line from rising and the last line from dropping.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Combines the effects of disabling the first line from rising and the last line from dropping.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1082,9 +952,7 @@ declare namespace text {
    * Enumeration the type of text baseline.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Enumeration the type of text baseline.
    * @enum { number }
@@ -1097,9 +965,7 @@ declare namespace text {
      * The alphabetic baseline, typically used for Latin-based scripts where the baseline aligns
      * with the base of lowercase letters.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * The alphabetic baseline, typically used for Latin-based scripts where the baseline aligns
      * with the base of lowercase letters.
@@ -1113,9 +979,7 @@ declare namespace text {
      * The ideographic baseline, commonly used for ideographic scripts such as Chinese, Japanese, and Korean,
      * where the baseline aligns with the center of characters.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * The ideographic baseline, commonly used for ideographic scripts such as Chinese, Japanese, and Korean,
      * where the baseline aligns with the center of characters.
@@ -1131,9 +995,7 @@ declare namespace text {
    * EllipsisMode.START and EllipsisMode.MIDDLE take effect only when text overflows in a single line.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Enumerates of ellipsis mode.
    * EllipsisMode.START and EllipsisMode.MIDDLE take effect only when text overflows in a single line.
@@ -1146,9 +1008,7 @@ declare namespace text {
     /**
      * Places the ellipsis in the text header. It is valid only when maxLines is set to 1 in ParagraphStyle.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Places the ellipsis in the text header. It is valid only when maxLines is set to 1 in ParagraphStyle.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1160,9 +1020,7 @@ declare namespace text {
     /**
      * Places the ellipsis in the middle of the text. It is valid only when maxLines is set to 1 in ParagraphStyle.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Places the ellipsis in the middle of the text. It is valid only when maxLines is set to 1 in ParagraphStyle.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1174,9 +1032,7 @@ declare namespace text {
     /**
      * Places the ellipsis at the end of the text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Places the ellipsis at the end of the text.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1190,9 +1046,7 @@ declare namespace text {
    * Describes shadow of text.
    * @typedef TextShadow
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Describes shadow of text.
    * @typedef TextShadow
@@ -1205,9 +1059,7 @@ declare namespace text {
      * Color of the text shadow. The default value is black (255, 0, 0, 0).
      * @type { ?common2D.Color } The color of text shadow
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Color of the text shadow. The default value is black (255, 0, 0, 0).
      * @type { ?common2D.Color } The color of text shadow
@@ -1221,9 +1073,7 @@ declare namespace text {
      * The horizontal and vertical coordinates must be greater than or equal to 0.
      * @type { ?common2D.Point } The point of shadow
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Position of the text shadow relative to the text.
      * The horizontal and vertical coordinates must be greater than or equal to 0.
@@ -1238,9 +1088,7 @@ declare namespace text {
      * The value is a floating point number. The default value is 0.0px.
      * @type { ?double } The value about radius of blur, it type is "double"
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * The value sets special effect radius of blurring text.
      * The value is a floating point number. The default value is 0.0px.
@@ -1256,9 +1104,7 @@ declare namespace text {
    * Describes the style of a rectangle.
    * @typedef RectStyle
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Describes the style of a rectangle.
    * @typedef RectStyle
@@ -1271,9 +1117,7 @@ declare namespace text {
      * Color of the rectangle.
      * @type { common2D.Color } The color of rect style
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Color of the rectangle.
      * @type { common2D.Color } The color of rect style
@@ -1287,9 +1131,7 @@ declare namespace text {
      * Left top radius of the rectangle.
      * @type { double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Left top radius of the rectangle.
      * @type { double } it is double type data
@@ -1303,9 +1145,7 @@ declare namespace text {
      * Right top radius of the rectangle.
      * @type { double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Right top radius of the rectangle.
      * @type { double } it is double type data
@@ -1319,9 +1159,7 @@ declare namespace text {
      * Right bottom radius of the rectangle.
      * @type { double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Right bottom radius of the rectangle.
      * @type { double } it is double type data
@@ -1335,9 +1173,7 @@ declare namespace text {
      * Left bottom radius of the rectangle.
      * @type { double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Left bottom radius of the rectangle.
      * @type { double } it is double type data
@@ -1393,9 +1229,7 @@ declare namespace text {
    * Describes font feature of text.
    * @typedef FontFeature
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Describes font feature of text.
    * @typedef FontFeature
@@ -1408,9 +1242,7 @@ declare namespace text {
      * String identified by the keyword in the font feature key-value pair.
      * @type { string } feature name
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * String identified by the keyword in the font feature key-value pair.
      * @type { string } feature name
@@ -1423,9 +1255,7 @@ declare namespace text {
      * 	Value in the font feature key-value pair.
      * @type { int } feature value
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * 	Value in the font feature key-value pair.
      * @type { int } feature value
@@ -1440,9 +1270,7 @@ declare namespace text {
    * Describes font variation of text.
    * @typedef FontVariation
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Describes font variation of text.
    * @typedef FontVariation
@@ -1455,9 +1283,7 @@ declare namespace text {
      * String identified by the keyword in the font variation key-value pair.
      * @type { string } variation axis
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * String identified by the keyword in the font variation key-value pair.
      * @type { string } variation axis
@@ -1470,9 +1296,7 @@ declare namespace text {
      * Value in the font variation key-value pair.
      * @type { double } variation value
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Value in the font variation key-value pair.
      * @type { double } variation value
@@ -1487,7 +1311,7 @@ declare namespace text {
    * Describes badge type of text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   /**
    * Describes badge type of text.
@@ -1500,7 +1324,7 @@ declare namespace text {
     /**
      * No badge.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * No badge.
@@ -1512,7 +1336,7 @@ declare namespace text {
     /**
      * Superscript.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Superscript.
@@ -1524,7 +1348,7 @@ declare namespace text {
     /**
      * Subscript.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Subscript.
@@ -1539,9 +1363,7 @@ declare namespace text {
    * Describes text style.
    * @typedef TextStyle
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Describes text style.
    * @typedef TextStyle
@@ -1555,9 +1377,7 @@ declare namespace text {
      * Text decoration. By default, no decoration is used.
      * @type { ?Decoration } decoration for text
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Text decoration. By default, no decoration is used.
      * @type { ?Decoration } decoration for text
@@ -1571,9 +1391,7 @@ declare namespace text {
      * Text color. The default color is white.
      * @type { ?common2D.Color } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Text color. The default color is white.
      * @type { ?common2D.Color } it is uint32_t type data
@@ -1589,9 +1407,7 @@ declare namespace text {
      * If the weight is greater than or equal to semi-bold, it might result in a fake bold effect.
      * @type { ?FontWeight } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Font weight. The default value is W400. Currently, only the default system font supports font weight adjustment.
      * For other fonts, if the weight is less than semi-bold (W600), there is no variation in stroke thickness.
@@ -1607,9 +1423,7 @@ declare namespace text {
      * Font style. The default value is NORMAL.
      * @type { ?FontStyle } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Font style. The default value is NORMAL.
      * @type { ?FontStyle } it is uint32_t type data
@@ -1623,9 +1437,7 @@ declare namespace text {
      * Text baseline type. The default value is ALPHABETIC.
      * @type { ?TextBaseline } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Text baseline type. The default value is ALPHABETIC.
      * @type { ?TextBaseline } it is uint32_t type data
@@ -1639,9 +1451,7 @@ declare namespace text {
      * Array of font families. By default, the array is empty, indicating that all system fonts are matched.
      * @type { ?Array<string> } fontfamily gather
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Array of font families. By default, the array is empty, indicating that all system fonts are matched.
      * @type { ?Array<string> } fontfamily gather
@@ -1655,9 +1465,7 @@ declare namespace text {
      * Font size, in units of px. The value is a floating point number. The default value is 14.0.
      * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Font size, in units of px. The value is a floating point number. The default value is 14.0.
      * @type { ?double } it is double type data
@@ -1673,9 +1481,7 @@ declare namespace text {
      * and a negative value bring characters closer together.
      * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Letter spacing, in units of px. The value is a floating point number.
      * The default value is 0.0. A positive value causes characters to spread farther apart,
@@ -1691,9 +1497,7 @@ declare namespace text {
      * Word spacing, in units of px. The value is a floating point number. The default value is 0.0.
      * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Word spacing, in units of px. The value is a floating point number. The default value is 0.0.
      * @type { ?double } it is double type data
@@ -1753,9 +1557,7 @@ declare namespace text {
      * The default value is 1.0. This parameter is valid only when heightOnly is set to true.
      * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Scale factor of the line height. The value is a floating point number.
      * The default value is 1.0. This parameter is valid only when heightOnly is set to true.
@@ -1772,9 +1574,7 @@ declare namespace text {
      * The value true means that half leading is enabled, and false means the opposite. The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Whether half leading is enabled.
      * Half leading is the leading split in half and applied equally to the top and bottom edges.
@@ -1792,9 +1592,7 @@ declare namespace text {
      * and false means that the height is set based on the line height and line spacing. The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * How the height of the text box is set.
      * The value true means that the height of the text box is set based on the font size and the value of heightScale,
@@ -1810,9 +1608,7 @@ declare namespace text {
      * Ellipsis content, which will be used to replace the extra content.
      * @type { ?string } it is u16string type data.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Ellipsis content, which will be used to replace the extra content.
      * @type { ?string } it is u16string type data.
@@ -1826,9 +1622,7 @@ declare namespace text {
      * Ellipsis type. The default value is END, indicating that the ellipsis is at the end of a line.
      * @type { ?EllipsisMode } Ellipsis mode.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Ellipsis type. The default value is END, indicating that the ellipsis is at the end of a line.
      * @type { ?EllipsisMode } Ellipsis mode.
@@ -1843,9 +1637,7 @@ declare namespace text {
      * and 'zh-Hant' indicates Traditional Chinese. For details, see ISO 639-1. The default value is an empty string.
      * @type { ?string } it is string type data.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Locale. For example, 'en' indicates English, 'zh-Hans' indicates Simplified Chinese,
      * and 'zh-Hant' indicates Traditional Chinese. For details, see ISO 639-1. The default value is an empty string.
@@ -1860,9 +1652,7 @@ declare namespace text {
      * Shift of the baseline. The value is a floating point number. The default value is 0.0px.
      * @type { ?double } it is double type data.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Shift of the baseline. The value is a floating point number. The default value is 0.0px.
      * @type { ?double } it is double type data.
@@ -1876,9 +1666,7 @@ declare namespace text {
      * Text Style available font features.
      * @type { ?Array<FontFeature> } A collection of font features.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Text Style available font features.
      * @type { ?Array<FontFeature> } A collection of font features.
@@ -1892,9 +1680,7 @@ declare namespace text {
      * Text shadows of text.
      * @type { ?Array<TextShadow> } textShadow gather.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Text shadows of text.
      * @type { ?Array<TextShadow> } textShadow gather.
@@ -1908,9 +1694,7 @@ declare namespace text {
      * Rectangle style of text.
      * @type { ?RectStyle } rect style for text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Rectangle style of text.
      * @type { ?RectStyle } rect style for text.
@@ -1924,9 +1708,7 @@ declare namespace text {
      * Text Style available font variations.
      * @type { ?Array<FontVariation> } A collection of font variations.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Text Style available font variations.
      * @type { ?Array<FontVariation> } A collection of font variations.
@@ -1940,7 +1722,7 @@ declare namespace text {
      * Text style available badge type.
      * @type { ?TextBadgeType } The type of text badge type.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Text style available badge type.
@@ -1970,9 +1752,7 @@ declare namespace text {
   /**
    * Implements a collection of fonts.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Implements a collection of fonts.
    * @syscap SystemCapability.Graphics.Drawing
@@ -1985,9 +1765,7 @@ declare namespace text {
      * Get global FontCollection instance of the application.
      * @returns { FontCollection } The FontCollection object.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Get global FontCollection instance of the application.
      * @returns { FontCollection } The FontCollection object.
@@ -2016,9 +1794,7 @@ declare namespace text {
      * @param { string | Resource } path - Path of the font file to import. The value must be
      * **file://**absolute path of the font file or **rawfile/**directory or file name.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Loads a custom font. This API returns the result synchronously.
      * In this API, name specifies the alias of the font, and the custom font effect can be displayed only when
@@ -2044,9 +1820,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Loads a custom font. This API uses a promise to return the result.
      * In this API, name specifies the alias of the font, and the custom font effect can be displayed only when
@@ -2065,6 +1839,53 @@ declare namespace text {
     loadFont(name: string, path: string | Resource): Promise<void>;
 
     /**
+     * Loads a custom font with enhanced error checking. This API returns the result synchronously.
+     * In this API, name specifies the alias of the font, and the custom font effect can be displayed only when
+     * the value of name is set in fontFamilies in TextStyle. The supported font file formats are .ttf, .otf and .ttc.
+     * @param { string } name - the font name.
+     * @param { string | Resource } path - Path of the font file to load.
+     * The value must be **"file:// + absolute path of the font file"** or **$rawfile("path of the font file")**.
+     * @param { int } [index] - The index of the font file.
+     * @throws { BusinessError } 25900001 - Parameter error.
+     * @throws { BusinessError } 25900002 - File not found.
+     * @throws { BusinessError } 25900003 - Failed to open the file.
+     * @throws { BusinessError } 25900004 - File seek failed.
+     * @throws { BusinessError } 25900005 - Failed to get the file size.
+     * @throws { BusinessError } 25900006 - Failed to read the file.
+     * @throws { BusinessError } 25900007 - Empty file.
+     * @throws { BusinessError } 25900008 - Corrupt file.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @form
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    loadFontSyncWithCheck(name: string, path: string | Resource, index?: int): void;
+
+    /**
+     * Loads a custom font with enhanced error checking. This API uses a promise to return the result.
+     * In this API, name specifies the alias of the font, and the custom font effect can be displayed only when
+     * the value of name is set in fontFamilies in TextStyle. The supported font file formats are .ttf, .otf and .ttc.
+     * @param { string } name - Name of the font. Any string is acceptable.
+     * @param { string | Resource } path - Path of the font file to load.
+     * The value must be **"file:// + absolute path of the font file"** or **$rawfile("path of the font file")**.
+     * @param { int } [index] - The index of the font file.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 25900001 - Parameter error.
+     * @throws { BusinessError } 25900002 - File not found.
+     * @throws { BusinessError } 25900003 - Failed to open the file.
+     * @throws { BusinessError } 25900004 - File seek failed.
+     * @throws { BusinessError } 25900005 - Failed to get the file size.
+     * @throws { BusinessError } 25900006 - Failed to read the file.
+     * @throws { BusinessError } 25900007 - Empty file.
+     * @throws { BusinessError } 25900008 - Corrupt file.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @form
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    loadFontWithCheck(name: string, path: string | Resource, index?: int): Promise<void>;
+
+    /**
      * Unloads a custom font synchronously. This API returns the result synchronously.
      * After unloading a font alias through this API, the corresponding custom font will no longer be available.
      * All typography using the font alias should be destroyed and re-created.
@@ -2075,7 +1896,7 @@ declare namespace text {
      * @param { string } name - The alias of the font to unload.
      * This must exactly match the name used when loading the font through.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Unloads a custom font synchronously. This API returns the result synchronously.
@@ -2106,7 +1927,7 @@ declare namespace text {
      * This must exactly match the name used when loading the font through.
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Unloads a custom font. This API uses a promise to return the result.
@@ -2131,9 +1952,7 @@ declare namespace text {
      * The font cache has a memory limit and a clearing mechanism. It occupies limited memory.
      * You are not advised to clear it unless otherwise required.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Clear font caches.
      * The font cache has a memory limit and a clearing mechanism. It occupies limited memory.
@@ -2151,9 +1970,7 @@ declare namespace text {
    * and other properties related to the line height when drawing texts. The strut style is disabled by default.
    * @typedef StrutStyle
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Describes the strut style, which determines the line spacing, baseline alignment mode,
    * and other properties related to the line height when drawing texts. The strut style is disabled by default.
@@ -2167,9 +1984,7 @@ declare namespace text {
      * List of font families. By default, the list corresponds to the system's default fonts.
      * @type { ?Array<string> } fontfamily gather
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * List of font families. By default, the list corresponds to the system's default fonts.
      * @type { ?Array<string> } fontfamily gather
@@ -2183,9 +1998,7 @@ declare namespace text {
      * Font style. The default value is NORMAL.
      * @type { ?FontStyle } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Font style. The default value is NORMAL.
      * @type { ?FontStyle } it is uint32_t type data
@@ -2199,9 +2012,7 @@ declare namespace text {
      * Font width. The default value is NORMAL.
      * @type { ?FontWidth } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Font width. The default value is NORMAL.
      * @type { ?FontWidth } it is uint32_t type data
@@ -2217,9 +2028,7 @@ declare namespace text {
      * If the weight is greater than or equal to W600, it might result in a fake bold effect.
      * @type { ?FontWeight } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Font weight. The default value is W400. The default system font supports font weight adjustment.
      * For other fonts, if the weight is less than W600, there is no variation in stroke thickness.
@@ -2235,9 +2044,7 @@ declare namespace text {
      * Font size, in units of px. The value is a floating point number. The default value is 14.0.
      * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Font size, in units of px. The value is a floating point number. The default value is 14.0.
      * @type { ?double } it is double type data
@@ -2251,9 +2058,7 @@ declare namespace text {
      * Scale factor of the line height. The value is a floating point number. The default value is 1.0.
      * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Scale factor of the line height. The value is a floating point number. The default value is 1.0.
      * @type { ?double } it is double type data
@@ -2267,9 +2072,7 @@ declare namespace text {
      * Custom leading to be applied to the strut. The value is a floating point number. The default value is -1.0.
      * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Custom leading to be applied to the strut. The value is a floating point number. The default value is -1.0.
      * @type { ?double } it is double type data
@@ -2284,9 +2087,7 @@ declare namespace text {
      * for all lines, and false means the opposite. The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Whether to forcibly use the strut height for all lines. The value true means to forcibly use the strut height
      * for all lines, and false means the opposite. The default value is false.
@@ -2302,9 +2103,7 @@ declare namespace text {
      * The value true means to enable the strut style, and false means the opposite. The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Whether to enable the strut style.
      * The value true means to enable the strut style, and false means the opposite. The default value is false.
@@ -2320,9 +2119,7 @@ declare namespace text {
      * The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * 	Whether to override the height. The value true means to override the height, and false means the opposite.
      * The default value is false.
@@ -2339,9 +2136,7 @@ declare namespace text {
      * The value true means that half leading is enabled, and false means the opposite. The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Whether half leading is enabled.
      * Half leading is the leading split in half and applied equally to the top and bottom edges.
@@ -2358,9 +2153,7 @@ declare namespace text {
    * Determines the configuration used by ParagraphBuilder to position lines within a Paragraph of text.
    * @typedef ParagraphStyle
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Determines the configuration used by ParagraphBuilder to position lines within a Paragraph of text.
    * @typedef ParagraphStyle
@@ -2373,9 +2166,7 @@ declare namespace text {
      * Text style applied to the paragraph. The default value is the initial text style.
      * @type { ?TextStyle }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Text style applied to the paragraph. The default value is the initial text style.
      * @type { ?TextStyle }
@@ -2389,9 +2180,7 @@ declare namespace text {
      * Text direction. The default value is LTR.
      * @type { ?TextDirection }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Text direction. The default value is LTR.
      * @type { ?TextDirection }
@@ -2405,9 +2194,7 @@ declare namespace text {
      * Text alignment mode. The default value is START. This parameter is invalid when the tab parameter is configured.
      * @type { ?TextAlign }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Text alignment mode. The default value is START. This parameter is invalid when the tab parameter is configured.
      * @type { ?TextAlign }
@@ -2421,9 +2208,7 @@ declare namespace text {
      * Word break type. The default value is BREAK_WORD.
      * @type { ?WordBreak }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Word break type. The default value is BREAK_WORD.
      * @type { ?WordBreak }
@@ -2437,9 +2222,7 @@ declare namespace text {
      * Maximum number of lines. The value is an integer. The default value is 1e9.
      * @type { ?int }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Maximum number of lines. The value is an integer. The default value is 1e9.
      * @type { ?int }
@@ -2453,9 +2236,7 @@ declare namespace text {
      * Text break strategy. The default value is GREEDY.
      * @type { ?BreakStrategy }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Text break strategy. The default value is GREEDY.
      * @type { ?BreakStrategy }
@@ -2469,9 +2250,7 @@ declare namespace text {
      * Strut style. The default value is the initial StrutStyle object.
      * @type { ?StrutStyle }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Strut style. The default value is the initial StrutStyle object.
      * @type { ?StrutStyle }
@@ -2485,9 +2264,7 @@ declare namespace text {
      * Text height modifier pattern. The default value is ALL.
      * @type { ?TextHeightBehavior }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Text height modifier pattern. The default value is ALL.
      * @type { ?TextHeightBehavior }
@@ -2503,9 +2280,7 @@ declare namespace text {
      * the ellipsis parameter in TextStyle.
      * @type { ?TextTab }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Alignment mode and position of the text after the tab character in a paragraph. By default, the tab character
      * is replaced with a space. This parameter is invalid when it is used together with the align parameter or
@@ -2521,7 +2296,7 @@ declare namespace text {
      * Whether to optimize white spaces at the end of each line.
      * @type { ?boolean } Boolean type data.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Whether to optimize white spaces at the end of each line.
@@ -2536,7 +2311,7 @@ declare namespace text {
      * Whether to enable automatic spacing between Chinese and English for paragraph.
      * @type { ?boolean }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Whether to enable automatic spacing between Chinese and English for paragraph.
@@ -2551,7 +2326,7 @@ declare namespace text {
      * Vertical alignment mode of the paragraph.
      * @type { ?TextVerticalAlign }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Vertical alignment mode of the paragraph.
@@ -2576,15 +2351,40 @@ declare namespace text {
      * @since 22 dynamic
      */
     lineSpacing?: double;
+
+    /**
+     * Whether to enable compression of leading punctuation.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    compressHeadPunctuation?: boolean;
+
+    /**
+     * Whether to Add padding to the font.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    includeFontPadding?: boolean;
+
+    /**
+     * Whether to enable line spacing fallback.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    fallbackLineSpacing?: boolean;
   }
 
   /**
    * Enumerates the vertical alignment modes of a placeholder relative to the surrounding text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Enumerates the vertical alignment modes of a placeholder relative to the surrounding text.
    * @enum { number }
@@ -2596,9 +2396,7 @@ declare namespace text {
     /**
      * Aligns the baseline of the placeholder to the baseline of the text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Aligns the baseline of the placeholder to the baseline of the text.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2611,9 +2409,7 @@ declare namespace text {
      * Aligns the bottom edge of the placeholder to the baseline of the text.
      * sits on top of the baseline.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Aligns the bottom edge of the placeholder to the baseline of the text.
      * sits on top of the baseline.
@@ -2627,9 +2423,7 @@ declare namespace text {
      * Aligns the top edge of the placeholder to the baseline of the text.
      * hangs below the baseline.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Aligns the top edge of the placeholder to the baseline of the text.
      * hangs below the baseline.
@@ -2643,9 +2437,7 @@ declare namespace text {
      * Align the top edge of the placeholder with the top edge of the font. When the placeholder is very tall,
      * the extra space will hang from the top and extend through the bottom of the line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Align the top edge of the placeholder with the top edge of the font. When the placeholder is very tall,
      * the extra space will hang from the top and extend through the bottom of the line.
@@ -2659,9 +2451,7 @@ declare namespace text {
      * Align the bottom edge of the placeholder with the bottom edge of the text. When the placeholder is very tall,
      * the extra space will rise from the bottom and extend through the top of the line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Align the bottom edge of the placeholder with the bottom edge of the text. When the placeholder is very tall,
      * the extra space will rise from the bottom and extend through the top of the line.
@@ -2675,9 +2465,7 @@ declare namespace text {
      * Align the middle of the placeholder with the middle of the text. When the placeholder is very tall,
      * the extra space will grow equally from the top and bottom of the line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Align the middle of the placeholder with the middle of the text. When the placeholder is very tall,
      * the extra space will grow equally from the top and bottom of the line.
@@ -2690,7 +2478,7 @@ declare namespace text {
     /**
      * Follow Paragraph setting,
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Follow Paragraph setting,
@@ -2705,9 +2493,7 @@ declare namespace text {
    * Describes the placeholder style.
    * @typedef PlaceholderSpan
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Describes the placeholder style.
    * @typedef PlaceholderSpan
@@ -2720,9 +2506,7 @@ declare namespace text {
      * Width of the placeholder, in units of px. The value is a floating point number.
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Width of the placeholder, in units of px. The value is a floating point number.
      * @type { double }
@@ -2736,9 +2520,7 @@ declare namespace text {
      * Height of the placeholder, in units of px. The value is a floating point number.
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Height of the placeholder, in units of px. The value is a floating point number.
      * @type { double }
@@ -2752,9 +2534,7 @@ declare namespace text {
      * Vertical alignment of the placeholder relative to the surrounding text.
      * @type { PlaceholderAlignment }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Vertical alignment of the placeholder relative to the surrounding text.
      * @type { PlaceholderAlignment }
@@ -2768,9 +2548,7 @@ declare namespace text {
      * Type of the text baseline.
      * @type { TextBaseline }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Type of the text baseline.
      * @type { TextBaseline }
@@ -2784,9 +2562,7 @@ declare namespace text {
      * Offset to the text baseline, in units of px. The value is a floating point number.
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Offset to the text baseline, in units of px. The value is a floating point number.
      * @type { double }
@@ -2801,9 +2577,7 @@ declare namespace text {
    * Describes a left-closed and right-open interval.
    * @typedef Range
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Describes a left-closed and right-open interval.
    * @typedef Range
@@ -2816,9 +2590,7 @@ declare namespace text {
      * Index of the leftmost point of the interval. The value is an integer.
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Index of the leftmost point of the interval. The value is an integer.
      * @type { int }
@@ -2832,9 +2604,7 @@ declare namespace text {
      * Index of the rightmost point of the interval. The value is an integer.
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Index of the rightmost point of the interval. The value is an integer.
      * @type { int }
@@ -2849,9 +2619,7 @@ declare namespace text {
    * Enumerates the font types, which can be combined through bitwise OR operations.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 14 dynamic
-   * @since 20 static
-   */
+   * @since 14 dynamic   */
   /**
    * Enumerates the font types, which can be combined through bitwise OR operations.
    * @enum { number }
@@ -2863,9 +2631,7 @@ declare namespace text {
     /**
      * All font types, including the system font type, style font type, and user-installed font type.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14 dynamic
-     * @since 20 static
-     */
+     * @since 14 dynamic     */
     /**
      * All font types, including the system font type, style font type, and user-installed font type.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2877,9 +2643,7 @@ declare namespace text {
     /**
      * System generic font type.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14 dynamic
-     * @since 20 static
-     */
+     * @since 14 dynamic     */
     /**
      * System generic font type.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2891,9 +2655,7 @@ declare namespace text {
     /**
      * Style font type. The style font type is designed for 2-in-1 devices.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14 dynamic
-     * @since 20 static
-     */
+     * @since 14 dynamic     */
     /**
      * Style font type. The style font type is designed for 2-in-1 devices.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2905,9 +2667,7 @@ declare namespace text {
     /**
      * Font type that has been installed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14 dynamic
-     * @since 20 static
-     */
+     * @since 14 dynamic     */
     /**
      * Font type that has been installed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2919,9 +2679,7 @@ declare namespace text {
     /**
      * Customized font types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Customized font types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2935,9 +2693,7 @@ declare namespace text {
    * Describes the font descriptor information.
    * @typedef FontDescriptor
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 14 dynamic
-   * @since 20 static
-   */
+   * @since 14 dynamic   */
   /**
    * Describes the font descriptor information.
    * @typedef FontDescriptor
@@ -2951,9 +2707,7 @@ declare namespace text {
      * The default value is an empty string.
      * @type { ?string }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14 dynamic
-     * @since 20 static
-     */
+     * @since 14 dynamic     */
     /**
      * Absolute path of the font. Any string is acceptable, but the value must adhere to the system's path constraints.
      * The default value is an empty string.
@@ -2968,9 +2722,7 @@ declare namespace text {
      * Unique name of the font. Any string is acceptable. The default value is an empty string.
      * @type { ?string }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14 dynamic
-     * @since 20 static
-     */
+     * @since 14 dynamic     */
     /**
      * Unique name of the font. Any string is acceptable. The default value is an empty string.
      * @type { ?string }
@@ -2984,9 +2736,7 @@ declare namespace text {
      * Font name. Any string is acceptable. The default value is an empty string.
      * @type { ?string }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14 dynamic
-     * @since 20 static
-     */
+     * @since 14 dynamic     */
     /**
      * Font name. Any string is acceptable. The default value is an empty string.
      * @type { ?string }
@@ -3000,9 +2750,7 @@ declare namespace text {
      * Family name of the font. Any string is acceptable. The default value is an empty string.
      * @type { ?string }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14 dynamic
-     * @since 20 static
-     */
+     * @since 14 dynamic     */
     /**
      * Family name of the font. Any string is acceptable. The default value is an empty string.
      * @type { ?string }
@@ -3016,9 +2764,7 @@ declare namespace text {
      * Subfamily name of the font. Any string is acceptable. The default value is an empty string.
      * @type { ?string }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14 dynamic
-     * @since 20 static
-     */
+     * @since 14 dynamic     */
     /**
      * Subfamily name of the font. Any string is acceptable. The default value is an empty string.
      * @type { ?string }
@@ -3032,9 +2778,7 @@ declare namespace text {
      * Font weight. The default value is 0.
      * @type { ?FontWeight }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14 dynamic
-     * @since 20 static
-     */
+     * @since 14 dynamic     */
     /**
      * Font weight. The default value is 0.
      * @type { ?FontWeight }
@@ -3048,9 +2792,7 @@ declare namespace text {
      * Font width. The value is an integer ranging from 1 to 9. The default value is 0.
      * @type { ?int }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14 dynamic
-     * @since 20 static
-     */
+     * @since 14 dynamic     */
     /**
      * Font width. The value is an integer ranging from 1 to 9. The default value is 0.
      * @type { ?int }
@@ -3065,9 +2807,7 @@ declare namespace text {
      * The default value is 0.
      * @type { ?int }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14 dynamic
-     * @since 20 static
-     */
+     * @since 14 dynamic     */
     /**
      * Whether the font is italic. The value 0 means that the font is not italic, and 1 means the opposite.
      * The default value is 0.
@@ -3083,9 +2823,7 @@ declare namespace text {
      * The default value is false.
      * @type { ?boolean }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14 dynamic
-     * @since 20 static
-     */
+     * @since 14 dynamic     */
     /**
      * Whether the font is monospaced. The value true means that the font is monospaced, and false means the opposite.
      * The default value is false.
@@ -3100,9 +2838,7 @@ declare namespace text {
      * Whether the font is symbolic. The value true means that the font is symbolic, and false means the opposite.
      * @type { ?boolean }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14 dynamic
-     * @since 20 static
-     */
+     * @since 14 dynamic     */
     /**
      * Whether the font is symbolic. The value true means that the font is symbolic, and false means the opposite.
      * @type { ?boolean }
@@ -3111,6 +2847,97 @@ declare namespace text {
      * @since 22 dynamic&static
      */
     symbolic?: boolean;
+
+    /**
+     * Font local post script name
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    localPostscriptName?: string;
+
+    /**
+     * Font local full name
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    localFullName?: string;
+
+    /**
+     * Font local family name
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    localFamilyName?: string;
+
+    /**
+     * Font local subfamily name
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    localSubFamilyName?: string;
+
+    /**
+     * Font version
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    version?: string;
+
+    /**
+     * Font manufacture
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    manufacture?: string;
+
+    /**
+     * Font copyright
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    copyright?: string;
+
+    /**
+     * Font trademark
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    trademark?: string;
+
+    /**
+     * Font license
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    license?: string;
+
+    /**
+     * The font index in ttc file
+     * @type { ?int }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    index?: int;
   }
 
   /**
@@ -3118,9 +2945,7 @@ declare namespace text {
    * Before calling any of the following APIs, you must use build() of the ParagraphBuilder class to
    * create a Paragraph object.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Implements a carrier that stores the text content and style. You can perform operations such as layout and drawing.
    * Before calling any of the following APIs, you must use build() of the ParagraphBuilder class to
@@ -3134,9 +2959,7 @@ declare namespace text {
      * Performs layout and calculates the positions of all glyphs.
      * @param { double } width - Maximum width of a single line, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Performs layout and calculates the positions of all glyphs.
      * @param { double } width - Maximum width of a single line, in units of px. The value is a floating point number.
@@ -3153,9 +2976,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Performs layout and calculates the positions of all glyphs. This API uses a promise to return the result.
      * @param { double } width - Maximum width of a single line, in units of px. The value is a floating point number.
@@ -3174,9 +2995,7 @@ declare namespace text {
      * @param { double } x - X coordinate of the upper left corner. The value is a floating point number.
      * @param { double } y - Y coordinate of the upper left corner. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Paints the text on the canvas with the coordinate point (x, y) as the upper left corner.
      * @param { drawing.Canvas } canvas - Target canvas.
@@ -3198,9 +3017,7 @@ declare namespace text {
      * @param { double } vOffset - Vertical offset along the path direction. A positive number indicates a position
      * on the left side of the path, and a negative number indicates a position on the right side of the path.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Draw the laid out text onto the supplied canvas along the path and offset.
      * @param { drawing.Canvas } canvas - Canvas used to carry the drawn content and drawing status.
@@ -3220,9 +3037,7 @@ declare namespace text {
      * Obtains the maximum width of the line in the text.
      * @returns { double } Maximum line width, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the maximum width of the line in the text.
      * @returns { double } Maximum line width, in units of px. The value is a floating point number.
@@ -3236,9 +3051,7 @@ declare namespace text {
      * Obtains the total height of the text.
      * @returns { double } Total height, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the total height of the text.
      * @returns { double } Total height, in units of px. The value is a floating point number.
@@ -3252,9 +3065,7 @@ declare namespace text {
      * Obtains the longest line in the text.
      * @returns { double } Longest line, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the longest line in the text.
      * @returns { double } Longest line, in units of px. The value is a floating point number.
@@ -3270,9 +3081,7 @@ declare namespace text {
      * @returns { double } Width of the longest line, including its indentation.
      * The value is a floating point number, in px.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 13 dynamic
-     * @since 20 static
-     */
+     * @since 13 dynamic     */
     /**
      * Obtains the width of the longest line, including its indentation, in the text.
      * You are advised to round up the return value. If the text content is empty, 0 is returned.
@@ -3288,9 +3097,7 @@ declare namespace text {
      * Obtains the minimum intrinsic width of the paragraph.
      * @returns { double } Minimum intrinsic width, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the minimum intrinsic width of the paragraph.
      * @returns { double } Minimum intrinsic width, in units of px. The value is a floating point number.
@@ -3304,9 +3111,7 @@ declare namespace text {
      * Obtains the maximum intrinsic width of the paragraph.
      * @returns { double } Maximum intrinsic width, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the maximum intrinsic width of the paragraph.
      * @returns { double } Maximum intrinsic width, in units of px. The value is a floating point number.
@@ -3320,9 +3125,7 @@ declare namespace text {
      * Obtains the alphabetic baseline.
      * @returns { double } Alphabetic baseline, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the alphabetic baseline.
      * @returns { double } Alphabetic baseline, in units of px. The value is a floating point number.
@@ -3336,9 +3139,7 @@ declare namespace text {
      * Obtains the ideographic baseline.
      * @returns { double } Ideographic baseline, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the ideographic baseline.
      * @returns { double } Ideographic baseline, in units of px. The value is a floating point number.
@@ -3356,9 +3157,7 @@ declare namespace text {
      * @param { RectHeightStyle } heightStyle - Height of the rectangle.
      * @returns { Array<TextBox> } Array holding the rectangles obtained.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the rectangles occupied by the characters in the range of the text under the given rectangle width and
      * height.
@@ -3376,9 +3175,7 @@ declare namespace text {
      * Obtains the rectangles occupied by all placeholders in the text.
      * @returns { Array<TextBox> } Array holding the rectangles obtained.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the rectangles occupied by all placeholders in the text.
      * @returns { Array<TextBox> } Array holding the rectangles obtained.
@@ -3394,9 +3191,7 @@ declare namespace text {
      * @param { double } y - Y coordinate. The value is a floating point number.
      * @returns { PositionWithAffinity } Position of the glyph.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the position of a glyph closest to the given coordinates.
      * @param { double } x - X coordinate. The value is a floating point number.
@@ -3413,9 +3208,7 @@ declare namespace text {
      * @param { int } offset - Offset of the glyph. The value is an integer.
      * @returns { Range } Range of the word.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the range of the word where the glyph with a given offset is located.
      * @param { int } offset - Offset of the glyph. The value is an integer.
@@ -3430,9 +3223,7 @@ declare namespace text {
      * Obtains the number of text lines.
      * @returns { int } Number of text lines. The value is an integer.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the number of text lines.
      * @returns { int } Number of text lines. The value is an integer.
@@ -3447,9 +3238,7 @@ declare namespace text {
      * @param { int } line - Index of the line. The value is an integer ranging from 0 to getLineCount() – 1.
      * @returns { double } The line height value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the height of a given line.
      * @param { int } line - Index of the line. The value is an integer ranging from 0 to getLineCount() – 1.
@@ -3465,9 +3254,7 @@ declare namespace text {
      * @param { int } line - Index of the line. The value is an integer ranging from 0 to getLineCount() – 1.
      * @returns { double } The line width value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the width of a given line.
      * @param { int } line - Index of the line. The value is an integer ranging from 0 to getLineCount() – 1.
@@ -3483,9 +3270,7 @@ declare namespace text {
      * @returns { boolean } Check result. The value true means that the number of lines exceeds the maximum,
      * and false means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Checks whether the number of lines in the paragraph exceeds the maximum.
      * @returns { boolean } Check result. The value true means that the number of lines exceeds the maximum,
@@ -3500,9 +3285,7 @@ declare namespace text {
      * Obtains all the text lines.
      * @returns { Array<TextLine> } Array of text lines.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains all the text lines.
      * @returns { Array<TextLine> } Array of text lines.
@@ -3521,9 +3304,7 @@ declare namespace text {
      * and false means the opposite.
      * @returns { Range } Text range obtained. If the line index is invalid, start and end are both 0.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the actually visible text range in the specified line, excluding any overflow ellipsis.
      * @param { int } lineNumber - Line number of the text range, starting from 0. This API can only be used to
@@ -3542,9 +3323,7 @@ declare namespace text {
      * Obtains an array of line measurement information.
      * @returns { Array<LineMetrics> } Array of line measurement information.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains an array of line measurement information.
      * @returns { Array<LineMetrics> } Array of line measurement information.
@@ -3561,9 +3340,7 @@ declare namespace text {
      * line number is valid and the measurement information exists. If the line number is invalid or
      * the measurement information cannot be obtained, undefined is returned.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the line measurement information of a line.
      * @param { int } lineNumber - Line number, starting from 0.
@@ -3580,7 +3357,7 @@ declare namespace text {
      * Synchronously updates the text color of the typography.
      * @param { common2D.Color } color - Color of text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Synchronously updates the text color of the typography.
@@ -3595,7 +3372,7 @@ declare namespace text {
      * Synchronously updates text decoration.
      * @param { Decoration } decoration - Decoration of text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Synchronously updates text decoration.
@@ -3612,9 +3389,7 @@ declare namespace text {
    * individual lines of text. Before calling any of the following APIs, you must use buildLineTypeset()
    * in the ParagraphBuilder class to create a LineTypeset object.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 18 dynamic
-   * @since 20 static
-   */
+   * @since 18 dynamic   */
   /**
    * Implements a carrier that stores the text content and style. It can be used to compute layout details for
    * individual lines of text. Before calling any of the following APIs, you must use buildLineTypeset()
@@ -3633,9 +3408,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Obtains the number of characters that can fit in the layout from the specified position within a limited width.
      * @param { int } startIndex - Start position (inclusive) for calculation. The value is an integer in the range
@@ -3662,9 +3435,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Generates a text line object based on the specified layout range.
      * @param { int } startIndex - Start position for layout calculation. The value is an integer in the
@@ -3687,9 +3458,7 @@ declare namespace text {
    * Describes the rectangle that holds the text.
    * @typedef TextBox
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Describes the rectangle that holds the text.
    * @typedef TextBox
@@ -3702,9 +3471,7 @@ declare namespace text {
      * Information about the rectangle.
      * @type { common2D.Rect }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Information about the rectangle.
      * @type { common2D.Rect }
@@ -3718,9 +3485,7 @@ declare namespace text {
      * Text direction.
      * @type { TextDirection }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Text direction.
      * @type { TextDirection }
@@ -3735,9 +3500,7 @@ declare namespace text {
    * Describes the position and affinity of a glyph.
    * @typedef PositionWithAffinity
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Describes the position and affinity of a glyph.
    * @typedef PositionWithAffinity
@@ -3750,9 +3513,7 @@ declare namespace text {
      * Index of the glyph relative to the paragraph. The value is an integer.
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Index of the glyph relative to the paragraph. The value is an integer.
      * @type { int }
@@ -3766,9 +3527,7 @@ declare namespace text {
      * Affinity of the position.
      * @type { Affinity }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Affinity of the position.
      * @type { Affinity }
@@ -3783,9 +3542,7 @@ declare namespace text {
    * Enumerates the rectangle width styles.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Enumerates the rectangle width styles.
    * @enum { number }
@@ -3798,9 +3555,7 @@ declare namespace text {
      * If letterSpacing is not set, the rectangle conforms tightly to the text it contains.
      * However, if letterSpacing is set, a gap is introduced between the rectangle and text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * If letterSpacing is not set, the rectangle conforms tightly to the text it contains.
      * However, if letterSpacing is set, a gap is introduced between the rectangle and text.
@@ -3813,9 +3568,7 @@ declare namespace text {
     /**
      * The rectangle's width is extended to align with the widest rectangle across all lines.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * The rectangle's width is extended to align with the widest rectangle across all lines.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3829,9 +3582,7 @@ declare namespace text {
    * Enumerates the rectangle height styles.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Enumerates the rectangle height styles.
    * @enum { number }
@@ -3843,9 +3594,7 @@ declare namespace text {
     /**
      * Tight style.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Tight style.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3857,9 +3606,7 @@ declare namespace text {
     /**
      * Extends the height to match the highest rectangle in all lines.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Extends the height to match the highest rectangle in all lines.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3871,9 +3618,7 @@ declare namespace text {
     /**
      * The top and bottom of each rect will cover half of the space above and half of the space below the line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * The top and bottom of each rect will cover half of the space above and half of the space below the line.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3885,9 +3630,7 @@ declare namespace text {
     /**
      * The line spacing will be added to the top of the rect.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * The line spacing will be added to the top of the rect.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3899,9 +3642,7 @@ declare namespace text {
     /**
      * The line spacing will be added to the bottom of the rect.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * The line spacing will be added to the bottom of the rect.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3913,9 +3654,7 @@ declare namespace text {
     /**
      * The height of the boxes will be calculated by text strut.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * The height of the boxes will be calculated by text strut.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3931,9 +3670,7 @@ declare namespace text {
    * closer to.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Enumerates text affinity.When a selection range involves line breaks or other special characters, the
    * affinity determines which side of the characters the start and end of the selection range should be
@@ -3947,9 +3684,7 @@ declare namespace text {
     /**
      * The position has affinity for the upstream side of the text position.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * The position has affinity for the upstream side of the text position.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3960,9 +3695,7 @@ declare namespace text {
     /**
      * The position has affinity for the downstream side of the text position.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * The position has affinity for the downstream side of the text position.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3975,9 +3708,7 @@ declare namespace text {
   /**
    * Builds a Paragraph containing text with the given styling information.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Builds a Paragraph containing text with the given styling information.
    * @syscap SystemCapability.Graphics.Drawing
@@ -3990,9 +3721,7 @@ declare namespace text {
      * @param { ParagraphStyle } paragraphStyle - Paragraph style {@link ParagraphStyle}
      * @param { FontCollection } fontCollection - Font collection {@link FontCollection}
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * A constructor used to create a ParagraphBuilder object.
      * @param { ParagraphStyle } paragraphStyle - Paragraph style {@link ParagraphStyle}
@@ -4011,9 +3740,7 @@ declare namespace text {
      * font size, color, font weight, word spacing, line spacing, decoration (such as underline and strikethrough),
      * and text shadow. {@link TextStyle}
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Applies a new style to the current text blob.
      * <p>**NOTE**</p>
@@ -4030,9 +3757,7 @@ declare namespace text {
     /**
      * Restores the previous text style.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Restores the previous text style.
      * @syscap SystemCapability.Graphics.Drawing
@@ -4046,9 +3771,7 @@ declare namespace text {
      * @param { string } text - Exact text string inserted into the paragraph. If an invalid Unicode character is
      * provided, it is displayed as �.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Inserts a text string into the paragraph being built.
      * @param { string } text - Exact text string inserted into the paragraph. If an invalid Unicode character is
@@ -4064,9 +3787,7 @@ declare namespace text {
      * @param { PlaceholderSpan } placeholderSpan - Placeholder span, which describes the size, alignment,
      * baseline type, and baseline offset of the placeholder. {@link PlaceholderSpan}
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Inserts a placeholder into the paragraph being built.
      * @param { PlaceholderSpan } placeholderSpan - Placeholder span, which describes the size, alignment,
@@ -4081,9 +3802,7 @@ declare namespace text {
      * Creates a paragraph object that can be used for subsequent layout and rendering.
      * @returns { Paragraph } Paragraph object that can be used for subsequent rendering.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Creates a paragraph object that can be used for subsequent layout and rendering.
      * @returns { Paragraph } Paragraph object that can be used for subsequent rendering.
@@ -4097,9 +3816,7 @@ declare namespace text {
      * Builds a line typesetter.
      * @returns { LineTypeset } LineTypeset object that can be used for subsequent rendering.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Builds a line typesetter.
      * @returns { LineTypeset } LineTypeset object that can be used for subsequent rendering.
@@ -4115,9 +3832,7 @@ declare namespace text {
      * range 0xF0000-0xF0C97. For details about the configurable symbol codes (unicode values in the list view),
      * see <a href="https://developer.huawei.com/consumer/cn/design/harmonyos-symbol/">HarmonyOS Symbol</a>.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Inserts a symbol into the paragraph being built.
      * @param { int } symbolId - Symbol code to insert. The value is a hexadecimal number in the
@@ -4137,9 +3852,7 @@ declare namespace text {
    * the strings "j" and "E" have identical typographic boundaries, which are independent of the characters themselves.
    * @typedef TypographicBounds
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 18 dynamic
-   * @since 20 static
-   */
+   * @since 18 dynamic   */
   /**
    * Describes the typographic boundaries of a text line. These boundaries depend on the typographic font and font size,
    * not on the characters themselves. For example, for the string " a b " (which has a space before "a" and a space
@@ -4155,9 +3868,7 @@ declare namespace text {
      * Ascent of a text line. The value is a floating point number.
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Ascent of a text line. The value is a floating point number.
      * @type { double }
@@ -4171,9 +3882,7 @@ declare namespace text {
      * Descent of a text line. The value is a floating point number.
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Descent of a text line. The value is a floating point number.
      * @type { double }
@@ -4187,9 +3896,7 @@ declare namespace text {
      * Leading of a text line. The value is a floating point number.
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Leading of a text line. The value is a floating point number.
      * @type { double }
@@ -4203,9 +3910,7 @@ declare namespace text {
      * Width of the typographic boundaries. The value is a floating point number.
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Width of the typographic boundaries. The value is a floating point number.
      * @type { double }
@@ -4231,9 +3936,7 @@ declare namespace text {
    * @returns { boolean } Whether to stop calling the callback. The value true means to stop calling the callback,
    * and false means to continue calling the callback.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 18 dynamic
-   * @since 20 static
-   */
+   * @since 18 dynamic   */
   /**
    * Defines the callback used to receive the offset and index of each character in a text line object
    * as its parameters.
@@ -4259,9 +3962,7 @@ declare namespace text {
    * Before calling any of the following APIs, you must use getTextLines() of the Paragraph class or createLine() of
    * the LineTypeset class to create a TextLine object.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Implements a carrier that describes the basic text line structure of a paragraph.
    * Before calling any of the following APIs, you must use getTextLines() of the Paragraph class or createLine() of
@@ -4275,9 +3976,7 @@ declare namespace text {
      * Obtains the number of glyphs in this text line.
      * @returns { int } Number of glyphs. The value is an integer.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the number of glyphs in this text line.
      * @returns { int } Number of glyphs. The value is an integer.
@@ -4291,9 +3990,7 @@ declare namespace text {
      * Obtains the range of the text in this text line in the entire paragraph.
      * @returns { Range } Range of the text in this text line in the entire paragraph.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the range of the text in this text line in the entire paragraph.
      * @returns { Range } Range of the text in this text line in the entire paragraph.
@@ -4307,9 +4004,7 @@ declare namespace text {
      * Obtains the array of glyph runs in the text line.
      * @returns { Array<Run> } Array of the runs obtained.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the array of glyph runs in the text line.
      * @returns { Array<Run> } Array of the runs obtained.
@@ -4325,9 +4020,7 @@ declare namespace text {
      * @param { double } x - X coordinate of the upper left corner. The value is a floating point number.
      * @param { double } y - Y coordinate of the upper left corner. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Paints this text line on the canvas with the coordinate point (x, y) as the upper left corner.
      * @param { drawing.Canvas } canvas - Target canvas.
@@ -4379,9 +4072,7 @@ declare namespace text {
      * the characters themselves.
      * @returns { TypographicBounds } Typographic boundaries of the text line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Obtains the typographic boundaries of this text line. These boundaries depend on the typographic font and font
      * size, but not on the characters themselves. For example, for the string " a b " (which has a space before
@@ -4404,9 +4095,7 @@ declare namespace text {
      * the boundary for "j" is taller than that for "E".
      * @returns { common2D.Rect } Image boundary of the text line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Obtains the image boundaries of this text line. The image boundaries, equivalent to visual boundaries, depend on
      * the font, font size, and characters. For example, for the string " a b " (which has a space before "a" and
@@ -4425,9 +4114,7 @@ declare namespace text {
      * Obtains the width of the spaces at the end of this text line.
      * @returns { double } Number of spaces at the end of the text line. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Obtains the width of the spaces at the end of this text line.
      * @returns { double } Number of spaces at the end of the text line. The value is a floating point number.
@@ -4442,9 +4129,7 @@ declare namespace text {
      * @param { common2D.Point } point - Position of the character.
      * @returns { int } Index of the character in the text line. The value is an integer.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Obtains the index of a character at the specified position in the original string.
      * @param { common2D.Point } point - Position of the character.
@@ -4460,9 +4145,7 @@ declare namespace text {
      * @param { int } index - Index of the character. The value is an integer.
      * @returns { double } Offset of the character with the specified index. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Obtains the offset of a character with the specified index in this text line.
      * @param { int } index - Index of the character. The value is an integer.
@@ -4478,9 +4161,7 @@ declare namespace text {
      * @param { CaretOffsetsCallback } callback - Custom function, which contains the offset and index of each
      * character in the text line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Enumerates the offset and index of each character in a text line.
      * @param { CaretOffsetsCallback } callback - Custom function, which contains the offset and index of each
@@ -4502,9 +4183,7 @@ declare namespace text {
      * point number. If the width is less than the actual width of the text line, 0 is returned.
      * @returns { double } Offset required for alignment. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Obtains the offset of this text line after alignment based on the alignment factor and alignment width.
      * @param { double } alignmentFactor - Alignment factor, which determines how text is aligned. The value is a
@@ -4526,9 +4205,7 @@ declare namespace text {
    * Implements a unit for text layout.
    * Before calling any of the following APIs, you must use getGlyphRuns() of the TextLine class to create a Run object.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Implements a unit for text layout.
    * Before calling any of the following APIs, you must use getGlyphRuns() of the TextLine class to create a Run object.
@@ -4541,9 +4218,7 @@ declare namespace text {
      * Obtains the number of glyphs in this run.
      * @returns { int } Number of glyphs. The value is an integer.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the number of glyphs in this run.
      * @returns { int } Number of glyphs. The value is an integer.
@@ -4557,9 +4232,7 @@ declare namespace text {
      * Obtains the index of each glyph in this run.
      * @returns { Array<int> } Array holding the index of each glyph in the run.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the index of each glyph in this run.
      * @returns { Array<int> } Array holding the index of each glyph in the run.
@@ -4609,9 +4282,7 @@ declare namespace text {
      * @returns { Array<common2D.Point> } Array holding the position of each glyph relative to the respective line in
      * the run.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the position of each glyph relative to the respective line in this run.
      * @returns { Array<common2D.Point> } Array holding the position of each glyph relative to the respective line in
@@ -4661,9 +4332,7 @@ declare namespace text {
      * Obtains the offset of each glyph in this run relative to its index.
      * @returns { Array<common2D.Point> } Array holding the offset of each glyph in the run relative to its index.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the offset of each glyph in this run relative to its index.
      * @returns { Array<common2D.Point> } Array holding the offset of each glyph in the run relative to its index.
@@ -4677,9 +4346,7 @@ declare namespace text {
      * Obtains the Font object of this run.
      * @returns { drawing.Font } Font object of this run.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Obtains the Font object of this run.
      * @returns { drawing.Font } Font object of this run.
@@ -4695,9 +4362,7 @@ declare namespace text {
      * @param { double } x - X coordinate of the upper left corner. The value is a floating point number.
      * @param { double } y - Y coordinate of the upper left corner. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Paints this run on the canvas with the coordinate point (x, y) as the upper left corner.
      * @param { drawing.Canvas } canvas - Target canvas.
@@ -4752,9 +4417,7 @@ declare namespace text {
      * @returns { Range } 	Range of the glyphs, where start indicates the start position of the range, which is the
      * index relative to the entire paragraph, and end indicates the length of the range.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Obtains the range of glyphs generated by this run.
      * @returns { Range } 	Range of the glyphs, where start indicates the start position of the range, which is the
@@ -4771,9 +4434,7 @@ declare namespace text {
      * a space after "b"), the typographic boundaries include the spaces at the beginning and end of the line.
      * @returns { TypographicBounds } Typographic boundaries of the run.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Obtain the typographic boundaries of this run. These boundaries depend on the typographic font and font size,
      * but not on the characters themselves. For example, for the string " a b " (which has a space before "a" and
@@ -4792,9 +4453,7 @@ declare namespace text {
      * spaces at the beginning and end.
      * @returns { common2D.Rect } Image boundary of the run.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Obtains the image boundary of this run. The image boundary, equivalent to a visual boundary, is related to the
      * font, font size, and characters. For example, for the string " a b " (which has a space before "a" and a
@@ -4811,7 +4470,7 @@ declare namespace text {
      * Obtains the text direction of the run.
      * @returns { TextDirection } Returns the text direction.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Obtains the text direction of the run.
@@ -4859,9 +4518,7 @@ declare namespace text {
    * Describes the layout information and metrics for a continuous piece of text (a run) in a line of text.
    * @typedef RunMetrics
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Describes the layout information and metrics for a continuous piece of text (a run) in a line of text.
    * @typedef RunMetrics
@@ -4874,9 +4531,7 @@ declare namespace text {
      * The metrics of an Font.
      * @type { TextStyle }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * The metrics of an Font.
      * @type { TextStyle }
@@ -4890,9 +4545,7 @@ declare namespace text {
      * Describes text style.
      * @type { drawing.FontMetrics }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Describes text style.
      * @type { drawing.FontMetrics }
@@ -4907,9 +4560,7 @@ declare namespace text {
    * Describes the measurement information of a single line of text in the text layout.
    * @typedef LineMetrics
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
-   */
+   * @since 12 dynamic   */
   /**
    * Describes the measurement information of a single line of text in the text layout.
    * @typedef LineMetrics
@@ -4922,9 +4573,7 @@ declare namespace text {
      * Start index of the line in the text buffer.
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Start index of the line in the text buffer.
      * @type { int }
@@ -4938,9 +4587,7 @@ declare namespace text {
      * End index of the line in the text buffer.
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * End index of the line in the text buffer.
      * @type { int }
@@ -4954,9 +4601,7 @@ declare namespace text {
      * Ascent, that is, the distance from the baseline to the top of the character.
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Ascent, that is, the distance from the baseline to the top of the character.
      * @type { double }
@@ -4970,9 +4615,7 @@ declare namespace text {
      * Descent, that is, the distance from the baseline to the bottom of the character.
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Descent, that is, the distance from the baseline to the bottom of the character.
      * @type { double }
@@ -4986,9 +4629,7 @@ declare namespace text {
      * Height of the line, which is Math.round(ascent + descent).
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Height of the line, which is Math.round(ascent + descent).
      * @type { double }
@@ -5002,9 +4643,7 @@ declare namespace text {
      * Width of the line.
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Width of the line.
      * @type { double }
@@ -5018,9 +4657,7 @@ declare namespace text {
      * Left edge of the line. The right edge is the value of left plus the value of width.
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Left edge of the line. The right edge is the value of left plus the value of width.
      * @type { double }
@@ -5034,9 +4671,7 @@ declare namespace text {
      * Y coordinate of the baseline in the line relative to the top of the paragraph.
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Y coordinate of the baseline in the line relative to the top of the paragraph.
      * @type { double }
@@ -5050,9 +4685,7 @@ declare namespace text {
      * Line number, starting from 0.
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Line number, starting from 0.
      * @type { int }
@@ -5066,9 +4699,7 @@ declare namespace text {
      * Height from the top to the current line.
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Height from the top to the current line.
      * @type { double }
@@ -5084,9 +4715,7 @@ declare namespace text {
      * are before layout and are the base values we calculate from.
      * @type { Map<int, RunMetrics> }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
-     */
+     * @since 12 dynamic     */
     /**
      * Mapping between text index ranges and the FontMetrics associated with
      * them. The first run will be keyed under start_index. The metrics here.
@@ -5106,9 +4735,7 @@ declare namespace text {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 14 dynamic
-   * @since 20 static
-   */
+   * @since 14 dynamic   */
   /**
    * Obtains the full names of all fonts of the specified type. This API uses a promise to return the result.
    * @param { SystemFontType } fontType - System font type.
@@ -5132,9 +4759,7 @@ declare namespace text {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 14 dynamic
-   * @since 20 static
-   */
+   * @since 14 dynamic   */
   /**
    * Obtains the font descriptor based on the font name and type. This API uses a promise to return the result.
    * A font descriptor is a data structure that describes font features. It contains details of the font appearance and
@@ -5162,9 +4787,7 @@ declare namespace text {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 18 dynamic
-   * @since 20 static
-   */
+   * @since 18 dynamic   */
   /**
    * Obtains all system font descriptors that match the provided font descriptor. This API uses a promise to return the
    * result.
@@ -5185,9 +4808,7 @@ declare namespace text {
    * Implements a paragraph-style text tab, which stores the alignment mode and position.
    * @typedef TextTab
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 18 dynamic
-   * @since 20 static
-   */
+   * @since 18 dynamic   */
   /**
    * Implements a paragraph-style text tab, which stores the alignment mode and position.
    * @typedef TextTab
@@ -5202,9 +4823,7 @@ declare namespace text {
      * alignment.
      * @type { TextAlign }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Alignment mode of the text following the tab character in a paragraph. It can be set to LEFT, RIGHT, and CENTER
      * defined in TextAlign. Other enumerated values have the effect of left alignment. The default value is left
@@ -5221,9 +4840,7 @@ declare namespace text {
      * The minimum value is 1.0. When the value is less than 1.0, the tab character is replaced with a space.
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
-     * @since 20 static
-     */
+     * @since 18 dynamic     */
     /**
      * Alignment position of the text following the tab character. The value is a floating point number, in px.
      * The minimum value is 1.0. When the value is less than 1.0, the tab character is replaced with a space.
@@ -5239,7 +4856,7 @@ declare namespace text {
    * Defines text rendering high contrast mode to enhance readability.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   /**
    * Defines text rendering high contrast mode to enhance readability.
@@ -5252,7 +4869,7 @@ declare namespace text {
     /**
      * Follow system's high contrast settings for text rendering.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Follow system's high contrast settings for text rendering.
@@ -5264,7 +4881,7 @@ declare namespace text {
     /**
      * Disables high contrast rendering regardless of system settings.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Disables high contrast rendering regardless of system settings.
@@ -5276,7 +4893,7 @@ declare namespace text {
     /**
      * Enable high contrast rendering regardless of system settings.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Enable high contrast rendering regardless of system settings.
@@ -5291,7 +4908,7 @@ declare namespace text {
    * Sets high contrast mode of text rendering.
    * @param { TextHighContrast } action - High contrast mode.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   /**
    * Sets high contrast mode of text rendering.
@@ -5307,7 +4924,7 @@ declare namespace text {
    *
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   /**
    * Visual representations for undefined (.notdef) glyphs.
@@ -5322,7 +4939,7 @@ declare namespace text {
      * Use the font's built-in .notdef glyph. This respects font's internal .notdef glyph design,
      * which might be an empty box, blank space, or custom symbol.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Use the font's built-in .notdef glyph. This respects font's internal .notdef glyph design,
@@ -5337,7 +4954,7 @@ declare namespace text {
      * overriding the font's default behavior. Useful for debugging missing characters
      * or enforcing consistent missing symbol display.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     /**
      * Always replace undefined glyphs with explicit tofu blocks,
@@ -5358,7 +4975,7 @@ declare namespace text {
    * - Tofu blocks explicitly show missing characters as visible squares
    * @param { TextUndefinedGlyphDisplay } noGlyphShow - The strategy for handling undefined glyphs.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   /**
    * Sets the glyph type to use when a character maps to the .notdef (undefined) glyph.
@@ -5384,6 +5001,30 @@ declare namespace text {
    * @since 22 dynamic&static
    */
   function getFontDescriptorsFromPath(path: string | Resource): Promise<Array<FontDescriptor>>;
+
+  /**
+   * Obtain font Unicode set based on the provided font file path or resource.
+   * @param { string | Resource } path - Path or resource of the font file.
+   *     The value must be **file://**absolute path of the font file or **rawfile/**directory or file name.
+   * @param { int } index - Index of ttc files, if the file is ttf, the index should be set to 0.
+   * @returns { Promise<Array<int>> } Promise used to return all parsed font unicode,
+   *     and an empty array will be returned if no font data are found, invalid path, no permission, or non-font file.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  function getFontUnicodeSet(path: string | Resource, index: int) : Promise<Array<int>>;
+
+  /**
+   * Obtain font count based on the provided font file path or resource.
+   * @param { string | Resource } path - Path or resource of the font file.
+   * @returns { int } font count.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  function getFontCount(path: string | Resource) : int;
 }
 
 export default text;

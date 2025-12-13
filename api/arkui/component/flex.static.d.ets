@@ -123,13 +123,13 @@ export declare interface FlexAttribute extends CommonMethod {
     /**
     * Defines the PointLight
     *
-    * @param { PointLightStyle } value - The point light style.
+    * @param { PointLightStyle | undefined } value - The point light style.
     * @returns { FlexAttribute } The attribute of the flex.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @systemapi
     * @since 22 static
     */
-    default pointLight(value: PointLightStyle): FlexAttribute;
+    default pointLight(value: PointLightStyle | undefined): FlexAttribute;
     /**
      * Set the attribute modifier
      *

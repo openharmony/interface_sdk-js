@@ -43,43 +43,43 @@ export interface ImageFrameInfo {
     /**
      * Image width
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    width?: number | string;
+    width?: double | string;
     /**
      * Image height
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    height?: number | string;
+    height?: double | string;
     /**
      * Vertical coordinate of the image relative to the upper left corner of the component
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    top?: number | string;
+    top?: double | string;
     /**
      * Horizontal coordinate of the image relative to the upper left corner of the component
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    left?: number | string;
+    left?: double | string;
     /**
      * Playback duration of this image frame, in milliseconds.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    duration?: number;
+    duration?: int;
 }
 /**
  * Defines the ImageAnimator component attributes.
@@ -122,12 +122,12 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * <br>This attribute does not take effect when a separate duration is set for any of the image frames.
      * </p>
      *
-     * @param { number | undefined } value - Playback duration, Default value is 1000.
+     * @param { int | undefined } value - Playback duration, Default value is 1000.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default duration(value: number | undefined): this;
+    default duration(value: int | undefined): this;
     /**
      * Sets the playback direction.
      *
@@ -162,12 +162,12 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * Sets the number of times that the animation is played.
      * Played once by default
      *
-     * @param { number | undefined } value - Number of times that the animation is played, Default value is 1.
+     * @param { int | undefined } value - Number of times that the animation is played, Default value is 1.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default iterations(value: number | undefined): this;
+    default iterations(value: int | undefined): this;
     /**
      * Sets whether the component should automatically pause or resume based on its visibility, using the system's
      * onVisibleAreaChange event.

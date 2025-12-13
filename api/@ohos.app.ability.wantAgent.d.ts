@@ -513,6 +513,7 @@ declare namespace wantAgent {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
+   * @since 22 static
    */
   function setWantAgentMultithreading(isMultithreadingSupported: boolean) : void;
 

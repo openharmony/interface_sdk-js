@@ -34,7 +34,7 @@ export declare interface BlankAttribute extends CommonMethod {
      * Sets the color to fill the blank.<br>
      * Default value: **Color.Transparent**.
      *
-     * @param { ResourceColor } value
+     * @param { ResourceColor | undefined } value
      * @returns { BlankAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
@@ -54,7 +54,7 @@ export declare interface BlankAttribute extends CommonMethod {
 /**
  * Defines Blank Component.
  *
- * @param { number | string } [min] - Blank options.
+ * @param { double | string } [min] - Blank options.
  * @param { CustomBuilder } [content_] - container
  * @returns { BlankAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -63,6 +63,6 @@ export declare interface BlankAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function Blank(
-    min?: number | string, 
+    min?: double | string, 
     content_?: CustomBuilder,
 ): BlankAttribute

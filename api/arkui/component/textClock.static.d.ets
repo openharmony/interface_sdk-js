@@ -18,11 +18,11 @@
  * @file
  * @kit ArkUI
  */
-import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier, Optional, DateTimeOptions } from './common';
+import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier, DateTimeOptions } from './common';
 import { ResourceColor, Length, ResourceStr } from "./units";
 import { FontStyle, FontWeight } from "./enums";
 import { ComponentBuilder, CustomBuilder } from './builder';
-import { AttributeModifier } from "./common";
+import { AttributeModifier, Callback } from "./common";
 
 /**
  * Provides a way to control the textclock status.
@@ -67,11 +67,11 @@ export declare interface TextClockConfiguration extends CommonConfiguration<Text
      * The valid value is an integer ranging from - 14 to 12,
      * Where a negative value indicates the eastern time zone, for example, -8.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    timeZoneOffset: number;
+    timeZoneOffset: double;
     /**
      * TextClock is started or not.
      *
@@ -83,11 +83,11 @@ export declare interface TextClockConfiguration extends CommonConfiguration<Text
     /**
      * The time of the TextClock.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    timeValue: number;
+    timeValue: long;
 }
 /**
  * Options to construct TextClock component.
@@ -101,11 +101,11 @@ export declare interface TextClockOptions {
      * Time zone offset.
      * Anonymous Object Rectification.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    timeZoneOffset?: number;
+    timeZoneOffset?: double;
     /**
      * TextClock controller.
      * Anonymous Object Rectification.
@@ -150,12 +150,12 @@ export declare interface TextClockAttribute extends CommonMethod {
      * You can listen to this callback,
      * Use the format attribute method to customize data display in the callback.
      *
-     * @param { function | undefined } event - Listening date event callback.
+     * @param { Callback<long> | undefined } event - Listening date event callback.
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default onDateChange(event: ((value: number) => void) | undefined): this;
+    default onDateChange(event: Callback<long> | undefined): this;
     /**
      * Called when the value of TextClock fontColor is set
      *
@@ -186,12 +186,12 @@ export declare interface TextClockAttribute extends CommonMethod {
     /**
      * Called when the value of TextClock fontWeight is set
      *
-     * @param { number | FontWeight | string | undefined } value
+     * @param { int | FontWeight | string | undefined } value
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default fontWeight(value: number | FontWeight | string | undefined): this;
+    default fontWeight(value: int | FontWeight | string | undefined): this;
     /**
      * Called when the value of TextClock fontFamily is set
      *

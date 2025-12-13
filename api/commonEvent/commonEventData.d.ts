@@ -18,6 +18,10 @@
  * @kit BasicServicesKit
  */
 
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
+
 /**
  * Common event data.
  *
@@ -147,9 +151,9 @@ export interface CommonEventData {
   /**
    * The description of the parameters in a common event.
    *
-   * @type { ?Record<string, Object> }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 22 static
    */
-  parameters?: Record<string, Object>;
+  parameters?: Record<string, RecordData>;
 }

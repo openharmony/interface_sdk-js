@@ -945,4 +945,37 @@ export interface BundleOptions {
    * @since 22 static
    */
   appIndex?: int;
+
+  /**
+   * Indicates bundle name
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  bundleName?: string;
+
+  /**
+   * Indicates module name
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  moduleName?: string;
+
+  /**
+   * Indicates ability name
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  abilityName?: string;
 }

@@ -25,30 +25,34 @@ import type { Callback } from "./@ohos.base";
  *
  * @namespace deviceStatus
  * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
- * @since 18
+ * @since 18 dynamic
+ * @since 22 static
  */
 
 declare namespace deviceStatus {
   /**
    * Enum for steady standing status.
    *
-   * @enum { number } SteadyStandingStatus
+   * @enum { int } SteadyStandingStatus
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
   export enum SteadyStandingStatus {
     /**
      * indicates exit status
      *
      * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
     STATUS_EXIT = 0,
     /**
      * indicates enter status
      *
      * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
     STATUS_ENTER = 1
   }
@@ -91,29 +95,25 @@ declare namespace deviceStatus {
    * Subscribe to detect the steady standing status
    * @param { 'steadyStandingDetect' } type - Indicates the event type.
    * @param { Callback<SteadyStandingStatus> } callback - Indicates the callback for getting the event data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
-   * <br> 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 32500001 - Service exception.
    * @throws { BusinessError } 32500002 - Subscription failed.
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
-   * @since 18
+   * @since 18 dynamic
    */
   function on(type: 'steadyStandingDetect', callback: Callback<SteadyStandingStatus>): void;
 
   /**
    * Unsubscribe to detect the steady standing status
    * @param { 'steadyStandingDetect' } type - Indicates the event type.
-   * @param { Callback<SteadyStandingStatus> } callback - Indicates the callback for getting the event data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
-   * <br> 2. Incorrect parameter types. 3.Parameter verification failed.
+   * @param { Callback<SteadyStandingStatus> } [callback] - Indicates the callback for getting the event data.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 32500001 - Service exception.
    * @throws { BusinessError } 32500003 - Unsubscription failed.
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
-   * @since 18
+   * @since 18 dynamic
    */
   function off(type: 'steadyStandingDetect', callback?: Callback<SteadyStandingStatus>): void;
 
@@ -129,5 +129,29 @@ declare namespace deviceStatus {
    * @since 20
    */
   function getDeviceRotationRadian(): Promise<DeviceRotationRadian>;
+
+  /**
+   * Subscribe to detect the steady standing status
+   * @param { Callback<SteadyStandingStatus> } callback - Indicates the callback for getting the event data.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 32500001 - Service exception.
+   * @throws { BusinessError } 32500002 - Subscription failed.
+   * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
+   * @since 22 static
+   */
+  function onSteadyStandingDetect(callback: Callback<SteadyStandingStatus>): void
+
+  /**
+   * Unsubscribe to detect the steady standing status
+   * @param { Callback<SteadyStandingStatus> } [callback] - Indicates the callback for getting the event data.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 32500001 - Service exception.
+   * @throws { BusinessError } 32500003 - Unsubscription failed.
+   * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
+   * @since 22 static
+   */
+   function offSteadyStandingDetect(callback?: Callback<SteadyStandingStatus>): void
 }
 export default deviceStatus;

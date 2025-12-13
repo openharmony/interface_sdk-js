@@ -150,7 +150,7 @@ export interface VignetteSettings {
    * Lower value will make the vignette effect more square.
    *
    * @type { ?double }
-   * @default 0.707
+   * @default sqrt(0.5)
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 22 dynamic&static
    */
