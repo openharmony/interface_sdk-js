@@ -11251,6 +11251,55 @@ declare namespace photoAccessHelper {
      * @since 21 dynamic
      */
      setRelationship(relationship: string): Promise<void>;
+
+    /**
+     * Creates a MediaAnalysisAlbumChangeRequest instance.
+     *
+     * @param { Context } context - Context of the ability instance.
+     * @param { string } name - Name of the album.
+     * @param { AlbumSubtype } subtype - Subtype of the album.
+     * @returns { MediaAnalysisAlbumChangeRequest | null} - Returns a MediaAnalysisAlbumChangeRequest instance.
+     *     If the operation fails, returns null.
+     * @throws {BusinessError } 202 - Called by non-system application.
+     * @throws {BusinessError } 23800151 - The scenario parameter verification fails.
+     *     <br>Possible causes: 1. The input parameter is not within the valid range.
+     * @throws {BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2.The file system is abnormal; 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    static createAnalysisAlbumRequest(
+      context:Context,
+      name: string,
+      subtype: AlbumSubtype
+    ): MediaAnalysisAlbumChangeRequest | null;
+
+    /**
+     * Creates a MediaAnalysisAlbumChangeRequest instance.
+     *
+     * @param { Context } context - Context of the ability instance.
+     * @param { string } name - Name of the album.
+     * @param { AlbumSubtype } subtype - Subtype of the album.
+     * @returns { MediaAnalysisAlbumChangeRequest } - Returns a MediaAnalysisAlbumChangeRequest instance.
+     * @throws {BusinessError } 202 - Called by non-system application.
+     * @throws {BusinessError } 23800151 - The scenario parameter verification fails.
+     *     <br>Possible causes: 1. The input parameter is not within the valid range.
+     * @throws {BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2.The file system is abnormal; 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    static createAnalysisAlbumRequest(
+      context:Context,
+      name: string,
+      subtype: AlbumSubtype
+    ): MediaAnalysisAlbumChangeRequest;
   }
 
   /**
