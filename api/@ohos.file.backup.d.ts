@@ -203,6 +203,34 @@ declare namespace backup {
   interface File extends FileMeta, FileData, FileManifestData {}
 
   /**
+   * Control backup and restore priority sequence
+   *
+   * @interface FsRequestConfig
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @systemapi
+   * @since 12 dynamic
+   */
+  interface FsRequestConfig {
+    TriggerType: number;
+    writeSize: number;
+    waitTime: number;
+  }
+
+    /**
+   * Obtain the backupVersion.
+   *
+   * @permission ohos.permission.BACKUP
+   * @param { FsRequestConfig } config - Configuration parameters for device garbage collection.
+   * @returns { number } Return the errcode of DeviceGc. Return 0 if the request successed, otherwise returns err code.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @systemapi
+   * @since 23 dynamic
+   */
+  function filesystemServiceRequest(config: FsRequestConfig): Promise<number>;
+  
+  /**
    * Obtain the backupVersion.
    *
    * @permission ohos.permission.BACKUP
