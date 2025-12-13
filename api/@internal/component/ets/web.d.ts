@@ -9146,7 +9146,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * 1. Fragment navigation also triggers onLoadFinished, but onPageEnd will not be triggered.
    * 2. onLoadFinished is triggered only once if the mainframe is automatically redirected before the page is
    *    completely loaded. onPageEnd is triggered every navigation on mainframe.
-   * 3. When the document of a pop-up window has been modified by Javascript before it is loaded , it will simulate the
+   * 3. When the document of a pop-up window has been modified by JavaScript before it is loaded , it will simulate the
    *    triggering of onLoadStarted with the URL set to empty because displaying the URL that is currently
    *    loading may be unsafe. onPageBegin will not be simulated.
    * </p>
