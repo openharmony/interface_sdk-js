@@ -5247,7 +5247,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
+     * @param { AsyncCallback<long> } callback - The row ID if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -5273,8 +5273,9 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
-    insert(table: string, values: ValuesBucket, callback: AsyncCallback<number>): void;
+    insert(table: string, values: ValuesBucket, callback: AsyncCallback<long>): void;
 
     /**
      * Inserts a row of data into the target table.
@@ -5297,7 +5298,7 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
+     * @param { AsyncCallback<long> } callback - The row ID if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -5323,8 +5324,9 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
-    insert(table: string, values: ValuesBucket, conflict: ConflictResolution, callback: AsyncCallback<number>): void;
+    insert(table: string, values: ValuesBucket, conflict: ConflictResolution, callback: AsyncCallback<long>): void;
 
     /**
      * Inserts a row of data into the target table.
@@ -5545,7 +5547,7 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket}
      * to be inserted into the table.
-     * @param { AsyncCallback<number> } callback -
+     * @param { AsyncCallback<long> } callback -
      * The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -5572,8 +5574,9 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
-    batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
+    batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<long>): void;
 
     /**
      * Inserts a batch of data into the target table.
@@ -5791,7 +5794,7 @@ declare namespace relationalStore {
      * The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @param { AsyncCallback<long> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -5817,8 +5820,9 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
-    update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<number>): void;
+    update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<long>): void;
 
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -5845,7 +5849,7 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates -
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @param { AsyncCallback<long> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -5871,12 +5875,13 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     update(
       values: ValuesBucket,
       predicates: RdbPredicates,
       conflict: ConflictResolution,
-      callback: AsyncCallback<number>
+      callback: AsyncCallback<long>
     ): void;
 
     /**
@@ -6086,7 +6091,7 @@ declare namespace relationalStore {
      * The key-value pairs are associated with column names of the database table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
      * the instance object of {@link dataSharePredicates.DataSharePredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @param { AsyncCallback<long> } callback - The number of affected rows.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -6115,12 +6120,13 @@ declare namespace relationalStore {
      * @systemapi
      * @StageModelOnly
      * @since 12 dynamic
+     * @since 23 static
      */
     update(
       table: string,
       values: ValuesBucket,
       predicates: dataSharePredicates.DataSharePredicates,
-      callback: AsyncCallback<number>
+      callback: AsyncCallback<long>
     ): void;
 
     /**
@@ -6234,7 +6240,7 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates -
      * The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @param { AsyncCallback<long> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -6260,8 +6266,9 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
-    delete(predicates: RdbPredicates, callback: AsyncCallback<number>): void;
+    delete(predicates: RdbPredicates, callback: AsyncCallback<long>): void;
 
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
@@ -6399,7 +6406,7 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { dataSharePredicates.DataSharePredicates } predicates -
      * The specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @param { AsyncCallback<long> } callback - The number of affected rows.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -6428,8 +6435,9 @@ declare namespace relationalStore {
      * @systemapi
      * @StageModelOnly
      * @since 12 dynamic
+     * @since 23 static
      */
-    delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
+    delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<long>): void;
 
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
@@ -6532,6 +6540,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     query(predicates: RdbPredicates, callback: AsyncCallback<ResultSet>): void;
 
@@ -6580,6 +6589,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     query(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
 
@@ -6664,6 +6674,7 @@ declare namespace relationalStore {
      * @systemapi
      * @StageModelOnly
      * @since 12 dynamic
+     * @since 23 static
      */
     query(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<ResultSet>): void;
 
@@ -6706,6 +6717,7 @@ declare namespace relationalStore {
      * @systemapi
      * @StageModelOnly
      * @since 12 dynamic
+     * @since 23 static
      */
     query(
       table: string,
@@ -6804,6 +6816,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     querySql(sql: string, callback: AsyncCallback<ResultSet>): void;
 
@@ -6849,6 +6862,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
 
@@ -7089,6 +7103,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     getModifyTime(
       table: string,
@@ -7119,7 +7134,7 @@ declare namespace relationalStore {
      * Data with a cursor smaller than the specified cursor will be cleaned up.
      *
      * @param { string } table - Indicates the name of the table to check.
-     * @param { number } cursor - Indicates the position of the data to be cleaned up.
+     * @param { long } cursor - Indicates the position of the data to be cleaned up.
      * @param { AsyncCallback<void> } callback - Indicates the callback invoked to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
@@ -7146,8 +7161,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12 dynamic
+     * @since 23 static
      */
-    cleanDirtyData(table: string, cursor: number, callback: AsyncCallback<void>): void;
+    cleanDirtyData(table: string, cursor: long, callback: AsyncCallback<void>): void;
 
     /**
      * Cleans all dirty data deleted in the cloud.
@@ -7192,6 +7208,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12 dynamic
+     * @since 23 static
      */
     cleanDirtyData(table: string, callback: AsyncCallback<void>): void;
 
@@ -7354,6 +7371,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     querySharingResource(predicates: RdbPredicates, callback: AsyncCallback<ResultSet>): void;
 
@@ -7408,6 +7426,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     querySharingResource(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
 
@@ -7455,6 +7474,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     executeSql(sql: string, callback: AsyncCallback<void>): void;
 
@@ -7519,6 +7539,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
 
@@ -7977,6 +7998,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     backup(destName: string, callback: AsyncCallback<void>): void;
 
@@ -8088,6 +8110,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
+     * @since 23 static
      */
     restore(srcName: string, callback: AsyncCallback<void>): void;
 
@@ -8206,6 +8229,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -8271,6 +8295,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     setDistributedTables(tables: Array<string>, type: DistributedType, callback: AsyncCallback<void>): void;
 
@@ -8310,6 +8335,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     setDistributedTables(
       tables: Array<string>,
@@ -8388,6 +8414,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
 
@@ -8450,10 +8477,10 @@ declare namespace relationalStore {
      * @param { SyncMode } mode - Indicates the database synchronization mode.
      * @param { RdbPredicates } predicates -
      * The specified sync condition by the instance object of {@link RdbPredicates}.
-     * @param { AsyncCallback<Array<[string, number]>> } callback -
-     * {Array<[string, number]>}: devices sync status array,
+     * @param { AsyncCallback<Array<[string, int]>> } callback -
+     * {Array<[string, int]>}: devices sync status array,
      * {string}: device id,
-     * {number}: device sync status.
+     * {int}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -8461,8 +8488,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
-    sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[string, number]>>): void;
+    sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[string, int]>>): void;
 
     /**
      * Sync data between devices.
@@ -8532,6 +8560,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12 dynamic
+     * @since 23 static
      */
     cloudSync(mode: SyncMode, progress: Callback<ProgressDetails>, callback: AsyncCallback<void>): void;
 
@@ -8601,6 +8630,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12 dynamic
+     * @since 23 static
      */
     cloudSync(
       mode: SyncMode,
@@ -8685,6 +8715,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     cloudSync(
       mode: SyncMode,
@@ -8771,6 +8802,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     remoteQuery(
       device: string,
@@ -9042,17 +9074,6 @@ declare namespace relationalStore {
     on(event: 'sqliteErrorOccurred', observer: Callback<ExceptionMessage> ): void;
 
     /**
-     * Subscribes to the SQL execution error logs.
-     * @param { Callback<ExceptionMessage> } observer - Callback used to return the SQL execution error log {@link ExceptionMessage}.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 23 static
-     */
-    onSqliteErrorOccurred(observer: Callback<ExceptionMessage> ): void;
-
-    /**
      * Subscribes to the SQL performance statistics.
      * @param { 'perfStat' } event - Event type, which must be 'perfStat'.
      * @param { Callback<SqlExecutionInfo> } observer - Callback used to return the SQL execution statistics {@link SqlExecutionInfo}.
@@ -9063,17 +9084,6 @@ declare namespace relationalStore {
      * @since 20 dynamic
      */
     on(event: 'perfStat', observer: Callback<SqlExecutionInfo>): void;
-
-    /**
-     * Subscribes to the SQL performance statistics.
-     * @param { Callback<SqlExecutionInfo> } observer - Callback used to return the SQL execution statistics {@link SqlExecutionInfo}.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 23 static
-     */
-    onPerfStat(observer: Callback<SqlExecutionInfo>): void;
 
     /**
      * Remove specified observer of specified type from the database.
@@ -9288,17 +9298,6 @@ declare namespace relationalStore {
     off(event: 'sqliteErrorOccurred', observer?: Callback<ExceptionMessage> ): void;
 
     /**
-     * Unsubscribes from the SQL execution error logs.
-     * @param { Callback<ExceptionMessage> } [observer] - Callback to unregister.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 23 static
-     */
-    offSqliteErrorOccurred(observer?: Callback<ExceptionMessage> ): void;
-
-    /**
      * Unsubscribes from the SQL performance statistics.
      * @param { 'perfStat' } event - Event type, which must be 'perfStat'.
      * @param { Callback<SqlExecutionInfo> } observer - Callback to unregister.
@@ -9309,17 +9308,6 @@ declare namespace relationalStore {
      * @since 20 dynamic
      */
     off(event: 'perfStat', observer?: Callback<SqlExecutionInfo>): void;
-
-    /**
-     * Unsubscribes from the SQL performance statistics.
-     * @param { Callback<SqlExecutionInfo> } [observer] - Callback to unregister.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 23 static
-     */
-    offPerfStat(observer?: Callback<SqlExecutionInfo>): void;
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
@@ -10855,6 +10843,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 14 dynamic
+   * @since 23 static
    */
   function getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void;
 
@@ -11003,6 +10992,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10 dynamic
+   * @since 23 static
    */
   function deleteRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<void>): void;
 
