@@ -290,13 +290,13 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
     onTerminated(callback: Callback<TerminationInfo> | undefined): this;
     /**
      * Callback called when the UIExtensionAbility draw the first frame.
-     * @param { Callback | undefined } callback
+     * @param { VoidCallback | undefined } callback
      * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
-    onDrawReady(callback: Callback | undefined): this;
+    onDrawReady(callback: VoidCallback | undefined): this;
 
     /**
      * Set the attribute modifier of UIExtensionComponent Component.
