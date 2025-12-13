@@ -177,7 +177,7 @@ declare namespace inputEventClient {
    * @interface KeyEventInfo
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   interface KeyEventInfo {
     /**
@@ -186,7 +186,7 @@ declare namespace inputEventClient {
      * @type { KeyEvent }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     KeyEvent: KeyEvent;
   }
@@ -252,7 +252,7 @@ declare namespace inputEventClient {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   function injectEvent(keyEvent: KeyEventInfo): void;
 
