@@ -5226,7 +5226,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Inserts a row of data into the target table.
@@ -5240,7 +5240,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Inserts a row of data into the target table.
@@ -5271,6 +5271,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @crossplatform
      * @since 12 dynamic
      * @since 23 static
@@ -5290,7 +5291,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Inserts a row of data into the target table.
@@ -5322,6 +5323,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @crossplatform
      * @since 12 dynamic
      * @since 23 static
@@ -5523,7 +5525,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Inserts a batch of data into the target table.
@@ -5539,7 +5541,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Inserts a batch of data into the target table.
@@ -5572,6 +5574,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @crossplatform
      * @since 12 dynamic
      * @since 23 static
@@ -5769,7 +5772,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -5785,7 +5788,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -5818,6 +5821,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @crossplatform
      * @since 12 dynamic
      * @since 23 static
@@ -5839,7 +5843,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -5873,6 +5877,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @crossplatform
      * @since 12 dynamic
      * @since 23 static
@@ -6061,7 +6066,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -6081,7 +6086,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -6118,7 +6123,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -6219,7 +6224,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
@@ -6233,7 +6238,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
@@ -6264,6 +6269,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @crossplatform
      * @since 12 dynamic
      * @since 23 static
@@ -6380,7 +6386,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
@@ -6398,7 +6404,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
@@ -6433,7 +6439,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -6589,7 +6595,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 23 static
+     * @since 22 static
      */
     query(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
 
@@ -7126,7 +7132,7 @@ declare namespace relationalStore {
      * 1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
      * 3. The tablesNames must be not empty string. 4. The cursor must be valid cursor.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Cleans the dirty data, which is the data deleted in the cloud.
@@ -7160,6 +7166,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
@@ -8468,7 +8475,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 9 dynamic
      */
     /**
      * Sync data between devices.
@@ -8487,6 +8494,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @since 12 dynamic
      * @since 23 static
      */
