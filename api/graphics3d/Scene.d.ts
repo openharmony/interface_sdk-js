@@ -663,4 +663,16 @@ export declare class Scene {
     * @since 22 static
     */
   getComponent(node: Node, name: string): SceneComponent | null;
+
+  /**
+   * clone a node or a subtree whose root node is the input node
+   *
+   * @param { Node } node - input node to be cloned
+   * @param { Node | null} parent - the parent node which the cloned node will be set as its child node
+   * @param { string } name - the name of the cloned node
+   * @returns { Node } the clone result, return null if clone is failed
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  cloneNode(node: Node, parent: Node, name: string): Node | null;
 }
