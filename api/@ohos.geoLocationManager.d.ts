@@ -2027,12 +2027,12 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @returns { Promise<Map<int, Geofence>> } The promise returned by the function.
-   * The key of the map represents the fence ID.The value of the map represents
-   * the detailed information of the fence.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   * required to call the API.
+   *     The key of the map represents the fence ID.The value of the map represents
+   *     the detailed information of the fence.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not
+   *     have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call
-   * ${geoLocationManager.getActiveFences} due to limited device capabilities.
+   *     ${geoLocationManager.getActiveFences} due to limited device capabilities.
    * @syscap SystemCapability.Location.Location.Geofence
    * @since 23 dynamic&static
    */
