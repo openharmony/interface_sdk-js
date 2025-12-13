@@ -19,7 +19,7 @@
  */
 
 import type image from './@ohos.multimedia.image';
-import type matrix4 from './@ohos.matrix4';
+import type common2D from './@ohos.graphics.common2D';
 
 /**
  * This module provides functionality for component coordinates and sizes.
@@ -827,6 +827,48 @@ declare namespace componentUtils {
   ];
 
   /**
+   * Describes a rotation in 2D, which can be defined by rotation angle and rotation center.
+   *
+   * @typedef Rotation2D
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  interface Rotation2D {
+    /**
+     * Rotation angle Information.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    angle: double;
+    /**
+     * Rotation centerX Information.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    centerX: double;
+    /**
+     * Rotation centerY Information.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    centerY: double;
+  }
+
+  /**
    * Image object with layout information.
    *
    * @interface ImageItem
@@ -835,7 +877,7 @@ declare namespace componentUtils {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  interface ImageItem {  
+  interface ImageItem {
     /**
      * Image Decoding Information.
      *
@@ -846,28 +888,39 @@ declare namespace componentUtils {
      * @since 23 dynamic
      */
     image: image.PixelMap;
+
     /**
-     * Information about graphic transformations, such as the position of the image,
-     * scaling factors for width and height, and rotation angle.
+     * Information about the position and size of the box which displays the image.
      *
-     * @type { matrix4.Matrix4Transit }
+     * @type { common2D.Rect }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    transform: matrix4.Matrix4Transit;
+    rect: common2D.Rect;
+
+    /**
+     * Information about the rotation of the box which displays the image.
+     *
+     * @type { ?Rotation2D }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    rotation?: Rotation2D;
 
     /**
      * Information about image rendering hierarchy.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    zIndex: number;
+    zIndex: int;
   }
 
   /**
@@ -879,7 +932,7 @@ declare namespace componentUtils {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  interface GetItemsInShapePathParams {  
+  interface GetItemsInShapePathParams {
     /**
      * image information.
      *
@@ -892,27 +945,27 @@ declare namespace componentUtils {
     images: Array<ImageItem>;
 
     /**
-     * Indicates the path string that compiles with the SVG path description specifications.
+     * Indicates the path points information.
      *
-     * @type { string }
+     * @type { Array<common2D.Point> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    shapePath: string;
+    shapePath: Array<common2D.Point>;
 
     /**
      * The proportion of non-transparent blank pixels in the selected area
      * relative to the total pixels of the image. Default value is 0.15.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    ratio?: number;
+    ratio?: double;
    }
 
   /**
