@@ -2287,9 +2287,10 @@ export declare interface RotateOptions {
  *
  * @interface RotateAngleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 22 static
  */
-declare interface RotateAngleOptions {
+export declare interface RotateAngleOptions {
   /**
    * the angle of the x-axis direction.
    *
