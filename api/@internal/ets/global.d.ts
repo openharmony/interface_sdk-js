@@ -955,7 +955,7 @@ export declare function sendMouseEvent(event: MouseEvent): boolean;
   * @syscap SystemCapability.Utils.Lang
   * @systemapi
   * @stagemodelonly
-  * @since 10 dynamic
+  * @since 10 dynamiconly
   */
 export declare function markModuleCollectable(namespace: Object): void;
 
@@ -969,6 +969,6 @@ export declare function markModuleCollectable(namespace: Object): void;
  * @syscap SystemCapability.Utils.Lang
  * @stagemodelonly
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  */
 export declare function loadNativeModule(moduleName: string): Object;
