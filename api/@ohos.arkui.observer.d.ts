@@ -20,6 +20,7 @@
 import type { Callback } from './@ohos.base';
 import type UIAbilityContext from './application/UIAbilityContext';
 import type { NavigationOperation, NavBar } from '../component/navigation';
+import type { Size } from './@ohos.arkui.node';
 /**
  * Register callbacks to observe ArkUI behavior.
  *
@@ -476,6 +477,17 @@ declare namespace uiObserver {
      * @since 15 dynamic
      */
     uniqueId?: number;
+
+    /**
+     * NavDestination size.
+     *
+     * @type { ?Size }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    size?: Size;
   }
 
   /**
@@ -820,6 +832,17 @@ declare namespace uiObserver {
      * @since 12 dynamic
      */
      pageId: string;
+
+     /**
+     * The size of the router page.
+     *
+     * @type { ?Size }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+     size?: Size;
   }
 
   /**

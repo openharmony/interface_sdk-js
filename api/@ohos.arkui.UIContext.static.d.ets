@@ -1863,6 +1863,69 @@ export declare class UIObserver {
    * @since 23 static
    */
   offSwiperContentUpdate(config: observer.ObserverOptions, callback?: Callback<SwiperContentInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the visible router page's size is changed.
+   *
+   * @param { Callback<observer.RouterPageInfo> } callback - The callback function to be called
+   *     when the visible router page's size is changed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  onRouterPageSizeChange(callback: Callback<observer.RouterPageInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with 'onRouterPageSizeChange()'.
+   *
+   * @param { Callback<observer.RouterPageInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  offRouterPageSizeChange(callback?: Callback<observer.RouterPageInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the visible NavDestination's size is changed.
+   *
+   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called
+   *     when the visible NavDestination's size is changed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  onNavDestinationSizeChange(callback: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with 'onNavDestinationSizeChange()'.
+   *
+   * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  offNavDestinationSizeChange(callback?: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the size of the visible NavDestination of the navigation
+   * with the specified uniqueId changes.
+   *
+   * @param { int } navigationUniqueId - The uniqueId of the Navigation to which NavDestination belongs.
+   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called
+   *     when the visible NavDestination's size is changed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  onNavDestinationSizeChangeByUniqueId(navigationUniqueId: int, callback: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with 'onNavDestinationSizeChangeByUniqueId()'.
+   *
+   * @param { int } navigationUniqueId - The uniqueId of the Navigation to which NavDestination belongs.
+   * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  offNavDestinationSizeChangeByUniqueId(navigationUniqueId: int, callback?: Callback<observer.NavDestinationInfo>): void;
 }
 
 /**
