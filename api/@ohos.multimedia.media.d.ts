@@ -18,7 +18,7 @@
  * @kit MediaKit
  */
 
-import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
+import { ErrorCallback, AsyncCallback, Callback, BusinessError } from './@ohos.base';
 import audio from './@ohos.multimedia.audio';
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
 import type image from './@ohos.multimedia.image';
@@ -1943,7 +1943,7 @@ declare namespace media {
     FETCH_FAILED = 0,
 
     /**
-     * Fetch picture from video failed.
+     * Fetch picture from video success.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1951,7 +1951,7 @@ declare namespace media {
     FETCH_SUCCEEDED = 1,
 
     /**
-     * Fetch picture from video failed.
+     * Fetch picture from video is cancelled by user.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -1980,12 +1980,12 @@ interface FrameInfo {
 
     /**
      * The image extracted from video.
-     * @type { ?PixelMap }
+     * @type { ?image.PixelMap }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @stagemodelonly
      * @since 23 dynamic&static
      */
-    image?: PixelMap;
+    image?: image.PixelMap;
 
     /**
      * The fetch result code -succeed, failed or cancelled.
