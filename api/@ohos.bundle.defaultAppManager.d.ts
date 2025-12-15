@@ -412,12 +412,12 @@ declare namespace defaultAppManager {
    * @param { int } appIndex - Indicates the index of clone app.
    * @param { int } [userId] - Indicates the id for the user.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700004 - The specified user id is not found.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
-   * @throws { BusinessError } 17700028 - The specified ability does not match the type.
-   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @throws { BusinessError } 17700028 - The specified ability and type do not match.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 23 dynamic&static
