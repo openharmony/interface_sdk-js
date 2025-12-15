@@ -3511,6 +3511,18 @@ export declare class UIContext {
    * @since 22 static
    */
   getId(): int;
+
+  /**
+   * Set the switch for memory recycling of invisible image nodes.
+   * 
+   * @param { boolean } enabled - The switch for memory recycling.
+   *    <br>Default value: false, Passing `undefined` restores the default value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  recycleInvisibleImageMemory(enabled: boolean): void;
 }
 
 /**
