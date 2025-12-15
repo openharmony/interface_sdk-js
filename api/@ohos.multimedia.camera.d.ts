@@ -966,7 +966,7 @@ declare namespace camera {
     getSupportedOutputCapability(camera: CameraDevice): CameraOutputCapability;
 
     /**
-     * Get supported full output capability for specific camera, inclluding capabilities of yuv, heif and hdr etc.
+     * Get supported full output capability for specific camera, including capabilities of yuv, heif and hdr etc.
      *
      * @param { CameraDevice } camera - Camera device.
      * @param { SceneMode } mode - Scene mode.
@@ -14243,7 +14243,7 @@ declare namespace camera {
   type ImageType = image.Image | image.Picture;
 
   /**
-   * PhotoEx object, which supports capturing uncompresssed photo, compared to Photo.
+   * PhotoEx object, which supports capturing uncompressed photo, compared to Photo.
    *
    * @typedef PhotoEx
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -14264,7 +14264,7 @@ declare namespace camera {
     /**
      * Release PhotoEx object.
      *
-     * @returns { Promise<void> } Promise used to return tthe result.
+     * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 23 dynamic&static
@@ -14749,7 +14749,7 @@ declare namespace camera {
     /**
      * Subscribes photo available event callback, which supports delivery of uncompressed photo.
      *
-     * @param { Callback<PhotoEx> } callback - Callback used to getthe PhotoEx
+     * @param { Callback<PhotoEx> } callback - Callback used to get the PhotoEx.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 23 dynamic&static
      */
