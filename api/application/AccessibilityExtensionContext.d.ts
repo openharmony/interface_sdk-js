@@ -445,7 +445,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @since 20 dynamic
    * @since 22 static
    */
-  getAccessibilityWindowsSync(displayId?: long): Array<AccessibilityElement>; // 静态化改造
+  getAccessibilityWindowsSync(displayId?: long): Array<AccessibilityElement>;
 }
 export default AccessibilityExtensionContext;
 
