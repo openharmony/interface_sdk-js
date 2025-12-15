@@ -300,13 +300,14 @@ export type TextPickerEnterSelectedAreaCallback = (value: string | string[], ind
  * @interface TextPickerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
+ * @noninterop
  */
 export declare interface TextPickerAttribute extends CommonMethod {
     /**
      * Sets the height of each item in the picker.
      *
      * @param { double | string | undefined } value - Height of each item in the picker.
-     * <br>For the number type, the value range is [0, +∞]. For the string type,
+     * <br>For the double type, the value range is [0, +∞]. For the string type,
      * <br>only numeric string values, for example, "56", are supported.
      * @returns { TextPickerAttribute }
      * @default 56 vp (selected) and 36 vp (unselected).
@@ -409,8 +410,8 @@ export declare interface TextPickerAttribute extends CommonMethod {
     /**
      * Sets the index of the default selected item in the array.
      * Its priority is higher than that of the selected value in options.
-     * For a single-column picker, use a value of the number type.
-     * For a multi-column (linked) picker, use a value of the number[] type.
+     * For a single-column picker, use a value of the int type.
+     * For a multi-column (linked) picker, use a value of the int[] type.
      *
      * @param { int | int[] | undefined } value - Index of the default selected item in the array.
      * @default 0
@@ -1118,13 +1119,6 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
 }
 
 /**
- * A text picker dialog box is a dialog box that allows users to select text from the given range.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
- */
-export declare class TextPickerDialog {}
-/**
  * Defines the TextPicker component.
  *
  * @param { TextPickerOptions } [options] - text picker options.
@@ -1132,6 +1126,7 @@ export declare class TextPickerDialog {}
  * @returns { TextPickerAttribute } The attribute of the TextPicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function TextPicker(
