@@ -5943,7 +5943,7 @@ declare namespace cert {
     REVOCATION_CHECK_OPTION_FALLBACK_LOCAL = 3,
 
     /**
-     * When performing online OCSL or online CRL verification of certificate revocation status, it will also attempt to
+     * When performing online OCSP or online CRL verification of certificate revocation status, it will also attempt to
      * perform online revocation status checks on intermediate CA certificates. The OCSP address will be obtained from
      * the AIA extension of the intermediate CA certificate, and the CRL address will be obtained from the CDP
      * extension. If the address does not exist, it will be skipped.
@@ -5966,7 +5966,7 @@ declare namespace cert {
     REVOCATION_CHECK_OPTION_LOCAL_CRL_ONLY_CHECK_END_ENTITY_CERT = 5,
 
     /**
-     * Ignore network access failure error when verifying certificate revocation list in online OCSL or online CRL.
+     * Ignore network access failure error when verifying certificate revocation list in online OCSP or online CRL.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
