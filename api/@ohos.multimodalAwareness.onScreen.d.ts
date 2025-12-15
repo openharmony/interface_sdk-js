@@ -371,6 +371,63 @@ declare namespace onScreen {
   }
 
   /**
+   * Enum indicates page information collection strategy.
+   *
+   * @enum { int } CollectStrategy
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export enum CollectStrategy {  
+    /**
+     * Indicates that collection is allowed.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    ALLOW = 1 << 0,
+    /**
+     * Indicates that split-screen window display.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SPLIT_SCREEN = 1 << 1,
+    /**
+     * Indicates that auto collection is not supported.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    UNSUPPORTED_APP = 1 << 2,
+    /**
+     * Indicates private window.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    PRIVATE_WINDOW = 1 << 3,
+    /**
+     * Indicates VM app type.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    VM_APP = 1 << 4
+  }
+
+  /**
    * Interface for entity info.
    *
    * @interface EntityInfo
@@ -483,7 +540,7 @@ declare namespace onScreen {
      */
     sampleId?: string;
     /**
-     * Indicates the collection strategy.
+     * Indicates the collection strategy, a bitwise OR combination of {@link CollectStrategy}.
      *
      * @type { ?int }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
