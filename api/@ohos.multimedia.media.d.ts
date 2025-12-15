@@ -9871,6 +9871,14 @@ declare namespace media {
     MD_KEY_ORIGINAL_HEIGHT = 'original_height',
 
     /**
+     * Key for track mime type, value type is string. For audio & video track, the value equals { MD_KEY_CODEC_MIME }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    MD_KEY_MIME_TYPE = 'mime_type',
+
+    /**
      * Key for reference track IDs, value type is string, in comma separated format.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
