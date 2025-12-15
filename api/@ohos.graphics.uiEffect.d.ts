@@ -29,7 +29,12 @@ import { LinearGradientBlurOptions } from '@ohos.arkui.component';
  * @namespace uiEffect
  * @syscap SystemCapability.Graphics.Drawing
  * @since 12 dynamic
- * @since 20 static
+ */
+/**
+ * @namespace uiEffect
+ * @syscap SystemCapability.Graphics.Drawing
+ * @form
+ * @since 22 dynamic&static
  */
 declare namespace uiEffect {
 
@@ -38,7 +43,7 @@ declare namespace uiEffect {
    * @typedef Filter
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Filter {
     /**
@@ -50,7 +55,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pixelStretch(stretchSizes: Array<double>, tileMode: TileMode): Filter;
 
@@ -61,7 +66,7 @@ declare namespace uiEffect {
      * @returns { Filter }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     blur(blurRadius: double): Filter;
 
@@ -79,7 +84,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     waterRipple(progress: double, waveCount: int, x: double, y: double, rippleMode: WaterRippleMode): Filter;
 
@@ -94,7 +99,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     flyInFlyOutEffect(degree: double, flyMode: FlyMode): Filter;
 
@@ -110,7 +115,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     distort(distortionK: double): Filter;
 
@@ -293,7 +298,7 @@ declare namespace uiEffect {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum TileMode {
     /**
@@ -302,7 +307,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CLAMP = 0,
 
@@ -312,7 +317,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     REPEAT = 1,
 
@@ -322,7 +327,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MIRROR = 2,
 
@@ -332,7 +337,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DECAL = 3,
   }
@@ -344,7 +349,7 @@ declare namespace uiEffect {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum WaterRippleMode {
     /**
@@ -353,7 +358,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SMALL2MEDIUM_RECV = 0,
 
@@ -363,7 +368,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SMALL2MEDIUM_SEND = 1,
 
@@ -373,7 +378,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SMALL2SMALL = 2,
 
@@ -383,7 +388,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MINI_RECV = 3,
   }
@@ -395,7 +400,7 @@ declare namespace uiEffect {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum FlyMode {
     /**
@@ -404,7 +409,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     BOTTOM = 0,
 
@@ -414,7 +419,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TOP = 1,
   }
@@ -424,7 +429,13 @@ declare namespace uiEffect {
    * @typedef VisualEffect
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12 dynamic
-   * @since 20 static
+   */
+  /**
+   * The VisualEffect of Component.
+   * @typedef VisualEffect
+   * @syscap SystemCapability.Graphics.Drawing
+   * @form
+   * @since 22 dynamic&static
    */
   interface VisualEffect {
     /**
@@ -434,7 +445,15 @@ declare namespace uiEffect {
     * @syscap SystemCapability.Graphics.Drawing
     * @systemapi
     * @since 12 dynamic
-    * @since 20 static
+     */
+    /**
+    * A backgroundColorEffect effect is added to the Component.
+    * @param { BrightnessBlender } blender - The blender to blend backgroundColor.
+    * @returns { VisualEffect } VisualEffects for the current effect have been added.
+    * @syscap SystemCapability.Graphics.Drawing
+    * @systemapi
+    * @form
+    * @since 22 dynamic&static
     */
     backgroundColorBlender(blender: BrightnessBlender): VisualEffect;
 
@@ -471,6 +490,211 @@ declare namespace uiEffect {
      */
     colorGradient(colors: Array<Color>, positions: Array<common2D.Point>, strengths: Array<double>,
       alphaMask?: Mask): VisualEffect;
+
+    /**
+     * Sets the liquid material effect.
+     *
+     * @param { LiquidMaterialEffectParam } param - the liquid material effect parameters.
+     * @param { Mask } useEffectMask - the mask determines the use effect flag.
+     * @param { Mask } [distortMask] - the mask determines the distort of the effect.
+     * @param { BrightnessParam } [brightnessParam] - the background brightness params of material effect.
+     * @returns { VisualEffect } - Returns the VisualEffect that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    liquidMaterial(param : LiquidMaterialEffectParam, useEffectMask: Mask, distortMask?: Mask,
+      brightnessParam?: BrightnessParam): VisualEffect;
+  }
+
+  /**
+   * The parameters of brightness.
+   * @typedef BrightnessParam
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  interface BrightnessParam {
+    /**
+     * Defines rate of brightness.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    rate : double;
+  
+    /**
+     * Defines lightUpDegree of brightness.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    lightUpDegree : double;
+  
+    /**
+     * Defines cubicCoeff of brightness.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    cubicCoeff : double;
+  
+    /**
+     * Defines quadCoeff of brightness.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    quadCoeff : double;
+
+    /**
+     * Defines saturation of brightness.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    saturation : double;
+  
+    /**
+     * Defines positive RGB of brightness.
+     *
+     * @type { [double, double, double] }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    posRgb : [double, double, double];
+  
+    /**
+     * Defines negative RGB of brightness.
+     *
+     * @type { [double, double, double] }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    negRgb : [double, double, double];
+  
+    /**
+     * Defines fraction of brightness.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    fraction : double;
+  }
+
+  /**
+   * The parameters of liquid material effect.
+   * @typedef LiquidMaterialEffectParam
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  interface LiquidMaterialEffectParam {
+    /**
+     * Defines enable switch for material effect.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    enable : boolean;
+
+    /**
+     * Defines distort progress for material effect.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    distortProgress : double;
+
+    /**
+     * Defines distort factor for material effect.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    distortFactor : double;
+
+    /**
+     * Defines ripple animation progress for material effect.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    rippleProgress : double;
+
+    /**
+     * Defines ripple animation position for material effect.
+     *
+     * @type { ?Array<[double, double]> }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    ripplePosition?: Array<[double, double]>;
+
+    /**
+     * Defines refraction factor for material effect.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    refractionFactor : double;
+
+    /**
+     * Defines reflection factor for material effect.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    reflectionFactor : double;
+
+    /**
+     * Defines material factor for material effect.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    materialFactor : double;
+
+    /**
+     * Defines tint color for material effect.
+     *
+     * @type { [double, double, double, double] }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    tintColor : [double, double, double, double];
+
   }
 
   /**
@@ -485,7 +709,8 @@ declare namespace uiEffect {
    * @typedef { BrightnessBlender | HdrBrightnessBlender }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   type Blender = BrightnessBlender | HdrBrightnessBlender;
 
@@ -495,7 +720,14 @@ declare namespace uiEffect {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   */
+  /**
+   * The Blender of backgroundColorEffect.
+   * @typedef BrightnessBlender
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   interface BrightnessBlender {
     /**
@@ -505,7 +737,15 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     */
+    /**
+     * Defines third-order rate for grayscale adjustment.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
      */
     cubicRate: double;
 
@@ -516,7 +756,15 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     */
+    /**
+     * Defines second-order rate for grayscale adjustment.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
      */
     quadraticRate: double;
 
@@ -527,7 +775,15 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     */
+    /**
+     * Defines linear rate for grayscale adjustment.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
      */
     linearRate: double;
 
@@ -538,7 +794,15 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     */
+    /**
+     * Defines grayscale adjustment degree.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
      */
     degree: double;
 
@@ -549,7 +813,15 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     */
+    /**
+     * Defines the reference saturation for brightness.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
      */
     saturation: double;
 
@@ -560,7 +832,15 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     */
+    /**
+     * Defines the positive adjustment coefficients in RGB channels based on the reference saturation.
+     *
+     * @type { [double, double, double] }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
      */
     positiveCoefficient: [double, double, double];
 
@@ -571,7 +851,15 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     */
+    /**
+     * Defines the negative adjustment coefficients in RGB channels based on the reference saturation.
+     *
+     * @type { [double, double, double] }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
      */
     negativeCoefficient: [double, double, double];
 
@@ -582,7 +870,15 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     */
+    /**
+     * Defines the blending fraction for brightness effect.
+     *
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
      */
     fraction: double;
   }
@@ -593,7 +889,8 @@ declare namespace uiEffect {
    * @typedef HdrBrightnessBlender
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface HdrBrightnessBlender extends BrightnessBlender {}
 
@@ -684,6 +981,18 @@ declare namespace uiEffect {
      */
     static createPixelMapMask(pixelMap: image.PixelMap, srcRect: common2D.Rect, dstRect: common2D.Rect,
       fillColor?: Color): Mask;
+    
+    /**
+     * Create a Mask of pixelMap to use directly.
+     * @param { image.PixelMap } pixelMap - The pixelMap of PixelMapMask.
+     * @returns { Mask } - Returns pixelMap mask.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    static createPixelMapMask(pixelMap: image.PixelMap): Mask;
 
     /**
      * Create a Mask of radial gradient.
@@ -719,6 +1028,18 @@ declare namespace uiEffect {
      */
     static createWaveGradientMask(center: common2D.Point, width: double, propagationRadius: double,
       blurRadius: double, turbulenceStrength?: double): Mask;
+    
+    /**
+     * Create a Mask of use effect.
+     * @param { boolean } useEffect - The use effect flag of UseEffectMask.
+     * @returns { Mask } - Returns use effect mask.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    static createUseEffectMask(useEffect: boolean): Mask;
   }
 
   /**
@@ -726,7 +1047,7 @@ declare namespace uiEffect {
    * @returns { Filter } Returns the head node of Filter.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createFilter(): Filter;
 
@@ -735,7 +1056,7 @@ declare namespace uiEffect {
    * @returns { VisualEffect } Returns the head node of visualEffect.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createEffect(): VisualEffect;
 
@@ -746,7 +1067,15 @@ declare namespace uiEffect {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   */
+  /**
+   * Create a BrightnessBlender, which is used to adjust the brightness of UI components.
+   * @param { BrightnessBlenderParam } param - The brightness blender parameters.
+   * @returns { BrightnessBlender } Returns the blender.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   function createBrightnessBlender(param: BrightnessBlenderParam): BrightnessBlender;
 
@@ -757,7 +1086,8 @@ declare namespace uiEffect {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function createHdrBrightnessBlender(param: BrightnessBlenderParam): HdrBrightnessBlender;
 }
@@ -768,7 +1098,14 @@ declare namespace uiEffect {
  * @syscap SystemCapability.Graphics.Drawing
  * @systemapi
  * @since 12 dynamic
- * @since 20 static
+ */
+/**
+ * The parameters of brightness blender.
+ * @typedef BrightnessBlenderParam
+ * @syscap SystemCapability.Graphics.Drawing
+ * @systemapi
+ * @form
+ * @since 22 dynamic&static
  */
 export declare interface BrightnessBlenderParam {
   /**
@@ -778,7 +1115,15 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   */
+  /**
+   * Defines third-order rate for grayscale adjustment.
+   *
+   * @type { double }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   cubicRate: double;
 
@@ -789,7 +1134,15 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   */
+  /**
+   * Defines second-order rate for grayscale adjustment.
+   *
+   * @type { double }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   quadraticRate: double;
 
@@ -800,7 +1153,15 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   */
+  /**
+   * Defines linear rate for grayscale adjustment.
+   *
+   * @type { double }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   linearRate: double;
 
@@ -811,7 +1172,15 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   */
+  /**
+   * Defines grayscale adjustment degree.
+   *
+   * @type { double }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   degree: double;
 
@@ -822,7 +1191,15 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   */
+  /**
+   * Defines the reference saturation for brightness.
+   *
+   * @type { double }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   saturation: double;
 
@@ -833,7 +1210,15 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   */
+  /**
+   * Defines the positive adjustment coefficients in RGB channels based on the reference saturation.
+   *
+   * @type { [double, double, double] }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   positiveCoefficient: [double, double, double];
 
@@ -844,7 +1229,15 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   */
+  /**
+   * Defines the negative adjustment coefficients in RGB channels based on the reference saturation.
+   *
+   * @type { [double, double, double] }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   negativeCoefficient: [double, double, double];
 
@@ -855,7 +1248,15 @@ export declare interface BrightnessBlenderParam {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   */
+  /**
+   * Defines the blending fraction for brightness effect.
+   *
+   * @type { double }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @form
+   * @since 22 dynamic&static
    */
   fraction: double;
 }

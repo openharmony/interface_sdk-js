@@ -357,7 +357,19 @@ export interface AccessibilityOptions {
  * @atomicservice
  * @since 14 dynamic
  */
-export interface CloseOptions extends AccessibilityOptions {}
+export interface CloseOptions extends AccessibilityOptions {
+  /**
+   * Set font size for the close icon.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fontSize?: Dimension;
+}
 
 /**
  * Defines chip symbolglyph options.
@@ -366,6 +378,15 @@ export interface CloseOptions extends AccessibilityOptions {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamic
+ */
+/**
+ * Defines chip symbolglyph options.
+ *
+ * @interface ChipSymbolGlyphOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
  */
 export interface ChipSymbolGlyphOptions {
 
@@ -377,6 +398,15 @@ export interface ChipSymbolGlyphOptions {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Symbol normal.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   normal?: SymbolGlyphModifier;
 
   /**
@@ -386,6 +416,15 @@ export interface ChipSymbolGlyphOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Symbol activated.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   activated?: SymbolGlyphModifier;
 }
@@ -708,6 +747,15 @@ export interface ChipOptions {
    * @atomicservice
    * @since 12 dynamic
    */
+  /**
+   * Chip prefix symbol.
+   *
+   * @type { ?ChipSymbolGlyphOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   prefixSymbol?: ChipSymbolGlyphOptions;
 
   /**
@@ -755,6 +803,15 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   */
+  /**
+   * Chip suffix symbol.
+   *
+   * @type { ?ChipSymbolGlyphOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   suffixSymbol?: ChipSymbolGlyphOptions;
 
@@ -971,6 +1028,54 @@ export interface ChipOptions {
    * @since 14 dynamic
    */
   accessibilitySelectedType?: AccessibilitySelectedType;
+
+  /**
+   * Maximum font scale for Chip.
+   *
+   * @type { ?(number | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  maxFontScale?: number | Resource;
+
+  /**
+   * Minimum font scale for Chip.
+   *
+   * @type { ?(number | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  minFontScale?: number | Resource;
+
+  /**
+   * Chip padding.
+   *
+   * @type { ?LocalizedPadding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  padding?: LocalizedPadding;
+
+  /**
+   * Set font size for the label text and the close icon.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fontSize?: Dimension;
 }
 
 /**

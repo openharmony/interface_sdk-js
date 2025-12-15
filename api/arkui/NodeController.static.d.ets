@@ -33,7 +33,7 @@ import { TouchEvent } from '@ohos.arkui.component';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20 static
+ * @since 22 static
  */
 export declare abstract class NodeController {
   /**
@@ -46,7 +46,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   abstract makeNode(uiContext: UIContext): FrameNode | null;
 
@@ -57,17 +57,17 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   aboutToResize(size: Size): void;
 
   /**
-   * AboutToAppear Method. Executed when the associated NodeContainer is aboutToAppear.
+   * AboutToAppear Method. Executed before the associated NodeContainer is destroyed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   aboutToAppear(): void;
   
@@ -77,7 +77,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   aboutToDisappear(): void;
 
@@ -87,7 +87,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   rebuild(): void;
   
@@ -98,7 +98,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   onTouchEvent(event: TouchEvent): void;
 
@@ -108,7 +108,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   onAttach(): void;
 
@@ -118,51 +118,51 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   onDetach(): void;
 
   /**
    * OnWillBind Method. Executed before the NodeController is bound to a NodeContainer.
    *
-   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @param { long } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
-  onWillBind(containerId: number): void;
+  onWillBind(containerId: long): void;
 
   /**
    * OnWillUnbind Method. Executed before the NodeController is unbind with the NodeContainer.
    *
-   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @param { long } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
-  onWillUnbind(containerId: number): void;
+  onWillUnbind(containerId: long): void;
 
   /**
    * OnBind Method. Executed when the NodeController is bound to a NodeContainer.
    *
-   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @param { long } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
-  onBind(containerId: number): void;
+  onBind(containerId: long): void;
 
   /**
    * OnUnbind Method. Executed when the NodeController is unbind with the NodeContainer.
    *
-   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @param { long } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
-  onUnbind(containerId: number): void;
+  onUnbind(containerId: long): void;
 }

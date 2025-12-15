@@ -25,6 +25,7 @@ import image from './@ohos.multimedia.image';
 /*** if arkts static */
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
+import { FractionStop } from './arkui/component/common';
 /*** endif */
 
 /**
@@ -43,7 +44,7 @@ import image from './@ohos.multimedia.image';
  * @form
  * @atomicservice
  * @since 14 dynamic
- * @since 20 static
+ * @since 22 static
  */
 
 declare namespace effectKit {
@@ -70,7 +71,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Filter {
 
@@ -100,7 +101,7 @@ declare namespace effectKit {
     * @form
     * @atomicservice
     * @since 14 dynamic
-    * @since 20 static
+    * @since 22 static
     */
     blur(radius: double): Filter;
 
@@ -113,9 +114,34 @@ declare namespace effectKit {
     * @returns { Filter } Final image effect.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @since 14 dynamic
-    * @since 20 static
+    * @since 22 static
     */
     blur(radius: double, tileMode: TileMode): Filter;
+   
+    /**
+    * Adds the elliptical gradient blur effect to the filter linked list, and returns the head node of the linked list.
+    * @param { double } blurRadius - Blur radius, in pixels. The blur effect is proportional to the configured value.
+    *     A larger value indicates a more obvious effect.
+    * @param { EllipticalMaskCenter } center - Set the center point of the ellipse. [0, 0] represents the top-left corner of 
+    *     the component, and floating-point numbers are allowed. Values exceeding the boundary will be automatically 
+    *     truncated during implementation. 
+    * @param { EllipticalMaskRadius } maskRadius - Set the major axis and minor axis of the ellipse. 
+    *     A radius of 1 is equal to the height of the component. The value range is [0, 10], 
+    *     and floating-point numbers are allowed. Values exceeding the boundary 
+    *     will be automatically truncated during implementation. 
+    * @param { FractionStop[] } fractionStops - Gradient blur position and intensity array. 
+    *     The array length ranges from 0 to 12. It has no effect if the length is 0 or greater than 12. 
+    *     Both position and intensity values are between 0 and 1. Position 0 corresponds to the ellipse center, 
+    *     and position 1 corresponds to the ellipse boundary. Intensity 0 means no blur, while intensity 1 equals the 
+    *     blur effect of the input blur radius. 
+    * @returns { Filter } Final image effect.
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @stagemodelonly
+    * @systemapi
+    * @since 23 dynamic&static
+    */
+    ellipticalGradientBlur(blurRadius: double, center: EllipticalMaskCenter, maskRadius: EllipticalMaskRadius, fractionStops: FractionStop[]): Filter;
 
     /**
     * A Brightness effect is added to the image.
@@ -142,7 +168,7 @@ declare namespace effectKit {
     * @form
     * @atomicservice
     * @since 14 dynamic
-    * @since 20 static
+    * @since 22 static
     */
     brightness(bright: double): Filter;
 
@@ -168,7 +194,7 @@ declare namespace effectKit {
     * @form
     * @atomicservice
     * @since 14 dynamic
-    * @since 20 static
+    * @since 22 static
     */
     grayscale(): Filter;
 
@@ -184,7 +210,7 @@ declare namespace effectKit {
     * @syscap SystemCapability.Multimedia.Image.Core
     * @crossplatform
     * @since 14 dynamic
-    * @since 20 static
+    * @since 22 static
     */
     invert(): Filter;
 
@@ -209,7 +235,7 @@ declare namespace effectKit {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setColorMatrix(colorMatrix: Array<double>): Filter;
 
@@ -245,7 +271,7 @@ declare namespace effectKit {
     * @form
     * @atomicservice
     * @since 14 dynamic
-    * @since 20 static
+    * @since 22 static
     */
     getEffectPixelMap(): Promise<image.PixelMap>;
 
@@ -258,6 +284,7 @@ declare namespace effectKit {
     * @form
     * @atomicservice
     * @since 20 dynamic
+	* @since 22 static
     */
     getEffectPixelMap(useCpuRender : boolean): Promise<image.PixelMap>;
   }
@@ -284,7 +311,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ColorPicker {
 
@@ -310,7 +337,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getMainColor(): Promise<Color>;
 
@@ -336,7 +363,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getMainColorSync(): Color;
 
@@ -362,7 +389,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getLargestProportionColor(): Color;
 
@@ -388,7 +415,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getTopProportionColors(colorCount: int): Array<Color | null>;
 
@@ -408,6 +435,17 @@ declare namespace effectKit {
      * @since 22 dynamic&static
      */
     getTopProportionColorsAndPercentage(colorCount: int): Map<Color | null, double | null>;
+
+    /**
+     * Get the proportion of transparent pixels with alpha=0 in the image
+     * @returns { double } proportion of transparent pixels with alpha=0
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @form
+     * @since 23 dynamic&static
+     */
+    getAlphaZeroTransparentProportion(): double;
 
     /**
      * Get shade degree of an image
@@ -453,7 +491,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getHighestSaturationColor(): Color;
 
@@ -479,7 +517,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAverageColor(): Color;
 
@@ -508,7 +546,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isBlackOrWhiteOrGrayColor(color: int): boolean;
   }
@@ -535,7 +573,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Color {
 
@@ -561,7 +599,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     red: int;
 
@@ -587,7 +625,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     green: int;
 
@@ -613,7 +651,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     blue: int;
 
@@ -639,7 +677,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     alpha: int;
   }
@@ -670,7 +708,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createEffect(source: image.PixelMap): Filter;
 
@@ -703,7 +741,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createColorPicker(source: image.PixelMap): Promise<ColorPicker>;
 
@@ -745,7 +783,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createColorPicker(source: image.PixelMap, region: Array<double>): Promise<ColorPicker>;
 
@@ -778,7 +816,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>): void;
   
@@ -821,7 +859,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createColorPicker(source: image.PixelMap, region: Array<double>, callback: AsyncCallback<ColorPicker>): void;
 
@@ -831,7 +869,7 @@ declare namespace effectKit {
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum TileMode {
     /**
@@ -839,7 +877,7 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CLAMP = 0,
 
@@ -848,7 +886,7 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     REPEAT = 1,
 
@@ -857,7 +895,7 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MIRROR = 2,
 
@@ -866,7 +904,7 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DECAL = 3,
   }
@@ -989,6 +1027,34 @@ declare namespace effectKit {
      */
     VERY_FLOWERY_PICTURE = 3,
   }
+
+/**
+ * The center of the elliptical mask, 
+ * specifying where the ellipse mask is anchored in function 'ellipticalGradientBlur'.
+ * @typedef { [double, double] } EllipticalMaskCenter
+ * @syscap SystemCapability.Multimedia.Image.Core
+ * @stagemodelonly
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+type EllipticalMaskCenter = [
+  double,
+  double
+];
+
+/**
+ * The major axis and minor axis of the elliptical mask
+ * used in function 'ellipticalGradientBlur'.
+ * @typedef { [double, double] } EllipticalMaskRadius
+ * @syscap SystemCapability.Multimedia.Image.Core
+ * @stagemodelonly
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+type EllipticalMaskRadius = [
+  double,
+  double
+];
 }
 
 export default effectKit;

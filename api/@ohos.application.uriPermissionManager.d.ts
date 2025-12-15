@@ -27,7 +27,7 @@ import type wantConstant from './@ohos.app.ability.wantConstant';
  * @namespace uriPermissionManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace uriPermissionManager {
   /**
@@ -76,13 +76,40 @@ declare namespace uriPermissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
    * @since 19 dynamic
-   * @since 20 static
    */
   function grantUriPermission(
     uri: string,
     flag: wantConstant.Flags,
     targetBundleName: string,
     callback: AsyncCallback<number>
+  ): void;
+
+  /**
+   * Grant URI to another application
+   *
+   * @permission ohos.permission.PROXY_AUTHORIZATION_URI
+   * @param { string } uri - File URI.
+   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION,
+   *                                      wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
+   *                                      wantConstant.Flags.FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
+   * @param { string } targetBundleName - Indicates the bundle name of authorization target.
+   * @param { AsyncCallback<void> } callback - the callback of grantUriPermission.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Connect to system server failed.
+   * @throws { BusinessError } 16000058 - Invalid URI flag.
+   * @throws { BusinessError } 16000059 - Invalid URI type.
+   * @throws { BusinessError } 16000060 - A sandbox application cannot grant URI permission.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide this for inner system use.
+   * @since 22 static
+   */
+  function grantUriPermission(
+    uri: string,
+    flag: wantConstant.Flags,
+    targetBundleName: string,
+    callback: AsyncCallback<void>
   ): void;
 
   /**
@@ -131,9 +158,31 @@ declare namespace uriPermissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
    * @since 19 dynamic
-   * @since 20 static
    */
   function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string): Promise<number>;
+
+  /**
+   * Grant URI to another application
+   *
+   * @permission ohos.permission.PROXY_AUTHORIZATION_URI
+   * @param { string } uri - File URI.
+   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION,
+   *                                      wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
+   *                                      wantConstant.Flags.FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
+   * @param { string } targetBundleName - Indicates the bundle name of authorization target.
+   * @returns { Promise<void> } - the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Connect to system server failed.
+   * @throws { BusinessError } 16000058 - Invalid URI flag.
+   * @throws { BusinessError } 16000059 - Invalid URI type.
+   * @throws { BusinessError } 16000060 - A sandbox application cannot grant URI permission.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide this for inner system use.
+   * @since 22 static
+   */
+  function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string): Promise<void>;
 
   /**
    * Grant URI to another application
@@ -185,7 +234,7 @@ declare namespace uriPermissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, appCloneIndex: int): Promise<void>;
 
@@ -239,9 +288,24 @@ declare namespace uriPermissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
    * @since 19 dynamic
-   * @since 20 static
    */
   function revokeUriPermission(uri: string, targetBundleName: string, callback: AsyncCallback<number>): void;
+
+  /**
+   * Revoke URI from one application
+   *
+   * @param { string } uri - File URI.
+   * @param { string } targetBundleName - Indicates the bundle name of authorization target.
+   * @param { AsyncCallback<void> } callback - the callback of revokeUriPermission.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Connect to system server failed.
+   * @throws { BusinessError } 16000059 - Invalid URI type.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide this for inner system use
+   * @since 22 static
+   */
+  function revokeUriPermission(uri: string, targetBundleName: string, callback: AsyncCallback<void>): void;
 
   /**
    * Revoke URI from one application
@@ -293,9 +357,24 @@ declare namespace uriPermissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
    * @since 19 dynamic
-   * @since 20 static
    */
   function revokeUriPermission(uri: string, targetBundleName: string): Promise<number>;
+
+  /**
+   * Revoke URI from one application
+   *
+   * @param { string } uri - File URI.
+   * @param { string } targetBundleName - Indicates the bundle name of authorization target.
+   * @returns { Promise<void> } - the promise returned by the function.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Connect to system server failed.
+   * @throws { BusinessError } 16000059 - Invalid URI type.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide this for inner system use
+   * @since 22 static
+   */
+  function revokeUriPermission(uri: string, targetBundleName: string): Promise<void>;
 
   /**
    * Revoke URI from one application
@@ -333,7 +412,7 @@ declare namespace uriPermissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
     function revokeUriPermission(uri: string, targetBundleName: string, appCloneIndex: int): Promise<void>;
 
@@ -355,7 +434,8 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000094 - The target token ID is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi Hide this for inner system use.
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function grantUriPermissionByKey(key: string, flag: wantConstant.Flags, targetTokenId: int): Promise<void>;
 
@@ -381,7 +461,8 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000094 - The target token ID is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi Hide this for inner system use.
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function grantUriPermissionByKeyAsCaller(key: string, flag: wantConstant.Flags, callerTokenId: int, targetTokenId: int): Promise<void>;
 }

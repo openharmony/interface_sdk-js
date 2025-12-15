@@ -18,6 +18,8 @@
  * @kit ArkUI
  */
 
+import { __memo_context_type, __memo_id_type } from './runtime/state';
+
 /**
  * Defining Memo annotation.
  *

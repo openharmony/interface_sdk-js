@@ -27,9 +27,8 @@ import {
   Rect, TouchPadSwipeOptions, InputTextMode,
   WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions
 } from '@ohos.UiTest';
-/*** endif */
-
 import {PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest} from '@ohos.test.PerfTest';
+/*** endif */
 
 import {
   UiComponent, UiDriver, BY, By
@@ -38,6 +37,7 @@ export {
   BY, By, Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
   TestRunner, UIElementInfo, UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow,
   WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions, InputTextMode,
+  WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions,
   PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest
 };
 
@@ -46,6 +46,7 @@ export {
   Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
   TestRunner, UIElementInfo, UIEventObserver, UiDirection, UiWindow, InputTextMode,
   WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions,
-  WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions
+  WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions,
+  PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest
 };
 /*** endif */

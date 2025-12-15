@@ -32,7 +32,7 @@ import { AbilityFirstFrameStateData } from './AbilityFirstFrameStateData';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface AbilityFirstFrameStateObserver {
 
@@ -43,7 +43,7 @@ export interface AbilityFirstFrameStateObserver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     onAbilityFirstFrameDrawn(data: AbilityFirstFrameStateData): void;
 }

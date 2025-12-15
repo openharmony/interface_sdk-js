@@ -25,7 +25,7 @@
  * @syscap SystemCapability.Global.FontManager
  * @systemapi
  * @since 19 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace fontManager {
   /**
@@ -46,7 +46,7 @@ declare namespace fontManager {
    * @syscap SystemCapability.Global.FontManager
    * @systemapi
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function installFont(path: string): Promise<int>;
 
@@ -65,7 +65,7 @@ declare namespace fontManager {
    * @syscap SystemCapability.Global.FontManager
    * @systemapi
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function uninstallFont(fullName: string): Promise<int>;
 }

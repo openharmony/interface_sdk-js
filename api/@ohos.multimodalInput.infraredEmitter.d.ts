@@ -24,7 +24,7 @@
  * @namespace infraredEmitter
  * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace infraredEmitter {
   /**
@@ -41,7 +41,7 @@ declare namespace infraredEmitter {
    * @interface InfraredFrequency
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface InfraredFrequency {
     /**
@@ -58,7 +58,7 @@ declare namespace infraredEmitter {
      * @type { long }
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     max: long;
 
@@ -76,10 +76,23 @@ declare namespace infraredEmitter {
      * @type { long }
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     min: long;
   }
+
+  /**
+   * Query if device has an IR emitter.
+   *
+   * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
+   * @returns { Promise<boolean> } Promise used to return the result. {@code true} is returned if device
+   *     has an IR emitter; {@code false} is returned otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 3800001 - Input service exception.
+   * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
+   * @since 23 dynamic&static
+   */
+  function hasIrEmitter(): Promise<boolean>;
 
   /**
    * Generates IR signals at the specified frequency and level.
@@ -110,7 +123,7 @@ declare namespace infraredEmitter {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function transmitInfrared(infraredFrequency: long, pattern: Array<long>): void;
 
@@ -133,7 +146,7 @@ declare namespace infraredEmitter {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getInfraredFrequencies(): Array<InfraredFrequency>;
 }

@@ -516,16 +516,6 @@ declare type SegmentButtonItemTuple =
   ItemRestriction<SegmentButtonIconTextItem>;
 
 /**
- * Defines the SegmentButtonItemArray type.
- *
- * @typedef { Array<SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem> }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
- * @noninterop
- */
-declare type SegmentButtonItemArray = Array<SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem>;
-
-/**
  * Defines SegmentButton tab options.
  *
  * @extends CommonSegmentButtonOptions
@@ -1259,6 +1249,18 @@ declare struct SegmentButton {
    * @noninterop
    */
   onItemClicked?: Callback<int>;
+
+  /**
+   * Enable animation when selectedIndexes change.
+   *
+   * @type { boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  @PropRef
+  enableStateAnimation: boolean;
   
   /**
    * The method to build component.
@@ -1283,7 +1285,6 @@ export {
   CommonSegmentButtonOptions,
   ItemRestriction,
   SegmentButtonItemTuple,
-  SegmentButtonItemArray,
   SegmentButtonItemOptionsConstructorOptions,
   SegmentButtonItemOptions,
   BorderRadiusMode

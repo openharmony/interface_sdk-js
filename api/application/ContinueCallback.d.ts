@@ -19,21 +19,38 @@
  */
 
 /**
+ * Callback function on continue mission done.
+ *
+ * @typedef { function } OnContinueDoneCallback
+ * @param { int } result - The result code of continue mission.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+ * @systemapi
+ * @stagemodelonly 
+ * @since 9 dynamic
+ * @since 23 static
+ */
+type OnContinueDoneCallback = (result: int) => void;
+
+/**
  * ContinueCallback registered for notify continue result.
  *
  * @interface ContinueCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
+ * @stagemodelonly
  * @since 9 dynamic
+ * @since 23 static
  */
 export interface ContinueCallback {
   /**
    * Called by system when continue mission done.
    *
-   * @param { number } result - The result code of continue mission.
+   * @type { OnContinueDoneCallback }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
-  onContinueDone(result: number): void;
+  onContinueDone: OnContinueDoneCallback;
 }

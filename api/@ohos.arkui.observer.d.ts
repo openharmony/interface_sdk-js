@@ -20,6 +20,7 @@
 import type { Callback } from './@ohos.base';
 import type UIAbilityContext from './application/UIAbilityContext';
 import type { NavigationOperation, NavBar } from '../component/navigation';
+import type { Size } from './@ohos.arkui.node';
 /**
  * Register callbacks to observe ArkUI behavior.
  *
@@ -476,6 +477,17 @@ declare namespace uiObserver {
      * @since 15 dynamic
      */
     uniqueId?: number;
+
+    /**
+     * NavDestination size.
+     *
+     * @type { ?Size }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    size?: Size;
   }
 
   /**
@@ -820,6 +832,17 @@ declare namespace uiObserver {
      * @since 12 dynamic
      */
      pageId: string;
+
+     /**
+     * The size of the router page.
+     *
+     * @type { ?Size }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+     size?: Size;
   }
 
   /**
@@ -1282,62 +1305,6 @@ declare namespace uiObserver {
    * @since 12 dynamic
    */
   export function off(type: 'didLayout', context: UIContext, callback?: Callback<void>): void;
-
-  /**
-   * Registers a callback function to be called when the tabContent is showed or hidden.
-   * Include the cases when the first tab content shows and when the tab changes current index.
-   *
-   * @param { 'tabChange' } type - The type of event to listen for. Must be 'tabChange'.
-   * @param { ObserverOptions } config - The options object. Includes the observed component id.
-   * @param { Callback<TabContentInfo> } callback - The callback function to be called
-   *     when when the tabContent is showed or hidden.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  export function on(type: 'tabChange', config: ObserverOptions, callback: Callback<TabContentInfo>): void;
-
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'tabChange' } type - The type of event to remove the listener for. Must be 'tabChange'.
-   * @param { ObserverOptions } config - The config object. Includes the observed component id.
-   * @param { Callback<TabContentInfo> } [callback] - The callback function to remove.
-   *     If not provided, all callbacks for the given event type and Tabs ID will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  export function off(type: 'tabChange', config: ObserverOptions, callback?: Callback<TabContentInfo>): void;
-
-  /**
-   * Registers a callback function to be called when the tabContent is showed or hidden.
-   * Include the cases when the first tab content shows and when the tab changes current index.
-   *
-   * @param { 'tabChange' } type - The type of event to listen for. Must be 'tabChange'.
-   * @param { Callback<TabContentInfo> } callback - The callback function to be called
-   *     when the tabContent is showed or hidden.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  export function on(type: 'tabChange', callback: Callback<TabContentInfo>): void;
-
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'tabChange' } type - The type of event to remove the listener for. Must be 'tabChange'.
-   * @param { Callback<TabContentInfo> } [callback] - The callback function to remove.
-   *     If not provided, all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  export function off(type: 'tabChange', callback?: Callback<TabContentInfo>): void;
 
   /**
    * Registers a callback function to be called when the tabContent is showed or hidden.

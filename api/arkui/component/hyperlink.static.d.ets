@@ -20,14 +20,14 @@
 import { Resource } from './../../../api/global/resource';
 import { CommonMethod, AttributeModifier } from "./common";
 import { Color } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Defines the hyperlink attribute functions
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare interface HyperlinkAttribute extends CommonMethod {
@@ -37,7 +37,7 @@ export declare interface HyperlinkAttribute extends CommonMethod {
      * @param { Color | int | string | Resource } value
      * @returns { HyperlinkAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default color(value: Color | int | string | Resource | undefined): this;
     /**
@@ -46,7 +46,7 @@ export declare interface HyperlinkAttribute extends CommonMethod {
      * @param { AttributeModifier<HyperlinkAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
      * @returns { HyperlinkAttribute } the attribute of the HyperlinkAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<HyperlinkAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -58,16 +58,14 @@ export declare interface HyperlinkAttribute extends CommonMethod {
  *     The default value is an empty string.
  *     Passing `undefined` resets it to the default value.
  * @param { string | Resource } [content] - The title of the component.
- * @param { function } [content_] - The node of component.
+ * @param { CustomBuilder } [content_] - The node of component.
  * @returns { HyperlinkAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Hyperlink(
     address: string | Resource | undefined, content?: string | Resource, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): HyperlinkAttribute

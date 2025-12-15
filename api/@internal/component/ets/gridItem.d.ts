@@ -304,7 +304,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { boolean } value
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   forceRebuild(value: boolean): GridItemAttribute;

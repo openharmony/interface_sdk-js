@@ -27,6 +27,7 @@ import { WantAgent } from '../@ohos.wantAgent';
 /*** endif */
 /*** if arkts static */
 import { WantAgent } from '../@ohos.app.ability.wantAgent';
+import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
@@ -36,7 +37,7 @@ import { WantAgent } from '../@ohos.app.ability.wantAgent';
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 18 dynamic
- * @since 20 static
+ * @since 22 static
  */
 type IconType = Resource | image.PixelMap;
 
@@ -54,7 +55,7 @@ type IconType = Resource | image.PixelMap;
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationBasicContent {
   /**
@@ -70,7 +71,7 @@ export interface NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   title: string;
 
@@ -88,7 +89,7 @@ export interface NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   text: string;
 
@@ -98,7 +99,7 @@ export interface NotificationBasicContent {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   additionalText?: string;
 
@@ -111,7 +112,7 @@ export interface NotificationBasicContent {
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   lockscreenPicture?: image.PixelMap;
 
@@ -121,7 +122,8 @@ export interface NotificationBasicContent {
    * @type { ?Map<string, string> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 21 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   structuredText?: Map<string, string>;
 }
@@ -141,7 +143,7 @@ export interface NotificationBasicContent {
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationLongTextContent extends NotificationBasicContent {
   /**
@@ -158,7 +160,7 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   longText: string;
 
@@ -176,7 +178,7 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   briefText: string;
 
@@ -194,7 +196,7 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   expandedTitle: string;
 }
@@ -206,7 +208,7 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
 export enum LiveViewStatus {
   /**
@@ -215,7 +217,7 @@ export enum LiveViewStatus {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   LIVE_VIEW_CREATE = 0,
   /**
@@ -224,7 +226,7 @@ export enum LiveViewStatus {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   LIVE_VIEW_INCREMENTAL_UPDATE = 1,
   /**
@@ -233,7 +235,7 @@ export enum LiveViewStatus {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   LIVE_VIEW_END = 2,
   /**
@@ -242,9 +244,27 @@ export enum LiveViewStatus {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
-  LIVE_VIEW_FULL_UPDATE = 3
+  LIVE_VIEW_FULL_UPDATE = 3,
+  /**
+   * Create live view notification by trigger.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  LIVE_VIEW_PENDING_CREATE = 4,
+  /**
+   * Complete the live view notification by trigger.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  LIVE_VIEW_PENDING_END = 6
 }
 
 /**
@@ -254,7 +274,7 @@ export enum LiveViewStatus {
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 18 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export enum LiveViewTypes {
   /**
@@ -263,7 +283,7 @@ export enum LiveViewTypes {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   LIVE_VIEW_ACTIVITY = 0,
   /**
@@ -272,7 +292,7 @@ export enum LiveViewTypes {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   LIVE_VIEW_INSTANT = 1,
   /**
@@ -281,7 +301,7 @@ export enum LiveViewTypes {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   LIVE_VIEW_LONG_TERM = 2
 }
@@ -294,7 +314,7 @@ export enum LiveViewTypes {
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationLiveViewContent extends NotificationBasicContent {
   /**
@@ -304,7 +324,7 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   status: LiveViewStatus;
 
@@ -317,7 +337,7 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   version?: int;
 
@@ -328,9 +348,18 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
    */
   extraInfo?: Record<string, Object>;
+
+  /**
+   * Additional information of the live view notification.
+   *
+   * @type { ?Record<string, RecordData>}
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 static
+   */
+  extraInfo?: Record<string, RecordData>;
 
   /**
    * The picture information list of the live view notification.
@@ -339,7 +368,7 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   pictureInfo?: Record<string, Array<image.PixelMap>>;
 
@@ -350,7 +379,7 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isLocalUpdateOnly?: boolean;
 
@@ -360,7 +389,8 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @type { ?WantAgent }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   extensionWantAgent?: WantAgent;
 }
@@ -380,7 +410,7 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationMultiLineContent extends NotificationBasicContent {
   /**
@@ -397,7 +427,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   briefText: string;
 
@@ -415,7 +445,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   longTitle: string;
 
@@ -433,7 +463,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   lines: Array<string>;
 
@@ -443,7 +473,8 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
    * @type { ?Array<WantAgent> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   lineWantAgents?: Array<WantAgent>;
 }
@@ -455,7 +486,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
  * @typedef NotificationPictureContent
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationPictureContent extends NotificationBasicContent {
   /**
@@ -464,7 +495,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   briefText: string;
 
@@ -474,7 +505,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   expandedTitle: string;
 
@@ -484,7 +515,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
    * @type { image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   picture: image.PixelMap;
 }
@@ -498,7 +529,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
  * @typedef NotificationSystemLiveViewContent
  * @syscap SystemCapability.Notification.Notification
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationSystemLiveViewContent extends NotificationBasicContent {
   /**
@@ -507,7 +538,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    * @type { int }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   typeCode: int;
 
@@ -517,7 +548,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    * @type { ?NotificationCapsule }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   capsule?: NotificationCapsule;
 
@@ -527,7 +558,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    * @type { ?NotificationButton }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   button?: NotificationButton;
 
@@ -538,7 +569,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   cardButtons?: Array<NotificationIconButton>;
 
@@ -548,7 +579,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    * @type { ?NotificationTime }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   time?: NotificationTime;
 
@@ -558,7 +589,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    * @type { ?NotificationProgress }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   progress?: NotificationProgress;
 
@@ -569,7 +600,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   liveViewType?: LiveViewTypes;
 }
@@ -580,7 +611,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
  * @typedef NotificationCapsule
  * @syscap SystemCapability.Notification.Notification
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationCapsule {
   /**
@@ -589,7 +620,7 @@ export interface NotificationCapsule {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   title?: string;
 
@@ -599,7 +630,7 @@ export interface NotificationCapsule {
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   icon?: image.PixelMap;
 
@@ -609,7 +640,7 @@ export interface NotificationCapsule {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   backgroundColor?: string;
 
@@ -620,7 +651,7 @@ export interface NotificationCapsule {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   content?: string;
 
@@ -631,7 +662,7 @@ export interface NotificationCapsule {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   time?: int;
 
@@ -642,7 +673,7 @@ export interface NotificationCapsule {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   capsuleButtons?: Array<NotificationIconButton>;
 }
@@ -652,8 +683,9 @@ export interface NotificationCapsule {
  *
  * @typedef NotificationIconButton
  * @syscap SystemCapability.Notification.Notification
+ * @systemapi
  * @since 18 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationIconButton {
 
@@ -664,7 +696,7 @@ export interface NotificationIconButton {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   name: string;
 
@@ -675,7 +707,7 @@ export interface NotificationIconButton {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   iconResource: IconType;
 
@@ -686,7 +718,7 @@ export interface NotificationIconButton {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   text?: string;
 
@@ -697,7 +729,7 @@ export interface NotificationIconButton {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   hidePanel?: boolean;
 }
@@ -708,7 +740,7 @@ export interface NotificationIconButton {
  * @typedef NotificationButton
  * @syscap SystemCapability.Notification.Notification
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationButton {
   /**
@@ -717,7 +749,7 @@ export interface NotificationButton {
    * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   names?: Array<string>;
 
@@ -727,7 +759,7 @@ export interface NotificationButton {
    * @type { ?Array<image.PixelMap> }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   icons?: Array<image.PixelMap>;
 
@@ -737,7 +769,7 @@ export interface NotificationButton {
    * @type { ?Array<Resource> }
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   iconsResource?: Array<Resource>;
 }
@@ -748,7 +780,7 @@ export interface NotificationButton {
  * @typedef NotificationTime
  * @syscap SystemCapability.Notification.Notification
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationTime {
   /**
@@ -757,7 +789,7 @@ export interface NotificationTime {
    * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   initialTime?: int;
 
@@ -767,7 +799,7 @@ export interface NotificationTime {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isCountDown?: boolean;
 
@@ -777,7 +809,7 @@ export interface NotificationTime {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isPaused?: boolean;
 
@@ -787,7 +819,7 @@ export interface NotificationTime {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isInTitle?: boolean;
 }
@@ -798,7 +830,7 @@ export interface NotificationTime {
  * @typedef NotificationProgress
  * @syscap SystemCapability.Notification.Notification
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationProgress {
   /**
@@ -807,7 +839,7 @@ export interface NotificationProgress {
    * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   maxValue?: int;
 
@@ -817,7 +849,7 @@ export interface NotificationProgress {
    * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   currentValue?: int;
 
@@ -827,7 +859,7 @@ export interface NotificationProgress {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isPercentage?: boolean;
 }
@@ -846,7 +878,7 @@ export interface NotificationProgress {
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationContent {
   /**
@@ -874,7 +906,7 @@ export interface NotificationContent {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   notificationContentType?: notificationManager.ContentType;
 
@@ -892,7 +924,7 @@ export interface NotificationContent {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   normal?: NotificationBasicContent;
 
@@ -910,7 +942,7 @@ export interface NotificationContent {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   longText?: NotificationLongTextContent;
 
@@ -928,7 +960,7 @@ export interface NotificationContent {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   multiLine?: NotificationMultiLineContent;
 
@@ -938,7 +970,7 @@ export interface NotificationContent {
    * @type { ?NotificationPictureContent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   picture?: NotificationPictureContent;
 
@@ -949,7 +981,7 @@ export interface NotificationContent {
    * @type { ?NotificationSystemLiveViewContent }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   systemLiveView?: NotificationSystemLiveViewContent;
 
@@ -960,7 +992,7 @@ export interface NotificationContent {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   liveView?: NotificationLiveViewContent;
 }

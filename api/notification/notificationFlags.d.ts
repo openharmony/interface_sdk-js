@@ -32,7 +32,7 @@
  * @enum { int }
  * @syscap SystemCapability.Notification.Notification
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export enum NotificationFlagStatus {
   /**
@@ -47,7 +47,7 @@ export enum NotificationFlagStatus {
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   TYPE_NONE = 0,
 
@@ -63,7 +63,7 @@ export enum NotificationFlagStatus {
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   TYPE_OPEN = 1,
 
@@ -79,7 +79,7 @@ export enum NotificationFlagStatus {
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   TYPE_CLOSE = 2
 }
@@ -90,7 +90,7 @@ export enum NotificationFlagStatus {
  * @typedef NotificationFlags
  * @syscap SystemCapability.Notification.Notification
  * @since 8 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationFlags {
   /**
@@ -100,9 +100,16 @@ export interface NotificationFlags {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
-  readonly soundEnabled?: NotificationFlagStatus;
+  /**
+   * Whether to enable sound reminder.
+   *
+   * @type { ?NotificationFlagStatus }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 23 dynamic&static
+   */
+  soundEnabled?: NotificationFlagStatus;
 
   /**
    * Whether to enable vibration reminder.
@@ -111,9 +118,34 @@ export interface NotificationFlags {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
-  readonly vibrationEnabled?: NotificationFlagStatus;
+  /**
+   * Whether to enable vibration reminder.
+   *
+   * @type { ?NotificationFlagStatus }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 23 dynamic&static
+   */
+  vibrationEnabled?: NotificationFlagStatus;
+
+  /**
+   * Whether to enable banner reminder.
+   *
+   * @type { ?NotificationFlagStatus }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 23 dynamic&static
+   */
+  bannerEnabled?: NotificationFlagStatus;
+
+  /**
+   * Whether to enable lockScreen reminder.
+   *
+   * @type { ?NotificationFlagStatus }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 23 dynamic&static
+   */
+  lockScreenEnabled?: NotificationFlagStatus;
 
   /**
    * Read-only the prompt entry information allowed by the current channel.
@@ -123,7 +155,7 @@ export interface NotificationFlags {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly reminderFlags?: long;
 }

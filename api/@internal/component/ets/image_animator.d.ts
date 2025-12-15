@@ -477,7 +477,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @param { number } value - Number of images to be pre-decoded, Default value is 0.
    * @returns { ImageAnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   preDecode(value: number): ImageAnimatorAttribute;

@@ -32,6 +32,7 @@ import continuationManager from '../@ohos.continuation.continuationManager';
  *
  * @typedef ContinuationExtraParams
  * @syscap SystemCapability.Ability.DistributedAbilityManager
+ * @stagemodelonly
  * @atomicservice
  * @since 11 dynamiconly
  * @deprecated since 22
@@ -49,6 +50,7 @@ export interface ContinuationExtraParams {
    *
    * @type { ?Array<string> }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -67,6 +69,7 @@ export interface ContinuationExtraParams {
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -85,6 +88,7 @@ export interface ContinuationExtraParams {
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -103,6 +107,7 @@ export interface ContinuationExtraParams {
    *
    * @type { ?any }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -121,6 +126,7 @@ export interface ContinuationExtraParams {
    *
    * @type { ?continuationManager.ContinuationMode }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly   
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -139,6 +145,7 @@ export interface ContinuationExtraParams {
    *
    * @type { ?object }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22
@@ -148,6 +155,7 @@ export interface ContinuationExtraParams {
    *
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @stagemodelonly
    * @atomicservice
    * @since 11 dynamiconly
    * @deprecated since 22

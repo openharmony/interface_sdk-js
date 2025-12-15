@@ -26,18 +26,19 @@ import { GesturePoint } from '@ohos.accessibility.GesturePoint';
 import AccessibilityExtensionAbility, {
   AccessibilityElement, AccessibilityExtensionContext, ElementAttributeKeys,
   ElementAttributeValues, FocusDirection, FocusType, Rect, WindowType, AccessibilityEvent, AccessibilityEventInfo,
-  Parameter
+  Parameter, FocusRule, FocusCondition, FocusMoveResult
 } from '@ohos.application.AccessibilityExtensionAbility';
-import { AccessibilityAction, AccessibilityEventType } from '@ohos.accessibility';
+import { AccessibilityEventType, AccessibilityAction, FocusMoveResultCode } from '@ohos.accessibility';
 /*** endif */
 
 /*** if arkts static */
 import config from '@ohos.accessibility.config';
 import accessibility from '@ohos.accessibility';
 import AccessibilityExtensionAbility, {
-  AccessibilityElement, AccessibilityExtensionContext, FocusDirection, Rect, WindowType, AccessibilityEventInfo
+  AccessibilityElement, AccessibilityExtensionContext, FocusDirection, Rect, WindowType, AccessibilityEventInfo,
+  Parameter, FocusRule, FocusCondition, FocusMoveResult
 } from '@ohos.application.AccessibilityExtensionAbility';
-import { AccessibilityEventType } from '@ohos.accessibility';
+import { AccessibilityEventType, AccessibilityAction } from '@ohos.accessibility';
 /*** endif */
 
 /*** if arkts dynamic */
@@ -45,13 +46,15 @@ export {
   AccessibilityElement, AccessibilityExtensionAbility, AccessibilityExtensionContext,
   ElementAttributeKeys, ElementAttributeValues, FocusDirection, FocusType, GesturePath,
   GesturePoint, Rect, WindowType, accessibility, config, AccessibilityEvent, AccessibilityEventInfo,
-  AccessibilityAction, AccessibilityEventType, Parameter
+  AccessibilityAction, AccessibilityEventType, Parameter,
+  FocusRule, FocusCondition, FocusMoveResult, FocusMoveResultCode
 };
 /*** endif */
 
 /*** if arkts static */
 export {
   AccessibilityElement, AccessibilityExtensionAbility, AccessibilityExtensionContext, FocusDirection, Rect,
-  WindowType, accessibility, config, AccessibilityEventInfo, AccessibilityEventType
+  WindowType, accessibility, config, AccessibilityEventInfo, AccessibilityAction, AccessibilityEventType,
+  Parameter, FocusRule, FocusCondition, FocusMoveResult, FocusMoveResultCode
 };
 /*** endif */

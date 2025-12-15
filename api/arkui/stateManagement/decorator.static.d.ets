@@ -21,8 +21,10 @@
 /**
  * Define a custom component API that provides variables-related functionality.
  *
+ * @interface IVariableOwner
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IVariableOwner {
 }
@@ -31,7 +33,7 @@ export declare interface IVariableOwner {
  * Defining State annotation
  * State variable that holds the state property and is used to render the owning custom component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface State {};
@@ -40,7 +42,7 @@ export declare @interface State {};
  * Defining Prop annotation
  * Prop is an annotation which is mutable, and its changes will not be synchronized to the parent component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Prop {};
@@ -52,7 +54,7 @@ export declare @interface Prop {};
  * parent component, which is different from Prop.
  * In order to prevent this, need to take a deep copy of the parent data.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface PropRef {};
@@ -61,7 +63,7 @@ export declare @interface PropRef {};
  * Defining Link annotation
  * Link decorated variable creates two-way synchronization with a variable of its parent component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Link {};
@@ -70,7 +72,7 @@ export declare @interface Link {};
  * Defining Observed annotation
  * Observed is used to decorate a class.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Observed {};
@@ -80,7 +82,7 @@ export declare @interface Observed {};
  * Track is a decorator used to decorate properties of class objects. 
  * Any changes to the properties decorated by Track will trigger only updates to the UI associated with those properties.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Track {};
@@ -89,7 +91,7 @@ export declare @interface Track {};
  * Defining ObjectLink annotation
  * ObjectLink is used to observe property changes in nested class objects.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface ObjectLink {};
@@ -100,7 +102,7 @@ export declare @interface ObjectLink {};
  * A local change can be made, but it will not be synchronized to AppStorage. 
  * An update to the attribute with the given key in AppStorage will overwrite local changes.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface StorageProp {
@@ -114,7 +116,7 @@ export declare @interface StorageProp {
  * AppStorage, which is different from StorageProp.
  * In order to prevent this, need to take a deep copy of AppStorage instance data.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface StoragePropRef {
@@ -123,7 +125,7 @@ export declare @interface StoragePropRef {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     property: string;
 };
@@ -133,7 +135,7 @@ export declare @interface StoragePropRef {
  * StorageLink is used to create a two-way data synchronization between the variable
  * it decorates and the attribute with the given key in AppStorage.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface StorageLink {
@@ -142,7 +144,7 @@ export declare @interface StorageLink {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     property: string;
 };
@@ -153,7 +155,7 @@ export declare @interface StorageLink {
  * LocalStorage to the variable. This means that, local changes 
  * (if any) will not be synchronized to LocalStorage, and an update to the attribute with the given key in LocalStorage.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface LocalStorageProp {
@@ -162,7 +164,7 @@ export declare @interface LocalStorageProp {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     property: string;
 };
@@ -174,7 +176,7 @@ export declare @interface LocalStorageProp {
  * LocalStorage, which is different from LocalStorageProp.
  * In order to prevent this, need to take a deep copy of LocalStorage data.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface LocalStoragePropRef {
@@ -183,7 +185,7 @@ export declare @interface LocalStoragePropRef {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     property: string;
 };
@@ -193,7 +195,7 @@ export declare @interface LocalStoragePropRef {
  * LocalStorageLink is used to create a two-way data synchronization with the attribute 
  * in LocalStorage.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface LocalStorageLink {
@@ -202,7 +204,7 @@ export declare @interface LocalStorageLink {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     property: string;
 };
@@ -213,7 +215,7 @@ export declare @interface LocalStorageLink {
  * state data needs to be transferred between multiple levels. An @Provide decorated state 
  * variable exists in the ancestor component and is said to be "provided" to descendent components.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Provide {
@@ -222,7 +224,7 @@ export declare @interface Provide {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     alias: string = "";
     /**
@@ -230,7 +232,7 @@ export declare @interface Provide {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     allowOverride: boolean = false;
 };
@@ -239,7 +241,7 @@ export declare @interface Provide {
  * Defining Consume annotation
  * Consume is used to access the provided state variable for a descendent component
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Consume {
@@ -248,7 +250,7 @@ export declare @interface Consume {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     alias: string = "";
 };
@@ -257,7 +259,7 @@ export declare @interface Consume {
  * Defining Watch annotation
  * Watch is used to listen for state variables.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Watch {
@@ -266,7 +268,7 @@ export declare @interface Watch {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     callback: string;
 };
@@ -275,7 +277,7 @@ export declare @interface Watch {
  * Defining Require annotation
  * Require is a decorator for declaring that parameters – regular variables.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Require {};
@@ -285,7 +287,7 @@ export declare @interface Require {};
  * Local is the internal state of a component, which enables the variables in the 
  * custom component to observe changes.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Local {};
@@ -295,7 +297,7 @@ export declare @interface Local {};
  * Param indicates the state passed in from the external, ensuring that 
  * data can be synchronized between the parent and child components.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Param {};
@@ -304,7 +306,7 @@ export declare @interface Param {};
  * Defining Once annotation
  * Once annotation accepts values passed in only during variable initialization
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Once {};
@@ -314,7 +316,7 @@ export declare @interface Once {};
  * Event is used to decorate the callback method is a standard, indicating that the 
  * child component needs to pass in the callback for updating the data source.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Event {};
@@ -325,7 +327,7 @@ export declare @interface Event {};
  * state data needs to be transferred between multiple levels. An @Provider decorated state 
  * variable exists in the ancestor component and is said to be "provider" to descendent components.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Provider {
@@ -334,7 +336,7 @@ export declare @interface Provider {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     alias: string = "";
 };
@@ -343,7 +345,7 @@ export declare @interface Provider {
  * Defining Consumer annotation
  * Consumer is used to access the provided state variable for a descendent component
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Consumer {
@@ -352,7 +354,7 @@ export declare @interface Consumer {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     alias: string = "";
 };
@@ -361,7 +363,7 @@ export declare @interface Consumer {
  * Defining ObservedV2 annotation
  * ObservedV2 is used to decorate with class.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface ObservedV2 {};
@@ -370,7 +372,7 @@ export declare @interface ObservedV2 {};
  * Defining Trace annotation
  * Trace is used to directly observe the property changes of nested objects
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Trace {};
@@ -379,7 +381,7 @@ export declare @interface Trace {};
  * Defining Computed annotation
  * Computed is a method decorator that decorates the getter method.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Computed {};
@@ -388,7 +390,7 @@ export declare @interface Computed {};
  * Defining Monitor annotation
  * Monitor provides the capability of listening for state variables of V2.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Monitor {
@@ -397,7 +399,7 @@ export declare @interface Monitor {
      *
      * @type { string[] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     path: string[];
 };
@@ -407,7 +409,7 @@ export declare @interface Monitor {
  *
  * @interface IMonitor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IMonitor {
   /**
@@ -415,7 +417,7 @@ export declare interface IMonitor {
    *
    * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
    dirty: Array<string>;
   /**
@@ -425,7 +427,7 @@ export declare interface IMonitor {
    * @param { string } [path] Listened property name
    * @returns { IMonitorValue<T> | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
    value<T>(path?: string): IMonitorValue<T> | undefined;
 }
@@ -435,7 +437,7 @@ export declare interface IMonitor {
  *
  * @interface IMonitorValue<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IMonitorValue<T> {
   /**
@@ -443,7 +445,7 @@ export declare interface IMonitorValue<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
    before: T;
   /**
@@ -451,7 +453,7 @@ export declare interface IMonitorValue<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
    now: T;
   /**
@@ -459,7 +461,7 @@ export declare interface IMonitorValue<T> {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
    path: string;
 }
@@ -469,7 +471,7 @@ export declare interface IMonitorValue<T> {
  *
  * @interface IDecoratedVariable
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IDecoratedVariable {
   /**
@@ -478,7 +480,7 @@ export declare interface IDecoratedVariable {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   readonly varName: string;
 }
@@ -489,7 +491,7 @@ export declare interface IDecoratedVariable {
  * @extends IDecoratedVariable
  * @interface IDecoratedVariable
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IDecoratedV1Variable<T> extends IDecoratedVariable {
   /**
@@ -497,7 +499,7 @@ export declare interface IDecoratedV1Variable<T> extends IDecoratedVariable {
    *
    * @param { IDecoratedV1Variable<T> } decoratedVar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   registerWatchToSource(decoratedVar: IDecoratedV1Variable<T>): void;
 }
@@ -507,7 +509,7 @@ export declare interface IDecoratedV1Variable<T> extends IDecoratedVariable {
  *
  * @interface IDecoratedReadableVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IDecoratedReadableVariable<T> {
   /**
@@ -515,7 +517,7 @@ export declare interface IDecoratedReadableVariable<T> {
    *
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   get(): T;
 }
@@ -526,7 +528,7 @@ export declare interface IDecoratedReadableVariable<T> {
  * @extends IDecoratedReadableVariable<T>
  * @interface IDecoratedImmutableVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IDecoratedImmutableVariable<T> extends IDecoratedReadableVariable<T> {
 }
@@ -537,7 +539,7 @@ export declare interface IDecoratedImmutableVariable<T> extends IDecoratedReadab
  * @extends IDecoratedReadableVariable<T>
  * @interface IDecoratedMutableVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IDecoratedMutableVariable<T> extends IDecoratedReadableVariable<T> {
   /**
@@ -545,7 +547,7 @@ export declare interface IDecoratedMutableVariable<T> extends IDecoratedReadable
    *
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   set(newValue: T): void;
 }
@@ -555,7 +557,7 @@ export declare interface IDecoratedMutableVariable<T> extends IDecoratedReadable
  *
  * @interface IDecoratedUpdatableVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IDecoratedUpdatableVariable<T> {
   /**
@@ -563,7 +565,7 @@ export declare interface IDecoratedUpdatableVariable<T> {
    *
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   update(newValue: T): void;
 }
@@ -574,7 +576,7 @@ export declare interface IDecoratedUpdatableVariable<T> {
  * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
  * @interface IStateDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IStateDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
@@ -584,7 +586,7 @@ export declare interface IStateDecoratedVariable<T> extends IDecoratedMutableVar
  * @extends IDecoratedMutableVariable<T>, IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T>
  * @interface IPropRefDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IPropRefDecoratedVariable<T> extends IDecoratedMutableVariable<T>,
     IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {}
@@ -595,7 +597,7 @@ export declare interface IPropRefDecoratedVariable<T> extends IDecoratedMutableV
  * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
  * @interface ILocalStoragePropRefDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface ILocalStoragePropRefDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
@@ -605,7 +607,7 @@ export declare interface ILocalStoragePropRefDecoratedVariable<T> extends IDecor
  * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
  * @interface ILinkDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface ILinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
@@ -615,7 +617,7 @@ export declare interface ILinkDecoratedVariable<T> extends IDecoratedMutableVari
  * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
  * @interface IProvideDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IProvideDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
@@ -625,7 +627,7 @@ export declare interface IProvideDecoratedVariable<T> extends IDecoratedMutableV
  * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
  * @interface IConsumeDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IConsumeDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
@@ -635,7 +637,7 @@ export declare interface IConsumeDecoratedVariable<T> extends IDecoratedMutableV
  * @extends IDecoratedImmutableVariable<T>, IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T>
  * @interface IObjectLinkDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IObjectLinkDecoratedVariable<T> extends IDecoratedImmutableVariable<T>,
     IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {}
@@ -646,20 +648,9 @@ export declare interface IObjectLinkDecoratedVariable<T> extends IDecoratedImmut
  * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
  * @interface IStorageLinkDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IStorageLinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
-
-/**
- * Define StorageProp decoration variable interface.
- *
- * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
- * @interface IStoragePropDecoratedVariable<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
- */
-export declare interface IStoragePropDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
-}
 
 /**
  * Define StoragePropRef decoration variable interface.
@@ -667,7 +658,7 @@ export declare interface IStoragePropDecoratedVariable<T> extends IDecoratedMuta
  * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
  * @interface IStoragePropRefDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IStoragePropRefDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
@@ -677,7 +668,7 @@ export declare interface IStoragePropRefDecoratedVariable<T> extends IDecoratedM
  * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
  * @interface ILocalStorageLinkDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface ILocalStorageLinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
@@ -687,7 +678,7 @@ export declare interface ILocalStorageLinkDecoratedVariable<T> extends IDecorate
  * @extends IDecoratedMutableVariable<T>, IDecoratedV2Variable
  * @interface ILocalDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface ILocalDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV2Variable {} 
 
@@ -697,7 +688,7 @@ export declare interface ILocalDecoratedVariable<T> extends IDecoratedMutableVar
  * @extends IDecoratedImmutableVariable<T>,  IDecoratedUpdatableVariable<T>, IDecoratedV2Variable
  * @interface IParamDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IParamDecoratedVariable<T> extends IDecoratedImmutableVariable<T>, IDecoratedUpdatableVariable<T>, IDecoratedV2Variable {}
 
@@ -707,7 +698,7 @@ export declare interface IParamDecoratedVariable<T> extends IDecoratedImmutableV
  * @extends IDecoratedMutableVariable<T>, IDecoratedV2Variable
  * @interface IParamOnceDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IParamOnceDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV2Variable {}
 
@@ -716,7 +707,7 @@ export declare interface IParamOnceDecoratedVariable<T> extends IDecoratedMutabl
  *
  * @typedef { IDecoratedV1Variable<T> } LinkSourceType<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export type LinkSourceType<T> = IDecoratedV1Variable<T>;
 
@@ -725,21 +716,21 @@ export type LinkSourceType<T> = IDecoratedV1Variable<T>;
  *
  * @interface IMutableStateMeta
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IMutableStateMeta {
   /**
    * Collect the dependancy for UI component with state variable
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   addRef(): void;
   /**
    * Notify UI component to update when state variable is changed
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   fireChange(): void;
 }
@@ -749,7 +740,7 @@ export declare interface IMutableStateMeta {
  *
  * @interface IMutableKeyedStateMeta
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IMutableKeyedStateMeta {
   /**
@@ -757,7 +748,7 @@ export declare interface IMutableKeyedStateMeta {
    *
    * @param { string } key
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   addRef(key: string): void;
   /**
@@ -765,7 +756,7 @@ export declare interface IMutableKeyedStateMeta {
    *
    * @param { int } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   addRef(index: int): void;
   /**
@@ -773,7 +764,7 @@ export declare interface IMutableKeyedStateMeta {
    *
    * @param { string } key
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   fireChange(key: string): void;
   /**
@@ -781,7 +772,7 @@ export declare interface IMutableKeyedStateMeta {
    *
    * @param { int } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   fireChange(index: int): void;
 }
@@ -791,7 +782,7 @@ export declare interface IMutableKeyedStateMeta {
  *
  * @interface IObserve
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IObserve {
   /**
@@ -800,7 +791,7 @@ export declare interface IObserve {
    * @type { int }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   readonly renderingComponent: int;
   /**
@@ -809,7 +800,7 @@ export declare interface IObserve {
    * @type { RenderIdType }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   readonly renderingId: RenderIdType;
   /**
@@ -818,7 +809,7 @@ export declare interface IObserve {
    * @param { RenderIdType } iObjectsRenderId
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   shouldAddRef(iObjectsRenderId: RenderIdType): boolean;
 }
@@ -828,7 +819,7 @@ export declare interface IObserve {
  *
  * @type { IObserve }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare const OBSERVE: IObserve;
 
@@ -836,7 +827,7 @@ export declare const OBSERVE: IObserve;
  * Define int alias.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export type RenderIdType = int;
 
@@ -846,7 +837,7 @@ export type RenderIdType = int;
  * @extends IWatchSubscriberRegister
  * @interface IObservedObject
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IObservedObject extends IWatchSubscriberRegister {
   /**
@@ -854,9 +845,29 @@ export declare interface IObservedObject extends IWatchSubscriberRegister {
    *
    * @param { RenderIdType } renderId
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   setV1RenderId(renderId: RenderIdType): void;
+}
+
+/**
+ * Define ConsumeOptions interface.
+ * 
+ * @typedef ConsumeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface ConsumeOptions<T> {
+
+  /**
+   * Default value set by developer.
+   * @type { ?T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  defaultValue?: T;
 }
 
 /**
@@ -864,7 +875,7 @@ export declare interface IObservedObject extends IWatchSubscriberRegister {
  *
  * @type { IStateMgmtFactory }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare const STATE_MGMT_FACTORY: IStateMgmtFactory;
 
@@ -873,7 +884,7 @@ export declare const STATE_MGMT_FACTORY: IStateMgmtFactory;
  *
  * @interface IStateMgmtFactory
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IStateMgmtFactory {
   /**
@@ -881,7 +892,7 @@ export declare interface IStateMgmtFactory {
    *
    * @returns { IMutableStateMeta }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makeMutableStateMeta(): IMutableStateMeta;
   /**
@@ -889,19 +900,19 @@ export declare interface IStateMgmtFactory {
    *
    * @returns { ISubscribedWatches }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makeSubscribedWatches(): ISubscribedWatches;
   /**
    * Create a State variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { T } initValue - state variable initValue.
    * @param { WatchFuncType } [watchFunc] - watch type
    * @returns { IStateDecoratedVariable<T> } State instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makeState<T>(owner: IVariableOwner, varName: string, initValue: T,
     watchFunc?: WatchFuncType): IStateDecoratedVariable<T>;
@@ -909,13 +920,13 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a PropRef variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { T } initValue - state variable initValue.
    * @param { WatchFuncType } [watchFunc] - watch type
    * @returns { IPropRefDecoratedVariable<T> } PropRef instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makePropRef<T>(owner: IVariableOwner, varName: string, initValue: T,
     watchFunc?: WatchFuncType): IPropRefDecoratedVariable<T>;
@@ -923,13 +934,13 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a Link variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { LinkSourceType<T> } source - state variable sync source.
    * @param { WatchFuncType } [watchFunc] - watch type
    * @returns { ILinkDecoratedVariable<T> } PropRef instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makeLink<T>(owner: IVariableOwner, varName: string, source: LinkSourceType<T>,
     watchFunc?: WatchFuncType): ILinkDecoratedVariable<T>;
@@ -937,7 +948,7 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a Provide variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { string } provideAlias - provide alias.
    * @param { T } initValue - init value.
@@ -945,7 +956,7 @@ export declare interface IStateMgmtFactory {
    * @param { WatchFuncType } [watchFunc] - watch type
    * @returns { IProvideDecoratedVariable<T> } Provide instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makeProvide<T>(owner: IVariableOwner, varName: string, provideAlias: string, initValue: T, 
       allowOverride: boolean, watchFunc?: WatchFuncType): IProvideDecoratedVariable<T>;
@@ -953,27 +964,43 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a Consume variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { string } provideAlias - provide alias.
    * @param { WatchFuncType } [watchFunc] - watch type
    * @returns { IConsumeDecoratedVariable<T> } Consume instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makeConsume<T>(owner: IVariableOwner, varName: string,
     provideAlias: string, watchFunc?: WatchFuncType): IConsumeDecoratedVariable<T>;
+  
+  /**
+   * Create a Consume variable instance. It is used to establish two-way data binding with @Provide.
+   *
+   * @param { IVariableOwner } owner - instance of the custom component where this state variable is located.
+   * @param { string } varName - state variable name.
+   * @param { string } provideAlias - provide alias.
+   * @param { WatchFuncType } [watchFunc] - watch callback function type.
+   * @param { ConsumeOptions<T> } [consumeOptions] - interface containing default value set by developer.
+   * @returns { IConsumeDecoratedVariable<T> } Consume instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  makeConsume<T>(owner: IVariableOwner, varName: string,
+    provideAlias: string, watchFunc?: WatchFuncType, consumeOptions?: ConsumeOptions<T>): IConsumeDecoratedVariable<T>;
 
   /**
    * Create a ObjectLink variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { T } initValue - init value.
    * @param { WatchFuncType } [watchFunc] - watch type
    * @returns { IObjectLinkDecoratedVariable<T> } ObjectLink instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makeObjectLink<T>(owner: IVariableOwner, varName: string,
     initValue: T, watchFunc?: WatchFuncType): IObjectLinkDecoratedVariable<T>;
@@ -981,42 +1008,42 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a StorageLink variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } propName - property name.
    * @param { string } varName - state variable name.
    * @param { T } initValue - init value.
    * @param { WatchFuncType } [watchFunc] - watch type
    * @returns { IStorageLinkDecoratedVariable<T> } StorageLink instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makeStorageLink<T>(owner: IVariableOwner, propName: string,
         varName: string, initValue: T, watchFunc?: WatchFuncType): IStorageLinkDecoratedVariable<T>;
    /**
     * Create a StoragePropRef variable instance.
     *
-    * @param { IVariableOwner } owner - owner of the variable being created.
+    * @param { IVariableOwner } owner - owner of this variable.
     * @param { string } propName - property name.
     * @param { string } varName - state variable name.
     * @param { T } initValue - init value.
     * @param { WatchFuncType } [watchFunc] - watch type
     * @returns { IStoragePropRefDecoratedVariable<T> } StoragePropRef instance
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20 static
+    * @since 22 static
     */
   makeStoragePropRef<T>(owner: IVariableOwner, propName: string,
         varName: string, initValue: T, watchFunc?: WatchFuncType): IStoragePropRefDecoratedVariable<T>;
   /**
    * Create a LocalStoragePropRef variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } propName - property name.
    * @param { string } varName - state variable name.
    * @param { T } initValue - init value.
    * @param { WatchFuncType } [watchFunc] - watch type
    * @returns { ILocalStoragePropRefDecoratedVariable<T> } LocalStoragePropRef instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makeLocalStoragePropRef<T>(owner: IVariableOwner, propName: string,
         varName: string, initValue: T, watchFunc?: WatchFuncType): ILocalStoragePropRefDecoratedVariable<T>;
@@ -1024,14 +1051,14 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a LocalStorageLink variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } propName - property name.
    * @param { string } varName - state variable name.
    * @param { T } initValue - init value.
    * @param { WatchFuncType } [watchFunc] - watch type
    * @returns { ILocalStorageLinkDecoratedVariable<T> } LocalStorageLink instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makeLocalStorageLink<T>(owner: IVariableOwner, propName: string,
         varName: string, initValue: T, watchFunc?: WatchFuncType): ILocalStorageLinkDecoratedVariable<T>;
@@ -1039,12 +1066,12 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a Local variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { T } localInitValue - state variable initValue.
    * @returns { ILocalDecoratedVariable<T> } Local instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
    makeLocal<T>(owner: IVariableOwner, varName: string, localInitValue: T): ILocalDecoratedVariable<T>;
   
@@ -1055,57 +1082,57 @@ export declare interface IStateMgmtFactory {
    * @param { T } localInitValue - state variable initValue.
    * @returns { ILocalDecoratedVariable<T> } Local instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
    makeStaticLocal<T>(varName: string, localInitValue: T): ILocalDecoratedVariable<T>;
 
   /**
    * Create a Param variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { T } initValue - param variable initValue.
    * @returns { IParamDecoratedVariable<T> } Param instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makeParam<T>(owner: IVariableOwner, varName: string, initValue: T): IParamDecoratedVariable<T>;
 
   /**
    * Create a param once variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
    * @param { T } initValue - param once variable initValue.
    * @returns { IParamOnceDecoratedVariable<T> } Param Once instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makeParamOnce<T>(owner: IVariableOwner, varName: string, initValue: T): IParamOnceDecoratedVariable<T>;
 
   /**
    * Create a provider variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - provider variable name.
    * @param { string } providerAlias - provider alias.
    * @param { T } localInitValue - provider local variable value.
    * @returns { IProviderDecoratedVariable<T> } Provider instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makeProvider<T>(owner: IVariableOwner, varName: string, providerAlias: string, localInitValue: T ): IProviderDecoratedVariable<T>;
 
   /**
    * Create a consumer variable instance.
    *
-   * @param { IVariableOwner } owner - owner of the variable being created.
+   * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - consumer variable name.
    * @param { string } providerAlias - consumer alias.
    * @param { T } defaultValue - consumer default value.
    * @returns { IConsumerDecoratedVariable<T> } Consumer instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makeConsumer<T>(owner: IVariableOwner, varName: string, providerAlias: string, defaultValue: T): IConsumerDecoratedVariable<T>;
 
@@ -1116,7 +1143,7 @@ export declare interface IStateMgmtFactory {
    * @param { string } computeName - name of the computed function
    * @returns { IComputedDecoratedVariable<T> } Computed instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makeComputed<T>(computedCallback: ComputedCallback<T>, computeName: string): IComputedDecoratedVariable<T>;
 
@@ -1125,10 +1152,10 @@ export declare interface IStateMgmtFactory {
    * 
    * @param { Array<IMonitorPathInfo> } pathInfos - monitor path to its accessor
    * @param { MonitorCallback } monitorCallback - callback when monitor triggers
-   * @param { IVariableOwner } [owner] - owner of the variable being created
+   * @param { IVariableOwner } [owner] - owner of this monitor
    * @returns { IMonitorDecoratedVariable } Monitor variable instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   makeMonitor(pathInfos: Array<IMonitorPathInfo>, monitorCallback: MonitorCallback, owner?: IVariableOwner): IMonitorDecoratedVariable;
 }
@@ -1140,7 +1167,7 @@ export declare interface IStateMgmtFactory {
  * @extends IDecoratedVariable
  * @interface IDecoratedV2Variable
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export interface IDecoratedV2Variable extends IDecoratedVariable {}
 
@@ -1150,7 +1177,7 @@ export interface IDecoratedV2Variable extends IDecoratedVariable {}
  * @extends IDecoratedMutableVariable<T>, IDecoratedV2Variable
  * @interface IProviderDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IProviderDecoratedVariable<T>  extends IDecoratedMutableVariable<T>, IDecoratedV2Variable {}
 
@@ -1160,7 +1187,7 @@ export declare interface IProviderDecoratedVariable<T>  extends IDecoratedMutabl
  * @extends IDecoratedMutableVariable<T>, IDecoratedV2Variable
  * @interface IConsumerDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IConsumerDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV2Variable {}
 
@@ -1169,12 +1196,13 @@ export declare interface IConsumerDecoratedVariable<T> extends IDecoratedMutable
  * @typedef { function } ComputedCallback
  * @returns { T }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 type ComputedCallback<T> = () => T;
 
 /**
  * Defines IMonitor callback function
+ *
  * @typedef { function } MonitorCallback
  * @param { IMonitor } iMonitor MonitorValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1184,6 +1212,7 @@ export type MonitorCallback = (iMonitor: IMonitor) => void;
 
 /**
  * Defines IMonitor value callback function
+ *
  * @typedef { function } MonitorValueCallback
  * @returns { Any }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1196,7 +1225,7 @@ export type MonitorValueCallback = () => Any;
  * @typedef { function } WatchFuncType
  * @param {string} propertyName - property name
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export type WatchFuncType = (propertyName: string) => void;
 
@@ -1204,7 +1233,7 @@ export type WatchFuncType = (propertyName: string) => void;
  * Define int alias.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export type WatchIdType = int;
 
@@ -1213,7 +1242,7 @@ export type WatchIdType = int;
  *
  * @interface IWatchSubscriberRegister
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IWatchSubscriberRegister {
   /**
@@ -1221,7 +1250,7 @@ export declare interface IWatchSubscriberRegister {
    *
    * @param { WatchIdType } watchId - the watch function id
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   addWatchSubscriber(watchId: WatchIdType): void;
   /**
@@ -1230,7 +1259,7 @@ export declare interface IWatchSubscriberRegister {
    * @param { WatchIdType } watchId - the watch function id
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   removeWatchSubscriber(watchId: WatchIdType): boolean;
 }
@@ -1241,7 +1270,7 @@ export declare interface IWatchSubscriberRegister {
  * @extends IWatchSubscriberRegister
  * @interface ISubscribedWatches
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface ISubscribedWatches extends IWatchSubscriberRegister {
   /**
@@ -1249,26 +1278,26 @@ export declare interface ISubscribedWatches extends IWatchSubscriberRegister {
    *
    * @param { string } propertyName - property name
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   executeOnSubscribingWatches(propertyName: string): void;
 }
 
 /**
- * Defines Computed decoration variable interface.
+ * Defines computed decoration variable interface.
  *
  * @extends IDecoratedReadableVariable<T>
  * @interface IComputedDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IComputedDecoratedVariable<T> extends IDecoratedReadableVariable<T> {
     /**
      * Set owner for the computed variable. Used to detect component freezing.
      *
-     * @param { IVariableOwner } owner - new owner of this variable
+     * @param { IVariableOwner } owner - owner of this variable
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     setOwner(owner: IVariableOwner): void;
 }
@@ -1278,7 +1307,7 @@ export declare interface IComputedDecoratedVariable<T> extends IDecoratedReadabl
  *
  * @interface IMonitorDecoratedVariable
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IMonitorDecoratedVariable {
   /**
@@ -1297,7 +1326,7 @@ export declare interface IMonitorDecoratedVariable {
  *
  * @interface IMonitorPathInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface IMonitorPathInfo {
     /**
@@ -1305,7 +1334,7 @@ export declare interface IMonitorPathInfo {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     path: string;
     /**
@@ -1313,7 +1342,7 @@ export declare interface IMonitorPathInfo {
      *
      * @type { MonitorValueCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     valueCallback: MonitorValueCallback;
 }

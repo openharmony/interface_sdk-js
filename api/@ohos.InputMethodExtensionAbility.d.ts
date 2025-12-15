@@ -27,8 +27,9 @@ import type InputMethodExtensionContext from './@ohos.InputMethodExtensionContex
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @StageModelOnly
  * @since 9 dynamic
+ * @since 23 static
  */
-export default class InputMethodExtensionAbility {
+declare class InputMethodExtensionAbility {
   /**
    * Indicates input method extension ability context.
    *
@@ -36,6 +37,7 @@ export default class InputMethodExtensionAbility {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
    * @since 9 dynamic
+   * @since 23 static
    */
   context: InputMethodExtensionContext;
 
@@ -46,6 +48,7 @@ export default class InputMethodExtensionAbility {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
    * @since 9 dynamic
+   * @since 23 static
    */
   onCreate(want: Want): void;
 
@@ -55,6 +58,9 @@ export default class InputMethodExtensionAbility {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
    * @since 9 dynamic
+   * @since 23 static
    */
   onDestroy(): void;
 }
+
+export default InputMethodExtensionAbility;

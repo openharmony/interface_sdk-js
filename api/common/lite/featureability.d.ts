@@ -21,14 +21,14 @@
 /**
  * @typedef SubscribeMessageResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  * @deprecated since 8
  */
 export interface SubscribeMessageResponse {
   /**
    * Peer device ID.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   deviceId: string;
@@ -36,7 +36,7 @@ export interface SubscribeMessageResponse {
   /**
    * Name of the bundle where the peer ability has been located. The name is case sensitive.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   bundleName: string;
@@ -44,7 +44,7 @@ export interface SubscribeMessageResponse {
   /**
    * Peer ability name, which is case sensitive.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   abilityName: string;
@@ -52,7 +52,7 @@ export interface SubscribeMessageResponse {
   /**
    * Messages received from the device.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   message: string;
@@ -61,14 +61,14 @@ export interface SubscribeMessageResponse {
 /**
  * @typedef SendMessageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  * @deprecated since 8
  */
 export interface SendMessageOptions {
   /**
    * Destination device ID.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   deviceId: string;
@@ -76,7 +76,7 @@ export interface SendMessageOptions {
   /**
    * Name of the destination bundle where the ability has been located. The name is case sensitive.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   bundleName: string;
@@ -84,7 +84,7 @@ export interface SendMessageOptions {
   /**
    * Destination ability name, which is case sensitive.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   abilityName: string;
@@ -94,7 +94,7 @@ export interface SendMessageOptions {
    * A maximum of 1 KB of data can be transmitted at a time.
    * If more than 1 KB of data needs to be transmitted, split the messages into multiple parts to transmit.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   message?: string;
@@ -102,7 +102,7 @@ export interface SendMessageOptions {
   /**
    * Called when the messages are sent successfully.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   success?: () => void;
@@ -110,7 +110,7 @@ export interface SendMessageOptions {
   /**
    * Called when the messages fail to be sent.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -118,7 +118,7 @@ export interface SendMessageOptions {
   /**
    * Called when the execution is completed.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   complete?: () => void;
@@ -127,14 +127,14 @@ export interface SendMessageOptions {
 /**
  * @typedef SubscribeMessageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  * @deprecated since 8
  */
 export interface SubscribeMessageOptions {
   /**
    * Called when the messages are sent successfully.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   success?: (data: SubscribeMessageResponse) => void;
@@ -142,7 +142,7 @@ export interface SubscribeMessageOptions {
   /**
    * Called when the messages fail to be sent.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -161,7 +161,7 @@ export declare class FeatureAbility {
    * @param { SendMessageOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @systemapi
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   static sendMsg(options: SendMessageOptions): void;
@@ -171,7 +171,7 @@ export declare class FeatureAbility {
    * @param { SubscribeMessageOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @systemapi
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   static subscribeMsg(options: SubscribeMessageOptions): void;
@@ -180,7 +180,7 @@ export declare class FeatureAbility {
    * Cancel the listening for messages sent from other devices.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @systemapi
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   static unsubscribeMsg(): void;

@@ -33,3 +33,16 @@ export {
   FormExtensionAbility, formAgent, formBindingData, formError, formHost, formInfo, formObserver, formProvider,
   FormEditExtensionAbility, LiveFormExtensionAbility, LiveFormInfo
 };
+
+/*** if arkts static */
+import formBindingData from '@ohos.app.form.formBindingData';
+import FormExtensionAbility from '@ohos.app.form.FormExtensionAbility';
+import formInfo from '@ohos.app.form.formInfo';
+import formProvider from '@ohos.app.form.formProvider';
+import formError from '@ohos.application.formError';
+import FormEditExtensionAbility from '@ohos.app.form.FormEditExtensionAbility';
+
+export {
+  FormExtensionAbility, formBindingData, formError, formInfo, formProvider, FormEditExtensionAbility
+};
+/*** endif */

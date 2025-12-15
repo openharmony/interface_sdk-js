@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1627,6 +1627,7 @@ interface Particles<
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 interface ParticleInterface {
   /**
@@ -1723,7 +1724,7 @@ declare enum ParticleType {
    * @atomicservice
    * @since 11 dynamic
    */
-  IMAGE = 'image',
+  IMAGE = 'image'
 }
 
 /**
@@ -1794,7 +1795,7 @@ declare enum ParticleEmitterShape {
    * @atomicservice
    * @since 20 dynamic
    */
-   ANNULUS = 'annulus',
+   ANNULUS = 'annulus'
 }
 
 /**
@@ -1825,7 +1826,7 @@ declare enum DistributionType {
    * @atomicservice
    * @since 12 dynamic
    */
-  GAUSSIAN = 1,
+  GAUSSIAN = 1
 }
 
 /**
@@ -1887,7 +1888,7 @@ declare enum ParticleUpdater {
    * @atomicservice
    * @since 11 dynamic
    */
-  CURVE = 'curve',
+  CURVE = 'curve'
 }
 
 /**
@@ -1937,6 +1938,7 @@ declare type Vector2T<T> = import('../api/arkui/Graphics').Vector2T<T>;
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
   /**
@@ -2002,6 +2004,7 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare const Particle: ParticleInterface;
 
@@ -2163,8 +2166,10 @@ declare enum DisturbanceFieldShape {
 
 /**
  * Defines particle annuslus region params.
+ * 
  * @interface ParticleAnnulusRegion
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -2176,59 +2181,66 @@ declare interface ParticleAnnulusRegion {
    * @type { ?PositionT<LengthMetrics> }
    * @default {x:LengthMetrics.percent(0.5),y:LengthMetrics.percent(0.5)}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
-  center?: PositionT<LengthMetrics>,
+  center?: PositionT<LengthMetrics>;
   /**
    * The outer radius of the annulus
    *
    * @type { LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
-  outerRadius: LengthMetrics,
+  outerRadius: LengthMetrics;
   /**
    * The inner radius of the annulus
    *
    * @type { LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
-  innerRadius: LengthMetrics,
+  innerRadius: LengthMetrics;
   /**
    * The start angle of the annulus, in degree
    *
    * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
-  startAngle?: number,
+  startAngle?: number;
   /**
    * The end angle of the annulus, in degree
    *
    * @type { ?number }
    * @default 360
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
-  endAngle?: number,
+  endAngle?: number;
 }
 
 /**
  * Defines particle field region params.
+ * 
  * @interface FieldRegion
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -2240,40 +2252,45 @@ declare interface FieldRegion {
    * @type { ?DisturbanceFieldShape }
    * @default DisturbanceFieldShape.RECT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  shape?: DisturbanceFieldShape,
+  shape?: DisturbanceFieldShape;
   /**
-   * The top-left corner of the field. The top-left corner of the component is the origin of the coordinate system.
-   * The coordinate unit is vp.
+   * The coordinates of the center position of the field. The top-left corner of the component is the origin of the
+   * coordinate system. The coordinate unit is vp.
    *
    * @type { ?PositionT<number> }
    * @default {x:0,y:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  position?: PositionT<number>,
+  position?: PositionT<number>;
   /**
    * The size of the field. The unit of value is vp.
    *
    * @type { ?SizeT<number> }
    * @default {width:0,height:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  size?: SizeT<number>,
+  size?: SizeT<number>;
 }
 
 /**
  * Defines ripple field options.
+ * 
  * @interface RippleFieldOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -2284,47 +2301,54 @@ declare interface RippleFieldOptions {
    * Range of values:[0, +∞)
    *
    * @type { ?number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  amplitude?: number,
+  amplitude?: number;
   /**
-   * Wavelength, which is the distance over which a wave cycle changes. The larger the wavelength, the slower
-   * the wave changes with distance, and the less pronounced the wave fluctiations.
-   * Range of values:(0, +∞)
+   * Wavelength, which is the distance over which a wave cycle changes. The larger
+   * the wavelength, the slower the wave changes with distance, and the less pronounced the wave fluctiations.
+   * Range of values:[0, +∞)
    *
    * @type { ?number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  wavelength?: number,
+  wavelength?: number;
   /**
    * Wave speed. The greater the wave speed, the faster the wave changes over time, and the more pronounced the wave
-   * motion. Range of values:(0, +∞)
+   * motion. Range of values:[0, +∞)
    *
    * @type { ?number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  waveSpeed?: number,
+  waveSpeed?: number;
   /**
-   * The attenuation coefficient of the ripple field. The larger the attenuation coeffecient, the faster the wave
+   * The attenuation coefficient of the ripple field. The larger the attenuation coefficient, the faster the wave
    * attenuates over time. Range of values:[0,1]
    *
    * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  attenuation?: number,
+  attenuation?: number;
   /**
    * The central point where the ripple field generates force. The top-left corner of the component is the origin of
    * coordinates. The coordinate unit is vp.
@@ -2332,28 +2356,32 @@ declare interface RippleFieldOptions {
    * @type { ?PositionT<number> }
    * @default {x:0,y:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  center?: PositionT<number>,
+  center?: PositionT<number>;
   /**
    * The region influenced by the ripple field.
    *
    * @type { ?FieldRegion }
    * @default {shape:DisturbanceFieldShape.RECT,position:{x:0,y:0},size:{width:0,height:0}}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  region?: FieldRegion,
+  region?: FieldRegion;
 }
 
 /**
  * Defines velocity field options.
+ * 
  * @interface VelocityFieldOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -2364,23 +2392,25 @@ declare interface VelocityFieldOptions {
    * the range of the velocity field; once they leave the range of the velocity field, they are no longer influenced
    * by it and do not gain this additional velocity.
    *
-   * @type { ?Vector2T<number, number> }
+   * @type { ?Vector2T<number> }
    * @default {x:0,y:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  velocity?: Vector2T<number, number>,
+  velocity?: Vector2T<number>;
   /**
    * The region influenced by the velocity field.
    *
    * @type { ?FieldRegion }
    * @default {shape:DisturbanceFieldShape.RECT,position:{x:0,y:0},size:{width:0,height:0}}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  region?: FieldRegion,  
+  region?: FieldRegion;
 }
