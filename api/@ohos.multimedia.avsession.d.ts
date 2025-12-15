@@ -4420,22 +4420,22 @@ declare namespace avSession {
 
     /**
      * Register playback state changed callback 
-     * Returned when a null pointer is encountered, the service restarts, memory allocation fails, or session creation encounters an internal error.
      * @param { Array<string> } filter - The properties of {@link AVPlaybackState} that you cared about
      * @param { Callback<AVPlaybackState> } callback - The callback used to handle playback state changed event.
      *     The callback function provides the {@link AVPlaybackState} parameter.
-     * @throws { BusinessError } 6600101 - Session service exception.  
+     * @throws { BusinessError } 6600101 - Session service exception. 1. Required parameters are missing.
+     * 2. Provided parameters have invalid types.  
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 22 static
      */
     onPlaybackStateChange(filter: Array<string>, callback: Callback<AVPlaybackState>): void;
 
     /**
-     * Register playback state changed callback 
-     * Returned when a null pointer is encountered, the service restarts, memory allocation fails, or session creation encounters an internal error.
+     * Registers a callback to be invoked whenever the playback state changes 
      * @param { Callback<AVPlaybackState> } callback - The callback used to handle playback state changed event.
      *     The callback function provides the {@link AVPlaybackState} parameter.
-     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600101 - Session service exception. 1. Required parameters are missing.
+     * 2. Provided parameters have invalid types.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 22 static
      */
@@ -8960,7 +8960,7 @@ declare namespace avSession {
     onMetadataChange(filter: Array<string>, callback: Callback<AVMetadata>): void;
 
     /**
-     * Register metadata changed callback
+     * Registers a callback to be invoked whenever any metadata changes
      * @param { Callback<AVMetadata> } callback - The callback used to handle metadata changed event.
      *     The callback function provides the {@link AVMetadata} parameter.
      *     It only contains the properties set in the filter.
@@ -9082,7 +9082,7 @@ declare namespace avSession {
     onPlaybackStateChange(filter: Array<string>, callback: Callback<AVPlaybackState>): void;
 
     /**
-     * Register playback state changed callback
+     * Registers a callback to be invoked whenever the playback state changes
      * @param { Callback<AVPlaybackState> } callback - The callback used to handle playback state changed event.
      *     The callback function provides the {@link AVPlaybackState} parameter.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -9186,7 +9186,7 @@ declare namespace avSession {
     onCallMetadataChange(filter: Array<string>, callback: Callback<CallMetadata>): void;
 
     /**
-     * Register call metadata changed callback
+     * Registers a callback for all call metadata changes
      * @param { Callback<CallMetadata> } callback - The callback used to handle call metadata changed event.
      *     The callback function provides the {@link CallMetadata} parameter.
      *     It only contains the properties set in the filter.
@@ -9280,7 +9280,7 @@ declare namespace avSession {
     onCallStateChange(filter: Array<string>, callback: Callback<AVCallState>): void;
 
     /**
-     * Register to listen to callback for all call attribute changes
+     * Register a callback for all call attribute changes
      * @param { Callback<AVCallState> } callback - The callback used to handle call state changed event.
      *     The callback function provides the {@link AVCallState} parameter.
      * @throws { BusinessError } 6600101 - Session service exception.
