@@ -2385,6 +2385,17 @@ declare namespace geoLocationManager {
      * @since 22 dynamic&static
      */
     geofenceTransitionCallback: AsyncCallback<GeofenceTransition>;
+
+    /**
+     * Indicates time for which a device is dwelling in the geofence, in milliseconds.
+     * If the device dwelling time reaches the value specified by this parameter,
+     * a GEOFENCE_TRANSITION_EVENT_DWELL event is reported.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 23 dynamic&static
+     */
+    loiterTimeMs?: int;
   }
 
   /**
