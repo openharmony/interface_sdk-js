@@ -1929,14 +1929,14 @@ declare namespace media {
   /**
    * Enumerates the fetch result code.
    * @enum { int }
-   * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+   * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @stagemodelonly
    * @since 23 dynamic&static
    */
   enum FetchResult {
     /**
      * Fetch picture from video failed.
-     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1944,7 +1944,7 @@ declare namespace media {
 
     /**
      * Fetch picture from video success.
-     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1952,15 +1952,15 @@ declare namespace media {
 
     /**
      * Fetch picture from video is cancelled by user.
-     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
      * @since 23 dynamic&static
      */
-    FETCH_CANCELLED = 2,
+    FETCH_CANCELED = 2,
   }
 
   /**
-   * Defines the frame info when fetch picture from a video.
+   * Defines the frame info when fetch picture form a video.
    * @typedef FrameInfo
    * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @stagemodelonly
@@ -1970,7 +1970,7 @@ declare namespace media {
     /**
      * The requested frame time.
      * @type { long }
-     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1979,7 +1979,7 @@ declare namespace media {
     /**
      * The actual frame time.
      * @type { ?long }
-     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1988,7 +1988,7 @@ declare namespace media {
     /**
      * The image extracted from video.
      * @type { ?image.PixelMap }
-     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1997,7 +1997,7 @@ declare namespace media {
     /**
      * The fetch result code -succeed, failed or cancelled.
      * @type { FetchResult }
-     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -2009,7 +2009,7 @@ declare namespace media {
    * @typedef { function } OnFrameFetched
    * @param { FrameInfo } frameInfo - the fetched data.
    * @param { BusinessError<void> } [err] - the error ocurred during fetch.
-   * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+   * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @stagemodelonly
    * @since 23 dynamic&static
    */
