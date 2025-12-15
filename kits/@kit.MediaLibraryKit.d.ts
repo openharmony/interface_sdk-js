@@ -28,10 +28,11 @@ import {
     MaxSelected, ItemType, ClickType, PickerOrientation,
     SelectMode, PickerColorMode, ReminderMode, MaxCountType, PhotoBrowserRange,
     PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback,
-    videoPlayStateChangedCallback, MovingPhotoBadgeStateChangedCallback, UpdatablePickerConfigs 
+    videoPlayStateChangedCallback, MovingPhotoBadgeStateChangedCallback, UpdatablePickerConfigs, SingleLineConfig,
+    BadgeConfig, PreselectedInfo, SaveMode, BadgeType, VideoPlayerState, ItemDisplayRatio 
 } from '@ohos.file.PhotoPickerComponent';
 import {
-    RecentPhotoComponent, RecentPhotoCheckResultCallback,
+    RecentPhotoComponent, RecentPhotoCheckResultCallback, RecentPhotoInfo, RecentPhotoCheckInfoCallback, 
     RecentPhotoClickCallback, RecentPhotoOptions, PhotoSource
 } from '@ohos.file.RecentPhotoComponent';
 export {
@@ -42,8 +43,9 @@ export {
     MaxSelected, ItemType, ClickType, PickerOrientation,
     SelectMode, PickerColorMode, ReminderMode, MaxCountType, PhotoBrowserRange,
     AlbumPickerComponent, AlbumPickerOptions, AlbumInfo, EmptyAreaClickCallback, AlbumPickerController,
-    RecentPhotoComponent, RecentPhotoCheckResultCallback,
+    RecentPhotoComponent, RecentPhotoCheckResultCallback, RecentPhotoInfo, RecentPhotoCheckInfoCallback, 
     RecentPhotoClickCallback, RecentPhotoOptions, PhotoSource,
     PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback,
-    videoPlayStateChangedCallback, MovingPhotoBadgeStateChangedCallback, UpdatablePickerConfigs 
+    videoPlayStateChangedCallback, MovingPhotoBadgeStateChangedCallback, UpdatablePickerConfigs, SingleLineConfig,
+    BadgeConfig, PreselectedInfo, SaveMode, BadgeType, VideoPlayerState, ItemDisplayRatio 
 };
