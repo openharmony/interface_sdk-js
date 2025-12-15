@@ -316,7 +316,8 @@ declare namespace onScreen {
   function sendControlEvent(event: ControlEvent): Promise<void>;
 
   /**
-   * Interface for awareness capability list.
+   * Interface for onscreen awareness capabilities,
+   * includes page content, page links, and text selection event subscribe.
    *
    * @interface OnscreenAwarenessCap
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
@@ -324,9 +325,9 @@ declare namespace onScreen {
    * @stagemodelonly
    * @since 23 dynamic&static
    */
-  export interface OnscreenAwarenessCap {  
+  export interface OnscreenAwarenessCap {
     /**
-     * Indicates capability list.
+     * Indicates a set of related capabilities.
      *
      * @type { string[] }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
@@ -336,8 +337,7 @@ declare namespace onScreen {
      */
     capList: string[];
     /**
-     * Describe application usage scenarios.
-     * If it is not filled in, it is set to an empty string by default.
+     * Describes specific usage scenarios, defaults to empty string.
      *
      * @type { ?string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
@@ -349,7 +349,8 @@ declare namespace onScreen {
   }
 
   /**
-   * Interface for onscreen option.
+   * Interface for scenario-specific screen information,
+   * provides parameters to access screen content and links by window ID.
    *
    * @interface OnscreenAwarenessOptions
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
@@ -359,7 +360,7 @@ declare namespace onScreen {
    */
   export interface OnscreenAwarenessOptions {  
     /**
-     * Provides the available options for onscreen option.
+     * Awareness parameters in custom key-value pairs format.
      *
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
@@ -390,7 +391,7 @@ declare namespace onScreen {
      */
     ALLOW = 1 << 0,
     /**
-     * Indicates that split-screen window display.
+     * Indicates split-screen window display.
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -408,7 +409,7 @@ declare namespace onScreen {
      */
     UNSUPPORTED_APP = 1 << 2,
     /**
-     * Indicates private window.
+     * Indicates private window mode.
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -428,7 +429,8 @@ declare namespace onScreen {
   }
 
   /**
-   * Interface for entity info.
+   * Interface provides detailed entity information for a page,
+   * including content, links, image and other entities.
    *
    * @interface EntityInfo
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
@@ -438,7 +440,7 @@ declare namespace onScreen {
    */
   export interface EntityInfo {  
     /**
-     * Indicates entity name.
+     * Indicates the entity name.
      *
      * @type { string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
@@ -448,7 +450,7 @@ declare namespace onScreen {
      */
     entityName: string;
     /**
-     * Indicates the entity info.
+     * Indicates entity content details with attributes like title, body, links.
      *
      * @type { Record<string, Object> }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
@@ -460,7 +462,7 @@ declare namespace onScreen {
   }
   
   /**
-   * Interface for awareness Info.
+   * Interface for onscreen awareness response info.
    *
    * @interface OnscreenAwarenessInfo
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
@@ -490,7 +492,7 @@ declare namespace onScreen {
      */
     timestamp: long;
     /**
-     * The bundle name of the target application.
+     * Indicates the bundle name of the target application.
      *
      * @type { ?string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
@@ -582,7 +584,7 @@ declare namespace onScreen {
   }
 
   /**
-   * Subscribe to awareness feature.
+   * Enables active onscreen awareness, and subscribes to screen awareness results.
    *
    * @permission ohos.permission.GET_SCREEN_CONTENT
    * @param { OnscreenAwarenessCap } capability - Indicates the capability set or specific capability.
@@ -606,7 +608,7 @@ declare namespace onScreen {
                      options?: OnscreenAwarenessOptions): void;
 
   /**
-   * Unsubscribe from awareness feature.
+   * Disable active onscreen awareness, and unsubscribes to screen awareness results.
    *
    * @permission ohos.permission.GET_SCREEN_CONTENT
    * @param { OnscreenAwarenessCap } capability - Indicates the capability set or specific capability.
@@ -626,7 +628,7 @@ declare namespace onScreen {
   function unsubscribe(capability: OnscreenAwarenessCap, callback?: Callback<OnscreenAwarenessInfo>): void;
 
   /**
-   * Single trigger to acquire information.
+   * Single trigger to acquire page content and get onscreen awareness result.
    *
    * @permission ohos.permission.GET_SCREEN_CONTENT
    * @param { OnscreenAwarenessCap } capability - Indicates the capability set or specific capability.
