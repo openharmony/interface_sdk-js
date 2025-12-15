@@ -203,33 +203,66 @@ declare namespace backup {
   interface File extends FileMeta, FileData, FileManifestData {}
 
   /**
-   * Control backup and restore priority sequence
+   * Parameters required to perform garbage collection (GC).
    *
    * @interface FsRequestConfig
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 12 dynamic
+   * @FaAndStageModel
+   * @since 23 dynamic&static
    */
   interface FsRequestConfig {
-    TriggerType: number;
-    writeSize: number;
-    waitTime: number;
-  }
+    /**
+     * Specifies the trigger type for garbage collection (0-default Device GC).
+     *
+     * @type { int }
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    triggerType: int;
 
     /**
-   * Obtain the backupVersion.
+     * Defines the target size (in MBytes) for garbage collection.
+     *
+     * @type { int }
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    writeSize: int;
+
+    /**
+     * Sets the maximum wait time (in seconds) for GC operation.
+     *
+     * @type { int }
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    waitTime: int;
+  }
+
+  /**
+   * Requests filesystem garbage collection with specified configuration.
    *
    * @permission ohos.permission.BACKUP
-   * @param { FsRequestConfig } config - Configuration parameters for device garbage collection.
-   * @returns { number } Return the errcode of DeviceGc. Return 0 if the request successed, otherwise returns err code.
+   * @param { FsRequestConfig } config - Configuration parameters for garbage collection.
+   * @returns { Promise<int> } The errcode of garbage collection.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - Permission verification failed,
+   *     application which is not a system application uses system API.
+   * @throws { BusinessError } 13900020 - Invalid argument
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 23 dynamic
+   * @FaAndStageModel
+   * @since 23 dynamic&static
    */
-  function filesystemServiceRequest(config: FsRequestConfig): Promise<number>;
-  
+  function filesystemServiceRequest(config: FsRequestConfig): Promise<int>;
+
   /**
    * Obtain the backupVersion.
    *
