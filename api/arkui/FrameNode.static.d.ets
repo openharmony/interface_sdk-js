@@ -901,6 +901,19 @@ export declare class FrameNode {
    * @since 23 static
    */
   isOnMainTree(): boolean;
+
+  /**
+   * Triggers node updates in the current frame.
+   * 
+   * When node attributes are modified after the current frame's build phase,
+   * the node updates will be deferred to the next
+   * frame. This function forces immediate node updates within the current frame to
+   * ensure rendering effects are applied synchronously.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */ 
+  invalidateAttributes(): void;
 }
 
 /**
