@@ -28,7 +28,6 @@
  * @since 23 dynamiconly
  */
 export declare class AtomicServiceMenuBar {
-
   /**
    * The constructor used to create a AtomicServiceMenuBar object.
    *
@@ -52,5 +51,4 @@ export declare class AtomicServiceMenuBar {
    * @since 23 dynamiconly
    */
   public setVisible(visible: boolean): void;
-
 }
