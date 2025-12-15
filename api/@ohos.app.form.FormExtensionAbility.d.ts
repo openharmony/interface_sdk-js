@@ -451,6 +451,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
   onSizeChanged(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void;
 }
