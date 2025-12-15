@@ -2032,11 +2032,11 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not
    * have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call
-   * ${geoLocationManager.getActiveFences} due to limited device capabilities.
+   * ${geoLocationManager.getActiveGeoFences} due to limited device capabilities.
    * @syscap SystemCapability.Location.Location.Geofence
    * @since 23 dynamic&static
    */
-  function getActiveFences(): Promise<Map<int, Geofence>>;
+  function getActiveGeoFences(): Promise<Map<int, Geofence>>;
 
   /**
    * Configuration parameters for simulating reverse geocoding.
