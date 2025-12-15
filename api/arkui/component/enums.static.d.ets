@@ -4086,12 +4086,13 @@ declare enum DialogDisplayMode {
 
 /**
  * Focus wrap mode of a list or grid when moving focus using the arrow keys.
-
+ *
  * @enum { number } FocusWrapMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-declare enum FocusWrapMode {
+export declare enum FocusWrapMode {
   /**
    * No wrap when moving focus using the arrow keys.
    *
@@ -4272,4 +4273,37 @@ export enum AttributeModifierState {
    * @since 23 staticonly
    */
   ALL = (1 << 4) - 1
+}
+
+/**
+ * Specify the number of columns for different responsive breakpoints.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare enum PresetFillType {
+    /**
+     * For Lists and Swipers: One column is displayed on SM (and smaller), two on MD, and three on LG (and larger)
+     * devices. For Grid and WaterFlow: two column is displayed on SM (and smaller), three on MD, and five on LG
+     * (and larger) devices.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    BREAKPOINT_DEFAULT = 0,
+    /**
+     * For SM (and smaller), MD, and LG (and larger) devices, one, two, and three columns are displayed respectively.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    BREAKPOINT_SM1MD2LG3 = 1,
+    /**
+     * For SM (and smaller), MD, and LG (and larger) devices, two, three, and five columns are displayed respectively.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    BREAKPOINT_SM2MD3LG5 = 2
 }
