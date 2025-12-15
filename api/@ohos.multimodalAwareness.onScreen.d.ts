@@ -336,16 +336,6 @@ declare namespace onScreen {
      * @since 23 dynamic&static
      */
     capList: string[];
-    /**
-     * Describes specific usage scenarios, defaults to empty string.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 dynamic&static
-     */
-    description?: string;
   }
 
   /**
@@ -584,7 +574,7 @@ declare namespace onScreen {
   }
 
   /**
-   * Enables active onscreen awareness, and subscribes to screen awareness results.
+   * Enable active onscreen awareness, and subscribes to screen awareness results.
    *
    * @permission ohos.permission.GET_SCREEN_CONTENT
    * @param { OnscreenAwarenessCap } capability - Indicates the capability set or specific capability.
