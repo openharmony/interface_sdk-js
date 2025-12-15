@@ -2001,7 +2001,7 @@ declare namespace media {
      * @stagemodelonly
      * @since 23 dynamic&static
      */
-    result?: FetchResult;
+    result: FetchResult;
   }
 
  /**
