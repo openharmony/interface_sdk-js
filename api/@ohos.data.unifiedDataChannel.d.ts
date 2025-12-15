@@ -96,7 +96,6 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   type GetDelayData = (type: string) => UnifiedData;
 
@@ -131,7 +130,6 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   class UnifiedDataProperties {
     /**
@@ -157,7 +155,6 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     tag?: string;
     /**
@@ -167,7 +164,6 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     readonly timestamp?: Date;
     /**
@@ -177,7 +173,6 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     shareOptions?: ShareOptions;
 
@@ -187,7 +182,6 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     getDelayData?: GetDelayData;
   }
@@ -2929,6 +2923,21 @@ declare namespace unifiedDataChannel {
   type DataLoadHandler = (acceptableInfo?: DataLoadInfo) => UnifiedData | null;
 
   /**
+   * Indicates the callback function for deferred and non-blocking data loading.
+   * 
+   * @typedef { function } DelayedDataLoadHandler
+   * @param { DataLoadInfo } [acceptableInfo] - Indicates the type and number of data
+   *    that can be accepted by the receiver.
+   * @returns { Promise<UnifiedData | null> } - Asynchronously return the {@link UnifiedData} object
+   *    that needs to be loaded.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  type DelayedDataLoadHandler = (acceptableInfo?: DataLoadInfo) => Promise<UnifiedData | null>;
+
+  /**
    * Indicates data loading params.
    *
    * @interface DataLoadParams
@@ -2958,6 +2967,19 @@ declare namespace unifiedDataChannel {
      * @since 22 static
      */
     dataLoadInfo: DataLoadInfo;
+
+    /**
+     * Indicates the callback function for deferred and non-blocking data loading.
+     * This handler is optional. If it is provided, it will take precedence over
+     *    the synchronous DataLoadHandler. (i.e., DataLoadHandler will be ignored).
+     * 
+     * @type { ?DelayedDataLoadHandler }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    delayedDataLoadHandler?: DelayedDataLoadHandler;
   }
 
   /**

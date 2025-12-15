@@ -82,22 +82,22 @@ declare struct ContentFormCard {
   /**
    * Width of the form card.
    *
-   * @type { ?double }
+   * @type { ?int }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20 dynamic
    */
   @Prop
-  formWidth?: double;
+  formWidth?: int;
 
   /**
    * Height of the form card.
    *
-   * @type { ?double }
+   * @type { ?int }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20 dynamic
    */
   @Prop
-  formHeight?: double;
+  formHeight?: int;
 
   /**
    * Callback to be invoked when the form card is tapped.
