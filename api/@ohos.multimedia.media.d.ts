@@ -1926,7 +1926,7 @@ declare namespace media {
     RGB_888 = 5,
   }
 
-/**
+  /**
    * Enumerates the fetch result code.
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
@@ -1959,7 +1959,14 @@ declare namespace media {
     FETCH_CANCELLED = 2,
   }
 
-interface FrameInfo {
+  /**
+   * Defines the frame info when fetch picture from a video.
+   * @typedef FrameInfo
+   * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface FrameInfo {
     /**
      * The requested frame time.
      * @type { long }
