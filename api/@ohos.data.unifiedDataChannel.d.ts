@@ -2098,20 +2098,48 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the id of app icon
      *
-     * @returns { long } the id of app icon
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    /**
+     * Indicates the id of app icon
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 11
+     */
+    /**
+     * Indicates the id of app icon
+     *
+     * @returns { string } the id of app icon
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 22 static
      */
-    get appIconId(): long;
+    get appIconId(): string;
 
     /**
      * Indicates the id of app icon
      *
-     * @param { long } the id of app icon
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    /**
+     * Indicates the id of app icon
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 11
+     */
+    /**
+     * Indicates the id of app icon
+     *
+     * @param { string } the id of app icon
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 22 static
      */
-    set appIconId(value: long);
+    set appIconId(value: string);
 
     /**
      * Indicates the id of app label
@@ -2132,20 +2160,48 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the id of app label
      *
-     * @returns { long } the id of app label
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    /**
+     * Indicates the id of app label
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 11
+     */
+    /**
+     * Indicates the id of app label
+     *
+     * @returns { string } the id of app label
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 22 static
      */
-    get appLabelId(): long;
+    get appLabelId(): string;
 
     /**
      * Indicates the id of app label
      *
-     * @param { long } the id of app label
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    /**
+     * Indicates the id of app label
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 11
+     */
+    /**
+     * Indicates the id of app label
+     *
+     * @param { string } the id of app label
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 22 static
      */
-    set appLabelId(value: long);
+    set appLabelId(value: string);
 
     /**
      * Indicates the bundle name of app
