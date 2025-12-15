@@ -996,6 +996,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 21 dynamic
+     * @since 22 static
      */
     WEB_NATIVE_MESSAGING = 32,
 
