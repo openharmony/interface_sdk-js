@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Huawei Device Co., Ltd.
+ * Copyright (C) 2024-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -436,6 +436,20 @@ export declare class UIUtils {
    * @since 22 dynamic
    */
   static flushUIUpdates(): void;
+
+  /**
+   * Determine whether the data object is observable and return the observation result.
+   *
+   * @param { T } source - input source object data.
+   * @returns { ObservedResult } return result of whether a class is observable.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  static canBeObserved<T extends object>(source: T): ObservedResult;
 }
 
 /**
@@ -556,4 +570,187 @@ export declare class MutableBinding<T> {
    * @since 20 dynamic
    */
   set value(newValue: T);
+}
+
+/**
+ * The return result that defines whether the object data is observable.
+ *
+ * @interface ObservedResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export interface ObservedResult {
+  /**
+   * Whether the object data of class/Array/Map/Set/Date type is observable.
+   * if true, the object data can be observed.
+   * if false, the object data can not be not observed.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  isObserved: boolean;
+  
+  /**
+   * Reasons why the object data of class/Array/Map/Set/Date type can not be not observed.
+   * 1 The object data is not an observable object.
+   * 2 The object data is observed data for the following reasons:
+   * 2.1 The object data is decorated with @Observed or wrapped by makeV1Observed.
+   * 2.2 The object data is decorated with V2 @ObservedV2 and @Trace.
+   * 2.3 The object data is wrapped by V2's makeObserved.
+   * 2.4 The object data is built-in type proxy data (Array/Map/Set/Date) decorated with @Trace.
+   * 2.5 The V1 Observed object data is wrapped by enableV2Compatibility and used in @ComponentV2.
+   * 2.6 The object data is decorated with @Observed or wrapped by makeV1Observed, but not used in UI.
+   * 2.7 The object data is decorated with V2 @ObservedV2 and @Trace, but not used in UI.
+   * 2.8 The object data is wrapped by V2's makeObserved, but not used in UI.
+   * 2.9 The object data is built-in type proxy data (Array/Map/Set/Date) decorated with @Trace, but not used in UI.
+   * 2.10 The V1 Observed object data is wrapped by enableV2Compatibility, but not used in @ComponentV2.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  reason: string;
+  
+  /**
+   * The UI component information associated with the object data.
+   * If the data object can not be observed, will return empty array.
+   *
+   * @type { Array<DecoratorInfo> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  decoratorInfo: Array<DecoratorInfo>;
+}
+
+/**
+ * The UI component information associated with the object data.
+ *
+ * @interface DecoratorInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export interface DecoratorInfo {
+  /**
+   * Decorator name of the object data.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  decoratorName: string;
+  
+  /**
+   * State Variable name of the object data.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  stateVariableName: string;
+  
+  /**
+   * The custom component name that the object data belongs to.
+   * In the V1 scenario, return the custom component name, in the V2 @ObservedV2 scenario, return class name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  owningComponentOrClassName: string;
+  
+  /**
+   * The custom component id that the object data belongs to.
+   * In the V1 scenario, return the custom component id, in the V2 @ObservedV2 scenario, return -1.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  owningComponentId: number;
+  
+  /**
+   * Dependent component information including custom component and UI component (Text, Image)
+   * for the object data.
+   * For the V2 @Monitor or @Computed scenario, will return the id and decorated function name by @Monitor or @Computed.
+   * For V2 scenario, if it is not used in the UI, nor on @Monitor or @Computed, return an empty array.
+   * For V1 scenario, if it is not used in the UI, will return an empty array.
+   *
+   * @type { Array<ElementInfo> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  dependentInfo: Array<ElementInfo>;
+}
+
+/**
+ * The custom component and UI component information.
+ * For the V2 @Monitor or @Computed scenario, The id and decorated function name by @Monitor
+ * or @Computed will be returned.
+ *
+ * @interface ElementInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export interface ElementInfo {
+  /**
+   * Dependent custom component and UI component name.
+   * For the V2 @Monitor or @Computed scenario, elementName refers to the name of the decorator and
+   * the function name decorated with @Monitor or @Computed (eg: @Monitor onChange).
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  elementName: string;
+
+  /**
+   * Dependent custom component and UI component id.
+   * For the V2 @Monitor or @Computed scenario, elementId refers to the id of
+   * the @Monitor or @Computed.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  elementId: number;
 }
