@@ -761,6 +761,20 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      */
     default maintainVisibleContentPosition(enabled: boolean | undefined): this;
     /**
+     * Sets whether empty branches are supported in lazy loading.
+     *
+     * @param { boolean | undefined } supported - Indicates whether empty branches are supported in lazy loading.
+     *     <br>Default value: false, passing undefined will restore the default value.
+     *     <br>If set to false, LazyForEach or Repeat with virtualScroll does not allow empty branches.
+     *     <br>If set to true, an empty branch of LazyForEach or Repeat with virtualScroll is treated as a node of
+     *     zero size.
+     * @returns { this } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default supportEmptyBranchInLazyLoading(supported: boolean | undefined): this;
+    /**
      * Sets whether the list's layout starts from the bottom (end) rather than the top (beginning).
      *
      * <p><strong>NOTE</strong>:
