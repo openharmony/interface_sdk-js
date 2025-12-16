@@ -485,6 +485,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static 
    */
   function setMagnificationState(state: boolean): void;
 
