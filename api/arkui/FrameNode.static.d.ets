@@ -1367,6 +1367,17 @@ export declare namespace typeNode {
   export function createImageNode(context: UIContext): Image;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { ImageAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */ 
+  export function getImageAttribute(node: FrameNode): ImageAttribute | undefined;
+
+  /**
    * Define the List type of FrameNode.
    *
    * @extends TypedFrameNode<ListAttribute>
