@@ -6519,6 +6519,17 @@ declare namespace ble {
      * @since 22 static
      */
     manufactureDataMask?: ArrayBuffer;
+
+    /**
+     * RSSI threshold for filtering advertising that pass through.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    rssiThreshold?: int;
   }
 
   /**
