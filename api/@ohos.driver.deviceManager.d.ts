@@ -59,7 +59,7 @@ declare namespace deviceManager {
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
-   * @deprecated since 18
+   * @deprecated since 19
    * @useinstead ohos.driver.deviceManager/deviceManager#bindDriverWithDeviceId
    */
   function bindDevice(deviceId: number, onDisconnect: AsyncCallback<number>,
@@ -80,7 +80,7 @@ declare namespace deviceManager {
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 11
-   * @deprecated since 18
+   * @deprecated since 19
    * @useinstead ohos.driver.deviceManager/deviceManager#bindDriverWithDeviceId
    */
   function bindDeviceDriver(deviceId: number, onDisconnect: AsyncCallback<number>,
@@ -101,7 +101,7 @@ declare namespace deviceManager {
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
-   * @deprecated since 18
+   * @deprecated since 19
    * @useinstead ohos.driver.deviceManager/deviceManager#bindDriverWithDeviceId
    */
   function bindDevice(deviceId: number, onDisconnect: AsyncCallback<number>): Promise<{deviceId: number;
@@ -121,7 +121,7 @@ declare namespace deviceManager {
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 11
-   * @deprecated since 18
+   * @deprecated since 19
    * @useinstead ohos.driver.deviceManager/deviceManager#bindDriverWithDeviceId
    */
   function bindDeviceDriver(deviceId: number, onDisconnect: AsyncCallback<number>): Promise<RemoteDeviceDriver>;
@@ -137,7 +137,7 @@ declare namespace deviceManager {
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
-   * @deprecated since 18
+   * @deprecated since 19
    * @useinstead ohos.driver.deviceManager/deviceManager#unbindDriverWithDeviceId
    */
   function unbindDevice(deviceId: number, callback: AsyncCallback<number>): void;
@@ -154,7 +154,7 @@ declare namespace deviceManager {
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
-   * @deprecated since 18
+   * @deprecated since 19
    * @useinstead ohos.driver.deviceManager/deviceManager#unbindDriverWithDeviceId
    */
   function unbindDevice(deviceId: number): Promise<number>;
