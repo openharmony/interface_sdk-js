@@ -2023,6 +2023,22 @@ declare namespace geoLocationManager {
     wlanBssidArray: Array<string>, rssiThreshold: int, needStartScan: boolean): Promise<boolean>;
 
   /**
+   * Get all active fences.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @returns { Promise<Map<int, Geofence>> } The promise returned by the function.
+   * The key of the map represents the fence ID.The value of the map represents
+   * the detailed information of the fence.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not
+   * have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
+   * ${geoLocationManager.getActiveGeoFences} due to limited device capabilities.
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @since 23 dynamic&static
+   */
+  function getActiveGeoFences(): Promise<Map<int, Geofence>>;
+
+  /**
    * Configuration parameters for simulating reverse geocoding.
    *
    * @typedef ReverseGeocodingMockInfo
@@ -2369,6 +2385,17 @@ declare namespace geoLocationManager {
      * @since 22 dynamic&static
      */
     geofenceTransitionCallback: AsyncCallback<GeofenceTransition>;
+
+    /**
+     * Indicates time for which a device is dwelling in the geofence, in milliseconds.
+     * If the device dwelling time reaches the value specified by this parameter,
+     * a GEOFENCE_TRANSITION_EVENT_DWELL event is reported.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 23 dynamic&static
+     */
+    loiterTimeMs?: int;
   }
 
   /**
