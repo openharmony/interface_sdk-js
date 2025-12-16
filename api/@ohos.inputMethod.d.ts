@@ -2834,6 +2834,7 @@ declare namespace inputMethod {
    * 
    * @interface MessageHandler
    * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 15 dynamic
    * @since 23 static
    */
   interface MessageHandler {
@@ -2854,22 +2855,12 @@ declare namespace inputMethod {
      * @since 23 static
      */
     onTerminated: Callback<void>;
-  }
 
-  /**	
-   * <p>Custom message handler.</p>
-   * <p>Implement this interface to respond to custom messages.</p>
-   * 	
-   * @interface MessageHandler
-   * @syscap SystemCapability.MiscServices.InputMethodFramework	
-   * @since 15 dynamic
-   */	
-  interface MessageHandler {	
     /**	
      * This method is called when a custom message is received.	
      * 	
      * @param { string } msgId - the identifier of the message.	
-     * @param { ?ArrayBuffer } [msgParam] - the parameter of the custom message.
+     * @param { ArrayBuffer } [msgParam] - the parameter of the custom message.
      * @syscap SystemCapability.MiscServices.InputMethodFramework	
      * @since 15 dynamic
      */	
