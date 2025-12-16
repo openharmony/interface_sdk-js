@@ -22,7 +22,7 @@ import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, In
 import { CustomBuilder } from './builder';
 import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextContentStyle, EllipsisMode } from "./enums";
 import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length } from "./units";
-import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle } from "./textCommon";
+import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, TextDirection } from "./textCommon";
 import { KeyboardOptions, PasteEvent } from "./richEditor";
 import { ComponentBuilder } from './builder';
 /**
@@ -1799,6 +1799,17 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @since 23 static
      */
     default selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): this;
+
+    /**
+     * Set the text direction.
+     *
+     * @param { TextDirection | undefined } direction - Indicates the text direction.
+     *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default textDirection(direction: TextDirection | undefined): this;
 }
 
 /**

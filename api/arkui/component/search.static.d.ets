@@ -20,7 +20,7 @@
 import { TextContentControllerBase, SelectionOptions, Callback, CommonMethod, TextDecorationOptions, Bindable, AttributeModifier } from "./common";
 import { CustomBuilder } from './builder';
 import { ResourceStr, Length, ResourceColor, Dimension, Font, ColorMetrics } from "./units";
-import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions, KeyboardAppearance, EditableTextChangeValue, AutoCapitalizationMode, SelectedDragPreviewStyle } from "./textCommon";
+import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions, KeyboardAppearance, EditableTextChangeValue, AutoCapitalizationMode, SelectedDragPreviewStyle, TextDirection } from "./textCommon";
 import { EnterKeyType, OnTextSelectionChangeCallback, OnContentScrollCallback, OnPasteCallback, SubmitEvent } from "./textInput";
 import { CopyOptions, TextAlign } from "./enums";
 import { KeyboardOptions } from "./richEditor";
@@ -1073,6 +1073,17 @@ export declare interface SearchAttribute extends CommonMethod {
      * @since 23 static
      */
     default selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): this;
+
+    /**
+     * Set the text direction.
+     *
+     * @param { TextDirection | undefined } direction - Indicates the text direction.
+     *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
+     * @returns { SearchAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default textDirection(direction: TextDirection | undefined): this;
 }
 
 /**
