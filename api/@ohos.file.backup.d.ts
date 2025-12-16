@@ -205,13 +205,13 @@ declare namespace backup {
   /**
    * Parameters required to perform garbage collection (GC).
    *
-   * @interface FsRequestConfig
+   * @interface FileSystemRequestConfig
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @stagemodelonly
    * @since 23 dynamic&static
    */
-  interface FsRequestConfig {
+  interface FileSystemRequestConfig {
     /**
      * Specifies the trigger type for garbage collection (0-default Device GC).
      *
@@ -250,7 +250,7 @@ declare namespace backup {
    * Requests filesystem garbage collection with specified configuration.
    *
    * @permission ohos.permission.BACKUP
-   * @param { FsRequestConfig } config - Configuration parameters for garbage collection.
+   * @param { fileSystemRequestConfig } config - Configuration parameters for garbage collection.
    * @returns { Promise<int> } The errcode of garbage collection.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed,
@@ -261,7 +261,7 @@ declare namespace backup {
    * @stagemodelonly
    * @since 23 dynamic&static
    */
-  function filesystemServiceRequest(config: FsRequestConfig): Promise<int>;
+  function fileSytemServiceRequest(config: FileSystemRequestConfig): Promise<int>;
 
   /**
    * Obtain the backupVersion.
