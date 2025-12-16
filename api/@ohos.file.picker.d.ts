@@ -873,6 +873,17 @@ declare namespace picker {
      * @since 18 dynamic
      */
     themeColor?: CustomColors;
+
+    /**
+     * Whether to create empty files, The default value is true, indicating that empty files will be created.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    autoCreateEmptyFile?: boolean;
   }
 
   /**
