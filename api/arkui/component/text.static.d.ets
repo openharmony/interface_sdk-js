@@ -21,7 +21,7 @@ import { CommonMethod, ShadowOptions, Callback, AttributeModifier, SelectionOpti
 import { CustomBuilder } from './builder';
 import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode } from "./enums";
 import { Resource, ResourceColor, Font, Length, LengthMetrics } from "./units";
-import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle } from "./textCommon";
+import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle, TextDirection } from "./textCommon";
 import { DecorationStyleInterface, StyledString } from "./styledString";
 import { SelectionMenuOptions } from "./richEditor";
 import { ComponentBuilder } from './builder';
@@ -721,6 +721,17 @@ export declare interface TextAttribute extends CommonMethod {
      * @since 23 static
      */
     default selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): this;
+
+    /**
+     * Set the text direction.
+     *
+     * @param { TextDirection | undefined } direction - Indicates the text direction.
+     *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
+     * @returns { TextAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default textDirection(direction: TextDirection | undefined): this;
 }
 /**
  * Defines span type.

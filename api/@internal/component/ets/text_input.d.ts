@@ -3512,6 +3512,19 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 23 dynamic
    */
   selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextInputAttribute;
+
+  /**
+   * Set the text direction.
+   *
+   * @param { TextDirection | undefined } direction - Indicates the text direction.
+   *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  textDirection(direction: TextDirection | undefined): TextInputAttribute;
 }
 
 /**
