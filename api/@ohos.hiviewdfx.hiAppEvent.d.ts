@@ -426,6 +426,17 @@ declare namespace hiAppEvent {
      * @since 22 static
      */
     const AUDIO_JANK_FRAME: string;
+
+    /**
+     * arkweb fling jank event. This is a system event name constant.
+     *
+     * @type { string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    const SCROLL_ARKWEB_FLING_JANK: string;
   }
 
   /**
