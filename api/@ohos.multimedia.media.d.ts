@@ -712,6 +712,30 @@ declare namespace media {
   type PlayParameters = _PlayParameters;
 
   /**
+   * Enumerates the sound interrupt mode.
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum SoundInterruptMode {
+    /**
+     * Multiple sounds can be played parallelly, without interrupting each other.
+     * @syscap SystemCapability.Multimedia.Media.SoundPool
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    NO_INTERRUPT = 0,
+    /**
+     * Multiple sounds can be played parallelly, but for the same sound, the latter one interrupts the former one
+     * @syscap SystemCapability.Multimedia.Media.SoundPool
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SAME_SOUND_INTERRUPT = 1
+  }
+
+  /**
    * Enumerates state change reason.
    *
    * @enum { number }
