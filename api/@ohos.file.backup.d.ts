@@ -208,7 +208,7 @@ declare namespace backup {
    * @interface FsRequestConfig
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @FaAndStageModel
+   * @StageModelOnly
    * @since 23 dynamic&static
    */
   interface FsRequestConfig {
@@ -218,7 +218,7 @@ declare namespace backup {
      * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @FaAndStageModel
+     * @StageModelOnly
      * @since 23 dynamic&static
      */
     triggerType: int;
@@ -229,7 +229,7 @@ declare namespace backup {
      * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @FaAndStageModel
+     * @StageModelOnly
      * @since 23 dynamic&static
      */
     writeSize: int;
@@ -240,7 +240,7 @@ declare namespace backup {
      * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @FaAndStageModel
+     * @StageModelOnly
      * @since 23 dynamic&static
      */
     waitTime: int;
@@ -258,7 +258,7 @@ declare namespace backup {
    * @throws { BusinessError } 13900020 - Invalid argument
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @FaAndStageModel
+   * @StageModelOnly
    * @since 23 dynamic&static
    */
   function filesystemServiceRequest(config: FsRequestConfig): Promise<int>;
