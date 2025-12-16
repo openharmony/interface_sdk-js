@@ -2972,6 +2972,25 @@ declare namespace webview {
         static customizeSchemes(schemes: Array<WebCustomScheme>): void;
 
         /**
+         * Register Web custom schemes.
+         *
+         * @param { Array<WebCustomScheme> } schemes - Configuration of web custom scheme.
+         * @param { boolean } lazyInitWebEngine - When true: The interface internally skips initializing WebEngine and
+         *     temporarily stores the registered schemes, which will be passed to WebEngine when it actually
+         *     initializes. When false: The interface automatically performs WebEngine initialization internally.
+         * @throws { BusinessError } 17100020 - Failed to register custom schemes.
+         * @throws { BusinessError } 401 - Parameter error. Possible causes:
+         *     1. The length of the schemes array is greater than 10.
+         *     2. The character length of the scheme is greater than 32.
+         *     3. The character in the scheme is not within the allowed range of lowercase English letters, numbers,
+         *     and the symbols ".", "+", "-".
+         * @static
+         * @syscap SystemCapability.Web.Webview.Core
+         * @since 22 static
+         */
+        static customizeSchemes(schemes: Array<WebCustomScheme>, lazyInitWebEngine: boolean): void
+
+        /**
          * Get certificate for the current website.
          * @returns { Promise<Array<cert.X509Cert>> } the promise of the current website's certificate.
          * @throws { BusinessError } 17100001 - Init error.
