@@ -2323,7 +2323,7 @@ declare namespace geoLocationManager {
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { BeaconFenceRequest } fenceRequest - Indicates the details of the beacon fence.
-   * @returns { Promise<int> } The promise returned by the function, for reporting the ID of beacon fence.
+   * @returns { Promise<number> } The promise returned by the function, for reporting the ID of beacon fence.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
    * permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.addBeaconFence}
@@ -2336,7 +2336,7 @@ declare namespace geoLocationManager {
    * @atomicservice
    * @since 20 dynamic
    */
-  function addBeaconFence(fenceRequest: BeaconFenceRequest): Promise<int>;
+  function addBeaconFence(fenceRequest: BeaconFenceRequest): Promise<number>;
 
   /**
    * Remove a beacon fence.
@@ -4767,12 +4767,12 @@ declare namespace geoLocationManager {
     /**
      * Indicates the confidence of POI information.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
      */
-    confidence: double;
+    confidence: number;
 
     /**
      * Indicates the name of the POI.
@@ -4787,22 +4787,22 @@ declare namespace geoLocationManager {
     /**
      * Indicates the latitude of POI.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
      */
-    latitude: double;
+    latitude: number;
 
     /**
      * Indicates the longitude of POI.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
      */
-    longitude: double;
+    longitude: number;
 
     /**
      * Indicates administrative region name.
@@ -4878,12 +4878,12 @@ declare namespace geoLocationManager {
     /**
      * Indicates the timestamp when the POI information is obtained.
      *
-     * @type { long }
+     * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
      */
-    timestamp: long;
+    timestamp: number;
   }
 
   /**
