@@ -5825,6 +5825,7 @@ declare namespace ble {
      * {@link AdvertiseData#includeDeviceName} property are used together,
      * the {@link AdvertiseData#advertiseName} property will ultimately take effect.
      *
+     * @permission ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME
      * @type { ?string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
