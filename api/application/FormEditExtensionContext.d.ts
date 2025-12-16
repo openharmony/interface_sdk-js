@@ -35,7 +35,7 @@ import type { AbilityResult } from '../ability/abilityResult';
 declare class FormEditExtensionContext extends UIExtensionContext {
 	/**
      * Start second editor extension ability.
-     * 
+     *
      * @param { Want } want - Including second extension ability name.
      * @returns { Promise<AbilityResult> } Returns the result of start second form editor extension ability.
      * @throws { BusinessError } 202 - The application is not a system application.
@@ -47,6 +47,23 @@ declare class FormEditExtensionContext extends UIExtensionContext {
      * @since 18 dynamic
      * @since 22 static
      */
-	startSecondPage(want: Want): Promise<AbilityResult>;
+     startSecondPage(want: Want): Promise<AbilityResult>;
+
+     /**
+      * Start the UIAbility.
+      *
+      * @param { Want } want - Including the Ability information.
+      * @returns { Promise<void> } The promise returned by the function.
+      * @throws { BusinessError } 16500050 - An IPC connection error happened.
+      * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+      * @throws { BusinessError } 16000130 - The target UIAbility does not belong to the caller.
+      * @throws { BusinessError } 16501014 - The form edit page is not in the foreground. The current operation is
+      *     not supported.
+      * @throws { BusinessError } 16000121 - The target component type is not a UIAbility.
+      * @syscap SystemCapability.Ability.Form
+      * @stagemodelonly
+      * @since 23 dynamic&static
+      */
+     startUIAbility(want: Want): Promise<void>;
 }
 export default FormEditExtensionContext;
