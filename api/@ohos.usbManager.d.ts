@@ -41,7 +41,7 @@ declare namespace usbManager {
    *
    * @returns { Array<Readonly<USBDevice>> } USB device list.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
+   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in. [staticonly]
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
    * @since 22 static
@@ -70,8 +70,8 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
-   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
-   * @throws { BusinessError } 14400012 Transmission I/O error.
+   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in. [staticonly]
+   * @throws { BusinessError } 14400012 Transmission I/O error. [staticonly]
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
    * @since 22 static
@@ -512,7 +512,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
+   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in. [staticonly]
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 18 dynamic
@@ -766,8 +766,8 @@ declare namespace usbManager {
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 14400001 Access right denied. Call requestRight to get the USBDevicePipe access right first.
-   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
+   * @throws { BusinessError } 14400001 Access right denied. Call requestRight to get the USBDevicePipe access right first. [staticonly]
+   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in. [staticonly]
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
    * @since 22 static
