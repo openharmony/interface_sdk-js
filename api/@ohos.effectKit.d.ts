@@ -523,14 +523,14 @@ declare namespace effectKit {
 
     /**
      * Determine whether the color is black or white or gray
-     * @param { int } color - The 32 bit ARGB color to discriminate.
+     * @param { long } color - The 32 bit ARGB color to discriminate.
      * @returns { boolean } Result of judging black, white and gray.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
     /**
      * Determine whether the color is black or white or gray
-     * @param { int } color - The 32 bit ARGB color to discriminate.
+     * @param { long } color - The 32 bit ARGB color to discriminate.
      * @returns { boolean } Result of judging black, white and gray.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @form
@@ -539,16 +539,16 @@ declare namespace effectKit {
      */
     /**
      * Determine whether the color is black or white or gray
-     * @param { int } color - The 32 bit ARGB color to discriminate.
+     * @param { long } color - The 32 bit ARGB color to discriminate.
      * @returns { boolean } Result of judging black, white and gray.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    isBlackOrWhiteOrGrayColor(color: int): boolean;
+    isBlackOrWhiteOrGrayColor(color: long): boolean;
   }
 
   /**
