@@ -250,7 +250,7 @@ declare namespace backup {
    * Requests filesystem garbage collection with specified configuration.
    *
    * @permission ohos.permission.BACKUP
-   * @param { fileSystemRequestConfig } config - Configuration parameters for garbage collection.
+   * @param { FileSystemRequestConfig } config - Configuration parameters for garbage collection.
    * @returns { Promise<int> } The errcode of garbage collection.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed,
