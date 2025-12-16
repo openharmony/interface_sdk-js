@@ -3010,9 +3010,9 @@ declare namespace webview {
          * @param { string } url - Which url to preresolve/preconnect.
          * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associated with a Web component.
+         *     The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-         *                           length exceeds 2048.
+         *     length exceeds 2*1024*1024.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 22 static
          */
@@ -3046,18 +3046,19 @@ declare namespace webview {
         /**
          * Prefetch the resources required by the page, but will not execute js or render the page.
          * <p><strong>API Note</strong>:<br>
-         * ‌prefetchPage‌ does not cache resources with Cache-Control: no-store by default, and only allows one prefetch within
-         * 500ms.
-         * Prefetch behavior can be customized via ‌prefetchOptions‌, including ignoring Cache-Control: no-store and adjusting
-         * the throttling interval.
-         *
+         * ‌prefetchPage‌ does not cache resources with Cache-Control: no-store by default,
+         * and only allows one prefetch within 500ms.
+         * Prefetch behavior can be customized via ‌prefetchOptions‌, including ignoring Cache-Control:
+         * no-store and adjusting the throttling interval.
+         * 
          * @param { string } url - Which url to preresolve/preconnect.
          * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
-         * @param { PrefetchOptions } [prefetchOptions] - Prefetch behavior can be customized via ‌prefetchOptions‌, including
-         *     ignoring Cache-Control: no-store and adjusting the throttling interval.
-         * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
+         * @param { PrefetchOptions } [prefetchOptions] - Prefetch behavior can be customized via ‌prefetchOptions‌,
+         *     including ignoring Cache-Control: no-store and adjusting the throttling interval.
+         * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with
+         *     a Web component.
          * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-         *     length exceeds 2 *1024 *1024.
+         *     length exceeds 2*1024*1024.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 22 static
          */
@@ -3115,8 +3116,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
-         * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-         *                           length exceeds 2048.
+         * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 22 static
          */
