@@ -32,6 +32,15 @@
  * @atomicservice
  * @since 11 dynamic
  */
+/**
+ * Use the DrawableDescriptor class to get drawable image.
+ *
+ * @typedef { import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor } DrawableDescriptor
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor;
 
 /**
@@ -88,6 +97,18 @@ declare type ImageMatrix = import ('../api/@ohos.matrix4').default.Matrix4Transi
   * @since 20 dynamic
   */
 declare type BusinessError<T = void> = import('../api/@ohos.base').BusinessError<T>;
+
+/**
+ * Download information of network images.
+ * 
+ * @typedef { import('../api/@ohos.request.cacheDownload').default.DownloadInfo } DownloadInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare type RequestDownloadInfo = import('../api/@ohos.request.cacheDownload').default.DownloadInfo;
 
 /**
  * @enum { number }
@@ -1666,7 +1687,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       width: number;
@@ -1701,7 +1722,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       height: number;
@@ -1736,7 +1757,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       componentWidth: number;
@@ -1771,7 +1792,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       componentHeight: number;
@@ -1814,7 +1835,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       loadingStatus: number;
@@ -1834,7 +1855,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       contentWidth: number;
@@ -1854,7 +1875,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       contentHeight: number;
@@ -1874,7 +1895,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       contentOffsetX: number;
@@ -1894,7 +1915,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 11 dynamic
+       * @since 11
        * @form
        */
       contentOffsetY: number;
@@ -2141,6 +2162,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 21 dynamic
    */
   contentTransition(transition: ContentTransitionEffect): ImageAttribute;
+
+  /**
+   * Anti-aliasing of image edges.
+   *
+   * @param { Optional<boolean> } isAntialiased
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  antialiased(isAntialiased: Optional<boolean>): ImageAttribute;
 }
 
 /**
@@ -2353,6 +2386,18 @@ declare interface ImageError {
    * @since 20 dynamic
    */
   error?: BusinessError<void>;
+
+  /**
+   * Download information of network images.
+   *
+   * @type { ?RequestDownloadInfo }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  downloadInfo?: RequestDownloadInfo; 
 }
 
 /**

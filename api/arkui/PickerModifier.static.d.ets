@@ -1,6 +1,7 @@
+'use static';
 /*
- * Copyright (C) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -12,18 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
+import { AttributeModifier } from '@ohos.arkui.component';
+import { PickerAttribute } from '@ohos.arkui.component';
 
-import { Resource as __Resource__ } from "../../global/resource";
-
-export type Resource = __Resource__;
-
-declare function _r(bundleName: string, moduleName: string, name: string, ...params: string[]): Resource;
-
-declare function _rawfile(bundleName: string, moduleName: string, name: string): Resource;
-
-export { _r, _rawfile }
+/**
+ * Defines Picker Modifier
+ * @implements { PickerAttribute, AttributeModifier<PickerAttribute> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare class PickerModifier implements PickerAttribute, AttributeModifier<PickerAttribute> {}

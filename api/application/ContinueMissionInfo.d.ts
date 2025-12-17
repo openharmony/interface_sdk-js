@@ -24,7 +24,9 @@
  * @typedef ContinueMissionInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi Hide this for inner system use.
+ * @stagemodelonly
  * @since 10 dynamic
+ * @since 23 static
  */
 export interface ContinueMissionInfo {
   /**
@@ -33,7 +35,9 @@ export interface ContinueMissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
+   * @stagemodelonly
    * @since 10 dynamic
+   * @since 23 static
    */
   srcDeviceId: string;
   /**
@@ -42,7 +46,9 @@ export interface ContinueMissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
+   * @stagemodelonly
    * @since 10 dynamic
+   * @since 23 static
    */
   dstDeviceId: string;
   /**
@@ -51,7 +57,9 @@ export interface ContinueMissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
+   * @stagemodelonly
    * @since 10 dynamic
+   * @since 23 static
    */
   bundleName: string;
   /**
@@ -60,7 +68,9 @@ export interface ContinueMissionInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
+   * @stagemodelonly
    * @since 12 dynamic
+   * @since 23 static
    */
   srcBundleName?: string;
   /**
@@ -69,7 +79,9 @@ export interface ContinueMissionInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
+   * @stagemodelonly
    * @since 12 dynamic
+   * @since 23 static
    */
   continueType?: string;
   /**
@@ -86,7 +98,9 @@ export interface ContinueMissionInfo {
    * @type { Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
+   * @stagemodelonly
    * @since 11 dynamic
+   * @since 23 static
    */
   wantParam: Record<string, Object>;
 }

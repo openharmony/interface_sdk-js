@@ -74,20 +74,20 @@ export interface ErrorInfo<T extends Error = BusinessError> {
   errorType?: ErrorType;
   /**
    * Sound id, returned from SoundPool.load function.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
    * @since 22 static
    */
-  soundId?: number;
+  soundId?: int;
   /**
    * Stream id, returned from SoundPool.play function.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
    * @since 22 static
    */
-  streamId?: number;
+  streamId?: int;
 }
 
 /**
@@ -505,6 +505,15 @@ export declare interface SoundPool {
    * @since 22 static
    */
   setVolume(streamID: int, leftVolume: double, rightVolume: double): Promise<void>;
+  /**
+   * Sets the interrupt mode for sound parallel play. The default mode is SoundInterruptMode.SAME_SOUND_INTERRUPT.
+   *
+   * @param { media.SoundInterruptMode } interruptMode - the interrupt mode.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  setInterruptMode(interruptMode: media.SoundInterruptMode): void;
   /**
    * Unloads a sound. This API uses an asynchronous callback to return the result.
    *

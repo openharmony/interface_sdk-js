@@ -36,11 +36,11 @@ export type Resource = _Resource;
 /**
  * Defines the length property with string, number and resource unit.
  *
- * @typedef { string | number | Resource } Length
+ * @typedef { string | double | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export type Length = string | number | Resource;
+export type Length = string | double | Resource;
 
 /**
  * Defines the length property with number in units of px.
@@ -54,11 +54,11 @@ export type PX = string;
 /**
  * Defines the length property with number or number in units of vp.
  *
- * @typedef { string | number } VP
+ * @typedef { string | double } VP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export type VP = string | number;
+export type VP = string | double;
 
 /**
  * Defines the length property with number in units of fp.
@@ -720,11 +720,11 @@ export declare interface Offset {
 /**
  * Defines the color which can use resource.
  *
- * @typedef { Color | number | string | Resource } ResourceColor
+ * @typedef { Color | int | string | Resource } ResourceColor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export type ResourceColor = Color | number | string | Resource;
+export type ResourceColor = Color | int | string | Resource;
 
 /**
  * Defines the length constrain property.
@@ -1034,22 +1034,22 @@ export declare interface Bias {
   /**
    * Horizontal ratio of the Bias, it must be >= 0.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @default 0.5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  horizontal?: number;
+  horizontal?: double;
 
   /**
    * Vertical ratio of the Bias, it must be >= 0.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @default 0.5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  vertical?: number;
+  vertical?: double;
 }
 
 /**
@@ -1288,12 +1288,12 @@ export declare class ColorFilter {
   /**
    * Creates ColorFilter with 4*5 matrix.
    *
-   * @param { number[] } value 4*5 color matrix values. The value[m*n] is located in the m row and n column.
+   * @param { double[] } value 4*5 color matrix values. The value[m*n] is located in the m row and n column.
    *     The matrix is row-first.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  constructor(value: number[]);
+  constructor(value: double[]);
 }
 
 /**
@@ -1461,20 +1461,20 @@ export declare interface ChainWeightOptions {
   /**
    * Horizontal ChainWeight.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  horizontal?: number;
+  horizontal?: double;
 
   /**
    * Vertical ChainWeight.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  vertical?: number;
+  vertical?: double;
 }
 
 /**
@@ -1494,4 +1494,23 @@ export declare interface AccessibilityOptions {
    * @since 22 static
    */
   accessibilityPreferred?: boolean;
+}
+
+/**
+ * Defines the struct of AccessibilityActionOptions that can affect operation under accessibility.
+ *
+ * @interface AccessibilityActionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare interface AccessibilityActionOptions {
+
+  /**
+   * scrollStep - the step when the component is scrolled by accessibility.
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  scrollStep?: int;
 }

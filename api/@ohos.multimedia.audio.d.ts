@@ -18,7 +18,7 @@
  * @kit AudioKit
  */
 
-import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
+import { ErrorCallback, AsyncCallback, Callback, BusinessError } from './@ohos.base';
 
 /**
  * @namespace audio
@@ -192,15 +192,34 @@ declare namespace audio {
    * @since 8
    */
   /**
-   * Obtains an {@link AudioCapturer} instance. This method uses an asynchronous callback to return the capturer instance.
+   * Obtains an {@link #AudioCapturer} instance. This method uses an asynchronous callback to return the 
+   * capturer instance.
+   * Using {@link #AudioCapturer} to record audio will need permission according to different {@link #Sourcetype}
+   * in options parameter, like {@link #ohos.permission.MICROPHONE} for the most microphone recording cases.
    * @param { AudioCapturerOptions } options - Capturer configurations.
    * @param { AsyncCallback<AudioCapturer> } callback - Callback used to return the audio capturer instance.
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @crossplatform
    * @since 12 dynamic
-   * @since 22 static
    */
   function createAudioCapturer(options: AudioCapturerOptions, callback: AsyncCallback<AudioCapturer>): void;
+
+  /**
+   * Obtains an {@link #AudioCapturer} instance. This method uses an asynchronous callback to return the 
+   * capturer instance.
+   * Using {@link #AudioCapturer} to record audio will need permission according to different {@link #Sourcetype}
+   * in options parameter, like {@link #ohos.permission.MICROPHONE} for the most microphone recording cases.
+   * @param { AudioCapturerOptions } options - Capturer configurations.
+   * @param { AsyncCallback<AudioCapturer | null> } callback - Callback used to return the audio capturer 
+   *     instance, or null if any error occurs.
+   * @throws { BusinessError } 6800101 - Parameter verification failed.
+   * @throws { BusinessError } 6800301 - Audio system internal error, such as system crash.
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @stagemodelonly
+   * @crossplatform
+   * @since 22 static
+   */
+  function createAudioCapturer(options: AudioCapturerOptions, callback: AsyncCallback<AudioCapturer | null>): void;
 
   /**
    * Obtains an {@link AudioCapturer} instance.
@@ -215,14 +234,31 @@ declare namespace audio {
    */
   /**
    * Obtains an {@link AudioCapturer} instance. This method uses a promise to return the capturer instance.
+   * Using {@link #AudioCapturer} to record audio will need permission according to different {@link #Sourcetype}
+   * in options parameter, like {@link #ohos.permission.MICROPHONE} for the most microphone recording cases.
    * @param { AudioCapturerOptions } options - Capturer configurations.
    * @returns { Promise<AudioCapturer> } Promise used to return the audio capturer instance.
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @crossplatform
    * @since 12 dynamic
-   * @since 22 static
    */
   function createAudioCapturer(options: AudioCapturerOptions): Promise<AudioCapturer>;
+
+  /**
+   * Obtains an {@link AudioCapturer} instance. This method uses a promise to return the capturer instance.
+   * Using {@link #AudioCapturer} to record audio will need permission according to different {@link #Sourcetype}
+   * in options parameter, like {@link #ohos.permission.MICROPHONE} for the most microphone recording cases.
+   * @param { AudioCapturerOptions } options - Capturer configurations.
+   * @returns { Promise<AudioCapturer | null> } Promise used to return the audio capturer instance,
+   *     or null if any error occurs.
+   * @throws { BusinessError } 6800101 - Parameter verification failed.
+   * @throws { BusinessError } 6800301 - Audio system internal error, such as system crash.
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @stagemodelonly
+   * @crossplatform
+   * @since 22 static
+   */
+  function createAudioCapturer(options: AudioCapturerOptions): Promise<AudioCapturer | null>;
 
   /**
    * Obtains an {@link AudioRenderer} instance.
@@ -256,9 +292,36 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform
    * @since 12 dynamic
-   * @since 22 static
    */
   function createAudioRenderer(options: AudioRendererOptions, callback: AsyncCallback<AudioRenderer>): void;
+
+  /**
+   * Obtains an {@link AudioRenderer} instance.
+   * This method uses a promise to return the renderer instance.
+   *
+   * The AudioRenderer instance is used to play streaming audio data.
+   * When using AudioRenderer apis, there are many instructions for application
+   * to achieve better performance and lower power consumption:
+   * In music or audiobook background playback situation, you can have low power
+   * consumption by following this best practices document **Low-Power Rules in Music Playback Scenarios**.
+   * And for navigation situation, you can follow **Low-Power Rules in Navigation and Positioning Scenarios**.
+   *
+   * Application developer should also be careful when app goes to background, please check if your audio playback
+   * is still needed, see **Audio Resources** in best practices document.
+   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
+   * control measures when this behavior is detected, see **Audio Playback** in best practices document.
+   *
+   * If you want to use AudioRenderer api to implement a music playback application, there are also many interactive
+   * scenes to consider, see **Developing an Audio Application** in best practices document.
+   *
+   * @param { AudioRendererOptions } options - Renderer configurations.
+   * @param { AsyncCallback<AudioRenderer | null> } callback - Callback used to return the audio renderer instance,
+   *     or null when an error happens.
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @crossplatform
+   * @since 22 static
+   */
+  function createAudioRenderer(options: AudioRendererOptions, callback: AsyncCallback<AudioRenderer | null>): void;
 
   /**
    * Obtains an {@link AudioRenderer} instance.
@@ -292,9 +355,36 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform
    * @since 12 dynamic
-   * @since 22 static
    */
   function createAudioRenderer(options: AudioRendererOptions): Promise<AudioRenderer>;
+
+  /**
+   * Obtains an {@link AudioRenderer} instance.
+   * This method uses a promise to return the renderer instance.
+   *
+   * The AudioRenderer instance is used to play streaming audio data.
+   * When using AudioRenderer apis, there are many instructions for application
+   * to achieve better performance and lower power consumption:
+   * In music or audiobook background playback situation, you can have low power
+   * consumption by following this best practices document **Low-Power Rules in Music Playback Scenarios**.
+   * And for navigation situation, you can follow **Low-Power Rules in Navigation and Positioning Scenarios**.
+   *
+   * Application developer should also be careful when app goes to background, please check if your audio playback
+   * is still needed, see **Audio Resources** in best practices document.
+   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
+   * control measures when this behavior is detected, see **Audio Playback** in best practices document.
+   *
+   * If you want to use AudioRenderer api to implement a music playback application, there are also many interactive
+   * scenes to consider, see **Developing an Audio Application** in best practices document.
+   *
+   * @param { AudioRendererOptions } options - Renderer configurations.
+   * @returns { Promise<AudioRenderer | null> } Promise used to return the audio renderer instance, or
+   *     null when an error happens.
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @crossplatform
+   * @since 22 static
+   */
+  function createAudioRenderer(options: AudioRendererOptions): Promise<AudioRenderer | null>;
 
   /**
    * Obtains a {@link TonePlayer} instance. This method uses an asynchronous callback to return the renderer instance.
@@ -303,9 +393,20 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Tone
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
    */
   function createTonePlayer(options: AudioRendererInfo, callback: AsyncCallback<TonePlayer>): void;
+
+  /**
+   * Obtains a {@link TonePlayer} instance. This method uses an asynchronous callback to return the renderer instance.
+   * @param { AudioRendererInfo } options - Tone playing attribute.
+   * @param { AsyncCallback<TonePlayer | null> } callback - Callback used to return the tonePlayer instance，
+   *     null when an error happens.
+   * @throws { BusinessError } 202 - Not system App.
+   * @syscap SystemCapability.Multimedia.Audio.Tone
+   * @systemapi
+   * @since 22 static
+   */
+  function createTonePlayer(options: AudioRendererInfo, callback: AsyncCallback<TonePlayer | null>): void;
 
   /**
    * Obtains a {@link TonePlayer} instance. This method uses a promise to return the renderer instance.
@@ -314,9 +415,20 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Tone
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
    */
   function createTonePlayer(options: AudioRendererInfo): Promise<TonePlayer>;
+
+  /**
+   * Obtains a {@link TonePlayer} instance. This method uses a promise to return the renderer instance.
+   * @param { AudioRendererInfo } options - Tone playing attribute.
+   * @returns { Promise<TonePlayer | null> } Promise used to return the tonePlayer instance, or
+   *     null when an error happens.
+   * @throws { BusinessError } 202 - Not system App.
+   * @syscap SystemCapability.Multimedia.Audio.Tone
+   * @systemapi
+   * @since 22 static
+   */
+  function createTonePlayer(options: AudioRendererInfo): Promise<TonePlayer | null>;
 
   /**
    * Creates an <b>AudioLoopback</b> instance, which provides low-latency in-ear monitoring using a fast capturer and renderer.
@@ -1802,7 +1914,14 @@ declare namespace audio {
      * @since 12 dynamic
      * @since 22 static
      */
-    ENCODING_TYPE_RAW = 0
+    ENCODING_TYPE_RAW = 0,
+    /**
+     * Audio vivid encoding.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    ENCODING_TYPE_AUDIOVIVID = 1
   }
 
   /**
@@ -7542,7 +7661,8 @@ declare namespace audio {
   }
 
   /**
-   * This interface is used to notify the listener of any device Spatialization or Head Tracking enable state change.
+   * This interface is used to notify the listener of any device Spatialization or Head Tracking enable
+   * or Adaptive Spatial Rendering state change.
    * @interface AudioSpatialEnabledStateForDevice
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
    * @systemapi
@@ -7560,7 +7680,7 @@ declare namespace audio {
      */
     deviceDescriptor: AudioDeviceDescriptor;
     /**
-     * Spatialization or Head Tracking enable state.
+     * Spatialization or Head Tracking or Adaptive Spatial Rendering enable state.
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
@@ -8067,6 +8187,63 @@ declare namespace audio {
      * @since 22 static
      */
     offSpatializationEnabledChangeForCurrentDevice(callback?: Callback<boolean>): void;
+
+    /**
+     * Sets the adaptive spatial rendering enabled or disabled by the specified device.
+     *     This method uses a promise to return the result.
+     *     When the adaptive spatial rendering is enabled, spatial audio rendering will not take effect on stereo audio.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { AudioDeviceDescriptor } deviceDescriptor - The target device
+     *     to be set adaptive spatial rendering enabled.
+     * @param { boolean } enabled - Adaptive spatial rendering enable state.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 801 - Capability not supported on the device.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    setAdaptiveSpatialRenderingEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
+
+    /**
+     * Checks whether the adaptive spatial rendering is enabled by the specified device.
+     * @param { AudioDeviceDescriptor } deviceDescriptor - The target device
+     *     to be check whether the adaptive spatial rendering is enabled.
+     * @returns { boolean } Whether the adaptive spatial rendering is enabled by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    isAdaptiveSpatialRenderingEnabled(deviceDescriptor: AudioDeviceDescriptor): boolean;
+
+    /**
+     * Subscribes to the adaptive spatial rendering enable state change events by the specified device.
+     *     When the adaptive spatial rendering enable state changes, registered clients will receive the callback.
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - Callback used to get the adaptive spatial
+     *     rendering enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    onAdaptiveSpatialRenderingEnabledChangeForAnyDevice(callback: Callback<AudioSpatialEnabledStateForDevice>): void;
+
+    /**
+     * Unsubscribes to the adaptive spatial rendering enable state change events by the specified device.
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } [callback] - Callback used to get the adaptive spatial
+     *     rendering enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    offAdaptiveSpatialRenderingEnabledChangeForAnyDevice(callback?: Callback<AudioSpatialEnabledStateForDevice>): void;
   }
 
   /**
@@ -8387,6 +8564,16 @@ declare namespace audio {
      * @since 22 static
      */
     readonly deviceDescriptors: AudioDeviceDescriptors;
+
+    /**
+     * Stream information.
+     * @type { ?AudioStreamInfo }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    readonly streamInfo?: AudioStreamInfo;
   }
 
   /**
@@ -8767,6 +8954,36 @@ declare namespace audio {
      * @since 21 dynamic
      */
     readonly highQualityRecordingSupported?: boolean;
+
+    /**
+     * Specific model of device
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 dynamic&static
+     */
+    readonly model?: string;
+
+    /**
+     * Supported audio capabilities.
+     * @type { ?Array<AudioStreamInfo> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 dynamic&static
+     */
+    readonly capabilities?: Array<AudioStreamInfo>;
+
+    /**
+     * Extended information for distributed device, includes whether the device supports
+     * stereo, Device SN, etc.
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly dmDeviceInfo?: string;
   }
 
   /**
@@ -8924,6 +9141,13 @@ declare namespace audio {
      * @since 22 static
      */
     updateUi: boolean;
+    /**
+     * Previous volume level.
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 23 dynamic&static
+     */
+    previousVolume?: int;
   }
 
   /**
@@ -9374,7 +9598,7 @@ declare namespace audio {
 
   /**
    * Audio render target.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
    * @since 22 dynamic&static
@@ -9398,6 +9622,39 @@ declare namespace audio {
      * @since 22 dynamic&static
      */
     INJECT_TO_VOICE_COMMUNICATION_CAPTURE = 1,
+  }
+
+  /**
+   * Defines audio latency types.
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum AudioLatencyType {
+    /**
+     * Type to get latency of all audio processing units, including software and hardware.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    LATENCY_TYPE_ALL = 0,
+
+    /**
+     * Type to get latency of software part, including audio effects in software.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    LATENCY_TYPE_SOFTWARE = 1,
+
+    /**
+     * Type to get latency of hardware part, including audio effects in hal, driver and hardware.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    LATENCY_TYPE_HARDWARE = 2
   }
 
   /**
@@ -10941,6 +11198,25 @@ declare namespace audio {
      * @since 22 static
      */
     offWriteData(callback?: AudioRendererWriteDataCallback): void;
+  
+    /**
+     * Gets the estimated audio latency in milliseconds for current audio route. For wireless connection
+     * audio devices cases, the latency result may not be very accurate, system just provides it for reference only.
+     * The real-time buffer status is also not taken into consideration, so it is recommended to get it only at the
+     * beginning of audio playback, and do not call th function very frequently because it may be blocked by route
+     * change.
+     * Applications should still use {@link getAudioTimestampInfo} or {@link getAudioTimestampInfoSync} to
+     * handle A/V sync after audio data has been output to hardware.
+     * @param { AudioLatencyType } type - Type of audio latency to get.
+     * @returns { int } Audio latency in milliseconds.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permitted in release state.
+     * @throws { BusinessError } 6800301 - System internal error, like audio service error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getLatency(type: AudioLatencyType): int;
   }
 
   /**
@@ -12542,9 +12818,24 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
    */
   function createAsrProcessingController(audioCapturer: AudioCapturer): AsrProcessingController;
+
+  /**
+   * Create ASR processing controller on one audio capturer.
+   * @param { AudioCapturer } audioCapturer - The audio capturer whose ASR processing will be controlled. The source
+   * type of this capturer must be {@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION}.
+   * @returns { AsrProcessingController | null } ASR Processing Controller, or null when an error happens.
+   * @throws { BusinessError } 202 - Caller is not a system application.
+   * @throws { BusinessError } 6800101 - Parameter verification failed.
+   * @throws { BusinessError } 6800104 - Operation not allowed. e.g. the source type of the input audio capturer is not
+   * {@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION} or {@link SourceType#SOURCE_TYPE_WAKEUP}, or this audio capturer
+   * is already released.
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @since 22 static
+   */
+  function createAsrProcessingController(audioCapturer: AudioCapturer): AsrProcessingController | null;
 
   /**
    * Enumerates tone types for player.

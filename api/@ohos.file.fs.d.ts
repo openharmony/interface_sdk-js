@@ -18,7 +18,7 @@
  * @kit CoreFileKit
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, Callback } from './@ohos.base';
 import stream from './@ohos.util.stream';
 
 export default fileIo;
@@ -3398,9 +3398,7 @@ declare function listFile(
  * List file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array
- *     <br>containing the name of files or directories that meet the filter criteria in promise mode.
- *     <br>If present, Include the subdirectory structure.
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3413,9 +3411,7 @@ declare function listFile(
  * List file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array
- *     <br>containing the name of files or directories that meet the filter criteria in promise mode.
- *     <br>If present, Include the subdirectory structure.
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3426,10 +3422,11 @@ declare function listFile(
  * @since 10
  */
 /**
- * Lists all file names in a directory. This API uses a promise to return the result.
+ * Lists the names of all files and directories in the current path.
+ * This API uses an asynchronous callback to return the result.
  *
  * @param { string } path - Application sandbox path of the directory.
- * @param { AsyncCallback<string[]> } callback - Options for filtering files. The files are not filtered by default.
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3447,9 +3444,7 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  *
  * @param { string } path - path.
  * @param { object } [options] - options.
- * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name
- *     <br>of files or directories that meet the filter criteria in promise mode.
- *     <br>If present, Include the subdirectory structure.
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3463,9 +3458,7 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  *
  * @param { string } path - path.
  * @param { object } [options] - options.
- * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name
- *     <br>of files or directories that meet the filter criteria in promise mode.
- *     <br>If present, Include the subdirectory structure.
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -8417,7 +8410,7 @@ export class TaskSignal {
    * @param { Callback<string> } callback - callback of progress callback
    * @throws { BusinessError } 13900020 - Invalid argument
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   onCancel(callback: Callback<string>): void;
 }
@@ -11660,7 +11653,8 @@ export interface Options {
  */
 export interface ReadOptions {
   /**
-   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
+   * Start position of the file to read (current filePointer plus offset), in bytes. This parameter is optional.
+   * By default, data is read from the filePointer.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -11668,7 +11662,8 @@ export interface ReadOptions {
    * @since 11
    */
   /**
-   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
+   * Start position of the file to read (current filePointer plus offset), in bytes. This parameter is optional.
+   * By default, data is read from the filePointer.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -11678,8 +11673,7 @@ export interface ReadOptions {
    */
   offset?: number;
   /**
-   * Start position of the file to read (current filePointer plus offset), in bytes. This parameter is optional.
-   * By default, data is read from the filePointer.
+   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -11687,8 +11681,7 @@ export interface ReadOptions {
    * @since 11
    */
   /**
-   * Start position of the file to read (current filePointer plus offset), in bytes. This parameter is optional.
-   * By default, data is read from the filePointer.
+   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -11762,21 +11755,8 @@ export interface ReadTextOptions extends ReadOptions {
  */
 export interface WriteOptions extends Options {
   /**
-   * Option for creating the writeable stream. You must specify one of the following options.
-   * OpenMode.READ_ONLY(0o0): read-only, which is the default value.
-   * OpenMode.WRITE_ONLY(0o1): write-only.
-   * OpenMode.READ_WRITE(0o2): read/write.
-   * You can also specify the following options, separated by a bitwise OR operator (|).
-   * By default, no additional options are given.
-   * OpenMode.CREATE(0o100): If the file does not exist, create it.
-   * OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
-   * OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
-   * OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
-   * or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
-   * OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
-   * The write permission is not allowed.
-   * OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
-   * OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+   * Start position of the file to write (current filePointer plus offset), in bytes. This parameter is optional.
+   * By default, data is written from the filePointer.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -11784,21 +11764,8 @@ export interface WriteOptions extends Options {
    * @since 11
    */
   /**
-   * Option for creating the writeable stream. You must specify one of the following options.
-   * OpenMode.READ_ONLY(0o0): read-only, which is the default value.
-   * OpenMode.WRITE_ONLY(0o1): write-only.
-   * OpenMode.READ_WRITE(0o2): read/write.
-   * You can also specify the following options, separated by a bitwise OR operator (|).
-   * By default, no additional options are given.
-   * OpenMode.CREATE(0o100): If the file does not exist, create it.
-   * OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
-   * OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
-   * OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
-   * or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
-   * OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
-   * The write permission is not allowed.
-   * OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
-   * OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+   * Start position of the file to write (current filePointer plus offset), in bytes. This parameter is optional.
+   * By default, data is written from the filePointer.
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO

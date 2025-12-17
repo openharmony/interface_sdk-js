@@ -863,15 +863,7 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @systemapi
    * @since 12 dynamic
-   */
-  /**
-   * Indicates whether to bypass system management switches.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @crossplatform
-   * @systemapi
-   * @since 22 dynamic&static
+   * @since 22 static
    */
     systemUsage?: boolean;
   }
@@ -1861,7 +1853,13 @@ declare namespace vibrator {
    * @interface VibratorInfo
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 19 dynamic
-   * @since 22 static
+   */
+  /**
+   * Represents the information about a vibrator device in the system.
+   * @interface VibratorInfo
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @crossplatform
+   * @since 22 dynamic&static
    */
   interface VibratorInfo {
     /**

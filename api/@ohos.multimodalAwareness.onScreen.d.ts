@@ -18,7 +18,7 @@
  * @kit MultimodalAwarenessKit
  */
 
-import { BusinessError } from './@ohos.base';
+import { BusinessError, Callback } from './@ohos.base';
 
 /**
  * This module provides the capability to use on screen awareness
@@ -314,5 +314,329 @@ declare namespace onScreen {
    * @since 20
    */
   function sendControlEvent(event: ControlEvent): Promise<void>;
+
+  /**
+   * Interface for onscreen awareness capabilities,
+   * includes page content, page links, and text selection event subscribe.
+   *
+   * @interface OnscreenAwarenessCap
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export interface OnscreenAwarenessCap {
+    /**
+     * Indicates a set of related capabilities.
+     *
+     * @type { string[] }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    capList: string[];
+  }
+
+  /**
+   * Interface for scenario-specific screen information,
+   * provides parameters to access screen content and links by window ID.
+   *
+   * @interface OnscreenAwarenessOptions
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export interface OnscreenAwarenessOptions {  
+    /**
+     * Awareness parameters in custom key-value pairs format.
+     *
+     * @type { ?Record<string, Object> }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    parameters?: Record<string, Object>;
+  }
+
+  /**
+   * Enum indicates page information collection strategy.
+   *
+   * @enum { int } CollectStrategy
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export enum CollectStrategy {  
+    /**
+     * Indicates that collection is allowed.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    ALLOW = 1 << 0,
+    /**
+     * Indicates split-screen window display.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SPLIT_SCREEN = 1 << 1,
+    /**
+     * Indicates that auto collection is not supported.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    UNSUPPORTED_APP = 1 << 2,
+    /**
+     * Indicates private window mode.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    PRIVATE_WINDOW = 1 << 3,
+    /**
+     * Indicates VM app type.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    VM_APP = 1 << 4
+  }
+
+  /**
+   * Interface provides detailed entity information for a page,
+   * including content, links, image and other entities.
+   *
+   * @interface EntityInfo
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export interface EntityInfo {  
+    /**
+     * Indicates the entity name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    entityName: string;
+    /**
+     * Indicates entity content details with attributes like title, body, links.
+     *
+     * @type { Record<string, Object> }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    entityInfo: Record<string, Object>;
+  }
+  
+  /**
+   * Interface for onscreen awareness response info.
+   *
+   * @interface OnscreenAwarenessInfo
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export interface OnscreenAwarenessInfo {  
+    /**
+     * Indicates the error code.
+     *
+     * @type { int }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    resultCode: int;
+    /**
+     * Indicates timestamp of entering a specific page.
+     *
+     * @type { long }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    timestamp: long;
+    /**
+     * Indicates the bundle name of the target application.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    bundleName?: string;
+    /**
+     * Indicates the mini program ID.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    appID?: string;
+    /**
+     * Indicates the app index of the target application.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    appIndex?: int;
+    /**
+     * Indicates the page id.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    pageId?: string;
+    /**
+     * Indicates the sample id for a specific page.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sampleId?: string;
+    /**
+     * Indicates the collection strategy, a bitwise OR combination of {@link CollectStrategy}.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    collectStrategy?: int;
+    /**
+     * Indicates the display id of the screen, the default displayId is specified by default.
+     *
+     * @type { ?long }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    displayId?: long;
+    /**
+     * Indicates the windowId which need to gather, full screen window is specified by default.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    windowId?: int;
+    /**
+     * Interface for onscreen awareness entity info array.
+     *
+     * @type { ?EntityInfo[] }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    entityInfo?: EntityInfo[];
+  }
+
+  /**
+   * Enable active onscreen awareness, and subscribes to screen awareness results.
+   *
+   * @permission ohos.permission.GET_SCREEN_CONTENT
+   * @param { OnscreenAwarenessCap } capability - Indicates the capability set or specific capability.
+   * @param { Callback<OnscreenAwarenessInfo> } callback - Indicates the callback
+   *     <br> for obtaining corresponding capability data.
+   * @param { OnscreenAwarenessOptions } [options] - Indicates options to get page content.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
+   *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 34000001 - Service exception.
+   * @throws { BusinessError } 34000002 - The application or page is not supported.
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function subscribe(capability: OnscreenAwarenessCap,
+                     callback: Callback<OnscreenAwarenessInfo>, 
+                     options?: OnscreenAwarenessOptions): void;
+
+  /**
+   * Disable active onscreen awareness, and unsubscribes to screen awareness results.
+   *
+   * @permission ohos.permission.GET_SCREEN_CONTENT
+   * @param { OnscreenAwarenessCap } capability - Indicates the capability set or specific capability.
+   * @param { Callback<OnscreenAwarenessInfo> } [callback] - Indicates the callback
+   *     <br> for obtaining corresponding capability data.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
+   *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 34000001 - Service exception.
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function unsubscribe(capability: OnscreenAwarenessCap, callback?: Callback<OnscreenAwarenessInfo>): void;
+
+  /**
+   * Single trigger to acquire page content and get onscreen awareness result.
+   *
+   * @permission ohos.permission.GET_SCREEN_CONTENT
+   * @param { OnscreenAwarenessCap } capability - Indicates the capability set or specific capability.
+   * @param { OnscreenAwarenessOptions } [options] - Indicates options to get page content.
+   * @returns { Promise<OnscreenAwarenessInfo> } Indicates the promise which carries retrieved page content.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
+   *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 34000001 - Service exception.
+   * @throws { BusinessError } 34000002 - The application or page is not supported.
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function trigger(capability: OnscreenAwarenessCap, 
+                   options?: OnscreenAwarenessOptions): Promise<OnscreenAwarenessInfo>;
 }
 export default onScreen;

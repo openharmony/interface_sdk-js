@@ -28,7 +28,8 @@ import { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
   RaycastResult, RaycastParameters, CullMode, PolygonMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
   UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
-  RenderingPipelineType, CameraParameters, EffectParameters, Effect, VignetteSettings, ColorFringeSettings } from '@ohos.graphics.scene';
+  RenderingPipelineType, CameraParameters, EffectParameters, Effect, VignetteSettings, ColorFringeSettings, UnlitShadowAlphaMaterial,
+  OcclusionMaterial } from '@ohos.graphics.scene';
 
 export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings,
   Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
@@ -39,7 +40,8 @@ export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
   RaycastResult, RaycastParameters, CullMode, PolygonMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
   UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
-  RenderingPipelineType, CameraParameters, EffectParameters, Effect, VignetteSettings, ColorFringeSettings };
+  RenderingPipelineType, CameraParameters, EffectParameters, Effect, VignetteSettings, ColorFringeSettings, UnlitShadowAlphaMaterial,
+  OcclusionMaterial };
 /*** endif */
 
 /*** if arkts static */
@@ -52,7 +54,8 @@ import { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
   RaycastResult, RaycastParameters, CullMode, PolygonMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
   UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
-  RenderingPipelineType, CameraParameters, VignetteSettings, ColorFringeSettings } from '@ohos.graphics.scene';
+  RenderingPipelineType, CameraParameters, VignetteSettings, ColorFringeSettings, UnlitShadowAlphaMaterial,
+  OcclusionMaterial } from '@ohos.graphics.scene';
 
 export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings,
   Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
@@ -63,5 +66,6 @@ export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
   RaycastResult, RaycastParameters, CullMode, PolygonMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
   UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
-  RenderingPipelineType, CameraParameters, VignetteSettings, ColorFringeSettings };
+  RenderingPipelineType, CameraParameters, VignetteSettings, ColorFringeSettings, UnlitShadowAlphaMaterial,
+  OcclusionMaterial };
 /*** endif */

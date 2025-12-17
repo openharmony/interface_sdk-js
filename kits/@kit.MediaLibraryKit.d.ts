@@ -28,7 +28,7 @@ import {
     MaxSelected, ItemType, ClickType, PickerOrientation,
     SelectMode, PickerColorMode, ReminderMode, MaxCountType, PhotoBrowserRange,
     PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback,
-    videoPlayStateChangedCallback, MovingPhotoBadgeStateChangedCallback 
+    videoPlayStateChangedCallback, MovingPhotoBadgeStateChangedCallback, UpdatablePickerConfigs 
 } from '@ohos.file.PhotoPickerComponent';
 import {
     RecentPhotoComponent, RecentPhotoCheckResultCallback,
@@ -45,5 +45,5 @@ export {
     RecentPhotoComponent, RecentPhotoCheckResultCallback,
     RecentPhotoClickCallback, RecentPhotoOptions, PhotoSource,
     PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback,
-    videoPlayStateChangedCallback, MovingPhotoBadgeStateChangedCallback 
+    videoPlayStateChangedCallback, MovingPhotoBadgeStateChangedCallback, UpdatablePickerConfigs 
 };

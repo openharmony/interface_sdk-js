@@ -315,6 +315,27 @@ declare namespace abilityAccessCtrl {
     requestPermissionsFromUser(context: Context, permissionList: Array<Permissions>): Promise<PermissionRequestResult>;
 
     /**
+     * Requests user permissions based on the window ID.
+     *
+     * @param { Context } context Context of the ability that initiates the permission request.
+     * @param { int } windowId Window ID.
+     * @param { Array<Permissions> } permissionList - Array of permissions to request.
+     *     <br>The value cannot be null or empty.
+     * @returns { Promise<PermissionRequestResult> } Promise used to return the results of requested permissions.
+     * @throws { BusinessError } 12100001 - Invalid parameter. windowId is invalid.
+     * @throws { BusinessError } 12100009 - Common inner error. An error occurs when creating the popup window or
+     *     obtaining the user operation result.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    requestPermissionsFromUserWithWindowId(
+      context: Context,
+      windowId: int,
+      permissionList: Array<Permissions>) : Promise<PermissionRequestResult>;
+
+    /**
      * Grants a specified user_grant permission to the given application.
      *
      * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS
@@ -672,10 +693,9 @@ declare namespace abilityAccessCtrl {
      * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
      * @param { 'permissionStateChange' } type - Event type.
      * @param { Array<int> } tokenIDList - A list of permissions that specify the permissions to be listened on.
-     *     It should correspond to the value registered by function of "on", whose type is "permissionStateChange".
+     *     It should correspond to the value registered by function of "onPermissionStateChange".
      * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be
-     *     listened on. It should correspond to the value registered by function of "on", whose type is
-     *     "permissionStateChange".
+     *     listened on. It should correspond to the value registered by function of "onPermissionStateChange".
      * @param { Callback<PermissionStateChangeInfo> } [callback] - Callback for the result from unregistering
      *     permissions.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
@@ -706,7 +726,7 @@ declare namespace abilityAccessCtrl {
      * permissions.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100004 - The API is not used in pair with 'on'.
+     * @throws { BusinessError } 12100004 - The API is not used in pair with "on".
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
@@ -722,11 +742,10 @@ declare namespace abilityAccessCtrl {
      * Unsubscribes from the permission changes of this application.
      *
      * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be
-     *     listened on. It should correspond to the value registered by function of "on", whose type is
-     *     "selfPermissionStateChange".
+     *     listened on. It should correspond to the value registered by function of "onSelfPermissionStateChange".
      * @param { Callback<PermissionStateChangeInfo> } [callback] - Callback for the result from unregistering
      *     permissions.
-     * @throws { BusinessError } 12100004 - The API is not used in pair with 'on'.
+     * @throws { BusinessError } 12100004 - The API is not used in pair with "onSelfPermissionStateChange".
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @since 22 static

@@ -251,7 +251,7 @@ declare namespace uri {
      * Obtains the first value of a given key from the query component of this URI. If the query component contains encoded content,
      * this API decodes the key before obtaining the value.
      *
-     * @param { string } key - Given the first value of the key.
+     * @param { string } key - Key of the query parameter.
      * @returns { string } Return decoded value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
@@ -266,7 +266,7 @@ declare namespace uri {
      * Obtains the first value of a given key from the query component of this URI. If the query component contains encoded content,
      * this API decodes the key before obtaining the value.
      *
-     * @param { string } key - Given the first value of the key.
+     * @param { string } key - Key of the query parameter.
      * @returns { string | null } Return decoded value, If no corresponding value is found return a null object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
@@ -324,7 +324,8 @@ declare namespace uri {
      *
      * @param { string } key - Indicates the key value to be queried.
      * @param { boolean } defaultValue - The default value returned when the key has no query parameters.
-     * @returns { boolean } Query with key value returns true, otherwise returns false.
+     * @returns { boolean } Query returns defaultValue if the key does not exist.
+     * Query returns false if the value of the key is "false" or "0", otherwise returns true.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.

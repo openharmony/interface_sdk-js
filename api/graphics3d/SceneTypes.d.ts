@@ -424,6 +424,51 @@ export declare abstract class GeometryDefinition {
 }
 
 /**
+ * Defines Mat4x4.
+ *
+ * @typedef Mat4x4
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 23 dynamic&static
+ */
+export interface Mat4x4 {
+  /**
+   * the first column of the vec4.
+   *
+   * @type { Vec4 }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  x: Vec4;
+
+  /**
+   * the second column of the vec4.
+   *
+   * @type { Vec4 }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  y: Vec4;
+
+  /**
+   * the third column of the vec4.
+   *
+   * @type { Vec4 }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  z: Vec4;
+
+  /**
+   * the fourth column of the vec4.
+   *
+   * @type { Vec4 }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  w: Vec4;
+}
+
+/**
  * How vertices in a sequence form triangles.
  *
  * @enum { int }

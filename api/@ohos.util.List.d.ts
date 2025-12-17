@@ -301,7 +301,7 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains the index of the last occurrence of the specified element in this container.
+   * Obtains the index of the first occurrence of the specified element in this container.
    *
    * @param { T } element - Target element.
    * @returns { int } the int type ,returns the lowest index such that or -1 if there is no such index.
@@ -756,7 +756,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic
+   * @since 22 dynamic
    * @since 22 static
    */
   sort(comparator: ListComparatorFn<T>): void;

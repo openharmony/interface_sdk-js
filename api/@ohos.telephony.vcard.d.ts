@@ -39,23 +39,22 @@ declare namespace vcard {
    * @param { Context } context - Indicates the context of application or
    *     capability.
    * @param { string } filePath - Vcf file path.
-   * @param { number } accountId - Contact account ID. When the app chooses to
+   * @param { int } accountId - Contact account ID. When the app chooses to
    *     import the vcf file into a contact account,
    * it needs to pass in the accountId. If the accountId is not passed, a new
    * contact account will be added by default.
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function importVCard(context: Context, filePath: string, accountId: number, callback: AsyncCallback<void>): void;
+  function importVCard(context: Context, filePath: string, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Import contacts from the specified vcf file.
@@ -65,23 +64,22 @@ declare namespace vcard {
    * @param { Context } context - Indicates the context of application or
    *     capability.
    * @param { string } filePath - Vcf file path.
-   * @param { number } accountId - Contact account ID.When the app chooses to
+   * @param { int } accountId - Contact account ID.When the app chooses to
    *     import the vcf file into a contact account,
    * it needs to pass in the accountId. If the accountId is not passed, a new
    * contact account will be added by default.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function importVCard(context: Context, filePath: string, accountId?: number): Promise<void>;
+  function importVCard(context: Context, filePath: string, accountId?: int): Promise<void>;
 
   /**
    * Import contacts from the specified vcf file.
@@ -93,15 +91,14 @@ declare namespace vcard {
    * @param { string } filePath - Vcf file path.
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
   function importVCard(context: Context, filePath: string, callback: AsyncCallback<void>): void;
 
@@ -114,18 +111,16 @@ declare namespace vcard {
    * @param { VCardBuilderOptions } options - Encoding and version.
    * @param { AsyncCallback<string> } callback - Represents the address of the generated vcf file.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates,
-    options: VCardBuilderOptions, callback: AsyncCallback<string>): void;
+  function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, options: VCardBuilderOptions, callback: AsyncCallback<string>): void;
 
   /**
    * Export contact data to a vcf file.
@@ -136,18 +131,16 @@ declare namespace vcard {
    * @param { VCardBuilderOptions } options - Encoding and version.
    * @returns { Promise<string> } the promise represents the address of the generated vcf file..
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates,
-    options?: VCardBuilderOptions): Promise<string>;
+  function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, options?: VCardBuilderOptions): Promise<string>;
 
   /**
    * Export contact data to a vcf file.
@@ -157,18 +150,16 @@ declare namespace vcard {
    * @param { dataSharePredicates.DataSharePredicates } predicates - Execute statement.
    * @param { AsyncCallback<string> } callback - Represents the address of the generated vcf file.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 22 static
    */
-  function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates,
-    callback: AsyncCallback<string>): void;
+  function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<string>): void;
 
   /**
    * Indicates the VCard types.
@@ -204,7 +195,7 @@ declare namespace vcard {
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
      */
-    VERSION_40 = 2,
+    VERSION_40 = 2
   }
 
   /**
@@ -235,7 +226,6 @@ declare namespace vcard {
      */
     charset?: string;
   }
-
 }
 
 export default vcard;

@@ -1649,6 +1649,16 @@ declare namespace commonEventManager {
         'usual.event.bluetooth.host.SCAN_MODE_UPDATE',
 
     /**
+     * Indicates the action of a common event that bluetooth scan mode change.
+     * To subscribe to this protected common event, your application must have the ohos.permission.ACCESS_BLUETOOTH
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 23 dynamic&static
+     */
+    COMMON_EVENT_BLUETOOTH_HOST_SCAN_MODE_CHANGE =
+        'usual.event.bluetooth.host.SCAN_MODE_CHANGE',
+
+    /**
      * Bluetooth.host.discovery.stated.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2872,6 +2882,22 @@ declare namespace commonEventManager {
      * @since 22 static
      */
     COMMON_EVENT_CLOUD_DISK_STATE_CHANGED = 'usual.event.CLOUD_DISK_STATE_CHANGED',
+
+    /**
+     * This common event means that the open and closed state of the stand associated with the tablet mode has changed.
+     * This is a protected common event that can only be sent by system.
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 22 dynamic&static
+     */
+    COMMON_EVENT_TABLET_MODE_CHANGED = 'usual.event.TABLET_MODE_CHANGED',
+
+    /**
+     * This common event means that the state (open or closed) of the laptop lid has changed.
+     * This is a protected common event that can only be sent by system.
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 22 dynamic&static
+     */
+    COMMON_EVENT_LID_STATE_CHANGED = 'usual.event.LID_STATE_CHANGED',
   }
 
   /**

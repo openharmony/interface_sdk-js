@@ -475,13 +475,69 @@ declare namespace pointer {
     MIDDLE_BTN_EAST_WEST,
 
     /**
+    * Left part of running state with dynamic cursor
+    *
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @since 22 dynamic&static
+    */
+    RUNNING_LEFT = 45,
+
+    /**
+    * Right part of running state with dynamic cursor
+    *
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @since 22 dynamic&static
+    */
+    RUNNING_RIGHT = 46,
+
+    /**
+    * Circular cursor
+    *
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @since 22 dynamic&static
+    */
+    AECH_DEVELOPER_DEFINED_ICON = 47,
+
+    /**
      * Screen recorder cursor
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 20 dynamic
      * @since 22 static
      */
-    SCREENRECORDER_CURSOR = 48
+    SCREENRECORDER_CURSOR = 48,
+
+    /**
+    * Laser
+    *
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @since 22 dynamic&static
+    */
+    LASER_CURSOR = 49,
+
+    /**
+    * Dot laser
+    *
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @since 22 dynamic&static
+    */
+    LASER_CURSOR_DOT = 50,
+
+    /**
+    * Red dot laser
+    *
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @since 22 dynamic&static
+    */
+    LASER_CURSOR_DOT_RED = 51,
+
+    /**
+    * Developer defined
+    *
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @since 22 dynamic&static
+    */
+    DEVELOPER_DEFINED_ICON = -100
   }
 
   /**

@@ -166,6 +166,15 @@ export interface ChipGroupItemOptions {
      * @atomicservice
      * @since 12 dynamic
      */
+    /**
+     * Prefix symbol.
+     *
+     * @type { ?ChipSymbolGlyphOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
     prefixSymbol?: ChipSymbolGlyphOptions;
 
     /**
@@ -210,6 +219,15 @@ export interface ChipGroupItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12 dynamic
+     */
+    /**
+     * suffix symbol.
+     *
+     * @type { ?ChipSymbolGlyphOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
      */
     suffixSymbol?: ChipSymbolGlyphOptions;
 
@@ -459,6 +477,15 @@ export interface IconItemOptions {
  * @atomicservice
  * @since 14 dynamic
  */
+/**
+ * Defines symbol item options.
+ *
+ * @interface SymbolItemOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
 export interface SymbolItemOptions {
     /**
      * Set symbol.
@@ -467,6 +494,15 @@ export interface SymbolItemOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 14 dynamic
+     */
+    /**
+     * Set symbol.
+     *
+     * @type { ?SymbolGlyphModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
      */
     symbol: SymbolGlyphModifier;
 

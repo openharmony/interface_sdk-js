@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 import { ResourceColor, Offset, VoidCallback } from "./units";
-import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback, DateTimeOptions, Bindable } from './common';
+import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Callback, DateTimeOptions, Bindable } from './common';
 import { DialogAlignment } from "./alertDialog";
 import { CrownSensitivity } from "./enums";
 import { ComponentBuilder, CustomBuilder } from './builder';
@@ -478,14 +478,7 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      */
     enableHapticFeedback?: boolean;
 }
-/**
- * Defines TimePickerDialog which uses show method to show TimePicker dialog.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
- */
-export declare class TimePickerDialog {
-}
+
 /**
  * Defines the TimePicker component.
  *

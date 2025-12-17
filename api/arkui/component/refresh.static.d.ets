@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { Callback, Optional, CommonMethod, Bindable } from './common';
+import { Callback, CommonMethod, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceStr } from './units';
 import { ComponentContentBase } from '../ComponentContent';
@@ -154,6 +154,15 @@ export declare interface RefreshAttribute extends CommonMethod {
      * @since 22 static
      */
     default pullToRefresh(value: boolean | undefined): this;
+    /**
+     * Sets whether to cancel refresh when the pull-up.
+     *
+     * @param { boolean | undefined } enabled - enable pull up to cancel refresh. <br>Default value: true.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default pullUpToCancelRefresh(enabled: boolean | undefined): this;
     /**
      * Called when the refresh offset changed.
      * The unit is vp.

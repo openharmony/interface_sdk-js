@@ -368,7 +368,7 @@ declare namespace restrictions {
    *     modifyDateTime, bluetooth, printer, hdc, microphone, fingerprint, usb, wifi, tethering, inactiveUserFreeze, camera,
    *     mtpClient, mtpServer, globalDrag, externalSdCard, backupAndRestore, notification, mms, sms, remoteDiagnosis, remoteDesk,
    *     nfc, privateSpace, vpn, airplaneMode, mobileData, maintenanceMode, sambaClient, sambaServer, appClone,
-   *     externalStorageCard, randomMac, unmuteDevice.
+   *     externalStorageCard, randomMac, unmuteDevice, hdcRemote.
    * @param { boolean } disallow - true if disallow the specific feature of device, otherwise false.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -377,6 +377,27 @@ declare namespace restrictions {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 22
+   */
+  /**
+   * Disallows the specific feature of the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { string } feature - feature indicates the specific feature to be disallowed or allowed,
+   *     the supported device features are as follows:
+   *     modifyDateTime, bluetooth, printer, hdc, microphone, fingerprint, usb, wifi, tethering, inactiveUserFreeze, camera,
+   *     mtpClient, mtpServer, globalDrag, externalSdCard, backupAndRestore, notification, mms, sms, remoteDiagnosis, remoteDesk,
+   *     nfc, privateSpace, vpn, airplaneMode, mobileData, maintenanceMode, sambaClient, sambaServer, appClone,
+   *     externalStorageCard, randomMac, unmuteDevice, hdcRemote, virtualService.
+   * @param { boolean } disallow - true if disallow the specific feature of device, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200013 - The enterprise management policy has been successfully set, but the function has not taken effect in real time.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
    */
   function setDisallowedPolicy(admin: Want, feature: string, disallow: boolean): void;
 
@@ -466,7 +487,7 @@ declare namespace restrictions {
    *     modifyDateTime, bluetooth, printer, hdc, microphone, fingerprint, usb, wifi, tethering, inactiveUserFreeze, camera,
    *     mtpClient, mtpServer, globalDrag, externalSdCard, backupAndRestore, notification, mms, sms, remoteDiagnosis, remoteDesk,
    *     nfc, privateSpace, vpn, airplaneMode, mobileData, maintenanceMode, sambaClient, sambaServer, appClone, externalStorageCard,
-   *     randomMac, unmuteDevice.
+   *     randomMac, unmuteDevice, hdcRemote.
    * @returns { boolean } true if the specific feature of device is disallowed, otherwise false.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -474,6 +495,26 @@ declare namespace restrictions {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 22
+   */
+  /**
+   * Queries whether the specific feature of the device is disallowed.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
+   *     If the admin is not empty, it must have the corresponding permission.
+   * @param { string } feature - feature indicates the specific feature to be queried,
+   *     the supported device features are as follows:
+   *     modifyDateTime, bluetooth, printer, hdc, microphone, fingerprint, usb, wifi, tethering, inactiveUserFreeze, camera,
+   *     mtpClient, mtpServer, globalDrag, externalSdCard, backupAndRestore, notification, mms, sms, remoteDiagnosis, remoteDesk,
+   *     nfc, privateSpace, vpn, airplaneMode, mobileData, maintenanceMode, sambaClient, sambaServer, appClone, externalStorageCard,
+   *     randomMac, unmuteDevice, hdcRemote, virtualService.
+   * @returns { boolean } true if the specific feature of device is disallowed, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
    */
   function getDisallowedPolicy(admin: Want | null, feature: string): boolean;
 
@@ -513,6 +554,24 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 20
    */
+  /**
+   * Disallows the specific feature of the device for the specified account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { string } feature - feature indicates the specific feature to be disallowed or allowed,
+   *                             the supported device features are as follows:
+   *                             fingerprint, print, mtpClient, usbStorageDeviceWrite, diskRecoveryKey, sudo, distributedTransmissionOutgoing, openFileBoost.
+   * @param { boolean } disallow - true if disallow the specific feature of device, otherwise false.
+   * @param { number } accountId - accountId indicates the account ID to be queried.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
   function setDisallowedPolicyForAccount(admin: Want, feature: string, disallow: boolean, accountId: number): void;
 
   /**
@@ -548,6 +607,23 @@ declare namespace restrictions {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
+   */
+  /**
+   * Queries whether the specific feature of the device is disallowed for the specified account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
+   * @param { string } feature - feature indicates the specific feature to be queried.
+   *                             the supported device features are as follows:
+   *                             fingerprint, print, mtpClient, usbStorageDeviceWrite, diskRecoveryKey, sudo, distributedTransmissionOutgoing, openFileBoost.
+   * @param { number } accountId - accountId indicates the account ID to be queried.
+   * @returns { boolean } true if the specific feature of device is disallowed, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
    */
   function getDisallowedPolicyForAccount(admin: Want | null, feature: string, accountId: number): boolean;
 
@@ -642,6 +718,44 @@ declare namespace restrictions {
    * @since 20
    */
   function getUserRestricted(admin: Want, settingsItem: string): boolean;
+
+  /**
+   * Restricting users from changing specified settings item for account on the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } settingsItem - settingsItem indicates the specific settings item to be disallowed.
+   * the supported settingsItems are as follows: modifyWallpaper.
+   * @param { int } accountId - accountId indicates the account ID to be restricted.
+   * @param { boolean } restricted - true if restrict the specific settings item of device, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function setUserRestrictionForAccount(admin: Want, settingsItem: string, accountId: int, restricted: boolean): void;
+
+  /**
+   * Gets whether users are restricted from changing specified settings items for account on the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
+   * @param { Want | null } admin - admin indicates the administrator ability information.
+   * @param { string } settingsItem - settingsItem indicates the specific settings item to be disallowed.
+   * the supported settingsItems are as follows: modifyWallpaper.
+   * @param { int } accountId - accountId indicates the account ID to be restricted.
+   * @returns { boolean } true if restrict the specific settings item of device, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function getUserRestrictedForAccount(admin: Want | null, settingsItem: string, accountId: int): boolean;
 }
 
 export default restrictions;

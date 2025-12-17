@@ -25,7 +25,7 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 20 staticonly
+ * @since 22 staticonly
  */
 declare namespace transfer {
 
@@ -39,7 +39,7 @@ declare namespace transfer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20 staticonly
+     * @since 22 staticonly
      */
     function transferStatic(input: Any, inputName: string): Object;
 
@@ -53,7 +53,7 @@ declare namespace transfer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20 staticonly
+     * @since 22 staticonly
      */
     function transferDynamic(input: Object, inputName: string): Any;
 

@@ -41,7 +41,7 @@ export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, 
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 23 dynamic&static
  */
-export { CylinderGeometry } from './graphics3d/SceneTypes';
+export { Mat4x4, CylinderGeometry } from './graphics3d/SceneTypes';
 
 /**
  * Export scene resources
@@ -64,9 +64,18 @@ export { SceneResourceType, SceneResource, Shader, MaterialType, Material, Shade
 /**
  * Export scene resources
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 22 dynamic&static
+ * @since 23 dynamic&static
  */
 export { PolygonMode, UnlitMaterial } from './graphics3d/SceneResources';
+
+/**
+ * Export scene resources
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic&static
+ */
+export { UnlitShadowAlphaMaterial, OcclusionMaterial } from './graphics3d/SceneResources';
 
 /**
  * Export scene nodes

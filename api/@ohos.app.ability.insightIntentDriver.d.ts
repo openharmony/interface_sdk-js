@@ -169,6 +169,86 @@ declare namespace insightIntentDriver {
      * @since 22 static
      */
     flags?: int;
+
+    /**
+     * Indicates the target user ID.
+     * 
+     * If the user ID of the caller application is different from the target user ID, you need to apply for permission:
+     *     ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    userId?: int;
+  }
+
+  /**
+   * The optional options used as filters to get insight intent infomation.
+   *
+   * @typedef InsightIntentInfoFilter
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface InsightIntentInfoFilter {  
+    /**
+     * Indicates the flags of get insight intent information.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    intentFlags: int;
+
+    /**
+     * Indicates the bundle name.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    bundleName?: string;
+
+    /**
+     * Indicates the module name.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    moduleName?: string;
+
+    /**
+     * Indicates the intent name.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    intentName?: string;
+
+    /**
+     * Indicates the target user ID.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    userId?: int;    
   }
 
   /**
@@ -249,64 +329,353 @@ declare namespace insightIntentDriver {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   enum InsightIntentType {
     /**
-     * Link insight intent.
-     * {@link InsightIntentDecorator#InsightIntentLink}
+     * The InsightIntent decorator type.
+     * {@link InsightIntentDecorator#InsightIntentLink}.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     LINK = '@InsightIntentLink',
 
     /**
      * Page insight intent.
-     * {@link InsightIntentDecorator#InsightIntentPage}
+     * {@link InsightIntentDecorator#InsightIntentPage}.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     PAGE = '@InsightIntentPage',
 
     /**
      * Entry insight intent.
-     * {@link InsightIntentDecorator#InsightIntentEntry}
+     * {@link InsightIntentDecorator#InsightIntentEntry}.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     ENTRY = '@InsightIntentEntry',
 
     /**
      * Function insight intent.
-     * {@link InsightIntentDecorator#InsightIntentFunction}
+     * {@link InsightIntentDecorator#InsightIntentFunctionMethod}.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     FUNCTION = '@InsightIntentFunctionMethod',
 
     /**
      * Form insight intent.
-     * {@link InsightIntentDecorator#InsightIntentForm}
+     * {@link InsightIntentDecorator#InsightIntentForm}.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     FORM = '@InsightIntentForm',
   }
-  
+
+  /**
+   * Enum for execute mode when develop type is {@link DevelopType#CONFIGURATION}.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum ExecuteModeForConfiguration {  
+    /**
+     * Foreground execute mode.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    FOREGROUND = 0,
+
+    /**
+     * Background execute mode.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    BACKGROUND = 1
+  }
+
+  /**
+   * The UIAbility information of intent when develop type is {@link DevelopType#CONFIGURATION}.
+   *
+   * @interface UIAbilityIntentInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface UIAbilityIntentInfo {  
+    /**
+     * The ability name.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly abilityName: string;
+    /**
+     * The execute mode.
+     *
+     * @type { ExecuteModeForConfiguration[] }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly executeMode: ExecuteModeForConfiguration[];
+  }
+
+  /**
+   * The UIExtension information of intent when develop type is {@link DevelopType#CONFIGURATION}.
+   *
+   * @interface UIExtensionIntentInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface UIExtensionIntentInfo {  
+    /**
+     * The ability name.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly abilityName: string;
+  }
+
+  /**
+   * The service extension information of intent when develop type is {@link DevelopType#CONFIGURATION}.
+   *
+   * @interface ServiceExtensionIntentInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface ServiceExtensionIntentInfo {  
+    /**
+     * The ability name.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly abilityName: string;
+  }
+
+  /**
+   * Enum for intent develop type.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum DevelopType {  
+    /**
+     * Develop by configuration.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    CONFIGURATION = 'configuration',
+
+    /**
+     * Develop by decorator.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    DECORATOR = 'decorator'
+  }
+
+  /**
+   * The sub intent information when develop type is {@link DevelopType#CONFIGURATION}..
+   *
+   * @interface SubIntentInfoForConfiguration
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface SubIntentInfoForConfiguration {
+    /**
+     * The srcEntry information of intent.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly srcEntry: string;
+
+    /**
+     * The UIAbility information of intent.
+     *
+     * @type { ?UIAbilityIntentInfo }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly uiAbility?: UIAbilityIntentInfo;
+
+    /**
+     * The UIExtension information of intent.
+     *
+     * @type { ?UIExtensionIntentInfo }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly uiExtension?: UIExtensionIntentInfo;
+      /**
+     * The service extension information of intent.
+     *
+     * @type { ?ServiceExtensionIntentInfo }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly serviceExtension?: ServiceExtensionIntentInfo;
+
+    /**
+     * The form information of intent.
+     *
+     * @type { ?FormIntentInfo }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly form?: FormIntentInfo;
+
+    /**
+     * The inputParams information of intent.
+     *
+     * @type { ?Array<Record<string, Object>> }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    readonly inputParams?: Array<Record<string, Object>>;
+
+    /**
+     * The inputParams information of intent.
+     *
+     * @type { ?Array<Record<string, RecordData>> }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    readonly inputParams?: Array<Record<string, RecordData>>;
+
+    /**
+     * The outputParams information of intent.
+     *
+     * @type { ?Array<Record<string, Object>> }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    readonly outputParams?: Array<Record<string, Object>>;
+
+    /**
+     * The outputParams information of intent.
+     *
+     * @type { ?Array<Record<string, RecordData>> }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    readonly outputParams?: Array<Record<string, RecordData>>;
+
+    /**
+     * The entities information of intent.
+     *
+     * @type { ?Record<string, Object> }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    readonly entities?: Record<string, Object>;
+
+    /**
+     * The entities information of intent.
+     *
+     * @type { ?Record<string, RecordData> }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    readonly entities?: Record<string, RecordData>;
+  }
   /**
    * The insight intent information.
    *
@@ -315,6 +684,7 @@ declare namespace insightIntentDriver {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   interface InsightIntentInfo {
     /**
@@ -326,6 +696,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly bundleName: string;
 
@@ -338,6 +709,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly moduleName: string;
 
@@ -350,6 +722,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly intentName: string;
 
@@ -362,6 +735,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly domain: string;
 
@@ -374,6 +748,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly intentVersion: string;
 
@@ -386,6 +761,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly displayName: string;
 
@@ -398,6 +774,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly displayDescription: string;
 
@@ -410,6 +787,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly schema: string;
 
@@ -422,6 +800,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly icon: string;
 
@@ -434,6 +813,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly llmDescription: string;
 
@@ -446,6 +826,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly keywords: string[];
 
@@ -458,6 +839,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly intentType: InsightIntentType;
 
@@ -475,6 +857,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly subIntentInfo: LinkIntentInfo | PageIntentInfo | FunctionIntentInfo | FormIntentInfo | EntryIntentInfo;
 
@@ -491,6 +874,18 @@ declare namespace insightIntentDriver {
     readonly parameters: Record<string, Object>;
 
     /**
+     * The insight intent parameters.
+     *
+     * @type { Record<string, RecordData> }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    readonly parameters: Record<string, RecordData>;
+
+    /**
      * The type definition of the result returned by intent call.
      *
      * @type { Record<string, Object> }
@@ -503,6 +898,18 @@ declare namespace insightIntentDriver {
     readonly result: Record<string, Object>;
 
     /**
+     * The type definition of the result returned by intent call.
+     *
+     * @type { Record<string, RecordData> }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    readonly result: Record<string, RecordData>;
+
+    /**
      * The entity informations.
      *
      * @type { Array<EntityInfo> }
@@ -511,8 +918,33 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly entities: Array<EntityInfo>;
+
+    /**
+     * The intent develop type.
+     *
+     * @type { ?DevelopType }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly developType?: DevelopType;
+
+    /**
+     * The sub intent information when develop type is {@link DevelopType#CONFIGURATION}.
+     *
+     * @type { ?SubIntentInfoForConfiguration }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly subIntentInfoForConfiguration?: SubIntentInfoForConfiguration;
   }
 
   /**
@@ -523,6 +955,7 @@ declare namespace insightIntentDriver {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   interface LinkIntentInfo {
     /**
@@ -534,6 +967,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly uri: string;
   }
@@ -546,10 +980,11 @@ declare namespace insightIntentDriver {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   interface PageIntentInfo {
     /**
-     * The uiability.
+     * The UIAbility.
      *
      * @type { string }
      * @readonly
@@ -557,6 +992,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly uiAbility: string;
 
@@ -569,6 +1005,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly pagePath: string;
 
@@ -581,6 +1018,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly navigationId: string;
 
@@ -593,6 +1031,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly navDestinationName: string;
   }
@@ -605,6 +1044,7 @@ declare namespace insightIntentDriver {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   interface FunctionIntentInfo {}
 
@@ -616,6 +1056,7 @@ declare namespace insightIntentDriver {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   interface FormIntentInfo {
     /**
@@ -627,6 +1068,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly abilityName: string;
 
@@ -639,6 +1081,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly formName: string;
   }
@@ -651,6 +1094,7 @@ declare namespace insightIntentDriver {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   interface EntryIntentInfo {
     /**
@@ -662,6 +1106,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly abilityName: string;
 
@@ -674,6 +1119,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly executeMode: insightIntent.ExecuteMode[];
   }
@@ -681,11 +1127,12 @@ declare namespace insightIntentDriver {
   /**
    * Enum for get insight intent flag.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   enum GetInsightIntentFlag {
     /**
@@ -695,6 +1142,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     GET_FULL_INSIGHT_INTENT = 0x00000001,
 
@@ -705,6 +1153,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     GET_SUMMARY_INSIGHT_INTENT = 0x00000002,
 
@@ -715,8 +1164,9 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
-    GET_ENTITY_INFO = 0x00000004,
+    GET_ENTITY_INFO = 0x00000004
   }
 
   /**
@@ -727,17 +1177,18 @@ declare namespace insightIntentDriver {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
   interface EntityInfo {
     /**
      * The entity class name.
-     *
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly className: string;
 
@@ -750,6 +1201,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly entityId: string;
 
@@ -762,6 +1214,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly entityCategory: string;
 
@@ -778,6 +1231,18 @@ declare namespace insightIntentDriver {
     readonly parameters: Record<string, Object>;
 
     /**
+     * The parameters of intent entity.
+     *
+     * @type { Record<string, RecordData> }
+     * @readonly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    readonly parameters: Record<string, RecordData>;
+
+    /**
      * The entity class name of parent.
      *
      * @type { string }
@@ -786,6 +1251,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
+     * @since 23 static
      */
     readonly parentClassName: string;
   }
@@ -794,36 +1260,38 @@ declare namespace insightIntentDriver {
    * Get all insight intent information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { number } intentFlags - The flags of get insight intent information.
+   * @param { int } intentFlags - The flags of get insight intent information.
    * @returns { Promise<Array<InsightIntentInfo>> } Returns the insight intent information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
-   *     2. The system service failed to communicate with dependency module. 
+   *     2. The system service fails to communicate with the dependency module. 
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
-  function getAllInsightIntentInfo(intentFlags: number): Promise<Array<InsightIntentInfo>>;
+  function getAllInsightIntentInfo(intentFlags: int): Promise<Array<InsightIntentInfo>>;
 
   /**
    * Get insight intent information by bundle name.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - The specified bundle name.
-   * @param { number } intentFlags - The flags of get insight intent information.
+   * @param { int } intentFlags - The flags of get insight intent information.
    * @returns { Promise<Array<InsightIntentInfo>> } Returns the insight intent information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
-   *     2. The system service failed to communicate with dependency module. 
+   *     2. The system service fails to communicate with the dependency module. 
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
-  function getInsightIntentInfoByBundleName(bundleName: string, intentFlags: number): Promise<Array<InsightIntentInfo>>;
+  function getInsightIntentInfoByBundleName(bundleName: string, intentFlags: int): Promise<Array<InsightIntentInfo>>;
 
   /**
    * Get insight intent information by intent name.
@@ -832,18 +1300,40 @@ declare namespace insightIntentDriver {
    * @param { string } bundleName - The specified bundle name.
    * @param { string } moduleName - The specified module name.
    * @param { string } intentName - The specified intent name.
-   * @param { number } intentFlags - The flags of get insight intent information.
+   * @param { int } intentFlags - The flags of get insight intent information.
    * @returns { Promise<InsightIntentInfo> } Returns the insight intent information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
-   *     2. The system service failed to communicate with dependency module. 
+   *     2. The system service fails to communicate with the dependency module. 
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 23 static
    */
-  function getInsightIntentInfoByIntentName(bundleName: string, moduleName: string, intentName: string, intentFlags: number): Promise<InsightIntentInfo>;
+  function getInsightIntentInfoByIntentName(bundleName: string, moduleName: string, intentName: string, intentFlags: int): Promise<InsightIntentInfo>;
+
+  /**
+   * Get insight intent information by filter.
+   *
+   * if the caller is cross-user, you need to apply for permission:
+   *     ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * 
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { InsightIntentInfoFilter } filter - Indicates the requirements that the insightIntentInfo belong
+   *     to have to meet.
+   * @returns { Promise<Array<InsightIntentInfo>> } - Returns the insight intent information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getInsightIntentInfoByFilter(filter: InsightIntentInfoFilter): Promise<Array<InsightIntentInfo>>;
 }
 
 export default insightIntentDriver;

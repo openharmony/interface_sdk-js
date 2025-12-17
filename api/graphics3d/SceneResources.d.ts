@@ -19,19 +19,10 @@
  */
 
 /*** if arkts static */
-import { Resource } from '../global/resource';
+import { ResourceStr } from '@ohos.arkui.component';
 /*** endif */
 import { Vec2, Vec3, Vec4, Aabb, Quaternion } from './SceneTypes';
 import { Callback } from '../@ohos.base';
-
-/**
- * Defines the string which can use resource.
- *
- * @typedef { string | Resource } ResourceStr
- * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 22 static
- */
-declare type ResourceStr = string | Resource;
 
 /**
  * The enum of SceneResource type.
@@ -204,6 +195,16 @@ export interface Shader extends SceneResource {
    * @since 22 static
    */
   readonly inputs: Record<string, double | Vec2 | Vec3 | Vec4 | Image>;
+
+  /**
+   * Set shader inputs. Offers the same functionality for setting shader inputs as the property version,
+   *     but with better performance.
+   * @param { Record<string, double | Vec2 | Vec3 | Vec4 | Image> } inputs - Inputs of the shader
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  setShaderInputs(inputs: Record<string, double | Vec2 | Vec3 | Vec4 | Image>): void;
 }
 
 /**
@@ -237,9 +238,28 @@ export enum MaterialType {
    * The material is an unlit material.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   UNLIT = 3,
+
+  /**
+   * The material is an occlusion material.
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  OCCLUSION = 4,
+
+  /**
+   * Only render the shadows received on the material surface,
+   *     the material is transparent.
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  UNLIT_SHADOW_ALPHA = 100
 }
 
 /**
@@ -284,14 +304,14 @@ export enum CullMode {
  * 
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 22 dynamic&static
+ * @since 23 dynamic&static
  */
 export enum PolygonMode {
   /**
    * Render the whole polygon
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   FILL = 0,
 
@@ -299,7 +319,7 @@ export enum PolygonMode {
    * Render only edges(wireframe) of the polygon
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   LINE = 1,
 
@@ -307,7 +327,7 @@ export enum PolygonMode {
    * Render only vertices of the polygon
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   POINT = 2
 }
@@ -448,7 +468,7 @@ export interface Material extends SceneResource {
    * @type { ?PolygonMode}
    * @default PolygonMode.FILL
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   polygonMode?: PolygonMode;
 }
@@ -621,7 +641,7 @@ export interface MetallicRoughnessMaterial extends Material {
  * @extends Material
  * @interface UnlitMaterial
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 22 dynamic&static
+ * @since 23 dynamic&static
  */
 export interface UnlitMaterial extends Material {
   /**
@@ -630,9 +650,33 @@ export interface UnlitMaterial extends Material {
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   baseColor: MaterialProperty
+}
+
+/**
+ * Unlit shadow alpha material resource
+ * 
+ * @extends Material
+ * @interface UnlitShadowAlphaMaterial
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @systemapi
+ * @stagemodelonly
+ * @since 23 dynamic&static
+ */
+export interface UnlitShadowAlphaMaterial extends Material {
+  /**
+   * Base color factor of UnlitShadowAlphaMaterial.
+   * Value of factor.xyzw defines rgba color
+   * 
+   * @type { MaterialProperty }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  baseColor: MaterialProperty;
 }
 
 /**
@@ -654,6 +698,17 @@ export interface ShaderMaterial extends Material {
    * @since 22 static
    */
   colorShader?: Shader;
+}
+
+/**
+ * Occlusion material resource.
+ *
+ * @extends Material
+ * @interface OcclusionMaterial
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 23 dynamic&static
+ */
+export interface OcclusionMaterial extends Material {
 }
 
 /**
@@ -1169,7 +1224,7 @@ export interface Environment extends SceneResource {
    * @type { ?Quaternion }
    * @default Quaternion {x:0, y:0, z:0, w:1}
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   environmentRotation?: Quaternion
 }

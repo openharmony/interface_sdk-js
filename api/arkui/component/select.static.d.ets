@@ -17,8 +17,9 @@
  * @file
  * @kit ArkUI
  */
-import { CommonConfiguration, CommonMethod, ContentModifier, Optional, BlurStyle, Bindable } from './common';
+import { CommonConfiguration, CommonMethod, ContentModifier, BlurStyle, Bindable, MenuKeyboardAvoidMode } from './common';
 import { ControlSize } from './button';
+import { LengthMetrics } from '../Graphics';
 import { DividerOptions } from './textPicker';
 import { ResourceStr, Dimension, EdgeOutlineWidths, ResourceColor, EdgeColors, Resource, Font, Length, Offset, DividerStyleOptions } from './units';
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
@@ -437,6 +438,38 @@ export declare interface SelectAttribute extends CommonMethod {
      */
     default menuOutline(outline: MenuOutlineOptions | undefined): this;
     /**
+     * Sets whether to display menu in the sub window.
+     *
+     * Device Behavior Differences:Setting to display in sub windows is only supported on 2-in-1 devices.
+     *
+     * @param { boolean | undefined } showInSubWindow - Set whether the Select menu is displayed in the sub window.
+     *     true means the Select menu is displayed in the sub window, and this setting is only takes effect on 2-in-1 devices.
+     *     false means the select menu is not displayed in the sub window.
+     *     <br>Default value:2-in-1 device is true, other devices are false.
+     * @returns { SelectAttribute } - The attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default showInSubWindow(showInSubWindow: boolean | undefined): this;
+    /**
+    * Set whether to display the default selected icon.
+    *
+    * @param { boolean | undefined } show - Set whether to display the default selection icon.
+    *     true means display the default selected icon
+    *     false or undefined means do not display the default selected icon, instead indicate selection by
+    *     highlighting the background color.
+    *     <br> show is set to true, if the background color of the selected option is set using
+    *     selectedOptionBgColor, both the background color of the selected item and the default
+    *     selection icon will be displayed. If the background color of the selected option is not set
+    *     using selectedOptionBgColor, the background color will1 not be highlighted, and only the default
+    *     selection icon will be displayed.
+    * @returns { SelectAttribute } - the attribute of the select.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    */
+    default showDefaultSelectedIcon(show:boolean | undefined): this
+    /**
      * Set the attribute modifier of select.
      *
      * @param { AttributeModifier<SelectAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -447,6 +480,28 @@ export declare interface SelectAttribute extends CommonMethod {
      */
     default attributeModifier(
         modifier: AttributeModifier<SelectAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Determine the mode of select menu how to avoid keyboard.
+     *
+     * No avoiding by default.
+     *
+     * @param { MenuKeyboardAvoidMode | undefined } mode - How to avoid keyboard.
+     * @returns { SelectAttribute } - The attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default keyboardAvoidMode(mode: MenuKeyboardAvoidMode | undefined): this;
+    /**
+     * Defines the minimum distance between select menu and keyboard.
+     *
+     * @param { LengthMetrics | undefined } distance - The minimum avoiding distance.
+     * @returns { SelectAttribute } - The attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default minKeyboardAvoidDistance(distance: LengthMetrics | undefined): this;
 }
 /**
  * MenuItemConfiguration used by menu item content modifier.

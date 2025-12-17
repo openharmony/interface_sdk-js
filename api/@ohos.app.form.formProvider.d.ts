@@ -642,5 +642,51 @@ declare namespace formProvider {
    * @since 22 dynamic&static
    */
   function reloadAllForms(context: UIAbilityContext): Promise<int>;
+
+    /**
+   * Update the template form detail info.
+   * @param { Array<formInfo.TemplateFormDetailInfo> } templateFormInfo - Indicates the template form detail info.
+   * @returns { Promise<void> } Returns the result of updating template form detail info.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16501013 - The system does not support the current operation.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function updateTemplateFormDetailInfo(templateFormInfo: Array<formInfo.TemplateFormDetailInfo>): Promise<void>;
+
+  /**
+   * Register the callback of the cross-application form publishing control interface.
+   *
+   * @permission ohos.permission.PUBLISH_FORM_CROSS_BUNDLE_CONTROL
+   * @param { formInfo.PublishFormCrossBundleControlCallback } callback - Indicates the
+   *     callback of the cross-application form publishing control.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function onPublishFormCrossBundleControl(callback: formInfo.PublishFormCrossBundleControlCallback): void;
+
+  /**
+   * Unregister the callback of the cross-application form publishing control interface.
+   *
+   * @permission ohos.permission.PUBLISH_FORM_CROSS_BUNDLE_CONTROL
+   * @param { formInfo.PublishFormCrossBundleControlCallback } [callback] - Indicates the
+   *     callback of the cross-application form publishing control.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function offPublishFormCrossBundleControl(callback?: formInfo.PublishFormCrossBundleControlCallback): void;
 }
 export default formProvider;

@@ -18,7 +18,7 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod, CommonConfiguration, ContentModifier, MultiShadowOptions, Optional } from './common';
+import { CommonMethod, CommonConfiguration, ContentModifier, MultiShadowOptions } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceStr, Dimension, ResourceColor, Length } from "./units";
 import { LinearGradient } from "./dataPanel";
@@ -193,26 +193,26 @@ export declare interface GaugeAttribute extends CommonMethod {
     /**
      * Sets description content of the ring chart.
      *
-     * @param { CustomBuilder | undefined } value - description content builder of the gauge drawing.
-     * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+     * @param { CustomBuilder | undefined | null } value - description content builder of the gauge drawing.
+     * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default description(value: CustomBuilder | undefined): this;
+    default description(value: CustomBuilder | undefined | null): this;
     /**
      * Sets track shadow of the ring chart.
      *
-     * @param { GaugeShadowOptions | undefined } value - track shadow options of the gauge drawing.
-     * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+     * @param { GaugeShadowOptions | undefined | null } value - track shadow options of the gauge drawing.
+     * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default trackShadow(value: GaugeShadowOptions | undefined): this;
+    default trackShadow(value: GaugeShadowOptions | undefined | null): this;
     /**
      * Sets indicator options of the ring chart.
      *
      * @param { GaugeIndicatorOptions | undefined | null } value - indicator options of the gauge drawing.
-     * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+     * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
@@ -221,7 +221,7 @@ export declare interface GaugeAttribute extends CommonMethod {
      * Sets if mark to privacy sensitive.
      *
      * @param { boolean | undefined } isPrivacySensitiveMode - indicates if mark to  privacy sensitive .
-     * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+     * @returns { GaugeAttribute } - returns the instance of the GaugeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */

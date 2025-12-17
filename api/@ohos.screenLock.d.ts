@@ -37,6 +37,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
    * @deprecated since 9
+   * @reserved ["liteWearable"]
    */
   function isScreenLocked(callback: AsyncCallback<boolean>): void;
 
@@ -47,6 +48,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
    * @deprecated since 9
+   * @reserved ["liteWearable"]
    */
   function isScreenLocked(): Promise<boolean>;
 
@@ -69,6 +71,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
    * @deprecated since 9
+   * @reserved ["liteWearable"]
    */
   function isSecureMode(callback: AsyncCallback<boolean>): void;
 
@@ -79,6 +82,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
    * @deprecated since 9
+   * @reserved ["liteWearable"]
    */
   function isSecureMode(): Promise<boolean>;
 
@@ -89,6 +93,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
    * @deprecated since 9
+   * @reserved ["liteWearable"]
    */
   function unlockScreen(callback: AsyncCallback<void>): void;
 
@@ -99,6 +104,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
    * @deprecated since 9
+   * @reserved ["liteWearable"]
    */
   function unlockScreen(): Promise<void>;
 

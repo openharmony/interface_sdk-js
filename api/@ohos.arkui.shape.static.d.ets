@@ -208,12 +208,12 @@ export declare class RectShape extends BaseShape {
     /**
      * Sets the corner radius for RectShape.
      *
-     * @param { number | string | Array<number | string> } radius
-     * @returns { RectShape }
+     * @param { double | string | Array<double | string> } radius
+     * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    radius(radius: number | string | Array<number | string>): RectShape;
+    radius(radius: double | string | Array<double | string>): this;
 }
 /**
  * Defines a circle drawing class.

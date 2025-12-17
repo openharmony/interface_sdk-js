@@ -23,6 +23,7 @@ import { AsyncCallback } from '../@ohos.base';
 import { ProcessInformation } from './ProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import Want from '../@ohos.app.ability.Want';
+import window from '../@ohos.window';
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
 import InteropAbilityLifecycleCallback from '../@ohos.app.ability.InteropAbilityLifecycleCallback';
@@ -128,7 +129,7 @@ declare class ApplicationContext extends Context {
    * @param { InteropAbilityLifecycleCallback } callback - Callback used to be registered as the listener.	
    * @syscap SystemCapability.Ability.AbilityRuntime.Core	
    * @stagemodelonly	
-   * @since 22 static
+   * @since 23 static
    */	
   onInteropAbilityLifecycle(callback: InteropAbilityLifecycleCallback): void;
 
@@ -258,7 +259,7 @@ declare class ApplicationContext extends Context {
    * @param { InteropAbilityLifecycleCallback } callback - Callback used to be unregistered.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   offInteropAbilityLifecycle(callback?: InteropAbilityLifecycleCallback): void;
 
@@ -701,7 +702,6 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   /**
    * Sets the language for the application.
@@ -859,7 +859,6 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
    */
   /**
    * Sets the font for this application.
@@ -901,7 +900,6 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 13 dynamic
-   * @since 20 static
    */
   /**
    * Sets the scale ratio for the font size of this application.
@@ -960,6 +958,21 @@ declare class ApplicationContext extends Context {
    * @since 22 static
    */
     getAllRunningInstanceKeys(): Promise<Array<string>>;
+
+  /**
+   * Obtains all windowstage of current process.
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @returns { Promise<Array<window.WindowStage>> } Promise used to return the windowStages of current process.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  getAllWindowStages(): Promise<Array<window.WindowStage>>;
 }
 
 export default ApplicationContext;

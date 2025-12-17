@@ -290,7 +290,6 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.userIAM.userAuth.getVersion
      */
     getVersion(): number;
 
@@ -1509,6 +1508,17 @@ declare namespace userAuth {
      * @since 22 static
      */
     skipLockedBiometricAuth?: boolean;
+  
+    /**
+     * Specify the credentials used for comparison.
+     *
+     * @type { ?Uint8Array[] }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    credentialIdList?: Uint8Array[];
   }
 
   /**

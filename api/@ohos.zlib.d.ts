@@ -499,8 +499,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 21 dynamic
-     * @since 22 static
+     * @since 23 dynamic&static
      */
     ERRNO = -1,
     /**
@@ -509,8 +508,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 21 dynamic
-     * @since 22 static
+     * @since 23 dynamic&static
      */
     STREAM_ERROR = -2,
     /**
@@ -519,8 +517,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 21 dynamic
-     * @since 22 static
+     * @since 23 dynamic&static
      */
     DATA_ERROR = -3,
     /**
@@ -528,8 +525,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 21 dynamic
-     * @since 22 static
+     * @since 23 dynamic&static
      */
     MEM_ERROR = -4,
     /**
@@ -538,8 +534,7 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 21 dynamic
-     * @since 22 static
+     * @since 23 dynamic&static
      */
     BUF_ERROR = -5,
   }

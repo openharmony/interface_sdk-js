@@ -36,20 +36,20 @@ export interface Size {
   /**
    * Get the width of the Size.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  width: number;
+  width: double;
 
   /**
    * Get the height of the Size.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  height: number;
+  height: double;
 }
 
 /**
@@ -98,20 +98,20 @@ export interface Vector2 {
   /**
    * Value for x-axis of the vector.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  x: number;
+  x: double;
 
   /**
    * Value for y-axis of the vector.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  y: number;
+  y: double;
 }
 
 /**
@@ -153,56 +153,56 @@ export interface Vector3 {
   /**
    * Value for x-axis of the vector.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  x: number;
+  x: double;
 
   /**
    * Value for y-axis of the vector.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  y: number;
+  y: double;
 
   /**
    * Value for z-axis of the vector.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  z: number;
+  z: double;
 }
 
 /**
- * It's a 4x4 matrix, represent by number[].
+ * It's a 4x4 matrix, represent by double[].
  *
- * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number,
- *     number, number, number] } Matrix4
+ * @typedef { [double, double, double, double, double, double, double, double, double, double, double, double, double,
+ *     double, double, double] } Matrix4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
 export type Matrix4 = [
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number,
-  number
+  double,
+  double,
+  double,
+  double,
+  double,
+  double,
+  double,
+  double,
+  double,
+  double,
+  double,
+  double,
+  double,
+  double,
+  double,
+  double
 ];
 
 /**
@@ -278,38 +278,38 @@ export declare interface Frame {
   /**
    * Position value for x-axis of the frame info.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  x: number;
+  x: double;
 
   /**
    * Position value for y-axis of the frame info.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  y: number;
+  y: double;
 
   /**
    * Size value for width of the frame info.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  width: number;
+  width: double;
 
   /**
    * Size value for height of the frame info.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  height: number;
+  height: double;
 }
 
 /**
@@ -473,67 +473,67 @@ export declare class LengthMetrics {
   /**
    * Constructor.
    *
-   * @param { number } value - The value of length.
+   * @param { double } value - The value of length.
    * @param { LengthUnit } [unit] - The length unit.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  constructor(value: number, unit?:LengthUnit);
+  constructor(value: double, unit?:LengthUnit);
 
   /**
    * Init a lengthMetrics with px unit.
    *
-   * @param { number } value - The value of the length metrics.
+   * @param { double } value - The value of the length metrics.
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit px.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  static px(value: number): LengthMetrics;
+  static px(value: double): LengthMetrics;
 
   /**
    * Init a lengthMetrics with vp unit.
    *
-   * @param { number } value - The value of the length metrics.
+   * @param { double } value - The value of the length metrics.
    * @returns { LengthMetrics } - Returns the lengthMetrics object with unit vp.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  static vp(value: number): LengthMetrics;
+  static vp(value: double): LengthMetrics;
 
   /**
    * Init a lengthMetrics with fp unit.
    *
-   * @param { number } value - The value of the length metrics.
+   * @param { double } value - The value of the length metrics.
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit fp.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  static fp(value: number): LengthMetrics;
+  static fp(value: double): LengthMetrics;
 
   /**
    * Init a lengthMetrics with percent unit.
    *
-   * @param { number } value - The value of the length metrics.
+   * @param { double } value - The value of the length metrics.
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit percent.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  static percent(value: number): LengthMetrics;
+  static percent(value: double): LengthMetrics;
 
   /**
    * Init a lengthMetrics with lpx unit.
    *
-   * @param { number } value - The value of the length metrics.
+   * @param { double } value - The value of the length metrics.
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit lpx.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  static lpx(value: number): LengthMetrics;
+  static lpx(value: double): LengthMetrics;
 
   /**
    * Init a lengthMetrics with Resource unit.
@@ -559,11 +559,11 @@ export declare class LengthMetrics {
   /**
    * The value of the LengthMetrics.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  public value: number;
+  public value: double;
 }
 
 /**
@@ -696,27 +696,27 @@ export declare class ColorMetrics {
   /**
    * Instantiate the ColorMetrics class using color number
    *
-   * @param { number } value - color number
+   * @param { int } value - color number
    * @returns { ColorMetrics } ColorMetrics class
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  static numeric(value: number): ColorMetrics;
+  static numeric(value: int): ColorMetrics;
 
   /**
    * Instantiate the ColorMetrics class using color rgb
    *
-   * @param { number } red - red value of rgba
-   * @param { number } green - green value of rgba
-   * @param { number } blue - blue value of rgba
-   * @param { number } [alpha] - opacity value of rgba
+   * @param { double } red - red value of rgba
+   * @param { double } green - green value of rgba
+   * @param { double } blue - blue value of rgba
+   * @param { double } [alpha] - opacity value of rgba
    * @returns { ColorMetrics } ColorMetrics class
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetrics;
+  static rgba(red: double, green: double, blue: double, alpha?: double): ColorMetrics;
 
   /**
    * Instantiate the ColorMetrics class using colorSpace and rgba.
@@ -772,38 +772,38 @@ export declare class ColorMetrics {
   /**
    * Get red value of the ColorMetrics.
    *
-   * @returns { number } The red value of the ColorMetrics.
+   * @returns { int } The red value of the ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  get red(): number;
+  get red(): int;
 
   /**
    * Get green value of the ColorMetrics.
    *
-   * @returns { number } The green value of the ColorMetrics.
+   * @returns { int } The green value of the ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  get green(): number;
+  get green(): int;
 
   /**
    * Get blue value of the ColorMetrics.
    *
-   * @returns { number } The blue value of the ColorMetrics.
+   * @returns { int } The blue value of the ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  get blue(): number;
+  get blue(): int;
 
   /**
    * Get opacity value of the ColorMetrics.
    *
-   * @returns { number } The opacity value of the ColorMetrics.
+   * @returns { int } The opacity value of the ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  get alpha(): number;
+  get alpha(): int;
 }
 
 /**
@@ -863,11 +863,11 @@ export type CornerRadius = Corners<Vector2>;
 /**
  * BorderRadiuses info.
  *
- * @typedef { Corners<number> } NodeBorderRadiuses
+ * @typedef { Corners<double> } NodeBorderRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export type NodeBorderRadiuses = Corners<number>;
+export type NodeBorderRadiuses = Corners<double>;
 
 /**
  * Rect info.
@@ -916,29 +916,29 @@ export interface Circle {
   /**
    * The x-coordinate of the center of the Circle.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  centerX: number,
+  centerX: double,
 
   /**
    * The y-coordinate of the center of the Circle.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  centerY: number,
+  centerY: double,
 
   /**
    * The radius of the Circle.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  radius: number;
+  radius: double;
 }
 
 /**
@@ -1022,32 +1022,32 @@ export declare class ShapeMask {
   /**
    * The fill color of the ShapeMask.
    *
-   * @type { number }
+   * @type { int }
    * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  fillColor: number;
+  fillColor: int;
 
   /**
    * The stroke color of the ShapeMask.
    *
-   * @type { number }
+   * @type { int }
    * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  strokeColor: number;
+  strokeColor: int;
 
   /**
    * The stroke width of the ShapeMask.
    *
-   * @type { number }
+   * @type { double }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  strokeWidth: number;
+  strokeWidth: double;
 }
 
 
@@ -1115,22 +1115,22 @@ export declare class ShapeClip {
 /**
  * Obtain a object with all edges are set to the same color.
  *
- * @param { number } all - The edge color will be set.
- * @returns { NodeEdges<number> } - The object with all edges are set to the same color.
+ * @param { int } all - The edge color will be set.
+ * @returns { NodeEdges<int> } - The object with all edges are set to the same color.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export declare function edgeColors(all: number): NodeEdges<number>;
+export declare function edgeColors(all: int): NodeEdges<int>;
 
 /**
  * Obtain a object with all edges are set to the same width.
  *
- * @param { number } all - The edge width will be set.
- * @returns { NodeEdges<number> } - The object with all edges are set to the same width.
+ * @param { double } all - The edge width will be set.
+ * @returns { NodeEdges<double> } - The object with all edges are set to the same width.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export declare function edgeWidths(all: number): NodeEdges<number>;
+export declare function edgeWidths(all: double): NodeEdges<double>;
 
 /**
  * Obtain a object with all edges are set to the same style.
@@ -1145,9 +1145,9 @@ export declare function borderStyles(all: BorderStyle): NodeEdges<BorderStyle>;
 /**
  * Obtain a BorderRadiuses object with all edges are set to the same radius.
  *
- * @param { number } all - The edge radius will be set.
+ * @param { double } all - The edge radius will be set.
  * @returns { NodeBorderRadiuses } - The BorderRadiuses object.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export declare function borderRadiuses(all: number): NodeBorderRadiuses;
+export declare function borderRadiuses(all: double): NodeBorderRadiuses;

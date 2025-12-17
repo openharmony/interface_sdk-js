@@ -19,7 +19,19 @@
  * @kit ArkUI
  */
 
-import { Builder, ResourceStr, SizeOptions, ResourceColor, VoidCallback, Dimension, LengthMetrics, Direction, Component } from './@ohos.arkui.component';
+import { 
+  Builder, 
+  ResourceStr, 
+  SizeOptions, 
+  ResourceColor, 
+  VoidCallback, 
+  Dimension, 
+  LengthMetrics, 
+  Direction, 
+  Component,
+  Resource,
+  LocalizedPadding,
+} from './@ohos.arkui.component';
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
 import { PropRef, Require } from './arkui/stateManagement/decorator';
 
@@ -254,7 +266,17 @@ export interface AccessibilityOptions {
  * @since 22 static
  * @noninterop
  */
-export interface CloseOptions extends AccessibilityOptions {}
+export interface CloseOptions extends AccessibilityOptions {
+  /**
+   * Set font size for the close icon.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  fontSize?: Dimension;
+}
 
 /**
  * Defines chip symbolglyph options.
@@ -679,6 +701,46 @@ export interface ChipOptions {
    * @noninterop
    */
   accessibilitySelectedType?: AccessibilitySelectedType;
+
+  /**
+   * Maximum font scale for Chip.
+   *
+   * @type { ?(double | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  maxFontScale?: double | Resource;
+
+  /**
+   * Minimum font scale for Chip.
+   *
+   * @type { ?(double | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  minFontScale?: double | Resource;
+
+  /**
+   * Chip padding.
+   *
+   * @type { ?LocalizedPadding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  padding?: LocalizedPadding;
+
+  /**
+   * Set font size for the label text and the close icon.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  fontSize?: Dimension;
 }
 
  /**

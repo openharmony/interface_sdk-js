@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,6 +29,7 @@ import { ComponentContent } from '@ohos.arkui.node';
 import componentSnapshot from '@ohos.arkui.componentSnapshot';
 import componentUtils from '@ohos.arkui.componentUtils';
 import dragController from '@ohos.arkui.dragController';
+import floatingBall from '@ohos.window.floatingBall';
 import { sendTouchEvent, sendKeyEvent, sendMouseEvent } from '@ohos.arkui.Test';
 export { promptAction, ComponentContent };
 
@@ -43,3 +45,5 @@ export { GETINSPECTORBYKEY as getInspectorByKey, GETINSPECTORTREE as getInspecto
 export { window, display, screen, screenshot, uiExtensionHost };
 
 export { componentSnapshot, componentUtils, dragController, sendTouchEvent, sendKeyEvent, sendMouseEvent };
+
+export { floatingBall };

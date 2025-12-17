@@ -18,7 +18,7 @@
  * @kit MediaKit
  */
 
-import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
+import { ErrorCallback, AsyncCallback, Callback, BusinessError } from './@ohos.base';
 import audio from './@ohos.multimedia.audio';
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
 import type image from './@ohos.multimedia.image';
@@ -591,7 +591,7 @@ declare namespace media {
   /**
    * get Configurations which user can changes from AVScreenCapture server
    * 
-   * @param { number } sessionId The AVScreenCapture server session ID.
+   * @param { int } sessionId The AVScreenCapture server session ID.
    * @returns { Promise<string> } Returns a configurable configuration item string.
    * @throws { BusinessError } 202 Called from Non-System applications. Return by promise.
    * @throws { BusinessError } 5400109 - Sessions not exist. Return by promise.
@@ -600,7 +600,7 @@ declare namespace media {
    * @since 20 dynamic
    * @since 22 static
    */
-  function getAVScreenCaptureConfigurableParameters(sessionId: number): Promise<string>;
+  function getAVScreenCaptureConfigurableParameters(sessionId: int): Promise<string>;
   
   /**
    * Creates an **AVTranscoder** instance. This API uses a promise to return the result.
@@ -710,6 +710,30 @@ declare namespace media {
    * @since 22 static
    */
   type PlayParameters = _PlayParameters;
+
+  /**
+   * Enumerates the sound interrupt mode.
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum SoundInterruptMode {
+    /**
+     * Multiple sounds can be played parallelly, without interrupting each other.
+     * @syscap SystemCapability.Multimedia.Media.SoundPool
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    NO_INTERRUPT = 0,
+    /**
+     * Multiple sounds can be played parallelly, but for the same sound, the latter one interrupts the former one
+     * @syscap SystemCapability.Multimedia.Media.SoundPool
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SAME_SOUND_INTERRUPT = 1
+  }
 
   /**
    * Enumerates state change reason.
@@ -957,6 +981,7 @@ declare namespace media {
      * @param { AsyncCallback<AVMetadata> } callback - A callback instance used to return when fetchMetadata completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
@@ -966,6 +991,7 @@ declare namespace media {
      * which is an **AVMetadata** instance.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
@@ -977,6 +1003,7 @@ declare namespace media {
      * which is an **AVMetadata** instance.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 22 static
@@ -988,6 +1015,7 @@ declare namespace media {
      * @returns { Promise<AVMetadata> } A Promise instance used to return when fetchMetadata completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 11
      */
@@ -996,6 +1024,7 @@ declare namespace media {
      * @returns { Promise<AVMetadata> } Promise used to return the result, which is an **AVMetadata** instance.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12 dynamic
@@ -1006,6 +1035,7 @@ declare namespace media {
      * @returns { Promise<AVMetadata | undefined> } Promise used to return the result, which is an **AVMetadata** instance.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 22 static
@@ -1096,10 +1126,62 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 20 dynamic
      */
     fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>;
+
+    /**
+     * It will decode the given video resource. Then fetch a picture
+     * at @timeUs according the given @options and @param .
+     * @param { long } timeUs - The time expected to fetch picture from the video resource.
+     * The unit is microsecond(us).
+     * @param { AVImageQueryOptions } options - The time options about the relationship
+     * between the given timeUs and a key frame, see @AVImageQueryOptions .
+     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams .
+     * @returns { Promise<image.PixelMap | undefined> } A Promise instance used to return the pixel map
+     * when fetchFrameByTime completed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 22 static
+     */
+    fetchFrameByTime(timeUs: long, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap | undefined>;
+
+    /**
+     * It will decode the given video resource, then fetch pictures at each time member of @timesUs array
+     * according the given @options and @param. When one fetch is done, a callback is called with fetch result.
+     * Please note that, the callback order is not same as the time order in @timesUs aray.
+     * @param { long[] } timesUs - The times array expected to fetch picture from the video resource.
+     *    The unit of time is microsecond(us). The max size of array is 4096.
+     * @param { AVImageQueryOptions } queryOption - The time options about the relationship
+     *    between the given timeUs and a key frame, see @AVImageQueryOptions.
+     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams.
+     * @param { OnFrameFetched } callback - The callback function when a fetch is done\failed\cancelled.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    fetchFramesByTimes(timesUs: long[], queryOption: AVImageQueryOptions, param: PixelMapParams,
+        callback: OnFrameFetched): void;
+
+    /**
+     * Cancel all fetch tasks which are triggered by { fetchFramesByTimes }. The callbacks of { fetchFrameByTimes }
+     * will be called with cancelled result.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    cancelAllFetchFrames(): void;
 
     /**
      * Obtains the video timestamp corresponding to a video frame number. Only MP4 video files are supported.
@@ -1877,6 +1959,95 @@ declare namespace media {
   }
 
   /**
+   * Enumerates the fetch result code.
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum FetchResult {
+    /**
+     * Fetch picture from video failed.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    FETCH_FAILED = 0,
+
+    /**
+     * Fetch picture from video success.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    FETCH_SUCCEEDED = 1,
+
+    /**
+     * Fetch picture from video is cancelled by user.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    FETCH_CANCELED = 2,
+  }
+
+  /**
+   * Defines the frame info when fetch picture form a video.
+   * @typedef FrameInfo
+   * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface FrameInfo {
+    /**
+     * The requested frame time.
+     * @type { long }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    requestedTimeUs: long;
+
+    /**
+     * The actual frame time.
+     * @type { ?long }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    actualTimeUs?: long;
+
+    /**
+     * The image extracted from video.
+     * @type { ?image.PixelMap }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    image?: image.PixelMap;
+
+    /**
+     * The fetch result code -succeed, failed or cancelled.
+     * @type { FetchResult }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    result: FetchResult;
+  }
+
+ /**
+   * Describes the callback invoked for the track change event.
+   * @typedef { function } OnFrameFetched
+   * @param { FrameInfo } frameInfo - the fetched data.
+   * @param { BusinessError<void> } [err] - the error ocurred during fetch.
+   * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  type OnFrameFetched = (frameInfo: FrameInfo, err?: BusinessError<void>) => void;
+
+  /**
     * Enumerates ErrorCode types, return in BusinessError::code.
     *
     * @enum { number }
@@ -2264,6 +2435,14 @@ declare namespace media {
     AVERR_SUPER_RESOLUTION_NOT_ENABLED = 5410004,
 
     /**
+     * Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    AVERR_IO_CLEARTEXT_NOT_PERMITTED = 5411012,
+
+    /**
      * The parameter value is out of the specified range.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -2429,13 +2608,13 @@ declare namespace media {
    * Defines the OnPlaybackRateDone callback.
    *
    * @typedef { function } OnPlaybackRateDone
-   * @param { number } rate - playback rate.
+   * @param { double } rate - playback rate.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
    * @since 20 dynamic
    * @since 22 static
    */
-  type OnPlaybackRateDone = (rate: number) => void;
+  type OnPlaybackRateDone = (rate: double) => void;
 
   /**
    * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
@@ -3501,7 +3680,7 @@ declare namespace media {
     /**
      * Set playback rate.
      * Supported states: prepared/playing/paused/completed.
-     * @param { number } rate - playback rate, valid range is 0.125 ~ 4.
+     * @param { double } rate - playback rate, valid range is 0.125 ~ 4.
      * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
      * @throws { BusinessError } 5400102 - Operation not allowed, if invalid state or live stream.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3509,7 +3688,7 @@ declare namespace media {
      * @since 20 dynamic
      * @since 22 static
      */
-    setPlaybackRate(rate: number): void;
+    setPlaybackRate(rate: double): void;
 
     /**
      * select a specified bitrate to playback, only valid for HLS protocol network stream. By default, the
@@ -4333,6 +4512,7 @@ declare namespace media {
      * @throws { BusinessError } 5411009 - IO SSL connect fail.
      * @throws { BusinessError } 5411010 - IO SSL server cert untrusted.
      * @throws { BusinessError } 5411011 - IO unsupported request.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -4733,6 +4913,7 @@ declare namespace media {
      * @throws { BusinessError } 5411009 - IO SSL connect fail.
      * @throws { BusinessError } 5411010 - IO SSL server cert untrusted.
      * @throws { BusinessError } 5411011 - IO unsupported request.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 22 static
      */
@@ -6332,7 +6513,6 @@ declare namespace media {
      * **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * 2. Incorrect parameter types. 3.Parameter verification failed.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -9713,6 +9893,14 @@ declare namespace media {
      * @since 22 static
      */
     MD_KEY_ORIGINAL_HEIGHT = 'original_height',
+
+    /**
+     * Key for track mime type, value type is string. For audio & video track, the value equals { MD_KEY_CODEC_MIME }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    MD_KEY_MIME_TYPE = 'mime_type',
 
     /**
      * Key for reference track IDs, value type is string, in comma separated format.

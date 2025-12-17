@@ -137,24 +137,24 @@ export interface NotificationSubscriber {
   onEnabledNotificationChanged?: (callbackData: EnabledNotificationCallbackData) => void;
 
   /**
-   * Callback when the priority notification switch is changed.
+   * Called when the enabling status of the priority notification changes.
    * 
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 dynamic&static
    */
-  onEnabledPriorityChanged?: (enable: boolean) => void;
+  onEnabledPriorityChanged?: (callbackData: EnabledPriorityNotificationCallbackData) => void;
 
   /**
-   * Callback when the priority notification switch by bundle is changed.
+   * Called when the enabling status of the application priority notification changes.
    * 
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 dynamic&static
    */
-  onEnabledPriorityByBundleChanged?: (callbackData: EnabledNotificationCallbackData) => void;
+  onEnabledPriorityByBundleChanged?: (callbackData: EnabledPriorityNotificationByBundleCallbackData) => void;
 
   /**
    * Callback when badge number changed.
@@ -307,6 +307,70 @@ export interface EnabledNotificationCallbackData {
    * @since 22 static
    */
   readonly enable: boolean;
+}
+
+/**
+ * Describes the main switch state for priority notification.
+ *
+ * @typedef EnabledPriorityNotificationCallbackData
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export interface EnabledPriorityNotificationCallbackData {
+  /**
+   * The main switch state for priority notification.
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  readonly enable: boolean;
+}
+
+/**
+ * Describes the switch state to Restrict notification capability.
+ *
+ * @typedef EnabledPriorityNotificationByBundleCallbackData
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export interface EnabledPriorityNotificationByBundleCallbackData {
+  /**
+   * The bundle name of the application.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  readonly bundle: string;
+
+  /**
+   * The uid of the application.
+   *
+   * @type { int }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  readonly uid: int;
+
+  /**
+   * Apply notification enable status.
+   *
+   * @type { notificationManager.PriorityEnableStatus }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  readonly enableStatus: notificationManager.PriorityEnableStatus;
 }
 
 /**

@@ -616,7 +616,6 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
    */
   /**
    * Detailed information of statistics.
@@ -631,7 +630,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Bytes of received.
@@ -647,7 +645,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Bytes of send.
@@ -663,7 +660,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Packets of received.
@@ -679,7 +675,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Packets of send.
@@ -731,8 +726,7 @@ declare namespace statistics {
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12 dynamic
-     * @since 22 static
+     * @since 12
      */
     startTime: int;
     /**
@@ -740,8 +734,7 @@ declare namespace statistics {
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12 dynamic
-     * @since 22 static
+     * @since 12
      */
     endTime: int;
     /**
@@ -749,8 +742,7 @@ declare namespace statistics {
      * @type { NetStatsInfo }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12 dynamic
-     * @since 22 static
+     * @since 12
      */
     info: NetStatsInfo;
   }[];
@@ -821,7 +813,6 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
    */
   /**
    * Parameters for obtaining detailed information on specified network traffic usage.
@@ -836,7 +827,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Network type for querying traffic.
@@ -851,7 +841,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Start time for querying traffic.
@@ -866,7 +855,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * End time for querying traffic.
@@ -881,7 +869,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * SIM card id for querying traffic.
@@ -944,6 +931,23 @@ declare namespace statistics {
    * @since 22 dynamic&static
    */
   function getSelfTrafficStats(networkInfo: NetworkInfo): Promise<NetStatsInfo>;
+
+  /**
+   * Get this month traffic data of the cellular network.
+   *
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { int } simId - The id of the specified sim card.
+   * @returns { Promise<long> } The statistics of the simId in this month.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  function getMonthTrafficStats(simId: int): Promise<long>;
 }
 
 export default statistics;

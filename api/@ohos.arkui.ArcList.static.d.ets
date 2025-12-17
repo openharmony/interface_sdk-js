@@ -26,7 +26,7 @@ import { LengthMetrics, ColorMetrics } from './arkui/Graphics';
 import { ComponentBuilder, CustomBuilder } from '@ohos.arkui.component';
 import { ComponentContentBase } from './arkui/ComponentContent';
 import { AttributeModifier, CommonMethod } from '@ohos.arkui.component';
-import { SwipeActionOptions } from '.@ohos.arkui.component';
+import { SwipeActionOptions } from '@ohos.arkui.component';
 /**
  * Called when the start, end and center positions of the display change.
  *
