@@ -423,6 +423,34 @@ declare namespace avSession {
   }
 
   /**
+   * Whether desktop lyric feature is supported.
+   * @returns { Promise<boolean> } - result returned to indicate desktop lyric is supported.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function isDesktopLyricSupported(): Promise<boolean>;
+
+  /**
+   * Desktop lyric state definition.
+   * @typedef DesktopLyricState
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface DesktopLyricState {
+    /**
+     * Desktop lyric lock state.
+     * @typedef { boolean } Boolean type. The value true means that desktop lyric is locked.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isLocked: boolean;
+  }
+
+  /**
    * Session token. Used to judge the legitimacy of the session.
    * @typedef SessionToken
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -1998,6 +2026,117 @@ declare namespace avSession {
      * @since 22 static
      */
     setExtras(extras: Record<string, Object>): Promise<void>;
+
+    /**
+     * Enable desktop lyric for this session.
+     * @param { boolean } enable - The enable status indicating to using system desktop lyric feature or not
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    enableDesktopLyric(enable: boolean): Promise<void>;
+
+    /**
+     * Set desktop lyric visible state for this session.
+     * @param { boolean } visible - make desktop lyric window visible or not
+     * @returns { Promise<boolean> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setDesktopLyricVisible(visible: boolean): Promise<void>;
+
+    /**
+     * Query desktop lyric visible state for this session.
+     * @returns { Promise<boolean> } return desktop lyric visible state
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isDesktopLyricVisible(): Promise<boolean>;
+
+    /**
+     * Register desktop lyric visible state change callback.
+     * @param { Callback<boolean> } callback - a callback to receive desktop lyric window visible state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onDesktopLyricVisibilityChanged(callback: Callback<boolean>): void;
+
+    /**
+     * Unregister desktop lyric visible state change callback.
+     * @param { Callback<boolean> } [callback] - a callback to receive desktop lyric window visible state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offDesktopLyricVisibilityChanged(callback?: Callback<boolean>): void;
+
+    /**
+     * Set desktop lyric state such as lock state for this session.
+     * @param { DesktopLyricState } state - The desktop lyric state
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setDesktopLyricState(state: DesktopLyricState): Promise<void>;
+
+    /**
+     * Get desktop lyric state such as lock state for this session.
+     * @returns { Promise<DesktopLyricState> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getDesktopLyricState(): Promise<DesktopLyricState>;
+
+    /**
+     * Register desktop lyric state changed callback.
+     * @param { Callback<DesktopLyricState> } callback - a callback to receive desktop lyric state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onDesktopLyricStateChanged(callback: Callback<DesktopLyricState>): void;
+
+    /**
+     * Unregister desktop lyric state changed callback.
+     * @param { Callback<DesktopLyricState> } [callback] - a callback to receive desktop lyric state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offDesktopLyricStateChanged(callback?: Callback<DesktopLyricState>): void;
 
     /**
      * Get the current session's own controller
@@ -8903,6 +9042,143 @@ declare namespace avSession {
     getExtrasWithEvent(extraEvent: string): Promise<ExtraInfo>;
 
     /**
+     * Query desktop lyric enabled state for this session.
+     * @returns { Promise<boolean> } return the enabled status
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isDesktopLyricEnabled(): Promise<boolean>;
+
+    /**
+     * Register desktop lyric enable state change callback.
+     * @param { Callback<boolean> } callback - a callback to receive desktop lyric enable state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onDesktopLyricEnabled(callback: Callback<boolean>): void;
+
+    /**
+     * Unregister desktop lyric enable state change callback.
+     * @param { Callback<boolean> } [callback] - a callback to receive desktop lyric enable state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offDesktopLyricEnabled(callback?: Callback<boolean>): void;
+
+    /**
+     * Set desktop lyric visible state for this session.
+     * @param { boolean } visible - make desktop lyric window visible or not
+     * @returns { Promise<boolean> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setDesktopLyricVisible(visible: boolean): Promise<void>;
+
+    /**
+     * Query desktop lyric visible state for this session.
+     * @returns { Promise<boolean> } return desktop lyric visible state
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isDesktopLyricVisible(): Promise<boolean>;
+
+    /**
+     * Register desktop lyric visible state change callback.
+     * @param { Callback<boolean> } callback - a callback to receive desktop lyric window visible state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onDesktopLyricVisibilityChanged(callback: Callback<boolean>): void;
+
+    /**
+     * Unregister desktop lyric visible state change callback.
+     * @param { Callback<boolean> } [callback] - a callback to receive desktop lyric window visible state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offDesktopLyricVisibilityChanged(callback?: Callback<boolean>): void;
+
+    /**
+     * Set desktop lyric state such as lock state for this session.
+     * @param { DesktopLyricState } state - The desktop lyric state
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setDesktopLyricState(state: DesktopLyricState): Promise<void>;
+
+    /**
+     * Get desktop lyric state such as lock state for this session.
+     * @returns { Promise<DesktopLyricState> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getDesktopLyricState(): Promise<DesktopLyricState>;
+
+    /**
+     * Register desktop lyric state changed callback.
+     * @param { Callback<DesktopLyricState> } callback - a callback to receive desktop lyric state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onDesktopLyricStateChanged(callback: Callback<DesktopLyricState>): void;
+
+    /**
+     * Unregister desktop lyric state changed callback.
+     * @param { Callback<DesktopLyricState> } [callback] - a callback to receive desktop lyric state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offDesktopLyricStateChanged(callback?: Callback<DesktopLyricState>): void;
+
+    /**
      * Register metadata changed callback
      * @param { 'metadataChange' } type
      * @param { Array<keyof AVMetadata> | 'all' } filter - The properties of {@link AVMetadata} that you cared about
@@ -10430,6 +10706,24 @@ declare namespace avSession {
      * @since 22 static
      */
     ERR_CODE_REMOTE_CONNECTION_NOT_EXIST = 6600109,
+
+    /**
+     * The desktop lyrics feature of this application is not enabled.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    ERR_CODE_DESKTOP_LYRIC_NOT_ENABLED = 6600110,
+
+    /**
+     * The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    ERR_CODE_DESKTOP_LYRIC_NOT_SUPPORTED = 6600111,
 
     /**
      * The error code for cast control is unspecified.
