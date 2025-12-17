@@ -5025,6 +5025,16 @@ declare namespace text {
    * @since 23 dynamic&static
    */
   function getFontCount(path: string | Resource) : int;
+
+  /**
+   * Obtains the corresponding font path array based on the font type.
+   * @param { SystemFontType } fontType - System font type.
+   * @returns { Array<string> } An array of font path.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  function getFontPathsByType(fontType: SystemFontType): Array<string>;
 }
 
 export default text;
