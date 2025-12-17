@@ -2044,7 +2044,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     on(type: 'switching', callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -2076,7 +2076,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     off(type: 'switching', callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -2108,7 +2108,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     on(type: 'switched', callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -2140,7 +2140,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     off(type: 'switched', callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -2268,7 +2268,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onSwitching(callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -2282,7 +2282,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offSwitching(callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -2296,7 +2296,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onSwitched(callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -2310,7 +2310,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offSwitched(callback?: Callback<OsAccountSwitchEventData>): void;
 
