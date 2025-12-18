@@ -853,13 +853,29 @@ declare const Env: EnvDecorator;
  */
 declare enum SystemProperties {
  /**
-  * System environmental breakpoin key that is used to obtain the width and height breakpoint value of the window.
+  * System environmental breakpoint key that is used to obtain the width and height breakpoint value of the window.
   * 
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 22 dynamic
   */
   BREAK_POINT = 'system.arkui.breakpoint',
+  /**
+   * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in vp.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  WINDOW_AVOID_AREA = 'system.window.avoidarea',
+  /**
+   * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in px.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  WINDOW_AVOID_AREA_PX = 'system.window.avoidarea.px',
   /**
    * System environmental windowsize key that is used to obtain the size of the window, measured in vp.
    * 
