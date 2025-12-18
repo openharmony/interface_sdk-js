@@ -252,7 +252,15 @@ declare namespace sensor {
      * @since 9 dynamic
      * @since 22 static
      */
-    ACCELEROMETER_UNCALIBRATED = 281
+    ACCELEROMETER_UNCALIBRATED = 281,
+
+    /**
+     * Fusion pressure sensor.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    FUSION_PRESSURE = 283
   }
 
   /**
@@ -573,6 +581,19 @@ declare namespace sensor {
    * @since 22 static
    */
   function onWearDetectionChange(callback: Callback<WearDetectionResponse>, options?: Options): void;
+
+  /**
+   * Subscribe to fusion pressure sensor data, {@code SensorId.FUSION_PRESSURE}.
+   * @param { Callback<FusionPressureResponse> } callback - callback fusion pressure percent data.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
+   *     <br> {@code Options}.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 23 static
+   */
+  function onFusionPressureChange(callback: Callback<FusionPressureResponse>, options?: Options): void;
 
   /**
    * Subscribe to orientation sensor data once, {@code SensorId.ORIENTATION}.
@@ -1119,6 +1140,18 @@ declare namespace sensor {
   function offWearDetectionChange(sensorInfoParam?: SensorInfoParam, callback?: Callback<WearDetectionResponse>): void;
 
   /**
+   * Unsubscribe to fusion pressure sensor data, {@code SensorId.FUSION_PRESSURE}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<FusionPressureResponse> } [callback] - callback fusion pressure percent data.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 23 static
+   */
+  function offFusionPressureChange(sensorInfoParam?: SensorInfoParam, callback?: Callback<FusionPressureResponse>): void;
+
+  /**
    * Subscribe to color sensor data.
    * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
    * @param { Callback<ColorResponse> } callback - callback color data.
@@ -1545,6 +1578,21 @@ declare namespace sensor {
    * @since 9 dynamic
    */
   function on(type: SensorId.WEAR_DETECTION, callback: Callback<WearDetectionResponse>,
+    options?: Options): void;
+
+  /**
+   * Subscribe to fusion pressure sensor data.
+   * @param { SensorId.FUSION_PRESSURE } type - Indicate the sensor type to listen for,
+   * <br> {@code SensorId.FUSION_PRESSURE}.
+   * @param { Callback<FusionPressureResponse> } callback - callback fusion pressure percent data.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
+   * <br> {@code Options}.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 22 dynamic
+   */
+  function on(type: SensorId.FUSION_PRESSURE, callback: Callback<FusionPressureResponse>,
     options?: Options): void;
 
   /**
@@ -2455,6 +2503,18 @@ declare namespace sensor {
    * @since 9 dynamic
    */
   function off(type: SensorId.WEAR_DETECTION, callback?: Callback<WearDetectionResponse>): void;
+
+  /**
+   * Unsubscribe to fusion pressure sensor data.
+   * @param { SensorId.FUSION_PRESSURE } type - Indicate the sensor type to listen for, {@code SensorId.FUSION_PRESSURE}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<FusionPressureResponse> } callback - callback fusion pressure percent data.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 22 dynamic
+   */
+  function off(type: SensorId.FUSION_PRESSURE, sensorInfoParam?: SensorInfoParam, callback?: Callback<FusionPressureResponse>): void;
 
   /**
    * Unsubscribe to wear detection sensor data.
@@ -5332,6 +5392,24 @@ declare namespace sensor {
      * @since 22 static
      */
     absorptionRatio: double;
+  }
+
+  /**
+   * fusion pressure sensor event data.
+   * @typedef FusionPressureResponse
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  interface FusionPressureResponse extends Response {
+    /**
+     * Indicates the pressure percent data.
+     * @type { double }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    fusionPressure: double;
   }
 
   /**
