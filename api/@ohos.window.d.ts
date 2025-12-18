@@ -3690,6 +3690,9 @@ declare namespace window {
   /**
    * Minimize all app windows, exclude the specified main window.
    *
+   * Device Behavior Differences: This interface can be normally invoked on Phone devices.
+   *     On other devices, the call will not take effect.
+   *
    * @param { long } displayId - ID of the display.
    * @param { int } excludeWindowId - ID of the main window will be excluded.
    * @returns { Promise<void> } Promise that returns no value.
@@ -3700,9 +3703,10 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
+   * @stagemodelonly
    * @since 23 dynamic&static
    */
-  function minimizeAll(displayId: long, excludeWindowId: int): Promise<void>;
+  function minimizeAllWithExclusion(displayId: long, excludeWindowId: int): Promise<void>;
 
   /**
    * Toggle shown state for all app windows. Minimize or restore all app windows.
