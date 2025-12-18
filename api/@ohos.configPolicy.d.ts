@@ -27,7 +27,7 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.Customization.ConfigPolicy
  * @systemapi
  * @since 8 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace configPolicy {
   /**
@@ -37,7 +37,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum FollowXMode {
     /**
@@ -46,7 +46,7 @@ declare namespace configPolicy {
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT = 0,
 
@@ -56,7 +56,7 @@ declare namespace configPolicy {
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NO_RULE_FOLLOWED = 1,
 
@@ -66,7 +66,7 @@ declare namespace configPolicy {
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SIM_DEFAULT = 10,
 
@@ -76,7 +76,7 @@ declare namespace configPolicy {
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SIM_1 = 11,
 
@@ -86,7 +86,7 @@ declare namespace configPolicy {
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SIM_2 = 12,
 
@@ -97,7 +97,7 @@ declare namespace configPolicy {
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     USER_DEFINED = 100
   }
@@ -112,7 +112,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getOneCfgFile(relPath: string, callback: AsyncCallback<string>): void;
 
@@ -127,7 +127,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getOneCfgFile(relPath: string, followMode: FollowXMode, callback: AsyncCallback<string>): void;
 
@@ -143,7 +143,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getOneCfgFile(relPath: string, followMode: FollowXMode, extra: string, callback: AsyncCallback<string>): void;
 
@@ -157,7 +157,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getOneCfgFile(relPath: string): Promise<string>;
 
@@ -173,7 +173,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getOneCfgFile(relPath: string, followMode: FollowXMode, extra?: string): Promise<string>;
 
@@ -189,7 +189,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getOneCfgFileSync(relPath: string, followMode?: FollowXMode, extra?: string): string;
 
@@ -203,7 +203,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getCfgFiles(relPath: string, callback: AsyncCallback<Array<string>>): void;
 
@@ -218,7 +218,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getCfgFiles(relPath: string, followMode: FollowXMode, callback: AsyncCallback<Array<string>>): void;
 
@@ -234,7 +234,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getCfgFiles(relPath: string, followMode: FollowXMode, extra: string, callback: AsyncCallback<Array<string>>): void;
 
@@ -248,7 +248,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getCfgFiles(relPath: string): Promise<Array<string>>;
 
@@ -264,7 +264,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getCfgFiles(relPath: string, followMode: FollowXMode, extra?: string): Promise<Array<string>>;
 
@@ -280,7 +280,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getCfgFilesSync(relPath: string, followMode?: FollowXMode, extra?: string): Array<string>;
 
@@ -293,7 +293,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getCfgDirList(callback: AsyncCallback<Array<string>>): void;
 
@@ -313,7 +313,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getCfgDirList(): Promise<Array<string>>;
 
@@ -333,7 +333,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getCfgDirListSync(): Array<string>;
 }

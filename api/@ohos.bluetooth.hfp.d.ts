@@ -26,7 +26,7 @@ import type baseProfile from './@ohos.bluetooth.baseProfile';
  * @namespace hfp
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace hfp {
   /**
@@ -35,7 +35,7 @@ declare namespace hfp {
    * @typedef { baseProfile.BaseProfile } BaseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type BaseProfile = baseProfile.BaseProfile;
 
@@ -48,7 +48,7 @@ declare namespace hfp {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createHfpAgProfile(): HandsFreeAudioGatewayProfile;
 
@@ -59,7 +59,7 @@ declare namespace hfp {
    * @typedef HandsFreeAudioGatewayProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface HandsFreeAudioGatewayProfile extends BaseProfile {
     /**
@@ -79,7 +79,7 @@ declare namespace hfp {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     connect(deviceId: string): void;
 
@@ -100,7 +100,7 @@ declare namespace hfp {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     disconnect(deviceId: string): void;
   }

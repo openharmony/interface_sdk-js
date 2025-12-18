@@ -3714,7 +3714,6 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10 dynamic
-     * @since 22 static
      */
     /**
      * Certificate proving the identity of the client
@@ -3907,7 +3906,8 @@ declare namespace socket {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     timeout?: int;
   }

@@ -31,7 +31,8 @@ import { NotificationInfo as _NotificationInfo } from './notification/Notificati
  * 
  * @namespace notificationExtensionSubscription
  * @syscap SystemCapability.Notification.Notification
- * @since 22 dynamic&static
+ * @since 22 dynamic
+ * @since 23 static
  */
 declare namespace notificationExtensionSubscription {
   
@@ -48,7 +49,8 @@ declare namespace notificationExtensionSubscription {
    * @throws { BusinessError } 1600018 - The notification settings window is already displayed.
    * @throws { BusinessError } 1600023 - The application does not implement the NotificationSubscriberExtensionAbility.
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function openSubscriptionSettings(context: UIAbilityContext): Promise<void>;
 
@@ -63,7 +65,8 @@ declare namespace notificationExtensionSubscription {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600023 - The application does not implement the NotificationSubscriberExtensionAbility.
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function subscribe(info: NotificationExtensionSubscriptionInfo[]): Promise<void>;
 
@@ -76,7 +79,8 @@ declare namespace notificationExtensionSubscription {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function unsubscribe(): Promise<void>;
 
@@ -89,7 +93,8 @@ declare namespace notificationExtensionSubscription {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getSubscribeInfo(): Promise<NotificationExtensionSubscriptionInfo[]>;
 
@@ -104,7 +109,8 @@ declare namespace notificationExtensionSubscription {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getAllSubscriptionBundles(): Promise<BundleOption[]>;
 
@@ -117,7 +123,8 @@ declare namespace notificationExtensionSubscription {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function isUserGranted(): Promise<boolean>;
 
@@ -134,7 +141,8 @@ declare namespace notificationExtensionSubscription {
    * @throws { BusinessError } 1600022 - The specified bundle is invalid.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getUserGrantedState(targetBundle: BundleOption): Promise<boolean>;
 
@@ -152,7 +160,8 @@ declare namespace notificationExtensionSubscription {
    * @throws { BusinessError } 1600022 - The specified bundle is invalid.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function setUserGrantedState(targetBundle: BundleOption, enabled: boolean): Promise<void>;
 
@@ -169,7 +178,8 @@ declare namespace notificationExtensionSubscription {
    * @throws { BusinessError } 1600022 - The specified bundle is invalid.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getUserGrantedEnabledBundles(targetBundle: BundleOption): Promise<BundleOption[]>;
 
@@ -182,7 +192,8 @@ declare namespace notificationExtensionSubscription {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getUserGrantedEnabledBundles(): Promise<GrantedBundleInfo[]>;
 
@@ -201,7 +212,8 @@ declare namespace notificationExtensionSubscription {
    * @throws { BusinessError } 1600022 - The specified bundle is invalid.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function setUserGrantedBundleState(targetBundle: BundleOption,
     enabledBundles: BundleOption[], enabled: boolean): Promise<void>;
@@ -211,14 +223,16 @@ declare namespace notificationExtensionSubscription {
    *
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum SubscribeType {
     /**
      * Subscribe notification extension by bluetooth.
      *
      * @syscap SystemCapability.Notification.Notification
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     BLUETOOTH = 0
   }
@@ -228,7 +242,8 @@ declare namespace notificationExtensionSubscription {
    *
    * @typedef { _BundleOption } BundleOption
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export type BundleOption = _BundleOption;
 
@@ -237,7 +252,8 @@ declare namespace notificationExtensionSubscription {
    *
    * @typedef { _GrantedBundleInfo } GrantedBundleInfo
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export type GrantedBundleInfo = _GrantedBundleInfo;
 
@@ -246,7 +262,8 @@ declare namespace notificationExtensionSubscription {
    *
    * @typedef { _NotificationExtensionSubscriptionInfo } NotificationExtensionSubscriptionInfo
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export type NotificationExtensionSubscriptionInfo = _NotificationExtensionSubscriptionInfo;
 
@@ -255,7 +272,8 @@ declare namespace notificationExtensionSubscription {
    *
    * @typedef { _NotificationInfo } NotificationInfo
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export type NotificationInfo = _NotificationInfo;
 }

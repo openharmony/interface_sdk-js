@@ -27,7 +27,7 @@ import { ElementName } from './ElementName';
  * @typedef LauncherAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @since 18 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface LauncherAbilityInfo {
   /**
@@ -37,7 +37,7 @@ export interface LauncherAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly applicationInfo: ApplicationInfo;
 
@@ -48,7 +48,7 @@ export interface LauncherAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly elementName: ElementName;
 
@@ -59,7 +59,7 @@ export interface LauncherAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly labelId: long;
 
@@ -70,7 +70,7 @@ export interface LauncherAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly iconId: long;
 
@@ -81,7 +81,7 @@ export interface LauncherAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly userId: int;
 
@@ -92,7 +92,7 @@ export interface LauncherAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly installTime: long;
 }

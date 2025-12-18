@@ -27,7 +27,7 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace installer {
   /**
@@ -39,7 +39,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleInstaller(callback: AsyncCallback<BundleInstaller>): void;
 
@@ -51,7 +51,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleInstaller(): Promise<BundleInstaller>;
 
@@ -63,7 +63,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleInstallerSync(): BundleInstaller;
 
@@ -74,7 +74,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface BundleInstaller {
     /**
@@ -369,7 +369,6 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
      */
     /**
      * Install HAPs for an application.
@@ -696,7 +695,6 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
      */
     /**
      * Install HAPs for an application.
@@ -1039,7 +1037,6 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
      */
     /**
      * Install haps for an application.
@@ -1173,7 +1170,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uninstall(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
@@ -1230,7 +1227,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uninstall(bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -1315,7 +1312,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uninstall(bundleName: string, installParam?: InstallParam): Promise<void>;
 
@@ -1372,7 +1369,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     recover(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
@@ -1423,7 +1420,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     recover(bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -1480,7 +1477,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     recover(bundleName: string, installParam?: InstallParam): Promise<void>;
 
@@ -1499,7 +1496,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uninstall(uninstallParam: UninstallParam, callback: AsyncCallback<void>): void;
 
@@ -1518,7 +1515,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uninstall(uninstallParam: UninstallParam): Promise<void>;
 
@@ -1591,7 +1588,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateBundleForSelf(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
@@ -1656,7 +1653,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateBundleForSelf(hapFilePaths: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1729,7 +1726,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateBundleForSelf(hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 
@@ -1770,7 +1767,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uninstallUpdates(bundleName: string, installParam?: InstallParam): Promise<void>;
 
@@ -1789,7 +1786,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
     */
     addExtResource(bundleName: string, filePaths: Array<string>): Promise<void>;
 
@@ -1808,7 +1805,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     removeExtResource(bundleName: string, moduleNames: Array<string>): Promise<void>;
 
@@ -1829,7 +1826,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<int>;
 
@@ -1890,7 +1887,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700062 - Failed to uninstall the app because the app is locked.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     destroyAppClone(bundleName: string, appIndex: int, options?: int | DestroyAppCloneParam): Promise<void>;
 
@@ -1929,7 +1926,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     installPreexistingApp(bundleName: string, userId?: int): Promise<void>;
 
@@ -1963,7 +1960,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     installPlugin(hostBundleName: string, pluginFilePaths: Array<string>, pluginParam?: PluginParam): Promise<void>;
 
@@ -1983,7 +1980,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uninstallPlugin(hostBundleName: string, pluginBundleName: string, pluginParam?: PluginParam): Promise<void>;
   }
@@ -1995,7 +1992,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface HashParam {
     /**
@@ -2005,7 +2002,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     moduleName: string;
 
@@ -2016,7 +2013,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     hashValue: string;
   }
@@ -2061,7 +2058,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface PGOParam {
     /**
@@ -2071,7 +2068,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     moduleName: string;
 
@@ -2082,7 +2079,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pgoFilePath: string;
   }
@@ -2094,7 +2091,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface Parameters {
     /**
@@ -2104,7 +2101,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     key: string;
 
@@ -2115,7 +2112,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     value: string;
   }
@@ -2127,7 +2124,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface InstallParam {
     /**
@@ -2137,7 +2134,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     userId?: int;
 
@@ -2148,7 +2145,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     installFlag?: int;
 
@@ -2159,7 +2156,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isKeepData?: boolean;
 
@@ -2170,7 +2167,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     hashParams?: Array<HashParam>;
 
@@ -2181,7 +2178,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     crowdtestDeadline?: long;
 
@@ -2192,7 +2189,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sharedBundleDirPaths?: Array<string>;
 
@@ -2203,7 +2200,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     specifiedDistributionType?: string;
 
@@ -2214,7 +2211,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     additionalInfo?: string;
 
@@ -2236,7 +2233,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pgoParams?: Array<PGOParam>;
 
@@ -2247,7 +2244,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     parameters?: Array<Parameters>;
   }
@@ -2259,7 +2256,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface UninstallParam {
     /**
@@ -2269,7 +2266,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleName: string;
 
@@ -2280,7 +2277,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     versionCode?: int;
   }
@@ -2292,7 +2289,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
    export interface CreateAppCloneParam {
     /**
@@ -2302,7 +2299,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     userId?: int;
     /**
@@ -2312,7 +2309,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appIndex?: int;
   }
@@ -2324,7 +2321,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface DestroyAppCloneParam {
     /**
@@ -2334,7 +2331,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     userId?: int;
     /**
@@ -2344,7 +2341,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     parameters?: Array<Parameters>;
   }
@@ -2356,7 +2353,7 @@ declare namespace installer {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface PluginParam {
     /**
@@ -2366,7 +2363,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     userId?: int;
 
@@ -2377,7 +2374,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     parameters?: Array<Parameters>;
   }

@@ -38,7 +38,7 @@ import { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, SaveReque
  * @systemapi
  * @StageModelOnly
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class AutoFillExtensionAbility extends ExtensionAbility {
   /**
@@ -49,7 +49,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   context: AutoFillExtensionContext;
 
@@ -60,7 +60,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onCreate(): void;
 
@@ -74,7 +74,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onFillRequest(session: UIExtensionContentSession, request: FillRequest, callback: FillRequestCallback): void;
 
@@ -88,7 +88,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onSaveRequest(session: UIExtensionContentSession, request: SaveRequest, callback: SaveRequestCallback): void;
 
@@ -100,7 +100,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onUpdateRequest(request: UpdateRequest): void;
 
@@ -112,7 +112,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onSessionDestroy(session: UIExtensionContentSession): void;
 
@@ -123,7 +123,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onForeground(): void;
 
@@ -134,7 +134,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onBackground(): void;
 
@@ -156,7 +156,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onDestroy(): Promise<void> | undefined;
 }

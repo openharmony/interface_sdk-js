@@ -28,7 +28,7 @@ import { KioskStatus as _KioskStatus } from './application/KioskStatus';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace kioskManager {
   /**
@@ -44,7 +44,7 @@ declare namespace kioskManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enterKioskMode(context: UIAbilityContext): Promise<void>;
 
@@ -60,7 +60,7 @@ declare namespace kioskManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function exitKioskMode(context: UIAbilityContext): Promise<void>;
 
@@ -75,7 +75,7 @@ declare namespace kioskManager {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getKioskStatus(): Promise<KioskStatus>;
 
@@ -86,7 +86,7 @@ declare namespace kioskManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type KioskStatus = _KioskStatus;
 }

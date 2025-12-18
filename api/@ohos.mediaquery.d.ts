@@ -59,7 +59,7 @@ import { Callback } from './@ohos.base';
  * @form
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace mediaquery {
   
@@ -96,7 +96,7 @@ declare namespace mediaquery {
    * @form
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MediaQueryResult {
     /**
@@ -140,7 +140,7 @@ declare namespace mediaquery {
      * @form
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly matches: boolean;
 
@@ -185,7 +185,7 @@ declare namespace mediaquery {
      * @form
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly media: string;
   }
@@ -227,7 +227,7 @@ declare namespace mediaquery {
    * @form
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MediaQueryListener extends MediaQueryResult {
     /**
@@ -271,7 +271,7 @@ declare namespace mediaquery {
      * @form
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     on(type: 'change', callback: Callback<MediaQueryResult>): void;
 
@@ -316,7 +316,7 @@ declare namespace mediaquery {
      * @form
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     off(type: 'change', callback?: Callback<MediaQueryResult>): void;
   }

@@ -27,7 +27,7 @@
  * @namespace hiTraceChain
  * @syscap SystemCapability.HiviewDFX.HiTrace
  * @since 8 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace hiTraceChain {
   /**
@@ -36,7 +36,7 @@ declare namespace hiTraceChain {
    * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum HiTraceFlag {
     /**
@@ -44,7 +44,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT = 0,
 
@@ -53,7 +53,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INCLUDE_ASYNC = 1,
 
@@ -62,7 +62,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DONOT_CREATE_SPAN = 1 << 1,
 
@@ -71,7 +71,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TP_INFO = 1 << 2,
 
@@ -80,7 +80,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NO_BE_INFO = 1 << 3,
 
@@ -89,7 +89,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DISABLE_LOG = 1 << 4,
 
@@ -98,7 +98,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FAILURE_TRIGGER = 1 << 5,
 
@@ -107,7 +107,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     D2D_TP_INFO = 1 << 6
   }
@@ -118,7 +118,7 @@ declare namespace hiTraceChain {
    * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum HiTraceTracepointType {
     /**
@@ -126,7 +126,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CS = 0,
 
@@ -135,7 +135,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CR = 1,
 
@@ -144,7 +144,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SS = 2,
 
@@ -153,7 +153,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SR = 3,
 
@@ -162,7 +162,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GENERAL = 4
   }
@@ -173,7 +173,7 @@ declare namespace hiTraceChain {
    * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum HiTraceCommunicationMode {
     /**
@@ -181,7 +181,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT = 0,
 
@@ -190,7 +190,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     THREAD = 1,
 
@@ -199,7 +199,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PROCESS = 2,
 
@@ -208,7 +208,7 @@ declare namespace hiTraceChain {
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEVICE = 3
   }
@@ -219,7 +219,7 @@ declare namespace hiTraceChain {
    * @interface HiTraceId
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface HiTraceId {
     /**
@@ -228,7 +228,7 @@ declare namespace hiTraceChain {
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     chainId: bigint;
 
@@ -238,7 +238,7 @@ declare namespace hiTraceChain {
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     spanId?: int;
 
@@ -248,7 +248,7 @@ declare namespace hiTraceChain {
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     parentSpanId?: int;
 
@@ -258,7 +258,7 @@ declare namespace hiTraceChain {
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     flags?: int;
   }
@@ -271,7 +271,7 @@ declare namespace hiTraceChain {
    * @returns { HiTraceId } Valid if first call, otherwise invalid.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function begin(name: string, flags?: int): HiTraceId;
 
@@ -282,7 +282,7 @@ declare namespace hiTraceChain {
    * @param { HiTraceId } id The trace id that need to stop.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function end(id: HiTraceId): void;
 
@@ -293,7 +293,7 @@ declare namespace hiTraceChain {
    * @returns { HiTraceId } Valid if current thread have a trace id, otherwise invalid.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getId(): HiTraceId;
 
@@ -303,7 +303,7 @@ declare namespace hiTraceChain {
    * @param { HiTraceId } id Set id as trace id of current thread.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setId(id: HiTraceId): void;
 
@@ -312,7 +312,7 @@ declare namespace hiTraceChain {
    *
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function clearId(): void;
 
@@ -322,7 +322,7 @@ declare namespace hiTraceChain {
    * @returns { HiTraceId } A valid span trace id. Otherwise trace id of current thread if do not allow create span.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createSpan(): HiTraceId;
 
@@ -335,7 +335,7 @@ declare namespace hiTraceChain {
    * @param { string } msg Customized info that need to print.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function tracepoint(mode: HiTraceCommunicationMode, type: HiTraceTracepointType, id: HiTraceId, msg?: string): void;
 
@@ -346,7 +346,7 @@ declare namespace hiTraceChain {
    * @returns { boolean } True for a valid trace id, otherwise false.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isValid(id: HiTraceId): boolean;
 
@@ -358,7 +358,7 @@ declare namespace hiTraceChain {
    * @returns { boolean } true if the trace id has enabled the flag.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isFlagEnabled(id: HiTraceId, flag: HiTraceFlag): boolean;
 
@@ -369,7 +369,7 @@ declare namespace hiTraceChain {
    * @param { HiTraceFlag } flag the designative trace flag that need to be enabled in the trace id.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableFlag(id: HiTraceId, flag: HiTraceFlag): void;
 }

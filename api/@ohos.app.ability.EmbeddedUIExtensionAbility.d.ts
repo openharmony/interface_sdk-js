@@ -27,7 +27,7 @@ import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default class EmbeddedUIExtensionAbility extends UIExtensionAbility {
 }

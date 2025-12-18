@@ -32,7 +32,7 @@
  * @syscap SystemCapability.Ability.Form
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace formBindingData {
   /**
@@ -55,7 +55,7 @@ declare namespace formBindingData {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createFormBindingData(obj?: Object | string): FormBindingData;
 
@@ -73,7 +73,7 @@ declare namespace formBindingData {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FormBindingData {
     /**
@@ -90,7 +90,7 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     data: Object;
 
@@ -110,7 +110,7 @@ declare namespace formBindingData {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     proxies?: Array<ProxyData>;
   }
@@ -131,7 +131,7 @@ declare namespace formBindingData {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ProxyData {
     /**
@@ -150,7 +150,7 @@ declare namespace formBindingData {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     key: string;
 
@@ -170,7 +170,7 @@ declare namespace formBindingData {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     subscriberId?: string;
   }

@@ -23,7 +23,7 @@
  *
  * @interface MemoState
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface MemoState<T> {
   /**
@@ -31,7 +31,7 @@ export interface MemoState<T> {
    * @type { T }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   readonly value: T;
 }

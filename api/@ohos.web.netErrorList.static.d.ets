@@ -22,14 +22,14 @@
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 22 static
+ * @since 23 static
  */
 export declare enum WebNetErrorList {
     /**
      * Normal.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     NET_OK = 0,
     /**
@@ -39,56 +39,56 @@ export declare enum WebNetErrorList {
      * finally completed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_IO_PENDING = -1,
     /**
      * A generic failure occurred.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FAILED = -2,
     /**
      * An operation was aborted (due to user action).
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_ABORTED = -3,
     /**
      * An argument to the function is incorrect.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INVALID_ARGUMENT = -4,
     /**
      * The handle or file descriptor is invalid.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INVALID_HANDLE = -5,
     /**
      * The file or directory cannot be found.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FILE_NOT_FOUND = -6,
     /**
      * An operation timed out.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_TIMED_OUT = -7,
     /**
      * The file is too large.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FILE_TOO_LARGE = -8,
     /**
@@ -96,35 +96,35 @@ export declare enum WebNetErrorList {
      * invalid assumption.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_UNEXPECTED = -9,
     /**
      * Permission to access a resource, other than the network, was denied.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_ACCESS_DENIED = -10,
     /**
      * The operation failed because of unimplemented functionality.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_NOT_IMPLEMENTED = -11,
     /**
      * There were not enough resources to complete the operation.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INSUFFICIENT_RESOURCES = -12,
     /**
      * Memory allocation failed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_OUT_OF_MEMORY = -13,
     /**
@@ -132,56 +132,56 @@ export declare enum WebNetErrorList {
      * from the expectation.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_UPLOAD_FILE_CHANGED = -14,
     /**
      * The socket is not connected.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SOCKET_NOT_CONNECTED = -15,
     /**
      * The file already exists.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FILE_EXISTS = -16,
     /**
      * The path or file name is too long.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FILE_PATH_TOO_LONG = -17,
     /**
      * Not enough room left on the disk.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FILE_NO_SPACE = -18,
     /**
      * The file has a virus.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FILE_VIRUS_INFECTED = -19,
     /**
      * The client chose to block the request.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_BLOCKED_BY_CLIENT = -20,
     /**
      * The network changed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_NETWORK_CHANGED = -21,
     /**
@@ -189,14 +189,14 @@ export declare enum WebNetErrorList {
      * administrator.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_BLOCKED_BY_ADMINISTRATOR = -22,
     /**
      * The socket is already connected.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SOCKET_CONNECTED = -23,
     /**
@@ -204,7 +204,7 @@ export declare enum WebNetErrorList {
      * retry or a redirect, but the upload stream doesn't support that operation.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_UPLOAD_STREAM_REWIND_NOT_SUPPORTED = -25,
     /**
@@ -212,7 +212,7 @@ export declare enum WebNetErrorList {
      * been shut down.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CONTEXT_SHUT_DOWN = -26,
     /**
@@ -221,7 +221,7 @@ export declare enum WebNetErrorList {
      * checks and 'Cross-Origin-Resource-Policy' for instance,.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_BLOCKED_BY_RESPONSE = -27,
     /**
@@ -229,49 +229,49 @@ export declare enum WebNetErrorList {
      * requests.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CLEARTEXT_NOT_PERMITTED = -29,
     /**
      * The request was blocked by a Content Security Policy.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_BLOCKED_BY_CSP = -30,
     /**
      * The request was blocked because of no H/2 or QUIC session.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_H2_OR_QUIC_REQUIRED = -31,
     /**
      * The request was blocked by CORB or ORB.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_BLOCKED_BY_ORB = -32,
     /**
      * A connection was closed (corresponding to a TCP FIN,.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CONNECTION_CLOSED = -100,
     /**
      * A connection was reset (corresponding to a TCP RST,.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CONNECTION_RESET = -101,
     /**
      * A connection attempt was refused.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CONNECTION_REFUSED = -102,
     /**
@@ -279,35 +279,35 @@ export declare enum WebNetErrorList {
      * This can include a FIN packet that did not get ACK'd.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CONNECTION_ABORTED = -103,
     /**
      * A connection attempt failed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CONNECTION_FAILED = -104,
     /**
      * The host name could not be resolved.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_NAME_NOT_RESOLVED = -105,
     /**
      * The Internet connection has been lost.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INTERNET_DISCONNECTED = -106,
     /**
      * An SSL protocol error occurred.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_PROTOCOL_ERROR = -107,
     /**
@@ -315,7 +315,7 @@ export declare enum WebNetErrorList {
      * address 0 or the port 0,.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_ADDRESS_INVALID = -108,
     /**
@@ -323,28 +323,28 @@ export declare enum WebNetErrorList {
      * the specified host or network.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_ADDRESS_UNREACHABLE = -109,
     /**
      * The server requested a client certificate for SSL client authentication.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_CLIENT_AUTH_CERT_NEEDED = -110,
     /**
      * A tunnel connection through the proxy could not be established.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_TUNNEL_CONNECTION_FAILED = -111,
     /**
      * No SSL protocol versions are enabled.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_NO_SSL_VERSIONS_ENABLED = -112,
     /**
@@ -352,14 +352,14 @@ export declare enum WebNetErrorList {
      * cipher suite.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_VERSION_OR_CIPHER_MISMATCH = -113,
     /**
      * The server requested a renegotiation (rehandshake,.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_RENEGOTIATION_REQUESTED = -114,
     /**
@@ -367,21 +367,21 @@ export declare enum WebNetErrorList {
      * unsupported method.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PROXY_AUTH_UNSUPPORTED = -115,
     /**
      * The SSL handshake failed because of a bad or missing client certificate.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_BAD_SSL_CLIENT_AUTH_CERT = -117,
     /**
      * A connection attempt timed out.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CONNECTION_TIMED_OUT = -118,
     /**
@@ -389,14 +389,14 @@ export declare enum WebNetErrorList {
      * aborted.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HOST_RESOLVER_QUEUE_TOO_LARGE = -119,
     /**
      * Failed establishing a connection to the SOCKS proxy server for a target host.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SOCKS_CONNECTION_FAILED = -120,
     /**
@@ -404,21 +404,21 @@ export declare enum WebNetErrorList {
      * because that host is unreachable.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SOCKS_CONNECTION_HOST_UNREACHABLE = -121,
     /**
      * The request to negotiate an alternate protocol failed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_ALPN_NEGOTIATION_FAILED = -122,
     /**
      * The peer sent an SSL no_renegotiation alert message.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_NO_RENEGOTIATION = -123,
     /**
@@ -426,7 +426,7 @@ export declare enum WebNetErrorList {
      * due to a broken LSP.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_WINSOCK_UNEXPECTED_WRITTEN_BYTES = -124,
     /**
@@ -435,7 +435,7 @@ export declare enum WebNetErrorList {
      * it supports it.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_DECOMPRESSION_FAILURE_ALERT = -125,
     /**
@@ -443,14 +443,14 @@ export declare enum WebNetErrorList {
      * from servers with buggy DEFLATE support.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_BAD_RECORD_MAC_ALERT = -126,
     /**
      * The proxy requested authentication (for tunnel establishment,.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PROXY_AUTH_REQUESTED = -127,
     /**
@@ -460,7 +460,7 @@ export declare enum WebNetErrorList {
      * of an HTTP proxy.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PROXY_CONNECTION_FAILED = -130,
     /**
@@ -468,7 +468,7 @@ export declare enum WebNetErrorList {
      * that a mandatory PAC script could not be fetched, parsed or executed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_MANDATORY_PROXY_CONFIGURATION_FAILED = -131,
     /**
@@ -476,35 +476,35 @@ export declare enum WebNetErrorList {
      * don't bother trying to preconnect more sockets.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PRECONNECT_MAX_SOCKET_LIMIT = -133,
     /**
      * The permission to use the SSL client certificate's private key was denied.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_CLIENT_AUTH_PRIVATE_KEY_ACCESS_DENIED = -134,
     /**
      * The SSL client certificate has no private key.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_CLIENT_AUTH_CERT_NO_PRIVATE_KEY = -135,
     /**
      * The certificate presented by the HTTPS Proxy was invalid.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PROXY_CERTIFICATE_INVALID = -136,
     /**
      * An error occurred when trying to do a name resolution (DNS,.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_NAME_RESOLUTION_FAILED = -137,
     /**
@@ -513,14 +513,14 @@ export declare enum WebNetErrorList {
      * errors. See also ERR_ACCESS_DENIED.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_NETWORK_ACCESS_DENIED = -138,
     /**
      * The request throttler module cancelled this request to avoid DDOS.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_TEMPORARILY_THROTTLED = -139,
     /**
@@ -529,7 +529,7 @@ export declare enum WebNetErrorList {
      * include a description of why the request failed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HTTPS_PROXY_TUNNEL_RESPONSE_REDIRECT = -140,
     /**
@@ -541,7 +541,7 @@ export declare enum WebNetErrorList {
      * valid, or the CSP won't allow arbitrary data to be signed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_CLIENT_AUTH_SIGNATURE_FAILED = -141,
     /**
@@ -549,7 +549,7 @@ export declare enum WebNetErrorList {
      * which exceeds size threshold,.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_MSG_TOO_BIG = -142,
     /**
@@ -557,28 +557,28 @@ export declare enum WebNetErrorList {
      * due to a malformed frame or other protocol violation.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_WS_PROTOCOL_ERROR = -145,
     /**
      * Returned when attempting to bind an address that is already in use.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_ADDRESS_IN_USE = -147,
     /**
      * An operation failed because the SSL handshake has not completed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_HANDSHAKE_NOT_COMPLETED = -148,
     /**
      * SSL peer's public key is invalid.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_BAD_PEER_PUBLIC_KEY = -149,
     /**
@@ -587,14 +587,14 @@ export declare enum WebNetErrorList {
      * one of a set of public keys exist on the path from the leaf to the root.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_PINNED_KEY_NOT_IN_CERT_CHAIN = -150,
     /**
      * Server request for client certificate did not contain any types we support.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CLIENT_AUTH_CERT_TYPE_UNSUPPORTED = -151,
     /**
@@ -603,7 +603,7 @@ export declare enum WebNetErrorList {
      * ServerKeyExchange, or validate a Finished message.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_DECRYPT_ERROR_ALERT = -153,
     /**
@@ -611,35 +611,35 @@ export declare enum WebNetErrorList {
      * pushed to the queue.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_WS_THROTTLE_QUEUE_TOO_LARGE = -154,
     /**
      * The SSL server certificate changed in a renegotiation.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_SERVER_CERT_CHANGED = -156,
     /**
      * The SSL server sent us a fatal unrecognized_name alert.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_UNRECOGNIZED_NAME_ALERT = -159,
     /**
      * Failed to set the socket's receive buffer size as requested.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SOCKET_SET_RECEIVE_BUFFER_SIZE_ERROR = -160,
     /**
      * Failed to set the socket's send buffer size as requested.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SOCKET_SET_SEND_BUFFER_SIZE_ERROR = -161,
     /**
@@ -647,7 +647,7 @@ export declare enum WebNetErrorList {
      * return code from setsockopt.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SOCKET_RECEIVE_BUFFER_SIZE_UNCHANGEABLE = -162,
     /**
@@ -655,7 +655,7 @@ export declare enum WebNetErrorList {
      * return code from setsockopt.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SOCKET_SEND_BUFFER_SIZE_UNCHANGEABLE = -163,
     /**
@@ -663,7 +663,7 @@ export declare enum WebNetErrorList {
      * library.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_CLIENT_AUTH_CERT_BAD_FORMAT = -164,
     /**
@@ -673,7 +673,7 @@ export declare enum WebNetErrorList {
      * problem.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_ICANN_NAME_COLLISION = -166,
     /**
@@ -682,14 +682,14 @@ export declare enum WebNetErrorList {
      * error is fatal.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_SERVER_CERT_BAD_FORMAT = -167,
     /**
      * Certificate Transparency: Received a signed tree head that failed to parse.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CT_STH_PARSING_FAILED = -168,
     /**
@@ -697,7 +697,7 @@ export declare enum WebNetErrorList {
      * OK but was missing some of the fields.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CT_STH_INCOMPLETE = -169,
     /**
@@ -707,14 +707,14 @@ export declare enum WebNetErrorList {
      * internally by the network stack.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_UNABLE_TO_REUSE_CONNECTION_FOR_PROXY_AUTH = -170,
     /**
      * Certificate Transparency: Failed to parse the received consistency proof.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CT_CONSISTENCY_PROOF_PARSING_FAILED = -171,
     /**
@@ -724,7 +724,7 @@ export declare enum WebNetErrorList {
      * fallback will be removed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_OBSOLETE_CIPHER = -172,
     /**
@@ -732,7 +732,7 @@ export declare enum WebNetErrorList {
      * upgraded, the URLRequest is cancelled with this error code.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_WS_UPGRADE = -173,
     /**
@@ -740,14 +740,14 @@ export declare enum WebNetErrorList {
      * visible, because the normal Read(, method is used as a fallback.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_READ_IF_READY_NOT_IMPLEMENTED = -174,
     /**
      * No socket buffer space is available.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_NO_BUFFER_SPACE = -176,
     /**
@@ -755,7 +755,7 @@ export declare enum WebNetErrorList {
      * private key and the server's preferences.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_CLIENT_AUTH_NO_COMMON_ALGORITHMS = -177,
     /**
@@ -764,7 +764,7 @@ export declare enum WebNetErrorList {
      * early data disabled.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_EARLY_DATA_REJECTED = -178,
     /**
@@ -776,7 +776,7 @@ export declare enum WebNetErrorList {
      * See https://tools.ietf.org/html/rfc8446#appendix-D.3 for details.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_WRONG_VERSION_ON_EARLY_DATA = -179,
     /**
@@ -787,7 +787,7 @@ export declare enum WebNetErrorList {
      *
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_TLS13_DOWNGRADE_DETECTED = -180,
     /**
@@ -795,14 +795,14 @@ export declare enum WebNetErrorList {
      * negotiated TLS key exchange method.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_KEY_USAGE_INCOMPATIBLE = -181,
     /**
      * The ECHConfigList fetched over DNS cannot be parsed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INVALID_ECH_CONFIG_LIST = -182,
     /**
@@ -810,7 +810,7 @@ export declare enum WebNetErrorList {
      * ClientHello.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_ECH_NOT_NEGOTIATED = -183,
     /**
@@ -818,7 +818,7 @@ export declare enum WebNetErrorList {
      * and additionally did not present a certificate valid for the public name.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_ECH_FALLBACK_CERTIFICATE_INVALID = -184,
     /**
@@ -833,7 +833,7 @@ export declare enum WebNetErrorList {
      *    a certificate for the abbreviated name in the address bar.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_COMMON_NAME_INVALID = -200,
     /**
@@ -845,7 +845,7 @@ export declare enum WebNetErrorList {
      * 3. Our clock is wrong.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_DATE_INVALID = -201,
     /**
@@ -859,7 +859,7 @@ export declare enum WebNetErrorList {
      *    defense against active attackers (but foiling passive attackers,.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_AUTHORITY_INVALID = -202,
     /**
@@ -871,7 +871,7 @@ export declare enum WebNetErrorList {
      * use that code instead of this one from now on.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_CONTAINS_ERRORS = -203,
     /**
@@ -879,7 +879,7 @@ export declare enum WebNetErrorList {
      * effect, this certificate cannot be revoked.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_NO_REVOCATION_MECHANISM = -204,
     /**
@@ -891,7 +891,7 @@ export declare enum WebNetErrorList {
      *    unavailable.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_UNABLE_TO_CHECK_REVOCATION = -205,
     /**
@@ -900,7 +900,7 @@ export declare enum WebNetErrorList {
      * thing to do.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_REVOKED = -206,
     /**
@@ -910,7 +910,7 @@ export declare enum WebNetErrorList {
      *    "The SSL certificate is invalid."
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_INVALID = -207,
     /**
@@ -918,14 +918,14 @@ export declare enum WebNetErrorList {
      * signature algorithm.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_WEAK_SIGNATURE_ALGORITHM = -208,
     /**
      * The host name specified in the certificate is not unique.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_NON_UNIQUE_NAME = -210,
     /**
@@ -933,21 +933,21 @@ export declare enum WebNetErrorList {
      * a too-small RSA key,.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_WEAK_KEY = -211,
     /**
      * The certificate claimed DNS names that are in violation of name constraints.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_NAME_CONSTRAINT_VIOLATION = -212,
     /**
      * The certificate's validity period is too long.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_VALIDITY_TOO_LONG = -213,
     /**
@@ -955,14 +955,14 @@ export declare enum WebNetErrorList {
      * did not provide CT information that complied with the policy.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERTIFICATE_TRANSPARENCY_REQUIRED = -214,
     /**
      * The certificate chained to a legacy Symantec root that is no longer trusted.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_SYMANTEC_LEGACY = -215,
     /**
@@ -970,56 +970,56 @@ export declare enum WebNetErrorList {
      * the device owner.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_KNOWN_INTERCEPTION_BLOCKED = -217,
     /**
      * The connection uses an obsolete version of SSL/TLS or cipher.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SSL_OBSOLETE_VERSION_OR_CIPHER = -218,
     /**
      * The value immediately past the last certificate error code.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_END = -219,
     /**
      * The URL is invalid.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INVALID_URL = -300,
     /**
      * The scheme of the URL is disallowed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_DISALLOWED_URL_SCHEME = -301,
     /**
      * The scheme of the URL is unknown.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_UNKNOWN_URL_SCHEME = -302,
     /**
      * Attempting to load an URL resulted in a redirect to an invalid URL.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INVALID_REDIRECT = -303,
     /**
      * Attempting to load an URL resulted in too many redirects.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_TOO_MANY_REDIRECTS = -310,
     /**
@@ -1027,35 +1027,35 @@ export declare enum WebNetErrorList {
      * to file:// is considered unsafe,.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_UNSAFE_REDIRECT = -311,
     /**
      * Attempting to load an URL with an unsafe port number.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_UNSAFE_PORT = -312,
     /**
      * The server's response was invalid.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INVALID_RESPONSE = -320,
     /**
      * Error in chunked transfer encoding.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INVALID_CHUNKED_ENCODING = -321,
     /**
      * The server did not support the request method.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_METHOD_UNSUPPORTED = -322,
     /**
@@ -1063,28 +1063,28 @@ export declare enum WebNetErrorList {
      * the request to a proxy.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_UNEXPECTED_PROXY_AUTH = -323,
     /**
      * The server closed the connection without sending any data.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_EMPTY_RESPONSE = -324,
     /**
      * The headers section of the response is too large.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_RESPONSE_HEADERS_TOO_BIG = -325,
     /**
      * The evaluation of the PAC script failed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PAC_SCRIPT_FAILED = -327,
     /**
@@ -1092,21 +1092,21 @@ export declare enum WebNetErrorList {
      * satisfy the range requested.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_REQUEST_RANGE_NOT_SATISFIABLE = -328,
     /**
      * The identity used for authentication is invalid.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_MALFORMED_IDENTITY = -329,
     /**
      * Content decoding of the response body failed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CONTENT_DECODING_FAILED = -330,
     /**
@@ -1114,49 +1114,49 @@ export declare enum WebNetErrorList {
      * is suspended.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_NETWORK_IO_SUSPENDED = -331,
     /**
      * FLIP data received without receiving a SYN_REPLY on the stream.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SYN_REPLY_NOT_RECEIVED = -332,
     /**
      * Converting the response to target encoding failed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_ENCODING_CONVERSION_FAILED = -333,
     /**
      * The server sent an FTP directory listing in a format we do not understand.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_UNRECOGNIZED_FTP_DIRECTORY_LISTING_FORMAT = -334,
     /**
      * There are no supported proxies in the provided list.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_NO_SUPPORTED_PROXIES = -336,
     /**
      * There is an HTTP/2 protocol error.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HTTP2_PROTOCOL_ERROR = -337,
     /**
      * Credentials could not be established during HTTP Authentication.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INVALID_AUTH_CREDENTIALS = -338,
     /**
@@ -1164,28 +1164,28 @@ export declare enum WebNetErrorList {
      * machine.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_UNSUPPORTED_AUTH_SCHEME = -339,
     /**
      * Detecting the encoding of the response failed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_ENCODING_DETECTION_FAILED = -340,
     /**
      * (GSSAPI, No Kerberos credentials were available during HTTP Authentication.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_MISSING_AUTH_CREDENTIALS = -341,
     /**
      * An unexpected, but documented, SSPI or GSSAPI status code was returned.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_UNEXPECTED_SECURITY_LIBRARY_STATUS = -342,
     /**
@@ -1193,28 +1193,28 @@ export declare enum WebNetErrorList {
      * example, no KDC could be found or the principal is unknown.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_MISCONFIGURED_AUTH_ENVIRONMENT = -343,
     /**
      * An undocumented SSPI or GSSAPI status code was returned.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_UNDOCUMENTED_SECURITY_LIBRARY_STATUS = -344,
     /**
      * The HTTP response was too big to drain.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_RESPONSE_BODY_TOO_BIG_TO_DRAIN = -345,
     /**
      * The HTTP response contained multiple distinct Content-Length headers.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_RESPONSE_HEADERS_MULTIPLE_CONTENT_LENGTH = -346,
     /**
@@ -1222,7 +1222,7 @@ export declare enum WebNetErrorList {
      * headers are missing, so we're expecting additional frames to complete them.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INCOMPLETE_HTTP2_HEADERS = -347,
     /**
@@ -1231,21 +1231,21 @@ export declare enum WebNetErrorList {
      * PAC URL configured in DHCP.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PAC_NOT_IN_DHCP = -348,
     /**
      * The HTTP response contained multiple Content-Disposition headers.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_RESPONSE_HEADERS_MULTIPLE_CONTENT_DISPOSITION = -349,
     /**
      * The HTTP response contained multiple Location headers.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_RESPONSE_HEADERS_MULTIPLE_LOCATION = -350,
     /**
@@ -1256,14 +1256,14 @@ export declare enum WebNetErrorList {
      * Client MAY retry (on a different connection,.  See RFC7540 Section 8.1.4.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HTTP2_SERVER_REFUSED_STREAM = -351,
     /**
      * HTTP/2 server didn't respond to the PING message.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HTTP2_PING_FAILED = -352,
     /**
@@ -1271,7 +1271,7 @@ export declare enum WebNetErrorList {
      * Content-Length header when the connection is closed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CONTENT_LENGTH_MISMATCH = -354,
     /**
@@ -1279,21 +1279,21 @@ export declare enum WebNetErrorList {
      * terminating zero-length chunk was never sent when the connection is closed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INCOMPLETE_CHUNKED_ENCODING = -355,
     /**
      * There is a QUIC protocol error.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_QUIC_PROTOCOL_ERROR = -356,
     /**
      * The HTTP headers were truncated by an EOF.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_RESPONSE_HEADERS_TRUNCATED = -357,
     /**
@@ -1301,63 +1301,63 @@ export declare enum WebNetErrorList {
      * to read any requests sent, so they may be resent.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_QUIC_HANDSHAKE_FAILED = -358,
     /**
      * Transport security is inadequate for the HTTP/2 version.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HTTP2_INADEQUATE_TRANSPORT_SECURITY = -360,
     /**
      * The peer violated HTTP/2 flow control.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HTTP2_FLOW_CONTROL_ERROR = -361,
     /**
      * The peer sent an improperly sized HTTP/2 frame.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HTTP2_FRAME_SIZE_ERROR = -362,
     /**
      * Decoding or encoding of compressed HTTP/2 headers failed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HTTP2_COMPRESSION_ERROR = -363,
     /**
      * Proxy Auth Requested without a valid Client Socket Handle.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PROXY_AUTH_REQUESTED_WITH_NO_CONNECTION = -364,
     /**
      * HTTP_1_1_REQUIRED error code received on HTTP/2 session.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HTTP_1_1_REQUIRED = -365,
     /**
      * HTTP_1_1_REQUIRED error code received on HTTP/2 session to proxy.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PROXY_HTTP_1_1_REQUIRED = -366,
     /**
      * The PAC script terminated fatally and must be reloaded.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PAC_SCRIPT_TERMINATED = -367,
     /**
@@ -1365,14 +1365,14 @@ export declare enum WebNetErrorList {
      * than treat it as HTTP/0.9, this error is returned.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INVALID_HTTP_RESPONSE = -370,
     /**
      * Initializing content decoding failed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CONTENT_DECODING_INIT_FAILED = -371,
     /**
@@ -1381,14 +1381,14 @@ export declare enum WebNetErrorList {
      * SpdyStream layer.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HTTP2_RST_STREAM_NO_ERROR_RECEIVED = -372,
     /**
      * The pushed stream claimed by the request is no longer available.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HTTP2_PUSHED_STREAM_NOT_AVAILABLE = -373,
     /**
@@ -1396,7 +1396,7 @@ export declare enum WebNetErrorList {
      * the request should be retried.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HTTP2_CLAIMED_PUSHED_STREAM_RESET_BY_SERVER = -374,
     /**
@@ -1404,21 +1404,21 @@ export declare enum WebNetErrorList {
      * invalid certificates.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_TOO_MANY_RETRIES = -375,
     /**
      * Received an HTTP/2 frame on a closed stream.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HTTP2_STREAM_CLOSED = -376,
     /**
      * Client is refusing an HTTP/2 stream.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HTTP2_CLIENT_REFUSED_STREAM = -377,
     /**
@@ -1426,14 +1426,14 @@ export declare enum WebNetErrorList {
      * request headers, but the pushed response headers do not match the request.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HTTP2_PUSHED_RESPONSE_DOES_NOT_MATCH = -378,
     /**
      * The server returned a non-2xx HTTP response code.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_HTTP_RESPONSE_CODE_FAILURE = -379,
     /**
@@ -1442,7 +1442,7 @@ export declare enum WebNetErrorList {
      * are allowed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_QUIC_UNKNOWN_CERT_ROOT = -380,
     /**
@@ -1450,14 +1450,14 @@ export declare enum WebNetErrorList {
      * processed and is therefore safe to retry on a different connection.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_QUIC_GOAWAY_REQUEST_CAN_BE_RETRIED = -381,
     /**
      * The ACCEPT_CH restart has been triggered too many times.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_TOO_MANY_ACCEPT_CH_RESTARTS = -382,
     /**
@@ -1466,7 +1466,7 @@ export declare enum WebNetErrorList {
      * request should be invalidated.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INCONSISTENT_IP_ADDRESS_SPACE = -383,
     /**
@@ -1474,77 +1474,77 @@ export declare enum WebNetErrorList {
      * network access check.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CACHED_IP_ADDRESS_SPACE_BLOCKED_BY_LOCAL_NETWORK_ACCESS_POLICY = -384,
     /**
      * The cache does not have the requested entry.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CACHE_MISS = -400,
     /**
      * Unable to read from the disk cache.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CACHE_READ_FAILURE = -401,
     /**
      * Unable to write to the disk cache.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CACHE_WRITE_FAILURE = -402,
     /**
      * The operation is not supported for this entry.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CACHE_OPERATION_UNSUPPORTED = -403,
     /**
      * The disk cache is unable to open this entry.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CACHE_OPEN_FAILURE = -404,
     /**
      * The disk cache is unable to create this entry.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CACHE_CREATE_FAILURE = -405,
     /**
      * Multiple transactions are racing to create disk cache entries.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CACHE_RACE = -406,
     /**
      * The cache was unable to read a checksum record on an entry.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CACHE_CHECKSUM_READ_FAILURE = -407,
     /**
      * The cache found an entry with an invalid checksum.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CACHE_CHECKSUM_MISMATCH = -408,
     /**
      * Internal error code for the HTTP cache.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CACHE_LOCK_TIMEOUT = -409,
     /**
@@ -1552,35 +1552,35 @@ export declare enum WebNetErrorList {
      * credentials aren't available.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CACHE_AUTH_FAILURE_AFTER_READ = -410,
     /**
      * Internal not-quite error code for the HTTP cache.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CACHE_ENTRY_NOT_SUITABLE = -411,
     /**
      * The disk cache is unable to doom this entry.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CACHE_DOOM_FAILURE = -412,
     /**
      * The disk cache is unable to open or create this entry.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CACHE_OPEN_OR_CREATE_FAILURE = -413,
     /**
      * The server's response was insecure (e.g. there was a cert error,.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INSECURE_RESPONSE = -501,
     /**
@@ -1588,28 +1588,28 @@ export declare enum WebNetErrorList {
      * database lacked a corresponding private key.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_NO_PRIVATE_KEY_FOR_CERT = -502,
     /**
      * An error adding a certificate to the OS certificate database.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_ADD_USER_CERT_FAILED = -503,
     /**
      * An error occurred while handling a signed exchange.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INVALID_SIGNED_EXCHANGE = -504,
     /**
      * An error occurred while handling a Web Bundle source.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_INVALID_WEB_BUNDLE = -505,
     /**
@@ -1617,7 +1617,7 @@ export declare enum WebNetErrorList {
      * number of reasons (precondition failure, internal error, bad response,.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_TRUST_TOKEN_OPERATION_FAILED = -506,
     /**
@@ -1626,7 +1626,7 @@ export declare enum WebNetErrorList {
      * request to its destination.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_TRUST_TOKEN_OPERATION_SUCCESS_WITHOUT_SENDING_REQUEST = -507,
     /**
@@ -1634,7 +1634,7 @@ export declare enum WebNetErrorList {
      * If possible, please use or add a more specific error code.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FTP_FAILED = -601,
     /**
@@ -1642,7 +1642,7 @@ export declare enum WebNetErrorList {
      * FTP response code 421.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FTP_SERVICE_UNAVAILABLE = -602,
     /**
@@ -1650,7 +1650,7 @@ export declare enum WebNetErrorList {
      * FTP response code 426.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FTP_TRANSFER_ABORTED = -603,
     /**
@@ -1658,7 +1658,7 @@ export declare enum WebNetErrorList {
      * FTP response code 450.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FTP_FILE_BUSY = -604,
     /**
@@ -1666,7 +1666,7 @@ export declare enum WebNetErrorList {
      * FTP response codes 500, 501.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FTP_SYNTAX_ERROR = -605,
     /**
@@ -1674,7 +1674,7 @@ export declare enum WebNetErrorList {
      * FTP response codes 502, 504.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FTP_COMMAND_UNSUPPORTED = -606,
     /**
@@ -1682,119 +1682,119 @@ export declare enum WebNetErrorList {
      * FTP response code 503.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FTP_BAD_COMMAND_SEQUENCE = -607,
     /**
      * PKCS #12 import failed due to incorrect password.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PKCS12_IMPORT_BAD_PASSWORD = -701,
     /**
      * PKCS #12 import failed due to other error.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PKCS12_IMPORT_FAILED = -702,
     /**
      * CA import failed - not a CA cert.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_IMPORT_CA_CERT_NOT_CA = -703,
     /**
      * Import failed - certificate already exists in database.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_IMPORT_CERT_ALREADY_EXISTS = -704,
     /**
      * CA import failed due to some other error.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_IMPORT_CA_CERT_FAILED = -705,
     /**
      * Server certificate import failed due to some internal error.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_IMPORT_SERVER_CERT_FAILED = -706,
     /**
      * PKCS #12 import failed due to invalid MAC.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PKCS12_IMPORT_INVALID_MAC = -707,
     /**
      * PKCS #12 import failed due to invalid/corrupt file.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PKCS12_IMPORT_INVALID_FILE = -708,
     /**
      * PKCS #12 import failed due to unsupported features.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PKCS12_IMPORT_UNSUPPORTED = -709,
     /**
      * Key generation failed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_KEY_GENERATION_FAILED = -710,
     /**
      * Failure to export private key.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PRIVATE_KEY_EXPORT_FAILED = -712,
     /**
      * Self-signed certificate generation failed.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SELF_SIGNED_CERT_GENERATION_FAILED = -713,
     /**
      * The certificate database changed in some way.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_DATABASE_CHANGED = -714,
     /**
      * The certificate verifier configuration changed in some way.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CERT_VERIFIER_CHANGED = -716,
     /**
      * DNS resolver received a malformed response.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_DNS_MALFORMED_RESPONSE = -800,
     /**
      * DNS server requires TCP.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_DNS_SERVER_REQUIRES_TCP = -801,
     /**
@@ -1809,14 +1809,14 @@ export declare enum WebNetErrorList {
      *     operation for policy reasons.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_DNS_SERVER_FAILED = -802,
     /**
      * DNS transaction timed out.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_DNS_TIMED_OUT = -803,
     /**
@@ -1824,28 +1824,28 @@ export declare enum WebNetErrorList {
      * only local sources were queried.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_DNS_CACHE_MISS = -804,
     /**
      * Suffix search list rules prevent resolution of the given host name.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_DNS_SEARCH_EMPTY = -805,
     /**
      * Failed to sort addresses according to RFC3484.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_DNS_SORT_ERROR = -806,
     /**
      * Failed to resolve the hostname of a DNS-over-HTTPS server.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_DNS_SECURE_RESOLVER_HOSTNAME_RESOLUTION_FAILED = -808,
     /**
@@ -1854,14 +1854,14 @@ export declare enum WebNetErrorList {
      * https or wss.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_DNS_NAME_HTTPS_ONLY = -809,
     /**
      * All DNS requests associated with this job have been cancelled.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_DNS_REQUEST_CANCELED = -810,
     /**
@@ -1869,7 +1869,7 @@ export declare enum WebNetErrorList {
      * alpn values of supported protocols, but did not.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     ERR_DNS_NO_MATCHING_SUPPORTED_ALPN = -811
 }

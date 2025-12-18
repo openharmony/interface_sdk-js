@@ -27,7 +27,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.MultimodalInput.Input.ShortKey
  * @systemapi hide for inner use
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 
 declare namespace shortKey {
@@ -46,7 +46,7 @@ declare namespace shortKey {
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
    * @systemapi hide for inner use
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setKeyDownDuration(businessKey: string, delay: int, callback: AsyncCallback<void>): void;
 
@@ -64,7 +64,7 @@ declare namespace shortKey {
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
    * @systemapi hide for inner use
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setKeyDownDuration(businessKey: string, delay: int): Promise<void>;
 
@@ -78,7 +78,7 @@ export default shortKey;
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare enum FingerprintAction {
   /**
@@ -87,7 +87,7 @@ export declare enum FingerprintAction {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   DOWN = 0,
 
@@ -97,7 +97,7 @@ export declare enum FingerprintAction {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   UP = 1,
 
@@ -107,7 +107,7 @@ export declare enum FingerprintAction {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   SLIDE = 2,
 
@@ -117,7 +117,7 @@ export declare enum FingerprintAction {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   RETOUCH = 3,
 
@@ -127,7 +127,7 @@ export declare enum FingerprintAction {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   CLICK = 4,
 }
@@ -139,7 +139,7 @@ export declare enum FingerprintAction {
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare interface FingerprintEvent {
   /**
@@ -149,7 +149,7 @@ export declare interface FingerprintEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   action: FingerprintAction;
 
@@ -167,7 +167,7 @@ export declare interface FingerprintEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   distanceX: double;
 
@@ -185,7 +185,7 @@ export declare interface FingerprintEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   distanceY: double;
 }

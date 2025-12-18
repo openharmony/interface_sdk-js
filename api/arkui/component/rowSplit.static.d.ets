@@ -25,7 +25,7 @@ import { AttributeModifier, CommonMethod } from './common';
  * @extends CommonMethod
  * @interface RowSplitAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare interface RowSplitAttribute extends CommonMethod {
@@ -35,7 +35,7 @@ export declare interface RowSplitAttribute extends CommonMethod {
      * @param { boolean } value
      * @returns { RowSplitAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default resizeable(value: boolean | undefined): this;
     /**
@@ -44,7 +44,7 @@ export declare interface RowSplitAttribute extends CommonMethod {
      * @param { AttributeModifier<RowSplitAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { RowSplitAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<RowSplitAttribute> | AttributeModifier<CommonMethod>
         | undefined): this;
@@ -56,7 +56,7 @@ export declare interface RowSplitAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { RowSplitAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder

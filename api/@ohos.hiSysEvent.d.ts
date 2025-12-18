@@ -29,7 +29,7 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.HiviewDFX.HiSysEvent
  * @systemapi hide for inner use
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace hiSysEvent {
   /**
@@ -39,7 +39,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum EventType {
     /**
@@ -48,7 +48,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FAULT = 1,
 
@@ -58,7 +58,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     STATISTIC = 2,
 
@@ -68,7 +68,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SECURITY = 3,
 
@@ -78,7 +78,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BEHAVIOR = 4
   }
@@ -90,7 +90,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SysEventInfo {
     /**
@@ -100,7 +100,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     domain: string;
 
@@ -111,7 +111,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
 
@@ -122,7 +122,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     eventType: EventType;
 
@@ -150,7 +150,7 @@ declare namespace hiSysEvent {
      * @type { ?(Record<string, boolean | int | double | string | bigint | boolean[] | int[] | double[] | string[] | bigint[]> | null | undefined) }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 22 static
+     * @since 23 static
      */
     params?: Record<string, boolean | int | double | string | bigint | boolean[] | int[] | double[] | string[] | bigint[]> | null | undefined;
   }
@@ -175,7 +175,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function write(info: SysEventInfo): Promise<void>;
 
@@ -199,7 +199,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function write(info: SysEventInfo, callback: AsyncCallback<void>): void;
 
@@ -210,7 +210,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum RuleType {
     /**
@@ -219,7 +219,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WHOLE_WORD = 1,
 
@@ -229,7 +229,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PREFIX = 2,
 
@@ -239,7 +239,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     REGULAR = 3
   }
@@ -251,7 +251,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface WatchRule {
     /**
@@ -261,7 +261,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     domain: string;
 
@@ -272,7 +272,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
 
@@ -300,7 +300,7 @@ declare namespace hiSysEvent {
      * @type { ?(string | null | undefined) }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 22 static
+     * @since 23 static
      */
     tag?: string | null | undefined;
 
@@ -311,7 +311,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ruleType: RuleType;
   }
@@ -323,7 +323,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Watcher {
     /**
@@ -333,7 +333,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     rules: WatchRule[];
 
@@ -344,7 +344,7 @@ declare namespace hiSysEvent {
     * @syscap SystemCapability.HiviewDFX.HiSysEvent
     * @systemapi hide for inner use
     * @since 9 dynamic
-    * @since 22 static
+    * @since 23 static
     */
     onEvent: (info: SysEventInfo) => void;
 
@@ -355,7 +355,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onServiceDied: () => void;
   }
@@ -367,7 +367,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface QueryArg {
     /**
@@ -377,7 +377,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     beginTime: long;
 
@@ -388,7 +388,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     endTime: long;
 
@@ -399,7 +399,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     maxEvents: long;
 
@@ -419,7 +419,7 @@ declare namespace hiSysEvent {
      * @type { ?(long | null | undefined) }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 22 static
+     * @since 23 static
      */
     fromSeq?: long | null | undefined;
 
@@ -439,7 +439,7 @@ declare namespace hiSysEvent {
      * @type { ?(long | null | undefined) }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 22 static
+     * @since 23 static
      */
     toSeq?: long | null | undefined;
   }
@@ -451,7 +451,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface QueryRule {
     /**
@@ -461,7 +461,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     domain: string;
 
@@ -472,7 +472,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     names: string[];
 
@@ -492,7 +492,7 @@ declare namespace hiSysEvent {
      * @type { ?(string | null | undefined) }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 22 static
+     * @since 23 static
      */
     condition?: string | null | undefined;
   }
@@ -504,7 +504,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Querier {
     /**
@@ -514,7 +514,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onQuery: (infos: SysEventInfo[]) => void;
 
@@ -525,7 +525,7 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onComplete: (reason: int, total: int) => void;
   }
@@ -546,7 +546,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function addWatcher(watcher: Watcher): void;
 
@@ -565,7 +565,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function removeWatcher(watcher: Watcher): void;
 
@@ -589,7 +589,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function query(queryArg: QueryArg, rules: QueryRule[], querier: Querier): void;
 
@@ -612,7 +612,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function exportSysEvents(queryArg: QueryArg, rules: QueryRule[]): long;
 
@@ -633,7 +633,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function subscribe(rules: QueryRule[]): long;
 
@@ -651,7 +651,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function unsubscribe(): void;
 }

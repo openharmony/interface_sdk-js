@@ -25,24 +25,17 @@ import { BorderStyle } from '@ohos.arkui.component';
  * Defines RenderNode. Contains node tree operations and render property operations on node.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class RenderNode {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor();
 
-  /**
-   * Add child to the end of the RenderNode's children.
-   *
-   * @param { RenderNode } node - The node will be added.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
-   */
   /**
    * Add child to the end of the RenderNode's children.
    *
@@ -55,15 +48,6 @@ export declare class RenderNode {
    */
   appendChild(node: RenderNode): void;
 
-  /**
-   * Add child to the current RenderNode.
-   *
-   * @param { RenderNode } child - The node will be added.
-   * @param { RenderNode | null } sibling - The new node is added after this node. When sibling is null,
-   *     insert node as the first children of the node.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
-   */
   /**
    * Add child to the current RenderNode.
    *
@@ -83,7 +67,7 @@ export declare class RenderNode {
    *
    * @param { RenderNode } node - The node will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   removeChild(node: RenderNode): void;
 
@@ -91,7 +75,7 @@ export declare class RenderNode {
    * Clear children of the current RenderNode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   clearChildren(): void;
 
@@ -101,7 +85,7 @@ export declare class RenderNode {
    * @param { int } index - The index of the desired node in the children of RenderNode.
    * @returns { RenderNode | null } - Returns a RenderNode. When the required node does not exist, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   getChild(index: int): RenderNode | null;
 
@@ -111,7 +95,7 @@ export declare class RenderNode {
    * @returns {  RenderNode | null } - Returns a RenderNode, which is first child of the current RenderNode.
    *     If current RenderNode does not have child node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   getFirstChild(): RenderNode | null;
 
@@ -121,7 +105,7 @@ export declare class RenderNode {
    * @returns { RenderNode | null } - Returns a RenderNode. If current RenderNode does not have next
    *     sibling node, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   getNextSibling(): RenderNode | null;
 
@@ -130,7 +114,7 @@ export declare class RenderNode {
    *
    * @returns { RenderNode | null } - Returns a RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   getPreviousSibling(): RenderNode | null;
 
@@ -139,7 +123,7 @@ export declare class RenderNode {
    *
    * @param { int } color - The background color. Colors are defined as ARGB format represented by number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set backgroundColor(color: int);
 
@@ -148,7 +132,7 @@ export declare class RenderNode {
    *
    * @returns { int } - Returns a background color. Colors are defined as ARGB format represented by number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get backgroundColor(): int;
 
@@ -157,7 +141,7 @@ export declare class RenderNode {
    *
    * @param { boolean } useClip - Whether the RenderNode clip to frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set clipToFrame(useClip: boolean);
 
@@ -166,7 +150,7 @@ export declare class RenderNode {
    *
    * @returns { boolean } - Returns whether the RenderNode clip to frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get clipToFrame(): boolean;
 
@@ -175,7 +159,7 @@ export declare class RenderNode {
    *
    * @param { double } value - The opacity of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set opacity(value: double);
 
@@ -184,7 +168,7 @@ export declare class RenderNode {
    *
    * @returns { double } Returns the opacity of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get opacity(): double;
 
@@ -193,7 +177,7 @@ export declare class RenderNode {
    *
    * @param { Size } size - The size of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set size(size: Size);
 
@@ -202,7 +186,7 @@ export declare class RenderNode {
    *
    * @returns { Size } The size of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get size(): Size;
 
@@ -211,7 +195,7 @@ export declare class RenderNode {
    *
    * @param { NodePosition } position - The position of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set position(position: NodePosition);
 
@@ -220,7 +204,7 @@ export declare class RenderNode {
    *
    * @returns { NodePosition } - The position of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get position(): NodePosition;
 
@@ -229,7 +213,7 @@ export declare class RenderNode {
    *
    * @param { Frame } frame - The frame info of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set frame(frame: Frame);
 
@@ -238,7 +222,7 @@ export declare class RenderNode {
    *
    * @returns { Frame } - Returns frame info of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get frame(): Frame;
 
@@ -247,7 +231,7 @@ export declare class RenderNode {
    *
    * @param { Pivot } pivot - The pivot of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set pivot(pivot: Pivot);
 
@@ -256,7 +240,7 @@ export declare class RenderNode {
    *
    * @returns { Pivot } - Returns pivot vector of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get pivot(): Pivot;
 
@@ -265,7 +249,7 @@ export declare class RenderNode {
    *
    * @param { Scale } scale - The scale of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set scale(scale: Scale);
 
@@ -274,7 +258,7 @@ export declare class RenderNode {
    *
    * @returns { Scale } - Returns scale vector of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get scale(): Scale;
 
@@ -283,7 +267,7 @@ export declare class RenderNode {
    *
    * @param { Translation } translation - the translate vector of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set translation(translation: Translation);
 
@@ -292,7 +276,7 @@ export declare class RenderNode {
    *
    * @returns { Translation } - Returns translation vector of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get translation(): Translation;
 
@@ -301,7 +285,7 @@ export declare class RenderNode {
    *
    * @param { Rotation } rotation - The rotation vector of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set rotation(rotation: Rotation);
 
@@ -310,7 +294,7 @@ export declare class RenderNode {
    *
    * @returns { Rotation } - Returns rotation vector of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get rotation(): Rotation;
 
@@ -319,7 +303,7 @@ export declare class RenderNode {
    *
    * @param { Matrix4 } transform - the transform info of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set transform(transform: Matrix4);
 
@@ -328,7 +312,7 @@ export declare class RenderNode {
    *
    * @returns {Matrix4 } - Returns transform info of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get transform(): Matrix4;
 
@@ -338,7 +322,7 @@ export declare class RenderNode {
    * @param { int } color - the shadow color of the RenderNode. Colors are defined as ARGB format represented by
    * number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set shadowColor(color: int);
 
@@ -348,7 +332,7 @@ export declare class RenderNode {
    * @returns { int } - Returns the shadow color of the RenderNode. Colors are defined as ARGB format represented by
    * number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get shadowColor(): int;
 
@@ -357,7 +341,7 @@ export declare class RenderNode {
    *
    * @param { NodeOffset } offset - the shadow offset of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set shadowOffset(offset: NodeOffset);
 
@@ -366,7 +350,7 @@ export declare class RenderNode {
    *
    * @returns { NodeOffset } - Returns the shadow offset of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get shadowOffset(): NodeOffset;
 
@@ -375,7 +359,7 @@ export declare class RenderNode {
    *
    * @param { string } label - the label of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set label(label: string);
 
@@ -384,7 +368,7 @@ export declare class RenderNode {
    *
    * @returns { string } - Returns the label of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get label(): string;
 
@@ -393,7 +377,7 @@ export declare class RenderNode {
    *
    * @param { double } alpha - the shadow alpha of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set shadowAlpha(alpha: double);
 
@@ -402,7 +386,7 @@ export declare class RenderNode {
    *
    * @returns { double } - Returns the shadow alpha of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get shadowAlpha(): double;
 
@@ -411,7 +395,7 @@ export declare class RenderNode {
    *
    * @param { double } elevation - the shadow elevation of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set shadowElevation(elevation: double);
 
@@ -420,7 +404,7 @@ export declare class RenderNode {
    *
    * @returns { double } - Returns the shadow elevation of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get shadowElevation(): double;
 
@@ -429,7 +413,7 @@ export declare class RenderNode {
    *
    * @param { double } radius - the shadow radius of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set shadowRadius(radius: double);
 
@@ -438,7 +422,7 @@ export declare class RenderNode {
    *
    * @returns { double } - Returns the shadow radius of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get shadowRadius(): double;
 
@@ -447,7 +431,7 @@ export declare class RenderNode {
    *
    * @param { NodeEdges<BorderStyle> } style - the border style of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set borderStyle(style: NodeEdges<BorderStyle>);
 
@@ -456,7 +440,7 @@ export declare class RenderNode {
    *
    * @returns { NodeEdges<BorderStyle> } - Returns the border style of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get borderStyle(): NodeEdges<BorderStyle> | undefined;
 
@@ -465,7 +449,7 @@ export declare class RenderNode {
    *
    * @param { NodeEdges<double> } width - the border width of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set borderWidth(width: NodeEdges<double>);
 
@@ -475,7 +459,7 @@ export declare class RenderNode {
    * @returns { NodeEdges<double> } - Returns the border width of the RenderNode.
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get borderWidth(): NodeEdges<double> | undefined;
 
@@ -484,7 +468,7 @@ export declare class RenderNode {
    *
    * @param { NodeEdges<int> } color - the border color of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set borderColor(color: NodeEdges<int>);
 
@@ -494,7 +478,7 @@ export declare class RenderNode {
    * @returns { NodeEdges<int> } - Returns the border color of the RenderNode.
    * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get borderColor(): NodeEdges<int> | undefined;
 
@@ -503,7 +487,7 @@ export declare class RenderNode {
    *
    * @param { NodeBorderRadiuses } radius - the border radius of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set borderRadius(radius: NodeBorderRadiuses);
 
@@ -513,7 +497,7 @@ export declare class RenderNode {
    * @returns { NodeBorderRadiuses } - Returns the border radius of the RenderNode.
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get borderRadius(): NodeBorderRadiuses | undefined;
 
@@ -522,7 +506,7 @@ export declare class RenderNode {
    *
    * @param { ShapeMask } shapeMask - the shape mask of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set shapeMask(shapeMask: ShapeMask);
 
@@ -531,7 +515,7 @@ export declare class RenderNode {
    *
    * @returns { ShapeMask } - Returns the shape mask of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get shapeMask(): ShapeMask | undefined;
 
@@ -540,7 +524,7 @@ export declare class RenderNode {
    *
    * @param { ShapeClip } shapeClip - the shape clip of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set shapeClip(shapeClip: ShapeClip);
 
@@ -549,7 +533,7 @@ export declare class RenderNode {
    *
    * @returns { ShapeClip } - Returns the shape clip of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get shapeClip(): ShapeClip;
 
@@ -558,7 +542,7 @@ export declare class RenderNode {
    *
    * @param { boolean } isNodeGroup - The parameter indicates whether to preferentially draw the node and its children.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set markNodeGroup(isNodeGroup: boolean);
 
@@ -568,7 +552,7 @@ export declare class RenderNode {
    * @returns { boolean } - Return whether to preferentially draw the node and its children.
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get markNodeGroup(): boolean;
 
@@ -577,7 +561,7 @@ export declare class RenderNode {
    *
    * @param { DrawContext } context - The DrawContext will be used when executed draw method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   draw(context: DrawContext): void;
 
@@ -585,7 +569,7 @@ export declare class RenderNode {
    * Invalidate the RenderNode, which will cause a re-render of the RenderNode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   invalidate(): void;
 
@@ -593,7 +577,7 @@ export declare class RenderNode {
    * Dispose the RenderNode immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   dispose(): void;
 
@@ -602,7 +586,7 @@ export declare class RenderNode {
    *
    * @param { LengthMetricsUnit } unit - The length metrics unit of RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set lengthMetricsUnit(unit: LengthMetricsUnit);
 
@@ -612,7 +596,7 @@ export declare class RenderNode {
    * @returns { LengthMetricsUnit } - Return the length metrics unit of RenderNode.
    * @default LengthMetricsUnit.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get lengthMetricsUnit(): LengthMetricsUnit;
 }

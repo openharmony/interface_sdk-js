@@ -51,7 +51,8 @@ import { NotificationRequest } from './notification/notificationRequest';
  * @syscap SystemCapability.Location.Location.Core
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic&static
+ * @since 22 dynamic
+ * @since 23 static
  */
 declare namespace geoLocationManager {
   /**
@@ -159,7 +160,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Core
-   * @since 22 static
+   * @since 23 static
    */
     function onLocationChange(request: LocationRequest | ContinuousLocationRequest,
     callback: Callback<Location>): void;
@@ -242,7 +243,7 @@ declare namespace geoLocationManager {
    *     Failed to call ${geoLocationManager.off('locationChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
-   * @since 22 static
+   * @since 23 static
    */
   function offLocationChange(callback?: Callback<Location>): void;
 
@@ -294,7 +295,7 @@ declare namespace geoLocationManager {
    *     Failed to call ${geoLocationManager.on('locationError')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
-   * @since 22 static
+   * @since 23 static
    */
   function onLocationError(callback: Callback<LocationError>): void;
 
@@ -346,7 +347,7 @@ declare namespace geoLocationManager {
    *     Failed to call ${geoLocationManager.off('locationError')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
-   * @since 22 static
+   * @since 23 static
    */
   function offLocationError(callback?: Callback<LocationError>): void;
 
@@ -387,7 +388,7 @@ declare namespace geoLocationManager {
    *     Failed to call ${geoLocationManager.on('locationEnabledChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
-   * @since 22 static
+   * @since 23 static
    */
   function onLocationEnabledChange(callback: Callback<boolean>): void;
 
@@ -428,7 +429,7 @@ declare namespace geoLocationManager {
    *     Failed to call ${geoLocationManager.off('locationEnabledChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
-   * @since 22 static
+   * @since 23 static
    */
   function offLocationEnabledChange(callback?: Callback<boolean>): void;
 
@@ -499,7 +500,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since 22 static
+   * @since 23 static
    */
   function onCachedGnssLocationsChange(request: CachedGnssLocationsRequest, callback: Callback<Array<Location>>): void;
 
@@ -566,7 +567,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since 22 static
+   * @since 23 static
    */
   function offCachedGnssLocationsChange(callback?: Callback<Array<Location>>): void;
 
@@ -618,7 +619,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since 22 static
+   * @since 23 static
    */
   function onSatelliteStatusChange(callback: Callback<SatelliteStatusInfo>): void;
 
@@ -670,7 +671,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since 22 static
+   * @since 23 static
    */
   function offSatelliteStatusChange(callback?: Callback<SatelliteStatusInfo>): void;
 
@@ -722,7 +723,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since 22 static
+   * @since 23 static
    */
   function onNmeaMessage(callback: Callback<string>): void;
 
@@ -774,7 +775,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since 22 static
+   * @since 23 static
    */
   function offNmeaMessage(callback?: Callback<string>): void;
 
@@ -856,7 +857,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
-   * @since 22 static
+   * @since 23 static
    */
   function onCountryCodeChange(callback: Callback<CountryCode>): void;
 
@@ -900,7 +901,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
-   * @since 22 static
+   * @since 23 static
    */
   function offCountryCodeChange(callback?: Callback<CountryCode>): void;
 
@@ -920,7 +921,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function on(type: 'locatingRequiredDataChange', config: LocatingRequiredDataConfig, callback: Callback<Array<LocatingRequiredData>>): void;
 
@@ -942,7 +943,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301800 - Failed to start WiFi or Bluetooth scanning.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onLocatingRequiredDataChange(config: LocatingRequiredDataConfig, callback: Callback<Array<LocatingRequiredData>>): void;
 
@@ -959,7 +960,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function off(type: 'locatingRequiredDataChange', callback?: Callback<Array<LocatingRequiredData>>): void;
 
@@ -978,7 +979,7 @@ declare namespace geoLocationManager {
    *     Failed to call ${geoLocationManager.off('locatingRequiredDataChange')} due to limited device capabilities.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offLocatingRequiredDataChange(callback?: Callback<Array<LocatingRequiredData>>): void;
 
@@ -994,7 +995,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function on(type: 'locationIconStatusChange', callback: Callback<LocationIconStatus>): void;
 
@@ -1010,7 +1011,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onLocationIconStatusChange(callback: Callback<LocationIconStatus>): void;
 
@@ -1026,7 +1027,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function off(type: 'locationIconStatusChange', callback?: Callback<LocationIconStatus>): void;
 
@@ -1043,7 +1044,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offLocationIconStatusChange(callback?: Callback<LocationIconStatus>): void;
 
@@ -1095,7 +1096,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Core
-   * @since 22 static
+   * @since 23 static
    */
   function onBluetoothScanResultChange(callback: Callback<BluetoothScanResult>): void;
 
@@ -1144,7 +1145,7 @@ declare namespace geoLocationManager {
    *     Failed to call ${geoLocationManager.off('bluetoothScanResultChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
-   * @since 22 static
+   * @since 23 static
    */
   function offBluetoothScanResultChange(callback?: Callback<BluetoothScanResult>): void;
 
@@ -1213,7 +1214,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getCurrentLocation(request: CurrentLocationRequest | SingleLocationRequest,
   callback: AsyncCallback<Location>): void;
@@ -1264,7 +1266,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getCurrentLocation(callback: AsyncCallback<Location>): void;
 
@@ -1333,7 +1336,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getCurrentLocation(request?: CurrentLocationRequest | SingleLocationRequest):
   Promise<Location>;
@@ -1380,7 +1384,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getLastLocation(): Location;
 
@@ -1413,7 +1418,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function isLocationEnabled(): boolean;
 
@@ -1428,7 +1434,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isLocationEnabledByUserId(userId: int): boolean;
 
@@ -1459,7 +1465,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableLocation(callback: AsyncCallback<void>): void;
 
@@ -1488,7 +1494,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableLocation(): Promise<void>;
 
@@ -1505,7 +1511,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableLocationByUserId(userId: int): Promise<void>;
 
@@ -1532,7 +1538,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function disableLocation(): void;
 
@@ -1548,7 +1554,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function disableLocationByUserId(userId: int): void;
 
@@ -1565,7 +1571,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setLocationSwitchIgnored(isIgnored: boolean): void;
 
@@ -1594,7 +1600,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301300 - Reverse geocoding query failed.
    * @syscap SystemCapability.Location.Location.Geocoder
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getAddressesFromLocation(request: ReverseGeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>): void;
 
@@ -1623,7 +1630,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301300 - Reverse geocoding query failed.
    * @syscap SystemCapability.Location.Location.Geocoder
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getAddressesFromLocation(request: ReverseGeoCodeRequest): Promise<Array<GeoAddress>>;
 
@@ -1653,7 +1661,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301400 - Geocoding query failed.
    * @syscap SystemCapability.Location.Location.Geocoder
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getAddressesFromLocationName(request: GeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>): void;
 
@@ -1682,7 +1691,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301400 - Geocoding query failed.
    * @syscap SystemCapability.Location.Location.Geocoder
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getAddressesFromLocationName(request: GeoCodeRequest): Promise<Array<GeoAddress>>;
 
@@ -1705,7 +1715,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Geocoder
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function isGeocoderAvailable(): boolean;
 
@@ -1737,7 +1748,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getCachedGnssLocationsSize(callback: AsyncCallback<int>): void;
 
@@ -1766,7 +1778,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getCachedGnssLocationsSize(): Promise<int>;
 
@@ -1807,7 +1820,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Gnss
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function flushCachedGnssLocations(callback: AsyncCallback<void>): void;
 
@@ -1840,7 +1854,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Gnss
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function flushCachedGnssLocations(): Promise<void>;
 
@@ -1856,7 +1871,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function sendCommand(command: LocationCommand, callback: AsyncCallback<void>): void;
 
@@ -1870,7 +1885,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function sendCommand(command: LocationCommand): Promise<void>;
 
@@ -1898,7 +1913,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getCountryCode(callback: AsyncCallback<CountryCode>): void;
 
@@ -1922,7 +1938,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getCountryCode(): Promise<CountryCode>;
 
@@ -1949,7 +1966,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableLocationMock(): void;
 
@@ -1976,7 +1993,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function disableLocationMock(): void;
 
@@ -2009,7 +2026,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setMockedLocations(config: LocationMockConfig): void;
 
@@ -2034,7 +2051,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableReverseGeocodingMock(): void;
 
@@ -2059,7 +2076,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function disableReverseGeocodingMock(): void;
 
@@ -2088,7 +2105,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>): void;
 
@@ -2104,7 +2121,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isLocationPrivacyConfirmed(type: LocationPrivacyType): boolean;
 
@@ -2122,7 +2139,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setLocationPrivacyConfirmStatus(type: LocationPrivacyType, isConfirmed: boolean): void;
 
@@ -2140,7 +2157,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getLocatingRequiredData(config: LocatingRequiredDataConfig): Promise<Array<LocatingRequiredData>>;
 
@@ -2176,7 +2193,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301601 - The number of geofences exceeds the maximum.
    * @syscap SystemCapability.Location.Location.Geofence
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function addGnssGeofence(fenceRequest: GnssGeofenceRequest): Promise<int>;
 
@@ -2213,7 +2231,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301602 - Failed to delete a geofence due to an incorrect ID.
    * @syscap SystemCapability.Location.Location.Geofence
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function removeGnssGeofence(geofenceId: int): Promise<void>;
 
@@ -2235,7 +2254,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Geofence
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getGeofenceSupportedCoordTypes(): Array<CoordinateSystemType>;
 
@@ -2249,7 +2269,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getLocationIconStatus(): LocationIconStatus;
 
@@ -2265,7 +2285,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getCurrentWifiBssidForLocating(): string;
 
@@ -2288,7 +2308,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getDistanceBetweenLocations(location1: Location, location2: Location): double;
 
@@ -2383,7 +2404,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isWlanBssidMatched(
     wlanBssidArray: Array<string>, rssiThreshold: int, needStartScan: boolean): Promise<boolean>;
@@ -2411,7 +2432,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface ReverseGeocodingMockInfo {
     /**
@@ -2421,7 +2442,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     location: ReverseGeoCodeRequest;
 
@@ -2432,7 +2453,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     geoAddress: GeoAddress;
   }
@@ -2444,7 +2465,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface LocationMockConfig {
     /**
@@ -2454,7 +2475,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     timeInterval: int;
 
@@ -2465,7 +2486,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     locations: Array<Location>;
   }
@@ -2483,7 +2504,8 @@ declare namespace geoLocationManager {
    * @typedef SatelliteStatusInfo
    * @syscap SystemCapability.Location.Location.Gnss
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface SatelliteStatusInfo {
     /**
@@ -2499,7 +2521,8 @@ declare namespace geoLocationManager {
      * @type { int }
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     satellitesNumber: int;
 
@@ -2516,7 +2539,8 @@ declare namespace geoLocationManager {
      * @type { Array<int> }
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     satelliteIds: Array<int>;
 
@@ -2533,7 +2557,8 @@ declare namespace geoLocationManager {
      * @type { Array<double> }
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     carrierToNoiseDensitys: Array<double>;
 
@@ -2550,7 +2575,8 @@ declare namespace geoLocationManager {
      * @type { Array<double> }
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     altitudes: Array<double>;
 
@@ -2567,7 +2593,8 @@ declare namespace geoLocationManager {
      * @type { Array<double> }
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     azimuths: Array<double>;
 
@@ -2584,7 +2611,8 @@ declare namespace geoLocationManager {
      * @type { Array<double> }
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     carrierFrequencies: Array<double>;
 
@@ -2601,7 +2629,8 @@ declare namespace geoLocationManager {
      * @type { ?Array<SatelliteConstellationCategory> }
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     satelliteConstellation?: Array<SatelliteConstellationCategory>;
 
@@ -2618,7 +2647,8 @@ declare namespace geoLocationManager {
      * @type { ?Array<int> }
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     satelliteAdditionalInfo?: Array<int>;
   }
@@ -2636,7 +2666,8 @@ declare namespace geoLocationManager {
    * @typedef CachedGnssLocationsRequest
    * @syscap SystemCapability.Location.Location.Gnss
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface CachedGnssLocationsRequest {
     /**
@@ -2652,7 +2683,8 @@ declare namespace geoLocationManager {
      * @type { int }
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     reportingPeriodSec: int;
 
@@ -2669,7 +2701,8 @@ declare namespace geoLocationManager {
      * @type { boolean }
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     wakeUpCacheQueueFull: boolean;
   }
@@ -2687,7 +2720,8 @@ declare namespace geoLocationManager {
    * @typedef GnssGeofenceRequest
    * @syscap SystemCapability.Location.Location.Geofence
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface GnssGeofenceRequest {
     /**
@@ -2703,7 +2737,8 @@ declare namespace geoLocationManager {
      * @type { Geofence }
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     geofence: Geofence;
 
@@ -2720,7 +2755,8 @@ declare namespace geoLocationManager {
      * @type { Array<GeofenceTransitionEvent> }
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     monitorTransitionEvents: Array<GeofenceTransitionEvent>;
 
@@ -2737,7 +2773,8 @@ declare namespace geoLocationManager {
      * @type { ?Array<NotificationRequest> }
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     notifications?: Array<NotificationRequest>;
 
@@ -2754,7 +2791,8 @@ declare namespace geoLocationManager {
      * @type { AsyncCallback<GeofenceTransition> }
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     geofenceTransitionCallback: AsyncCallback<GeofenceTransition>;
 
@@ -2776,7 +2814,7 @@ declare namespace geoLocationManager {
    * @typedef GeofenceRequest
    * @syscap SystemCapability.Location.Location.Geofence
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface GeofenceRequest {
     /**
@@ -2785,7 +2823,7 @@ declare namespace geoLocationManager {
      * @type { LocationRequestScenario }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     scenario: LocationRequestScenario;
 
@@ -2795,7 +2833,7 @@ declare namespace geoLocationManager {
      * @type { Geofence }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     geofence: Geofence;
   }
@@ -2813,7 +2851,8 @@ declare namespace geoLocationManager {
    * @typedef Geofence
    * @syscap SystemCapability.Location.Location.Geofence
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface Geofence {
     /**
@@ -2829,7 +2868,8 @@ declare namespace geoLocationManager {
      * @type { double }
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     latitude: double;
 
@@ -2846,7 +2886,8 @@ declare namespace geoLocationManager {
      * @type { double }
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     longitude: double;
 
@@ -2863,7 +2904,8 @@ declare namespace geoLocationManager {
      * @type { ?CoordinateSystemType }
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     coordinateSystemType?: CoordinateSystemType;
 
@@ -2880,7 +2922,8 @@ declare namespace geoLocationManager {
      * @type { double }
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     radius: double;
 
@@ -2897,7 +2940,8 @@ declare namespace geoLocationManager {
      * @type { double }
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     expiration: double;
   }
@@ -2915,7 +2959,8 @@ declare namespace geoLocationManager {
    * @typedef ReverseGeoCodeRequest
    * @syscap SystemCapability.Location.Location.Geocoder
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface ReverseGeoCodeRequest {
     /**
@@ -2931,7 +2976,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     locale?: string;
 
@@ -2948,7 +2994,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     country?: string;
 
@@ -2965,7 +3012,8 @@ declare namespace geoLocationManager {
      * @type { double }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     latitude: double;
 
@@ -2982,7 +3030,8 @@ declare namespace geoLocationManager {
      * @type { double }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     longitude: double;
 
@@ -2999,7 +3048,8 @@ declare namespace geoLocationManager {
      * @type { ?int }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     maxItems?: int;
   }
@@ -3017,7 +3067,8 @@ declare namespace geoLocationManager {
    * @typedef GeoCodeRequest
    * @syscap SystemCapability.Location.Location.Geocoder
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface GeoCodeRequest {
     /**
@@ -3033,7 +3084,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     locale?: string;
 
@@ -3050,7 +3102,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     country?: string;
 
@@ -3067,7 +3120,8 @@ declare namespace geoLocationManager {
      * @type { string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     description: string;
 
@@ -3084,7 +3138,8 @@ declare namespace geoLocationManager {
      * @type { ?int }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     maxItems?: int;
 
@@ -3101,7 +3156,8 @@ declare namespace geoLocationManager {
      * @type { ?double }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     minLatitude?: double;
 
@@ -3118,7 +3174,8 @@ declare namespace geoLocationManager {
      * @type { ?double }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     minLongitude?: double;
 
@@ -3135,7 +3192,8 @@ declare namespace geoLocationManager {
      * @type { ?double }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     maxLatitude?: double;
 
@@ -3152,7 +3210,8 @@ declare namespace geoLocationManager {
      * @type { ?double }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     maxLongitude?: double;
   }
@@ -3170,7 +3229,8 @@ declare namespace geoLocationManager {
    * @typedef GeoAddress
    * @syscap SystemCapability.Location.Location.Geocoder
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface GeoAddress {
     /**
@@ -3190,7 +3250,8 @@ declare namespace geoLocationManager {
      * @type { ?double }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     latitude?: double;
 
@@ -3211,7 +3272,8 @@ declare namespace geoLocationManager {
      * @type { ?double }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     longitude?: double;
 
@@ -3230,7 +3292,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     locale?: string;
 
@@ -3247,7 +3310,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     placeName?: string;
 
@@ -3264,7 +3328,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     countryCode?: string;
 
@@ -3281,7 +3346,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     countryName?: string;
 
@@ -3298,7 +3364,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     administrativeArea?: string;
 
@@ -3315,7 +3382,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     subAdministrativeArea?: string;
 
@@ -3332,7 +3400,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     locality?: string;
 
@@ -3349,7 +3418,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     subLocality?: string;
 
@@ -3366,7 +3436,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     roadName?: string;
 
@@ -3383,7 +3454,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     subRoadName?: string;
 
@@ -3400,7 +3472,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     premises?: string;
 
@@ -3417,7 +3490,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     postalCode?: string;
 
@@ -3434,7 +3508,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     phoneNumber?: string;
 
@@ -3451,7 +3526,8 @@ declare namespace geoLocationManager {
      * @type { ?string }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     addressUrl?: string;
 
@@ -3468,7 +3544,8 @@ declare namespace geoLocationManager {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     descriptions?: Array<string>;
 
@@ -3485,7 +3562,8 @@ declare namespace geoLocationManager {
      * @type { ?int }
      * @syscap SystemCapability.Location.Location.Geocoder
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     descriptionsSize?: int;
 
@@ -3496,7 +3574,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geocoder
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isFromMock?: Boolean;
   }
@@ -3523,7 +3601,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface LocationRequest {
     /**
@@ -3548,7 +3627,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     priority?: LocationRequestPriority;
 
@@ -3574,7 +3654,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     scenario?: LocationRequestScenario;
 
@@ -3600,7 +3681,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     timeInterval?: int;
 
@@ -3626,7 +3708,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     distanceInterval?: double;
 
@@ -3652,7 +3735,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     maxAccuracy?: double;
   }
@@ -3679,7 +3763,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface CurrentLocationRequest {
     /**
@@ -3704,7 +3789,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     priority?: LocationRequestPriority;
 
@@ -3730,7 +3816,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     scenario?: LocationRequestScenario;
 
@@ -3756,7 +3843,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     maxAccuracy?: double;
 
@@ -3782,7 +3870,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     timeoutMs?: int;
   }
@@ -3800,7 +3889,8 @@ declare namespace geoLocationManager {
    * @typedef GeofenceTransition
    * @syscap SystemCapability.Location.Location.Geofence
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface GeofenceTransition {
     /**
@@ -3816,7 +3906,8 @@ declare namespace geoLocationManager {
      * @type { int }
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     geofenceId: int;
 
@@ -3833,7 +3924,8 @@ declare namespace geoLocationManager {
      * @type { GeofenceTransitionEvent }
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     transitionEvent: GeofenceTransitionEvent;
 
@@ -3850,7 +3942,8 @@ declare namespace geoLocationManager {
      * @type { ?BeaconFence }
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     beaconFence?: BeaconFence;
   }
@@ -3870,7 +3963,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface ContinuousLocationRequest {
     /**
@@ -3888,7 +3982,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     interval: int;
 
@@ -3907,7 +4002,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     locationScenario: UserActivityScenario | PowerConsumptionScenario;
 
@@ -3920,7 +4016,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sportsType?: SportsType;
 
@@ -3939,7 +4035,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     needPoi?: boolean;
   }
@@ -3959,7 +4056,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface SingleLocationRequest {
     /**
@@ -3977,7 +4075,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     locatingPriority: LocatingPriority;
 
@@ -3996,7 +4095,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     locatingTimeoutMs: int;
 
@@ -4015,7 +4115,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     needPoi?: boolean;
   }
@@ -4042,7 +4143,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface Location {
     /**
@@ -4073,7 +4175,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     latitude: double;
 
@@ -4105,7 +4208,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     longitude: double;
 
@@ -4131,7 +4235,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     altitude: double;
 
@@ -4157,7 +4262,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     accuracy: double;
 
@@ -4183,7 +4289,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     speed: double;
 
@@ -4209,7 +4316,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     timeStamp: long;
 
@@ -4235,7 +4343,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     direction: double;
 
@@ -4261,7 +4370,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     timeSinceBoot: long;
 
@@ -4287,7 +4397,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     additions?: Array<string>;
 
@@ -4306,7 +4417,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     additionsMap?: Map<string, string>;
 
@@ -4332,7 +4444,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     additionSize?: int;
 
@@ -4343,7 +4456,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isFromMock?: Boolean;
 
@@ -4362,7 +4475,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     altitudeAccuracy?: double;
 
@@ -4381,7 +4495,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     speedAccuracy?: double;
 
@@ -4400,7 +4515,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     directionAccuracy?: double;
 
@@ -4419,7 +4535,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     uncertaintyOfTimeSinceBoot?: long;
 
@@ -4438,7 +4555,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     sourceType?: LocationSourceType;
 
@@ -4457,7 +4575,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     poi?: PoiInfo;
   }
@@ -4468,7 +4587,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface LocatingRequiredDataConfig {
     /**
@@ -4478,7 +4597,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     type: LocatingRequiredDataType;
 
@@ -4489,7 +4608,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     needStartScan: boolean;
 
@@ -4501,7 +4620,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     scanInterval?: int;
 
@@ -4513,7 +4632,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     scanTimeout?: int;
   }
@@ -4524,7 +4643,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface LocatingRequiredData {
     /**
@@ -4534,7 +4653,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     wifiData?: WifiScanInfo;
 
@@ -4545,7 +4664,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bluetoothData?: BluetoothScanInfo;
   }
@@ -4556,7 +4675,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface WifiScanInfo {
     /**
@@ -4566,7 +4685,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ssid: string;
 
@@ -4577,7 +4696,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bssid: string;
 
@@ -4588,7 +4707,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     rssi: int;
 
@@ -4599,7 +4718,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     frequency: int;
 
@@ -4610,7 +4729,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     timestamp: long;
   }
@@ -4622,7 +4741,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface BluetoothScanInfo {
     /**
@@ -4632,7 +4751,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceName: string;
 
@@ -4643,7 +4762,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     macAddress: string;
 
@@ -4654,7 +4773,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     rssi: int;
 
@@ -4665,7 +4784,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     timestamp: long;
   }
@@ -4683,7 +4802,8 @@ declare namespace geoLocationManager {
    * @typedef BluetoothScanResult
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface BluetoothScanResult {
     /**
@@ -4699,7 +4819,8 @@ declare namespace geoLocationManager {
      * @type { string }
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     deviceId: string;
 
@@ -4716,7 +4837,8 @@ declare namespace geoLocationManager {
      * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     rssi: int;
 
@@ -4733,7 +4855,8 @@ declare namespace geoLocationManager {
      * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     data?: ArrayBuffer;
 
@@ -4750,7 +4873,8 @@ declare namespace geoLocationManager {
      * @type { string }
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     deviceName: string;
 
@@ -4767,7 +4891,8 @@ declare namespace geoLocationManager {
      * @type { boolean }
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     connectable: boolean;
   }
@@ -4920,7 +5045,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Geofence
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface BeaconManufactureData {
     /**
@@ -4930,7 +5055,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     manufactureId: int;
 
@@ -4941,7 +5066,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     manufactureData: ArrayBuffer;
 
@@ -4952,7 +5077,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     manufactureDataMask: ArrayBuffer;
   }
@@ -4964,7 +5089,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Geofence
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface BeaconFence {
     /**
@@ -4974,7 +5099,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     identifier: string;
 
@@ -4985,7 +5110,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     beaconFenceInfoType: BeaconFenceInfoType;
 
@@ -4996,7 +5121,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     manufactureData?: BeaconManufactureData;
   }
@@ -5056,7 +5181,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum LocationSourceType {
     /**
@@ -5072,7 +5198,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     GNSS = 1,
 
@@ -5089,7 +5216,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     NETWORK = 2,
 
@@ -5106,7 +5234,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     INDOOR = 3,
 
@@ -5123,7 +5252,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     RTK = 4
   }
@@ -5141,7 +5271,8 @@ declare namespace geoLocationManager {
    * @enum { int }
    * @syscap SystemCapability.Location.Location.Geofence
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum CoordinateSystemType {
     /**
@@ -5155,7 +5286,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     WGS84 = 1,
 
@@ -5170,7 +5302,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     GCJ02 = 2
   }
@@ -5182,7 +5315,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum LocationIconStatus {
     /**
@@ -5191,7 +5324,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOCATING_NOT_STARTED = 0,
 
@@ -5201,7 +5334,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOCATING_STARTED = 1,
 
@@ -5211,7 +5344,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HD_LOCATING_STARTED = 2
   }
@@ -5231,7 +5364,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum LocationError {
     /**
@@ -5247,7 +5381,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     LOCATING_FAILED_DEFAULT = -1,
 
@@ -5264,7 +5399,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     LOCATING_FAILED_LOCATION_PERMISSION_DENIED = -2,
 
@@ -5281,7 +5417,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     LOCATING_FAILED_BACKGROUND_PERMISSION_DENIED = -3,
 
@@ -5298,7 +5435,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     LOCATING_FAILED_LOCATION_SWITCH_OFF = -4,
 
@@ -5315,7 +5453,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     LOCATING_FAILED_INTERNET_ACCESS_FAILURE = -5
   }
@@ -5333,7 +5472,8 @@ declare namespace geoLocationManager {
    * @enum { int }
    * @syscap SystemCapability.Location.Location.Geofence
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum GeofenceTransitionEvent {
     /**
@@ -5347,7 +5487,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     GEOFENCE_TRANSITION_EVENT_ENTER = 1,
 
@@ -5362,7 +5503,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     GEOFENCE_TRANSITION_EVENT_EXIT = 2,
 
@@ -5377,7 +5519,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     GEOFENCE_TRANSITION_EVENT_DWELL = 4
   }
@@ -5395,7 +5538,8 @@ declare namespace geoLocationManager {
    * @enum { int }
    * @syscap SystemCapability.Location.Location.Gnss
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum SatelliteConstellationCategory {
     /**
@@ -5409,7 +5553,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CONSTELLATION_CATEGORY_UNKNOWN = 0,
 
@@ -5424,7 +5569,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CONSTELLATION_CATEGORY_GPS = 1,
 
@@ -5439,7 +5585,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CONSTELLATION_CATEGORY_SBAS = 2,
 
@@ -5454,7 +5601,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CONSTELLATION_CATEGORY_GLONASS = 3,
 
@@ -5469,7 +5617,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CONSTELLATION_CATEGORY_QZSS = 4,
 
@@ -5484,7 +5633,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CONSTELLATION_CATEGORY_BEIDOU = 5,
 
@@ -5499,7 +5649,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CONSTELLATION_CATEGORY_GALILEO = 6,
 
@@ -5514,7 +5665,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CONSTELLATION_CATEGORY_IRNSS = 7
   }
@@ -5532,7 +5684,8 @@ declare namespace geoLocationManager {
    * @enum { int }
    * @syscap SystemCapability.Location.Location.Gnss
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum SatelliteAdditionalInfo {
     /**
@@ -5546,7 +5699,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     SATELLITES_ADDITIONAL_INFO_NULL = 0,
 
@@ -5561,7 +5715,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     SATELLITES_ADDITIONAL_INFO_EPHEMERIS_DATA_EXIST = 1,
 
@@ -5576,7 +5731,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     SATELLITES_ADDITIONAL_INFO_ALMANAC_DATA_EXIST = 2,
 
@@ -5591,7 +5747,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     SATELLITES_ADDITIONAL_INFO_USED_IN_FIX = 4,
 
@@ -5606,7 +5763,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Gnss
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     SATELLITES_ADDITIONAL_INFO_CARRIER_FREQUENCY_EXIST = 8
   }
@@ -5626,7 +5784,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum UserActivityScenario {
     /**
@@ -5642,7 +5801,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     NAVIGATION = 0x401,
 
@@ -5659,7 +5819,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     SPORT = 0x402,
 
@@ -5676,7 +5837,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     TRANSPORT = 0x403,
 
@@ -5693,7 +5855,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     DAILY_LIFE_SERVICE = 0x404
   }
@@ -5713,7 +5876,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum LocatingPriority {
     /**
@@ -5729,7 +5893,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     PRIORITY_ACCURACY = 0x501,
 
@@ -5746,7 +5911,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     PRIORITY_LOCATING_SPEED = 0x502
   }
@@ -5773,7 +5939,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum LocationRequestPriority {
     /**
@@ -5795,7 +5962,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     UNSET = 0x200,
 
@@ -5818,7 +5986,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     ACCURACY,
 
@@ -5841,7 +6010,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     LOW_POWER,
 
@@ -5864,7 +6034,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     FIRST_FIX
   }
@@ -5891,7 +6062,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum LocationRequestScenario {
     /**
@@ -5913,7 +6085,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     UNSET = 0x300,
 
@@ -5936,7 +6109,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     NAVIGATION,
 
@@ -5959,7 +6133,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     TRAJECTORY_TRACKING,
 
@@ -5982,7 +6157,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CAR_HAILING,
 
@@ -6005,7 +6181,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     DAILY_LIFE_SERVICE,
 
@@ -6028,7 +6205,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     NO_POWER
   }
@@ -6048,7 +6226,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum PowerConsumptionScenario {
     /**
@@ -6064,7 +6243,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     HIGH_POWER_CONSUMPTION = 0x601,
 
@@ -6081,7 +6261,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     LOW_POWER_CONSUMPTION = 0x602,
 
@@ -6098,7 +6279,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     NO_POWER_CONSUMPTION = 0x603
   }
@@ -6110,7 +6292,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum LocationPrivacyType {
     /**
@@ -6119,7 +6301,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OTHERS = 0,
 
@@ -6129,7 +6311,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     STARTUP,
 
@@ -6139,7 +6321,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CORE_LOCATION
   }
@@ -6159,7 +6341,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum SportsType {
     /**
@@ -6175,7 +6358,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     RUNNING = 1,
 
@@ -6192,7 +6376,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     WALKING,
 
@@ -6209,7 +6394,8 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CYCLING
   }
@@ -6254,7 +6440,8 @@ declare namespace geoLocationManager {
    * @typedef CountryCode
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface CountryCode {
     /**
@@ -6270,7 +6457,8 @@ declare namespace geoLocationManager {
      * @type { string }
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     country: string;
 
@@ -6287,7 +6475,8 @@ declare namespace geoLocationManager {
      * @type { CountryCodeType }
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     type: CountryCodeType;
   }
@@ -6305,7 +6494,8 @@ declare namespace geoLocationManager {
    * @enum { int }
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum CountryCodeType {
     /**
@@ -6319,7 +6509,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     COUNTRY_CODE_FROM_LOCALE = 1,
 
@@ -6334,7 +6525,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     COUNTRY_CODE_FROM_SIM,
 
@@ -6349,7 +6541,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     COUNTRY_CODE_FROM_LOCATION,
 
@@ -6364,7 +6557,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     COUNTRY_CODE_FROM_NETWORK
   }
@@ -6376,7 +6570,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum LocatingRequiredDataType {
     /**
@@ -6385,7 +6579,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WIFI = 1,
 
@@ -6395,7 +6589,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BLUETOOTH
   }
@@ -6407,7 +6601,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Geofence
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum BeaconFenceInfoType {
     /**
@@ -6416,7 +6610,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BEACON_MANUFACTURE_DATA = 1
   }

@@ -32,14 +32,14 @@ import { RecordData } from '@ohos.base';
  *
  * @enum { number } Render type
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum NodeRenderType {
   /**
    * Display type.The node will be shown on the display.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RENDER_TYPE_DISPLAY = 0,
 
@@ -47,7 +47,7 @@ export declare enum NodeRenderType {
    * Exporting texture type.The node will be render to a  texture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   RENDER_TYPE_TEXTURE = 1
 }
@@ -57,14 +57,14 @@ export declare enum NodeRenderType {
  *
  * @interface RenderOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface RenderOptions {
   /**
    * The ideal size of the node.
    * @type { ?Size } selfIdealSize - The ideal size of the node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   selfIdealSize?: Size;
 
@@ -72,7 +72,7 @@ export interface RenderOptions {
    * Render type of the node.
    * @type { ?NodeRenderType } type - Render type of the node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   type?: NodeRenderType;
 
@@ -80,7 +80,7 @@ export interface RenderOptions {
    * The surfaceId of a texture consumer
    * @type { ?string } surfaceId - surfaceId of a consumer who can receive the texture of the Node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   surfaceId?: string;
 }
@@ -91,7 +91,7 @@ export interface RenderOptions {
  *
  * @interface BuildOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface BuildOptions {
   /**
@@ -99,7 +99,7 @@ export interface BuildOptions {
    * @type { ?boolean } useParallel - Indicates whether use parallel.
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   useParallel?: boolean;
 }
@@ -108,7 +108,7 @@ export interface BuildOptions {
  * Defines BuilderNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class BuilderNode<T = undefined> {
   /**
@@ -117,7 +117,7 @@ export declare class BuilderNode<T = undefined> {
    * @param { UIContext } uiContext - uiContext used to create the BuilderNode
    * @param { RenderOptions } [options] - Render options of the Builder Node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor(uiContext: UIContext, options?: RenderOptions);
   /**
@@ -125,7 +125,7 @@ export declare class BuilderNode<T = undefined> {
    *
    * @param {  WrappedBuilder<CustomBuilder> } builder - Defined the builder will be called to build the node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   build(builder: WrappedBuilder<CustomBuilder>): void;
   /**
@@ -134,7 +134,7 @@ export declare class BuilderNode<T = undefined> {
    * @param { WrappedBuilder<CustomBuilderT<T>> } builder - Defined the builder will be called to build the node.
    * @param { T } arg - Defined the args will be used in the builder.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   build(builder: WrappedBuilder<CustomBuilderT<T>>, arg: T): void;
 
@@ -145,7 +145,7 @@ export declare class BuilderNode<T = undefined> {
    * @param { T } arg - Defined the args will be used in the builder.
    * @param { BuildOptions } options - Defined the options will be used when build.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   build(builder: WrappedBuilder<CustomBuilderT<T>>, arg: T, options: BuildOptions): void;
 
@@ -155,7 +155,7 @@ export declare class BuilderNode<T = undefined> {
    * @param { T } arg - Parameters used to update the BuilderNode, which must match the types required by the builder
    *     bound to the BuilderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   update(arg: T): void;
 
@@ -164,7 +164,7 @@ export declare class BuilderNode<T = undefined> {
    *
    * @returns { FrameNode | null } - Returns a FrameNode inside the BuilderNode, or null if not contained.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   getFrameNode(): FrameNode | null;
 
@@ -175,7 +175,7 @@ export declare class BuilderNode<T = undefined> {
    * @returns { boolean } - Returns true if the TouchEvent has been successfully posted to the targetNode, false
    * otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   postTouchEvent(event: TouchEvent): boolean;
 
@@ -183,7 +183,7 @@ export declare class BuilderNode<T = undefined> {
    * Dispose the BuilderNode immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   dispose(): void;
 
@@ -192,7 +192,7 @@ export declare class BuilderNode<T = undefined> {
    *
    * @param { RecordData } [param] - Parameters for reusing BuilderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   reuse(param?: RecordData): void;
 
@@ -200,7 +200,7 @@ export declare class BuilderNode<T = undefined> {
    * Recycle the BuilderNode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   recycle(): void;
 
@@ -208,7 +208,7 @@ export declare class BuilderNode<T = undefined> {
    * Notify BuilderNode to update the configuration to trigger a reload of the BuilderNode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   updateConfiguration(): void;
 
@@ -217,7 +217,7 @@ export declare class BuilderNode<T = undefined> {
    *
    * @returns { boolean } - Returns true if the BuilderNode is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   isDisposed(): boolean;
 
@@ -228,7 +228,7 @@ export declare class BuilderNode<T = undefined> {
    * @returns { boolean } - Returns true if the event has been successfully posted to the targetNode,
    *     false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   postInputEvent(event: InputEventType): boolean;
 
@@ -239,7 +239,7 @@ export declare class BuilderNode<T = undefined> {
    * @param { boolean } enabled - If the BuilderNode inherits the freezing policy of the parent CustomComponent,
    *     ComponentContent, or BuilderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   inheritFreezeOptions(enabled: boolean): void;
 }
@@ -249,6 +249,6 @@ export declare class BuilderNode<T = undefined> {
  *
  * @typedef { TouchEvent | MouseEvent | AxisEvent } InputEventType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 declare type InputEventType = TouchEvent | MouseEvent | AxisEvent;

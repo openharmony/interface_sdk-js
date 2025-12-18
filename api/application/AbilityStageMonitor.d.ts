@@ -44,7 +44,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface AbilityStageMonitor {
   /**
@@ -70,7 +70,7 @@ export interface AbilityStageMonitor {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   moduleName: string;
 
@@ -97,7 +97,7 @@ export interface AbilityStageMonitor {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   srcEntrance: string;
 }

@@ -180,7 +180,8 @@ declare namespace PiPWindow {
      * @default -1
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     handleId?: number;
 
@@ -283,7 +284,8 @@ declare namespace PiPWindow {
      * @default true
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     cornerAdsorptionEnabled?: boolean;
   }
@@ -1049,7 +1051,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateContentSize(width: number, height: number): void;
 
@@ -1061,7 +1063,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
 
@@ -1088,7 +1090,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
 

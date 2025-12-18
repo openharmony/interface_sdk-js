@@ -39,7 +39,7 @@ import { CommonEventPublishData as _CommonEventPublishData } from './commonEvent
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace commonEventManager {
   /**
@@ -97,7 +97,7 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function publish(event: string, callback: AsyncCallback<void>): void;
 
@@ -160,7 +160,7 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
@@ -210,7 +210,7 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function publishAsUser(event: string, userId: int, callback: AsyncCallback<void>): void;
 
@@ -266,7 +266,7 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function publishAsUser(
     event: string,
@@ -296,7 +296,7 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createSubscriber(
     subscribeInfo: CommonEventSubscribeInfo,
@@ -324,7 +324,7 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
@@ -348,7 +348,7 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber;
 
@@ -393,7 +393,7 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 
@@ -412,7 +412,7 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function subscribeToEvent(subscriber: CommonEventSubscriber, callback: Callback<CommonEventData>): Promise<void>;
 
@@ -443,7 +443,7 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
 
@@ -463,7 +463,7 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function removeStickyCommonEvent(event: string, callback: AsyncCallback<void>): void;
 
@@ -483,7 +483,7 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function removeStickyCommonEvent(event: string): Promise<void>;
 
@@ -501,7 +501,7 @@ declare namespace commonEventManager {
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setStaticSubscriberState(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -519,7 +519,7 @@ declare namespace commonEventManager {
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setStaticSubscriberState(enable: boolean): Promise<void>;
 
@@ -555,7 +555,7 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
-   * @since 22 static
+   * @since 23 static
    */
   function setStaticSubscriberState(enable: boolean, events: Array<string>): Promise<void>;
 
@@ -573,7 +573,7 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum Support {
     /**
@@ -582,7 +582,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_BOOT_COMPLETED = 'usual.event.BOOT_COMPLETED',
 
@@ -591,7 +591,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_LOCKED_BOOT_COMPLETED = 'usual.event.LOCKED_BOOT_COMPLETED',
 
@@ -600,7 +600,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SHUTDOWN = 'usual.event.SHUTDOWN',
 
@@ -609,7 +609,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_BATTERY_CHANGED = 'usual.event.BATTERY_CHANGED',
 
@@ -618,7 +618,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_BATTERY_LOW = 'usual.event.BATTERY_LOW',
 
@@ -627,7 +627,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_BATTERY_OKAY = 'usual.event.BATTERY_OKAY',
 
@@ -636,7 +636,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_POWER_CONNECTED = 'usual.event.POWER_CONNECTED',
 
@@ -645,7 +645,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_POWER_DISCONNECTED = 'usual.event.POWER_DISCONNECTED',
 
@@ -654,7 +654,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SCREEN_OFF = 'usual.event.SCREEN_OFF',
 
@@ -663,7 +663,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SCREEN_ON = 'usual.event.SCREEN_ON',
 
@@ -672,7 +672,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_THERMAL_LEVEL_CHANGED = 'usual.event.THERMAL_LEVEL_CHANGED',
 
@@ -681,7 +681,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_ENTER_FORCE_SLEEP = 'usual.event.ENTER_FORCE_SLEEP',
 
@@ -690,7 +690,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_EXIT_FORCE_SLEEP = 'usual.event.EXIT_FORCE_SLEEP',
 
@@ -699,7 +699,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_ENTER_HIBERNATE = 'usual.event.ENTER_HIBERNATE',
 
@@ -708,7 +708,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_EXIT_HIBERNATE = 'usual.event.EXIT_HIBERNATE',
 
@@ -726,7 +726,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_TIME_TICK = 'usual.event.TIME_TICK',
 
@@ -735,7 +735,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_TIME_CHANGED = 'usual.event.TIME_CHANGED',
 
@@ -744,7 +744,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DATE_CHANGED = 'usual.event.DATE_CHANGED',
 
@@ -753,7 +753,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_TIMEZONE_CHANGED = 'usual.event.TIMEZONE_CHANGED',
 
@@ -762,7 +762,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_CLOSE_SYSTEM_DIALOGS = 'usual.event.CLOSE_SYSTEM_DIALOGS',
 
@@ -771,7 +771,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_PACKAGE_ADDED = 'usual.event.PACKAGE_ADDED',
 
@@ -781,7 +781,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_PACKAGE_REPLACED = 'usual.event.PACKAGE_REPLACED',
 
@@ -791,7 +791,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_MY_PACKAGE_REPLACED = 'usual.event.MY_PACKAGE_REPLACED',
 
@@ -800,7 +800,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_PACKAGE_REMOVED = 'usual.event.PACKAGE_REMOVED',
 
@@ -809,7 +809,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_BUNDLE_REMOVED = 'usual.event.BUNDLE_REMOVED',
 
@@ -818,7 +818,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_PACKAGE_FULLY_REMOVED = 'usual.event.PACKAGE_FULLY_REMOVED',
 
@@ -827,7 +827,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_PACKAGE_CHANGED = 'usual.event.PACKAGE_CHANGED',
 
@@ -836,7 +836,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_PACKAGE_RESTARTED = 'usual.event.PACKAGE_RESTARTED',
 
@@ -845,7 +845,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_PACKAGE_DATA_CLEARED = 'usual.event.PACKAGE_DATA_CLEARED',
 
@@ -854,7 +854,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_PACKAGE_CACHE_CLEARED = 'usual.event.PACKAGE_CACHE_CLEARED',
 
@@ -863,7 +863,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_PACKAGES_SUSPENDED = 'usual.event.PACKAGES_SUSPENDED',
 
@@ -872,7 +872,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_PACKAGES_UNSUSPENDED = 'usual.event.PACKAGES_UNSUSPENDED',
 
@@ -881,7 +881,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_MY_PACKAGE_SUSPENDED = 'usual.event.MY_PACKAGE_SUSPENDED',
 
@@ -890,7 +890,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_MY_PACKAGE_UNSUSPENDED = 'usual.event.MY_PACKAGE_UNSUSPENDED',
 
@@ -899,7 +899,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_UID_REMOVED = 'usual.event.UID_REMOVED',
 
@@ -908,7 +908,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_PACKAGE_FIRST_LAUNCH = 'usual.event.PACKAGE_FIRST_LAUNCH',
 
@@ -917,7 +917,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_PACKAGE_NEEDS_VERIFICATION = 'usual.event.PACKAGE_NEEDS_VERIFICATION',
 
@@ -926,7 +926,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_PACKAGE_VERIFIED = 'usual.event.PACKAGE_VERIFIED',
 
@@ -936,7 +936,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_EXTERNAL_APPLICATIONS_AVAILABLE = 'usual.event.EXTERNAL_APPLICATIONS_AVAILABLE',
 
@@ -945,7 +945,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_EXTERNAL_APPLICATIONS_UNAVAILABLE = 'usual.event.EXTERNAL_APPLICATIONS_UNAVAILABLE',
 
@@ -954,7 +954,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_CONFIGURATION_CHANGED = 'usual.event.CONFIGURATION_CHANGED',
 
@@ -963,7 +963,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_LOCALE_CHANGED = 'usual.event.LOCALE_CHANGED',
 
@@ -972,7 +972,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_MANAGE_PACKAGE_STORAGE = 'usual.event.MANAGE_PACKAGE_STORAGE',
 
@@ -981,7 +981,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DRIVE_MODE = 'common.event.DRIVE_MODE',
 
@@ -990,7 +990,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_HOME_MODE = 'common.event.HOME_MODE',
 
@@ -999,7 +999,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_OFFICE_MODE = 'common.event.OFFICE_MODE',
 
@@ -1008,7 +1008,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USER_STARTED = 'usual.event.USER_STARTED',
 
@@ -1017,7 +1017,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USER_BACKGROUND = 'usual.event.USER_BACKGROUND',
 
@@ -1026,7 +1026,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USER_FOREGROUND = 'usual.event.USER_FOREGROUND',
 
@@ -1036,7 +1036,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * This API can be called only by system applications.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USER_SWITCHED = 'usual.event.USER_SWITCHED',
 
@@ -1046,7 +1046,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * This API can be called only by system applications.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USER_STARTING = 'usual.event.USER_STARTING',
 
@@ -1055,7 +1055,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USER_UNLOCKED = 'usual.event.USER_UNLOCKED',
 
@@ -1066,7 +1066,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USER_LOCKING = 'usual.event.USER_LOCKING',
 
@@ -1077,7 +1077,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USER_LOCKED = 'usual.event.USER_LOCKED',
 
@@ -1087,7 +1087,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * This API can be called only by system applications.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USER_STOPPING = 'usual.event.USER_STOPPING',
 
@@ -1096,7 +1096,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USER_STOPPED = 'usual.event.USER_STOPPED',
 
@@ -1112,7 +1112,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGIN = 'common.event.DISTRIBUTED_ACCOUNT_LOGIN',
 
@@ -1128,7 +1128,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOUT = 'common.event.DISTRIBUTED_ACCOUNT_LOGOUT',
 
@@ -1144,7 +1144,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DISTRIBUTED_ACCOUNT_TOKEN_INVALID = 'common.event.DISTRIBUTED_ACCOUNT_TOKEN_INVALID',
 
@@ -1160,7 +1160,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOFF = 'common.event.DISTRIBUTED_ACCOUNT_LOGOFF',
 
@@ -1169,7 +1169,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_WIFI_POWER_STATE = 'usual.event.wifi.POWER_STATE',
 
@@ -1178,7 +1178,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_WIFI_SCAN_FINISHED = 'usual.event.wifi.SCAN_FINISHED',
 
@@ -1187,7 +1187,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_WIFI_RSSI_VALUE = 'usual.event.wifi.RSSI_VALUE',
 
@@ -1196,7 +1196,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_WIFI_CONN_STATE = 'usual.event.wifi.CONN_STATE',
 
@@ -1205,7 +1205,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_WIFI_HOTSPOT_STATE = 'usual.event.wifi.HOTSPOT_STATE',
 
@@ -1214,7 +1214,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_WIFI_AP_STA_JOIN = 'usual.event.wifi.WIFI_HS_STA_JOIN',
 
@@ -1223,7 +1223,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_WIFI_AP_STA_LEAVE = 'usual.event.wifi.WIFI_HS_STA_LEAVE',
 
@@ -1232,7 +1232,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_WIFI_MPLINK_STATE_CHANGE = 'usual.event.wifi.mplink.STATE_CHANGE',
 
@@ -1241,7 +1241,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_WIFI_P2P_CONN_STATE = 'usual.event.wifi.p2p.CONN_STATE_CHANGE',
 
@@ -1250,7 +1250,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_WIFI_P2P_STATE_CHANGED = 'usual.event.wifi.p2p.STATE_CHANGE',
 
@@ -1259,7 +1259,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_WIFI_P2P_PEERS_STATE_CHANGED = 'usual.event.wifi.p2p.DEVICES_CHANGE',
 
@@ -1268,7 +1268,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_WIFI_P2P_PEERS_DISCOVERY_STATE_CHANGED = 'usual.event.wifi.p2p.PEER_DISCOVERY_STATE_CHANGE',
 
@@ -1277,7 +1277,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_WIFI_P2P_CURRENT_DEVICE_STATE_CHANGED = 'usual.event.wifi.p2p.CURRENT_DEVICE_CHANGE',
 
@@ -1286,7 +1286,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_WIFI_P2P_GROUP_STATE_CHANGED = 'usual.event.wifi.p2p.GROUP_STATE_CHANGED',
 
@@ -1681,7 +1681,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_NFC_ACTION_ADAPTER_STATE_CHANGED = 'usual.event.nfc.action.ADAPTER_STATE_CHANGED',
 
@@ -1690,7 +1690,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_NFC_ACTION_RF_FIELD_ON_DETECTED = 'usual.event.nfc.action.RF_FIELD_ON_DETECTED',
 
@@ -1699,7 +1699,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_NFC_ACTION_RF_FIELD_OFF_DETECTED = 'usual.event.nfc.action.RF_FIELD_OFF_DETECTED',
 
@@ -1708,7 +1708,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DISCHARGING = 'usual.event.DISCHARGING',
 
@@ -1717,7 +1717,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_CHARGING = 'usual.event.CHARGING',
 
@@ -1727,7 +1727,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_CHARGE_TYPE_CHANGED = 'usual.event.CHARGE_TYPE_CHANGED',
 
@@ -1736,7 +1736,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED = 'usual.event.DEVICE_IDLE_MODE_CHANGED',
 
@@ -1745,7 +1745,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_CHARGE_IDLE_MODE_CHANGED = 'usual.event.CHARGE_IDLE_MODE_CHANGED',
 
@@ -1755,7 +1755,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DEVICE_IDLE_EXEMPTION_LIST_UPDATED = 'usual.event.DEVICE_IDLE_EXEMPTION_LIST_UPDATED',
 
@@ -1764,7 +1764,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_POWER_SAVE_MODE_CHANGED = 'usual.event.POWER_SAVE_MODE_CHANGED',
 
@@ -1774,7 +1774,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * This API can be called only by system applications.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USER_ADDED = 'usual.event.USER_ADDED',
 
@@ -1784,7 +1784,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * This API can be called only by system applications.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USER_REMOVED = 'usual.event.USER_REMOVED',
 
@@ -1793,7 +1793,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_ABILITY_ADDED = 'common.event.ABILITY_ADDED',
 
@@ -1802,7 +1802,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_ABILITY_REMOVED = 'common.event.ABILITY_REMOVED',
 
@@ -1811,7 +1811,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_ABILITY_UPDATED = 'common.event.ABILITY_UPDATED',
 
@@ -1820,7 +1820,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_LOCATION_MODE_STATE_CHANGED = 'usual.event.location.MODE_STATE_CHANGED',
 
@@ -1830,7 +1830,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_IVI_SLEEP = 'common.event.IVI_SLEEP',
 
@@ -1840,7 +1840,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_IVI_PAUSE = 'common.event.IVI_PAUSE',
 
@@ -1850,7 +1850,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_IVI_STANDBY = 'common.event.IVI_STANDBY',
 
@@ -1860,7 +1860,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_IVI_LASTMODE_SAVE = 'common.event.IVI_LASTMODE_SAVE',
 
@@ -1870,7 +1870,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_IVI_VOLTAGE_ABNORMAL = 'common.event.IVI_VOLTAGE_ABNORMAL',
 
@@ -1881,7 +1881,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_IVI_HIGH_TEMPERATURE = 'common.event.IVI_HIGH_TEMPERATURE',
 
@@ -1892,7 +1892,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_IVI_EXTREME_TEMPERATURE = 'common.event.IVI_EXTREME_TEMPERATURE',
 
@@ -1902,7 +1902,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_IVI_TEMPERATURE_ABNORMAL = 'common.event.IVI_TEMPERATURE_ABNORMAL',
 
@@ -1912,7 +1912,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_IVI_VOLTAGE_RECOVERY = 'common.event.IVI_VOLTAGE_RECOVERY',
 
@@ -1922,7 +1922,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_IVI_TEMPERATURE_RECOVERY = 'common.event.IVI_TEMPERATURE_RECOVERY',
 
@@ -1932,7 +1932,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_IVI_ACTIVE = 'common.event.IVI_ACTIVE',
 
@@ -1942,7 +1942,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USB_STATE = 'usual.event.hardware.usb.action.USB_STATE',
 
@@ -1952,7 +1952,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USB_PORT_CHANGED = 'usual.event.hardware.usb.action.USB_PORT_CHANGED',
 
@@ -1962,7 +1962,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USB_DEVICE_ATTACHED = 'usual.event.hardware.usb.action.USB_DEVICE_ATTACHED',
 
@@ -1972,7 +1972,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USB_DEVICE_DETACHED = 'usual.event.hardware.usb.action.USB_DEVICE_DETACHED',
 
@@ -1982,7 +1982,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USB_ACCESSORY_ATTACHED = 'usual.event.hardware.usb.action.USB_ACCESSORY_ATTACHED',
 
@@ -1992,7 +1992,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USB_ACCESSORY_DETACHED = 'usual.event.hardware.usb.action.USB_ACCESSORY_DETACHED',
 
@@ -2002,7 +2002,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DISK_REMOVED = 'usual.event.data.DISK_REMOVED',
 
@@ -2012,7 +2012,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DISK_UNMOUNTED = 'usual.event.data.DISK_UNMOUNTED',
 
@@ -2022,7 +2022,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DISK_MOUNTED = 'usual.event.data.DISK_MOUNTED',
 
@@ -2032,7 +2032,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DISK_BAD_REMOVAL = 'usual.event.data.DISK_BAD_REMOVAL',
 
@@ -2042,7 +2042,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DISK_UNMOUNTABLE = 'usual.event.data.DISK_UNMOUNTABLE',
 
@@ -2052,7 +2052,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DISK_EJECT = 'usual.event.data.DISK_EJECT',
 
@@ -2063,7 +2063,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_VOLUME_REMOVED = 'usual.event.data.VOLUME_REMOVED',
 
@@ -2074,7 +2074,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_VOLUME_UNMOUNTED = 'usual.event.data.VOLUME_UNMOUNTED',
 
@@ -2085,7 +2085,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_VOLUME_MOUNTED = 'usual.event.data.VOLUME_MOUNTED',
 
@@ -2096,7 +2096,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_VOLUME_BAD_REMOVAL = 'usual.event.data.VOLUME_BAD_REMOVAL',
 
@@ -2107,7 +2107,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_VOLUME_EJECT = 'usual.event.data.VOLUME_EJECT',
 
@@ -2117,7 +2117,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_VISIBLE_ACCOUNTS_UPDATED = 'usual.event.data.VISIBLE_ACCOUNTS_UPDATED',
 
@@ -2128,7 +2128,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * This API can be called only by system applications.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_ACCOUNT_DELETED = 'usual.event.data.ACCOUNT_DELETED',
 
@@ -2138,7 +2138,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_FOUNDATION_READY = 'common.event.FOUNDATION_READY',
 
@@ -2148,7 +2148,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_AIRPLANE_MODE_CHANGED = 'usual.event.AIRPLANE_MODE',
 
@@ -2164,7 +2164,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SPLIT_SCREEN = 'common.event.SPLIT_SCREEN',
 
@@ -2175,7 +2175,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SLOT_CHANGE = 'usual.event.SLOT_CHANGE',
 
@@ -2185,7 +2185,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SPN_INFO_CHANGED = 'usual.event.SPN_INFO_CHANGED',
 
@@ -2195,7 +2195,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_QUICK_FIX_APPLY_RESULT = 'usual.event.QUICK_FIX_APPLY_RESULT',
 
@@ -2205,7 +2205,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_QUICK_FIX_REVOKE_RESULT = 'usual.event.QUICK_FIX_REVOKE_RESULT',
 
@@ -2215,7 +2215,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_USER_INFO_UPDATED = 'usual.event.USER_INFO_UPDATED',
 
@@ -2225,7 +2225,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_HTTP_PROXY_CHANGE = 'usual.event.HTTP_PROXY_CHANGE',
 
@@ -2235,7 +2235,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SIM_STATE_CHANGED = 'usual.event.SIM_STATE_CHANGED',
 
@@ -2247,7 +2247,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SMS_RECEIVE_COMPLETED = 'usual.event.SMS_RECEIVE_COMPLETED',
 
@@ -2258,7 +2258,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SMS_EMERGENCY_CB_RECEIVE_COMPLETED = 'usual.event.SMS_EMERGENCY_CB_RECEIVE_COMPLETED',
 
@@ -2269,7 +2269,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SMS_CB_RECEIVE_COMPLETED = 'usual.event.SMS_CB_RECEIVE_COMPLETED',
 
@@ -2282,7 +2282,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_STK_COMMAND = 'usual.event.STK_COMMAND',
 
@@ -2295,7 +2295,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_STK_SESSION_END = 'usual.event.STK_SESSION_END',
 
@@ -2308,7 +2308,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_STK_CARD_STATE_CHANGED = 'usual.event.STK_CARD_STATE_CHANGED',
 
@@ -2321,7 +2321,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_STK_ALPHA_IDENTIFIER = 'usual.event.STK_ALPHA_IDENTIFIER',
 
@@ -2332,7 +2332,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SMS_WAPPUSH_RECEIVE_COMPLETED = 'usual.event.SMS_WAPPUSH_RECEIVE_COMPLETED',
 
@@ -2343,7 +2343,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_OPERATOR_CONFIG_CHANGED = 'usual.event.OPERATOR_CONFIG_CHANGED',
 
@@ -2354,7 +2354,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SIM_CARD_DEFAULT_SMS_SUBSCRIPTION_CHANGED = 'usual.event.SIM.DEFAULT_SMS_SUBSCRIPTION_CHANGED',
 
@@ -2365,7 +2365,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SIM_CARD_DEFAULT_DATA_SUBSCRIPTION_CHANGED = 'usual.event.SIM.DEFAULT_DATA_SUBSCRIPTION_CHANGED',
 
@@ -2376,7 +2376,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SIM_CARD_DEFAULT_MAIN_SUBSCRIPTION_CHANGED = 'usual.event.SIM.DEFAULT_MAIN_SUBSCRIPTION_CHANGED',
 
@@ -2387,7 +2387,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SET_PRIMARY_SLOT_STATUS = 'usual.event.SET_PRIMARY_SLOT_STATUS',
 
@@ -2398,7 +2398,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_PRIMARY_SLOT_ROAMING = 'usual.event.PRIMARY_SLOT_ROAMING',
 
@@ -2409,7 +2409,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SIM_CARD_DEFAULT_VOICE_SUBSCRIPTION_CHANGED = 'usual.event.SIM.DEFAULT_VOICE_SUBSCRIPTION_CHANGED',
 
@@ -2421,7 +2421,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_CALL_STATE_CHANGED = 'usual.event.CALL_STATE_CHANGED',
 
@@ -2432,7 +2432,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_CELLULAR_DATA_STATE_CHANGED = 'usual.event.CELLULAR_DATA_STATE_CHANGED',
 
@@ -2442,7 +2442,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_NETWORK_STATE_CHANGED = 'usual.event.NETWORK_STATE_CHANGED',
 
@@ -2452,7 +2452,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SIGNAL_INFO_CHANGED = 'usual.event.SIGNAL_INFO_CHANGED',
 
@@ -2465,7 +2465,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_INCOMING_CALL_MISSED = 'usual.event.INCOMING_CALL_MISSED',
 
@@ -2476,7 +2476,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_RADIO_STATE_CHANGE = 'usual.event.RADIO_STATE_CHANGE',
 
@@ -2487,7 +2487,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DOMAIN_ACCOUNT_STATUS_CHANGED = 'usual.event.DOMAIN_ACCOUNT_STATUS_CHANGED',
 
@@ -2503,7 +2503,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SCREEN_UNLOCKED = 'usual.event.SCREEN_UNLOCKED',
 
@@ -2519,7 +2519,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SCREEN_LOCKED = 'usual.event.SCREEN_LOCKED',
 
@@ -2537,7 +2537,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_CONNECTIVITY_CHANGE = 'usual.event.CONNECTIVITY_CHANGE',
 
@@ -2548,7 +2548,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SPECIAL_CODE = 'common.event.SPECIAL_CODE',
 
@@ -2559,7 +2559,7 @@ declare namespace commonEventManager {
       * @syscap SystemCapability.Notification.CommonEvent
       * @systemapi
       * @since 10 dynamic
-      * @since 22 static
+      * @since 23 static
       */
     COMMON_EVENT_AUDIO_QUALITY_CHANGE = 'usual.event.AUDIO_QUALITY_CHANGE',
 
@@ -2569,7 +2569,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CONNECT_STATE_CHANGE =
         'usual.event.bluetooth.handsfree.ag.CONNECT_STATE_CHANGE',
@@ -2581,7 +2581,7 @@ declare namespace commonEventManager {
       * @syscap SystemCapability.Notification.CommonEvent
       * @systemapi
       * @since 11 dynamic
-      * @since 22 static
+      * @since 23 static
       */
     COMMON_EVENT_PRIVACY_STATE_CHANGED = 'usual.event.PRIVACY_STATE_CHANGED',
 
@@ -2592,7 +2592,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_PACKAGE_INSTALLATION_STARTED = 'usual.event.PACKAGE_INSTALLATION_STARTED',
 
@@ -2603,7 +2603,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DYNAMIC_ICON_CHANGED = 'usual.event.DYNAMIC_ICON_CHANGED',
 
@@ -2614,7 +2614,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_MINORSMODE_ON = 'usual.event.MINORSMODE_ON',
 
@@ -2625,7 +2625,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_MINORSMODE_OFF = 'usual.event.MINORSMODE_OFF',
 
@@ -2638,7 +2638,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_BUNDLE_RESOURCES_CHANGED = 'usual.event.BUNDLE_RESOURCES_CHANGED',    
 
@@ -2649,7 +2649,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DATA_SHARE_READY = 'usual.event.DATA_SHARE_READY',
 
@@ -2660,7 +2660,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_VPN_CONNECTION_STATUS_CHANGED = 'usual.event.VPN_CONNECTION_STATUS_CHANGED',
 
@@ -2673,7 +2673,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_RESTORE_START = 'usual.event.RESTORE_START',
 
@@ -2683,7 +2683,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CONNECT_STATE_CHANGE =
         'usual.event.bluetooth.a2dpsource.CONNECT_STATE_CHANGE',
@@ -2694,7 +2694,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_AVRCP_CONNECT_STATE_CHANGE =
         'usual.event.bluetooth.a2dpsource.AVRCP_CONNECT_STATE_CHANGE',
@@ -2705,7 +2705,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CODEC_VALUE_CHANGE =
         'usual.event.bluetooth.a2dpsource.CODEC_VALUE_CHANGE',
@@ -2716,7 +2716,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_STATE_CHANGE = 
         'usual.event.bluetooth.remotedevice.ACL_STATE_CHANGE',
@@ -2727,7 +2727,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIR_STATE_CHANGE =
         'usual.event.bluetooth.remotedevice.PAIR_STATE_CHANGE',
@@ -2738,7 +2738,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED = 'usual.event.MANAGED_BROWSER_POLICY_CHANGED',
 
@@ -2751,7 +2751,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_DEFAULT_APPLICATION_CHANGED = 'usual.event.DEFAULT_APPLICATION_CHANGED',
 
@@ -2763,7 +2763,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SHORTCUT_CHANGED = 'usual.event.SHORTCUT_CHANGED',
 
@@ -2773,7 +2773,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_KIOSK_MODE_ON = 'usual.event.KIOSK_MODE_ON',
 
@@ -2783,7 +2783,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_KIOSK_MODE_OFF = 'usual.event.KIOSK_MODE_OFF',
 
@@ -2793,7 +2793,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_CUSTOM_CONFIG_POLICY_UPDATED = 'usual.event.CUSTOM_CONFIG_POLICY_UPDATED',
 
@@ -2803,7 +2803,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_CUSTOM_ROAMING_REGION_UPDATED = 'usual.event.CUSTOM_ROAMING_REGION_UPDATED',
 
@@ -2813,7 +2813,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi 
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_SCREEN_SHARE = 'usual.event.SCREEN_SHARE',
 
@@ -2824,7 +2824,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     COMMON_EVENT_RESTORE_END = 'usual.event.RESTORE_END',
 
@@ -2837,7 +2838,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_EVENT_CLOUD_DISK_STATE_CHANGED = 'usual.event.CLOUD_DISK_STATE_CHANGED',
 
@@ -2845,7 +2846,8 @@ declare namespace commonEventManager {
      * This common event means that the open and closed state of the stand associated with the tablet mode has changed.
      * This is a protected common event that can only be sent by system.
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     COMMON_EVENT_TABLET_MODE_CHANGED = 'usual.event.TABLET_MODE_CHANGED',
 
@@ -2853,7 +2855,8 @@ declare namespace commonEventManager {
      * This common event means that the state (open or closed) of the laptop lid has changed.
      * This is a protected common event that can only be sent by system.
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     COMMON_EVENT_LID_STATE_CHANGED = 'usual.event.LID_STATE_CHANGED',
   }
@@ -2871,7 +2874,7 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type CommonEventData = _CommonEventData;
 
@@ -2888,7 +2891,7 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type CommonEventSubscriber = _CommonEventSubscriber;
 
@@ -2905,7 +2908,7 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type CommonEventSubscribeInfo = _CommonEventSubscribeInfo;
 
@@ -2930,7 +2933,7 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type CommonEventPublishData = _CommonEventPublishData;
 }

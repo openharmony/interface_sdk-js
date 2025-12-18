@@ -44,7 +44,7 @@ import { ImageModifier, SymbolGlyphModifier, TextModifier } from './@ohos.arkui.
  * 
  * @interface SegmentButtonV2ItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface SegmentButtonV2ItemOptions {
@@ -53,7 +53,7 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     text?: ResourceStr;
@@ -64,7 +64,7 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     icon?: ResourceStr;
@@ -74,7 +74,7 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     symbol?: Resource;
@@ -84,7 +84,7 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     enabled?: boolean;
@@ -94,7 +94,7 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?TextModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     textModifier?: TextModifier;
@@ -104,7 +104,7 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?ImageModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     iconModifier?: ImageModifier;
@@ -114,7 +114,7 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     symbolModifier?: SymbolGlyphModifier;
@@ -124,7 +124,7 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     accessibilityText?: ResourceStr;
@@ -134,7 +134,7 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     accessibilityDescription?: ResourceStr;
@@ -144,7 +144,7 @@ export interface SegmentButtonV2ItemOptions {
      * 
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     accessibilityLevel?: string;
@@ -156,7 +156,7 @@ export interface SegmentButtonV2ItemOptions {
  * @typedef { function } OnSelectedIndexChange
  * @param { int } selectedIndex - the index of selected item
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export type OnSelectedIndexChange = (selectedIndex: int) => void;
@@ -167,7 +167,7 @@ export type OnSelectedIndexChange = (selectedIndex: int) => void;
  * @typedef { function } OnSelectedIndexesChange
  * @param { int[] } selectedIndexes - the index of selected items
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export type OnSelectedIndexesChange = (selectedIndexes: int[]) => void;
@@ -177,7 +177,7 @@ export type OnSelectedIndexesChange = (selectedIndexes: int[]) => void;
  * 
  * @interface SegmentButtonV2Item
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ObservedV2
@@ -187,7 +187,7 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Trace text?: ResourceStr;
@@ -198,7 +198,7 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Trace icon?: ResourceStr;
@@ -208,7 +208,7 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Trace symbol?: Resource;
@@ -218,7 +218,7 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Trace enabled: boolean;
@@ -228,7 +228,7 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?TextModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Trace textModifier?: TextModifier;
@@ -238,7 +238,7 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?ImageModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Trace iconModifier?: ImageModifier;
@@ -248,7 +248,7 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Trace symbolModifier?: SymbolGlyphModifier;
@@ -258,7 +258,7 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Trace accessibilityText?: ResourceStr;
@@ -268,7 +268,7 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Trace accessibilityDescription?: ResourceStr;
@@ -278,7 +278,7 @@ export declare class SegmentButtonV2Item {
      * 
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Trace accessibilityLevel?: string;
@@ -288,7 +288,7 @@ export declare class SegmentButtonV2Item {
      * 
      * @param { SegmentButtonV2ItemOptions } options - the options of the segmented button item
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     constructor(options: SegmentButtonV2ItemOptions);
@@ -298,7 +298,7 @@ export declare class SegmentButtonV2Item {
      * 
      * @returns { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     get isHybrid(): boolean;
@@ -309,7 +309,7 @@ export declare class SegmentButtonV2Item {
  * 
  * @extends Array<SegmentButtonV2Item>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ObservedV2
@@ -319,7 +319,7 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
      *
      * @param { int } length - the length of array
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     constructor(length: int);
@@ -329,7 +329,7 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
      * 
      * @param { SegmentButtonV2ItemOptions[] } items - the options array of the segmented button items
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     constructor(items: SegmentButtonV2ItemOptions[]);
@@ -339,7 +339,7 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
      * 
      * @returns { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     get hasHybrid(): boolean;
@@ -350,7 +350,7 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
  * 
  * @struct { TabSegmentButtonV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentV2
@@ -361,7 +361,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { SegmentButtonV2Items }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Require
@@ -374,7 +374,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { int }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Require
@@ -387,7 +387,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?OnSelectedIndexChange }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Event
@@ -399,7 +399,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?Callback<int> }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Event
@@ -411,7 +411,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?(double | Resource) }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -423,7 +423,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?(double | Resource) }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -435,7 +435,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -447,7 +447,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -459,7 +459,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -471,7 +471,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -483,7 +483,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -495,7 +495,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?FontWeight }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -507,7 +507,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?FontWeight }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -519,7 +519,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -531,7 +531,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -543,7 +543,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?SizeT<LengthMetrics> }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -555,7 +555,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -567,7 +567,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -579,7 +579,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -591,7 +591,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -603,7 +603,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -615,7 +615,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -627,7 +627,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LocalizedPadding }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -639,7 +639,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?(ShadowOptions | ShadowStyle) }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -651,7 +651,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -663,7 +663,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?BlurStyle }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -675,7 +675,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?BackgroundBlurStyleOptions }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -687,7 +687,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?BackgroundEffectOptions }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -699,7 +699,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -711,7 +711,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -723,7 +723,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -735,7 +735,7 @@ export declare struct TabSegmentButtonV2 {
      * @type { ?Direction }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -745,7 +745,7 @@ export declare struct TabSegmentButtonV2 {
      * Sets the build function of the segmented button.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     build(): void;
@@ -756,7 +756,7 @@ export declare struct TabSegmentButtonV2 {
  * 
  * @struct { CapsuleSegmentButtonV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentV2
@@ -767,7 +767,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { SegmentButtonV2Items }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Require
@@ -780,7 +780,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { int }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Require
@@ -793,7 +793,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?OnSelectedIndexChange }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Event
@@ -805,7 +805,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?Callback<int> }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Event
@@ -817,7 +817,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?(double | Resource) }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -829,7 +829,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?(double | Resource) }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -841,7 +841,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -853,7 +853,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -865,7 +865,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -877,7 +877,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -889,7 +889,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -901,7 +901,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?FontWeight }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -913,7 +913,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?FontWeight }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -925,7 +925,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -937,7 +937,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -949,7 +949,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?SizeT<LengthMetrics> }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -961,7 +961,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -973,7 +973,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -985,7 +985,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -997,7 +997,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1009,7 +1009,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1021,7 +1021,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1033,7 +1033,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LocalizedPadding }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1045,7 +1045,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?(ShadowOptions | ShadowStyle) }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1057,7 +1057,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1069,7 +1069,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?BlurStyle }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1081,7 +1081,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?BackgroundBlurStyleOptions }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1093,7 +1093,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?BackgroundEffectOptions }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1105,7 +1105,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1117,7 +1117,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1129,7 +1129,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1141,7 +1141,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * @type { ?Direction }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1151,7 +1151,7 @@ export declare struct CapsuleSegmentButtonV2 {
      * Sets the build function of the segmented button.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     build(): void;
@@ -1162,7 +1162,7 @@ export declare struct CapsuleSegmentButtonV2 {
  * 
  * @struct { MultiCapsuleSegmentButtonV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentV2
@@ -1173,7 +1173,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { SegmentButtonV2Items }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Require
@@ -1186,7 +1186,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { int[] }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Require
@@ -1199,7 +1199,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?OnSelectedIndexesChange } OnSelectedIndexesChange
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Event
@@ -1211,7 +1211,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?Callback<int> }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Event
@@ -1223,7 +1223,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?(double | Resource) }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1235,7 +1235,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?(double | Resource) }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1247,7 +1247,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1259,7 +1259,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1271,7 +1271,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1283,7 +1283,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1295,7 +1295,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1307,7 +1307,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?FontWeight }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1319,7 +1319,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?FontWeight }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1331,7 +1331,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1343,7 +1343,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1355,7 +1355,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?BackgroundEffectOptions }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1367,7 +1367,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?BlurStyle }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1379,7 +1379,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?BackgroundBlurStyleOptions }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1391,7 +1391,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1403,7 +1403,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?SizeT<LengthMetrics> }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1415,7 +1415,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1427,7 +1427,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1439,7 +1439,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1451,7 +1451,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1463,7 +1463,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?ColorMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1475,7 +1475,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?LengthMetrics }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1487,7 +1487,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?LocalizedPadding }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1499,7 +1499,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * @type { ?Direction }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Param
@@ -1509,7 +1509,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
      * Sets the build function of the segmented button.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     build(): void;

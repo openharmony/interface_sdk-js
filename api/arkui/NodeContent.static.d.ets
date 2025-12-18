@@ -28,23 +28,16 @@ import { FrameNode } from 'arkui.FrameNode';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export declare class NodeContent extends Content {
     /**
      * constructor
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     constructor();
-    /**
-     * Add FrameNode to NodeContent based on parameters.
-     *
-     * @param { FrameNode } node - Newly added FrameNode.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
     /**
    * Add FrameNode to NodeContent based on parameters.
    * 
@@ -60,7 +53,7 @@ export declare class NodeContent extends Content {
      *
      * @param { FrameNode } node - FrameNode deleted.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     removeFrameNode(node: FrameNode): void;
 }

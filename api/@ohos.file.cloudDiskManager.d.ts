@@ -25,7 +25,7 @@
  * @syscap SystemCapability.FileManagement.CloudDiskManager
  * @systemapi
  * @since 21 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace cloudDiskManager {
   /**
@@ -35,7 +35,7 @@ declare namespace cloudDiskManager {
    * @syscap SystemCapability.FileManagement.CloudDiskManager
    * @systemapi
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum SyncFolderState {
     /**
@@ -44,7 +44,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INACTIVE = 0,
 
@@ -54,7 +54,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ACTIVE = 1
   }
@@ -66,7 +66,7 @@ declare namespace cloudDiskManager {
    * @syscap SystemCapability.FileManagement.CloudDiskManager
    * @systemapi
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SyncFolder {
     /**
@@ -76,7 +76,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     path: string;
 
@@ -87,7 +87,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleName: string;
 
@@ -98,7 +98,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     state: SyncFolderState;
 
@@ -109,7 +109,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     displayNameResId?: int;
 
@@ -120,7 +120,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     customAlias?: string;
   }
@@ -131,7 +131,7 @@ declare namespace cloudDiskManager {
    * @syscap SystemCapability.FileManagement.CloudDiskManager
    * @systemapi
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class SyncFolderAccessor {
     /**
@@ -144,7 +144,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor();
 
@@ -163,7 +163,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAllSyncFolders(): Promise<Array<SyncFolder>>;
   }

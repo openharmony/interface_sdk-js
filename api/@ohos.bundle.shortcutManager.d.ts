@@ -34,7 +34,7 @@ import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, Parameter
  * @namespace shortcutManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace shortcutManager {
   /**
@@ -55,7 +55,7 @@ declare namespace shortcutManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function addDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: int): Promise<void>;
 
@@ -73,7 +73,7 @@ declare namespace shortcutManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function deleteDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: int): Promise<void>;
 
@@ -90,7 +90,7 @@ declare namespace shortcutManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllDesktopShortcutInfo(userId: int): Promise<Array<ShortcutInfo>>;
 
@@ -103,7 +103,7 @@ declare namespace shortcutManager {
    * @throws { BusinessError } 17700070 - The specified shortcut id is illegal.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setShortcutVisibleForSelf(id: string, visible: boolean): Promise<void>;
 
@@ -113,7 +113,7 @@ declare namespace shortcutManager {
    * @returns { Promise<Array<ShortcutInfo>> } The LauncherShortcutInfo object.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllShortcutInfoForSelf(): Promise<Array<ShortcutInfo>>;
 
@@ -209,7 +209,7 @@ declare namespace shortcutManager {
    * @typedef { _ShortcutInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type ShortcutInfo = _ShortcutInfo;
   /**
@@ -226,7 +226,7 @@ declare namespace shortcutManager {
    * @typedef { _ShortcutWant }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type ShortcutWant = _ShortcutWant;
   /**
@@ -243,7 +243,7 @@ declare namespace shortcutManager {
    * @typedef { _ParameterItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type ParameterItem = _ParameterItem;
   }

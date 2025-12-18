@@ -72,7 +72,7 @@ export default class ApplicationStateChangeCallback {
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 declare interface ApplicationStateChangeCallback {
 /*** endif */
@@ -99,7 +99,7 @@ declare interface ApplicationStateChangeCallback {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onApplicationForeground(): void;
 
@@ -126,7 +126,7 @@ declare interface ApplicationStateChangeCallback {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onApplicationBackground(): void;
 }

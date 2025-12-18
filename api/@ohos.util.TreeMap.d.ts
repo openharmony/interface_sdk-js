@@ -44,7 +44,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class TreeMap<K, V> {
   /**
@@ -102,7 +102,7 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   constructor(comparator?: TreeMapComparator<K>);
 
@@ -139,7 +139,7 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get length(): int;
 
@@ -169,7 +169,7 @@ declare class TreeMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isEmpty(): boolean;
   /**
@@ -201,7 +201,7 @@ declare class TreeMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   hasKey(key: K): boolean;
   /**
@@ -233,7 +233,7 @@ declare class TreeMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   hasValue(value: V): boolean;
   /**
@@ -338,7 +338,7 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get(key: K): V | undefined;
 
@@ -350,7 +350,7 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   getFirstKey(): K | undefined;
 
@@ -362,7 +362,7 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   getLastKey(): K | undefined;
 
@@ -401,7 +401,7 @@ declare class TreeMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setAll(map: TreeMap<K, V>): void;
   /**
@@ -448,7 +448,7 @@ declare class TreeMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   set(key: K, value: V): Object;
   /**
@@ -491,7 +491,7 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   remove(key: K): V | undefined;
 
@@ -518,7 +518,7 @@ declare class TreeMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clear(): void;
   /**
@@ -599,7 +599,7 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   getLowerKey(key: K): K | undefined;
 
@@ -612,7 +612,7 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   getHigherKey(key: K): K | undefined;
 
@@ -642,7 +642,7 @@ declare class TreeMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   keys(): IterableIterator<K>;
   /**
@@ -671,7 +671,7 @@ declare class TreeMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   values(): IterableIterator<V>;
   /**
@@ -706,7 +706,7 @@ declare class TreeMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   replace(key: K, newValue: V): boolean;
   /**
@@ -773,7 +773,7 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   forEach(callbackFn: TreeMapForEachCb<K, V>): void;
 
@@ -803,7 +803,7 @@ declare class TreeMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   entries(): IterableIterator<[K, V]>;
   /**
@@ -842,7 +842,7 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   $_iterator(): IterableIterator<[K, V]>;
 
@@ -858,7 +858,7 @@ declare class TreeMap<K, V> {
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type TreeMapForEachCb<K, V> = (value: V, key: K, map: TreeMap<K, V>) => void
 
@@ -871,7 +871,7 @@ export type TreeMapForEachCb<K, V> = (value: V, key: K, map: TreeMap<K, V>) => v
  * @returns { double } - Comparison results
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type TreeMapComparator<K> = (firstValue: K, secondValue: K) => double
 
