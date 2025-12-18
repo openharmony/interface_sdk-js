@@ -299,9 +299,10 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
      * @param { function } styles - styles of custom component
      * @param { function } factory - factory to create instance of custom component
      * @param { function } [initializers] - initial data for all the fields in custom component
-     * @param { string } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @Reusable
+     * @param { function } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @Reusable
      * @param { CustomBuilder } [content] - tail closure for custom component
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     @Builder
@@ -309,7 +310,7 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
         @Builder styles: (instance: S) => void,
         factory: () => S,
         initializers?: () => S_Options,
-        reuseId?: string,
+        reuseId?: () => string,
         content?: CustomBuilder
     ): void;
 
@@ -320,6 +321,16 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
      * @since 23 static
      */
     aboutToReuse(): void;
+
+    /**
+     * Reset state variable
+     *
+     * @param { T_Options } [params] - data for all the fields in custom component
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    resetStateVarsOnReuse(params?: T_Options): void;
 }
 
 /**
