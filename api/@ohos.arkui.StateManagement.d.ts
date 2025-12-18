@@ -450,6 +450,20 @@ export declare class UIUtils {
    * @since 23 dynamic
    */
   static canBeObserved<T extends object>(source: T): ObservedResult;
+
+  /**
+   * The getLifecycle function gets the lifecycle instance of the class CustomComponent.
+   *
+   * @param { T } customComponent - custom component instance
+   * @returns { CustomComponentLifecycle } The lifecycle that the custom component belongs to.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  static getLifecycle<T extends BaseCustomComponent>(customComponent: T): CustomComponentLifecycle;
 }
 
 /**
@@ -754,3 +768,374 @@ export interface ElementInfo {
    */
   elementId: number;
 }
+
+/**
+ * CustomComponent Lifecycle. It is used to monitor changes in the lifecycle of the custom component.
+ *
+ * @interface CustomComponentLifecycle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export declare interface CustomComponentLifecycle {
+    /**
+     * getCurrentState method is to get the current lifecycle state.
+     *
+     * @returns { CustomComponentLifecycleState } - lifecycle state
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    getCurrentState(): CustomComponentLifecycleState;
+
+    /**
+     * Register a lifecycle listener. When the lifecycle state of a custom component changes, the corresponding
+     * lifecycle callback will be triggered.
+     *
+     * @param { CustomComponentLifecycleObserver } observer - Custom component lifecycle observer.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    addObserver(observer: CustomComponentLifecycleObserver): void;
+
+    /**
+     * Remove custom component lifecycle callbacks. Even if the custom component's lifecycle
+     * state changes, the lifecycle callback will not be triggered.
+     *
+     * @param { CustomComponentLifecycleObserver } observer - Custom component lifecycle observer.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    removeObserver(observer: CustomComponentLifecycleObserver): void;
+}
+
+/**
+ * CustomComponent LifecycleObserver. When a user registers a custom component lifecycle callback, the
+ * corresponding lifecycle callback will be triggered when the lifecycle changes.
+ *
+ * @interface CustomComponentLifecycleObserver
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export declare interface CustomComponentLifecycleObserver {
+    /**
+     * The aboutToAppear function is executed after a new instance of the custom component is created, before
+     * its build() function is executed. Developers can modify state variables at this stage.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    aboutToAppear?(): void;
+
+    /**
+     * The onDidBuild function is executed after a new instance of the custom component
+     * is built, after its build() function is executed. Developers can implement functions that do not
+     * affect the actual UI, such as event data reporting at this stage.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    onDidBuild?(): void;
+
+    /**
+     * The aboutToDisappear function executes before a custom component is destroyed. It is not allowed to
+     * change state variables within the `aboutToDisappear` function, especially since
+     * modifying @Link variables may lead to unstable application behavior.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    aboutToDisappear?(): void;
+
+    /**
+     * The aboutToAttach function is executed when a custom component is attached to the main tree.
+     * Developers can implement functions that do not affect the actual UI, such as event data reporting at this stage.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    aboutToAttach?(): void;
+
+    /**
+     * The aboutToDetach function executes when a custom component is detached from the main tree.
+     * Developers can implement functions that do not affect the actual UI, such as initialization of non-state
+     * variable data at this stage.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    aboutToDetach?(): void;
+
+    /**
+     * Invoked when a reusable custom component is re-added to the node tree
+     * from the reuse cache to receive construction parameters of the component. When params is not undefined, it is the
+     * callback for reusing the V1 component. when params is undefined, it is the callback for reusing the V2 component.
+     *
+     * @param { Record<string, Object | undefined |null> } [params] - Custom component init params.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    aboutToReuse?(params?: Record<string, Object | undefined | null>): void;
+
+    /**
+     * Callback function invoked from the native side function 'CustomNodeBase::SetRecycleFunction'
+     * when the component is about to be recycled.
+     * It first calls the `aboutToRecycle` function in the application, and performs the necessary actions
+     * defined in the application before recycling.
+     * Then, it freezes the component to avoid performing UI updates when its in recycle pool
+     * Finally recursively traverses all subcomponents, calling `aboutToRecycle` on each subcomponent
+     * that is about to be recycled, preparing them for recycling as well.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    aboutToRecycle?(): void;
+}
+
+/**
+ * Enum for Lifecycle State type
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export declare enum CustomComponentLifecycleState {
+    /**
+     * Lifecycle init state. Custom components are in this state when they are created.
+     * The next state after the init state is the appear state,
+     * which will trigger aboutToAppear.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    INIT = 0,
+
+    /**
+     * Lifecycle appeared state. Custom components are in this stage when they are about to be built.
+     * The next state after the appeared state is the built state, which
+     * will trigger onDidBuild.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    APPEARED = 1,
+    
+    /**
+     * Lifecycle built state. The next state after the built state could be the recycled state,
+     * or it could transfer to the disappeared state, or even transfer to the mounted state.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    BUILT = 2,
+    
+    /**
+     * Lifecycle mounted state. Custom components are in this stage when they are attached
+     * to the main tree or detached from the main tree.
+     * The next state after the mounted state could be the built state, or it could
+     * transfer to the disappeared state.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    MOUNTED = 3,
+    
+    /**
+     * Lifecycle recycled state. Custom components are in a state of being recycled or reused.
+     * The next state after the recycle state could be the
+     * built state, or it could transfer to the disappeared state.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    RECYCLED = 4,
+    
+    /**
+     * Lifecycle disappeared state. The disappeared state is the end state of a custom component's lifecycle.
+     * The init, built, recycled, or mounted states could transfer to the disappeared state.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    DISAPPEARED = 5
+}
+
+/**
+ * Define ComponentInit PropertyDecorator.
+ * When a custom component initialization is about to be completed, the function
+ * decorated by the decorator will be executed.
+ * Developers cannot modify state variables in this stage.
+ *
+ * @type { MethodDecorator }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export declare const ComponentInit: MethodDecorator;
+
+/**
+ * Define ComponentAppear PropertyDecorator.
+ * The function decorated by the decorator is executed after a new instance of the custom component is created, before
+ * its build() function is executed. Developers can modify state variables at this stage.
+ *
+ * @type { MethodDecorator }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export declare const ComponentAppear: MethodDecorator;
+
+/**
+ * Define ComponentBuilt PropertyDecorator.
+ * The function decorated by the decorator is executed after a new instance of the custom component
+ * is built, after its build() function is executed. Developers can implement functions that do not
+ * affect the actual UI, such as event data reporting at this stage.
+ *
+ * @type { MethodDecorator }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export declare const ComponentBuilt: MethodDecorator;
+
+/**
+ * Define ComponentAttach PropertyDecorator.
+ * The function decorated by the decorator is executed when a custom component is attached to the main tree.
+ * Developers can implement functions that do not affect the actual UI, such as event data reporting at this stage.
+ *
+ * @type { MethodDecorator }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export declare const ComponentAttach: MethodDecorator;
+
+/**
+ * Define ComponentDetach PropertyDecorator.
+ * The function decorated by the decorator is executed when a custom component is detached from the main tree.
+ * Developers can implement functions that do not affect the actual UI, such as initialization of non-state
+ * variable data at this stage.
+ *
+ * @type { MethodDecorator }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export declare const ComponentDetach: MethodDecorator;
+
+/**
+ * Define ComponentReuse PropertyDecorator.
+ * The function decorated by the decorator is invoked when a reusable custom component is re-added to the node tree
+ * from the reuse cache to receive construction parameters of the component.
+ *
+ * @type { MethodDecorator }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export declare const ComponentReuse: MethodDecorator;
+
+/**
+ * Define ComponentRecycle PropertyDecorator.
+ * The function decorated by the decorator is invoked from the native side function 'CustomNodeBase::SetRecycleFunction'
+ * when the component is about to be recycled.
+ * It first calls the function in the application, and performs the necessary actions
+ * defined in the application before recycling.
+ * Then, it freezes the component to avoid performing UI updates when its in recycle pool
+ * Finally recursively traverses all subcomponents, calling the function on each subcomponent
+ * that is about to be recycled, preparing them for recycling as well.
+ *
+ * @type { MethodDecorator }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export declare const ComponentRecycle: MethodDecorator;
+
+/**
+ * Define ComponentDisappear PropertyDecorator.
+ * The function decorated by the decorator is invoked from the native side function 'CustomNodeBase::SetRecycleFunction'
+ * when the component is about to be recycled.
+ * It first calls the function in the application, and performs the necessary actions
+ * defined in the application before recycling.
+ * Then, it freezes the component to avoid performing UI updates when its in recycle pool
+ * Finally recursively traverses all subcomponents, calling the function on each subcomponent
+ * that is about to be recycled, preparing them for recycling as well.
+ *
+ * @type { MethodDecorator }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export declare const ComponentDisappear: MethodDecorator;
