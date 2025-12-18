@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { ResourceColor, Length } from "./units";
+import { ResourceColor, Length, LengthMetrics } from "./units";
 import { CommonMethod, AttributeModifier, Callback } from "./common";
 import { FontWeight, MarqueeUpdateStrategy } from "./enums";
 import { Resource } from './../../../api/global/resource';
@@ -100,6 +100,18 @@ export interface MarqueeOptions {
      * @since 22 static
      */
     src: string | undefined;
+
+    /**
+     * The spacing between two rounds of marquee.
+     * 
+     * Default value is marquee width.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    spacing?: LengthMetrics;
 }
 
 /**
