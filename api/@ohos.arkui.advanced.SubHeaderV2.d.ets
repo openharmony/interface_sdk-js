@@ -143,7 +143,7 @@ export declare class SubHeaderV2Title {
    * @atomicservice
    * @since 23 dynamic
    */
-  titleAccessibilityText?: ResourceStr;
+  @Trace titleAccessibilityText?: ResourceStr;
   /**
    * The constructor of SubHeaderV2Title
    *
