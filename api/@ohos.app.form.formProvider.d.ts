@@ -507,15 +507,13 @@ declare namespace formProvider {
   function openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): void;
 
   /**
-   * close the form edit ability
+   * Close the form edit ability.
    *
-   * @param { boolean } isMainPage - Indicates close the main edit page， default is true
-   *
-   * @throws { BusinessError } 801 - Capability not supported.function closeFormEditAbility can not work correctly due to limited device capabilities.
+   * @param { boolean } [isMainPage] - Indicates close the main edit page, default is true.
+   * @throws { BusinessError } 801 - Capability not supported due to limited device capabilities.
    * @throws { BusinessError } 16500050 - IPC connection error.
-   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
    * @since 23 dynamic&static
    */
   function closeFormEditAbility(isMainPage?: boolean): void;
