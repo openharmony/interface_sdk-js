@@ -735,8 +735,9 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.inputMethodList/InputMethodListDialog
      */
     showOptionalInputMethods(callback: AsyncCallback<boolean>): void;
 
@@ -747,8 +748,9 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 18
+     * @useinstead ohos.inputMethodList/InputMethodListDialog
      */
     showOptionalInputMethods(): Promise<boolean>;
 
