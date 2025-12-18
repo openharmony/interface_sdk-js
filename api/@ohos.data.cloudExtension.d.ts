@@ -28,7 +28,7 @@ import type relationalStore from './@ohos.data.relationalStore';
  * @namespace cloudExtension
  * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace cloudExtension {
   /**
@@ -39,7 +39,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface CloudAsset extends relationalStore.Asset {
     /**
@@ -49,7 +49,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     assetId: string;
 
@@ -60,7 +60,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     hash: string;
   }
@@ -72,7 +72,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type CloudAssets = Array<CloudAsset>;
 
@@ -83,7 +83,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type CloudType = null | long | double | string | boolean | Uint8Array | CloudAsset | CloudAssets;
 
@@ -94,7 +94,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface CloudInfo {
     /**
@@ -104,7 +104,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cloudInfo: ServiceInfo;
 
@@ -115,7 +115,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     apps: Record<string, AppBriefInfo>;
   }
@@ -127,7 +127,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface ServiceInfo {
     /**
@@ -138,7 +138,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableCloud: boolean;
 
@@ -149,7 +149,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     id: string;
 
@@ -160,7 +160,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     totalSpace: long;
 
@@ -171,7 +171,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     remainingSpace: long;
 
@@ -182,7 +182,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     user: int;
   }
@@ -194,7 +194,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface AppBriefInfo {
     /**
@@ -204,7 +204,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appId: string;
 
@@ -215,7 +215,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleName: string;
 
@@ -228,7 +228,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cloudSwitch: boolean;
 
@@ -239,7 +239,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     instanceId: int;
   }
@@ -251,7 +251,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum FieldType {
     /**
@@ -260,7 +260,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NULL = 0,
 
@@ -270,7 +270,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NUMBER = 1,
 
@@ -280,7 +280,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     REAL = 2,
 
@@ -290,7 +290,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TEXT = 3,
 
@@ -300,7 +300,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BOOL = 4,
 
@@ -310,7 +310,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BLOB = 5,
 
@@ -320,7 +320,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ASSET = 6,
 
@@ -330,7 +330,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ASSETS = 7
   }
@@ -342,7 +342,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface Field {
     /**
@@ -352,7 +352,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     alias: string;
 
@@ -363,7 +363,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     colName: string;
 
@@ -374,7 +374,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     type: FieldType;
 
@@ -385,7 +385,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     primary: boolean;
 
@@ -396,7 +396,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     nullable: boolean;
   }
@@ -408,7 +408,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface Table {
     /**
@@ -418,7 +418,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     alias: string;
 
@@ -429,7 +429,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
 
@@ -440,7 +440,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fields: Array<Field>;
   }
@@ -452,7 +452,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface Database {
     /**
@@ -462,7 +462,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
 
@@ -473,7 +473,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     alias: string;
 
@@ -484,7 +484,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     tables: Array<Table>;
   }
@@ -496,7 +496,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface AppSchema {
 
@@ -507,7 +507,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleName: string;
 
@@ -518,7 +518,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     version: int;
 
@@ -529,7 +529,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     databases: Array<Database>;
   }
@@ -541,7 +541,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface CloudData {
     /**
@@ -551,7 +551,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     nextCursor: string;
 
@@ -562,7 +562,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     hasMore: boolean;
 
@@ -574,7 +574,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     values: Array<Record<string, CloudType>>;
   }
@@ -586,7 +586,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface SubscribeInfo {
     /**
@@ -596,7 +596,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     expirationTime: long;
 
@@ -607,7 +607,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     subscribe: Record<string, Array<SubscribeId>>;
   }
@@ -619,7 +619,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface SubscribeId {
     /**
@@ -629,7 +629,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     databaseAlias: string;
 
@@ -640,7 +640,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     id: string;
   }
@@ -652,7 +652,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum Flag {
     /**
@@ -661,7 +661,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INSERT = 0,
 
@@ -671,7 +671,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UPDATE = 1,
 
@@ -681,7 +681,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DELETE = 2
   }
@@ -693,7 +693,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface ExtensionValue {
     /**
@@ -706,7 +706,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly id: string;
 
@@ -718,7 +718,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly createTime: long;
 
@@ -730,7 +730,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly modifyTime: long
     /**
@@ -741,7 +741,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly operation: Flag;
   }
@@ -753,7 +753,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface LockInfo {
     /**
@@ -763,7 +763,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     interval: int;
 
@@ -774,7 +774,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     lockId: int;
   }
@@ -786,7 +786,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ErrorCode {
     /**
@@ -795,7 +795,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SUCCESS = 0,
 
@@ -805,7 +805,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNKNOWN_ERROR = 1,
 
@@ -815,7 +815,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NETWORK_ERROR = 2,
 
@@ -825,7 +825,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CLOUD_DISABLED = 3,
 
@@ -835,7 +835,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOCKED_BY_OTHERS = 4,
 
@@ -845,7 +845,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RECORD_LIMIT_EXCEEDED = 5,
 
@@ -855,7 +855,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NO_SPACE_FOR_ASSET = 6
   }
@@ -867,7 +867,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface Result<T> {
     /**
@@ -877,7 +877,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     code: int;
 
@@ -888,7 +888,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     description?: string;
 
@@ -899,7 +899,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     value?: T;
   }
@@ -912,7 +912,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createShareServiceStub(instance: ShareCenter): Promise<rpc.RemoteObject>;
 
@@ -924,7 +924,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createCloudServiceStub(instance: CloudService): Promise<rpc.RemoteObject>;
 
@@ -936,7 +936,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createCloudDBStub(instance: CloudDB): Promise<rpc.RemoteObject>;
 
@@ -948,7 +948,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createAssetLoaderStub(instance: AssetLoader): Promise<rpc.RemoteObject>;
 
@@ -959,7 +959,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface CloudDB {
     /**
@@ -971,7 +971,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateId(count: int): Promise<Result<Array<string>>>;
 
@@ -986,7 +986,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     insert(
       table: string,
@@ -1005,7 +1005,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     update(
       table: string,
@@ -1023,7 +1023,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     delete(
       table: string,
@@ -1042,7 +1042,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     query(table: string, fields: Array<string>, queryCount: int, queryCursor: string): Promise<Result<CloudData>>;
 
@@ -1056,7 +1056,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     lock(): Promise<Result<LockInfo>>;
 
@@ -1068,7 +1068,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     heartbeat(lockId: int): Promise<Result<LockInfo>>;
 
@@ -1080,7 +1080,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     unlock(lockId: int): Promise<Result<boolean>>;
   }
@@ -1092,7 +1092,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface AssetLoader {
     /**
@@ -1106,7 +1106,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     download(table: string, gid: string, prefix: string, assets: Array<CloudAsset>): Promise<Array<Result<CloudAsset>>>;
 
@@ -1120,7 +1120,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     upload(table: string, gid: string, assets: Array<CloudAsset>): Promise<Array<Result<CloudAsset>>>;
   }
@@ -1132,7 +1132,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface ShareCenter {
     /**
@@ -1146,7 +1146,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     share(
       userId: int,
@@ -1166,7 +1166,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     unshare(
       userId: int,
@@ -1185,7 +1185,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     exit(userId: int, bundleName: string, sharingResource: string): Promise<Result<void>>;
 
@@ -1200,7 +1200,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     changePrivilege(
       userId: int,
@@ -1219,7 +1219,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     queryParticipants(
       userId: int,
@@ -1237,7 +1237,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     queryParticipantsByInvitation(
       userId: int,
@@ -1256,7 +1256,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     confirmInvitation(
       userId: int,
@@ -1276,7 +1276,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     changeConfirmation(
       userId: int,
@@ -1293,7 +1293,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface CloudService {
     /**
@@ -1303,7 +1303,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getServiceInfo(): Promise<ServiceInfo>;
 
@@ -1316,7 +1316,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAppBriefInfo(): Promise<Record<string, AppBriefInfo>>;
 
@@ -1328,7 +1328,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAppSchema(bundleName: string): Promise<Result<AppSchema>>;
 
@@ -1346,7 +1346,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     subscribe(
       subInfo: Record<string, Array<Database>>,
@@ -1363,7 +1363,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     unsubscribe(unsubscribeInfo: Record<string, Array<string>>): Promise<int>;
 
@@ -1376,7 +1376,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     connectDB(bundleName: string, database: Database): Promise<rpc.RemoteObject>;
 
@@ -1389,7 +1389,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     connectAssetLoader(bundleName: string, database: Database): Promise<rpc.RemoteObject>;
 
@@ -1402,7 +1402,7 @@ declare namespace cloudExtension {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     connectShareCenter(userId: int, bundleName: string): Promise<rpc.RemoteObject>;
   }
