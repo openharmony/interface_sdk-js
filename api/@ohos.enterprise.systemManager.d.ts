@@ -690,6 +690,68 @@ declare namespace systemManager {
   function getInstallLocalEnterpriseAppEnabled(admin: Want): boolean;
 
   /**
+   * Adds key event policies.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<KeyEventPolicy> } keyPolicies - The policies of key.
+   *      <br>The maximum value of the list does not exceed the number of supported key types.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *      The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *      Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function addKeyEventPolicies(admin: Want, keyPolicies: Array<KeyEventPolicy>): void;
+
+  /**
+   * Removes key event policies.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<KeyCode> } keyCodes - The codes of key which policy need remove.
+   *      <br>The maximum value of the list does not exceed the number of supported key types.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *      The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *      Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function removeKeyEventPolicies(admin: Want, keyCodes: Array<KeyCode>): void;
+
+  /**
+   * Gets key event policies.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @returns { Array<KeyEventPolicy> } returns the key event policy.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *      The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *      Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function getKeyEventPolicies(admin: Want): Array<KeyEventPolicy>;
+
+  /**
    * Near link protocol
    *
    * @enum { number }
