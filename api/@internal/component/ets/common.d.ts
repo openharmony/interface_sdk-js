@@ -853,7 +853,7 @@ declare const Env: EnvDecorator;
  */
 declare enum SystemProperties {
  /**
-  * System environmental breakpoin key that is used to obtain the width and height breakpoint value of the window.
+  * System environmental breakpoint key that is used to obtain the width and height breakpoint value of the window.
   * 
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
