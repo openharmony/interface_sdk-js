@@ -2453,6 +2453,64 @@ declare namespace media {
   }
 
   /**
+   * Enumerates the Metrics event supported by media kit.
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 23 dynamic&static
+   */
+  enum AVMetricsEventType {
+    /**
+     * stalling event, include the duration and the media type info.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 23 dynamic&static
+     */
+    AV_METRICS_EVENT_STALLING = 1,
+  }
+
+  /**
+   * Describes the information of an Metrics event.
+   *
+   * @typedef AVMetricsEvent
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @since 23 dynamic&static
+   */
+  interface AVMetricsEvent {
+    /**
+     * Absolute timestamp when the event occurred.
+     * @type { AVMetricsEventType }
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    event: AVMetricsEventType;
+
+    /**
+     * Absolute timestamp when the event occurred.
+     * @type { long }
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    timeStamp: long;
+
+    /**
+     * The playback progress position when the event occurs.
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    playbackPosition: int;
+
+    /**
+     * The detail informations of the event.
+     * @type {Record<string, Object>}
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    details: Record<string, Object>;
+  }
+
+  /**
    * Describes AVPlayer states.
    * @typedef {'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error'}
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -3229,6 +3287,15 @@ declare namespace media {
      * @since 22 static
      */
     getPlaybackInfo(): Promise<PlaybackInfo>;
+
+    /**
+     * Get statistic metrics info of current player. This API can be called only when the AVPlayer is in the prepared,
+     * playing, paused, completed, or stopped state.
+     * @returns { Promise<PlaybackMetrics> } metrics info of current player.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    getPlaybackStatisticMetrics(): Promise<PlaybackMetrics>;
 
     /**
      * Set playback strategy to AVPlayer. This API can be called only when the AVPlayer is in the initialized state.
@@ -4743,6 +4810,22 @@ declare namespace media {
     off(type:'superResolutionChanged', callback?: OnSuperResolutionChanged): void;
 
     /**
+     * Subscribe to Metrics events during playback.
+     * @param { Callback<Array<AVMetricsEvent>> } callback - reports an metrics event info.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    onMetricsEvent(callback: Callback<Array<AVMetricsEvent>>): void;
+
+    /**
+     * Unsubscribe from Metrics events during playback.
+     * @param { Callback<Array<AVMetricsEvent>> } [callback] - reports an metrics event info.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    offMetricsEvent(callback?: Callback<Array<AVMetricsEvent>>): void;
+
+    /**
      * Register listens for mediaKeySystemInfoUpdate events.
      * @param { Callback<Array<drm.MediaKeySystemInfo>> } callback - Callback invoked when the event is triggered.
      *     It reports a **MediaKeySystemInfo** array.
@@ -5208,6 +5291,87 @@ declare namespace media {
      */
     offSeiMessageReceived(payloadTypes?: Array<int>, callback?: OnSeiMessageHandle): void;
   }
+
+  /**
+   * Enumerates Metrics info keys for player.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @since 23 dynamic&static
+   */
+  enum PlaybackMetricsKey {
+    /**
+     * The time it takes for the prepare interface to be called and ready, in milliseconds.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    PREPARE_DURATION = 'prepare_duration',
+
+    /**
+     * Resource link establishment time.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    RESOURCE_CONNECTION_DURATION = 'resource_connection_duration',
+
+    /**
+     * Decapsulation time of the first sample frame include downloader.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    FIRST_FRAME_DECAPSULATION_DURATION = 'first_frame_decapsulation_duration',
+
+    /**
+     * The cumulative duration of the player in the playing state.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    TOTAL_PLAYING_TIME = 'total_playback_time',
+
+    /**
+     * Cumulative times of Media resource loading.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    DOWNLOAD_REQUESTS_COUNT = 'loading_count',
+
+    /**
+     * The total time spent loading the media resource.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    TOTAL_DOWNLOAD_TIME = 'total_loading_time',
+
+    /**
+     * Size of loaded media resources.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    TOTAL_DOWNLOAD_SIZE = 'total_loading_Bytes',
+
+    /**
+     * Cumulative stalling count.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    STALLING_COUNT = 'stalling_count',
+
+    /**
+     * The cumulative time the player is in stalling state.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    TOTAL_STALLING_TIME = 'total_stalling_time'
+  }
+
+  /**
+   * Provides the container definition for media description key-value pairs.
+   *
+   * @typedef { Record<PlaybackMetricsKey, Object> }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 23 dynamic&static
+   */
+  type PlaybackMetrics = Record<PlaybackMetricsKey, Object>;
 
   /**
    * Provides player statistic info.
