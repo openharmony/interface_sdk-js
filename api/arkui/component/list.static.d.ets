@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { ChildrenMainSize, ItemDragInfo, RectResult, ScrollableCommonMethod, OnWillScrollCallback, OnScrollCallback, OnItemDragStartCallback } from './common';
+import { ChildrenMainSize, EditModeOptions, ItemDragInfo, RectResult, ScrollableCommonMethod, OnWillScrollCallback, OnScrollCallback, OnItemDragStartCallback } from './common';
 import { Axis } from './enums';
 import { OnScrollFrameBeginCallback, ScrollAlign, Scroller } from "./scroll";
 import { Dimension, Length, LengthConstrain, ResourceColor } from './units';
@@ -793,6 +793,16 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @since 22 static
      */
     default stackFromEnd(enabled: boolean | undefined): this;
+    /**
+     * Sets the edit mode options.
+     *
+     * @param { EditModeOptions } [options] - edit mode options.
+     *     <br>Default value: <em>{ enableGatherSelectedItemsAnimation: false }</em>
+     * @returns { this } The attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default editModeOptions(options?: EditModeOptions): this;
     /**
      * Triggered when a child component enters or leaves the list display area.
      *

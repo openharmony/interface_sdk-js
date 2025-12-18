@@ -1332,6 +1332,19 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   syncLoad(enable: boolean): GridAttribute;
 
   /**
+   * Sets the edit mode options.
+   *
+   * @param { EditModeOptions } [options] - edit mode options.
+   *     <br>Default value: <em>{ enableGatherSelectedItemsAnimation: false }</em>
+   * @returns { GridAttribute } The attribute of the grid.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  editModeOptions(options?: EditModeOptions): GridAttribute;
+
+  /**
    * Called When sliding the grid.
    *
    * @param { function } event - callback of grid scroll,

@@ -12825,6 +12825,25 @@ export declare class ChildrenMainSize {
      */
     update(index: int, childSize: double): void;
 }
+
+/**
+ * Define edit mode options.
+ *
+ * @interface EditModeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare interface EditModeOptions {
+    /**
+     * Define whether to gather selected items in grid or list when item is long pressed for context menu or drag.
+     *
+     * @type { ?boolean } - The default value is true.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    enableGatherSelectedItemsAnimation?: boolean;
+}
+
 /**
  * Define BackgroundBrightness Options.
  *
