@@ -975,7 +975,7 @@ declare namespace insightIntentDriver {
   /**
    * The page intent information.
    *
-   * @interface LinkIntentInfo
+   * @interface PageIntentInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
