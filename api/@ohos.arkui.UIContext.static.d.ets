@@ -2994,7 +2994,7 @@ export declare class UIContext {
    *
    * @param { int } value - capacity of decoded image count.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   setImageCacheCount(value: int): void;
 
@@ -3004,7 +3004,7 @@ export declare class UIContext {
    *
    * @param { int } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   setImageRawDataCacheSize(value: int): void;
 
