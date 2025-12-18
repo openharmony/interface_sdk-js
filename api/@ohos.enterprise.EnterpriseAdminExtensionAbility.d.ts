@@ -233,9 +233,8 @@ export default class EnterpriseAdminExtensionAbility {
   onLogCollected(result: common.Result): void;
 
   /**
-   * Gets key event policies.
+   * Called back when the key event happens.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { systemManager.KeyEvent } keyEvent - keyEvent indicates the information of key event.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
