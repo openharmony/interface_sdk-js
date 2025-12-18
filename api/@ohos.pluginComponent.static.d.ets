@@ -60,13 +60,6 @@ declare namespace pluginComponentManager {
   /**
    * Defines KVObject
    *
-   * @typedef { object } KVObject
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  /**
-   * Defines KVObject
-   *
    * @typedef { Record<string, int | long | double | string | boolean | Array<KVObject> | KVObject> } KVObject
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
