@@ -690,6 +690,317 @@ declare namespace systemManager {
   function getInstallLocalEnterpriseAppEnabled(admin: Want): boolean;
 
   /**
+   * Adds key event policies.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<KeyEventPolicy> } keyPolicies - The policies of key.
+   *      <br>The maximum value of the list does not exceed the number of supported key types.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *      The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *      Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function addKeyEventPolicies(admin: Want, keyPolicies: Array<KeyEventPolicy>): void;
+
+  /**
+   * Removes key event policies.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<KeyCode> } keyCodes - The codes of key which policy need remove.
+   *      <br>The maximum value of the list does not exceed the number of supported key types.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *      The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *      Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function removeKeyEventPolicies(admin: Want, keyCodes: Array<KeyCode>): void;
+
+  /**
+   * Gets key event policies.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @returns { Array<KeyEventPolicy> } returns the key event policy.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *      The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *      Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function getKeyEventPolicies(admin: Want): Array<KeyEventPolicy>;
+
+  /**
+   * The handle policy of key event.
+   *
+   * @typedef KeyEventPolicy
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  interface KeyEventPolicy {
+    /**
+     * The code of key.
+     *
+     * @type { KeyCode }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    keyCode: KeyCode;
+
+    /**
+     * The policy of key event.
+     *
+     * @type { KeyPolicy }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    keyPolicy: KeyPolicy;
+  }
+
+  /**
+   * The code of key.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  enum KeyCode {
+    /**
+     * Power key of device.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    POWER = 0,
+
+    /**
+     * Volume up key of device.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    VOLUME_UP = 1,
+
+    /**
+     * Volume down key of device.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    VOLUME_DOWN = 2,
+
+    /**
+     * Back key of device.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    BACK = 3,
+
+    /**
+     * Home key of device.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    HOME = 4,
+
+    /**
+     * Recent key of device.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    RECENT = 5
+  }
+
+  /**
+   * The policy of key handling.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  enum KeyPolicy {
+    /**
+     * Intercept the key event.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    INTERCEPTION = 0,
+
+    /**
+     * Customize the key event handler.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    CUSTOM = 1
+  }
+
+  /**
+   * The key event.
+   *
+   * @typedef KeyEvent
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  interface KeyEvent {
+    /**
+     * The code of key.
+     *
+     * @type { KeyCode }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    keyCode: KeyCode;
+
+    /**
+     * The action of key.
+     *
+     * @type { KeyAction }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    keyAction: KeyAction;
+
+    /**
+     * The action time of key.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    actionTime: number;
+
+    /**
+     * The items of key.
+     *
+     * @type { Array<KeyItem> }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    keyItems: Array<KeyItem>;
+  }
+
+  /**
+   * The action of key.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  enum KeyAction {
+    /**
+     * UnKnown action.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    UNKNOWN = -1,
+
+    /**
+     * Down action.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    DOWN = 0,
+
+    /**
+     * Up action.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    UP = 1,
+  }
+
+  /**
+   * The key information.
+   *
+   * @typedef KeyItem
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  interface KeyItem {
+    /**
+     * The code of key.
+     *
+     * @type { KeyCode }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    keyCode: KeyCode;
+
+    /**
+     * Whether the key is pressed. true is indicates pressed, false indicates not pressed.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    pressed: number;
+
+    /**
+     * The down time of key.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    downTime: number;
+  }
+
+  /**
    * Near link protocol
    *
    * @enum { number }
