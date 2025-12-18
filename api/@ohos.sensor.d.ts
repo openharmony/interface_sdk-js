@@ -257,7 +257,8 @@ declare namespace sensor {
     /**
      * Fusion pressure sensor.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     FUSION_PRESSURE = 283
   }
@@ -590,7 +591,7 @@ declare namespace sensor {
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 22 static
+   * @since 23 static
    */
   function onFusionPressureChange(callback: Callback<FusionPressureResponse>, options?: Options): void;
 
@@ -1146,7 +1147,7 @@ declare namespace sensor {
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    *     <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 22 static
+   * @since 23 static
    */
   function offFusionPressureChange(sensorInfoParam?: SensorInfoParam, callback?: Callback<FusionPressureResponse>): void;
 
@@ -5368,14 +5369,16 @@ declare namespace sensor {
    * fusion pressure sensor event data.
    * @typedef FusionPressureResponse
    * @syscap SystemCapability.Sensors.Sensor
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface FusionPressureResponse extends Response {
     /**
      * Indicates the pressure percent data.
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     fusionPressure: double;
   }
