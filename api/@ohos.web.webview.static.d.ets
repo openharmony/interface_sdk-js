@@ -2031,7 +2031,77 @@ declare namespace webview {
          * @syscap SystemCapability.Web.Webview.Core
          * @since 22 static
          */
-        ERR_SIGNIFICANT_CHANGE = -5
+        ERR_SIGNIFICANT_CHANGE = -5,
+
+        /**
+         * The value of BlanklessLoadingParam.duration is not 0 or is not in the range of [200, 2000].
+         *
+         * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         *
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 23 static
+         */
+        ERR_DURATION_OUT_OF_RANGE = -6,
+
+        /**
+         * The value of BlanklessLoadingParam.expirationTime is out of the range (0, 2,592,000,000].
+         *
+         * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         *
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 23 static
+         */
+        ERR_EXPIRATION_TIME_OUT_OF_RANGE = -7
+    }
+
+    /**
+     * Enumerates the frame interpolation states.
+     *
+     * <strong>ArkWeb Dual Web Engine Versioning Convention</strong>:
+     * <p>See [ArkWeb Dual Web Engine Versioning Convention] for switching between Legacy and Evergreen Web Engine.
+     *
+     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    enum BlanklessFrameInterpolationState {
+        /**
+         * Frame interpolation succeeded.
+         *
+         * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         *
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 23 static
+         */
+        FRAME_INTERPOLATION_SUCCEEDED = 0,
+
+        /**
+         * Frame interpolation failed.
+         *
+         * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         *
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 23 static
+         */
+        FRAME_INTERPOLATION_FAILED = 1,
+
+        /**
+         * The frame interpolation is removed.
+         *
+         * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         *
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 23 static
+         */
+        FRAME_INTERPOLATION_REMOVED = 2
     }
 
     /**
@@ -2093,6 +2163,128 @@ declare namespace webview {
          * @since 22 static
          */
         loadingTime: int;
+    }
+
+    /**
+     * Defines the frame interpolation information.
+     *
+     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     *
+     * @typedef BlanklessFrameInterpolationInfo
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    interface BlanklessFrameInterpolationInfo {
+        /**
+         * Key value that uniquely identifies the page.
+         *
+         * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         *
+         * @type { string }
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 23 static
+         */
+        key: string;
+
+        /**
+         * Current frame interpolation state.
+         *
+         * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         *
+         * @type { BlanklessFrameInterpolationState }
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 23 static
+         */
+        state: BlanklessFrameInterpolationState;
+
+        /**
+         * Time when a frame is interpolated or removed.
+         *
+         * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         *
+         * @type { int }
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 23 static
+         */
+        timestamp: int;
+
+        /**
+         * Reason for the frame interpolation failure.
+         *
+         * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         *
+         * @type { string }
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 23 static
+         */
+        reason: string;
+    }
+
+    /**
+     * Defines the blankless loading parameter.
+     *
+     * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+     *
+     * @typedef BlanklessLoadingParam
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    interface BlanklessLoadingParam {
+        /**
+         * Whether to enable frame interpolation. The value true indicates to enable frame interpolation, and false
+         * indicates the opposite.
+         *
+         * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         *
+         * @type { boolean }
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 23 static
+         */
+        enable: boolean;
+
+        /**
+         * Duration of the frame interpolation, in milliseconds.
+         *
+         * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         *
+         * @type { ?int }
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 23 static
+         */
+        duration?: int;
+
+        /**
+         * Expiration time of the generated historical frame, in milliseconds.
+         *
+         * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         *
+         * @type { ?int }
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 23 static
+         */
+        expirationTime?: int;
+
+        /**
+         * Callback for the blankless frame interpolation, which is used to return the blankless frame interpolation
+         * information.
+         *
+         * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is returned.
+         *
+         * @type { ?Callback<BlanklessFrameInterpolationInfo> }
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 23 static
+         */
+        callback?: Callback<BlanklessFrameInterpolationInfo>;
     }
 
     /**
@@ -3951,6 +4143,30 @@ declare namespace webview {
          * @since 22 static
          */
         setBlanklessLoadingWithKey(key: string, is_start: boolean) : WebBlanklessErrorCode;
+
+        /**
+         * Triggers frame interpolation and sets frame interpolation parameters. This API must be used in pair
+         * with the getBlanklessInfoWithKey API.
+         *
+         * Device behavior differences: Only the mobile phone is supported. For other devices, 801 is
+         * returned.
+         *
+         * @param { string } key - Key value that uniquely identifies the current page. The key value must be
+         *     the same as that of getBlanklessInfoWithKey.
+         *     <br>Value range: (0, 2048]
+         *     <br>Value range: (0, 2048]
+         *     <br>which must be the same as the key value in getBlanklessInfoWithKey
+         * @param { BlanklessLoadingParam } param - The parameter of blankless.
+         *     For details see {@Link BlanklessLoadingParam}.
+         *     <br>na
+         * @returns { WebBlanklessErrorCode } WebBlanklessErrorCode.
+         * @throws { BusinessError } 801 - Capability not supported.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 23 static
+         */
+        setBlanklessLoadingWithParams(key: string,
+            param: BlanklessLoadingParam) : WebBlanklessErrorCode;
 
         /**
          * Clears the blankless loading cache of the page with a specified key value.
