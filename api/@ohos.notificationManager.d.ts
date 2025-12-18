@@ -942,6 +942,24 @@ declare namespace notificationManager {
   function getAllNotificationEnabledBundles(): Promise<Array<BundleOption>>;
 
   /**
+   * Obtains allow notification application list to the specified user.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { int } userId - The userId of applications.
+   * @returns { Promise<Array<BundleOption>> } Returns all enable notification applications.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function getAllNotificationEnabledBundles(userId: int): Promise<Array<BundleOption>>;
+
+  /**
    * Removes a notification slot of a specified type for this application. This API uses an asynchronous callback to return the result.
    *
    * @param { SlotType } slotType - Type of a notification slot, such as social communication, service notification, content consultation, and so on.
@@ -4036,6 +4054,28 @@ declare namespace notificationManager {
   function addDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
 
   /**
+   * Add do not disturb notification templates to the specified user.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<DoNotDisturbProfile> } templates - The array of Notification templates.
+   * @param { int } userId - The userId of profile.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function addDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>, userId: int): Promise<void>;
+
+  /**
    * Remove do not disturb notification templates.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -4074,6 +4114,28 @@ declare namespace notificationManager {
    * @since 22 static
    */
   function removeDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
+
+  /**
+   * Remove do not disturb notification templates to the specified user.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<DoNotDisturbProfile> } templates - The array of Notification templates.
+   * @param { int } userId - The userId of profile.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function removeDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>, userId: int): Promise<void>;
 
   /**
    * Set system additional config information of notification
@@ -4116,7 +4178,7 @@ declare namespace notificationManager {
   function setAdditionalConfig(key: string, value: string): Promise<int>;
 
   /**
-   * Set priority config of bundle for intelligent identification.
+   * Sets the priority configuration of an application.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
@@ -4136,7 +4198,7 @@ declare namespace notificationManager {
   function setBundlePriorityConfig(bundle: BundleOption, value: string): Promise<void>;
 
   /**
-   * Get priority config of bundle for intelligent identification.
+   * Obtains the priority configuration of an application.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
@@ -4162,7 +4224,7 @@ declare namespace notificationManager {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @throws { BusinessError } 1600018 - the notification settings window is already displayed.
+   * @throws { BusinessError } 1600018 - The notification settings window is already displayed.
    * @syscap SystemCapability.Notification.NotificationSettings
    * @stagemodelonly
    * @since 13
@@ -4176,7 +4238,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @throws { BusinessError } 1600018 - the notification settings window is already displayed.
+   * @throws { BusinessError } 1600018 - The notification settings window is already displayed.
    * @syscap SystemCapability.Notification.NotificationSettings
    * @stagemodelonly
    * @since 18 dynamic
@@ -4223,6 +4285,28 @@ declare namespace notificationManager {
    * @since 22 static
    */
   function getDoNotDisturbProfile(id: long): Promise<DoNotDisturbProfile>;
+
+ /**
+   * Get do not disturb profile by id to the specified user.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { long } id - The id of profile.
+   * @param { int } userId - The userId of profile.
+   * @returns { Promise<DoNotDisturbProfile> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @throws { BusinessError } 1600019 - The do-not-disturb profile does not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getDoNotDisturbProfile(id: long, userId: int): Promise<DoNotDisturbProfile>;
 
   /**
    * Disabling notifications based on the application list.
@@ -4366,7 +4450,7 @@ declare namespace notificationManager {
   function getDistributedDeviceList(): Promise<Array<string>>;
 
   /**
-   * Set priority notification switch for bundle.
+   * Sets the enabling status of the priority notification for an application.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
@@ -4386,7 +4470,7 @@ declare namespace notificationManager {
   function setPriorityEnabledByBundle(bundle: BundleOption, enableStatus: PriorityEnableStatus): Promise<void>;
 
   /**
-   * Get priority notification switch for bundle.
+   * Checks whether the priority notification for a specified application is enabled.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
@@ -4405,7 +4489,7 @@ declare namespace notificationManager {
   function isPriorityEnabledByBundle(bundle: BundleOption): Promise<PriorityEnableStatus>;
 
   /**
-   * Get priority notification switch.
+   * Checks whether the priority notification is enabled.
    * 
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<boolean> } The promise returned by the function.
@@ -4420,7 +4504,7 @@ declare namespace notificationManager {
   function isPriorityEnabled(): Promise<boolean>;
 
   /**
-   * Set priority notification switch.
+   * Sets the enabling status of the priority notification.
    * 
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { boolean } enable - Set enable or not.
@@ -4613,16 +4697,12 @@ declare namespace notificationManager {
   /**
    * Checks if the geofence is enabled.
    *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<boolean> } whether the geofence is enabled.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
-   * @systemapi
    * @since 23 dynamic&static
    */
   function isGeofenceEnabled(): Promise<boolean>;

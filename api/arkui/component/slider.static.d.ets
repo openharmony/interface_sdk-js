@@ -25,6 +25,7 @@ import { LinearGradient } from './dataPanel';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { ComponentContent } from '../ComponentContent';
+import { ColorMetrics } from '../Graphics';
 /**
  * Style of the slider thumb and track.
  *
@@ -368,6 +369,60 @@ export declare interface SliderConfiguration extends CommonConfiguration<SliderC
      */
     triggerChange: SliderTriggerChangeCallback;
 }
+
+/**
+ * ColorMetricsStop type
+ * 
+ * @typedef { object } ColorMetricsStop
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface ColorMetricsStop {
+  /**
+   * Color property.
+   * 
+   * @type { ColorMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  color: ColorMetrics;
+
+  /**
+   * the color offset. value range [0, 1].
+   * 
+   * **NOTE**
+   * If the value specified is less than 0, the value **0** is used.
+   * If the value specified is greater than 1, the value **1** is used.
+   * 
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  offset: Length;
+}
+
+/**
+ * ColorMetricsLinearGradient class
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare class ColorMetricsLinearGradient {
+    /**
+     * Constructor.
+     *
+     * @param { ColorMetricsStop[] } colorStops - the LinearGradient constructor parameter.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    constructor(colorStops: ColorMetricsStop[]);
+}
+
 /**
  * Defines the accessibility information of slider step point.
  *
@@ -746,6 +801,18 @@ export declare interface SliderAttribute extends CommonMethod {
      * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<SliderAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set the track color of the slider using the color metrics.
+     *
+     * @param { ColorMetricsLinearGradient | undefined } color - Track color of the slider using the color metrics.
+     *     Undefined indicates using the default color.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default trackColorMetrics(color: ColorMetricsLinearGradient | undefined): this;
 }
 
 /**

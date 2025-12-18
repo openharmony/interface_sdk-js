@@ -2239,6 +2239,23 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   scrollSnapAnimationSpeed(speed: ScrollSnapAnimationSpeed): ListAttribute;
 
   /**
+   * Sets whether empty branches are supported in lazy loading.
+   *
+   * @param { boolean | undefined } supported - Indicates whether empty branches are supported in lazy loading.
+   *     <br>Default value: false, passing undefined will restore the default value.
+   *     <br>If set to false, LazyForEach or Repeat with virtualScroll does not allow empty branches.
+   *     <br>If set to true, an empty branch of LazyForEach or Repeat with virtualScroll is treated as a node of
+   *     zero size.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  supportEmptyBranchInLazyLoading(supported: boolean | undefined): ListAttribute;
+
+  /**
    * Called when the offset and status callback of the slide are set.
    *
    * @param { function } event

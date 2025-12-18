@@ -169,6 +169,86 @@ declare namespace insightIntentDriver {
      * @since 22 static
      */
     flags?: int;
+
+    /**
+     * Indicates the target user ID.
+     * 
+     * If the user ID of the caller application is different from the target user ID, you need to apply for permission:
+     *     ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    userId?: int;
+  }
+
+  /**
+   * The optional options used as filters to get insight intent infomation.
+   *
+   * @typedef InsightIntentInfoFilter
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface InsightIntentInfoFilter {  
+    /**
+     * Indicates the flags of get insight intent information.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    intentFlags: int;
+
+    /**
+     * Indicates the bundle name.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    bundleName?: string;
+
+    /**
+     * Indicates the module name.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    moduleName?: string;
+
+    /**
+     * Indicates the intent name.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    intentName?: string;
+
+    /**
+     * Indicates the target user ID.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    userId?: int;    
   }
 
   /**
@@ -1233,6 +1313,27 @@ declare namespace insightIntentDriver {
    * @since 23 static
    */
   function getInsightIntentInfoByIntentName(bundleName: string, moduleName: string, intentName: string, intentFlags: int): Promise<InsightIntentInfo>;
+
+  /**
+   * Get insight intent information by filter.
+   *
+   * if the caller is cross-user, you need to apply for permission:
+   *     ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * 
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { InsightIntentInfoFilter } filter - Indicates the requirements that the insightIntentInfo belong
+   *     to have to meet.
+   * @returns { Promise<Array<InsightIntentInfo>> } - Returns the insight intent information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getInsightIntentInfoByFilter(filter: InsightIntentInfoFilter): Promise<Array<InsightIntentInfo>>;
 }
 
 export default insightIntentDriver;

@@ -22,6 +22,9 @@ import { AsyncCallback } from './@ohos.base';
 import notification from './@ohos.notificationManager';
 import { NotificationSlot } from './notification/notificationSlot';
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * Providers static methods for managing reminders, including publishing or canceling a reminder.
@@ -405,15 +408,6 @@ declare namespace reminderAgentManager {
      */
     dataShareUpdate?: DataShareUpdate;
   }
-
-  /**
-   * Record data type
-   * 
-   * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
-   * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 22 static
-   */
-  type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>
 
   /**
    * Want agent information.

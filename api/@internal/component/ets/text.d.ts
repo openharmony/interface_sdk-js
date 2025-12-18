@@ -1831,6 +1831,32 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 23 dynamic
    */
   compressLeadingPunctuation(enabled: Optional<boolean>): TextAttribute;
+
+  /**
+   * Used to set the selected drag preview style.
+   *
+   * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+   *     If set undefined will reset the style.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextAttribute;
+
+  /**
+   * Set the text direction.
+   *
+   * @param { TextDirection | undefined } direction - Indicates the text direction.
+   *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  textDirection(direction: TextDirection | undefined): TextAttribute;
 }
 
 /**

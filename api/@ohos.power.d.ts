@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import { AsyncCallback, BusinessError } from './@ohos.base';
+import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 
 /**
  * Provides interfaces to manage power.
@@ -191,19 +191,35 @@ declare namespace power {
   function getPowerMode(): DevicePowerMode;
 
   /**
-   * Obtains the power mode of the current device. For details, see {@link DevicePowerMode}.
+   * Sets the power mode of current device. For details, see {@link DevicePowerMode}.
    *
    * @permission ohos.permission.POWER_OPTIMIZATION
    * @param { DevicePowerMode } mode Indicates power mode {@link DevicePowerMode} to set.
-   * the DevicePowerMode type is an enumeration class.
+   *     the DevicePowerMode type is an enumeration class.
    * @param { AsyncCallback<void> } callback Indicates the callback of setting the power mode.
-   * @throws { BusinessError } 201 – Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   */
+  /**
+   * Sets the power mode of current device. For details, see {@link DevicePowerMode}.
+   *
+   * @permission ohos.permission.POWER_OPTIMIZATION
+   * @param { DevicePowerMode } mode Indicates power mode {@link DevicePowerMode} to set.
+   *     the DevicePowerMode type is an enumeration class.
+   * @param { AsyncCallback<void> } callback Indicates the callback of setting the power mode.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
+   * @throws { BusinessError } 4900301 - Setting the power mode failed.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 23 dynamic&static
    */
   function setPowerMode(mode: DevicePowerMode, callback: AsyncCallback<void>): void;
 
@@ -212,15 +228,31 @@ declare namespace power {
    *
    * @permission ohos.permission.POWER_OPTIMIZATION
    * @param { DevicePowerMode } mode Indicates power mode {@link DevicePowerMode} to set.
-   * the DevicePowerMode type is an enumeration class.
+   *     the DevicePowerMode type is an enumeration class.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 201 – Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   */
+  /**
+   * Sets the power mode of current device. For details, see {@link DevicePowerMode}.
+   *
+   * @permission ohos.permission.POWER_OPTIMIZATION
+   * @param { DevicePowerMode } mode Indicates power mode {@link DevicePowerMode} to set.
+   *     the DevicePowerMode type is an enumeration class.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
+   * @throws { BusinessError } 4900301 - Setting the power mode failed.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 23 dynamic&static
    */
   function setPowerMode(mode: DevicePowerMode): Promise<void>;
 
@@ -307,6 +339,37 @@ declare namespace power {
    * @since 22 static
    */
   function refreshActivity(reason: string): void;
+
+  /**
+  * Register the notification callback of device shutdown.
+  * 
+  * @permission ohos.permission.REBOOT 
+  * @param { Callback<boolean> } callback Notification callback of device shutdown. The callback parameter value of
+  *     true indicates a device restart, while false indicates a device shutdown.
+  * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission 
+  *     required to call the API.
+  * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+  * @throws { BusinessError } 4900101 - Failed to connect to the service.
+  * @syscap SystemCapability.PowerManager.PowerManager.Core
+  * @systemapi
+  * @since 23 dynamic&static
+  */
+  function registerShutdownCallback(callback: Callback<boolean>): void;
+
+  /**
+  * Unregister the notification callback of device shutdown.
+  * 
+  * @permission ohos.permission.REBOOT 
+  * @param { Callback<void> } [callback] Callback used to return the result.
+  * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission 
+  *     required to call the API.
+  * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+  * @throws { BusinessError } 4900101 - Failed to connect to the service.
+  * @syscap SystemCapability.PowerManager.PowerManager.Core
+  * @systemapi
+  * @since 23 dynamic&static
+  */
+  function unregisterShutdownCallback(callback?: Callback<void>): void;
 
   /**
    * Power mode of a device.

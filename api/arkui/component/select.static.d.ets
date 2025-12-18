@@ -17,8 +17,9 @@
  * @file
  * @kit ArkUI
  */
-import { CommonConfiguration, CommonMethod, ContentModifier, BlurStyle, Bindable } from './common';
+import { CommonConfiguration, CommonMethod, ContentModifier, BlurStyle, Bindable, MenuKeyboardAvoidMode } from './common';
 import { ControlSize } from './button';
+import { LengthMetrics } from '../Graphics';
 import { DividerOptions } from './textPicker';
 import { ResourceStr, Dimension, EdgeOutlineWidths, ResourceColor, EdgeColors, Resource, Font, Length, Offset, DividerStyleOptions } from './units';
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
@@ -479,6 +480,28 @@ export declare interface SelectAttribute extends CommonMethod {
      */
     default attributeModifier(
         modifier: AttributeModifier<SelectAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Determine the mode of select menu how to avoid keyboard.
+     *
+     * No avoiding by default.
+     *
+     * @param { MenuKeyboardAvoidMode | undefined } mode - How to avoid keyboard.
+     * @returns { SelectAttribute } - The attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default keyboardAvoidMode(mode: MenuKeyboardAvoidMode | undefined): this;
+    /**
+     * Defines the minimum distance between select menu and keyboard.
+     *
+     * @param { LengthMetrics | undefined } distance - The minimum avoiding distance.
+     * @returns { SelectAttribute } - The attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default minKeyboardAvoidDistance(distance: LengthMetrics | undefined): this;
 }
 /**
  * MenuItemConfiguration used by menu item content modifier.

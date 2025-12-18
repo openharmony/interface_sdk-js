@@ -178,6 +178,7 @@ declare namespace dragInteraction {
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
+   * @since 22 static
    */
   function setDragSwitchState(enabled: boolean): void;
 
@@ -192,6 +193,7 @@ declare namespace dragInteraction {
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
+   * @since 22 static
    */
   function setAppDragSwitchState(enabled: boolean, bundleName: string): void;
 }

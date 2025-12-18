@@ -851,6 +851,26 @@ export declare interface IObservedObject extends IWatchSubscriberRegister {
 }
 
 /**
+ * Define ConsumeOptions interface.
+ * 
+ * @typedef ConsumeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface ConsumeOptions<T> {
+
+  /**
+   * Default value set by developer.
+   * @type { ?T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  defaultValue?: T;
+}
+
+/**
  * Define STATE_MGMT_FACTORY.
  *
  * @type { IStateMgmtFactory }
@@ -954,6 +974,22 @@ export declare interface IStateMgmtFactory {
    */
   makeConsume<T>(owner: IVariableOwner, varName: string,
     provideAlias: string, watchFunc?: WatchFuncType): IConsumeDecoratedVariable<T>;
+  
+  /**
+   * Create a Consume variable instance. It is used to establish two-way data binding with @Provide.
+   *
+   * @param { IVariableOwner } owner - instance of the custom component where this state variable is located.
+   * @param { string } varName - state variable name.
+   * @param { string } provideAlias - provide alias.
+   * @param { WatchFuncType } [watchFunc] - watch callback function type.
+   * @param { ConsumeOptions<T> } [consumeOptions] - interface containing default value set by developer.
+   * @returns { IConsumeDecoratedVariable<T> } Consume instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  makeConsume<T>(owner: IVariableOwner, varName: string,
+    provideAlias: string, watchFunc?: WatchFuncType, consumeOptions?: ConsumeOptions<T>): IConsumeDecoratedVariable<T>;
 
   /**
    * Create a ObjectLink variable instance.

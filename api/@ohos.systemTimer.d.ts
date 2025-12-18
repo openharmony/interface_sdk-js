@@ -28,7 +28,7 @@ import { WantAgent } from './@ohos.app.ability.wantAgent';
  * @syscap SystemCapability.MiscServices.Time
  * @systemapi Hide this for inner system use.
  * @since 7 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace systemTimer {
   /**
@@ -38,7 +38,7 @@ declare namespace systemTimer {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const TIMER_TYPE_REALTIME: int;
 
@@ -49,7 +49,7 @@ declare namespace systemTimer {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const TIMER_TYPE_WAKEUP: int;
 
@@ -60,7 +60,7 @@ declare namespace systemTimer {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const TIMER_TYPE_EXACT: int;
 
@@ -71,6 +71,7 @@ declare namespace systemTimer {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 23 static
    */
   const TIMER_TYPE_IDLE: int;
 
@@ -85,7 +86,7 @@ declare namespace systemTimer {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createTimer(options: TimerOptions, callback: AsyncCallback<long>): void;
 
@@ -100,7 +101,7 @@ declare namespace systemTimer {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createTimer(options: TimerOptions): Promise<long>;
 
@@ -117,7 +118,7 @@ declare namespace systemTimer {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function startTimer(timer: long, triggerTime: long, callback: AsyncCallback<void>): void;
 
@@ -134,7 +135,7 @@ declare namespace systemTimer {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function startTimer(timer: long, triggerTime: long): Promise<void>;
 
@@ -148,7 +149,7 @@ declare namespace systemTimer {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function stopTimer(timer: long, callback: AsyncCallback<void>): void;
 
@@ -162,7 +163,7 @@ declare namespace systemTimer {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function stopTimer(timer: long): Promise<void>;
 
@@ -176,7 +177,7 @@ declare namespace systemTimer {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function destroyTimer(timer: long, callback: AsyncCallback<void>): void;
 
@@ -190,7 +191,7 @@ declare namespace systemTimer {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function destroyTimer(timer: long): Promise<void>;
 
@@ -202,7 +203,7 @@ declare namespace systemTimer {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface TimerOptions {
     /**
@@ -212,7 +213,7 @@ declare namespace systemTimer {
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     type: int;
 
@@ -223,7 +224,7 @@ declare namespace systemTimer {
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     repeat: boolean;
 
@@ -235,7 +236,7 @@ declare namespace systemTimer {
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     interval?: long;
 
@@ -246,6 +247,7 @@ declare namespace systemTimer {
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
+     * @since 23 static
      */
     wantAgent?: WantAgent;
 
@@ -256,7 +258,7 @@ declare namespace systemTimer {
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     callback?: () => void;
 
@@ -269,6 +271,7 @@ declare namespace systemTimer {
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi
      * @since 15 dynamic
+     * @since 23 static
      */
     autoRestore?: boolean;
 
@@ -281,7 +284,7 @@ declare namespace systemTimer {
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name?: string;
   }

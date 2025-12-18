@@ -28,6 +28,7 @@ import { LeadingMarginPlaceholder } from './richEditor';
 import image from '../../@ohos.multimedia.image';
 import drawing from '../../@ohos.graphics.drawing';
 import { DrawContext } from '../../arkui/Graphics';
+import { TextDirection } from './textCommon';
 
 /**
  * Defines the StyledStringMarshallingValue Type.
@@ -710,6 +711,15 @@ export declare class ParagraphStyle {
      * @since 22 static
      */
     readonly paragraphSpacing?: double;
+    /**
+     * Get the text direction of the StyledString.
+     *
+     * @type { ?TextDirection } - the text direction of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    readonly textDirection?: TextDirection;
 }
 /**
  * ParagraphStyleInterface
@@ -775,6 +785,14 @@ export declare interface ParagraphStyleInterface {
      * @since 22 static
      */
     paragraphSpacing?: LengthMetrics;
+    /**
+     * Set the text direction of the StyledString.
+     *
+     * @type { ?TextDirection }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    textDirection?: TextDirection;
 }
 /**
  * Defines LineHeightStyle.

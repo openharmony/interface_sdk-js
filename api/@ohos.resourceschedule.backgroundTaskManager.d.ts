@@ -411,6 +411,20 @@ declare namespace backgroundTaskManager {
      * @since 22 static
      */
     suspendState: boolean;
+    /**
+     * The bundleName of apply continuous task.
+     * @type { ?string }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 23 dynamic&static
+     */
+    bundleName?: string;
+    /**
+     * The appIndex of apply continuous task.
+     * @type { ?int }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 23 dynamic&static
+     */
+    appIndex?: int;
   }
 
   /**
@@ -503,6 +517,50 @@ declare namespace backgroundTaskManager {
   }
 
   /**
+   * The continuous task state change subscriber.
+   *
+   * @typedef BackgroundTaskSubscriber
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export interface BackgroundTaskSubscriber {  
+    /**
+     * Callback of continuous task start.
+     *
+     * @param { ContinuousTaskInfo } info - The continuous task info.
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onContinuousTaskStart(info: ContinuousTaskInfo): void;
+
+    /**
+     * Callback of continuous task update.
+     *
+     * @param { ContinuousTaskInfo } info - The continuous task info.
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onContinuousTaskUpdate(info: ContinuousTaskInfo): void;
+
+    /**
+     * Callback of continuous task stop.
+     *
+     * @param { ContinuousTaskInfo } info - The continuous task info.
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onContinuousTaskStop(info: ContinuousTaskInfo): void;
+  }
+
+  /**
    * Efficiency Resources information.
    *
    * @interface EfficiencyResourcesInfo
@@ -582,6 +640,17 @@ declare namespace backgroundTaskManager {
      * @since 22 static
      */
     pid: int;
+   /**
+     * Specify CPU resources. The system will allocate the specified CPU resources
+     *     to the application during idle load times.
+     *
+     * @type { ?EfficiencyResourcesCpuLevel }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    cpuLevel?: EfficiencyResourcesCpuLevel;
   }
 
   /**
@@ -1066,6 +1135,53 @@ declare namespace backgroundTaskManager {
    * @since 22 dynamic&static
    */
   function getBackgroundTaskState(stateInfo: BackgroundTaskStateInfo): UserAuthResult;
+
+  /**
+   * Obtains information about all continuous tasks in the system.
+   *
+   * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
+   * @returns { Promise<ContinuousTaskInfo[]> } The promise returns the continuous task info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function obtainAllContinuousTasks(): Promise<ContinuousTaskInfo[]>;
+
+  /**
+   * Subscribe to continuous task state change.
+   *
+   * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
+   * @param { BackgroundTaskSubscriber } subscriber - The continuous task state change subscriber.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function subscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
+
+  /**
+   * Unsubscribe to continuous task state change.
+   *
+   * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
+   * @param { BackgroundTaskSubscriber } subscriber - The continuous task state change subscriber.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function unsubscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
 
   /**
    * Apply or unapply efficiency resources.
@@ -1578,6 +1694,15 @@ declare namespace backgroundTaskManager {
      * @since 22 dynamic
      */
     SUBMODE_VIDEO_BROADCAST_NORMAL_NOTIFICATION = 10,
+
+    /**
+     * submode of 'MODE_SPECIAL_SCENARIO_PROCESSING', used for workout scenarios.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SUBMODE_WORK_OUT_NORMAL_NOTIFICATION = 11
   }
 
   /**
@@ -1682,6 +1807,47 @@ declare namespace backgroundTaskManager {
   }
 
   /**
+   * The type of CPU level.
+   *
+   * @enum { int } The type of resource.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export enum EfficiencyResourcesCpuLevel {
+    /**
+     * Runs up to small cores.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SMALL_CPU = 0,
+
+    /**
+     * Runs up to medium cores.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    MEDIUM_CPU = 1,
+
+    /**
+     * Runs up to large cores.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    LARGE_CPU = 2
+  }
+
+  /**
    * The request of efficiency resources.
    *
    * @interface EfficiencyResourcesRequest
@@ -1756,6 +1922,18 @@ declare namespace backgroundTaskManager {
      * @since 22 static
      */
     reason: string;
+
+   /**
+     * Specify CPU resources. The system will allocate the specified CPU resources
+     *     to the application during idle load times.
+     *
+     * @type { ?EfficiencyResourcesCpuLevel }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    cpuLevel?: EfficiencyResourcesCpuLevel;
   }
 
   /**

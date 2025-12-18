@@ -341,6 +341,20 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      */
     default supportAnimation(value: boolean | undefined): this;
     /**
+     * Sets whether empty branches are supported in lazy loading.
+     *
+     * @param { boolean | undefined } supported - Indicates whether empty branches are supported in lazy loading.
+     *     <br>Default value: false, passing undefined will restore the default value.
+     *     <br>If set to false, LazyForEach or Repeat with virtualScroll does not allow empty branches.
+     *     <br>If set to true, an empty branch of LazyForEach or Repeat with virtualScroll is treated as a node of
+     *     zero size.
+     * @returns { this } the attribute of the Grid.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default supportEmptyBranchInLazyLoading(supported: boolean | undefined): this;
+    /**
     * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
     * (To be triggered, press and hold for 170 milliseconds (ms))
     *

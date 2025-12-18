@@ -28,9 +28,10 @@ import { CustomBuilder } from '@ohos.arkui.component';
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 22 static
  */
-declare enum EffectLayer {
+export declare enum EffectLayer {
   /**
    * No layer.
    * 
@@ -65,9 +66,10 @@ declare enum EffectLayer {
  * @interface EffectComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 22 static
  */
-declare interface EffectComponentOptions {
+export declare interface EffectComponentOptions {
 
   /** Use this to determine the component layer 1evel. Default value is none.
    *

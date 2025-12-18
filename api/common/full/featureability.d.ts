@@ -21,14 +21,14 @@
 /**
  * @typedef Result
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  * @deprecated since 8
  */
 export interface Result {
   /**
    * Result code.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   code: number;
@@ -36,7 +36,7 @@ export interface Result {
   /**
    * Returned data.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   data: object;
@@ -45,14 +45,14 @@ export interface Result {
 /**
  * @typedef SubscribeMessageResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  * @deprecated since 8
  */
 export interface SubscribeMessageResponse {
   /**
    * Peer device ID.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   deviceId: string;
@@ -60,7 +60,7 @@ export interface SubscribeMessageResponse {
   /**
    * Name of the bundle where the peer ability has been located. The name is case sensitive.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   bundleName: string;
@@ -68,7 +68,7 @@ export interface SubscribeMessageResponse {
   /**
    * Peer ability name, which is case sensitive.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   abilityName: string;
@@ -76,7 +76,7 @@ export interface SubscribeMessageResponse {
   /**
    * Messages received from the device.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   message: string;
@@ -85,14 +85,14 @@ export interface SubscribeMessageResponse {
 /**
  * @typedef CallAbilityParam
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  * @deprecated since 8
  */
 export interface CallAbilityParam {
   /**
    * Name of the bundle where the ability has been located. The name is case sensitive and must be the same as that on the AA side.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   bundleName: string;
@@ -100,7 +100,7 @@ export interface CallAbilityParam {
   /**
    * Ability name, which is case sensitive and must be the same as that on the AA side.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   abilityName: string;
@@ -108,7 +108,7 @@ export interface CallAbilityParam {
   /**
    * Ability operation code, which defines the service function of an AA and must be consistent with the AA side.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   messageCode: number;
@@ -118,7 +118,7 @@ export interface CallAbilityParam {
    * 0: Ability, which has an independent lifecycle. The FA starts and requests an AA through an RPC. Such type of abilities are used to provide basic services for multiple FAs to call or are used when the abilities should run in the background.
    * 1: Internal ability, which shares the same process with the FA and communicates with it by calling internal functions. Such type of abilities are used in scenarios that require low response latency and cannot be called by other FAs.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   abilityType: number;
@@ -126,7 +126,7 @@ export interface CallAbilityParam {
   /**
    * Data sent to the ability. The data to carry differs depending on the service to be processed and its field name must be consistent with the AA side.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   data?: object;
@@ -136,7 +136,7 @@ export interface CallAbilityParam {
    * 0: Synchronous mode (default value)
    * 1: Asynchronous mode
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   syncOption?: number;
@@ -145,14 +145,14 @@ export interface CallAbilityParam {
 /**
  * @typedef SubscribeAbilityEventParam
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  * @deprecated since 8
  */
 export interface SubscribeAbilityEventParam {
   /**
    * Name of the bundle where the ability has been located. The name is case sensitive and must be the same as that on the AA side.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   bundleName: string;
@@ -160,7 +160,7 @@ export interface SubscribeAbilityEventParam {
   /**
    * Ability name, which is case sensitive and must be the same as that on the AA side.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   abilityName: string;
@@ -168,7 +168,7 @@ export interface SubscribeAbilityEventParam {
   /**
    * Ability operation code, which defines the service function of an AA and must be consistent with the AA side.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   messageCode: number;
@@ -178,7 +178,7 @@ export interface SubscribeAbilityEventParam {
    * 0: Ability, which has an independent lifecycle. The FA starts and requests an AA through an RPC. Such type of abilities are used to provide basic services for multiple FAs to call or are used when the abilities should run in the background.
    * 1: Internal ability, which shares the same process with the FA and communicates with it by calling internal functions. Such type of abilities are used in scenarios that require low response latency and cannot be called by other FAs.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   abilityType: number;
@@ -188,7 +188,7 @@ export interface SubscribeAbilityEventParam {
    * 0: Synchronous mode (default value)
    * 1: Asynchronous mode
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   syncOption?: number;
@@ -197,14 +197,14 @@ export interface SubscribeAbilityEventParam {
 /**
  * @typedef SendMessageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  * @deprecated since 8
  */
 export interface SendMessageOptions {
   /**
    * Destination device ID.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   deviceId: string;
@@ -212,7 +212,7 @@ export interface SendMessageOptions {
   /**
    * Name of the destination bundle where the ability has been located. The name is case sensitive.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   bundleName: string;
@@ -220,7 +220,7 @@ export interface SendMessageOptions {
   /**
    * Destination ability name, which is case sensitive.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   abilityName: string;
@@ -230,7 +230,7 @@ export interface SendMessageOptions {
    * A maximum of 1 KB of data can be transmitted at a time.
    * If more than 1 KB of data needs to be transmitted, split the messages into multiple parts to transmit.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   message?: string;
@@ -238,7 +238,7 @@ export interface SendMessageOptions {
   /**
    * Called when the messages are sent successfully.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   success?: () => void;
@@ -246,7 +246,7 @@ export interface SendMessageOptions {
   /**
    * Called when the messages fail to be sent.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -254,7 +254,7 @@ export interface SendMessageOptions {
   /**
    * Called when the execution is completed.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   complete?: () => void;
@@ -263,14 +263,14 @@ export interface SendMessageOptions {
 /**
  * @typedef SubscribeMessageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  * @deprecated since 8
  */
 export interface SubscribeMessageOptions {
   /**
    * Called when the messages are sent successfully.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   success?: (data: SubscribeMessageResponse) => void;
@@ -278,7 +278,7 @@ export interface SubscribeMessageOptions {
   /**
    * Called when the messages fail to be sent.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -287,14 +287,14 @@ export interface SubscribeMessageOptions {
 /**
  * @typedef RequestParams
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  * @deprecated since 8
  */
 export interface RequestParams {
   /**
    * The name of the bundle to start. It should be used with abilityname and case sensitive.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   bundleName?: string;
@@ -302,7 +302,7 @@ export interface RequestParams {
   /**
    * Ability name, which is case sensitive.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   abilityName?: string;
@@ -310,7 +310,7 @@ export interface RequestParams {
   /**
    * The list of entities to which the FA to be called. If it is not filled in, all entity lists will be found by default. It should be used with action.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   entities?: Array<string>;
@@ -318,7 +318,7 @@ export interface RequestParams {
   /**
    * Without specifying the bundle name and ability name, you can start the application according to other properties with action.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   action?: string;
@@ -328,7 +328,7 @@ export interface RequestParams {
    * 0: Default. Select the FA to start from the local and remote devices.
    * 1: start FA from the local device.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   deviceType?: number;
@@ -336,7 +336,7 @@ export interface RequestParams {
   /**
    * Data sent to the ability which need to be serializable.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   data?: object;
@@ -344,7 +344,7 @@ export interface RequestParams {
   /**
    * Configuration switch when start FA.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   flag?: number;
@@ -352,7 +352,7 @@ export interface RequestParams {
   /**
    * Specify the url of the page which the FA to be called. Use home page directly by default.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   url?: string;
@@ -361,14 +361,14 @@ export interface RequestParams {
 /**
  * @typedef FinishWithResultParams
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  * @deprecated since 8
  */
 export interface FinishWithResultParams {
   /**
    * Result code.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   code: number;
@@ -376,7 +376,7 @@ export interface FinishWithResultParams {
   /**
    * Returned data.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   result: object;
@@ -427,7 +427,7 @@ export declare class FeatureAbility {
    * @param { number } flag - Default 0, get the information list of all devices in the network.
    * @returns { Promise<Result> } A Promise object is returned, which contains the result whether the device information list is obtained successfully.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   static getDeviceList(flag: number): Promise<Result>;
@@ -437,7 +437,7 @@ export declare class FeatureAbility {
    * @param { CallAbilityParam } param - Indicates the request param.
    * @returns { Promise<string> } A Promise object is returned, which contains the result data returned by the AA. The result is a JSON string.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   static callAbility(param: CallAbilityParam): Promise<string>;
@@ -446,7 +446,7 @@ export declare class FeatureAbility {
    * Start FA migration.
    * @returns { Promise<Result> } A Promise object is returned, which contains the result data returned by the AA. The result is a JSON string.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   static continueAbility(): Promise<Result>;
@@ -457,7 +457,7 @@ export declare class FeatureAbility {
    * @param { Function } func - Indicates the event reporting callback.
    * @returns { Promise<string> } A Promise object is returned, which contains the result data returned by the AA. The result is a JSON string.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   static subscribeAbilityEvent(param: SubscribeAbilityEventParam, func: Function): Promise<string>;
@@ -467,7 +467,7 @@ export declare class FeatureAbility {
    * @param { SubscribeAbilityEventParam } param - Indicates the request param.
    * @returns { Promise<string> } A Promise object is returned, which contains the result data returned by the AA. The result is a JSON string.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   static unsubscribeAbilityEvent(param: SubscribeAbilityEventParam): Promise<string>;
@@ -476,7 +476,7 @@ export declare class FeatureAbility {
    * Sends messages to the destination device.
    * @param { SendMessageOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   static sendMsg(options: SendMessageOptions): void;
@@ -485,7 +485,7 @@ export declare class FeatureAbility {
    * Listens for messages sent from other devices.
    * @param { SubscribeMessageOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   static subscribeMsg(options: SubscribeMessageOptions): void;
@@ -493,7 +493,7 @@ export declare class FeatureAbility {
   /**
    * Cancel the listening for messages sent from other devices.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 5 dynamic
+   * @since 5 dynamiconly
    * @deprecated since 8
    */
   static unsubscribeMsg(): void;

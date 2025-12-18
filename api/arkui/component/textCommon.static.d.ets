@@ -759,6 +759,29 @@ export declare class TextMenuItemId {
      * @since 22 static
      */
     static readonly SHARE: TextMenuItemId;
+
+    /**
+     * Indicates the TextMenuItemId for auto fill.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    static readonly autoFill: TextMenuItemId;
+
+    /**
+     * Indicates the TextMenuItemId for password vault.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    static readonly passwordVault: TextMenuItemId;
 }
 /**
  * TextMenuItem
@@ -1092,4 +1115,61 @@ export declare interface AccessibilitySpanOptions {
      * @since 23 static
      */
   accessibilityLevel?:string;
+}
+
+/**
+ * Selected drag preview style configuration.
+ *
+ * @interface SelectedDragPreviewStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare interface SelectedDragPreviewStyle {
+    /**
+     * The color of background.
+     *
+     * @type { ?ResourceColor } - Default value is '#ffffff' (100% opacity).
+     *                            Default value in dark mode is '#202224' (95% opacity).
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+  color?: ResourceColor;
+}
+
+/**
+ * Defines text direction.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export declare enum TextDirection {
+    /**
+     * Left to right.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    LTR = 0,
+    /**
+     * Right to left.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    RTL = 1,
+    /**
+     * The text direction follows the component layout.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    DEFAULT = 2,
+    /**
+     * The text direction follows the actual text.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    AUTO = 3
 }

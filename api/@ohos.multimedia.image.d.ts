@@ -5116,6 +5116,7 @@ declare namespace image {
    * @throws { BusinessError } 7600302 - Memory copy failed.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   function createPixelMapUsingAllocator(colors: ArrayBuffer, param: InitializationOptions,
     allocatorType?: AllocatorType): Promise<PixelMap>;
@@ -5135,6 +5136,7 @@ declare namespace image {
    * @throws { BusinessError } 7600302 - Memory copy failed.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   function createPixelMapUsingAllocatorSync(colors: ArrayBuffer, param: InitializationOptions,
     allocatorType?: AllocatorType): PixelMap;
@@ -5166,6 +5168,7 @@ function createPixelMapSync(options: InitializationOptions): PixelMap;
    * @throws { BusinessError } 7600301 - Memory alloc failed.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   function createPixelMapUsingAllocatorSync(param: InitializationOptions, allocatorType?: AllocatorType): PixelMap;
 
@@ -5328,6 +5331,44 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @since 22 static
    */
   function createPixelMapFromSurfaceSync(surfaceId: string): PixelMap;
+
+  /**
+   * Creates a PixelMap object based on the ID of a Surface with transformation.
+   *
+   * @param { string } surfaceId - ID of the Surface.
+   * @param { boolean } transformEnabled - Whether to inverse transform the PixelMap to cancel out the transformation
+   *     from the Surface.
+   *     If true, the PixelMap will be transformed by the same amount from the Surface but in a reversed direction;
+   *     if false, the PixelMap will not be transformed.
+   * @returns { Promise<PixelMap> } A Promise of PixelMap instance if the operation is successful.
+   *     Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 7600206 - Invalid parameter.
+   * @throws { BusinessError } 7600104 - Failed to get the data from Surface.
+   * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function createPixelMapFromSurfaceWithTransformation(surfaceId: string, transformEnabled: boolean): Promise<PixelMap>;
+
+  /**
+   * Creates a PixelMap object based on the ID of a Surface with transformation.
+   *
+   * @param { string } surfaceId - ID of the Surface.
+   * @param { boolean } transformEnabled - Whether to inverse transform the PixelMap to cancel out the transformation
+   *     from the Surface.
+   *     If true, the PixelMap will be transformed by the same amount from the Surface but in a reversed direction;
+   *     if false, the PixelMap will not be transformed.
+   * @returns { PixelMap } A PixelMap instance if the operation is successful.
+   *     Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 7600206 - Invalid parameter.
+   * @throws { BusinessError } 7600104 - Failed to get the data from Surface.
+   * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function createPixelMapFromSurfaceWithTransformationSync(surfaceId: string, transformEnabled: boolean): PixelMap;
 
   /**
    * Creates an ImageSource instance based on the URI.
@@ -8125,7 +8166,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 20 dynamic
      * @since 22 static
      */
-    GIF_METADATA = 5
+    GIF_METADATA = 5,
+
+    /**
+     * Metadata of a HEIFS image.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    HEIFS_METADATA = 15,
   }
 
   /**
@@ -8280,6 +8330,2315 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 22 static
      */
     GIF_DISPOSAL_TYPE = 'GifDisposalType'
+  }
+
+  /**
+   * Enumerates the properties available for the metadata of a HEIFS image.
+   * @enum { string }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum HeifsPropertyKey {
+    /**
+     * Delay of each frame in milliseconds.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    HEIFS_DELAY_TIME = 'HeifsDelayTime'
+  }
+
+  /**
+   * Heifs metadata.
+   *
+   * @implements Metadata
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  class HeifsMetadata implements Metadata {  
+    /**
+     * Delay of each frame in milliseconds.
+     *
+     * @type { ?int }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly heifsDelayTime?: int;
+
+    /**
+     * Create an empty instance of HeifsMetadata.
+     *
+     * @returns { HeifsMetadata } Returns an empty instance of HeifsMetadata.
+     * @static
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    static createInstance(): HeifsMetadata;
+
+    /**
+     * Obtains the value of properties in an image. This method uses a promise to return the property values in records.
+     *
+     * @param { Array<string> } key Name of the properties whose value is to be obtained.
+     * @returns { Promise<Record<string, string | null>> } Record instance used to return the property values.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getProperties(key: Array<string>): Promise<Record<string, string | null>>;
+
+    /**
+     * Set the value of properties in an image with the specified keys.
+     *
+     * @param { Record<string, string | null> } records Property records whose values are to be set.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setProperties(records: Record<string, string | null>): Promise<void>;
+
+    /**
+     * Obtains the value of all properties in an image. This method uses a promise to return the property values
+     * in record.
+     *
+     * @returns { Promise<Record<string, string | null>> } Record instance used to return the property values.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getAllProperties(): Promise<Record<string, string | null>>;
+
+    /**
+     * Obtains a clone of metadata. This method uses a promise to return the metadata.
+     *
+     * @returns { Promise<HeifsMetadata> } A Promise instance used to return the metadata.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    clone(): Promise<HeifsMetadata>;
+  }
+
+  /**
+   * Enumerates image orientation.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum Orientation {  
+    /**
+     * The image is not rotated.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    TOP_LEFT = 1,
+
+    /**
+     * The image is mirrored horizontally.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    TOP_RIGHT = 2,
+
+    /**
+     * The image is rotated 180 degrees.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    BOTTOM_RIGHT = 3,
+
+    /**
+     * The image is mirrored vertically.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    BOTTOM_LEFT = 4,
+
+    /**
+     * The image is mirrored horizontally, then rotated 270 degrees clockwise.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    LEFT_TOP = 5,
+
+    /**
+     * The image is rotated 90 degrees clockwise.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    RIGHT_TOP = 6,
+
+    /**
+     * The image is mirrored horizontally, then rotated 90 degrees clockwise.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    RIGHT_BOTTOM = 7,
+
+    /**
+     * The image is rotated 270 degrees clockwise.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    LEFT_BOTTOM = 8
+  }
+
+  /**
+   * Exif metadata.
+   *
+   * @implements Metadata
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  class ExifMetadata implements Metadata {  
+    /**
+     * This tag provides a broad description of the data type in this subfile.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    newSubfileType?: int;
+
+    /**
+     * This deprecated tag indicates the data type in this subfile. Use NewSubfileType instead.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    subfileType?: int;
+ 
+    /**
+     * Image width.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    imageWidth?: int;
+
+    /**
+     * Image length.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    imageLength?: int;
+
+    /**
+     * The number of bits per image component.
+     *
+     * @type { ?int[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    bitsPerSample?: int[];
+
+    /**
+     * The scheme used for image compression.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    compression?: int;
+
+    /**
+     * Pixel composition, such as RGB or YCbCr.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    photometricInterpretation?: int;
+
+    /**
+     * Image description.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    imageDescription?: string;
+
+    /**
+     * Make.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    make?: string;
+
+    /**
+     * Model.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    model?: string;
+
+    /**double$0
+     * For each strip, the byte offset of that strip.
+     *
+     * @type { ?int[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    stripOffsets?: int[];
+
+    /**
+     * Image orientation.
+     *
+     * @type { ?Orientation }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    orientation?: Orientation;
+
+    /**
+     * The number of components per pixel. As the standard applies to both RGB and YCbCr images, the tag value is set
+     * to 3. For JPEG-compressed images, this tag is replaced by corresponding JPEG markers.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    samplesPerPixel?: int;
+
+    /**
+     * The number of rows per strip of image data.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    rowsPerStrip?: int;
+    
+    /**
+     * The total number of bytes in each strip of image data.
+     *
+     * @type { ?int[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    stripByteCounts?: int[];
+
+    /**
+     * The image resolution in the width direction.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    xResolution?: double;
+
+    /**
+     * The image resolution in the height direction.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    yResolution?: double;
+
+    /**
+     * Indicates whether pixel components are recorded in a chunky or planar format.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    planarConfiguration?: int;
+
+    /**
+     * The unit used to measure XResolution and YResolution.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    resolutionUnit?: int;
+
+    /**
+     * The transfer function for the image, typically used for color correction.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    transferFunction?: string;
+
+    /**
+     * The name and version of the software used to generate the image.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    software?: string;
+
+    /**
+     * The date and time of image creation. In this standard it is the date and time the file was changed. The format
+     * is "YYYY:MM:DD HH:MM:SS" with time shown in 24-hour format.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    dateTime?: string;
+
+    /**
+     * The name of the person who created the image.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    artist?: string;
+
+    /**
+     * The chromaticity of the white point of the image.
+     *
+     * @type { ?double[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    whitePoint?: double[];
+
+    /**
+     * The chromaticity of the primary colors of the image.
+     *
+     * @type { ?double[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    primaryChromaticities?: double[];
+
+    /**
+     * Photo mode.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    photoMode?: int;
+
+    /**
+     * The offset to the start byte (SOI) of JPEG compressed thumbnail data.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    jpegInterchangeFormat?: int;
+
+    /**
+     * The number of bytes of JPEG compressed thumbnail data.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    jpegInterchangeFormatLength?: int;
+
+    /**
+     * The matrix coefficients for transformation from RGB to YCbCr image data.
+     *
+     * @type { ?double[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    yCbCrCoefficients?: double[];
+     
+    /**
+     * The sampling ratio of chrominance components to the luminance component.
+     *
+     * @type { ?int[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    yCbCrSubSampling?: int[];
+
+    /**
+     * The position of chrominance components in relation to the luminance component.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    yCbCrPositioning?: int;
+
+    /**
+     * The reference black point value and reference white point value.
+     *
+     * @type { ?double[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    referenceBlackWhite?: double[];
+
+    /**
+     * Copyright information for the image.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    copyright?: string;
+
+    /**
+     * Exposure time
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    exposureTime?: double;
+
+    /**
+     * Aperture value, such as f/1.8.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    fNumber?: double;
+
+    /**
+     * The class of the program used by the camera to set exposure when the picture is taken.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    exposureProgram?: int;
+    
+    /**
+     * Indicates the spectral sensitivity of each channel of the camera used.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    spectralSensitivity?: string;
+
+    /**
+     * The version of the GPSInfoIFD.
+     *
+     * @type { ?int[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsVersionID?: int[];
+
+    /**
+     * GPS latitude reference. For example, N indicates north latitude and S indicates south latitude.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsLatitudeRef?: string;
+
+    /**
+     * GPS latitude. The latitude is expressed as three RATIONAL values giving the degrees, minutes, and
+     * seconds, respectively. If latitude is expressed as degrees, minutes and seconds, a typical format
+     * would be dd/1,mm/1,ss/1. When degrees and minutes are used and, for example, fractions of minutes
+     * are given up to two decimal places, the format would be dd/1,mmmm/100,0/1.
+     *
+     * @type { ?double[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsLatitude?: double[];
+
+    /**
+     * GPS longitude reference. For example, E indicates east longitude and W indicates west longitude.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsLongitudeRef?: string;
+
+    /**
+     * GPS longitude. The longitude is expressed as three RATIONAL values giving the degrees, minutes, and
+     * seconds, respectively. If longitude is expressed as degrees, minutes and seconds, a typical format
+     * would be dd/1,mm/1,ss/1. When degrees and minutes are used and, for example, fractions of minutes
+     * are given up to two decimal places, the format would be dd/1,mmmm/100,0/1.
+     *
+     * @type { ?double[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsLongitude?: double[];
+
+    /**
+     * Reference altitude used for GPS altitude.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsAltitudeRef?: int;
+
+    /**
+     * The altitude based on the reference in GPSAltitudeRef.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsAltitude?: double;
+
+    /**
+     * GPS timestamp.
+     *
+     * @type { ?double[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsTimestamp?: double[];
+
+    /**
+     * The GPS satellites used for measurements.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsSatellites?: string;
+
+    /**
+     * The status of the GPS receiver when the image is recorded.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsStatus?: string;
+
+    /**
+     * The GPS measurement mode.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsMeasureMode?: string;
+
+    /**
+     * The GPS DOP (data degree of precision).
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsDop?: double;
+
+    /**
+     * The unit used to express the GPS receiver speed of movement.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsSpeedRef?: string;
+
+    /**
+     * The speed of GPS receiver movement.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsSpeed?: double;
+
+    /**
+     * The reference for giving the direction of GPS receiver movement.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsTrackRef?: string;
+
+    /**
+     * The direction of GPS receiver movement.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsTrack?: double;
+
+    /**
+     * The reference for the image's direction.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsImgDirectionRef?: string;
+
+    /**
+     * The direction of the image when captured.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsImgDirection?: double;
+
+    /**
+     * Geodetic survey data used by the GPS receiver.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsMapDatum?: string;
+
+    /**
+     * Indicates the latitude reference of the destination point.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsDestLatitudeRef?: string;
+
+    /**
+     * The latitude of the destination point.
+     *
+     * @type { ?double[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsDestLatitude?: double[];
+
+    /**
+     * Indicates the longitude reference of the destination point.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsDestLongitudeRef?: string;
+
+    /**
+     * The longitude of the destination point.
+     *
+     * @type { ?double[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsDestLongitude?: double[];
+
+    /**
+     * The reference for the bearing to the destination point.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsDestBearingRef?: string;
+    
+    /**
+     * The bearing to the destination point.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsDestBearing?: double;
+
+    /**
+     * The measurement unit for the distance to the target point.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsDestDistanceRef?: string;
+    
+    /**
+     * The distance to the destination point.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsDestDistance?: double;
+
+    /**
+     * A character string recording the name of the method used for location finding.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsProcessingMethod?: string;
+
+    /**
+     * A character string recording the name of the GPS area.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsAreaInformation?: string;
+
+    /**
+     * GPS date stamp.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsDateStamp?: string;
+
+    /**
+     * This field denotes if differential correction was applied to GPS data, crucial for precise location accuracy.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsDifferential?: int;
+
+    /**
+     * This tag indicates horizontal positioning errors in meters.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gpsHPositioningError?: double;
+
+    /**
+     * Indicates the ISO Speed and ISO Latitude of the camera or input device as specified in ISO 12232.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isoSpeedRatings?: int;
+
+    /**
+     * This tag indicates the sensitivity of the camera or input device when the image was shot.
+     *
+     * @type { ?int[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    photographicSensitivity?: int[];
+
+    /**
+     * Indicates the Opto-Electric Conversion Function (OECF) specified in ISO 14524.
+     *
+     * @type { ?ArrayBuffer }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    oecf?: ArrayBuffer;
+
+    /**
+     * Sensitivity type
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sensitivityType?: int;
+
+    /**
+     * Standard output sensitivity
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    standardOutputSensitivity?: int;
+
+    /**
+     * Recommended exposure index
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    recommendedExposureIndex?: int;
+
+    /**
+     * The tag indicate the ISO speed latitude yyy value of the camera or input device that is defined in ISO 12232.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isoSpeedLatitudeyyy?: int;
+
+    /**
+     * The tag indicate the ISO speed latitude zzz value of the camera or input device that is defined in ISO 12232.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isoSpeedLatitudezzz?: int;
+
+    /**
+     * The version of the Exif standard supported.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    exifVersion?: string;
+
+    /**
+     * The date and time when the original image data was generated. For a DSC the date and time the picture was taken
+     * are recorded. The format is "YYYY:MM:DD HH:MM:SS" with time shown in 24-hour format.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    dateTimeOriginal?: string;
+
+    /**
+     * The date and time when the image was stored as digital data. If, for example, an image was captured by DSC and
+     * at the same time the file was recorded, then the DateTimeOriginal and DateTimeDigitized will have the same
+     * contents. The format is "YYYY:MM:DD HH:MM:SS" with time shown in 24-hour format.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    dateTimeDigitized?: string;
+
+    /**
+     * This tag records the UTC offset for the DateTime tag, ensuring accurate timestamps regardless of location.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offsetTime?: string;
+
+    /**
+     * This tag records the UTC offset for the DateTime tag, ensuring accurate timestamps regardless of location.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offsetTimeOriginal?: string;
+
+    /**
+     * This tag records the UTC offset when the image was digitized, aiding in accurate timestamp adjustment.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offsetTimeDigitized?: string;
+
+    /**
+     * Information specific to compressed data.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    componentsConfiguration?: string;
+
+    /**
+     * The compression mode used for a compressed image, in unit bits per pixel.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    compressedBitsPerPixel?: double;
+
+    /**
+     * The shutter speed, expressed as an APEX (Additive System of Photographic Exposure) value.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    shutterSpeedValue?: double;
+
+    /**
+     * The lens aperture. The unit is the APEX(Additive System of Photographic Exposure) value.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    apertureValue?: double;
+
+    /**
+     * The brightness value of the image, in APEX units.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    brightnessValue?: double;
+
+    /**
+     * Exposure bias value.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    exposureBiasValue?: double;
+
+    /**
+     * The smallest F number of lens.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    maxApertureValue?: double;
+
+    /**
+     * The distance to the subject, measured in meters.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    subjectDistance?: double;
+
+    /**
+     * Metering mode
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    meteringMode?: int;
+
+    /**
+     * Light source
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    lightSource?: int;
+
+    /**
+     * Flash
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    flash?: int;
+
+    /**
+     * Focal length
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    focalLength?: double;
+    
+    /**
+     * This tag indicate the location and area of the main subject in the overall scene.
+     *
+     * @type { ?int[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    subjectArea?: int[];
+    
+    /**
+     * A tag for manufacturers of Exif/DCF writers to record any desired information.
+     *
+     * @type { ?ArrayBuffer }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    makerNote?: ArrayBuffer;
+    
+    /**
+     * A tag for Exif users to freely write keywords or comments on the image.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    userComment?: string;
+
+    /**
+     * A tag for record fractions of seconds for the DateTime tag.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    subsecTime?: string;
+	
+    /**
+     * A tag used to record fractions of seconds for the DateTimeOriginal tag.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    subsecTimeOriginal?: string;
+	
+    /**
+     * A tag used to record fractions of seconds for the DateTimeDigitized tag.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    subsecTimeDigitized?: string;
+	
+    /**
+     * This tag denotes the Flashpix format version supported by an FPXR file, enhancing device compatibility.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    flashpixVersion?: string;
+	
+    /**
+     * The color space information tag, often recorded as the color space specifier.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    colorSpace?: int;
+	
+    /**
+     * Pixel x dimension
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    pixelXDimension?: int;
+	
+    /**
+     * Pixel y dimension
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    pixelYDimension?: int;
+	
+    /**
+     * The name of an audio file related to the image data.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    relatedSoundFile?: string;
+	
+    /**
+     * Strobe energy at image capture, in BCPS.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    flashEnergy?: double;
+	
+    /**
+     * Camera or input device spatial frequency table.
+     *
+     * @type { ?ArrayBuffer }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    spatialFrequencyResponse?: ArrayBuffer;
+	
+    /**
+     * Pixels per FocalPlaneResolutionUnit in the image width.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    focalPlaneXResolution?: double;
+	
+    /**
+     * Pixels per FocalPlaneResolutionUnit in the image height.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    focalPlaneYResolution?: double;
+	
+    /**
+     * Unit for measuring FocalPlaneXResolution and FocalPlaneYResolution.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    focalPlaneResolutionUnit?: int;
+
+    /**
+     * Location of the main subject, relative to the left edge.
+     *
+     * @type { ?int[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    subjectLocation?: int[];
+	
+    /**
+     * Selected exposure index at capture.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    exposureIndex?: double;
+	
+    /**
+     * Image sensor type on the camera.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sensingMethod?: int;
+	
+    /**
+     * Indicates the image source.
+     *
+     * @type { ?ArrayBuffer }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    fileSource?: ArrayBuffer;
+	
+    /**
+     * Scene type
+     *
+     * @type { ?ArrayBuffer }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sceneType?: ArrayBuffer;
+	
+    /**
+     * Color filter array (CFA) geometric pattern of the image sensor.
+     *
+     * @type { ?ArrayBuffer }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    cfaPattern?: ArrayBuffer;
+	
+    /**
+     * Indicates special processing on image data.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    customRendered?: int;
+	
+    /**
+     * Exposure mode set when the image was shot.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    exposureMode?: int;
+	
+    /**
+     * White balance.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    whiteBalance?: int;
+	
+    /**
+     * Digital zoom ratio at the time of capture.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    digitalZoomRatio?: double;
+	
+    /**
+     * Focal length in 35mm film.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    focalLengthIn35mmFilm?: int;
+
+    /**
+     * Type of scene captured.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sceneCaptureType?: int;
+	
+    /**
+     * Degree of overall image gain adjustment.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gainControl?: int;
+	
+    /**
+     * Direction of contrast processing applied by the camera.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    contrast?: int;
+	
+    /**
+     * Direction of saturation processing applied by the camera.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    saturation?: int;
+	
+    /**
+     * The direction of sharpness processing applied by the camera.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sharpness?: int;
+	
+    /**
+     * Information on picture-taking conditions for a specific camera model.
+     *
+     * @type { ?ArrayBuffer }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    deviceSettingDescription?: ArrayBuffer;
+	
+    /**
+     * Indicates the distance range to the subject.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    subjectDistanceRange?: int;
+	
+    /**
+     * An identifier uniquely assigned to each image.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    imageUniqueId?: string;
+	
+    /**
+     * The name of the camera owner.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    cameraOwnerName?: string;
+	
+    /**
+     * The serial number of the camera body.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    bodySerialNumber?: string;
+	
+    /**
+     * Specifications of the lens used.
+     *
+     * @type { ?double[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    lensSpecification?: double[];
+	
+    /**
+     * The manufacturer of the lens.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    lensMake?: string;
+	
+    /**
+     * The model name of the lens.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    lensModel?: string;
+  
+    /**
+     * The serial number of the lens.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    lensSerialNumber?: string;
+
+    /**
+     * Indicates whether the image is a composite image.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    compositeImage?: int;
+
+    /**
+     * The number of source images used for a composite image.
+     *
+     * @type { ?int[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sourceImageNumberOfCompositeImage?: int[];
+  
+    /**
+     * Exposure times of source images for a composite image, such as 1/33 sec.
+     *
+     * @type { ?ArrayBuffer }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sourceExposureTimesOfCompositeImage?: ArrayBuffer;
+  
+    /**
+     * The per-component gamma values.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    gamma?: double;
+
+    /**
+     * Create an empty instance of ExifMetadata.
+     *
+     * @returns { ExifMetadata } Returns an empty instance of ExifMetadata.
+     * @static
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    static createInstance(): ExifMetadata;
+
+    /**
+     * Obtains the value of properties in an image. This method uses a promise to return the property values in records.
+     *
+     * @param { Array<string> } key Name of the properties whose value is to be obtained.
+     * @returns { Promise<Record<string, string | null>> } Record instance used to return the property values.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getProperties(key: Array<string>): Promise<Record<string, string | null>>;
+
+    /**
+     * Set the value of properties in an image with the specified keys.
+     *
+     * @param { Record<string, string | null> } records Property records whose values are to be modified.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setProperties(records: Record<string, string | null>): Promise<void>;
+
+    /**
+     * Obtains the value of all properties in an image. This method uses a promise to return the property values in record.
+     *
+     * @returns { Promise<Record<string, string | null>> } Record instance used to return the property values.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getAllProperties(): Promise<Record<string, string | null>>;
+
+    /**
+     * Obtains a clone of metadata. This method uses a promise to return the metadata.
+     *
+     * @returns { Promise<ExifMetadata> } A Promise instance used to return the metadata.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    clone(): Promise<ExifMetadata>;
+  }
+
+  /**
+   * The XMAGE watermark is at the bottom of the image.
+   *
+   * @constant
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  const XMAGE_WATERMARK_MODE_AT_THE_BOTTOM : int = 9;
+
+  /**
+   * The XMAGE watermark is at the bottom of the image.
+   *
+   * @constant
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  const XMAGE_WATERMARK_MODE_BORDER : int = 10;
+
+  /**
+   * Capture mode: Professional.
+   *
+   * @constant
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  const CAPTURE_MODE_PROFESSIONAL : int = 2;
+
+  /**
+   * Capture mode: Front lens night view.
+   *
+   * @constant
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  const CAPTURE_MODE_FRONT_LENS_NIGHT_VIEW : int = 7;
+
+  /**
+   * Capture mode: Panorama.
+   * @constant
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  const CAPTURE_MODE_PANORAMA : int = 8;
+
+  /**
+   * Capture mode: Tail light.
+   *
+   * @constant
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  const CAPTURE_MODE_TAIL_LIGHT : int = 9;
+
+  /**
+   * Capture mode: Light graffiti.
+   *
+   * @constant
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  const CAPTURE_MODE_LIGHT_GRAFFITI : int = 10;
+
+  /**
+   * Capture mode: Silky water.
+   *
+   * @constant
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  const CAPTURE_MODE_SILKY_WATER : int = 11;
+
+  /**
+   * Capture mode: Star track.
+   *
+   * @constant
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  const CAPTURE_MODE_STAR_TRACK : int = 12;
+
+  /**
+   * Capture mode: Wideaperture.
+   *
+   * @constant
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  const CAPTURE_MODE_WIDEAPERTURE : int = 19;
+
+  /**
+   * Capture mode: Moving photo.
+   *
+   * @constant
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  const CAPTURE_MODE_MOVING_PHOTO : int = 20;
+
+  /**
+   * Capture mode: Portrait.
+   *
+   * @constant
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  const CAPTURE_MODE_PORTRAIT : int = 23;
+
+  /**
+   * Capture mode: Rear lens night view.
+   *
+   * @constant
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  const CAPTURE_MODE_REAR_LENS_NIGHT_VIEW : int = 42;
+
+  /**
+   * Capture mode: Super macro.
+   *
+   * @constant
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  const CAPTURE_MODE_SUPER_MACRO : int = 47;
+
+  /**
+   * Capture mode: Snap shot.
+   *
+   * @constant
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  const CAPTURE_MODE_SNAP_SHOT : int = 62;
+
+  /**
+   * Enumerates focus mode.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum FocusMode {  
+    /**
+     * Autofocus-Automatic.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    AF_A = 0,
+
+    /**
+     * Autofocus-Single.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    AF_S = 1,
+
+    /**
+     * Autofocus-Continuous.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    AF_C = 2,
+
+    /**
+     * Manual focus.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    MF = 3
+  }
+
+  /**
+   * Enumerates XMAGE color mode.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum XmageColorMode {  
+    /**
+     * Normal.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    NORMAL = 0,
+
+    /**
+     * Bright.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    BRIGHT = 1,
+
+    /**
+     * Soft.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SOFT = 2,
+
+    /**
+     * Mono.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    MONO = 3
+  }
+
+  /**
+   * MakerNote metadata from Huawei camera.
+   *
+   * @implements Metadata
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  class MakerNoteHuaweiMetadata implements Metadata {  
+    /**
+     * Is Xmage Supported.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isXmageSupported?: boolean;
+  
+    /**
+     * Xmage Watermark Mode, for possible values see {@link XMAGE_WATERMARK_MODE_AT_THE_BOTTOM}
+     *     and {@link XMAGE_WATERMARK_MODE_AT_THE_BOTTOM}.
+     * 
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    xmageWatermarkMode?: int;
+  
+    /**
+     * Xmage X1 Coordinate.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    xmageLeft?: int;
+  
+    /**
+     * Xmage Y1 Coordinate.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    xmageTop?: int;
+  
+    /**
+     * Xmage X2 Coordinate.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    xmageRight?: int;
+  
+    /**
+     * Xmage Y2 Coordinate.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    xmageBottom?: int;
+
+    /**
+     * Xmage color mode.
+     *
+     * @type { ?XmageColorMode }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    xmageColorMode?: XmageColorMode;
+  
+    /**
+     * Is enhanced by cloud computing.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isCloudEnhanced?: boolean;
+
+    /**
+     * Cloud enhance label.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    cloudLabel?: string;
+  
+    /**
+     * Is shot by wind snapshot mode.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isWindSnapshot?: boolean;
+  
+    /**
+     * Scene Version.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sceneVersion?: int;
+  
+    /**
+     * Capture Scene: Food Confidence.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sceneFoodConfidence?: int;
+  
+    /**
+     * Capture Scene: Stage Confidence.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sceneStageConfidence?: int;
+  
+    /**
+     * Capture Scene: Blue Sky Confidence.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sceneBlueSkyConfidence?: int;
+  
+    /**
+     * Capture Scene: Green Plant Confidence.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sceneGreenPlantConfidence?: int;
+  
+    /**
+     * Capture Scene: Beach Confidence.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sceneBeachConfidence?: int;
+  
+    /**
+     * Capture Scene: Snow Confidence.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sceneSnowConfidence?: int;
+  
+    /**
+     * Capture Scene: Sunset Confidence.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sceneSunsetConfidence?: int;
+  
+    /**
+     * Capture Scene: Flowers Confidence.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sceneFlowersConfidence?: int;
+  
+    /**
+     * Capture Scene: Night Confidence.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sceneNightConfidence?: int;
+  
+    /**
+     * Capture Scene: Text Confidence.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    sceneTextConfidence?: int;
+  
+    /**
+     * Face Count.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    faceCount?: int;
+  
+    /**
+     * Confidence of {@link faceCount} faces.
+     * @type { ?int[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    faceConfidences?: int[];
+  
+    /**
+     * Smile score of {@link faceCount} faces.
+     *
+     * @type { ?int[] }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    faceSmileScores?: int[];
+  
+    /**
+     * Capture mode, for possible values see {@link CAPTURE_MODE_PROFESSIONAL}
+     *     , {@link CAPTURE_MODE_FRONT_LENS_NIGHT_VIEW}, {@link CAPTURE_MODE_PANORAMA}, etc.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    captureMode?: int;
+  
+    /**
+     * Burst Number.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    burstNumber?: int;
+  
+    /**
+     * Is front camera used.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isFrontCamera?: boolean;
+  
+    /**
+     * Roll Angle.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    rollAngle?: int;
+  
+    /**
+     * Pitch Angle.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    pitchAngle?: int;
+  
+    /**
+     * Physical aperture.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    physicalAperture?: int;
+  
+    /**
+     * Focus Mode.
+     *
+     * @type { ?FocusMode }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    focusMode?: FocusMode;
+
+    /**
+     * Create an empty instance of MakerNoteHuaweiMetadata.
+     *
+     * @returns { MakerNoteHuaweiMetadata } Returns an empty instance of MakerNoteHuaweiMetadata.
+     * @static
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    static createInstance(): MakerNoteHuaweiMetadata;
+
+    /**
+     * Obtains the value of properties in an image. This method uses a promise to return the property values in records.
+     *
+     * @param { Array<string> } key Name of the properties whose value is to be obtained.
+     * @returns { Promise<Record<string, string | null>> } Record instance used to return the property values.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getProperties(key: Array<string>): Promise<Record<string, string | null>>;
+
+    /**
+     * Modify the value of properties in an image with the specified keys.
+     *
+     * @param { Record<string, string | null> } records Property records whose values are to be modified.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setProperties(records: Record<string, string | null>): Promise<void>;
+
+    /**
+     * Obtains the value of all properties in an image. This method uses a promise to return the property values in record.
+     *
+     * @returns { Promise<Record<string, string | null>> } Record instance used to return the property values.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getAllProperties(): Promise<Record<string, string | null>>;
+
+    /**
+     * Obtains a clone of metadata. This method uses a promise to return the metadata.
+     *
+     * @returns { Promise<MakerNoteHuaweiMetadata> } A Promise instance used to return the metadata.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    clone(): Promise<MakerNoteHuaweiMetadata>;
+  }
+
+  /**
+   * Metadata set of an image.
+   *
+   * @typedef ImageMetadata
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface ImageMetadata {  
+    /**
+     * Exif metadata.
+     *
+     * @type { ?ExifMetadata }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    exifMetadata?: ExifMetadata;
+
+    /**
+     * MakerNote metadata from Huawei camera.
+     *
+     * @type { ?MakerNoteHuaweiMetadata }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    makerNoteHuaweiMetadata?: MakerNoteHuaweiMetadata;
+
+    /**
+     * Heifs metadata.
+     *
+     * @type { ?HeifsMetadata }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    heifsMetadata?: HeifsMetadata;
   }
 
   /**
@@ -9721,6 +12080,34 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 22 static
      */
     readonly supportedFormats: Array<string>;
+
+    /**
+     * Read metadata of the image source, use propertyKeys to specify properties of interest. If propertyKeys
+     * is not specified, all supported metadata will be returned.
+     *
+     * @param { string[] } [propertyKeys] Properties of interest.
+     * @param { int } [index] Index of interest, default is 0.
+     * @returns { Promise<ImageMetadata> } Promise that returns the metadata of the image source.
+     * @throws { BusinessError } 7700102  - Unsupported MIME type.
+     * @throws { BusinessError } 7700202  - Unsupported metadata.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readImageMetadata(propertyKeys?: string[], index?: int): Promise<ImageMetadata>;
+
+    /**
+     * Write metadata into the image source.
+     *
+     * @param { ImageMetadata } imageMetadata ImageMetadata to write into the image source.
+     * @returns { Promise<void> } Returns void.
+     * @throws { BusinessError } 7700102  - Unsupported MIME type.
+     * @throws { BusinessError } 7700202  - Unsupported metadata.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    writeImageMetadata(imageMetadata: ImageMetadata): Promise<void>;
   }
 
   /**

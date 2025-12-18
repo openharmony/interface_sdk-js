@@ -173,6 +173,28 @@ export declare struct PhotoPickerComponent {
   pickerController: PickerController;
 
   /**
+   * Callback when the grid stops scrolling at the starting position
+   *
+   * @type { ?ScrollStopAtStartCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  onScrollStopAtStart?: ScrollStopAtStartCallback;
+
+  /**
+   * Callback when the grid stops scrolling at the ending position
+   *
+   * @type { ?ScrollStopAtEndCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  onScrollStopAtEnd?: ScrollStopAtEndCallback;
+
+  /**
    * Build function of PhotoPickerComponent
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -591,6 +613,17 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 23 dynamic&static
    */
    isSlidingSupported?: boolean;
+
+  /**
+   * Grid edge slide effect.
+   *
+   * @type { ?EdgeEffect  }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+   edgeEffect?: EdgeEffect;
 }
 
 /**
@@ -752,6 +785,17 @@ export declare class UpdatablePickerConfigs {
    * @since 23 dynamic&static
    */
    isSlidingSupported?: boolean;
+
+  /**
+   * Grid edge slide effect.
+   *
+   * @type { ?EdgeEffect  }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+   edgeEffect?: EdgeEffect;
 }
 
 /**
@@ -1513,3 +1557,24 @@ export declare enum ItemDisplayRatio {
    */
   ORIGINAL_SIZE_RATIO = 1
 }
+/**
+  * The callback of onScrollStopAtStart event
+  *
+  * @typedef { function } ScrollStopAtStartCallback
+  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+  * @stagemodelonly
+  * @atomicservice
+  * @since 23 dynamic&static
+  */
+export type ScrollStopAtStartCallback = () => void;
+
+/**
+  * The callback of onScrollStopAtEnd event
+  *
+  * @typedef { function } ScrollStopAtEndCallback
+  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+  * @stagemodelonly
+  * @atomicservice
+  * @since 23 dynamic&static
+  */
+export type ScrollStopAtEndCallback = () => void;

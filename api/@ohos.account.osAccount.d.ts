@@ -291,7 +291,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountActivated(localId: number, callback: AsyncCallback<boolean>): void;
@@ -309,7 +309,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountActivated(localId: number): Promise<boolean>;
@@ -391,7 +391,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId or constraint.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountConstraintEnabled(localId: number, constraint: string, callback: AsyncCallback<boolean>): void;
@@ -415,7 +415,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId or constraint.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountConstraintEnabled(localId: number, constraint: string): Promise<boolean>;
@@ -588,7 +588,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountVerified(localId: number, callback: AsyncCallback<boolean>): void;
@@ -606,7 +606,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     checkOsAccountVerified(localId: number): Promise<boolean>;
@@ -1112,7 +1112,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     getOsAccountConstraints(localId: number, callback: AsyncCallback<Array<string>>): void;
@@ -1130,7 +1130,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
      */
     getOsAccountConstraints(localId: number): Promise<Array<string>>;
@@ -1518,7 +1518,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      * @deprecated since 11
      */
     getCurrentOsAccount(callback: AsyncCallback<OsAccountInfo>): void;
@@ -1542,7 +1542,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      * @deprecated since 11
      */
     getCurrentOsAccount(): Promise<OsAccountInfo>;
@@ -2044,7 +2044,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     on(type: 'switching', callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -2076,7 +2076,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     off(type: 'switching', callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -2108,7 +2108,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     on(type: 'switched', callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -2140,7 +2140,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     off(type: 'switched', callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -2268,7 +2268,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onSwitching(callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -2282,7 +2282,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offSwitching(callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -2296,7 +2296,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onSwitched(callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -2310,7 +2310,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offSwitched(callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -3638,8 +3638,7 @@ declare namespace osAccount {
    * @param { IUserAuthCallback } callback - Indicates the authentication callback.
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type DomainPluginAuthFunc = (domainAccountInfo: DomainAccountInfo,
     credential: Uint8Array, callback: IUserAuthCallback) => void;
@@ -3653,8 +3652,7 @@ declare namespace osAccount {
    * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type DomainPluginAuthWithPopupFunc = (domainAccountInfo: DomainAccountInfo,
     callback: IUserAuthCallback) => void;
@@ -3670,8 +3668,7 @@ declare namespace osAccount {
    * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type DomainPluginAuthWithTokenFunc = (domainAccountInfo: DomainAccountInfo,
     token: Uint8Array, callback: IUserAuthCallback) => void;
@@ -3686,8 +3683,7 @@ declare namespace osAccount {
    *     Indicates the callback for notifying the domain account information.
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type DomainPluginGetAccountInfoFunc = (options: GetDomainAccountInfoPluginOptions,
     callback: AsyncCallback<DomainAccountInfo>) => void;
@@ -3695,15 +3691,14 @@ declare namespace osAccount {
   /**
    * Gets the domain authentication property for the specified domain account.
    *
-   * @typedef { function } DomainPluginGetAuthStatusInfoFunc 
+   * @typedef { function } DomainPluginGetAuthStatusInfoFunc
    * @param { DomainAccountInfo } domainAccountInfo -
    *     Indicates the domain account information for authentication.
    * @param { AsyncCallback<AuthStatusInfo> } callback -
    *     Indicates the callback for notifying the domain authentication status information.
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type DomainPluginGetAuthStatusInfoFunc = (domainAccountInfo: DomainAccountInfo,
     callback: AsyncCallback<AuthStatusInfo>) => void;
@@ -3717,8 +3712,7 @@ declare namespace osAccount {
    * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the binding result.
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type DomainPluginBindAccountFunc = (domainAccountInfo: DomainAccountInfo,
     localId: int, callback: AsyncCallback<void>) => void;
@@ -3731,8 +3725,7 @@ declare namespace osAccount {
    * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the unbinding result.
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type DomainPluginUnbindAccountFunc = (domainAccountInfo: DomainAccountInfo,
     callback: AsyncCallback<void>) => void;
@@ -3746,8 +3739,7 @@ declare namespace osAccount {
    * @param { AsyncCallback<boolean> } callback - Indicates the callback for notifying the checking result.
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type DomainPluginIsAccountTokenValidFunc = (
     domainAccountInfo: DomainAccountInfo,
@@ -3758,13 +3750,12 @@ declare namespace osAccount {
   /**
    * Gets the access token based on the specified options.
    *
-   * @typedef { function } DomainPlugingetAccessTokenFunc
+   * @typedef { function } DomainPluginGetAccessTokenFunc
    * @param { GetDomainAccessTokenOptions } options - Indicates the options for getting th access token.
    * @param { AsyncCallback<Uint8Array> } callback - Indicates the callback for returning the access token.
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type DomainPluginGetAccessTokenFunc = (options: GetDomainAccessTokenOptions,
     callback: AsyncCallback<Uint8Array>) => void;
@@ -3776,7 +3767,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DomainPlugin {
     /**
@@ -3787,16 +3778,17 @@ declare namespace osAccount {
      * @param { IUserAuthCallback } callback - Indicates the authentication callback.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
+    auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
+
     /**
      * Authenticates the specified domain account.
      *
      * @type { DomainPluginAuthFunc }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     auth: DomainPluginAuthFunc;
 
@@ -3807,16 +3799,17 @@ declare namespace osAccount {
      * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
+    authWithPopup(domainAccountInfo: DomainAccountInfo, callback: IUserAuthCallback): void;
+
     /**
      * Authenticates the specified domain account with a popup.
      *
      * @type { DomainPluginAuthWithPopupFunc }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     authWithPopup: DomainPluginAuthWithPopupFunc;
 
@@ -3825,20 +3818,21 @@ declare namespace osAccount {
      *
      * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
      * @param { Uint8Array } token -
-     *     Indicates the authorization token generated when PIN or biometric authentication is successful.
+     * Indicates the authorization token generated when PIN or biometric authentication is successful.
      * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
+    authWithToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array, callback: IUserAuthCallback): void;
+
     /**
      * Authenticates the specified domain account with an authorization token.
      *
      * @type { DomainPluginAuthWithTokenFunc }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     authWithToken: DomainPluginAuthWithTokenFunc;
 
@@ -3846,21 +3840,22 @@ declare namespace osAccount {
      * Gets the domain account information with the specified options.
      *
      * @param { GetDomainAccountInfoPluginOptions } options -
-     *     Indicates the options for getting domain account information.
+     * Indicates the options for getting domain account information.
      * @param { AsyncCallback<DomainAccountInfo> } callback -
-     *     Indicates the callback for notifying the domain account information.
+     * Indicates the callback for notifying the domain account information.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
+    getAccountInfo(options: GetDomainAccountInfoPluginOptions, callback: AsyncCallback<DomainAccountInfo>): void;
+
     /**
      * Gets the domain account information with the specified options.
      *
      * @type { DomainPluginGetAccountInfoFunc }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAccountInfo: DomainPluginGetAccountInfoFunc;
 
@@ -3869,19 +3864,20 @@ declare namespace osAccount {
      *
      * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
      * @param { AsyncCallback<AuthStatusInfo> } callback -
-     *     Indicates the callback for notifying the domain authentication status information.
+     * Indicates the callback for notifying the domain authentication status information.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
+    getAuthStatusInfo(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<AuthStatusInfo>): void;
+
     /**
      * Gets the domain authentication property for the specified domain account.
      *
      * @type { DomainPluginGetAuthStatusInfoFunc }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAuthStatusInfo: DomainPluginGetAuthStatusInfoFunc;
 
@@ -3893,16 +3889,17 @@ declare namespace osAccount {
      * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the binding result.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
+    bindAccount(domainAccountInfo: DomainAccountInfo, localId: number, callback: AsyncCallback<void>): void;
+
     /**
      * Binds the specified domain account with an OS account.
      *
      * @type { DomainPluginBindAccountFunc }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bindAccount: DomainPluginBindAccountFunc;
 
@@ -3913,16 +3910,17 @@ declare namespace osAccount {
      * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the unbinding result.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
+    unbindAccount(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<void>): void;
+
     /**
      * Unbind the specified domain account.
      *
      * @type { DomainPluginUnbindAccountFunc }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     unbindAccount: DomainPluginUnbindAccountFunc;
 
@@ -3934,16 +3932,21 @@ declare namespace osAccount {
      * @param { AsyncCallback<boolean> } callback - Indicates the callback for notifying the checking result.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
+    isAccountTokenValid(
+      domainAccountInfo: DomainAccountInfo,
+      token: Uint8Array,
+      callback: AsyncCallback<boolean>
+    ): void;
+
     /**
      * Checks whether the token of specified domain account is valid.
      *
      * @type { DomainPluginIsAccountTokenValidFunc }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isAccountTokenValid: DomainPluginIsAccountTokenValidFunc;
 
@@ -3954,16 +3957,17 @@ declare namespace osAccount {
      * @param { AsyncCallback<Uint8Array> } callback - Indicates the callback for returning the access token.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
+    getAccessToken(options: GetDomainAccessTokenOptions, callback: AsyncCallback<Uint8Array>): void;
+
     /**
      * Gets the access token based on the specified options.
      *
      * @type { DomainPluginGetAccessTokenFunc }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAccessToken: DomainPluginGetAccessTokenFunc;
   }
@@ -5240,7 +5244,7 @@ declare namespace osAccount {
     isSilent: boolean;
 
     /**
-     * Indicate the type of the changed credential.
+     * Indicates the type of the changed credential.
      *
      * @type { AuthType }
      * @syscap SystemCapability.Account.OsAccount
@@ -5251,7 +5255,7 @@ declare namespace osAccount {
     credentialType: AuthType;
 
     /**
-     * Indicate the identifier of the added credential.
+     * Indicates the identifier of the added credential.
      *
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
@@ -5262,7 +5266,7 @@ declare namespace osAccount {
     addedCredentialId?: Uint8Array;
 
     /**
-     * Indicate the identifier of the deleted credential.
+     * Indicates the identifier of the deleted credential.
      *
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Account.OsAccount

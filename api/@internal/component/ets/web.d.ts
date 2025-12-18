@@ -614,7 +614,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11 dynamic
    */
-  Debug = 0,
+  Debug,
 
   /**
    * Error level.
@@ -630,7 +630,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11 dynamic
    */
-  Error = 1,
+  Error,
 
   /**
    * Info level.
@@ -646,7 +646,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11 dynamic
    */
-  Info = 2,
+  Info,
 
   /**
    * Log level.
@@ -662,7 +662,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11 dynamic
    */
-  Log = 3,
+  Log,
 
   /**
    * Warn level.
@@ -678,7 +678,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11 dynamic
    */
-  Warn = 4
+  Warn
 }
 
 /**
@@ -3951,6 +3951,14 @@ declare class WebContextMenuResult {
    * @since 20 dynamic
    */
   pasteAndMatchStyle(): void;
+
+  /**
+   * Request to fill the password vault contents into the input field.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  requestPasswordAutoFill(): void;
 }
 
 /**
@@ -4939,15 +4947,6 @@ declare class WebResourceError {
    * @since 11 dynamic
    */
   getErrorCode(): number;
-
-  /**
-   * Gets the custom error code of the Web resource.
-   *
-   * @returns { number } Return the custom error code of the Web resource.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic
-   */
-  getCustomErrorCode(): number;
 }
 
 /**
@@ -5022,6 +5021,15 @@ declare class JsGeolocation {
  * @atomicservice
  * @since 11 dynamic
  */
+/**
+ * Defines the Web cookie.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 11 dynamiconly
+ * @deprecated since 23
+ * @useinstead ohos.web.webview.webview.WebCookieManager
+ */
 declare class WebCookie {
   /**
    * Constructor.
@@ -5035,6 +5043,15 @@ declare class WebCookie {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11 dynamiconly
+   * @deprecated since 23
+   * @useinstead ohos.web.webview.webview.WebCookieManager
    */
   constructor();
 
@@ -5516,10 +5533,12 @@ declare interface WebOptions {
 /**
  * Defines the regular expression rule.
  *
+ * @typedef UrlRegexRule
  * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
  * @since 23 dynamic
 */
-declare class UrlRegexRule {
+declare interface UrlRegexRule {
   /**
    * Exact match of the second-level domain. For example, the second-level domain of https://www.example.com
    * is example.com, and the second-level domain of https://www.example.com.cn is example.com.cn. If the URL
@@ -5527,6 +5546,7 @@ declare class UrlRegexRule {
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
    * @since 23 dynamic
    */
   secondLevelDomain: string;
@@ -5535,6 +5555,7 @@ declare class UrlRegexRule {
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
    * @since 23 dynamic
    */
   rule: string;
@@ -7316,6 +7337,163 @@ declare interface OnWindowNewEvent {
 }
 
 /**
+ * Enum type for navigationPolicy in OnWindowNewExtEvent.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+declare enum NavigationPolicy {
+  /**
+   * NEW POPUP window.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  NEW_POPUP = 0,
+
+  /**
+   * Shift key when clicking.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  NEW_WINDOW = 1,
+
+  /**
+   * Middle mouse button or meta/ctrl key when clicking.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  NEW_BACKGROUND_TAB = 2,
+
+  /**
+   * Shift key + Middle mouse button or meta/ctrl key when clicking.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  NEW_FOREGROUND_TAB = 3,
+}
+
+/**
+ * Defines the window features info for window.open.
+ *
+ * @interface WindowFeatures
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+declare interface WindowFeatures {
+  /**
+   * The requested height of the containing window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  height: number;
+
+  /**
+   * The requested width of the containing window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  width: number;
+
+  /**
+   * The requested x-coordinate of the containing window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  x: number;
+
+  /**
+   * The requested y-coordinate of the containing window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  y: number;
+}
+
+/**
+ * Defines the triggered callback when web page requires the user to create a window.
+ *
+ * @typedef OnWindowNewExtEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare interface OnWindowNewExtEvent {
+  /**
+   * true indicates the request to create a dialog and false indicates a new tab.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  isAlert: boolean;
+
+  /**
+   * true indicates that it is triggered by the user, and false indicates that it is triggered by a non-user.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  isUserTrigger: boolean;
+
+  /**
+   * Destination URL.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  targetUrl: string;
+
+  /**
+   * Lets you set the WebviewController instance for creating a new window.
+   *
+   * @type { ControllerHandler }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  handler: ControllerHandler;
+
+  /**
+   * Contains the attributes that a webpage requests from its containing web view, the parameters
+   * of window.open.
+   *
+   * @type { WindowFeatures }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  windowFeatures: WindowFeatures;
+
+  /**
+   * The navigation policy causing the new web view to be created.
+   *
+   * @type { NavigationPolicy }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  navigationPolicy: NavigationPolicy;
+}
+
+/**
  * Defines the triggered callback when the application receive an new url of an apple-touch-icon.
  *
  * @typedef OnTouchIconUrlReceivedEvent
@@ -8137,6 +8315,52 @@ declare interface BlankScreenDetectionConfig {
 }
 
 /**
+ * Defines the first screen paint info.
+ *
+ * @typedef FirstScreenPaint
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+declare interface FirstScreenPaint {
+  /**
+   * The url of first screen paint info.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  url: string;
+
+  /**
+   * The navigation start time of the url.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  navigationStartTime: number;
+
+  /**
+   * The first screen paint time of the url.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  firstScreenPaintTime: number;
+}
+
+/**
+ * The callback reports the time required for the first screen painting of the current web page.
+ *
+ * @typedef { function } OnFirstScreenPaintCallback
+ * @param { FirstScreenPaint } firstScreenPaint - the first screen paint info.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 dynamic
+ */
+type OnFirstScreenPaintCallback = (firstScreenPaint: FirstScreenPaint) => void;
+
+/**
  * Defines the Web attribute functions.
  *
  * @extends CommonMethod<WebAttribute>
@@ -8633,8 +8857,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } wideViewModeAccess {@code true} means the Web access meta 'viewport' in HTML; {@code false} otherwise.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead ohos.web.WebAttribute#metaViewport
    */
   wideViewModeAccess(wideViewModeAccess: boolean): WebAttribute;
 
@@ -8902,8 +9127,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * will not trigger this callback.
    *
    * <p><strong>API Note</strong>:<br>
-   * Different from onPageBegin, onLoadStarted is triggered only once if the mainframe is automatically redirected
-   * before the page is completely loaded. OnPageBegin is triggered every navigation.
+   * When the document of a pop-up window has been modified by JavaScript before it is loaded, it will simulate the
+   * triggering of onLoadStarted with the URL set to empty because displaying the URL that is currently loading maybe
+   * unsafe. onPageBegin will not be simulated.
    * </p>
    *
    * @param { Callback<OnLoadStartedEvent> } callback The triggered function at the begin of web page loading.
@@ -8917,7 +9143,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Notify the host application that a page has finished loading. This method is called only for main frame.
    *
    * <p><strong>API Note</strong>:<br>
-   * Different from onPageEnd, fragment navigation also triggers onLoadFinished.
+   * 1. Fragment navigation also triggers onLoadFinished, but onPageEnd will not be triggered.
+   * 2. onLoadFinished is triggered only once if the mainframe is automatically redirected before the page is
+   *    completely loaded. onPageEnd is triggered every navigation on mainframe.
+   * 3. When the document of a pop-up window has been modified by JavaScript before it is loaded , it will simulate the
+   *    triggering of onLoadStarted with the URL set to empty because displaying the URL that is currently
+   *    loading may be unsafe. onPageBegin will not be simulated.
    * </p>
    *
    * @param { Callback<OnLoadFinishedEvent> } callback The triggered function at the end of web page loading.
@@ -10032,6 +10263,28 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onWindowNew(callback: Callback<OnWindowNewEvent>): WebAttribute;
 
   /**
+   * Triggered when web page requires to create a new window.
+   * If the {@link setWebController} interface is not called, the render process will be blocked.
+   * If no new window is created, it is set to null when calling the {@link setWebController} interface,
+   * informing the Web that no new window is created.
+   * New windows must not be placed to directly cover the original Web component. Additionally, 
+   * their URLs—specifically the content shown in the address bar—should follow the same display 
+   * format as the main page, ensuring clarity for users and avoiding confusion. In cases where 
+   * reliable visual management of URLs is not feasible, restricting the creation of new windows 
+   * should be considered. It is also important to note that the origin of new window requests 
+   * cannot be tracked with certainty; such requests may even be triggered by third-party iframes. 
+   * For this reason, applications must implement default defensive measures like sandbox isolation 
+   * and permission controls to safeguard security.
+   * @param {  Callback<OnWindowNewExtEvent> } callback The triggered callback when web page requires the user 
+   *     to create a window.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onWindowNewExt(callback: Callback<OnWindowNewExtEvent>): WebAttribute;
+
+  /**
    * Triggered when web page requires the user to close a window.
    *
    * @param { function } callback The triggered callback when web page requires the user to close a window.
@@ -10914,7 +11167,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute } the attribute of the scroll.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 14 dynamic
+   * @since 14
    */
   /**
    * Called to setting the nested scroll options.
@@ -11492,6 +11745,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 22 dynamic
    */
   enableSelectedDataDetector(enable: boolean): WebAttribute
+
+  /**
+   * Triggered after the first screen of the web page has been painted.
+   * The first screen contains the images, videos and texts in the viewport of the current navigation.
+   * The callback will not be triggered immediately when the first screen has been painted,
+   * but in a few seconds according to the current network condition.
+   * However, if the user scrolls or inputs before the first screen has been painted,
+   * the callback will be triggered immediately.
+   *
+   * @param { OnFirstScreenPaintCallback } callback - callback triggered to 
+   *     report the info for the first screen painting of the current web page.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  onFirstScreenPaint(callback: OnFirstScreenPaintCallback): WebAttribute
 
   /**
    * Sets whether enable auto fill or not.

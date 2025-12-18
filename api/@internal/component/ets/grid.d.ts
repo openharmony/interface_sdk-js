@@ -992,6 +992,23 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   layoutDirection(value: GridDirection): GridAttribute;
 
   /**
+   * Sets whether empty branches are supported in lazy loading.
+   *
+   * @param { boolean | undefined } supported - Indicates whether empty branches are supported in lazy loading.
+   *     <br>Default value: false, passing undefined will restore the default value.
+   *     <br>If set to false, LazyForEach or Repeat with virtualScroll does not allow empty branches.
+   *     <br>If set to true, an empty branch of LazyForEach or Repeat with virtualScroll is treated as a node of
+   *     zero size.
+   * @returns { GridAttribute } the attribute of the Gird.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  supportEmptyBranchInLazyLoading(supported: boolean | undefined): GridAttribute;
+
+  /**
    * Set weather to enable grid drag-and-drop animation.
    *
    * @param { boolean } value - Whether to enable drag-and-drop animation.

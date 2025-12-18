@@ -18,7 +18,7 @@
  * @kit CoreFileKit
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, Callback } from './@ohos.base';
 import stream from './@ohos.util.stream';
 
 export default fileIo;
@@ -3398,9 +3398,7 @@ declare function listFile(
  * List file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array
- *     <br>containing the name of files or directories that meet the filter criteria in promise mode.
- *     <br>If present, Include the subdirectory structure.
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3413,9 +3411,7 @@ declare function listFile(
  * List file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array
- *     <br>containing the name of files or directories that meet the filter criteria in promise mode.
- *     <br>If present, Include the subdirectory structure.
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3426,10 +3422,11 @@ declare function listFile(
  * @since 10
  */
 /**
- * Lists all file names in a directory. This API uses a promise to return the result.
+ * Lists the names of all files and directories in the current path.
+ * This API uses an asynchronous callback to return the result.
  *
  * @param { string } path - Application sandbox path of the directory.
- * @param { AsyncCallback<string[]> } callback - Options for filtering files. The files are not filtered by default.
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3447,9 +3444,7 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  *
  * @param { string } path - path.
  * @param { object } [options] - options.
- * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name
- *     <br>of files or directories that meet the filter criteria in promise mode.
- *     <br>If present, Include the subdirectory structure.
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3463,9 +3458,7 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  *
  * @param { string } path - path.
  * @param { object } [options] - options.
- * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name
- *     <br>of files or directories that meet the filter criteria in promise mode.
- *     <br>If present, Include the subdirectory structure.
+ * @param { AsyncCallback<string[]> } callback - Callback used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -8417,7 +8410,7 @@ export class TaskSignal {
    * @param { Callback<string> } callback - callback of progress callback
    * @throws { BusinessError } 13900020 - Invalid argument
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   onCancel(callback: Callback<string>): void;
 }

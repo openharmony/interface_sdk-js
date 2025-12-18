@@ -43,9 +43,9 @@ declare namespace notificationExtensionSubscription {
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @param { UIAbilityContext } context - Ability context bound to the notification settings page.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600018 - the notification settings window is already displayed.
+   * @throws { BusinessError } 1600018 - The notification settings window is already displayed.
    * @throws { BusinessError } 1600023 - The application does not implement the NotificationSubscriberExtensionAbility.
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic&static
@@ -58,7 +58,7 @@ declare namespace notificationExtensionSubscription {
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @param { NotificationExtensionSubscriptionInfo[] } info - The info to be subscribe.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600023 - The application does not implement the NotificationSubscriberExtensionAbility.
@@ -72,7 +72,7 @@ declare namespace notificationExtensionSubscription {
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
@@ -85,7 +85,7 @@ declare namespace notificationExtensionSubscription {
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @returns { Promise<NotificationExtensionSubscriptionInfo[]> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
@@ -113,7 +113,7 @@ declare namespace notificationExtensionSubscription {
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @returns { Promise<boolean> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
@@ -178,7 +178,7 @@ declare namespace notificationExtensionSubscription {
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @returns { Promise<GrantedBundleInfo[]> } Return the list of bundleInfo which is enabled.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification

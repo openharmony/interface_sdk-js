@@ -136,7 +136,6 @@ declare class PermissionRequestResult {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   /**
    * Enumerates the return values of the permission request operation.

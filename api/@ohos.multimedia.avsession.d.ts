@@ -358,6 +358,22 @@ declare namespace avSession {
   function startAVPlayback(bundleName: string, assetId: string): Promise<void>;
 
   /**
+   * Start an application for media playback with command info.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { string } bundleName - Specifies the bundleName which to be started.
+   * @param { string } assetId - Specifies the assetId to be started.
+   * @param { CommandInfo } info - Specifies the specified command information.
+   * @returns { Promise<void> } void promise when executed successfully
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function startAVPlayback(bundleName: string, assetId: string, info: CommandInfo): Promise<void>;
+
+  /**
    * Get distributed avsession controller
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { DistributedSessionType } distributedSessionType - Specifies the distributed session type.
@@ -404,6 +420,34 @@ declare namespace avSession {
      * @since 22 dynamic&static
      */
     CATEGORY_ALL = 3,
+  }
+
+  /**
+   * Whether desktop lyric feature is supported.
+   * @returns { Promise<boolean> } - result returned to indicate desktop lyric is supported.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function isDesktopLyricSupported(): Promise<boolean>;
+
+  /**
+   * Desktop lyric state definition.
+   * @typedef DesktopLyricState
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface DesktopLyricState {
+    /**
+     * Desktop lyric lock state.
+     * @typedef { boolean } Boolean type. The value true means that desktop lyric is locked.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isLocked: boolean;
   }
 
   /**
@@ -547,6 +591,32 @@ declare namespace avSession {
    * @since 22 static
    */
   function offSessionCreate(callback?: Callback<AVSessionDescriptor>): void;
+
+  /**
+   * Register active session changed callback.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { Callback<Array<AVSessionDescriptor>> } callback - Used to handle activeSessionChange event
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function onActiveSessionChanged(callback: Callback<Array<AVSessionDescriptor>>): void;
+
+  /**
+   * Unregister active session changed callback.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { Callback<Array<AVSessionDescriptor>> } [callback] - Used to handle activeSessionChange event
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function offActiveSessionChanged(callback?: Callback<Array<AVSessionDescriptor>>): void;
 
   /**
    * Unregister session destroy callback
@@ -782,6 +852,17 @@ declare namespace avSession {
    * @since 22 dynamic&static
    */
   type NoParamCallback = () => void;
+
+  /**
+   * Defines the callback type including two parameters.
+   *
+   * @typedef { function } TwoParamCallbackTwoParamCallback<T, G>
+   * @param { T } data1
+   * @param { G } data2
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 22 dynamic&static
+   */
+  type TwoParamCallback<T, G> = (data1: T, data2: G) => void;
 
   /**
    * Define different protocol capability
@@ -1104,9 +1185,24 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
    */
   function getAVCastController(sessionId: string, callback: AsyncCallback<AVCastController>): void;
+
+    /**
+   * Register a callback to retrieve an avsession cast controller.
+   * This function can be used at both side to get the same controller to do the playback control.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { string } sessionId Specifies the sessionId to get controller.
+   * @param { AsyncCallback<AVCastController | undefined> } callback - async callback for the AVCastController.
+   * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws {BusinessError} 6600101 - Session service exception
+   * @throws {BusinessError} 6600102 - session does not exist
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 22 static
+   */
+  function getAVCastController(sessionId: string, callback: AsyncCallback<AVCastController | undefined>): void;
 
   /**
    * Get the current session's remote controller client.
@@ -1123,9 +1219,24 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
    */
   function getAVCastController(sessionId: string): Promise<AVCastController>;
+
+  /**
+   * Get the current session's remote controller client.
+   * If the avsession is not under casting state, the controller will return undefined.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { string } sessionId Specifies the sessionId to get controller.
+   * @returns { Promise<AVCastController | undefined> } Promise for the AVCastController
+   * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws {BusinessError} 6600101 - server exception
+   * @throws {BusinessError} 6600102 - session does not exist
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 22 static
+   */
+  function getAVCastController(sessionId: string): Promise<AVCastController | undefined>;
 
   /**
    * Cast resource to remote device.
@@ -1917,6 +2028,117 @@ declare namespace avSession {
     setExtras(extras: Record<string, Object>): Promise<void>;
 
     /**
+     * Enable desktop lyric for this session.
+     * @param { boolean } enable - The enable status indicating to using system desktop lyric feature or not
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    enableDesktopLyric(enable: boolean): Promise<void>;
+
+    /**
+     * Set desktop lyric visible state for this session.
+     * @param { boolean } visible - make desktop lyric window visible or not
+     * @returns { Promise<boolean> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setDesktopLyricVisible(visible: boolean): Promise<void>;
+
+    /**
+     * Query desktop lyric visible state for this session.
+     * @returns { Promise<boolean> } return desktop lyric visible state
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isDesktopLyricVisible(): Promise<boolean>;
+
+    /**
+     * Register desktop lyric visible state change callback.
+     * @param { Callback<boolean> } callback - a callback to receive desktop lyric window visible state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onDesktopLyricVisibilityChanged(callback: Callback<boolean>): void;
+
+    /**
+     * Unregister desktop lyric visible state change callback.
+     * @param { Callback<boolean> } [callback] - a callback to receive desktop lyric window visible state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offDesktopLyricVisibilityChanged(callback?: Callback<boolean>): void;
+
+    /**
+     * Set desktop lyric state such as lock state for this session.
+     * @param { DesktopLyricState } state - The desktop lyric state
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setDesktopLyricState(state: DesktopLyricState): Promise<void>;
+
+    /**
+     * Get desktop lyric state such as lock state for this session.
+     * @returns { Promise<DesktopLyricState> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getDesktopLyricState(): Promise<DesktopLyricState>;
+
+    /**
+     * Register desktop lyric state changed callback.
+     * @param { Callback<DesktopLyricState> } callback - a callback to receive desktop lyric state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onDesktopLyricStateChanged(callback: Callback<DesktopLyricState>): void;
+
+    /**
+     * Unregister desktop lyric state changed callback.
+     * @param { Callback<DesktopLyricState> } [callback] - a callback to receive desktop lyric state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offDesktopLyricStateChanged(callback?: Callback<DesktopLyricState>): void;
+
+    /**
      * Get the current session's own controller
      * @param { AsyncCallback<AVSessionController> } callback - async callback for the AVSessionController.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -1955,9 +2177,19 @@ declare namespace avSession {
      * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10 dynamic
-     * @since 22 static
      */
     getAVCastController(callback: AsyncCallback<AVCastController>): void;
+
+    /**
+     * Get the cast controller when the session is casted to remote device.
+     * If the avsession is not under casting state, the controller will return undefined.
+     * @param { AsyncCallback<AVCastController | undefined> } callback - async callback for the AVCastController.
+     * @throws {BusinessError} 6600102 - The session does not exist
+     * @throws {BusinessError} 6600109 - The remote connection is not established
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 22 static
+     */
+    getAVCastController(callback: AsyncCallback<AVCastController | undefined>): void;
 
     /**
      * Get the cast controller when the session is casted to remote device.
@@ -1977,9 +2209,20 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
      */
     getAVCastController(): Promise<AVCastController>;
+
+    /**
+     * Get the cast controller when the session is casted to remote device.
+     * If the avsession is not under casting state, the controller will return undefined.
+     * @returns { Promise<AVCastController | undefined> } Promise for the AVCastController
+     * @throws {BusinessError} 6600102 - The session does not exist
+     * @throws {BusinessError} 6600109 - The remote connection is not established
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 22 static
+     */
+    getAVCastController(): Promise<AVCastController | undefined>;
 
     /**
      * Get output device information
@@ -2081,18 +2324,14 @@ declare namespace avSession {
 
     /**
      * Register play command callback.
-     * As long as it is registered, it means that the ability supports this command.
-     * If you cancel the callback, you need to call off {@link off}
-     * When canceling the callback, need to update the supported commands list.
-     * Each playback command only supports registering one callback,
-     * and the new callback will replace the previous one.
-     * @param { NoParamCallback } callback - Used to handle ('play') command
+     * The application will receive {@link CommandInfo} from a controller.
+     * @param { Callback<CommandInfo> } callback - Used to handle ('play') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    onPlay(callback: NoParamCallback): void;
+    onPlay(callback: Callback<CommandInfo>): void;
 
     /**
      * Register pause command callback.
@@ -2231,18 +2470,14 @@ declare namespace avSession {
 
     /**
      * Register playNext command callback.
-     * As long as it is registered, it means that the ability supports this command.
-     * If you cancel the callback, you need to call off {@link off}
-     * When canceling the callback, need to update the supported commands list.
-     * Each playback command only supports registering one callback,
-     * and the new callback will replace the previous one.
-     * @param { NoParamCallback } callback - Used to handle ('playNext') command
+     * The application will receive {@link CommandInfo} from a controller.
+     * @param { Callback<CommandInfo> } callback - Used to handle ('playNext') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    onPlayNext(callback: NoParamCallback): void;
+    onPlayNext(callback: Callback<CommandInfo>): void;
 
     /**
      * Register playPrevious command callback.
@@ -2281,19 +2516,15 @@ declare namespace avSession {
 
     /**
      * Register playPrevious command callback.
-     * As long as it is registered, it means that the ability supports this command.
-     * If you cancel the callback, you need to call off {@link off}
-     * When canceling the callback, need to update the supported commands list.
-     * Each playback command only supports registering one callback,
-     * and the new callback will replace the previous one.
-     * @param { NoParamCallback } callback - Used to handle ('playPrevious') command
+     * The application will receive {@link CommandInfo} from a controller.
+     * @param { Callback<CommandInfo> } callback - Used to handle ('playPrevious') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    onPlayPrevious(callback: NoParamCallback): void;
+    onPlayPrevious(callback: Callback<CommandInfo>): void;
 
     /**
      * Register fastForward command callback.
@@ -2332,18 +2563,14 @@ declare namespace avSession {
 
     /**
      * Register fastForward command callback.
-     * As long as it is registered, it means that the ability supports this command.
-     * If you cancel the callback, you need to call off {@link off}
-     * When canceling the callback, need to update the supported commands list.
-     * Each playback command only supports registering one callback,
-     * and the new callback will replace the previous one.
-     * @param { Callback<long> } callback - Used to handle ('fastForward') command
+     * The application will receive forward time and {@link CommandInfo} from a controller.
+     * @param { TwoParamCallback<long, CommandInfo> } callback - Used to handle ('fastForward') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    onFastForward(callback: Callback<long>): void;
+    onFastForward(callback: TwoParamCallback<long, CommandInfo>): void;
 
     /**
      * Register rewind command callback.
@@ -2382,18 +2609,14 @@ declare namespace avSession {
 
     /**
      * Register rewind command callback.
-     * As long as it is registered, it means that the ability supports this command.
-     * If you cancel the callback, you need to call off {@link off}
-     * When canceling the callback, need to update the supported commands list.
-     * Each playback command only supports registering one callback,
-     * and the new callback will replace the previous one.
-     * @param { Callback<long> } callback - Used to handle ('rewind') command
+     * The application will receive rewind time and {@link CommandInfo} from a controller.
+     * @param { TwoParamCallback<long, CommandInfo> } callback - Used to handle ('rewind') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    onRewind(callback: Callback<long>): void;
+    onRewind(callback: TwoParamCallback<long, CommandInfo>): void;
 
     /**
      * Unregister play command callback.
@@ -2425,13 +2648,13 @@ declare namespace avSession {
     /**
      * Unregister play command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { NoParamCallback } [callback] - Used to handle ('play') command
+     * @param { Callback<CommandInfo> } [callback] - Used to handle ('play') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    offPlay(callback?: NoParamCallback): void;
+    offPlay(callback?: Callback<CommandInfo>): void;
 
     /**
      * Unregister pause command callback.
@@ -2539,13 +2762,13 @@ declare namespace avSession {
     /**
      * Unregister playNext command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { NoParamCallback } [callback] - Used to handle ('playNext') command
+     * @param { Callback<CommandInfo> } [callback] - Used to handle ('playNext') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    offPlayNext(callback?: NoParamCallback): void;
+    offPlayNext(callback?: Callback<CommandInfo>): void;
 
     /**
      * Unregister playPrevious command callback.
@@ -2577,13 +2800,13 @@ declare namespace avSession {
     /**
      * Unregister playPrevious command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { NoParamCallback } [callback] - Used to handle ('playPrevious') command
+     * @param { Callback<CommandInfo> } [callback] - Used to handle ('playPrevious') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    offPlayPrevious(callback?: NoParamCallback): void;
+    offPlayPrevious(callback?: Callback<CommandInfo>): void;
 
     /**
      * Unregister fastForward command callback.
@@ -2615,13 +2838,13 @@ declare namespace avSession {
     /**
      * Unregister fastForward command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { NoParamCallback } [callback] - Used to handle ('fastForward') command
+     * @param { TwoParamCallback<long, CommandInfo> } [callback] - Used to handle ('fastForward') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    offFastForward(callback?: NoParamCallback): void;
+    offFastForward(callback?: TwoParamCallback<long, CommandInfo>): void;
 
     /**
      * Unregister rewind command callback.
@@ -2653,13 +2876,13 @@ declare namespace avSession {
     /**
      * Unregister rewind command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { NoParamCallback } [callback] - Used to handle ('rewind') command
+     * @param { TwoParamCallback<long, CommandInfo> } [callback] - Used to handle ('rewind') command
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 22 static
+     * @since 22 dynamic&static
      */
-    offRewind(callback?: NoParamCallback): void;
+    offRewind(callback?: TwoParamCallback<long, CommandInfo>): void;
 
     /**
      * Register playFromAssetId command callback.
@@ -2694,7 +2917,7 @@ declare namespace avSession {
      * @atomicservice
      * @since 12 dynamiconly
      * @deprecated since 20
-     * @useinstead ohos.multimedia.avsession.AVSessoin#on
+     * @useinstead ohos.multimedia.avsession.AVSession#on
      */
     on(type: 'playFromAssetId', callback: (assetId: number) => void): void;
 
@@ -2721,7 +2944,7 @@ declare namespace avSession {
      * @atomicservice
      * @since 12 dynamiconly
      * @deprecated since 20
-     * @useinstead ohos.multimedia.avsession.AVSessoin#off
+     * @useinstead ohos.multimedia.avsession.AVSession#off
      */
     off(type: 'playFromAssetId', callback?: (assetId: number) => void): void;
 
@@ -4335,21 +4558,23 @@ declare namespace avSession {
     on(type: 'playbackStateChange', filter: Array<string> | 'all', callback: (state: AVPlaybackState) => void): void;
 
     /**
-     * Register playback state changed callback
+     * Register playback state changed callback 
      * @param { Array<string> } filter - The properties of {@link AVPlaybackState} that you cared about
      * @param { Callback<AVPlaybackState> } callback - The callback used to handle playback state changed event.
      *     The callback function provides the {@link AVPlaybackState} parameter.
-     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600101 - Session service exception. 1. Required parameters are missing.
+     * 2. Provided parameters have invalid types.  
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 22 static
      */
     onPlaybackStateChange(filter: Array<string>, callback: Callback<AVPlaybackState>): void;
 
     /**
-     * Register playback state changed callback
+     * Registers a callback to be invoked whenever the playback state changes 
      * @param { Callback<AVPlaybackState> } callback - The callback used to handle playback state changed event.
      *     The callback function provides the {@link AVPlaybackState} parameter.
-     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600101 - Session service exception. 1. Required parameters are missing.
+     * 2. Provided parameters have invalid types.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 22 static
      */
@@ -8817,6 +9042,143 @@ declare namespace avSession {
     getExtrasWithEvent(extraEvent: string): Promise<ExtraInfo>;
 
     /**
+     * Query desktop lyric enabled state for this session.
+     * @returns { Promise<boolean> } return the enabled status
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isDesktopLyricEnabled(): Promise<boolean>;
+
+    /**
+     * Register desktop lyric enable state change callback.
+     * @param { Callback<boolean> } callback - a callback to receive desktop lyric enable state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onDesktopLyricEnabled(callback: Callback<boolean>): void;
+
+    /**
+     * Unregister desktop lyric enable state change callback.
+     * @param { Callback<boolean> } [callback] - a callback to receive desktop lyric enable state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offDesktopLyricEnabled(callback?: Callback<boolean>): void;
+
+    /**
+     * Set desktop lyric visible state for this session.
+     * @param { boolean } visible - make desktop lyric window visible or not
+     * @returns { Promise<boolean> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setDesktopLyricVisible(visible: boolean): Promise<void>;
+
+    /**
+     * Query desktop lyric visible state for this session.
+     * @returns { Promise<boolean> } return desktop lyric visible state
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isDesktopLyricVisible(): Promise<boolean>;
+
+    /**
+     * Register desktop lyric visible state change callback.
+     * @param { Callback<boolean> } callback - a callback to receive desktop lyric window visible state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onDesktopLyricVisibilityChanged(callback: Callback<boolean>): void;
+
+    /**
+     * Unregister desktop lyric visible state change callback.
+     * @param { Callback<boolean> } [callback] - a callback to receive desktop lyric window visible state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offDesktopLyricVisibilityChanged(callback?: Callback<boolean>): void;
+
+    /**
+     * Set desktop lyric state such as lock state for this session.
+     * @param { DesktopLyricState } state - The desktop lyric state
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    setDesktopLyricState(state: DesktopLyricState): Promise<void>;
+
+    /**
+     * Get desktop lyric state such as lock state for this session.
+     * @returns { Promise<DesktopLyricState> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
+     * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getDesktopLyricState(): Promise<DesktopLyricState>;
+
+    /**
+     * Register desktop lyric state changed callback.
+     * @param { Callback<DesktopLyricState> } callback - a callback to receive desktop lyric state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onDesktopLyricStateChanged(callback: Callback<DesktopLyricState>): void;
+
+    /**
+     * Unregister desktop lyric state changed callback.
+     * @param { Callback<DesktopLyricState> } [callback] - a callback to receive desktop lyric state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offDesktopLyricStateChanged(callback?: Callback<DesktopLyricState>): void;
+
+    /**
      * Register metadata changed callback
      * @param { 'metadataChange' } type
      * @param { Array<keyof AVMetadata> | 'all' } filter - The properties of {@link AVMetadata} that you cared about
@@ -8874,7 +9236,7 @@ declare namespace avSession {
     onMetadataChange(filter: Array<string>, callback: Callback<AVMetadata>): void;
 
     /**
-     * Register metadata changed callback
+     * Registers a callback to be invoked whenever any metadata changes
      * @param { Callback<AVMetadata> } callback - The callback used to handle metadata changed event.
      *     The callback function provides the {@link AVMetadata} parameter.
      *     It only contains the properties set in the filter.
@@ -8996,7 +9358,7 @@ declare namespace avSession {
     onPlaybackStateChange(filter: Array<string>, callback: Callback<AVPlaybackState>): void;
 
     /**
-     * Register playback state changed callback
+     * Registers a callback to be invoked whenever the playback state changes
      * @param { Callback<AVPlaybackState> } callback - The callback used to handle playback state changed event.
      *     The callback function provides the {@link AVPlaybackState} parameter.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -9100,7 +9462,7 @@ declare namespace avSession {
     onCallMetadataChange(filter: Array<string>, callback: Callback<CallMetadata>): void;
 
     /**
-     * Register call metadata changed callback
+     * Registers a callback for all call metadata changes
      * @param { Callback<CallMetadata> } callback - The callback used to handle call metadata changed event.
      *     The callback function provides the {@link CallMetadata} parameter.
      *     It only contains the properties set in the filter.
@@ -9194,7 +9556,7 @@ declare namespace avSession {
     onCallStateChange(filter: Array<string>, callback: Callback<AVCallState>): void;
 
     /**
-     * Register call state changed callback
+     * Register a callback for all call attribute changes
      * @param { Callback<AVCallState> } callback - The callback used to handle call state changed event.
      *     The callback function provides the {@link AVCallState} parameter.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -10117,6 +10479,91 @@ declare namespace avSession {
      * @since 22 static
      */
     parameter?: LoopMode | string | double;
+
+    /**
+     * The command value {@link CommandInfo}
+     * @type { ?CommandInfo }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 dynamic&static
+     */
+    commandInfo?: CommandInfo;
+  }
+
+  /**
+   * The definition of command information to be sent to the session
+   * @typedef CommandInfo
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 22 dynamic&static
+   */
+  interface CommandInfo {
+    /**
+     * Caller bundle name.
+     * @type { ? string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 dynamic&static
+     */
+    callerBundleName?: string;
+
+    /**
+     * Caller module name.
+     * @type { ? string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 dynamic&static
+     */
+    callerModuleName?: string;
+
+    /**
+     * Caller device id.
+     * @type { ? string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 dynamic&static
+     */
+    callerDeviceId?: string;
+
+    /**
+     * Caller type.
+     * @type { ? CallerType }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 dynamic&static
+     */
+    callerType?: CallerType;
+  }
+
+  /**
+   * Enumerates CallerType including caller source type.
+   * @enum { string }
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 22 dynamic&static
+   */
+  enum CallerType {
+    /**
+     * The control command comes from cast service.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 dynamic&static
+     */
+    TYPE_CAST = 'cast',
+
+    /**
+     * The control command comes from bluetooth.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 dynamic&static
+     */
+    TYPE_BLUETOOTH = 'bluetooth',
+
+    /**
+     * The control command comes from nearlink device.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    TYPE_NEARLINK = 'nearlink',
+
+    /**
+     * The control command comes from an application.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 dynamic&static
+     */
+    TYPE_APP = 'app',
   }
 
   /**
@@ -10259,6 +10706,24 @@ declare namespace avSession {
      * @since 22 static
      */
     ERR_CODE_REMOTE_CONNECTION_NOT_EXIST = 6600109,
+
+    /**
+     * The desktop lyrics feature of this application is not enabled.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    ERR_CODE_DESKTOP_LYRIC_NOT_ENABLED = 6600110,
+
+    /**
+     * The desktop lyrics feature is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    ERR_CODE_DESKTOP_LYRIC_NOT_SUPPORTED = 6600111,
 
     /**
      * The error code for cast control is unspecified.

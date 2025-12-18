@@ -354,4 +354,14 @@ export declare struct SubHeader {
      */
     @Builder
     build(): void;
+    /**
+     * Set the ability to customize the broadcast of the title.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    @PropRef
+    titleAccessibilityText?: ResourceStr;
 }

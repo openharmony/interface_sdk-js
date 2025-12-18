@@ -18,6 +18,10 @@
  * @kit AbilityKit
  */
 
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
+
 /**
  * UI service proxy.
  *
@@ -40,7 +44,17 @@ export default interface UIServiceProxy {
    * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
    */
   sendData(data: Record<string, Object>): void;
+
+  /**
+   * Send data to ui service.
+   *
+   * @param { Record<string, RecordData> } data - Indicates the data to send.
+   * @throws { BusinessError } 16000050 - Internal error. Possible cause: Connect to stub failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  sendData(data: Record<string, RecordData>): void;
 }

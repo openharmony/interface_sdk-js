@@ -25,7 +25,7 @@ import UIAbilityContext from './application/UIAbilityContext';
 import { Callback } from './@ohos.base';
 import { NavDestinationMode } from '@ohos.arkui.component';
 import { HeightBreakpoint, WidthBreakpoint } from '@ohos.arkui.component';
-
+import { Size } from '@ohos.arkui.node';
 /**
  * Register callbacks to observe ArkUI behavior.
  *
@@ -297,6 +297,15 @@ declare namespace uiObserver {
          * @since 22 static
          */
         mode?: NavDestinationMode;
+
+        /**
+         * NavDestination size.
+         *
+         * @type { ?Size }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        size?: Size;
     }
     /**
      * Navigation info.
@@ -516,6 +525,15 @@ declare namespace uiObserver {
          * @since 22 static
          */
         pageId: string;
+
+        /**
+         * The size of the router page.
+         *
+         * @type { ?Size }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 23 static
+         */
+        size?: Size;
     }
     /**
      * Density info.
@@ -535,11 +553,11 @@ declare namespace uiObserver {
         /**
          * The changed screen density.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        density: number;
+        density: double;
     }
     /**
      * NavDestination switch info
@@ -891,47 +909,5 @@ declare namespace uiObserver {
         observerOptions: NavDestinationSwitchObserverOptions,
         callback?: Callback<NavDestinationSwitchInfo>
     ): void;
-
-    /**
-     * Registers a callback function to be called when the tabContent is showed or hidden.
-     *
-     * @param { ObserverOptions } config - The options object.
-     * @param { Callback<TabContentInfo> } callback - The callback function to be called when when the tabContent is
-     *     showed or hidden.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    export function onTabChange(config: ObserverOptions, callback: Callback<TabContentInfo>): void;
-
-    /**
-     * Removes a callback function that was previously registered with `on()`.
-     *
-     * @param { ObserverOptions } config - The options object.
-     * @param { Callback<TabContentInfo> } [callback] - The callback function to remove.
-     *     If not provided, all callbacks for the given event type and Tabs ID will be removed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    export function offTabChange(config: ObserverOptions, callback?: Callback<TabContentInfo>): void;
-
-    /**
-     * Registers a callback function to be called when the tabContent is showed or hidden.
-     *
-     * @param { Callback<TabContentInfo> } callback - The callback function to be called when the tabContent is
-     *     showed or hidden.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    export function onTabChange(callback: Callback<TabContentInfo>): void;
-
-    /**
-     * Removes a callback function that was previously registered with `on()`.
-     *
-     * @param { Callback<TabContentInfo> } [callback] - The callback function to remove. If not provided, all callbacks
-     *     for the given event type will be removed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    export function offTabChange(callback?: Callback<TabContentInfo>): void;
 }
 export default uiObserver;

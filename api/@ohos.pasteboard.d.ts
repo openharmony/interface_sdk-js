@@ -380,7 +380,7 @@ declare namespace pasteboard {
      * CROSSDEVICE indicates that paste is allowed in any application across devices.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11 dynamiconly
      * @deprecated since 12
      */
     CROSSDEVICE

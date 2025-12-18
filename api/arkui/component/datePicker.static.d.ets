@@ -242,6 +242,15 @@ export declare interface DatePickerAttribute extends CommonMethod {
      */
     default enableHapticFeedback(enable: boolean | undefined): this;
     /**
+     * Can scroll loop if true is set, on the contrary it can not.
+     *
+     * @param { boolean | undefined } isLoop
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */  
+    default canLoop(isLoop: boolean | undefined): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<DatePickerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -625,14 +634,17 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @since 22 static
      */
     enableHapticFeedback?: boolean;
+    /**
+     * Can scroll loop if true is set, on the contrary it can not.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    canLoop?: boolean;
 }
-/**
- * Defines DatePickerDialog which uses show method to show DatePicker dialog.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
- */
-export declare class DatePickerDialog {}
+
 /**
  * Defines the DatePicker component.
  * 

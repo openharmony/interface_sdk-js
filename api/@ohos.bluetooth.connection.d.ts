@@ -373,6 +373,30 @@ declare namespace connection {
   function pairCredibleDevice(deviceId: string, transport: BluetoothTransport): Promise<void>;
 
   /**
+   * Starts pairing with a remote Bluetooth device using the Out Of Band mechanism.
+   * This function is asynchronous, and the pairing status is obtained by listening to the bondStateChange event.
+   * If both p192Data and p256Data are null, the function call will fail.
+   * If both p192Data and p256Data are used simultaneously, p256Data takes effect.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { BluetoothAddress } deviceId - Indicates address of remote Bluetooth device.
+   * @param { BluetoothTransport } transport - Indicates the transport of a remote Bluetooth device.
+   * @param { OobData | null } p192Data - The out-of-band data (P192), or null if not available.
+   * @param { OobData | null } p256Data - The out-of-band data (P256), or null if not available.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function pairDeviceOutOfBand(deviceId: BluetoothAddress, transport: BluetoothTransport,
+    p192Data: OobData | null, p256Data: OobData | null): Promise<void>;
+
+  /**
    * Remove a paired remote device.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -1349,7 +1373,7 @@ declare namespace connection {
 
   /**
    * Controls the actions of Bluetooth peripherals.
-   * 
+   *
    * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
    * @param { ControlDeviceActionParams } controlDeviceActionParams - Indicates the action for Bluetooth peripherals.
    * @returns { Promise<void> } Returns the promise object.
@@ -1508,7 +1532,7 @@ declare namespace connection {
    * @since 13 dynamic
    */
   function off(type: 'bluetoothDeviceFind', callback?: Callback<Array<string>>): void;
-  
+
   /**
    * Unsubscribe the event reported when a remote Bluetooth device is discovered.
    *
@@ -1767,7 +1791,7 @@ declare namespace connection {
    * @since 12 dynamic
    */
   function on(type: 'batteryChange', callback: Callback<BatteryInfo>): void;
-  
+
   /**
    * Subscribe the event of battery state changed from a remote device.
    *
@@ -1804,6 +1828,32 @@ declare namespace connection {
    * @since 22 static
    */
   function offBatteryChange(callback?: Callback<BatteryInfo>): void;
+
+  /**
+   * Subscribe to an event indicating that the scanning mode of the local device has changed.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<ScanMode> } callback - Callback used to listen.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 23 dynamic&static
+   */
+  function onScanModeChange(callback: Callback<ScanMode>): void;
+
+  /**
+   * Unsubscribe to an event indicating that the scanning mode of the local device has changed.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<ScanMode> } [callback] - Callback used to listen.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 23 dynamic&static
+   */
+  function offScanModeChange(callback?: Callback<ScanMode>): void;
 
   /**
    * Describes the class of a bluetooth device.
@@ -3038,6 +3088,44 @@ declare namespace connection {
      * @since 22 static
      */
     pairState: int;
+  }
+
+  /**
+   * Out Of Band data used in Bluetooth device pairing.
+   *
+   * @typedef OobData
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface OobData {
+    /**
+     * Confirmation data in OOB pairing, with a size of 16 octets.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    confirmationHash: Uint8Array;
+    /**
+     * Randomizer data in OOB pairing, with a size of 16 octets.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    randomizerHash?: Uint8Array;
+    /**
+     * The name of the remote Bluetooth device.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    deviceName?: string;
   }
 }
 export default connection;

@@ -185,26 +185,6 @@ declare interface TextDataDetectorConfig {
 }
 
 /**
- * Text selected data detector config.
- *
- * @interface SelectDataDetectorConfig
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 22 dynamic
- */
-declare interface SelectDataDetectorConfig {
-  /**
-   * Text data detector types.
-   *
-   * @type { TextDataDetectorType[] | undefined }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  types: TextDataDetectorType[] | undefined;
-}
-
-/**
  * Defines range of text type component.
  *
  * @interface TextRange
@@ -1213,6 +1193,31 @@ declare class TextMenuItemId {
    * @since 20 dynamic
    */
   static readonly askAI: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to auto fill.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  static readonly autoFill: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId for password vault.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  static readonly passwordVault: TextMenuItemId;
 }
  
 /**
@@ -2126,7 +2131,25 @@ declare enum TextDirection {
    * @atomicservice
    * @since 22 dynamic
    */
-  RTL = 1
+  RTL = 1,
+  /**
+   * The text direction follows the component layout.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  DEFAULT = 2,
+  /**
+   * The text direction follows the actual text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  AUTO = 3
 }
 
 /**
@@ -2350,4 +2373,27 @@ declare interface AccessibilitySpanOptions {
    * @since 23 dynamic
    */
   accessibilityLevel?:string;
+}
+
+/**
+ * Selected drag preview style configuration.
+ *
+ * @interface SelectedDragPreviewStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare interface SelectedDragPreviewStyle {
+    /**
+     * The color of background.
+     *
+     * @type { ?ResourceColor } - Default value is '#ffffff' (100% opacity).
+     *                            Default value in dark mode is '#202224' (95% opacity).
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    color?: ResourceColor;
 }

@@ -827,6 +827,19 @@ declare interface LabelStyle {
      * @since 11 dynamic
      */
     font?: Font;
+    /**
+     * Set the horizontal center mode of the content.
+     *
+     * Device Behavior Differences:Default value is TextAlign.Start.
+     * The default value on wearable devices is TextAlign.Center.
+     *
+     * @type { ?TextAlign }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    textAlign?: TextAlign;
 }
 /**
  * Defines the button attribute functions.

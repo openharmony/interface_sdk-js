@@ -862,7 +862,6 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
    */
   function off(type: 'applicationState', observerId: int): Promise<void>;
 

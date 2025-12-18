@@ -336,7 +336,7 @@ declare namespace webview {
     /**
      * ArkWeb auto use the newest ArkWeb Engine version.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     ARKWEB_EVERGREEN = 99999
   }
@@ -2128,7 +2128,7 @@ declare namespace webview {
      * @param { boolean } lazy - Controls whether to delay the initialization of the web engine.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 23 dynamic
+     * @since 22 dynamic
      */
     static setLazyInitializeWebEngine(lazy: boolean): void;
 
@@ -3845,7 +3845,7 @@ declare namespace webview {
      * @returns {boolean} true means the application is using the Evergreen Web Engine, false means not.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 23 dynamic
      */
     static isActiveWebEngineEvergreen(): boolean;
 
@@ -5693,9 +5693,9 @@ declare namespace webview {
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     *     length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
@@ -5704,12 +5704,12 @@ declare namespace webview {
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     *     length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Prefetch the resources required by the page, but will not execute js or render the page.
@@ -5728,20 +5728,38 @@ declare namespace webview {
     /**
      * Prefetch the resources required by the page, but will not execute js or render the page.
      * <p><strong>API Note</strong>:<br>
-     * ‌prefetchPage‌ does not cache resources with Cache-Control: no-store by default, and only allows one prefetch within
-     * 500ms.
-     * Prefetch behavior can be customized via ‌prefetchOptions‌, including ignoring Cache-Control: no-store and adjusting
-     * the throttling interval.
+     * ‌prefetchPage‌ does not cache resources with Cache-Control: no-store by default, and only allows one prefetch
+     * within 500ms.
+     * Prefetch behavior can be customized via ‌prefetchOptions‌, including ignoring Cache-Control: no-store and
+     * adjusting the throttling interval.
      *
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
-     * @param { PrefetchOptions } [prefetchOptions] - Prefetch behavior can be customized via ‌prefetchOptions‌, including
-     *     ignoring Cache-Control: no-store and adjusting the throttling interval.
+     * @param { PrefetchOptions } [prefetchOptions] - Prefetch behavior can be customized via ‌prefetchOptions‌,
+     *     including ignoring Cache-Control: no-store and adjusting the throttling interval.
+     * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
+     *     length exceeds 2048.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21 dynamic
+     */
+    /**
+     * Prefetch the resources required by the page, but will not execute js or render the page.
+     * <p><strong>API Note</strong>:<br>
+     * ‌prefetchPage‌ does not cache resources with Cache-Control: no-store by default, and only allows one prefetch
+     * within 500ms.
+     * Prefetch behavior can be customized via ‌prefetchOptions‌, including ignoring Cache-Control: no-store and
+     * adjusting the throttling interval.
+     *
+     * @param { string } url - Which url to preresolve/preconnect.
+     * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
+     * @param { PrefetchOptions } [prefetchOptions] - Prefetch behavior can be customized via ‌prefetchOptions‌,
+     *     including ignoring Cache-Control: no-store and adjusting the throttling interval.
      * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *     length exceeds 2*1024*1024.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic
+     * @since 22 dynamic
      */
     prefetchPage(url: string, additionalHeaders?: Array<WebHeader>, prefetchOptions?: PrefetchOptions): void;
 
@@ -5749,9 +5767,10 @@ declare namespace webview {
      * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
-     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
+     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be 
+     * preconnected.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     *     length exceeds 2048.
      * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -5760,13 +5779,14 @@ declare namespace webview {
      * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
-     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
+     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be 
+     * preconnected.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-     *                           length exceeds 2048.
+     *     length exceeds 2048.
      * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
@@ -6156,7 +6176,7 @@ declare namespace webview {
      * @param { WebSchemeHandler } handler - Web scheme handler.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -6168,7 +6188,7 @@ declare namespace webview {
      * @param { WebSchemeHandler } handler - Web scheme handler.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -8406,7 +8426,7 @@ declare namespace webview {
      * Set net error code.
      * @param { WebNetErrorList } code - Set net error code.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -8415,7 +8435,7 @@ declare namespace webview {
      * Set net error code.
      * @param { WebNetErrorList } code - Set net error code.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -8599,7 +8619,7 @@ declare namespace webview {
      * @param { string } value - Header value.
      * @param { boolean } overwrite - Whether to overwrite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -8611,7 +8631,7 @@ declare namespace webview {
      * @param { string } value - Header value.
      * @param { boolean } overwrite - Whether to overwrite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -8760,10 +8780,10 @@ declare namespace webview {
      *
      * @param { WebNetErrorList } code - Set response error code to intercept.
      * @param { boolean } completeIfNoResponse - If completeIfNoResponse is true, when DidFailWithError is called, if
-     *                                           DidReceiveResponse has not been called, a response is automatically
-     *                                           constructed and the current request is terminated.
+     *     DidReceiveResponse has not been called, a response is automatically
+     *     constructed and the current request is terminated.
      * @throws { BusinessError } 17100101 - The errorCode is either ARKWEB_NET_OK or outside the range of error codes
-     *                                      in WebNetErrorList.
+     *     in WebNetErrorList.
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -8792,9 +8812,9 @@ declare namespace webview {
      * Callback for handling the request.
      *
      * @param { function } callback - Callback of handling the request. If callback return false,
-     *                                it means no interception.
+     *     it means no interception.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -8803,9 +8823,9 @@ declare namespace webview {
      * Callback for handling the request.
      *
      * @param { function } callback - Callback of handling the request. If callback return false,
-     *                                it means no interception.
+     *     it means no interception.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
@@ -10455,7 +10475,7 @@ declare namespace webview {
     /**
      * Gets whether the current cookie is marked as Secure.
      *
-     * @type { boolean } Ture if the cookie is secure.
+     * @type { boolean } True if the cookie is secure.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */

@@ -2809,7 +2809,7 @@ declare namespace appAccount {
    *
    * @enum { number } ResultCode
    * @syscap SystemCapability.Account.AppAccount
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   enum ResultCode {
@@ -2817,7 +2817,7 @@ declare namespace appAccount {
     * Indicates the success result.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     SUCCESS = 0,
@@ -2826,7 +2826,7 @@ declare namespace appAccount {
     * Indicates the result of account not exist.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_ACCOUNT_NOT_EXIST = 10001,
@@ -2835,7 +2835,7 @@ declare namespace appAccount {
     * Indicates the result of account service exception.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_APP_ACCOUNT_SERVICE_EXCEPTION = 10002,
@@ -2844,7 +2844,7 @@ declare namespace appAccount {
     * Indicates the result of password is invalid.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_INVALID_PASSWORD = 10003,
@@ -2853,7 +2853,7 @@ declare namespace appAccount {
     * Indicates the result of request is invalid.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_INVALID_REQUEST = 10004,
@@ -2862,7 +2862,7 @@ declare namespace appAccount {
     * Indicates the result of response is invalid.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_INVALID_RESPONSE = 10005,
@@ -2871,7 +2871,7 @@ declare namespace appAccount {
     * Indicates the result of network exception.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_NETWORK_EXCEPTION = 10006,
@@ -2880,7 +2880,7 @@ declare namespace appAccount {
     * Indicates the result of network exception.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_OAUTH_AUTHENTICATOR_NOT_EXIST = 10007,
@@ -2889,7 +2889,7 @@ declare namespace appAccount {
     * Indicates the result of auth has been canceled.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_OAUTH_CANCELED = 10008,
@@ -2898,7 +2898,7 @@ declare namespace appAccount {
     * Indicates the result of auth list is too large.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_OAUTH_LIST_TOO_LARGE = 10009,
@@ -2907,7 +2907,7 @@ declare namespace appAccount {
     * Indicates the result of auth service is busy.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_OAUTH_SERVICE_BUSY = 10010,
@@ -2916,7 +2916,7 @@ declare namespace appAccount {
     * Indicates the result of auth service exception.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_OAUTH_SERVICE_EXCEPTION = 10011,
@@ -2925,7 +2925,7 @@ declare namespace appAccount {
     * Indicates the result of auth session is not exist.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_OAUTH_SESSION_NOT_EXIST = 10012,
@@ -2934,7 +2934,7 @@ declare namespace appAccount {
     * Indicates the result of auth timeout.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_OAUTH_TIMEOUT = 10013,
@@ -2943,7 +2943,7 @@ declare namespace appAccount {
     * Indicates the result of token is not exist.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_OAUTH_TOKEN_NOT_EXIST = 10014,
@@ -2952,7 +2952,7 @@ declare namespace appAccount {
     * Indicates the result of token is too many.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_OAUTH_TOKEN_TOO_MANY = 10015,
@@ -2961,7 +2961,7 @@ declare namespace appAccount {
     * Indicates the result of not supported action.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_OAUTH_UNSUPPORT_ACTION = 10016,
@@ -2970,7 +2970,7 @@ declare namespace appAccount {
     * Indicates the result of not supported auth type.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_OAUTH_UNSUPPORT_AUTH_TYPE = 10017,
@@ -2979,7 +2979,7 @@ declare namespace appAccount {
     * Indicates the result of permission denied.
     *
     * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamic
+    * @since 8 dynamiconly
     * @deprecated since 9
     */
     ERROR_PERMISSION_DENIED = 10018

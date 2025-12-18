@@ -3230,6 +3230,145 @@ declare namespace rpc {
      */
     setWaitTime(waitTime: int): void;
   }
+  
+  /**
+   * A data object indicates the calling informations
+   * 
+   * @syscap SystemCapability.Communication.IPC.Core
+   * @since 23 dynamic
+   * @since 23 static
+   */
+  class CallingInfo {
+    /**
+     * Indicates the pid of caller.
+     * callerPid is valid only when the {@link isLocalCalling} is true. Otherwise callerPid is invalid
+     * 
+     * @type { number }
+     * @default -1
+     * @readonly
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 23 dynamic
+     */
+    readonly callerPid: number
+
+    /**
+     * Indicates the pid of caller.
+     * callerPid is valid only when the {@link isLocalCalling} is true. Otherwise callerPid is invalid
+     * 
+     * @returns { int } Return the pid of caller.
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 23 static
+     */
+    get callerPid(): int;
+
+    /**
+     * Indicates the uid of caller.
+     * callerUid is valid only when the {@link isLocalCalling} is true. Otherwise callerUid is invalid
+     * 
+     * @type { number }
+     * @default -1
+     * @readonly
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 23 dynamic
+     */
+    readonly callerUid: number
+
+    /**
+     * Indicates the uid of caller.
+     * callerUid is valid only when the {@link isLocalCalling} is true. Otherwise callerUid is invalid
+     * 
+     * @returns { int } Return the uid of caller.
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 23 static
+     */
+    get callerUid(): int;
+
+    /**
+     * Indicates the tokenId of caller.
+     * callerTokenId is valid only when the {@link isLocalCalling} is true. Otherwise callerTokenId is invalid
+     * 
+     * @type { number }
+     * @default -1
+     * @readonly
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 23 dynamic
+     */
+    readonly callerTokenId: number
+
+    /**
+     * Indicates the tokenId of caller.
+     * callerTokenId is valid only when the {@link isLocalCalling} is true. Otherwise callerTokenId is invalid
+     * 
+     * @returns { long } Return the tokenId of caller.
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 23 static
+     */
+    get callerTokenId(): long;
+
+    /**
+     * Indicates the DeviceId of remote device.
+     * remoteDeviceId is valid only when the {@link isLocalCalling} is false. Otherwise remoteDeviceId is invalid
+     * 
+     * @type { string }
+     * @default ""
+     * @readonly
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 23 dynamic
+     */
+    readonly remoteDeviceId: string
+
+    /**
+     * Indicates the DeviceId of remote device.
+     * remoteDeviceId is valid only when the {@link isLocalCalling} is false. Otherwise remoteDeviceId is invalid
+     * 
+     * @returns { string } Return the DeviceId of caller.
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 23 static
+     */
+    get remoteDeviceId(): string;
+
+    /**
+     * Indicates the DeviceId of local device.
+     * localDeviceId is valid only when the {@link isLocalCalling} is false. Otherwise localDeviceId is invalid
+     * 
+     * @type { string }
+     * @default ""
+     * @readonly
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 23 dynamic
+     */
+    readonly localDeviceId: string
+
+    /**
+     * Indicates the DeviceId of local device.
+     * localDeviceId is valid only when the {@link isLocalCalling} is false. Otherwise localDeviceId is invalid
+     * 
+     * @returns { string } Return the DeviceId of local device.
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 23 static
+     */
+    get localDeviceId(): string;
+
+    /**
+     * Indicates whether the peer process is a process of the local device.
+     * 
+     * @type { boolean }
+     * @default true
+     * @readonly
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 23 dynamic
+     */
+    readonly isLocalCalling: boolean
+
+    /**
+     * Indicates whether the peer process is a process of the local device.
+     * 
+     * @returns { boolean } Return {@code true} if the call is made on the same device; return {@code false} otherwise.
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 23 static
+     */
+    get isLocalCalling(): boolean;
+  }
 
   /**
    * @extends IRemoteObject
@@ -3330,6 +3469,33 @@ declare namespace rpc {
       data: MessageSequence,
       reply: MessageSequence,
       options: MessageOption
+    ): boolean | Promise<boolean>;
+	
+    /**
+     * Sets an entry for receiving requests.
+     * <p>This method is implemented by the remote service provider. You need to override this method with
+     * your own service logic when you are using IPC.
+     *
+     * @param { int } code - Indicates the service request code sent from the peer end.
+     * @param { MessageSequence } data - Indicates the {@link MessageSequence} object sent from the peer end.
+     * @param { MessageSequence } reply - Indicates the response message object sent from the remote service.
+     * The local service writes the response data to the {@link MessageSequence} object.
+     * @param { MessageOption } options - Indicates whether the operation is synchronous or asynchronous.
+     * @param { CallingInfo } callingInfo - Indicates the calling information.
+     * @returns { boolean | Promise<boolean> }
+     * Return a simple boolean which is {@code true} if the operation succeeds;
+     * {{@code false} otherwise} when the function call is synchronous.
+     * Return a promise object with a boolean when the function call is asynchronous.
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 23 dynamic
+     * @since 23 static
+     */
+    onRemoteMessageRequest(
+      code: int,
+      data: MessageSequence,
+      reply: MessageSequence,
+      options: MessageOption,
+      callingInfo?: CallingInfo
     ): boolean | Promise<boolean>;
 
     /**

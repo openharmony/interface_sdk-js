@@ -20,6 +20,7 @@
 
 import type systemManager from './@ohos.enterprise.systemManager';
 import common from './@ohos.enterprise.common';
+import EnterpriseAdminExtensionContext from './application/EnterpriseAdminExtensionContext';
 
 /**
  * Class of the enterprise admin extension ability.
@@ -29,6 +30,16 @@ import common from './@ohos.enterprise.common';
  * @since 12
  */
 export default class EnterpriseAdminExtensionAbility {
+  /**
+   * Indicates enterpriseAdmin extension context.
+   *
+   * @type { EnterpriseAdminExtensionContext }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  context: EnterpriseAdminExtensionContext;
+
   /**
    * Called back when an application is enabled.
    *
@@ -210,4 +221,14 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 23
    */
   onDeviceAdminDisabled(bundleName: string): void;
+
+  /**
+   * Called back when the log has collected.
+   *
+   * @param { common.Result } result - result indicates the result of collect log.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  onLogCollected(result: common.Result): void;
 }

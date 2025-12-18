@@ -57,9 +57,7 @@ declare namespace screenshot {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 11 dynamic
-   * @since 20 static
-   */
+   * @since 11 dynamic   */
   /**
    * Takes a screenshot and saves it as a PixelMap object.
    *
@@ -128,9 +126,7 @@ declare namespace screenshot {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 7 dynamic
-   * @since 20 static
-   */
+   * @since 7 dynamic   */
   /**
    * Takes a screenshot and saves it as a PixelMap object.
    *
@@ -157,9 +153,7 @@ declare namespace screenshot {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 7 dynamic
-   * @since 20 static
-   */
+   * @since 7 dynamic   */
   /**
    * Takes a screenshot and saves it as a PixelMap object.
    *

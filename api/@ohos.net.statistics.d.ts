@@ -616,7 +616,6 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
    */
   /**
    * Detailed information of statistics.
@@ -631,7 +630,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Bytes of received.
@@ -647,7 +645,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Bytes of send.
@@ -663,7 +660,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Packets of received.
@@ -679,7 +675,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
      */
     /**
      * Packets of send.
@@ -818,7 +813,6 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
    */
   /**
    * Parameters for obtaining detailed information on specified network traffic usage.
@@ -833,7 +827,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Network type for querying traffic.
@@ -848,7 +841,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Start time for querying traffic.
@@ -863,7 +855,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * End time for querying traffic.
@@ -878,7 +869,6 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * SIM card id for querying traffic.

@@ -2097,6 +2097,32 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 23 dynamic
    */
   fallbackLineSpacing(enabled: Optional<boolean>): TextAreaAttribute;
+
+  /**
+   * Used to set the selected drag preview style.
+   *
+   * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+   *     If set undefined will reset the style.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextAreaAttribute;
+
+  /**
+   * Set the text direction.
+   *
+   * @param { TextDirection | undefined } direction - Indicates the text direction.
+   *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  textDirection(direction: TextDirection | undefined): TextAreaAttribute;
 }
 
 /**

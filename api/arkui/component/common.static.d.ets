@@ -39,10 +39,10 @@ import { ComponentContent } from '../../arkui/ComponentContent';
 import { ResizableOptions } from "./image";
 import intl from '../../@ohos.intl';
 import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
-import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics } from "./units";
+import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions } from "./units";
 import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
 import { ScrollState } from "./list";
-import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool } from "./enums";
+import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType } from "./enums";
 import { TextRange } from "./textCommon";
 import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
@@ -2287,9 +2287,10 @@ export declare interface RotateOptions {
  *
  * @interface RotateAngleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 22 static
  */
-declare interface RotateAngleOptions {
+export declare interface RotateAngleOptions {
   /**
    * the angle of the x-axis direction.
    *
@@ -2455,6 +2456,17 @@ export declare class DrawModifier {
      * @since 22 static
      */
      drawFront(drawContext: DrawContext): void;
+    /**
+     * Draws content in the overlay layer after the associated Node and all its children have been drawn.
+     *
+     * Custom drawing consists of five layers: Behind, Content, Front, Foreground, and Overlay.
+     * - The Foreground and Overlay layers are drawn after child nodes.
+     * - The Overlay layer differs from Foreground in that it can draw outside the bounds of the component.
+     * @param { DrawContext } drawContext - The drawContext used to draw
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    drawOverlay(drawContext: DrawContext): void;
     /**
      * Invalidate the component, which will cause a re-render of the component.
      * No overloading is allowed or needed.
@@ -5442,6 +5454,15 @@ export declare interface DragEvent {
      */
     startDataLoading(options: DataSyncOptions): string | undefined;
     /**
+     * Get the id of display which the drag event is occuring on.
+     *
+     * @returns { int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+     getDisplayId(): int;
+    /**
      * Enable the internal drop animation, which is only avaiable for system applications.
      *
      * The animations' configuration need to be provided through the input paramerter, and it is a string in json format.
@@ -6643,22 +6664,26 @@ export declare interface PopupMaskType {
  */
 export declare interface PopupBorderLinearGradient {
     /**
-     * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
+     * direction: Direction of Linear Gradient.
      *
      * @type { ?GradientDirection }
+     * @default GradientDirection.Bottom
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
     direction?: GradientDirection;
     /**
-     * Defines color description for gradients.
-     * double: The position of the color stop. The value range is 0 to 1.
+     * Sets the colors and positions of the gradient.
      *
-     * @type { Array<[ResourceColor, double]> }
+     * When the color setting is undefined, use the default value Color.Black.
+     * The position setting ranges from 0 to 1.
+     *
+     * @type { Array<[ResourceColor | undefined, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    colors: Array<[ResourceColor, double]>;
+    colors: Array<[ResourceColor | undefined, double]>;
 }
 /**
  * Popup common options
@@ -7021,6 +7046,16 @@ export declare interface TipsOptions {
      * @since 22 static
      */
     arrowHeight?: Dimension;
+    /**
+     * Set the display location mode for tips. Tips can be shown around the component or follow the mouse cursor.
+     *
+     * @type { ?TipsAnchorType }
+     * @default TipsAnchorType.TARGET
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    showAtAnchor?: TipsAnchorType;
 }
 /**
  * Defines the popup button.
@@ -7818,6 +7853,33 @@ export declare enum PreviewScaleMode {
     MAINTAIN = 2
 }
 /**
+ * Defines the content transition effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export declare class ContentTransitionEffect {
+  /**
+   * When the content changes,there is no animation effect.
+   *
+   * @type {ContentTransitionEffect}
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  static get IDENTITY(): ContentTransitionEffect;
+
+  /**
+   * When the content changes,there is a smooth fade-in and fade-out effect.
+   *
+   * @type {ContentTransitionEffect}
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  static get OPACITY(): ContentTransitionEffect;
+}
+/**
  * Defines the type of border radius.
  *
  * @typedef { Length | BorderRadiuses | LocalizedBorderRadiuses }
@@ -7855,6 +7917,36 @@ export declare enum HapticFeedbackMode {
      */
     AUTO = 2
 }
+
+/**
+ * Define the mode of menu how to avoid keyboard.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare enum MenuKeyboardAvoidMode {
+  /**
+   * Menu will not avoid keyboard.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  NONE = 0,
+
+  /**
+   * First menu will avoid keyboard by changing its placement.
+   * And then menu will avoid by resizing height when new placement is still not high enough.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  TRANSLATE_AND_RESIZE = 1
+}
+
 /**
  * Defines the context menu options.
  *
@@ -8200,34 +8292,57 @@ export declare interface ContextMenuOptions {
      */
     anchorPosition?: Position;
 
-  /**
-   * Defines the max height of menu.
-   *
-   * @type { ?LengthMetrics }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  maxHeight?: LengthMetrics;
+    /**
+     * Defines the max height of menu.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    maxHeight?: LengthMetrics;
 
-  /**
-   * Define the menu theme color mode.
-   *
-   * @type { ?AnchoredColorMode }
-   * @default AnchoredColorMode.SYSTEM
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  colorMode?: AnchoredColorMode;
+    /**
+     * Define the menu theme color mode.
+     *
+     * @type { ?AnchoredColorMode }
+     * @default AnchoredColorMode.SYSTEM
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    colorMode?: AnchoredColorMode;
 
-  /**
-   * Determine if preview scale maintain aspect ratio.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  maintainScaleEnabled?: boolean;
+    /**
+     * Determine if preview scale maintain aspect ratio.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    maintainScaleEnabled?: boolean;
+
+    /**
+     * Determine the mode of menu how to avoid keyboard.
+     *
+     * No avoiding by default
+     *
+     * @type { ?MenuKeyboardAvoidMode }
+     * @default MenuKeyboardAvoidMode.NONE
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    keyboardAvoidMode?: MenuKeyboardAvoidMode;
+
+    /**
+     * Defines the minimum distance between menu and keyboard.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    minKeyboardAvoidDistance?: LengthMetrics;
 }
 /**
  * Defines the menu options.
@@ -10911,6 +11026,18 @@ export declare interface CommonMethod {
      */
     default bindContextMenu(content: CustomBuilder | undefined, responseType: ResponseType | undefined, options?: ContextMenuOptions): this;
     /**
+     * Binds a context menu to this component, which is displayed when the user long-presses or right-clicks the
+     * component. Only custom menu items are supported. Long pressing with a mouse device is not supported.
+     *
+     * @param { CustomBuilderT<ResponseType> | undefined } content - Indicates the content of context menu. Undefined
+     *     means unbinding.
+     * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default bindContextMenu(content: CustomBuilderT<ResponseType> | undefined, options?: ContextMenuOptions): this;
+    /**
      * Binds a context menu to the component, whose visibility is subject to the isShown settings.
      *
      * @param { boolean | undefined } isShown - true means display content, false means hide content, default is false.
@@ -11406,6 +11533,25 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default systemMaterial(material: SystemUiMaterial | undefined): this;
+    /**
+     * Sets the state anouncement text of the component under accessibility.
+     *
+     * @param { string | Resource | undefined } description the state anouncement text of the component under accessibility.
+     *     if incoming is undefined, it will be processed as empty string.
+     * @returns { this } return component instance who call the method.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default accessibilityStateDescription(description: string | Resource | undefined): this;
+    /**
+     * Sets AccessibilityActionOptions that can affect operation under accessibility.
+     *
+     * @param { AccessibilityActionOptions | undefined } option - set accessibility specific operation options.
+     * @returns { this } return component instance who call the method.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default accessibilityActionOptions(option: AccessibilityActionOptions | undefined): this;
 }
 /**
  * CommonAttribute for ide.
@@ -12199,6 +12345,15 @@ export declare abstract class TextContentControllerBase {
      * @since 23 static
      */
     deleteBackward(): void;
+
+    /**
+     * Scroll the input field component to make the specified content visible.
+     * @param { TextRange } [range] - The visible range.
+     *     If the parameter is invalid, this method will have no effect.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    scrollToVisible(range?: TextRange): void
 }
 /**
  * Enum of scrollable containers' content clip mode.

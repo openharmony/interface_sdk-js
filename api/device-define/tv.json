@@ -176,7 +176,6 @@
     "SystemCapability.Update.UpdateService",
     "SystemCapability.Test.UiTest",
     "SystemCapability.Base",
-    "SystemCapability.Communication.SoftBus.Core",
     "SystemCapability.Multimedia.Camera.Core",
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.USB.USBManager",

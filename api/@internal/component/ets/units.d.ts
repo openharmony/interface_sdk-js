@@ -3650,7 +3650,7 @@ declare interface AccessibilityOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   stateControllerRoleType?: AccessibilityRoleType;
 
@@ -3662,7 +3662,7 @@ declare interface AccessibilityOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   stateControllerId?: string;
 
@@ -3674,7 +3674,7 @@ declare interface AccessibilityOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   actionControllerRoleType?: AccessibilityRoleType;
 
@@ -3686,9 +3686,33 @@ declare interface AccessibilityOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   actionControllerId?: string;
+}
+
+/**
+ * Defines the struct of AccessibilityActionOptions that can affect operation under accessibility.
+ *
+ * @interface AccessibilityActionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare interface AccessibilityActionOptions {
+  /**
+   * scrollStep - the step when the component is scrolled by accessibility.
+   *
+   * @type { ?(number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  scrollStep?: number;
 }
 
 /**

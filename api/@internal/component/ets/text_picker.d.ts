@@ -845,7 +845,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { function } callback
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
    */
   onAccept(callback: (value: string, index: number) => void): TextPickerAttribute;
@@ -856,7 +856,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { function } callback
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
    */
   onCancel(callback: () => void): TextPickerAttribute;

@@ -531,6 +531,28 @@ declare interface RichEditorTextStyle {
    * @since 18 dynamic
    */
   textBackgroundStyle?: TextBackgroundStyle;
+
+  /**
+   * The stroke width of the text.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  strokeWidth?: LengthMetrics;
+
+  /**
+   * The stroke color of the text.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  strokeColor?: ResourceColor;
 }
 
 
@@ -690,6 +712,17 @@ declare interface RichEditorParagraphStyle {
    * @since 19 dynamic
    */
   paragraphSpacing?: number;
+
+  /**
+   * Text direction, the default value is TextDirection.DEFAULT.
+   *
+   * @type { ?TextDirection } - the text direction of the paragraph.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  textDirection?: TextDirection;
 }
 
 /**
@@ -1261,6 +1294,28 @@ declare interface RichEditorTextStyleResult {
    * @since 18 dynamic
    */
   textBackgroundStyle?: TextBackgroundStyle;
+
+  /**
+   * Get the stroke width of the text with the unit 'vp'.
+   *
+   * @type { ?number } - the stroke width of the text or undefined
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  strokeWidth?: number;
+
+  /**
+   * Get the stroke color of the text.
+   *
+   * @type { ?ResourceColor } - the stroke color of the text or undefined
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  strokeColor?: ResourceColor;
 }
 
 /**
@@ -4237,6 +4292,55 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 23 dynamic
    */
   singleLine(isEnable: boolean | undefined): RichEditorAttribute;
+
+  /**
+   * Used to set the selected drag preview style.
+   *
+   * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+   *     If set undefined will reset the style.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): RichEditorAttribute;
+
+  /**
+   * Whether to compress punctuation at the beginning of line.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  compressLeadingPunctuation(enabled: Optional<boolean>): RichEditorAttribute;
+
+  /**
+   * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+   *
+   * @param { Optional<boolean> } include - Whether enable the feature, the default value is false.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  includeFontPadding(include: Optional<boolean>): RichEditorAttribute;
+
+  /**
+   * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+   *
+   * @param { Optional<boolean> } enabled - Whether enable the feature, the default value is false.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fallbackLineSpacing(enabled: Optional<boolean>): RichEditorAttribute;
 }
 
 /**

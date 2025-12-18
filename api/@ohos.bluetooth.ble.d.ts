@@ -20,6 +20,7 @@
 
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type constant from './@ohos.bluetooth.constant';
+import type common from './@ohos.bluetooth.common';
 
 /**
  * Provides methods to operate or manage Bluetooth.
@@ -72,7 +73,14 @@ declare namespace ble {
    * @since 22 static
    */
   type ProfileConnectionState = constant.ProfileConnectionState;
-
+  /**
+   * Bluetooth device address.
+   *
+   * @typedef { common.BluetoothAddress } BluetoothAddress
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 23 dynamic&static
+   */
+  type BluetoothAddress = common.BluetoothAddress;
   /**
    * create a Gatt server instance.
    *
@@ -5361,6 +5369,14 @@ declare namespace ble {
      */
     deviceId: string;
     /**
+     * The address object of a BLE peripheral device, including the address type.
+     *
+     * @type { ?BluetoothAddress }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 23 dynamic&static
+     */
+    address?: BluetoothAddress;
+    /**
      * RSSI of the remote device
      *
      * @type { number }
@@ -5534,7 +5550,7 @@ declare namespace ble {
 
   /**
    * Describes the contents of the scan report.
-   * 
+   *
    * @typedef ScanReport
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
@@ -5804,6 +5820,19 @@ declare namespace ble {
      * @since 22 static
      */
     includeTxPower?: boolean;
+    /**
+     * Indicates the local name data type in the advertisement packet. If both the property and
+     * {@link AdvertiseData#includeDeviceName} property are used together,
+     * the {@link AdvertiseData#advertiseName} property will ultimately take effect.
+     *
+     * @permission ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME
+     * @type { ?string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    advertiseName?: string;
   }
 
   /**
@@ -6203,6 +6232,24 @@ declare namespace ble {
      * @since 22 static
      */
     deviceId?: string;
+    /**
+     * The address object of a BLE peripheral device, including the address type.
+     *
+     * @type { ?BluetoothAddress }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 23 dynamic&static
+     */
+    address?: BluetoothAddress;
+    /**
+     * Identity Resolving Key of BLE peripheral device.
+     * {@link ScanFilter#irk} needs to be used with {@link ScanFilter#address}.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    irk?: Uint8Array;
 
     /**
      * The name of a BLE peripheral device
@@ -6473,6 +6520,17 @@ declare namespace ble {
      * @since 22 static
      */
     manufactureDataMask?: ArrayBuffer;
+
+    /**
+     * RSSI threshold for filtering advertising that pass through.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    rssiThreshold?: int;
   }
 
   /**
@@ -6863,7 +6921,7 @@ declare namespace ble {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 
+   * @since 10
    */
   /**
    * The enum of scan duty.

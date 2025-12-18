@@ -1,6 +1,7 @@
+'use static';
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -13,20 +14,17 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from './component/common';
-import { ButtonAttribute } from './component/button';
-
 /**
  * @file
  * @kit ArkUI
  */
+import { AttributeModifier } from '@ohos.arkui.component';
+import { PickerAttribute } from '@ohos.arkui.component';
 
 /**
- * Defines Button Modifier
- *
- * @implements ButtonAttribute, AttributeModifier<ButtonAttribute>
+ * Defines Picker Modifier
+ * @implements { PickerAttribute, AttributeModifier<PickerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 22 static
-*/
-export declare class ButtonModifier implements ButtonAttribute, AttributeModifier<ButtonAttribute> {}
+ * @since 23 static
+ */
+export declare class PickerModifier implements PickerAttribute, AttributeModifier<PickerAttribute> {}

@@ -136,6 +136,7 @@ declare namespace runningLock {
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 7 dynamic
+     * @since 23 static
      * @deprecated since 10
      */
     BACKGROUND = 1,

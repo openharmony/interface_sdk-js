@@ -24,7 +24,7 @@ import { FontStyle, FontWeight, TextAlign, WordBreak, LineBreakStrategy, ImageSp
 import { DecorationStyleInterface, StyledString, MutableStyledString } from './styledString';
 import { Resource } from './../../../api/global/resource';
 import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
-import { DecorationStyleResult, TextRange, MenuType, TextEditControllerEx, LayoutManager, PreviewText, StyledStringController, StyledStringChangedListener, TextDataDetectorConfig, OnDidChangeCallback, EditMenuOptions, KeyboardAppearance, AccessibilitySpanOptions } from './textCommon';
+import { DecorationStyleResult, TextRange, MenuType, TextEditControllerEx, LayoutManager, PreviewText, StyledStringController, StyledStringChangedListener, TextDataDetectorConfig, OnDidChangeCallback, EditMenuOptions, KeyboardAppearance, AccessibilitySpanOptions, TextDirection, SelectedDragPreviewStyle } from './textCommon';
 import { GestureEvent } from './gesture';
 import { EnterKeyType, SubmitEvent } from './textInput';
 import { LengthMetrics, ColorMetrics } from '../Graphics';
@@ -273,6 +273,22 @@ export declare interface RichEditorTextStyle {
      * @since 22 static
      */
     textBackgroundStyle?: TextBackgroundStyle;
+    /**
+     * The stroke width of the text.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    strokeWidth?: LengthMetrics;
+    /**
+     * The stroke color of the text.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    strokeColor?: ResourceColor;
 }
 /**
  * Defines the leading margin placeholder of a paragraph.
@@ -350,6 +366,14 @@ export declare interface RichEditorParagraphStyle {
      * @since 22 static
      */
     paragraphSpacing?: double;
+    /**
+     * Text direction, the default value is TextDirection.DEFAULT.
+     *
+     * @type { ?TextDirection } - the text direction of the paragraph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    textDirection?: TextDirection;
 }
 /**
  * Defines the paste event.
@@ -627,6 +651,23 @@ export declare interface RichEditorTextStyleResult {
      * @since 22 static
      */
     textBackgroundStyle?: TextBackgroundStyle;
+    /**
+     * Get the stroke width of the text.
+     * The unit is vp.
+     *
+     * @type { ?double } - the stroke width of the text or undefined
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    strokeWidth?: double;
+    /**
+     * Get the stroke color of the text.
+     *
+     * @type { ?ResourceColor } - the stroke color of the text or undefined
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    strokeColor?: ResourceColor;
 }
 /**
  * Defines the paragraph result.
@@ -1914,15 +1955,6 @@ export declare interface RichEditorAttribute extends CommonMethod {
         responseType: ResponseType | RichEditorResponseType | undefined,
         options?: SelectionMenuOptions | undefined): this;
     /**
-     * Define custom keyboard.
-     *
-     * @param { CustomBuilder | undefined } value - Set up a custom keyboard of RichEditor
-     * @param { KeyboardOptions | undefined } [options] - Indicates the custom keyboard options of RichEditor
-     * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    /**
      * Set custom keyboard of the rich editor.
      *
      * @param { CustomBuilder | ComponentContent | undefined } value - The custom keyboard of RichEditor
@@ -1930,6 +1962,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @param { KeyboardOptions | undefined } [options] - Indicates the custom keyboard options of RichEditor
      * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default customKeyboard(value: CustomBuilder | ComponentContent | undefined,
@@ -2134,6 +2167,28 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @since 22 static
      */
     default stopBackPress(isStopped: boolean | undefined): this;
+
+    /**
+     * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+     *
+     * @param { boolean | undefined } include - Whether enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default includeFontPadding(include: boolean | undefined): this;
+
+    /**
+     * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+     *
+     * @param { boolean | undefined } enabled - Whether enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default fallbackLineSpacing(enabled: boolean | undefined): this;
     /**
      * Whether to enable single line mode.
      *
@@ -2144,6 +2199,16 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */
     default singleLine(isEnable: boolean | undefined): this;
     /**
+    * Whether to compress punctuation at the beginning of line.
+    *
+    * @param { boolean | undefined } enabled - Whether to enable the feature, the default value is false.
+    *     Passing `undefined` resets it to the default value.
+    * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    default compressLeadingPunctuation(enabled: boolean | undefined): this;
+    /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<RichEditorAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
@@ -2153,6 +2218,16 @@ export declare interface RichEditorAttribute extends CommonMethod {
      */    
     default attributeModifier(modifier: AttributeModifier<RichEditorAttribute> | AttributeModifier<CommonMethod> |
         undefined): this;
+    /**
+     * Used to set the selected drag preview style.
+     *
+     * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+     *     If set undefined will reset the style.
+     * @returns { RichEditorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): this;
 }
 /**
  * the callback of cut event.

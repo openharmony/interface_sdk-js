@@ -24,7 +24,9 @@
  * @typedef MissionParameter
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
+ * @stagemodelonly
  * @since 9 dynamic
+ * @since 23 static
  */
 export interface MissionParameter {
   /**
@@ -34,7 +36,9 @@ export interface MissionParameter {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
   deviceId: string;
 
@@ -45,7 +49,9 @@ export interface MissionParameter {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
   fixConflict: boolean;
 
@@ -53,10 +59,12 @@ export interface MissionParameter {
    * Tag used to be specified.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
-  tag: number;
+  tag: int;
 }

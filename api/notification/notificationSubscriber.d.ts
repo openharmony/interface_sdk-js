@@ -137,7 +137,7 @@ export interface NotificationSubscriber {
   onEnabledNotificationChanged?: (callbackData: EnabledNotificationCallbackData) => void;
 
   /**
-   * Callback when the priority notification switch is changed.
+   * Called when the enabling status of the priority notification changes.
    * 
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
@@ -147,7 +147,7 @@ export interface NotificationSubscriber {
   onEnabledPriorityChanged?: (callbackData: EnabledPriorityNotificationCallbackData) => void;
 
   /**
-   * Callback when the priority notification switch by bundle is changed.
+   * Called when the enabling status of the application priority notification changes.
    * 
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification

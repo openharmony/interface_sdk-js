@@ -161,7 +161,7 @@ declare namespace audioHaptic {
      * Create an audio haptic player. This method uses a promise to return the result. If haptics is needed, caller
      * should have the permission of ohos.permission.VIBRATE.
      * @permission ohos.permission.VIBRATE
-     * @param { int } id - Source id.
+     * @param { number } id - Source id.
      * @param { AudioHapticPlayerOptions } options - Options when creating audio haptic player.
      * @returns { Promise<AudioHapticPlayer> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -173,9 +173,24 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 5400106 - Unsupport format.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
+     */
+    createPlayer(id: number, options?: AudioHapticPlayerOptions): Promise<AudioHapticPlayer>;
+
+    /**
+     * Create an audio haptic player. This method uses a promise to return the result. If haptics is needed, caller
+     * should have the permission of ohos.permission.VIBRATE.
+     * @permission ohos.permission.VIBRATE
+     * @param { int } id - Source id.
+     * @param { AudioHapticPlayerOptions } options - Options when creating audio haptic player.
+     * @returns { Promise<AudioHapticPlayer | null> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 22 static
      */
-    createPlayer(id: int, options?: AudioHapticPlayerOptions): Promise<AudioHapticPlayer>;
+    createPlayer(id: int, options?: AudioHapticPlayerOptions): Promise<AudioHapticPlayer | null>;
 
     /**
      * Register audio and haptic file represented by fd into manager. Audio and haptic works are paired while playing.

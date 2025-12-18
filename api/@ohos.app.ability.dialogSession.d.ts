@@ -21,6 +21,9 @@
 import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 import type { MultiAppMode } from './bundleManager/ApplicationInfo';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * This module provides the capability to manage dialog session.
@@ -211,9 +214,19 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 22 static
      */
     parameters?: Record<string, Object>;
+
+    /**
+     * The description of the params object in dialog session info
+     *
+     * @type { ?Record<string, RecordData> }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 22 static
+     */
+    parameters?: Record<string, RecordData>;
   }
 
   /**

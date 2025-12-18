@@ -296,23 +296,6 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   */
-  function createSubscriber(
-    subscribeInfo: CommonEventSubscribeInfo,
-    callback: AsyncCallback<CommonEventSubscriber>
-  ): void;
-
-  /**
-   * Creates a CommonEventSubscriber for the SubscribeInfo.
-   *
-   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
-   * @param { AsyncCallback<CommonEventSubscriber> } callback - The callback is used to return the
-   *     CommonEventSubscriber object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500001 - Internal error.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @crossplatform
    * @since 22 static
    */
   function createSubscriber(
@@ -341,19 +324,6 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   */
-  function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
-
-  /**
-   * Creates a CommonEventSubscriber for the SubscribeInfo.
-   *
-   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
-   * @returns { Promise<CommonEventSubscriber> } Returns the CommonEventSubscriber object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500001 - Internal error.
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @crossplatform
    * @since 22 static
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
@@ -378,18 +348,6 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   */
-  function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber;
-
-  /**
-   * Creates a CommonEventSubscriber for the SubscribeInfo.
-   *
-   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
-   * @returns { CommonEventSubscriber } Returns the CommonEventSubscriber object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500001 - Internal error.
-   * @syscap SystemCapability.Notification.CommonEvent
    * @since 22 static
    */
   function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber;
@@ -758,7 +716,7 @@ declare namespace commonEventManager {
      * This commonEvent means when the user is present after the device is awakened.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 10
      */
     COMMON_EVENT_USER_PRESENT = 'usual.event.USER_PRESENT',
@@ -1347,7 +1305,7 @@ declare namespace commonEventManager {
      * Bluetooth.handsfree.ag.current.device.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CURRENT_DEVICE_UPDATE =
@@ -1357,7 +1315,7 @@ declare namespace commonEventManager {
      * Bluetooth.handsfree.ag.audio.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_AUDIO_STATE_UPDATE =
@@ -1378,7 +1336,7 @@ declare namespace commonEventManager {
      * Bluetooth.a2dpsource.current.device.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CURRENT_DEVICE_UPDATE =
@@ -1388,7 +1346,7 @@ declare namespace commonEventManager {
      * Bluetooth.a2dpsource.playing.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_PLAYING_STATE_UPDATE =
@@ -1420,7 +1378,7 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.discovered.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_DISCOVERED =
@@ -1430,7 +1388,7 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.class.value.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CLASS_VALUE_UPDATE =
@@ -1462,7 +1420,7 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.name.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_NAME_UPDATE =
@@ -1483,7 +1441,7 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.battery.value.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_BATTERY_VALUE_UPDATE =
@@ -1493,7 +1451,7 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.sdp.result.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_SDP_RESULT =
@@ -1503,7 +1461,7 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.uuid.value.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_UUID_VALUE =
@@ -1513,7 +1471,7 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.pairing.req.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_REQ =
@@ -1523,7 +1481,7 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.pairing.cancel.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_CANCEL =
@@ -1533,7 +1491,7 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.connect.req.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REQ =
@@ -1543,7 +1501,7 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.connect.reply.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REPLY =
@@ -1553,7 +1511,7 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.connect.cancel.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_CANCEL =
@@ -1563,7 +1521,7 @@ declare namespace commonEventManager {
      * Bluetooth.handsfreeunit.connect.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_CONNECT_STATE_UPDATE =
@@ -1573,7 +1531,7 @@ declare namespace commonEventManager {
      * Bluetooth.handsfreeunit.audio.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AUDIO_STATE_UPDATE =
@@ -1583,7 +1541,7 @@ declare namespace commonEventManager {
      * Bluetooth.handsfreeunit.ag.common.event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_COMMON_EVENT =
@@ -1593,7 +1551,7 @@ declare namespace commonEventManager {
      * Bluetooth.handsfreeunit.ag.call.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_CALL_STATE_UPDATE =
@@ -1603,7 +1561,7 @@ declare namespace commonEventManager {
      * Bluetooth.host.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HOST_STATE_UPDATE =
@@ -1613,7 +1571,7 @@ declare namespace commonEventManager {
      * Bluetooth.host.req.discoverable.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HOST_REQ_DISCOVERABLE =
@@ -1623,7 +1581,7 @@ declare namespace commonEventManager {
      * Bluetooth.host.req.enable.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HOST_REQ_ENABLE = 'usual.event.bluetooth.host.REQ_ENABLE',
@@ -1632,7 +1590,7 @@ declare namespace commonEventManager {
      * Bluetooth.host.req.disable.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HOST_REQ_DISABLE =
@@ -1642,17 +1600,27 @@ declare namespace commonEventManager {
      * Bluetooth.host.scan.mode.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HOST_SCAN_MODE_UPDATE =
         'usual.event.bluetooth.host.SCAN_MODE_UPDATE',
 
     /**
+     * Indicates the action of a common event that bluetooth scan mode change.
+     * To subscribe to this protected common event, your application must have the ohos.permission.ACCESS_BLUETOOTH
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 23 dynamic&static
+     */
+    COMMON_EVENT_BLUETOOTH_HOST_SCAN_MODE_CHANGE =
+        'usual.event.bluetooth.host.SCAN_MODE_CHANGE',
+
+    /**
      * Bluetooth.host.discovery.stated.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_STARTED =
@@ -1662,7 +1630,7 @@ declare namespace commonEventManager {
      * Bluetooth.host.discovery.finished.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_FINISHED =
@@ -1672,7 +1640,7 @@ declare namespace commonEventManager {
      * Bluetooth.host.name.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HOST_NAME_UPDATE =
@@ -1682,7 +1650,7 @@ declare namespace commonEventManager {
      * Bluetooth.a2dp.connect.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_CONNECT_STATE_UPDATE =
@@ -1692,7 +1660,7 @@ declare namespace commonEventManager {
      * Bluetooth.a2dp.playing.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_PLAYING_STATE_UPDATE =
@@ -1702,7 +1670,7 @@ declare namespace commonEventManager {
      * Bluetooth.a2dp.audio.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_AUDIO_STATE_UPDATE =
@@ -2872,6 +2840,22 @@ declare namespace commonEventManager {
      * @since 22 static
      */
     COMMON_EVENT_CLOUD_DISK_STATE_CHANGED = 'usual.event.CLOUD_DISK_STATE_CHANGED',
+
+    /**
+     * This common event means that the open and closed state of the stand associated with the tablet mode has changed.
+     * This is a protected common event that can only be sent by system.
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 22 dynamic&static
+     */
+    COMMON_EVENT_TABLET_MODE_CHANGED = 'usual.event.TABLET_MODE_CHANGED',
+
+    /**
+     * This common event means that the state (open or closed) of the laptop lid has changed.
+     * This is a protected common event that can only be sent by system.
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 22 dynamic&static
+     */
+    COMMON_EVENT_LID_STATE_CHANGED = 'usual.event.LID_STATE_CHANGED',
   }
 
   /**

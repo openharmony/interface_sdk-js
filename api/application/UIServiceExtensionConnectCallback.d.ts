@@ -18,6 +18,10 @@
  * @kit AbilityKit
  */
 
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
+
 /**
  * UI service extension connect callback.
  *
@@ -37,9 +41,18 @@ export default interface UIServiceExtensionConnectCallback {
    * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
    */
   onData(data: Record<string, Object>): void;
+
+  /**
+   * Called back when data is sent.
+   *
+   * @param { Record<string, RecordData> } data - Indicates the received data.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onData(data: Record<string, RecordData>): void;
 
   /**
    * The callback interface was disconnected successfully.

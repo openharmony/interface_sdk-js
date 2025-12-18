@@ -128,7 +128,7 @@ declare namespace inputConsumer {
 
     /**
      * Modified key, which can be any key except the modifier keys and Meta key. For details about the keys, see Keycode.
-     * For example, in Ctrl+Shift+Esc, Esc is the modified key.
+     * For example, in Ctrl+Shift+Esc, Esc is called the final key.
      *
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer

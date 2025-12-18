@@ -5033,6 +5033,22 @@ declare namespace drawing {
      * @since 22 dynamic
      */
     static makeFromRawFileWithArguments(rawfile: Resource, typefaceArguments: TypefaceArguments): Typeface;
+
+    /**
+     * Checks if the typeface is bold.
+     * @returns { boolean } Returns true if the typeface is bold; return false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 23 dynamic&static
+     */
+    isBold(): boolean;
+
+    /**
+     * Checks if the typeface is italic.
+     * @returns { boolean } Returns true if the typeface is italic; return false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 23 dynamic&static
+     */
+    isItalic(): boolean;
   }
 
   /**
@@ -10918,6 +10934,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     offset(dx: int, dy: int): void;
 
@@ -11049,6 +11066,30 @@ declare namespace drawing {
      * @since 22 static
      */
     setEmpty(): void;
+
+    /**
+     * Checks if the region is equivalent to a single rectangle.
+     * @returns { boolean } Returns true if the region contains a single rectangle; return false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isRect(): boolean;
+
+    /**
+     * Checks if the region is equivalent to a single rectangle and it contains the specified rectangle.
+     * @param { int } left - Indicates the left position of the rect.
+     * @param { int } top - Indicates the top position of the rect.
+     * @param { int } right - Indicates the right position of the rect.
+     * @param { int } bottom - Indicates the bottom position of the rect.
+     * @returns { boolean } Returning true guarantees that the rectangle is contained by this region; however, returning
+     *     false indicates that the region is not equivalent to a single rectangle or the rectangle is not contained by
+     *     this region.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    quickContains(left: int, top: int, right: int, bottom: int): boolean;
   }
 
   /**

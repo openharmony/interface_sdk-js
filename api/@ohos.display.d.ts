@@ -1020,7 +1020,6 @@ declare namespace display {
    * @param { long } [displayId] - The optional display id indicate the display relative to. 
    * If not specified,use the display where the coodinates are located.
    * @returns { RelativePosition } The relative coordinates.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -1035,7 +1034,6 @@ declare namespace display {
    *
    * @param { RelativePosition } relativePosition - The relative coordinates to be converted.
    * @returns { Position } The global coordinates.
-   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -1748,6 +1746,83 @@ declare namespace display {
      * @since 22 static
      */
     ALONE = 4
+  }
+
+  /**
+   * Enumerates the type of round corner.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 23 dynamic&static
+   */
+  enum CornerType {
+    /**
+     * The round corner in the top left.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    TOP_LEFT = 0,
+ 
+    /**
+     * The round corner in the top right.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    TOP_RIGHT = 1,
+
+    /**
+     * The round corner in the bottom right.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    BOTTOM_RIGHT = 2,
+
+    /**
+     * The round corner in the bottom left.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    BOTTOM_LEFT = 3
+  }
+
+  /**
+   * Round corner information of display.
+   *
+   * @interface RoundedCorner
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 23 dynamic&static
+   */
+  interface RoundedCorner {
+    /**
+     * The type of round corner.
+     *
+     * @type { CornerType }
+     * @syscap  SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    type: CornerType;
+
+    /**
+     * The cneter coordinates of round corner.
+     *
+     * @type { Position }
+     * @syscap  SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    position: Position;
+
+    /**
+     * The radius of round corner.
+     *
+     * @type { int }
+     * @syscap  SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    radius: int;
   }
 
   /**
@@ -2634,6 +2709,18 @@ declare namespace display {
      * @since 22 static
      */
     supportedRefreshRates?: Array<int>;
+
+    /**
+     * Get information about all the rounded corners.
+     * 
+     * @returns { Array<RoundedCorner> } The rounded corners.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 1400001 - Invalid display or screen.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     */
+    getRoundedCorner(): Array<RoundedCorner>;
 
     /**
      * Obtain the cutout info of the display.

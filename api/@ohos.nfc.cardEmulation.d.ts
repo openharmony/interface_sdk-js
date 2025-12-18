@@ -52,8 +52,9 @@ declare namespace cardEmulation {
      * This constant is used to check whether HCE card emulation is supported.
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.nfc.cardEmulation/cardEmulation#hasHceCapability
      */
     HCE = 0,
 
@@ -61,8 +62,9 @@ declare namespace cardEmulation {
      * This constant is used to check whether SIM card emulation is supported.
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.nfc.cardEmulation/cardEmulation#hasHceCapability
      */
     UICC = 1,
 
@@ -70,8 +72,9 @@ declare namespace cardEmulation {
      * This constant is used to check whether eSE card emulation is supported.
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.nfc.cardEmulation/cardEmulation#hasHceCapability
      */
     ESE = 2
   }

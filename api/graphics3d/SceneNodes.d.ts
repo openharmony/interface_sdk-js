@@ -23,7 +23,7 @@ import { Effect } from './SceneResources';
 /*** endif */
 import { SceneResource, Mesh, Morpher } from './SceneResources';
 import { RaycastParameters, RaycastResult } from './Scene';
-import { Position3, Quaternion, Scale3, Color, Vec2, Vec3, RenderingPipelineType } from './SceneTypes';
+import { Position3, Quaternion, Scale3, Color, Vec2, Vec3, RenderingPipelineType, Mat4x4 } from './SceneTypes';
 import { PostProcessSettings } from './ScenePostProcessSettings';
 
 /**
@@ -109,6 +109,7 @@ export enum NodeType {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
+   * @since 23 static
    */
   CUSTOM = 255
 }
@@ -440,7 +441,7 @@ export interface SpotLight extends Light {
    * @type { ?double }
    * @default 0
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   innerAngle?: double;
 
@@ -450,7 +451,7 @@ export interface SpotLight extends Light {
    * @type { ?double }
    * @default PI / 4.0
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   outerAngle?: double;
 }
@@ -580,4 +581,22 @@ export interface Camera extends Node {
    * @since 22 static
    */
   raycast(viewPosition: Vec2, params: RaycastParameters): Promise<RaycastResult[]>;
+
+  /**
+   * get the view matrix of this camera
+   *
+   * @returns { Mat4x4 } the view matrix of this camera
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  getViewMatrix(): Mat4x4;
+
+  /**
+   * get the projection matrix of this camera
+   *
+   * @returns { Mat4x4 } the projection matrix of this camera
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 23 dynamic&static
+   */
+  getProjectionMatrix(): Mat4x4;
 }
