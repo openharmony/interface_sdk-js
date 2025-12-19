@@ -282,7 +282,7 @@ declare namespace uiExtension {
      * <br> 2. Internal task error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     createSubWindowWithOptions(name: string, subWindowConfig: window.SubWindowOptions,
         followCreatorLifecycle: boolean): Promise<window.Window>;
