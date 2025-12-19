@@ -49,7 +49,8 @@ export {
 /*** if arkts static */
 import unifiedDataChannel from '@ohos.data.unifiedDataChannel';
 import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';
+import uniformDataStruct from '@ohos.data.uniformDataStruct';
 export {
-  unifiedDataChannel, uniformTypeDescriptor
+  unifiedDataChannel, uniformTypeDescriptor, uniformDataStruct
 };
 /*** endif */

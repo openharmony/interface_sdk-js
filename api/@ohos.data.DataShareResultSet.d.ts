@@ -24,10 +24,10 @@ import { ValuesBucket } from './@ohos.data.ValuesBucket';
  * Indicates the {@code DataType}.
  * <p>{@code DataType} is obtained based on the value.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9 dynamic
  * @since 23 static
  */
@@ -37,7 +37,7 @@ export enum DataType {
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -48,7 +48,7 @@ export enum DataType {
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -59,7 +59,7 @@ export enum DataType {
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -70,7 +70,7 @@ export enum DataType {
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -81,7 +81,7 @@ export enum DataType {
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -96,7 +96,7 @@ export enum DataType {
  * @systemapi
  * @stagemodelonly
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default interface DataShareResultSet {
   /**
@@ -107,8 +107,9 @@ export default interface DataShareResultSet {
    * @type { Array<string> }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
   columnNames: Array<string>;
 
@@ -116,13 +117,14 @@ export default interface DataShareResultSet {
    * Obtains the number of columns or keys in the result set.
    * The returned number is equal to the length of the string array returned by the columnCount method.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
-  columnCount: number;
+  columnCount: int;
 
   /**
    * Obtains the number of rows in the result set.
@@ -132,7 +134,7 @@ export default interface DataShareResultSet {
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   rowCount: int;
 
@@ -143,8 +145,9 @@ export default interface DataShareResultSet {
    * @type { boolean }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
   isClosed: boolean;
 
@@ -157,7 +160,7 @@ export default interface DataShareResultSet {
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   goToFirstRow(): boolean;
 
@@ -194,7 +197,7 @@ export default interface DataShareResultSet {
    * returns false otherwise, for example, if the result set is already in the first row.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -209,7 +212,7 @@ export default interface DataShareResultSet {
    * returns false otherwise.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -222,7 +225,7 @@ export default interface DataShareResultSet {
    * @returns { boolean } Returns true if the result set is moved successfully; returns false otherwise.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -237,7 +240,7 @@ export default interface DataShareResultSet {
    * @returns { Uint8Array } Returns the value of the specified column or key as a byte array.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -254,7 +257,7 @@ export default interface DataShareResultSet {
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getString(columnIndex: int): string;
 
@@ -282,7 +285,7 @@ export default interface DataShareResultSet {
    * @returns { double  } Returns the value of the specified column or key as a double.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -296,7 +299,7 @@ export default interface DataShareResultSet {
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   close(): void;
 
@@ -310,7 +313,7 @@ export default interface DataShareResultSet {
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getColumnIndex(columnName: string): int;
 
@@ -322,7 +325,7 @@ export default interface DataShareResultSet {
    * @returns { string } Returns the name of the specified column or key.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */
@@ -337,7 +340,7 @@ export default interface DataShareResultSet {
    * @returns { DataType } Returns the dataType of the specified column or key.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */

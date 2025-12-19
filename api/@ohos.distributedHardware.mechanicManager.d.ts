@@ -27,7 +27,7 @@ import type { Callback } from './@ohos.base';
  * @namespace mechanicManager
  * @syscap SystemCapability.Mechanic.Core
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 
 declare namespace mechanicManager {
@@ -39,7 +39,7 @@ declare namespace mechanicManager {
      * @throws { BusinessError } 33300001 - Service exception.
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function on(type: 'attachStateChange', callback: Callback<AttachStateChangeInfo>): void;
 
@@ -50,7 +50,7 @@ declare namespace mechanicManager {
      * @throws { BusinessError } 33300001 - Service exception.
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function off(type: 'attachStateChange', callback?: Callback<AttachStateChangeInfo>): void;
 
@@ -60,7 +60,7 @@ declare namespace mechanicManager {
      * @throws { BusinessError } 33300001 - Service exception.
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function getAttachedMechDevices(): MechInfo[];
 
@@ -76,7 +76,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function setUserOperation(operation: Operation, mac: string, params: string): void;
 
@@ -88,7 +88,7 @@ declare namespace mechanicManager {
      * @throws { BusinessError } 33300003 - Feature not supported.
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
 
     function setCameraTrackingEnabled(isEnabled: boolean): void;
@@ -101,7 +101,7 @@ declare namespace mechanicManager {
      * @throws { BusinessError } 33300002 - Device not connected.
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
 
     function getCameraTrackingEnabled(): boolean;
@@ -113,7 +113,7 @@ declare namespace mechanicManager {
      * @throws { BusinessError } 33300001 - Service exception.
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function on(type: 'trackingStateChange', callback: Callback<TrackingEventInfo>): void;
 
@@ -124,7 +124,7 @@ declare namespace mechanicManager {
      * @throws { BusinessError } 33300001 - Service exception.
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function off(type: 'trackingStateChange', callback?: Callback<TrackingEventInfo>): void;
 
@@ -138,7 +138,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
 
     function setCameraTrackingLayout(trackingLayout: CameraTrackingLayout): void;
@@ -150,7 +150,7 @@ declare namespace mechanicManager {
      * @throws { BusinessError } 33300002 - Device not connected.
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function getCameraTrackingLayout(): CameraTrackingLayout;
 
@@ -166,7 +166,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
 
     function rotate(mechId: number, angles: RotationAngles, duration: number): Promise<Result>;
@@ -183,7 +183,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
 
     function rotateToEulerAngles(mechId: number, angles: EulerAngles, duration: number): Promise<Result>;
@@ -199,7 +199,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function getMaxRotationTime(mechId: number): number;
 
@@ -214,7 +214,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function getMaxRotationSpeed(mechId: number): RotationSpeed;
 
@@ -230,7 +230,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function rotateBySpeed(mechId: number, speed: RotationSpeed, duration: number): Promise<Result>;
 
@@ -244,7 +244,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function stopMoving(mechId: number): Promise<void>;
 
@@ -258,7 +258,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
 
     function getCurrentAngles(mechId: number): EulerAngles;
@@ -274,7 +274,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
 
     function getRotationLimits(mechId: number): RotationLimits;
@@ -289,7 +289,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function getRotationAxesStatus(mechId: number): RotationAxesStatus;
 
@@ -305,7 +305,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function on(type: 'rotationAxesStatusChange', callback: Callback<RotationAxesStateChangeInfo>): void;
 
@@ -319,7 +319,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function off(type: 'rotationAxesStatusChange', callback?: Callback<RotationAxesStateChangeInfo>): void;
 
@@ -337,7 +337,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function searchTarget(target: TargetInfo, params: SearchParams): Promise<SearchResult>;
 
@@ -346,7 +346,7 @@ declare namespace mechanicManager {
      * @typedef MechInfo
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export interface MechInfo {
         /**
@@ -354,7 +354,7 @@ declare namespace mechanicManager {
          * @type { number }
          * @syscap SystemCapability.Mechanic.Core
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         mechId: number;
 
@@ -364,7 +364,7 @@ declare namespace mechanicManager {
          * @type { MechDeviceType }
          * @syscap SystemCapability.Mechanic.Core
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         mechDeviceType: MechDeviceType;
 
@@ -373,7 +373,7 @@ declare namespace mechanicManager {
          * @type { string }
          * @syscap SystemCapability.Mechanic.Core
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         mechName: string;
     }
@@ -385,7 +385,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export interface RotationAngles {
         /**
@@ -394,7 +394,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
 
         yaw?: number;
@@ -405,7 +405,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
 
         roll?: number;
@@ -416,7 +416,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
 
         pitch?: number;
@@ -429,7 +429,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export interface EulerAngles {
         /**
@@ -438,7 +438,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
 
         yaw?: number;
@@ -449,7 +449,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
 
         roll?: number;
@@ -460,7 +460,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
 
         pitch?: number;
@@ -473,7 +473,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
 
     export interface RotationSpeed {
@@ -483,7 +483,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
 
         yawSpeed?: number;
@@ -494,7 +494,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
 
         rollSpeed?: number;
@@ -505,7 +505,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
 
         pitchSpeed?: number;
@@ -518,7 +518,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
 
     export interface RotationLimits {
@@ -529,7 +529,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         negativeYawMax: number;
 
@@ -540,7 +540,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         positiveYawMax: number;
 
@@ -551,7 +551,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         negativeRollMax: number;
 
@@ -562,7 +562,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         positiveRollMax: number;
 
@@ -573,7 +573,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         negativePitchMax: number;
 
@@ -584,7 +584,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         positivePitchMax: number;
     }
@@ -596,7 +596,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export interface RotationAxesStatus {
         /**
@@ -605,7 +605,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         yawEnabled: boolean;
 
@@ -615,7 +615,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         rollEnabled: boolean;
 
@@ -625,7 +625,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         pitchEnabled: boolean;
 
@@ -635,7 +635,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         yawLimited?: RotationAxisLimited;
 
@@ -645,7 +645,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         rollLimited?: RotationAxisLimited;
 
@@ -655,7 +655,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         pitchLimited?: RotationAxisLimited;
     }
@@ -666,7 +666,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export enum RotationAxisLimited {
         /**
@@ -674,7 +674,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         NOT_LIMITED = 0,
 
@@ -683,7 +683,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         NEGATIVE_LIMITED = 1,
 
@@ -692,7 +692,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         POSITIVE_LIMITED = 2,
     }
@@ -703,7 +703,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export interface RotationAxesStateChangeInfo {
         /**
@@ -712,7 +712,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         mechId: number;
 
@@ -722,7 +722,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         status: RotationAxesStatus,
     }
@@ -733,7 +733,7 @@ declare namespace mechanicManager {
      * @typedef TrackingEventInfo
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export interface TrackingEventInfo {
         /**
@@ -741,7 +741,7 @@ declare namespace mechanicManager {
          * @type { TrackingEvent } Tracking event.
          * @syscap SystemCapability.Mechanic.Core
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         event: TrackingEvent;
     }
@@ -751,7 +751,7 @@ declare namespace mechanicManager {
      * @typedef AttachStateChangeInfo
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export interface AttachStateChangeInfo {
 
@@ -760,7 +760,7 @@ declare namespace mechanicManager {
          * @type { AttachState }
          * @syscap SystemCapability.Mechanic.Core
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         state: AttachState;
 
@@ -769,7 +769,7 @@ declare namespace mechanicManager {
          * @type { MechInfo }
          * @syscap SystemCapability.Mechanic.Core
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         mechInfo: MechInfo,
     }
@@ -781,7 +781,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export interface TargetInfo {
         /**
@@ -790,7 +790,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 21 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         targetType: TargetType;
     }
@@ -802,7 +802,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export interface SearchParams {
 
@@ -812,7 +812,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 21 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         direction: SearchDirection;
     }
@@ -824,7 +824,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export interface SearchResult {
         /**
@@ -833,7 +833,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 21 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         targetCount: number;
     }
@@ -844,7 +844,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export enum Operation {
         /**
@@ -852,7 +852,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         CONNECT = 0,
 
@@ -861,7 +861,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         DISCONNECT = 1
     }
@@ -871,7 +871,7 @@ declare namespace mechanicManager {
      * @enum { number }
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
 
     export enum TrackingEvent {
@@ -879,7 +879,7 @@ declare namespace mechanicManager {
          * Camera tracking enabled by user.
          * @syscap SystemCapability.Mechanic.Core
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         CAMERA_TRACKING_USER_ENABLED = 0,
 
@@ -887,7 +887,7 @@ declare namespace mechanicManager {
          * Camera tracking disabled by user.
          * @syscap SystemCapability.Mechanic.Core
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         CAMERA_TRACKING_USER_DISABLED = 1,
 
@@ -895,7 +895,7 @@ declare namespace mechanicManager {
          * Camera tracking layout changed. You can call getCameraTrackingLayout to obtain the new layout.
          * @syscap SystemCapability.Mechanic.Core
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         CAMERA_TRACKING_LAYOUT_CHANGED = 2,
     }
@@ -907,7 +907,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export enum Result {
         /**
@@ -915,7 +915,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         COMPLETED = 0,
 
@@ -924,7 +924,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         INTERRUPTED = 1,
 
@@ -933,7 +933,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         LIMITED = 2,
 
@@ -942,7 +942,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         TIMEOUT = 3,
 
@@ -951,7 +951,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         SYSTEM_ERROR = 100
     }
@@ -961,7 +961,7 @@ declare namespace mechanicManager {
      * @enum { number }
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
 
     export enum MechDeviceType {
@@ -969,7 +969,7 @@ declare namespace mechanicManager {
          * Gimbal device.
          * @syscap SystemCapability.Mechanic.Core
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
 
         GIMBAL_DEVICE = 0
@@ -981,7 +981,7 @@ declare namespace mechanicManager {
      * @enum { number }
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export enum AttachState {
 
@@ -989,7 +989,7 @@ declare namespace mechanicManager {
          * Device attached.
          * @syscap SystemCapability.Mechanic.Core
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         ATTACHED = 0,
 
@@ -997,7 +997,7 @@ declare namespace mechanicManager {
          * Device detached.
          * @syscap SystemCapability.Mechanic.Core
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         DETACHED = 1
     }
@@ -1007,14 +1007,14 @@ declare namespace mechanicManager {
      * @enum { number }
      * @syscap SystemCapability.Mechanic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export enum CameraTrackingLayout {
         /**
          * Default layout.
          * @syscap SystemCapability.Mechanic.Core
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         DEFAULT = 0,
 
@@ -1022,7 +1022,7 @@ declare namespace mechanicManager {
          * Left-side layout.
          * @syscap SystemCapability.Mechanic.Core
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         LEFT = 1,
 
@@ -1030,7 +1030,7 @@ declare namespace mechanicManager {
          * Middle layout.
          * @syscap SystemCapability.Mechanic.Core
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         MIDDLE = 2,
 
@@ -1038,7 +1038,7 @@ declare namespace mechanicManager {
          * Right-side layout.
          * @syscap SystemCapability.Mechanic.Core
          * @since 20 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         RIGHT = 3
     }
@@ -1050,7 +1050,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export enum TargetType {
         /**
@@ -1058,7 +1058,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 21 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         HUMAN_FACE = 0
     }
@@ -1070,7 +1070,7 @@ declare namespace mechanicManager {
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export enum SearchDirection {
         /**
@@ -1078,7 +1078,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 21 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         DEFAULT = 0,
 
@@ -1087,7 +1087,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 21 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         LEFTWARD = 1,
 
@@ -1096,7 +1096,7 @@ declare namespace mechanicManager {
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 21 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         RIGHTWARD = 2,
     }

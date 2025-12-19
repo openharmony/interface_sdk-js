@@ -24,7 +24,7 @@
  *
  * @namespace intl
  * @syscap SystemCapability.Global.I18n
- * @since 22 static
+ * @since 23 static
  */
 declare namespace intl {
   /**
@@ -33,7 +33,7 @@ declare namespace intl {
    *
    * @interface DateTimeOptions
    * @syscap SystemCapability.Global.I18n
-   * @since 22 static
+   * @since 23 static
    */
   export interface DateTimeOptions {
     /**
@@ -41,7 +41,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     locale?: string;
 
@@ -50,7 +50,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     dateStyle?: string;
 
@@ -59,7 +59,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     timeStyle?: string;
 
@@ -68,7 +68,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     hourCycle?: string;
 
@@ -77,7 +77,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     timeZone?: string;
 
@@ -91,7 +91,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     numberingSystem?: string;
 
@@ -102,7 +102,7 @@ declare namespace intl {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     hour12?: boolean;
 
@@ -111,7 +111,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     weekday?: string;
 
@@ -120,7 +120,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     era?: string;
 
@@ -129,7 +129,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     year?: string;
 
@@ -138,7 +138,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     month?: string;
 
@@ -147,7 +147,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     day?: string;
 
@@ -156,7 +156,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     hour?: string;
 
@@ -165,7 +165,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     minute?: string;
 
@@ -174,7 +174,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     second?: string;
 
@@ -183,7 +183,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     timeZoneName?: string;
 
@@ -192,7 +192,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     dayPeriod?: string;
 
@@ -203,7 +203,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     localeMatcher?: string;
 
@@ -214,7 +214,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     formatMatcher?: string;
   }
@@ -223,14 +223,14 @@ declare namespace intl {
    * Provides the API for formatting date strings.
    *
    * @syscap SystemCapability.Global.I18n
-   * @since 22 static
+   * @since 23 static
    */
   export class DateTimeFormat {
     /**
      * Creates a DateTimeOptions object for the specified locale.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     constructor();
 
@@ -242,7 +242,7 @@ declare namespace intl {
      * @param { DateTimeOptions } [options] - Options for creating the DateTimeOptions object.<br>If no options are
      *     set, the default values of year, month, and day are numeric.
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     constructor(locale: string | Array<string>, options?: DateTimeOptions);
 
@@ -252,7 +252,7 @@ declare namespace intl {
      * @param { Date } date - Date and time. Note: The month starts from 0. For example, 0 indicates January.
      * @returns { string } A string containing the formatted date and time.
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     format(date: Date): string;
 
@@ -264,7 +264,7 @@ declare namespace intl {
      * @param { Date } endDate - End date and time. Note: The month starts from 0. For example, 0 indicates January.
      * @returns { string } a date string formatted based on the specified locale.
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     formatRange(startDate: Date, endDate: Date): string;
 
@@ -273,7 +273,7 @@ declare namespace intl {
      *
      * @returns { DateTimeOptions } Options for the DateTimeOptions object.
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     resolvedOptions(): DateTimeOptions;
   }
@@ -284,7 +284,7 @@ declare namespace intl {
    *
    * @interface NumberOptions
    * @syscap SystemCapability.Global.I18n
-   * @since 22 static
+   * @since 23 static
    */
   export interface NumberOptions {
     /**
@@ -292,7 +292,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     locale?: string;
 
@@ -303,7 +303,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     currency?: string;
 
@@ -312,7 +312,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     currencySign?: string;
 
@@ -322,7 +322,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     currencyDisplay?: string;
 
@@ -334,7 +334,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     unit?: string;
 
@@ -343,7 +343,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     unitDisplay?: string;
 
@@ -357,7 +357,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     unitUsage?: string;
 
@@ -371,7 +371,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     signDisplay?: string;
 
@@ -380,7 +380,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     compactDisplay?: string;
 
@@ -390,7 +390,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     notation?: string;
 
@@ -399,7 +399,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     localeMatcher?: string;
 
@@ -409,7 +409,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     style?: string;
 
@@ -423,7 +423,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     numberingSystem?: string;
 
@@ -433,7 +433,7 @@ declare namespace intl {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     useGrouping?: boolean;
 
@@ -443,7 +443,7 @@ declare namespace intl {
      *
      * @type { ?int }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     minimumIntegerDigits?: int;
 
@@ -453,7 +453,7 @@ declare namespace intl {
      *
      * @type { ?int }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     minimumFractionDigits?: int;
 
@@ -463,7 +463,7 @@ declare namespace intl {
      *
      * @type { ?int }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     maximumFractionDigits?: int;
 
@@ -472,7 +472,7 @@ declare namespace intl {
      *
      * @type { ?int }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     minimumSignificantDigits?: int;
 
@@ -481,7 +481,7 @@ declare namespace intl {
      *
      * @type { ?int }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     maximumSignificantDigits?: int;
 
@@ -493,7 +493,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     roundingPriority?: string;
 
@@ -503,7 +503,7 @@ declare namespace intl {
      *
      * @type { ?int }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     roundingIncrement?: int;
 
@@ -529,7 +529,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     roundingMode?: string;
   }
@@ -538,14 +538,14 @@ declare namespace intl {
    * Provides the API for formatting number strings.
    *
    * @syscap SystemCapability.Global.I18n
-   * @since 22 static
+   * @since 23 static
    */
   export class NumberFormat {
     /**
      * Creates a NumberFormat object for the specified locale.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     constructor();
 
@@ -556,7 +556,7 @@ declare namespace intl {
      *     the first valid locale ID is used.
      * @param { NumberOptions } [options] - Options for creating the NumberFormat object.
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     constructor(locale: string | Array<string>, options?: NumberOptions);
 
@@ -566,7 +566,7 @@ declare namespace intl {
      * @param { double } num - Number to be formatted.
      * @returns { string } Formatted number.
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     format(num: double): string;
 
@@ -577,7 +577,7 @@ declare namespace intl {
      * @param { double } endRange - End number.
      * @returns { string } Formatted number range.
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     formatRange(startRange: double, endRange: double): string;
 
@@ -586,7 +586,7 @@ declare namespace intl {
      *
      * @returns { NumberOptions } Options for creating the NumberFormat object.
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     resolvedOptions(): NumberOptions;
   }
@@ -596,7 +596,7 @@ declare namespace intl {
    *
    * @interface CollatorOptions
    * @syscap SystemCapability.Global.I18n
-   * @since 22 static
+   * @since 23 static
    */
   export interface CollatorOptions {
     /**
@@ -604,7 +604,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     localeMatcher?: string;
 
@@ -614,7 +614,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     usage?: string;
 
@@ -624,7 +624,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     sensitivity?: string;
 
@@ -634,7 +634,7 @@ declare namespace intl {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     ignorePunctuation?: boolean;
 
@@ -645,7 +645,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     collation?: string;
 
@@ -655,7 +655,7 @@ declare namespace intl {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     numeric?: boolean;
 
@@ -665,7 +665,7 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     caseFirst?: string;
   }
@@ -675,14 +675,14 @@ declare namespace intl {
    *
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
   export class Collator {
     /**
      * Creates a Collator object.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     constructor();
 
@@ -693,7 +693,7 @@ declare namespace intl {
      *     the first valid locale ID is used.
      * @param { CollatorOptions } [options] - Options for creating a Collator object.
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     constructor(locale: string | Array<string>, options?: CollatorOptions);
 
@@ -706,7 +706,7 @@ declare namespace intl {
      *     second string. If the value is 0, the first and second strings are in the same sequence.
      *     If the value is a positive number, the first string is comes after the second string.
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     compare(first: string, second: string): int;
 
@@ -715,7 +715,7 @@ declare namespace intl {
      *
      * @returns { CollatorOptions } Options for creating a Collator object.
      * @syscap SystemCapability.Global.I18n
-     * @since 22 static
+     * @since 23 static
      */
     resolvedOptions(): CollatorOptions;
   }

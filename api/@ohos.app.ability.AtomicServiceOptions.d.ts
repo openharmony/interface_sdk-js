@@ -32,7 +32,7 @@ import { RecordData } from './@ohos.base';
  * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default class AtomicServiceOptions extends StartOptions {
   /**
@@ -43,7 +43,7 @@ export default class AtomicServiceOptions extends StartOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   flags?: int;
 
@@ -64,7 +64,7 @@ export default class AtomicServiceOptions extends StartOptions {
    * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   parameters?: Record<string, RecordData>;
 
@@ -76,7 +76,7 @@ export default class AtomicServiceOptions extends StartOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   completionHandlerForAtomicService?: CompletionHandlerForAtomicService;
 }

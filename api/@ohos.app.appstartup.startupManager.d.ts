@@ -28,7 +28,7 @@ import common from './@ohos.app.ability.common';
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace startupManager {
   /**
@@ -48,7 +48,7 @@ declare namespace startupManager {
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function run(startupTasks: Array<string>, config?: StartupConfig): Promise<void>;
 
@@ -67,7 +67,7 @@ declare namespace startupManager {
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function run(startupTasks: Array<string>, context: common.AbilityStageContext, config: StartupConfig): Promise<void>;
 
@@ -77,7 +77,7 @@ declare namespace startupManager {
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function removeAllStartupTaskResults(): void;
 
@@ -101,7 +101,7 @@ declare namespace startupManager {
    * @returns { Any } The result of specific startup task.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   function getStartupTaskResult(startupTask: string): Any;
 
@@ -115,7 +115,7 @@ declare namespace startupManager {
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isStartupTaskInitialized(startupTask: string): boolean;
 
@@ -128,7 +128,7 @@ declare namespace startupManager {
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function removeStartupTaskResult(startupTask: string): void;
 }

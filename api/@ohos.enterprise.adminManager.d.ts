@@ -28,7 +28,7 @@ import common from '@ohos.app.ability.common';
  * @namespace adminManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace adminManager {
   /**
@@ -38,7 +38,7 @@ declare namespace adminManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface EnterpriseInfo {
     /**
@@ -48,7 +48,7 @@ declare namespace adminManager {
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
 
@@ -59,7 +59,7 @@ declare namespace adminManager {
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     description: string;
   }
@@ -514,7 +514,7 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getEnterpriseInfo(admin: Want, callback: AsyncCallback<EnterpriseInfo>): void;
 
@@ -531,7 +531,7 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getEnterpriseInfo(admin: Want): Promise<EnterpriseInfo>;
 
@@ -753,7 +753,7 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSuperAdmin(): Promise<Want>;
 

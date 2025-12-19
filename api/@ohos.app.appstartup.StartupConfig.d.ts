@@ -27,7 +27,7 @@ import StartupListener from './@ohos.app.appstartup.StartupListener';
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default interface StartupConfig {
   /**
@@ -38,7 +38,7 @@ export default interface StartupConfig {
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   timeoutMs?: int;
 
@@ -49,7 +49,7 @@ export default interface StartupConfig {
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startupListener?: StartupListener;
 }

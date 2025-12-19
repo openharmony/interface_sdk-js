@@ -35,7 +35,7 @@ import type image from './@ohos.multimedia.image';
  * @syscap SystemCapability.MultimodalInput.Input.Pointer
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace pointer {
   /**
@@ -52,7 +52,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PointerStyle {
     /**
@@ -60,7 +60,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT,
 
@@ -69,7 +69,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EAST,
 
@@ -78,7 +78,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WEST,
 
@@ -87,7 +87,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SOUTH,
 
@@ -96,7 +96,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORTH,
 
@@ -105,7 +105,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WEST_EAST,
 
@@ -114,7 +114,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORTH_SOUTH,
 
@@ -123,7 +123,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORTH_EAST,
 
@@ -132,7 +132,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORTH_WEST,
 
@@ -141,7 +141,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SOUTH_EAST,
 
@@ -150,7 +150,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SOUTH_WEST,
 
@@ -159,7 +159,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORTH_EAST_SOUTH_WEST,
 
@@ -168,7 +168,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORTH_WEST_SOUTH_EAST,
 
@@ -177,7 +177,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CROSS,
 
@@ -186,7 +186,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CURSOR_COPY,
 
@@ -195,7 +195,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CURSOR_FORBID,
 
@@ -204,7 +204,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COLOR_SUCKER,
 
@@ -213,7 +213,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HAND_GRABBING,
 
@@ -222,7 +222,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HAND_OPEN,
 
@@ -231,7 +231,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HAND_POINTING,
 
@@ -240,7 +240,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HELP,
 
@@ -249,7 +249,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MOVE,
 
@@ -258,7 +258,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RESIZE_LEFT_RIGHT,
 
@@ -267,7 +267,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RESIZE_UP_DOWN,
 
@@ -276,7 +276,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENSHOT_CHOOSE,
 
@@ -285,7 +285,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENSHOT_CURSOR,
 
@@ -294,7 +294,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TEXT_CURSOR,
 
@@ -303,7 +303,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ZOOM_IN,
 
@@ -312,7 +312,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ZOOM_OUT,
 
@@ -321,7 +321,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_EAST,
 
@@ -330,7 +330,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_WEST,
 
@@ -339,7 +339,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_SOUTH,
 
@@ -348,7 +348,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_NORTH,
 
@@ -357,7 +357,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_NORTH_SOUTH,
 
@@ -366,7 +366,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_NORTH_EAST,
 
@@ -375,7 +375,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_NORTH_WEST,
 
@@ -384,7 +384,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_SOUTH_EAST,
 
@@ -393,7 +393,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_SOUTH_WEST,
 
@@ -402,7 +402,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_NORTH_SOUTH_WEST_EAST,
 
@@ -411,7 +411,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HORIZONTAL_TEXT_CURSOR,
 
@@ -420,7 +420,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CURSOR_CROSS,
 
@@ -429,7 +429,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CURSOR_CIRCLE,
 
@@ -445,7 +445,7 @@ declare namespace pointer {
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOADING,
 
@@ -461,7 +461,7 @@ declare namespace pointer {
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RUNNING,
 
@@ -470,7 +470,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE_BTN_EAST_WEST,
 
@@ -478,7 +478,8 @@ declare namespace pointer {
     * Left part of running state with dynamic cursor
     *
     * @syscap SystemCapability.MultimodalInput.Input.Pointer
-    * @since 22 dynamic&static
+    * @since 22 dynamic
+    * @since 23 static
     */
     RUNNING_LEFT = 45,
 
@@ -486,7 +487,8 @@ declare namespace pointer {
     * Right part of running state with dynamic cursor
     *
     * @syscap SystemCapability.MultimodalInput.Input.Pointer
-    * @since 22 dynamic&static
+    * @since 22 dynamic
+    * @since 23 static
     */
     RUNNING_RIGHT = 46,
 
@@ -494,7 +496,8 @@ declare namespace pointer {
     * Circular cursor
     *
     * @syscap SystemCapability.MultimodalInput.Input.Pointer
-    * @since 22 dynamic&static
+    * @since 22 dynamic
+    * @since 23 static
     */
     AECH_DEVELOPER_DEFINED_ICON = 47,
 
@@ -503,7 +506,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENRECORDER_CURSOR = 48,
 
@@ -511,7 +514,8 @@ declare namespace pointer {
     * Laser
     *
     * @syscap SystemCapability.MultimodalInput.Input.Pointer
-    * @since 22 dynamic&static
+    * @since 22 dynamic
+    * @since 23 static
     */
     LASER_CURSOR = 49,
 
@@ -519,7 +523,8 @@ declare namespace pointer {
     * Dot laser
     *
     * @syscap SystemCapability.MultimodalInput.Input.Pointer
-    * @since 22 dynamic&static
+    * @since 22 dynamic
+    * @since 23 static
     */
     LASER_CURSOR_DOT = 50,
 
@@ -527,7 +532,8 @@ declare namespace pointer {
     * Red dot laser
     *
     * @syscap SystemCapability.MultimodalInput.Input.Pointer
-    * @since 22 dynamic&static
+    * @since 22 dynamic
+    * @since 23 static
     */
     LASER_CURSOR_DOT_RED = 51,
 
@@ -535,7 +541,8 @@ declare namespace pointer {
     * Developer defined
     *
     * @syscap SystemCapability.MultimodalInput.Input.Pointer
-    * @since 22 dynamic&static
+    * @since 22 dynamic
+    * @since 23 static
     */
     DEVELOPER_DEFINED_ICON = -100
   }
@@ -546,7 +553,7 @@ declare namespace pointer {
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PrimaryButton {
     /**
@@ -554,7 +561,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LEFT = 0,
     /**
@@ -562,7 +569,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RIGHT = 1
   }
@@ -573,7 +580,7 @@ declare namespace pointer {
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum RightClickType {
     /**
@@ -581,7 +588,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TOUCHPAD_RIGHT_BUTTON = 1,
     /**
@@ -589,7 +596,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TOUCHPAD_LEFT_BUTTON = 2,
     /**
@@ -597,7 +604,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TOUCHPAD_TWO_FINGER_TAP = 3,
     /**
@@ -605,7 +612,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TOUCHPAD_TWO_FINGER_TAP_OR_RIGHT_BUTTON = 4,
 
@@ -614,7 +621,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TOUCHPAD_TWO_FINGER_TAP_OR_LEFT_BUTTON = 5,
   }
@@ -625,7 +632,7 @@ declare namespace pointer {
    * @interface CustomCursor
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CustomCursor {
     /**
@@ -634,7 +641,7 @@ declare namespace pointer {
      * @type { image.PixelMap }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pixelMap: image.PixelMap;
     /**
@@ -644,7 +651,7 @@ declare namespace pointer {
      * @type { ?int }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     focusX?: int;
     /**
@@ -654,7 +661,7 @@ declare namespace pointer {
      * @type { ?int }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     focusY?: int;
   }
@@ -665,7 +672,7 @@ declare namespace pointer {
    * @interface CursorConfig
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CursorConfig {
     /**
@@ -676,7 +683,7 @@ declare namespace pointer {
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     followSystem : boolean;
   }
@@ -703,7 +710,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerSpeed(speed: int, callback: AsyncCallback<void>): void;
 
@@ -729,7 +736,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerSpeed(speed: int): Promise<void>;
 
@@ -743,7 +750,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerSpeedSync(speed: int): void;
 
@@ -767,7 +774,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPointerSpeed(callback: AsyncCallback<int>): void;
 
@@ -787,7 +794,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPointerSpeed(): Promise<int>;
 
@@ -801,7 +808,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPointerSpeedSync(): int;
 
@@ -815,7 +822,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerStyle(windowId: int, pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
 
@@ -829,7 +836,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerStyle(windowId: int, pointerStyle: PointerStyle): Promise<void>;
 
@@ -842,7 +849,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerStyleSync(windowId: int, pointerStyle: PointerStyle): void;
 
@@ -855,7 +862,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPointerStyle(windowId: int, callback: AsyncCallback<PointerStyle>): void;
 
@@ -869,7 +876,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPointerStyle(windowId: int): Promise<PointerStyle>;
 
@@ -883,7 +890,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPointerStyleSync(windowId: int): PointerStyle;
 
@@ -909,7 +916,7 @@ declare namespace pointer {
    * @throws { BusinessError } 801 - Capability not supported;
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerVisible(visible: boolean, callback: AsyncCallback<void>): void;
 
@@ -935,7 +942,7 @@ declare namespace pointer {
    * @throws { BusinessError } 801 - Capability not supported;
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerVisible(visible: boolean): Promise<void>;
 
@@ -948,7 +955,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerVisibleSync(visible: boolean): void;
 
@@ -961,7 +968,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isPointerVisible(callback: AsyncCallback<boolean>): void;
 
@@ -972,7 +979,7 @@ declare namespace pointer {
    * The value true indicates that the mouse pointer is visible, and the value false indicates the opposite.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isPointerVisible(): Promise<boolean>;
 
@@ -983,7 +990,7 @@ declare namespace pointer {
    * The value true indicates that the mouse pointer is visible, and the value false indicates the opposite.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isPointerVisibleSync(): boolean;
 
@@ -999,7 +1006,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerColor(color: int, callback: AsyncCallback<void>): void;
 
@@ -1014,7 +1021,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerColor(color: int): Promise<void>;
 
@@ -1028,7 +1035,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerColorSync(color: int): void;
 
@@ -1042,7 +1049,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPointerColor(callback: AsyncCallback<int>): void;
 
@@ -1054,7 +1061,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPointerColor(): Promise<int>;
 
@@ -1066,7 +1073,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPointerColorSync(): int;
 
@@ -1082,7 +1089,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerSize(size: int, callback: AsyncCallback<void>): void;
 
@@ -1097,7 +1104,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerSize(size: int): Promise<void>;
 
@@ -1111,7 +1118,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setPointerSizeSync(size: int): void;
 
@@ -1125,7 +1132,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPointerSize(callback: AsyncCallback<int>): void;
 
@@ -1137,7 +1144,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPointerSize(): Promise<int>;
 
@@ -1149,7 +1156,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPointerSizeSync(): int;
 
@@ -1164,7 +1171,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setMousePrimaryButton(primary: PrimaryButton, callback: AsyncCallback<void>): void;
 
@@ -1179,7 +1186,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setMousePrimaryButton(primary: PrimaryButton): Promise<void>;
 
@@ -1193,7 +1200,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getMousePrimaryButton(callback: AsyncCallback<PrimaryButton>): void;
 
@@ -1207,7 +1214,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getMousePrimaryButton(): Promise<PrimaryButton>;
 
@@ -1223,7 +1230,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setHoverScrollState(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1239,7 +1246,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setHoverScrollState(state: boolean): Promise<void>;
 
@@ -1254,7 +1261,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getHoverScrollState(callback: AsyncCallback<boolean>): void;
 
@@ -1269,7 +1276,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getHoverScrollState(): Promise<boolean>;
 
@@ -1284,7 +1291,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setMouseScrollRows(rows: int, callback: AsyncCallback<void>): void;
 
@@ -1299,7 +1306,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setMouseScrollRows(rows: int): Promise<void>;
 
@@ -1313,7 +1320,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getMouseScrollRows(callback: AsyncCallback<int>): void;
 
@@ -1327,7 +1334,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getMouseScrollRows(): Promise<int>;
 
@@ -1343,7 +1350,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setTouchpadScrollSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1359,7 +1366,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setTouchpadScrollSwitch(state: boolean): Promise<void>;
 
@@ -1374,7 +1381,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTouchpadScrollSwitch(callback: AsyncCallback<boolean>): void;
 
@@ -1389,7 +1396,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTouchpadScrollSwitch(): Promise<boolean>;
 
@@ -1406,7 +1413,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setTouchpadScrollDirection(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1423,7 +1430,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setTouchpadScrollDirection(state: boolean): Promise<void>;
 
@@ -1439,7 +1446,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTouchpadScrollDirection(callback: AsyncCallback<boolean>): void;
 
@@ -1455,7 +1462,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTouchpadScrollDirection(): Promise<boolean>;
 
@@ -1471,7 +1478,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setTouchpadTapSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1487,7 +1494,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setTouchpadTapSwitch(state: boolean): Promise<void>;
 
@@ -1502,7 +1509,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTouchpadTapSwitch(callback: AsyncCallback<boolean>): void;
 
@@ -1517,7 +1524,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTouchpadTapSwitch(): Promise<boolean>;
 
@@ -1532,7 +1539,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setTouchpadPointerSpeed(speed: int, callback: AsyncCallback<void>): void;
 
@@ -1547,7 +1554,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setTouchpadPointerSpeed(speed: int): Promise<void>;
 
@@ -1561,7 +1568,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTouchpadPointerSpeed(callback: AsyncCallback<int>): void;
 
@@ -1575,7 +1582,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTouchpadPointerSpeed(): Promise<int>;
 
@@ -1591,7 +1598,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setTouchpadPinchSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1607,7 +1614,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setTouchpadPinchSwitch(state: boolean): Promise<void>;
 
@@ -1622,7 +1629,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
   */
   function getTouchpadPinchSwitch(callback: AsyncCallback<boolean>): void;
 
@@ -1637,7 +1644,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTouchpadPinchSwitch(): Promise<boolean>;
 
@@ -1653,7 +1660,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setTouchpadSwipeSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1669,7 +1676,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setTouchpadSwipeSwitch(state: boolean): Promise<void>;
  
@@ -1684,7 +1691,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTouchpadSwipeSwitch(callback: AsyncCallback<boolean>): void;
  
@@ -1699,7 +1706,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTouchpadSwipeSwitch(): Promise<boolean>;
 
@@ -1720,7 +1727,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setTouchpadRightClickType(type: RightClickType, callback: AsyncCallback<void>): void;
 
@@ -1741,7 +1748,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setTouchpadRightClickType(type: RightClickType): Promise<void>;
 
@@ -1755,7 +1762,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTouchpadRightClickType(callback: AsyncCallback<RightClickType>): void;
 
@@ -1769,7 +1776,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTouchpadRightClickType(): Promise<RightClickType>;
 
@@ -1785,7 +1792,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setCustomCursor(windowId: int, pixelMap: image.PixelMap, focusX?: int, focusY?: int): Promise<void>;
 
@@ -1800,7 +1807,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setCustomCursorSync(windowId: int, pixelMap: image.PixelMap, focusX?: int, focusY?: int): void;
 
@@ -1821,7 +1828,7 @@ declare namespace pointer {
    * @throws { BusinessError } 26500001 - Invalid windowId. Possible causes: The window id does not belong to the current process.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setCustomCursor(windowId: int, cursor: CustomCursor, config: CursorConfig): Promise<void>;
 
@@ -1837,7 +1844,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setTouchpadDoubleTapAndDragState(isOpen: boolean, callback: AsyncCallback<void>): void;
 
@@ -1853,7 +1860,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setTouchpadDoubleTapAndDragState(isOpen: boolean): Promise<void>;
 
@@ -1868,7 +1875,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTouchpadDoubleTapAndDragState(callback: AsyncCallback<boolean>): void;
 
@@ -1881,7 +1888,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTouchpadDoubleTapAndDragState(): Promise<boolean>;
 }

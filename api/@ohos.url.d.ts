@@ -41,7 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace url {
     /**
@@ -246,7 +246,7 @@ declare namespace url {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      * @name URLParams
      */
     class URLParams {
@@ -306,7 +306,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         constructor(init?: [string, string][] | Record<string, string> | string | URLParams);
 
@@ -348,7 +348,7 @@ declare namespace url {
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         append(name: string, value: string): void;
 
@@ -387,7 +387,7 @@ declare namespace url {
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         delete(name: string): void;
 
@@ -429,7 +429,7 @@ declare namespace url {
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         getAll(name: string): string[];
 
@@ -459,7 +459,7 @@ declare namespace url {
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         entries(): IterableIterator<[string, string]>;
 
@@ -514,7 +514,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         forEach(callbackFn: UrlCbFn): void;
 
@@ -568,7 +568,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         get(name: string): string | undefined;
 
@@ -607,7 +607,7 @@ declare namespace url {
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         has(name: string): boolean;
 
@@ -657,7 +657,7 @@ declare namespace url {
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         set(name: string, value: string): void;
 
@@ -683,7 +683,7 @@ declare namespace url {
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         sort(): void;
 
@@ -710,7 +710,7 @@ declare namespace url {
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         keys(): IterableIterator<string>;
 
@@ -737,7 +737,7 @@ declare namespace url {
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         values(): IterableIterator<string>;
 
@@ -783,7 +783,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         $_iterator(): IterableIterator<[string, string]>;
 
@@ -810,7 +810,7 @@ declare namespace url {
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         toString(): string;
     }
@@ -837,7 +837,7 @@ declare namespace url {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      * @name URL
      */
     class URL {
@@ -877,7 +877,7 @@ declare namespace url {
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         constructor();
 
@@ -932,7 +932,7 @@ declare namespace url {
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         static parseURL(url: string, base?: string | URL): URL;
 
@@ -959,7 +959,7 @@ declare namespace url {
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         toString(): string;
 
@@ -986,7 +986,7 @@ declare namespace url {
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         toJSON(): string;
 
@@ -1258,7 +1258,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         get hash(): string;
 
@@ -1269,7 +1269,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         set hash(hash: string);
 
@@ -1280,7 +1280,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         get host(): string;
 
@@ -1291,7 +1291,7 @@ declare namespace url {
         * @syscap SystemCapability.Utils.Lang
         * @crossplatform
         * @atomicservice
-        * @since 22 static
+        * @since 23 static
         */
         set host(host: string);
 
@@ -1302,7 +1302,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         get hostname(): string;
 
@@ -1313,7 +1313,7 @@ declare namespace url {
         * @syscap SystemCapability.Utils.Lang
         * @crossplatform
         * @atomicservice
-        * @since 22 static
+        * @since 23 static
         */
         set hostname(hostname: string);
 
@@ -1324,7 +1324,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         get href(): string;
 
@@ -1335,7 +1335,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         set href(href: string);
 
@@ -1346,7 +1346,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         get origin(): string;
 
@@ -1357,7 +1357,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         get password(): string;
 
@@ -1368,7 +1368,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         set password(password: string);
 
@@ -1379,7 +1379,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         get pathname(): string;
 
@@ -1390,7 +1390,7 @@ declare namespace url {
         * @syscap SystemCapability.Utils.Lang
         * @crossplatform
         * @atomicservice
-        * @since 22 static
+        * @since 23 static
         */
         set pathname(pathname: string);
 
@@ -1401,7 +1401,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         get port(): string;
 
@@ -1412,7 +1412,7 @@ declare namespace url {
         * @syscap SystemCapability.Utils.Lang
         * @crossplatform
         * @atomicservice
-        * @since 22 static
+        * @since 23 static
         */
         set port(port: string);
 
@@ -1423,7 +1423,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         get protocol(): string;
 
@@ -1434,7 +1434,7 @@ declare namespace url {
         * @syscap SystemCapability.Utils.Lang
         * @crossplatform
         * @atomicservice
-        * @since 22 static
+        * @since 23 static
         */
         set protocol(protocol: string);
 
@@ -1445,7 +1445,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         get search(): string;
 
@@ -1456,7 +1456,7 @@ declare namespace url {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 22 static
+       * @since 23 static
        */
         set search(search: string);
         /**
@@ -1468,7 +1468,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         get params(): URLParams;
 
@@ -1479,7 +1479,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 22 static
+         * @since 23 static
          */
         get username(): string;
 
@@ -1490,7 +1490,7 @@ declare namespace url {
         * @syscap SystemCapability.Utils.Lang
         * @crossplatform
         * @atomicservice
-        * @since 22 static
+        * @since 23 static
         */
         set username(username: string);
 
@@ -1576,7 +1576,7 @@ declare namespace url {
      * @returns { void } This callback does not return a value.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     type UrlCbFn = (value: string, key: string, searchParams: URLParams) => void;
 }

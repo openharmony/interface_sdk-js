@@ -25,7 +25,7 @@
  * @systemapi
  * @stagemodelonly
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export enum MultiAppMode {
   /**
@@ -35,7 +35,7 @@ export enum MultiAppMode {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   NOT_SUPPORTED = 0,
 
@@ -46,7 +46,7 @@ export enum MultiAppMode {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   MULTI_INSTANCE = 1,
 
@@ -57,7 +57,7 @@ export enum MultiAppMode {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   APP_CLONE = 2
 }

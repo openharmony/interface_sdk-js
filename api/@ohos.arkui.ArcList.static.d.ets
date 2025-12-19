@@ -26,7 +26,7 @@ import { LengthMetrics, ColorMetrics } from './arkui/Graphics';
 import { ComponentBuilder, CustomBuilder } from '@ohos.arkui.component';
 import { ComponentContentBase } from './arkui/ComponentContent';
 import { AttributeModifier, CommonMethod } from '@ohos.arkui.component';
-import { SwipeActionOptions } from '.@ohos.arkui.component';
+import { SwipeActionOptions } from '@ohos.arkui.component';
 /**
  * Called when the start, end and center positions of the display change.
  *
@@ -35,7 +35,7 @@ import { SwipeActionOptions } from '.@ohos.arkui.component';
  * @param { int } end - the end index of the display area.
  * @param { int } center - the center index of the display area.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @since 22 static
+ * @since 23 static
  */
 export type ArcScrollIndexHandler = (start: int, end: int, center: int) => void;
 /**
@@ -43,7 +43,7 @@ export type ArcScrollIndexHandler = (start: int, end: int, center: int) => void;
  *
  * @interface ArkListOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ArkListOptions {
     /**
@@ -51,7 +51,7 @@ export declare interface ArkListOptions {
      *
      * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     initialIndex?: int;
     /**
@@ -59,7 +59,7 @@ export declare interface ArkListOptions {
      *
      * @type { ?Scroller }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     scroller?: Scroller;
     /**
@@ -67,7 +67,7 @@ export declare interface ArkListOptions {
      *
      * @type { ?ComponentContentBase }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     header?: ComponentContentBase;
 }
@@ -77,7 +77,7 @@ export declare interface ArkListOptions {
  * @extends CommonMethod
  * @interface ArcListAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare interface ArcListAttribute extends CommonMethod {
@@ -87,7 +87,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { CrownSensitivity | undefined } sensitivity
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
     /**
@@ -96,7 +96,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { LengthMetrics | undefined } space - The space between items.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default space(space: LengthMetrics | undefined): this;
     /**
@@ -105,7 +105,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { BarState | undefined } status
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default scrollBar(status: BarState | undefined): this;
     /**
@@ -114,7 +114,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { ColorMetrics | undefined } color  - Color of the scrollbar.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default scrollBarColor(color: ColorMetrics | undefined): this;
     /**
@@ -123,7 +123,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { LengthMetrics | undefined } width  - Width of the scrollbar.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default scrollBarWidth(width: LengthMetrics | undefined): this;
     /**
@@ -132,7 +132,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { int | undefined } count
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default cachedCount(count: int | undefined): this;
     /**
@@ -141,7 +141,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { boolean | undefined } enable
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default chainAnimation(enable: boolean | undefined): this;
     /**
@@ -150,7 +150,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { ChildrenMainSize | undefined } size - children main size for arc list
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default childrenMainSize(size: ChildrenMainSize | undefined): this;
     /**
@@ -159,7 +159,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { boolean | undefined } enable
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default enableScrollInteraction(enable: boolean | undefined): this;
     /**
@@ -168,7 +168,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { boolean | undefined } enable
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default fadingEdge(enable: boolean | undefined): this;
     /**
@@ -177,7 +177,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { double | undefined } friction - friction coefficient.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default friction(friction: double | undefined): this;
     /**
@@ -187,7 +187,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      *     the maximum value is not limited. The unit is vp/s.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default flingSpeedLimit(speed: double | undefined): this;
     /**
@@ -196,7 +196,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { ArcScrollIndexHandler | undefined } handler
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default onScrollIndex(handler: ArcScrollIndexHandler | undefined): this;
     /**
@@ -205,7 +205,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { VoidCallback | undefined } handler
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default onReachStart(handler: VoidCallback | undefined): this;
     /**
@@ -214,7 +214,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { VoidCallback | undefined } handler
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default onReachEnd(handler: VoidCallback | undefined): this;
     /**
@@ -223,7 +223,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { VoidCallback | undefined } handler
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default onScrollStart(handler: VoidCallback | undefined): this;
     /**
@@ -232,7 +232,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { VoidCallback | undefined } handler
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default onScrollStop(handler: VoidCallback | undefined): this;
     /**
@@ -241,7 +241,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { OnWillScrollCallback | undefined } handler - callback of scrollable.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default onWillScroll(handler: OnWillScrollCallback | undefined): this;
     /**
@@ -251,7 +251,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      *     scrollOffset is offset this frame did scroll, scrollState is current scroll state.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default onDidScroll(handler: OnScrollCallback | undefined): this;
     /**
@@ -260,7 +260,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { AttributeModifier<ArcListAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ArcListAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -270,7 +270,7 @@ export declare interface ArcListAttribute extends CommonMethod {
  * @extends CommonMethod
  * @interface ArcListItemAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare interface ArcListItemAttribute extends CommonMethod {
@@ -280,7 +280,7 @@ export declare interface ArcListItemAttribute extends CommonMethod {
      * @param { boolean | undefined } enable
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default autoScale(enable: boolean | undefined): this;
     /**
@@ -289,7 +289,7 @@ export declare interface ArcListItemAttribute extends CommonMethod {
      * @param { SwipeActionOptions | undefined } options - items defines in the SwipeActionOption.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default swipeAction(options: SwipeActionOptions | undefined): this;
     /**
@@ -298,7 +298,7 @@ export declare interface ArcListItemAttribute extends CommonMethod {
      * @param { AttributeModifier<ArcListItemAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ArcListItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -310,7 +310,7 @@ export declare interface ArcListItemAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_]
  * @returns { ArcListAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
@@ -325,7 +325,7 @@ export declare function ArcList(
  * @param { CustomBuilder } [content_]
  * @returns { ArcListItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder

@@ -27,7 +27,7 @@ import { Callback } from './@ohos.base';
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  * @test
  */
 declare enum PerfMetric {
@@ -37,7 +37,7 @@ declare enum PerfMetric {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   DURATION = 0,
@@ -48,7 +48,7 @@ declare enum PerfMetric {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   CPU_LOAD = 1,
@@ -59,7 +59,7 @@ declare enum PerfMetric {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   CPU_USAGE = 2,
@@ -70,7 +70,7 @@ declare enum PerfMetric {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   MEMORY_RSS = 3,
@@ -81,7 +81,7 @@ declare enum PerfMetric {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   MEMORY_PSS = 4,
@@ -101,7 +101,7 @@ declare enum PerfMetric {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   APP_START_RESPONSE_TIME = 5,
@@ -121,7 +121,7 @@ declare enum PerfMetric {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   APP_START_COMPLETE_TIME = 6,
@@ -138,7 +138,7 @@ declare enum PerfMetric {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   PAGE_SWITCH_COMPLETE_TIME = 7,
@@ -153,7 +153,7 @@ declare enum PerfMetric {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   LIST_SWIPE_FPS = 8,
@@ -166,7 +166,7 @@ declare enum PerfMetric {
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  * @test
  */
 declare interface PerfTestStrategy {
@@ -177,7 +177,7 @@ declare interface PerfTestStrategy {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   metrics: Array<PerfMetric>;
@@ -195,7 +195,7 @@ declare interface PerfTestStrategy {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   actionCode: Callback<Callback<boolean>>;
@@ -213,7 +213,7 @@ declare interface PerfTestStrategy {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   resetCode?: Callback<Callback<boolean>>;
@@ -225,7 +225,7 @@ declare interface PerfTestStrategy {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   bundleName?: string;
@@ -237,7 +237,7 @@ declare interface PerfTestStrategy {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   iterations?: int;
@@ -249,7 +249,7 @@ declare interface PerfTestStrategy {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   timeout?: int;
@@ -262,7 +262,7 @@ declare interface PerfTestStrategy {
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  * @test
  */
 declare interface PerfMeasureResult {
@@ -274,7 +274,7 @@ declare interface PerfMeasureResult {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */ 
   readonly metric: PerfMetric;
@@ -287,7 +287,7 @@ declare interface PerfMeasureResult {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */ 
   readonly roundValues: Array<double>;
@@ -300,7 +300,7 @@ declare interface PerfMeasureResult {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */ 
   readonly maximum: double;
@@ -313,7 +313,7 @@ declare interface PerfMeasureResult {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */ 
   readonly minimum: double;
@@ -326,7 +326,7 @@ declare interface PerfMeasureResult {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */ 
   readonly average: double;
@@ -338,7 +338,7 @@ declare interface PerfMeasureResult {
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  * @test
  */
 declare class PerfTest {
@@ -355,7 +355,7 @@ declare class PerfTest {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   static create(strategy: PerfTestStrategy): PerfTest;
@@ -372,7 +372,7 @@ declare class PerfTest {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   run(): Promise<void>;
@@ -389,7 +389,7 @@ declare class PerfTest {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   getMeasureResult(metric: PerfMetric): PerfMeasureResult;
@@ -401,7 +401,7 @@ declare class PerfTest {
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @test
    */
   destroy(): void;

@@ -41,7 +41,7 @@ import Want from './@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace appRecovery {
   /**
@@ -58,7 +58,7 @@ declare namespace appRecovery {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum RestartFlag {
     /**
@@ -73,7 +73,7 @@ declare namespace appRecovery {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ALWAYS_RESTART = 0,
 
@@ -89,7 +89,7 @@ declare namespace appRecovery {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RESTART_WHEN_JS_CRASH = 0x0001,
 
@@ -105,7 +105,7 @@ declare namespace appRecovery {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RESTART_WHEN_APP_FREEZE = 0x0002,
 
@@ -121,7 +121,7 @@ declare namespace appRecovery {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NO_RESTART = 0xFFFF
   }
@@ -144,7 +144,7 @@ declare namespace appRecovery {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum SaveOccasionFlag {
     /**
@@ -163,7 +163,7 @@ declare namespace appRecovery {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SAVE_WHEN_ERROR = 0x0001,
 
@@ -179,7 +179,7 @@ declare namespace appRecovery {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SAVE_WHEN_BACKGROUND = 0x0002
   }
@@ -198,7 +198,7 @@ declare namespace appRecovery {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum SaveModeFlag {
     /**
@@ -213,7 +213,7 @@ declare namespace appRecovery {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SAVE_WITH_FILE = 0x0001,
 
@@ -229,7 +229,7 @@ declare namespace appRecovery {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SAVE_WITH_SHARED_MEMORY = 0x0002
   }
@@ -254,7 +254,7 @@ declare namespace appRecovery {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableAppRecovery(restart?: RestartFlag, saveOccasion?: SaveOccasionFlag, saveMode?: SaveModeFlag): void;
 
@@ -276,7 +276,7 @@ declare namespace appRecovery {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function restartApp(): void;
 
@@ -296,7 +296,7 @@ declare namespace appRecovery {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setRestartWant(want: Want): void;
 
@@ -342,7 +342,7 @@ declare namespace appRecovery {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function saveAppState(context?: UIAbilityContext): boolean;
 }

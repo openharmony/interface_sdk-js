@@ -28,7 +28,7 @@ import type { ChildProcessOptions } from './@ohos.app.ability.ChildProcessOption
  * @namespace childProcessManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace childProcessManager {
 
@@ -39,7 +39,7 @@ declare namespace childProcessManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export const enum StartMode {
 
@@ -50,7 +50,7 @@ declare namespace childProcessManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SELF_FORK = 0,
 
@@ -60,7 +60,7 @@ declare namespace childProcessManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     APP_SPAWN_FORK = 1,
   }
@@ -79,7 +79,7 @@ declare namespace childProcessManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function startChildProcess(srcEntry: string, startMode: StartMode): Promise<int>;
 
@@ -97,7 +97,7 @@ declare namespace childProcessManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function startChildProcess(srcEntry: string, startMode: StartMode, callback: AsyncCallback<int>): void;
 
@@ -133,7 +133,7 @@ declare namespace childProcessManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function startArkChildProcess(srcEntry: string, args: ChildProcessArgs, options?: ChildProcessOptions): Promise<int>;
 
@@ -153,7 +153,7 @@ declare namespace childProcessManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function startNativeChildProcess(entryPoint: string, args: ChildProcessArgs, options?: ChildProcessOptions): Promise<int>;
 

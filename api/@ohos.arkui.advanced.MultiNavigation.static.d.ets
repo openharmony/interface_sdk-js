@@ -27,7 +27,7 @@ import { State } from '@ohos.arkui.stateManagement';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare enum SplitPolicy {
@@ -35,7 +35,7 @@ export declare enum SplitPolicy {
    * Indicates that the page will be pushed to the stack as home page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HOME_PAGE = 0,
  
@@ -43,7 +43,7 @@ export declare enum SplitPolicy {
    * Indicates that the page will be pushed to the stack as detail page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   DETAIL_PAGE = 1,
  
@@ -51,7 +51,7 @@ export declare enum SplitPolicy {
    * Indicates that the page will be pushed to the stack as full-screen page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   FULL_PAGE = 2,
 }
@@ -62,7 +62,7 @@ export declare enum SplitPolicy {
  * @typedef { function } OnNavigationModeChangeCallback
  * @param { NavigationMode } mode - current NavigationMode.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 declare type OnNavigationModeChangeCallback = (mode: NavigationMode) => void;
@@ -73,7 +73,7 @@ declare type OnNavigationModeChangeCallback = (mode: NavigationMode) => void;
  * @typedef { function } OnHomeShowOnTopCallback
  * @param { string } name - the name of home NavDestination shown in top.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 declare type OnHomeShowOnTopCallback = (name: string) => void;
@@ -83,7 +83,7 @@ declare type OnHomeShowOnTopCallback = (name: string) => void;
  *
  * @struct { MultiNavigation }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @Component
@@ -93,7 +93,7 @@ export declare struct MultiNavigation {
    *
    * @type { MultiNavPathStack }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   @State
   multiStack: MultiNavPathStack;
@@ -103,7 +103,7 @@ export declare struct MultiNavigation {
    *
    * @type { NavDestinationBuildFunction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   @BuilderParam
   navDestination: PageMapBuilder | undefined;
@@ -113,7 +113,7 @@ export declare struct MultiNavigation {
    *
    * @type { ?OnNavigationModeChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   onNavigationModeChange?: OnNavigationModeChangeCallback;
  
@@ -122,14 +122,14 @@ export declare struct MultiNavigation {
    *
    * @type { ?OnHomeShowOnTopCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   onHomeShowOnTop?: OnHomeShowOnTopCallback;
  
   /**
    * The method to build multiNavigation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   @Builder
   build(): void;
@@ -140,7 +140,7 @@ export declare struct MultiNavigation {
  *
  * @extends NavPathStack
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare class MultiNavPathStack extends NavPathStack {
@@ -148,7 +148,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * Creates an instance of MultiNavPathStack.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor();
  
@@ -160,7 +160,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { SplitPolicy } [policy] - SplitPolicy of the NavDestination which is currently
    *                                   pushed in stack. Default splitPolicy is DETAIL_PAGE.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   pushPath(info: NavPathInfo, animated?: boolean, policy?: SplitPolicy): void;
  
@@ -172,7 +172,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { SplitPolicy } [policy] - SplitPolicy of the NavDestination which is currently
    *                                   pushed in stack. Default splitPolicy is DETAIL_PAGE.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   pushPath(info: NavPathInfo, options?: NavigationOptions, policy?: SplitPolicy): void;
  
@@ -185,7 +185,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { SplitPolicy } [policy] - SplitPolicy of the NavDestination which is currently
    *                                   pushed in stack. Default splitPolicy is DETAIL_PAGE.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   pushPathByName(name: string, param: Object, animated?: boolean, policy?: SplitPolicy): void;
  
@@ -199,7 +199,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { SplitPolicy } [policy] - SplitPolicy of the NavDestination which is currently
    *                                   pushed in stack. Default splitPolicy is DETAIL_PAGE.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   pushPathByName(
     name: string, param: Object, onPop?: Callback<PopInfo>, animated?: boolean, policy?: SplitPolicy): void;
@@ -211,7 +211,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   replacePath(info: NavPathInfo, animated?: boolean): void;
  
@@ -222,7 +222,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
    * @param { NavigationOptions } [options] - Indicates options of stack operation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   replacePath(info: NavPathInfo, options?: NavigationOptions): void;
  
@@ -234,7 +234,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { Object } param - Indicates the detailed parameter of the new NavDestination in top of the stack.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   replacePathByName(name: string, param: Object, animated?: boolean): void;
  
@@ -244,7 +244,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { Array<int> } indexes - Indicates the indexes of the NavDestinations to be removed.
    * @returns { int } Returns the number of removed pages. Invalid indexes will be ignored.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   removeByIndexes(indexes: Array<int>): int;
  
@@ -254,7 +254,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination to be removed.
    * @returns { int } Returns the number of removed NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   removeByName(name: string): int;
  
@@ -267,7 +267,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty,
    *                                      otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   pop(result?: Object, animated?: boolean): NavPathInfo | undefined;
  
@@ -279,7 +279,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { int } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   popToName(name: string, animated?: boolean): int;
  
@@ -292,7 +292,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { int } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   popToName(name: string, result: Object, animated?: boolean): int;
  
@@ -302,7 +302,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { int } index - The index of NavDestination page.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   popToIndex(index: int, animated?: boolean): void;
  
@@ -313,7 +313,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { Object } result - Page Customization processing results.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   popToIndex(index: int, result: Object, animated?: boolean): void;
  
@@ -325,7 +325,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @returns { int } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   moveToTop(name: string, animated?: boolean): int;
  
@@ -335,7 +335,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { int } index - Indicates the index of the NavDestination to be moved to the top.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   moveIndexToTop(index: int, animated?: boolean): void;
  
@@ -345,7 +345,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   clear(animated?: boolean): void;
  
@@ -354,7 +354,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * @returns { Array<string> } Returns all the NavDestination name in the stack.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   getAllPathName(): Array<string>;
  
@@ -365,7 +365,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @returns { Object | undefined } Returns the detailed parameter of the NavDestination
    *                                  if it exists in the stack, otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   getParamByIndex(index: int): Object | undefined;
  
@@ -375,7 +375,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination.
    * @returns { Array<Object | null | undefined> } Returns the detailed parameter of all the NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   getParamByName(name: string): Array<Object | null | undefined>;
  
@@ -385,7 +385,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination.
    * @returns { Array<int> } Returns the index of all the NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   getIndexByName(name: string): Array<int>;
  
@@ -394,7 +394,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * @returns { int } Returns the size of the stack.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   size(): int;
  
@@ -403,7 +403,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * @param { boolean } disable - Indicates whether to disable the transition animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   disableAnimation(disable: boolean): void;
  
@@ -414,7 +414,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { boolean } [isFullScreen] - Whether to switch to full screen.
    * @returns { boolean } Returns switch result success(true) or failure(false).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   switchFullScreenState(isFullScreen?: boolean): boolean;
  
@@ -424,7 +424,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { double } minPercent - Minimum Home Width Percentage.
    * @param { double } maxPercent - Maximum Home Width Percentage.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   setHomeWidthRange(minPercent: double, maxPercent: double): void;
  
@@ -433,7 +433,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * @param { boolean } keepBottom - Indicates whether to retain the bottom NavDestination of the stack.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   keepBottomPage(keepBottom: boolean): void;
  
@@ -442,7 +442,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * @param { NavPathInfo } info - info of placeHolder NavDestination.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   setPlaceholderPage(info: NavPathInfo): void;
 }

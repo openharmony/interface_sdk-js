@@ -30,7 +30,7 @@ import { RecordData } from '../@ohos.base';
  * @systemapi
  * @stagemodelonly
  * @since 14 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default interface UIServiceHostProxy {
   /**
@@ -58,7 +58,7 @@ export default interface UIServiceHostProxy {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   sendData(data: Record<string, RecordData>): void;
 }

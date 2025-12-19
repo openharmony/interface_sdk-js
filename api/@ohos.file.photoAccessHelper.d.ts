@@ -47,7 +47,7 @@ import type { CustomColors } from './@ohos.arkui.theme';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace photoAccessHelper {
   /**
@@ -85,7 +85,7 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPhotoAccessHelper(context: Context): PhotoAccessHelper;
 
@@ -103,7 +103,7 @@ declare namespace photoAccessHelper {
    * @systemapi
    * @StageModelOnly
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPhotoAccessHelper(context: Context, userId: int): PhotoAccessHelper;
 
@@ -114,7 +114,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum SupportedImageFormat {
     /**
@@ -123,7 +123,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVFILE_FORMAT_JPG = 'jpg',
   }
@@ -226,7 +226,7 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PhotoType {
     /**
@@ -249,7 +249,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IMAGE = 1,
     /**
@@ -272,7 +272,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO = 2
   }
@@ -292,7 +292,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PhotoSubtype {
     /**
@@ -308,7 +308,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT = 0,
     /**
@@ -317,7 +317,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENSHOT = 1,
     /**
@@ -326,7 +326,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MOVING_PHOTO = 3,
     /**
@@ -335,7 +335,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BURST = 4,
     /**
@@ -343,7 +343,8 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     SLOW_MOTION_VIDEO = 6,
     /**
@@ -351,7 +352,8 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     SPATIAL_3DGS = 7,
   }
@@ -362,7 +364,7 @@ declare namespace photoAccessHelper {
    * @enum { int } DynamicRangeType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum DynamicRangeType {
     /**
@@ -370,7 +372,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SDR = 0,
     /**
@@ -378,7 +380,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HDR = 1
   }
@@ -390,7 +392,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ThumbnailVisibility {
     /**
@@ -399,7 +401,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INVISIBLE = 0,
     /**
@@ -408,7 +410,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VISIBLE = 1
   }
@@ -427,7 +429,7 @@ declare namespace photoAccessHelper {
    * @enum { int } Photo asset position, such as local device or cloud
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 16 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PositionType {
     /**
@@ -442,7 +444,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 16 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOCAL = 1,
     /**
@@ -457,7 +459,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 16 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CLOUD = 2,
     /**
@@ -465,7 +467,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 16 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOCAL_AND_CLOUD = 3
   }
@@ -477,7 +479,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AnalysisType {
     /**
@@ -486,7 +488,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_AESTHETICS_SCORE = 0,
     /**
@@ -495,7 +497,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_LABEL = 1,
     /**
@@ -504,7 +506,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_OCR = 2,
     /**
@@ -513,7 +515,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_FACE = 3,
     /**
@@ -522,7 +524,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_OBJECT = 4,
     /**
@@ -531,7 +533,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_RECOMMENDATION = 5,
     /**
@@ -540,7 +542,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_SEGMENTATION = 6,
     /**
@@ -549,7 +551,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_COMPOSITION = 7,
     /**
@@ -558,7 +560,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_SALIENCY = 8,
     /**
@@ -567,7 +569,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_DETAIL_ADDRESS = 9,
     /**
@@ -576,7 +578,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_HUMAN_FACE_TAG = 10,
     /**
@@ -585,7 +587,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_HEAD_POSITION = 11,
     /**
@@ -594,7 +596,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_BONE_POSE = 12,
     /**
@@ -603,7 +605,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_VIDEO_LABEL = 13,
     /**
@@ -612,7 +614,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_HIGHLIGHT = 14,
     /**
@@ -621,7 +623,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_MULTI_CROP = 15,
     /**
@@ -630,7 +632,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANALYSIS_SEARCH_INDEX = 16
   }
@@ -642,7 +644,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum RecommendationType {
     /**
@@ -651,7 +653,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     QR_OR_BAR_CODE = 1,
 
@@ -661,7 +663,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     QR_CODE = 2,
 
@@ -671,7 +673,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAR_CODE = 3,
 
@@ -681,7 +683,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ID_CARD = 4,
 
@@ -691,7 +693,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PROFILE_PICTURE = 5,
 
@@ -701,7 +703,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PASSPORT = 6,
 
@@ -711,7 +713,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BANK_CARD = 7,
 
@@ -721,7 +723,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DRIVER_LICENSE = 8,
 
@@ -731,7 +733,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DRIVING_LICENSE = 9,
 
@@ -741,7 +743,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FEATURED_SINGLE_PORTRAIT = 10,
 
@@ -751,7 +753,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COLOR_STYLE_PHOTO = 12
   }
@@ -762,7 +764,7 @@ declare namespace photoAccessHelper {
    * @enum { int } DeliveryMode
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum DeliveryMode {
     /**
@@ -770,7 +772,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FAST_MODE = 0,
 
@@ -779,7 +781,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HIGH_QUALITY_MODE = 1,
 
@@ -788,7 +790,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BALANCE_MODE = 2
   }
@@ -799,7 +801,7 @@ declare namespace photoAccessHelper {
    * @enum { int } CompatibleMode
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CompatibleMode {
     /**
@@ -807,7 +809,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ORIGINAL_FORMAT_MODE = 0,
 
@@ -816,7 +818,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMPATIBLE_FORMAT_MODE = 1
   }
@@ -827,7 +829,7 @@ declare namespace photoAccessHelper {
    * @interface MediaAssetProgressHandler
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MediaAssetProgressHandler {
     /**
@@ -836,7 +838,7 @@ declare namespace photoAccessHelper {
      * @param { int } progress - Progress in percentage. Value range: 0 to 100
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onProgress(progress: int): void;
   }
@@ -848,7 +850,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum SourceMode {
     /**
@@ -857,7 +859,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ORIGINAL_MODE = 0,
 
@@ -867,7 +869,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EDITED_MODE = 1
   }
@@ -879,7 +881,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PhotoPermissionType {
     /**
@@ -888,7 +890,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TEMPORARY_READ_IMAGEVIDEO = 0,
 
@@ -898,7 +900,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PERSISTENT_READ_IMAGEVIDEO = 1
   }
@@ -910,7 +912,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum HideSensitiveType {
     /**
@@ -919,7 +921,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HIDE_LOCATION_AND_SHOOTING_PARAM = 0,
 
@@ -929,7 +931,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HIDE_LOCATION_ONLY = 1,
 
@@ -939,7 +941,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HIDE_SHOOTING_PARAM_ONLY = 2,
 
@@ -949,7 +951,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NO_HIDE_SENSITIVE_TYPE = 3,
 
@@ -958,7 +960,8 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     DEFAULT = 4,
   }
@@ -970,7 +973,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AuthorizationMode {
     /**
@@ -979,7 +982,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHORT_TIME_AUTHORIZATION = 0
   }
@@ -991,7 +994,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum WatermarkType {
     /**
@@ -1000,7 +1003,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT = 0,
 
@@ -1010,7 +1013,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BRAND_COMMON = 1,
 
@@ -1020,7 +1023,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON = 2,
 
@@ -1030,7 +1033,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BRAND = 3,
   }
@@ -1042,7 +1045,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CompleteButtonText {
     /**
@@ -1051,7 +1054,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TEXT_DONE = 0,
     /**
@@ -1060,7 +1063,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TEXT_SEND = 1,
 
@@ -1070,7 +1073,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TEXT_ADD = 2,
   }
@@ -1081,7 +1084,8 @@ declare namespace photoAccessHelper {
    * @enum { int } CompositeDisplayMode
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   enum CompositeDisplayMode {
     /**
@@ -1089,7 +1093,8 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     DEFAULT = 0,
 
@@ -1098,7 +1103,8 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CLOUD_ENHANCEMENT = 1,
   }
@@ -1109,7 +1115,7 @@ declare namespace photoAccessHelper {
    * @interface RequestOptions
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface RequestOptions {
     /**
@@ -1118,7 +1124,7 @@ declare namespace photoAccessHelper {
      * @type { DeliveryMode }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deliveryMode: DeliveryMode;
 
@@ -1129,7 +1135,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sourceMode?: SourceMode;
 
@@ -1139,7 +1145,7 @@ declare namespace photoAccessHelper {
      * @type { ?CompatibleMode }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     compatibleMode?: CompatibleMode;
 
@@ -1149,7 +1155,7 @@ declare namespace photoAccessHelper {
      * @type { ?MediaAssetProgressHandler }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     mediaAssetProgressHandler?: MediaAssetProgressHandler;
   }
@@ -1160,7 +1166,7 @@ declare namespace photoAccessHelper {
    * @interface MediaAssetDataHandler
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MediaAssetDataHandler<T> {
     /**
@@ -1177,7 +1183,7 @@ declare namespace photoAccessHelper {
      * @param { Map<string, string> } [map] - additional information for the data
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onDataPrepared(data: T, map?: Map<string, string>): void;
   }
@@ -1188,7 +1194,7 @@ declare namespace photoAccessHelper {
    * @typedef QuickImageDataHandler
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface QuickImageDataHandler<T> {
     /**
@@ -1199,7 +1205,7 @@ declare namespace photoAccessHelper {
      * @param { Map<string, string> } map - additional information for the data
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onDataPrepared(data: T, imageSource: image.ImageSource, map: Map<string, string>): void;
   }
@@ -1211,7 +1217,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PhotoProxy {}
 
@@ -1227,7 +1233,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class MediaAssetManager {
     /**
@@ -1246,7 +1252,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static requestImage(
       context: Context,
@@ -1295,7 +1301,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static requestImageData(
       context: Context,
@@ -1338,7 +1344,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static requestMovingPhoto(
       context: Context,
@@ -1361,7 +1367,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static cancelRequest(context: Context, requestId: string): Promise<void>;
 
@@ -1401,7 +1407,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static requestVideoFile(
       context: Context,
@@ -1439,7 +1445,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static loadMovingPhoto(
       context: Context,
@@ -1462,7 +1468,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @crossplatform
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type MemberType = int | long | double | string | boolean;
 
@@ -1472,7 +1478,7 @@ declare namespace photoAccessHelper {
    * @typedef { Record<string, MemberType>[] } PhotoAssetParams
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type PhotoAssetParams = Record<string, MemberType>[];
 
@@ -1499,7 +1505,7 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PhotoAsset {
     /**
@@ -1518,7 +1524,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly uri: string;
     /**
@@ -1547,7 +1553,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly photoType: PhotoType;
     /**
@@ -1576,7 +1582,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly displayName: string;
     /**
@@ -1617,7 +1623,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get(member: string): MemberType;
     /**
@@ -1631,7 +1637,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000014 - The provided member must be a property name of PhotoKey.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      * @example : set(PhotoKeys.TITLE, "newTitle"), call commitModify after set
      */
     set(member: string, value: string): void;
@@ -1663,7 +1669,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
@@ -1694,7 +1700,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     commitModify(): Promise<void>;
     /**
@@ -1822,7 +1828,8 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     getThumbnail(callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -1852,7 +1859,8 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     getThumbnail(size: image.Size, callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -1882,7 +1890,8 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     getThumbnail(size?: image.Size): Promise<image.PixelMap>;
     /**
@@ -1900,7 +1909,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getThumbnailData(type: ThumbnailType): Promise<ArrayBuffer>;
     /**
@@ -2031,7 +2040,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getExif(callback: AsyncCallback<string>): void;
     /**
@@ -2048,7 +2057,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAnalysisData(analysisType: AnalysisType): Promise<string>;
     /**
@@ -2065,7 +2074,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getExif(): Promise<string>;
     /**
@@ -2082,7 +2091,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setPending(pendingState: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -2099,7 +2108,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setPending(pendingState: boolean): Promise<void>;
     /**
@@ -2115,7 +2124,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isEdited(callback: AsyncCallback<boolean>): void;
     /**
@@ -2131,7 +2140,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isEdited(): Promise<boolean>;
     /**
@@ -2147,7 +2156,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     requestEditData(callback: AsyncCallback<string>): void;
     /**
@@ -2163,7 +2172,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     requestEditData(): Promise<string>;
     /**
@@ -2179,7 +2188,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getEditData(): Promise<MediaAssetEditData>;
     /**
@@ -2195,7 +2204,7 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     clone(title: string): Promise<PhotoAsset>;
     /**
@@ -2223,7 +2232,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     convertImageFormat(title: string, imageFormat: SupportedImageFormat): Promise<PhotoAsset>;
     /**
@@ -2262,7 +2271,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     requestSource(callback: AsyncCallback<int>): void;
     /**
@@ -2278,7 +2287,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     requestSource(): Promise<int>;
     /**
@@ -2296,7 +2305,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     commitEditedAsset(editData: string, uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -2314,7 +2323,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     commitEditedAsset(editData: string, uri: string): Promise<void>;
     /**
@@ -2330,7 +2339,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     revertToOriginal(callback: AsyncCallback<void>): void;
     /**
@@ -2346,7 +2355,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     revertToOriginal(): Promise<void>;
     /**
@@ -2363,7 +2372,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     requestPhoto(callback: AsyncCallback<image.PixelMap>): string;
     /**
@@ -2381,7 +2390,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     requestPhoto(options: RequestPhotoOptions, callback: AsyncCallback<image.PixelMap>): string;
     /**
@@ -2397,7 +2406,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cancelPhotoRequest(requestId: string): void;
     /**
@@ -2415,7 +2424,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getKeyFrameThumbnail(beginFrameTimeMs: long, type: ThumbnailType): Promise<image.PixelMap>;
   }
@@ -2443,7 +2452,7 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PhotoKeys {
     /**
@@ -2466,7 +2475,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     URI = 'uri',
     /**
@@ -2489,7 +2498,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PHOTO_TYPE = 'media_type',
     /**
@@ -2512,7 +2521,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DISPLAY_NAME = 'display_name',
     /**
@@ -2535,7 +2544,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SIZE = 'size',
     /**
@@ -2558,7 +2567,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATE_ADDED = 'date_added',
     /**
@@ -2581,7 +2590,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATE_MODIFIED = 'date_modified',
     /**
@@ -2604,7 +2613,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DURATION = 'duration',
     /**
@@ -2627,7 +2636,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WIDTH = 'width',
     /**
@@ -2650,7 +2659,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HEIGHT = 'height',
     /**
@@ -2673,7 +2682,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATE_TAKEN = 'date_taken',
     /**
@@ -2696,7 +2705,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ORIENTATION = 'orientation',
     /**
@@ -2719,7 +2728,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FAVORITE = 'is_favorite',
     /**
@@ -2742,7 +2751,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TITLE = 'title',
     /**
@@ -2764,7 +2773,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     POSITION = 'position',
     /**
@@ -2773,7 +2782,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATE_TRASHED = 'date_trashed',
     /**
@@ -2782,7 +2791,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HIDDEN = 'hidden',
     /**
@@ -2791,7 +2800,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     USER_COMMENT = 'user_comment',
     /**
@@ -2800,7 +2809,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_SHOT_KEY = 'camera_shot_key',
     /**
@@ -2809,7 +2818,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATE_YEAR = 'date_year',
     /**
@@ -2818,7 +2827,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATE_MONTH = 'date_month',
     /**
@@ -2827,7 +2836,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATE_DAY = 'date_day',
     /**
@@ -2836,7 +2845,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PENDING = 'pending',
     /**
@@ -2851,7 +2860,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATE_ADDED_MS = 'date_added_ms',
     /**
@@ -2866,7 +2875,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATE_MODIFIED_MS = 'date_modified_ms',
     /**
@@ -2875,7 +2884,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATE_TRASHED_MS = 'date_trashed_ms',
     /**
@@ -2890,7 +2899,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PHOTO_SUBTYPE = 'subtype',
     /**
@@ -2899,7 +2908,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MOVING_PHOTO_EFFECT_MODE = 'moving_photo_effect_mode',
     /**
@@ -2914,7 +2923,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DYNAMIC_RANGE_TYPE = 'dynamic_range_type',
     /**
@@ -2929,7 +2938,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COVER_POSITION = 'cover_position',
     /**
@@ -2944,7 +2953,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BURST_KEY = 'burst_key',
     /**
@@ -2953,7 +2962,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     THUMBNAIL_READY = 'thumbnail_ready',
     /**
@@ -2968,7 +2977,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LCD_SIZE = 'lcd_size',
     /**
@@ -2983,7 +2992,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     THM_SIZE = 'thm_size',
     /**
@@ -2998,7 +3007,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DETAIL_TIME = 'detail_time',
     /**
@@ -3013,7 +3022,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATE_TAKEN_MS = 'date_taken_ms',
     /**
@@ -3022,7 +3031,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CE_AVAILABLE = 'ce_available',
     /**
@@ -3031,7 +3040,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SUPPORTED_WATERMARK_TYPE = 'supported_watermark_type',
     /**
@@ -3040,7 +3049,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     THUMBNAIL_VISIBLE = 'thumbnail_visible',
     /**
@@ -3049,7 +3058,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IS_CE_AUTO = 'is_auto',
     /**
@@ -3063,7 +3072,8 @@ declare namespace photoAccessHelper {
      * Owner album id of the asset, read only
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     OWNER_ALBUM_ID = 'owner_album_id',
     /**
@@ -3072,7 +3082,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IS_RECENT_SHOW = 'is_recent_show',
     /**
@@ -3080,7 +3090,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_SUFFIX = 'media_suffix',
     /**
@@ -3097,7 +3107,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EXIF_ROTATE = 'exif_rotate',
     /**
@@ -3106,7 +3116,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HAS_APPLINK = 'has_applink',
     /**
@@ -3115,7 +3125,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     APPLINK = 'applink',
     /**
@@ -3139,7 +3149,8 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     EXIST_COMPATIBLE_DUPLICATE = 'exist_compatible_duplicate',
     /**
@@ -3147,7 +3158,8 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     COMPOSITE_DISPLAY_STATUS = 'composite_display_status',
     /**
@@ -3155,7 +3167,8 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     VIDEO_MODE = 'video_mode',
     /**
@@ -3163,7 +3176,8 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     ASPECT_RATIO = 'aspect_ratio',
     /**
@@ -3171,9 +3185,17 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     EDIT_DATA_EXIST = 'edit_data_exist',
+    /**
+     * change time of photo
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 23 dynamic&static
+     */
+    CHANGE_TIME = 'change_time',
   }
 
   /**
@@ -3190,7 +3212,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @crossplatform
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AlbumKeys {
     /**
@@ -3212,7 +3234,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     URI = 'uri',
     /**
@@ -3227,7 +3249,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ALBUM_NAME = 'album_name',
     /**
@@ -3241,7 +3263,8 @@ declare namespace photoAccessHelper {
      * Virtual path of the album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     ALBUM_LPATH = 'lpath',
     /**
@@ -3250,7 +3273,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BUNDLE_NAME = 'bundle_name',
     /**
@@ -3259,7 +3282,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATE_MODIFIED = 'date_modified',
     /**
@@ -3268,7 +3291,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COVER_URI_SOURCE = 'cover_uri_source',
     /**
@@ -3279,6 +3302,22 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic
      */
     UPLOAD_STATUS = 'upload_status',
+    /**
+     * hidden state of album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    HIDDEN = 'hidden',
+    /**
+     * change time of album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 23 dynamic&static
+     */
+    CHANGE_TIME = 'change_time',
   }
 
   /**
@@ -3288,7 +3327,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum HiddenPhotosDisplayMode {
     /**
@@ -3297,7 +3336,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ASSETS_MODE,
     /**
@@ -3306,7 +3345,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ALBUMS_MODE
   }
@@ -3334,7 +3373,7 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FetchOptions {
     /**
@@ -3360,7 +3399,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fetchColumns: Array<string>;
     /**
@@ -3386,7 +3425,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     predicates: dataSharePredicates.DataSharePredicates;
   }
@@ -3398,7 +3437,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PhotoCreateOptions {
     /**
@@ -3408,7 +3447,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     subtype?: PhotoSubtype;
     /**
@@ -3418,7 +3457,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cameraShotKey?: string;
     /**
@@ -3439,7 +3478,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PhotoCreationConfig {
     /**
@@ -3449,7 +3488,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     title?: string;
 
@@ -3460,7 +3499,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fileNameExtension: string;
 
@@ -3471,7 +3510,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     photoType: PhotoType;
 
@@ -3482,7 +3521,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     subtype?: PhotoSubtype;
   }
@@ -3509,7 +3548,8 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface CreateOptions {
     /**
@@ -3534,7 +3574,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     title?: string;
     /**
@@ -3544,7 +3585,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     subtype?: PhotoSubtype;
   }
@@ -3556,7 +3597,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface RequestPhotoOptions {
     /**
@@ -3566,7 +3607,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     size?: image.Size;
     /**
@@ -3576,7 +3617,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     requestPhotoType?: RequestPhotoType;
   }
@@ -3588,7 +3629,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PhotoCreationSource {
     /**
@@ -3598,7 +3639,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleName?: string;
     /**
@@ -3608,7 +3649,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appName?: string;
     /**
@@ -3618,7 +3659,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appId?: string;
     /**
@@ -3628,7 +3669,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     tokenId?: long;
   }
@@ -3656,7 +3697,7 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FetchResult<T> {
     /**
@@ -3692,7 +3733,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getCount(): int;
     /**
@@ -3731,7 +3772,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isAfterLast(): boolean;
     /**
@@ -3767,7 +3808,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getFirstObject(callback: AsyncCallback<T>): void;
     /**
@@ -3803,7 +3844,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getFirstObject(): Promise<T>;
     /**
@@ -3843,7 +3884,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getNextObject(callback: AsyncCallback<T>): void;
     /**
@@ -3883,7 +3924,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getNextObject(): Promise<T>;
     /**
@@ -3919,7 +3960,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getLastObject(callback: AsyncCallback<T>): void;
     /**
@@ -3955,7 +3996,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getLastObject(): Promise<T>;
     /**
@@ -3994,7 +4035,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getObjectByPosition(index: int, callback: AsyncCallback<T>): void;
     /**
@@ -4033,7 +4074,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getObjectByPosition(index: int): Promise<T>;
     /**
@@ -4050,7 +4091,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getRangeObjects(index: number, offset: number): Promise<T[]>
     /**
@@ -4086,7 +4127,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAllObjects(callback: AsyncCallback<Array<T>>): void;
     /**
@@ -4122,7 +4163,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAllObjects(): Promise<Array<T>>;
     /**
@@ -4155,7 +4196,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     close(): void;
   }
@@ -4174,7 +4215,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @crossplatform
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AlbumType {
     /**
@@ -4189,7 +4230,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     USER = 0,
     /**
@@ -4204,7 +4245,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM = 1024,
     /**
@@ -4218,7 +4259,8 @@ declare namespace photoAccessHelper {
      * Album created by app.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     SOURCE = 2048,
     /**
@@ -4227,7 +4269,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SMART = 4096
   }
@@ -4246,7 +4288,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @crossplatform
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AlbumSubtype {
     /**
@@ -4261,7 +4303,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     USER_GENERIC = 1,
     /**
@@ -4276,7 +4318,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FAVORITE = 1025,
     /**
@@ -4291,7 +4333,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO,
     /**
@@ -4300,7 +4342,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HIDDEN,
     /**
@@ -4309,7 +4351,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TRASH,
     /**
@@ -4318,7 +4360,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREENSHOT,
     /**
@@ -4327,7 +4369,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA,
     /**
@@ -4342,7 +4384,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IMAGE = 1031,
     /**
@@ -4351,7 +4393,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CLOUD_ENHANCEMENT = 1032,
     /**
@@ -4365,7 +4407,8 @@ declare namespace photoAccessHelper {
      * Source album
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     SOURCE_GENERIC = 2049,
     /**
@@ -4374,7 +4417,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CLASSIFY = 4097,
     /**
@@ -4383,7 +4426,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GEOGRAPHY_LOCATION = 4099,
     /**
@@ -4392,7 +4435,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GEOGRAPHY_CITY,
     /**
@@ -4401,7 +4444,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHOOTING_MODE,
     /**
@@ -4410,7 +4453,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PORTRAIT,
     /**
@@ -4419,7 +4462,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GROUP_PHOTO,
     /**
@@ -4428,7 +4471,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HIGHLIGHT = 4104,
     /**
@@ -4437,7 +4480,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HIGHLIGHT_SUGGESTIONS,
     /**
@@ -4452,7 +4495,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ANY = 2147483647
   }
@@ -4464,7 +4507,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum RequestPhotoType {
     /**
@@ -4473,7 +4516,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     REQUEST_ALL_THUMBNAILS = 0,
     /**
@@ -4482,7 +4525,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     REQUEST_FAST_THUMBNAIL,
     /**
@@ -4491,7 +4534,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     REQUEST_QUALITY_THUMBNAIL
   }
@@ -4503,7 +4546,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CoverUriSource {
     /**
@@ -4512,7 +4555,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT_COVER = 0,
 
@@ -4522,7 +4565,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MANUAL_COVER = 1
   }
@@ -4541,7 +4584,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @crossplatform
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AbsAlbum {
     /**
@@ -4560,7 +4603,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly albumType: AlbumType;
     /**
@@ -4579,7 +4622,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly albumSubtype: AlbumSubtype;
     /**
@@ -4596,7 +4639,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     albumName: string;
     /**
@@ -4615,7 +4658,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly albumUri: string;
     /**
@@ -4634,7 +4677,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly count: int;
     /**
@@ -4644,7 +4687,7 @@ declare namespace photoAccessHelper {
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly coverUri: string;
     /**
@@ -4662,7 +4705,8 @@ declare namespace photoAccessHelper {
      * @type { ?string }
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     readonly lpath?: string;
     /**
@@ -4673,7 +4717,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly coverUriSource?: CoverUriSource;
     /**
@@ -4686,6 +4730,24 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic
      */
     readonly uploadStatus: boolean;
+    /**
+     * The hidden state of album
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly hidden?: boolean;
+    /**
+     * The change time of album
+     * @type { ?long }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 23 dynamic&static
+     */
+    readonly changeTime?: long;
     /**
      * Obtains image and video assets. This API uses an asynchronous callback to return the result.
      *
@@ -4714,7 +4776,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>): void;
     /**
@@ -4761,7 +4823,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAssets(options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
@@ -4778,7 +4840,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSharedPhotoAssets(options: FetchOptions): Array<SharedPhotoAsset>;
   }
@@ -4837,7 +4899,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @crossplatform
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Album extends AbsAlbum {
     /**
@@ -4856,7 +4918,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly imageCount?: int;
     /**
@@ -4875,7 +4937,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly videoCount?: int;
     /**
@@ -4886,7 +4948,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly dateAdded?: long;
     /**
@@ -4897,7 +4959,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly dateModified?: long;
     /**
@@ -4912,7 +4974,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
@@ -4927,7 +4989,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     commitModify(): Promise<void>;
     /**
@@ -5132,7 +5194,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getFaceId(): Promise<string>;
     /**
@@ -5150,7 +5212,8 @@ declare namespace photoAccessHelper {
      *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     getSelectedAssets(optionCheck: FetchOptions, filter?: string): Promise<FetchResult<PhotoAsset>>;
   }
@@ -5234,7 +5297,7 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PhotoAccessHelper {
     /**
@@ -5265,7 +5328,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>): void;
     /**
@@ -5310,7 +5373,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAssets(options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
@@ -5339,7 +5402,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getBurstAssets(burstKey: string, options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
@@ -5358,7 +5421,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createAsset(displayName: string, callback: AsyncCallback<PhotoAsset>): void;
     /**
@@ -5377,7 +5440,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createAsset(displayName: string): Promise<PhotoAsset>;
     /**
@@ -5397,7 +5460,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createAsset(displayName: string, options: PhotoCreateOptions): Promise<PhotoAsset>;
     /**
@@ -5418,7 +5481,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createAsset(displayName: string, options: PhotoCreateOptions, callback: AsyncCallback<PhotoAsset>): void;
     /**
@@ -5473,7 +5536,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     createAsset(photoType: PhotoType, extension: string, options: CreateOptions, callback: AsyncCallback<string>): void;
     /**
@@ -5525,7 +5589,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     createAsset(photoType: PhotoType, extension: string, callback: AsyncCallback<string>): void;
     /**
@@ -5580,7 +5645,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     createAsset(photoType: PhotoType, extension: string, options?: CreateOptions): Promise<string>;
     /**
@@ -5697,7 +5763,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAlbums(
       type: AlbumType,
@@ -5737,7 +5803,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAlbums(type: AlbumType, subtype: AlbumSubtype, callback: AsyncCallback<FetchResult<Album>>): void;
     /**
@@ -5774,7 +5840,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAlbums(type: AlbumType, subtype: AlbumSubtype, options?: FetchOptions): Promise<FetchResult<Album>>;
     /**
@@ -5793,7 +5859,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getHiddenAlbums(mode: HiddenPhotosDisplayMode, options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>): void;
     /**
@@ -5810,7 +5876,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getHiddenAlbums(mode: HiddenPhotosDisplayMode, callback: AsyncCallback<FetchResult<Album>>): void;
     /**
@@ -5828,7 +5894,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getHiddenAlbums(mode: HiddenPhotosDisplayMode, options?: FetchOptions): Promise<FetchResult<Album>>;
     /**
@@ -5890,7 +5956,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 13900020 - Invalid argument
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     registerChange(uri: string, forChildUris: boolean, callback: Callback<ChangeData>): void;
     /**
@@ -5921,7 +5987,8 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
      getDataAnalysisProgress(analysisType?: AnalysisType): Promise<string>;
     /**
@@ -5936,7 +6003,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 13900020 - Invalid argument
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     unRegisterChange(uri: string, callback?: Callback<ChangeData>): void;
     /**
@@ -6006,7 +6073,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createAssetsForApp(bundleName: string, appName: string, tokenId: long, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
     /**
@@ -6042,7 +6109,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createAssetsForAppWithMode(
       bundleName: string,
@@ -6084,7 +6151,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getPhotoIndex(photoUri: string, albumUri: string, options: FetchOptions, callback: AsyncCallback<int>): void;
     /**
@@ -6105,7 +6172,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getPhotoIndex(photoUri: string, albumUri: string, options: FetchOptions): Promise<int>;
     /**
@@ -6119,7 +6186,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(callback: AsyncCallback<void>): void;
     /**
@@ -6133,7 +6200,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(): Promise<void>;
     /**
@@ -6150,7 +6217,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     saveFormInfo(info: FormInfo, callback: AsyncCallback<void>): void;
     /**
@@ -6167,7 +6234,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     saveFormInfo(info: FormInfo): Promise<void>;
     /**
@@ -6184,7 +6251,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     saveGalleryFormInfo(info: GalleryFormInfo): Promise<void>;
     /**
@@ -6201,7 +6268,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     removeFormInfo(info: FormInfo, callback: AsyncCallback<void>): void;
     /**
@@ -6218,7 +6285,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     removeFormInfo(info: FormInfo): Promise<void>;
     /**
@@ -6235,7 +6302,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     removeGalleryFormInfo(info: GalleryFormInfo): Promise<void>;
     /**
@@ -6252,7 +6319,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateGalleryFormInfo(info: GalleryFormInfo): Promise<void>;
     /**
@@ -6268,7 +6335,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     applyChanges(mediaChangeRequest: MediaChangeRequest): Promise<void>;
     /**
@@ -6282,7 +6349,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getIndexConstructProgress(): Promise<string>;
     /**
@@ -6303,7 +6370,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     grantPhotoUrisPermission(tokenId: long, uriList: Array<string>, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<int>;
     /**
@@ -6324,7 +6391,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     grantPhotoUriPermission(tokenId: long, uri: string, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<int>;
     /**
@@ -6343,7 +6410,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cancelPhotoUriPermission(tokenId: long, uri: string, photoPermissionType: PhotoPermissionType): Promise<int>;
     /**
@@ -6361,9 +6428,33 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     startThumbnailCreationTask(predicate: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>): int;
+    /**
+     * Provides the capability of thumbnail generation according to specified rules.
+     * Support for returning information indicating that all thumbnails have been generated.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { dataSharePredicates.DataSharePredicates } predicate - Rule options for generating thumbnails.
+     * @param { AsyncCallback<void> } callback - Returns void when the task is completed.
+     * @param { AsyncCallback<int> } response - Returns information indicating that all thumbnails have been genrated.
+     * @returns { int } Create task id for generating thumbnails
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails;
+     *    Possible causes: The predicates invalid.
+     * @throws { BusinessError } 23800301 - Internal system error
+     *     It is recommended to retry and check the logs. Possible causes:
+     *     1. Database corrupted;
+     *     2. The file system is abnormal;
+     *     3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    startThumbnailCreationTask(predicate: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>, response: AsyncCallback<int>): int;
     /**
      * Provides the capability of stop generating thumbnails.
      *
@@ -6377,7 +6468,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stopThumbnailCreationTask(taskId: int): void;
     /**
@@ -6394,7 +6485,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSharedPhotoAssets(options: FetchOptions): Array<SharedPhotoAsset>;
     /**
@@ -6407,7 +6498,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedPhotoFormats(photoType: PhotoType): Promise<Array<string>>;
     /**
@@ -6424,7 +6515,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     startAssetAnalysis(type: AnalysisType, assetUris?: Array<string>): Promise<int>;
     /**
@@ -6441,7 +6532,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAlbumsByIds(albumIds: Array<int>): Promise<Map<int, Album>>;
     /**
@@ -6461,7 +6552,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createAssetsForAppWithAlbum(source: PhotoCreationSource, albumUri: string, isAuthorized: boolean, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
 
@@ -6674,6 +6765,70 @@ declare namespace photoAccessHelper {
     off(type: 'trashedAlbumChange', callback?: Callback<AlbumChangeInfos>): void;
 
     /**
+    * Subscribes to single album changes.
+    *
+    * @permission ohos.permission.READ_IMAGEVIDEO
+    * @param { Album } album Album to be listened.
+    * @param { Callback<AlbumChangeInfos> } callback Callback used to notify the application of the changes.
+    * @throws { BusinessError } 201 - Permission denied
+    * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes：
+    *     1. The same callback is registered repeatedly. 2. Album has been removed. 3. The uri of the a invalid.
+    * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+    *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @since 23 dynamic&static
+    */
+    onSinglePhotoAlbumChange(album: Album, callback: Callback<AlbumChangeInfos>): void;
+
+    /**
+    * Unsubscribes from single album changes.
+    *
+    * @permission ohos.permission.READ_IMAGEVIDEO
+    * @param { Album } [album] Album to be listened.
+    * @param { Callback<AlbumChangeInfos> } [callback] Callback used for unsubscriptions.
+    * @throws { BusinessError } 201 - Permission denied
+    * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes：
+    *     1. The same callback is unregistered repeatedly. 2. The uri of the album invalid.
+    * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+    *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @since 23 dynamic&static
+    */
+    offSinglePhotoAlbumChange(album?: Album, callback?: Callback<AlbumChangeInfos>): void;
+
+    /**
+    * Subscribes to changes of single photos and videos.
+    *
+    * @permission ohos.permission.READ_IMAGEVIDEO
+    * @param { PhotoAsset } asset Asset to be listened.
+    * @param { Callback<PhotoAssetChangeInfos> } callback Callback used to notify the application of the changes.
+    * @throws { BusinessError } 201 - Permission denied
+    * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes：
+    *     1. The same callback is registered repeatedly. 2. Asset has been removed. 3. The uri of the asset invalid.
+    * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+    *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @since 23 dynamic&static
+    */
+    onSinglePhotoChange(asset: PhotoAsset, callback: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
+    * Unsubscribes from changes of single photos and videos.
+    *
+    * @permission ohos.permission.READ_IMAGEVIDEO
+    * @param { PhotoAsset } [asset] Asset to be listened.
+    * @param { Callback<PhotoAssetChangeInfos> } [callback] Callback used for unsubscription.
+    * @throws { BusinessError } 201 - Permission denied
+    * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes：
+    *     1. The same callback is unregistered repeatedly. 2. The uri of the asset invalid.
+    * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+    *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @since 23 dynamic&static
+    */
+    offSinglePhotoChange(asset?: PhotoAsset, callback?: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
      * Get the PhotoPickerComponent default album name.
      *
      * @returns { Promise<string> } - Returns the default album name.
@@ -6698,7 +6853,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     batchGetPhotoAssetParams(assets: PhotoAsset[], members: string[]): PhotoAssetParams
 
@@ -6797,7 +6952,8 @@ declare namespace photoAccessHelper {
      *     <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     query(sql: string): Promise<ResultSet>;
 
@@ -6860,7 +7016,8 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     acquireDebugDatabase(betaIssueId: string, betaScenario: string): Promise<Map<string, string>>;
 
@@ -6880,7 +7037,8 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     releaseDebugDatabase(betaIssueId: string, dbFd: int): Promise<void>;
 
@@ -6898,7 +7056,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stageModelOnly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     getAlbumIdByBundleName(bundleName: string): Promise<int>;
 
@@ -6913,7 +7072,8 @@ declare namespace photoAccessHelper {
      *     <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stageModelOnly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     getAlbumIdByLpath(lpath: string): Promise<int>;
   }
@@ -7102,6 +7262,7 @@ declare namespace photoAccessHelper {
    * @interface PhotoAssetChangeInfos
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   interface PhotoAssetChangeInfos {
     /**
@@ -7359,6 +7520,7 @@ declare namespace photoAccessHelper {
    * @interface AlbumChangeInfos
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   interface AlbumChangeInfos {
     /**
@@ -7583,6 +7745,16 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic
      */
     albumOrder?: number;
+
+    /**
+     * hidden state of the album.
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    hidden?: boolean;
   }
 
   /**
@@ -7592,7 +7764,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface GalleryFormInfo {
     /**
@@ -7602,7 +7774,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     formId: string;
     /**
@@ -7612,7 +7784,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     assetUris?: Array<string>;
   }
@@ -7624,7 +7796,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FormInfo {
     /**
@@ -7634,7 +7806,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     formId: string;
     /**
@@ -7645,7 +7817,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uri: string;
   }
@@ -7656,7 +7828,7 @@ declare namespace photoAccessHelper {
    * @enum { int } NotifyType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum NotifyType {
     /**
@@ -7664,7 +7836,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NOTIFY_ADD,
     /**
@@ -7672,7 +7844,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NOTIFY_UPDATE,
     /**
@@ -7680,7 +7852,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NOTIFY_REMOVE,
     /**
@@ -7688,7 +7860,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NOTIFY_ALBUM_ADD_ASSET,
     /**
@@ -7696,7 +7868,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NOTIFY_ALBUM_REMOVE_ASSET
   }
@@ -7707,7 +7879,7 @@ declare namespace photoAccessHelper {
    * @enum { string } DefaultChangeUri
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum DefaultChangeUri {
     /**
@@ -7715,7 +7887,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT_PHOTO_URI = 'file://media/Photo',
     /**
@@ -7723,7 +7895,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT_ALBUM_URI = 'file://media/PhotoAlbum',
     /**
@@ -7732,7 +7904,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT_HIDDEN_ALBUM_URI = 'file://media/HiddenAlbum'
   }
@@ -7743,7 +7915,7 @@ declare namespace photoAccessHelper {
    * @interface ChangeData
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ChangeData {
     /**
@@ -7752,7 +7924,7 @@ declare namespace photoAccessHelper {
      * @type { NotifyType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     type: NotifyType;
     /**
@@ -7761,7 +7933,7 @@ declare namespace photoAccessHelper {
      * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uris: Array<string>;
     /**
@@ -7770,7 +7942,7 @@ declare namespace photoAccessHelper {
      * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     extraUris: Array<string>;
     /**
@@ -7780,7 +7952,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sharedPhotoAssets: Array<SharedPhotoAsset>;
     /**
@@ -7790,7 +7962,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sharedAlbumAssets: Array<SharedAlbumAsset>;
     /**
@@ -7800,7 +7972,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sharedExtraPhotoAssets: Array<SharedPhotoAsset>;
   }
@@ -7828,7 +8000,7 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum PhotoViewMIMETypes {
     /**
@@ -7851,7 +8023,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IMAGE_TYPE = 'image/*',
     /**
@@ -7874,7 +8046,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_TYPE = 'video/*',
     /**
@@ -7897,7 +8069,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IMAGE_VIDEO_TYPE = '*/*',
 
@@ -7907,7 +8079,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MOVING_PHOTO_IMAGE_TYPE = 'image/movingPhoto'
   }
@@ -8021,7 +8193,7 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class BaseSelectOptions {
     /**
@@ -8233,7 +8405,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     isMovingPhotoBadgeShown?: boolean
 
@@ -8244,7 +8417,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     assetFilter?: Array<OperationItem>;   
   }
@@ -8255,7 +8429,8 @@ declare namespace photoAccessHelper {
    * @enum { int } MovingPhotoBadgeStateType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum MovingPhotoBadgeStateType {
     /**
@@ -8264,7 +8439,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     NOT_MOVING_PHOTO = 0,
     /**
@@ -8273,7 +8449,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     MOVING_PHOTO_ENABLED = 1,
     /**
@@ -8282,7 +8459,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     MOVING_PHOTO_DISABLED =	2
   }
@@ -8420,7 +8598,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     export type OperationValueType = long | double | string | boolean;
 
@@ -8430,7 +8609,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     export class OperationItem {
       /**
@@ -8440,7 +8620,8 @@ declare namespace photoAccessHelper {
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @stagemodelonly
        * @atomicservice
-       * @since 22 dynamic&static
+       * @since 22 dynamic
+       * @since 23 static
        */
       operationType: OperationType;
 
@@ -8451,7 +8632,8 @@ declare namespace photoAccessHelper {
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @stagemodelonly
        * @atomicservice
-       * @since 22 dynamic&static
+       * @since 22 dynamic
+       * @since 23 static
        */
       field?: PhotoKeys;
 
@@ -8463,7 +8645,8 @@ declare namespace photoAccessHelper {
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @stagemodelonly
        * @atomicservice
-       * @since 22 dynamic&static
+       * @since 22 dynamic
+       * @since 23 static
        */
       value?: Array<OperationValueType>;
   }
@@ -8489,7 +8672,7 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class PhotoSelectOptions extends BaseSelectOptions {
     /**
@@ -8561,6 +8744,39 @@ declare namespace photoAccessHelper {
      * @since 21 dynamic
      */
     contextRecoveryInfo?: ContextRecoveryInfo;
+
+    /**
+     * Support destruction with navigation.
+     * 
+     * @type {?boolean}
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    isDestroyedWithNavigation?: boolean;
+
+    /**
+     * Support setting the max photo select number.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    maxPhotoSelectNumber?: int;
+
+    /**
+     * Support setting the max video select number.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    maxVideoSelectNumber?: int;
   }
 
   /**
@@ -8570,7 +8786,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class RecommendationOptions {
     /**
@@ -8580,7 +8796,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     recommendationType?: RecommendationType;
 
@@ -8592,7 +8808,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     textContextInfo?: TextContextInfo;
   }
@@ -8604,7 +8820,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface TextContextInfo {
     /**
@@ -8615,7 +8831,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     text?: string;
   }
@@ -8640,7 +8856,7 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class PhotoSelectResult {
     /**
@@ -8722,7 +8938,8 @@ declare namespace photoAccessHelper {
      * @type { Array<MovingPhotoBadgeStateType> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     movingPhotoBadgeStates: Array<MovingPhotoBadgeStateType>;
   }
@@ -8750,7 +8967,7 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class PhotoViewPicker {
     /**
@@ -8871,7 +9088,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class MediaAssetEditData {
     /**
@@ -8886,7 +9103,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(compatibleFormat: string, formatVersion: string);
 
@@ -8897,7 +9114,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     compatibleFormat: string;
 
@@ -8908,7 +9125,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     formatVersion: string;
 
@@ -8919,7 +9136,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     data: string;
   }
@@ -8931,7 +9148,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ResourceType {
     /**
@@ -8940,7 +9157,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IMAGE_RESOURCE = 1,
 
@@ -8950,7 +9167,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_RESOURCE = 2,
 
@@ -8960,7 +9177,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PHOTO_PROXY = 3,
 
@@ -8970,7 +9187,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRIVATE_MOVING_PHOTO_RESOURCE = 4,
 
@@ -8980,7 +9197,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRIVATE_MOVING_PHOTO_METADATA = 5
   }
@@ -8991,7 +9208,7 @@ declare namespace photoAccessHelper {
    * @enum { int } ImageFileType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ImageFileType {
     /**
@@ -8999,7 +9216,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     JPEG = 1,
 
@@ -9008,7 +9225,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HEIF = 2
   }
@@ -9020,7 +9237,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum MovingPhotoEffectMode {
     /**
@@ -9029,7 +9246,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT = 0,
 
@@ -9039,7 +9256,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BOUNCE_PLAY = 1,
 
@@ -9049,7 +9266,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOOP_PLAY = 2,
 
@@ -9059,7 +9276,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LONG_EXPOSURE = 3,
 
@@ -9069,7 +9286,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MULTI_EXPOSURE = 4,
 
@@ -9079,7 +9296,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CINEMA_GRAPH = 5,
 
@@ -9089,7 +9306,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IMAGE_ONLY = 10
   }
@@ -9101,7 +9318,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
   */
   enum VideoEnhancementType {
     /**
@@ -9110,7 +9327,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     QUALITY_ENHANCEMENT_LOCAL = 0,
 
@@ -9120,7 +9337,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     QUALITY_ENHANCEMENT_CLOUD = 1,
 
@@ -9130,7 +9347,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     QUALITY_ENHANCEMENT_LOCAL_AND_CLOUD = 2
   }
@@ -9142,7 +9359,8 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @Stagemodelonly
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum OperationType {
     /**
@@ -9151,7 +9369,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     EQUAL_TO = 1,
 
@@ -9161,7 +9380,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     NOT_EQUAL_TO = 2,
 
@@ -9171,7 +9391,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     GREATER_THAN = 3,
 
@@ -9181,7 +9402,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     LESS_THAN = 4,
 
@@ -9191,7 +9413,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     GREATER_THAN_OR_EQUAL_TO = 5,
 
@@ -9201,7 +9424,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     LESS_THAN_OR_EQUAL_TO = 6,
 
@@ -9211,7 +9435,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     AND = 7,
     
@@ -9221,7 +9446,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     OR = 8,
 
@@ -9231,7 +9457,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     IN = 9,
 
@@ -9241,7 +9468,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     NOT_IN = 10,
 
@@ -9252,7 +9480,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     BEGIN_WRAP = 11,
 
@@ -9263,7 +9492,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     END_WRAP = 12,
 
@@ -9274,7 +9504,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     BETWEEN = 13,
 
@@ -9285,7 +9516,8 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     NOT_BETWEEN = 14,
   }
@@ -9297,7 +9529,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MediaChangeRequest {}
 
@@ -9308,7 +9540,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class MediaAssetChangeRequest implements MediaChangeRequest {
     /**
@@ -9331,7 +9563,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(asset: PhotoAsset);
 
@@ -9363,7 +9595,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static createImageAssetRequest(context: Context, fileUri: string): MediaAssetChangeRequest;
 
@@ -9380,7 +9612,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static createVideoAssetRequest(context: Context, fileUri: string): MediaAssetChangeRequest;
 
@@ -9400,7 +9632,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static createAssetRequest(context: Context, displayName: string, options?: PhotoCreateOptions): MediaAssetChangeRequest;
 
@@ -9419,7 +9651,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static createAssetRequest(context: Context, photoType: PhotoType, extension: string, options?: CreateOptions): MediaAssetChangeRequest;
 
@@ -9437,7 +9669,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static deleteAssets(context: Context, assets: Array<PhotoAsset>): Promise<void>;
 
@@ -9456,7 +9688,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static deleteAssets(context: Context, uriList: Array<string>): Promise<void>;
 
@@ -9480,7 +9712,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAsset(): PhotoAsset;
 
@@ -9495,7 +9727,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setFavorite(favoriteState: boolean): void;
 
@@ -9510,7 +9742,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setHidden(hiddenState: boolean): void;
 
@@ -9525,7 +9757,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setUserComment(userComment: string): void;
 
@@ -9541,7 +9773,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setLocation(longitude: double, latitude: double): void;
 
@@ -9565,7 +9797,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setTitle(title: string): void;
 
@@ -9580,7 +9812,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setEditData(editData: MediaAssetEditData): void;
 
@@ -9596,7 +9828,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000016 - Operation Not Support
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getWriteCacheHandler(): Promise<int>;
 
@@ -9613,7 +9845,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     addResource(type: ResourceType, fileUri: string): void;
 
@@ -9629,7 +9861,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     addResource(type: ResourceType, data: ArrayBuffer): void;
 
@@ -9646,7 +9878,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     addResource(type: ResourceType, proxy: PhotoProxy): void;
 
@@ -9662,7 +9894,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setCameraShotKey(cameraShotKey: string): void;
 
@@ -9673,7 +9905,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000016 - Operation Not Support
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     saveCameraPhoto(): void;
 
@@ -9685,7 +9917,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000016 - Operation Not Support
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     saveCameraPhoto(imageFileType: ImageFileType): void;
 
@@ -9696,7 +9928,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000016 - Operation Not Support
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     discardCameraPhoto(): void;
 
@@ -9712,7 +9944,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setEffectMode(mode: MovingPhotoEffectMode): void;
 
@@ -9725,7 +9957,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setOrientation(orientation: int): void;
 
@@ -9742,7 +9974,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
     */
     setVideoEnhancementAttr(videoEnhancementType: VideoEnhancementType, photoId: string): void;
 
@@ -9757,7 +9989,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setSupportedWatermarkType(watermarkType: WatermarkType): void;
 
@@ -9776,7 +10008,8 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     addResourceForPicker(type: ResourceType, fileUri: string): void;
 
@@ -9798,7 +10031,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static deleteLocalAssetsPermanently(context: Context, assets: Array<PhotoAsset>): Promise<void>;
 
@@ -9874,7 +10107,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setHasAppLink(hasAppLink: int): void;
 
@@ -9889,7 +10122,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setAppLinkInfo(appLink: string): void;
 
@@ -9909,7 +10142,8 @@ declare namespace photoAccessHelper {
      *     <br>Possible causes: 1. Database corrupted.2. The file system is abnormal.3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     setCompositeDisplayMode(compositeDisplayMode: CompositeDisplayMode): Promise<void>;
   }
@@ -9921,7 +10155,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class MediaAssetsChangeRequest implements MediaChangeRequest {
     /**
@@ -9935,7 +10169,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(assets: Array<PhotoAsset>);
 
@@ -9950,7 +10184,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setFavorite(favoriteState: boolean): void;
 
@@ -9965,7 +10199,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setHidden(hiddenState: boolean): void;
 
@@ -9980,7 +10214,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setUserComment(userComment: string): void;
 
@@ -9996,7 +10230,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setIsRecentShow(isRencentShow: boolean): void;
   }
@@ -10007,7 +10241,7 @@ declare namespace photoAccessHelper {
    * @implements MediaChangeRequest
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class MediaAlbumChangeRequest implements MediaChangeRequest {
     /**
@@ -10019,7 +10253,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(album: Album);
 
@@ -10037,7 +10271,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static createAlbumRequest(context: Context, name: string): MediaAlbumChangeRequest;
 
@@ -10057,7 +10291,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static deleteAlbums(context: Context, albums: Array<Album>): Promise<void>;
 
@@ -10112,7 +10346,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAlbum(): Album;
 
@@ -10127,7 +10361,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setCoverUri(coverUri: string): void;
 
@@ -10140,7 +10374,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setAlbumName(name: string): void;
 
@@ -10154,7 +10388,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000016 - Operation Not Support
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     addAssets(assets: Array<PhotoAsset>): void;
 
@@ -10168,7 +10402,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000016 - Operation Not Support
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     removeAssets(assets: Array<PhotoAsset>): void;
 
@@ -10185,7 +10419,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     moveAssets(assets: Array<PhotoAsset>, targetAlbum: Album): void;
 
@@ -10217,7 +10451,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     recoverAssets(assets: Array<PhotoAsset>): void;
 
@@ -10248,7 +10482,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deleteAssets(assets: Array<PhotoAsset>): void;
 
@@ -10277,7 +10511,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setIsMe(): void;
 
@@ -10292,7 +10526,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setDisplayLevel(displayLevel: int): void;
 
@@ -10308,7 +10542,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dismissAssets(assets: Array<PhotoAsset>): void;
 
@@ -10324,7 +10558,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     mergeAlbum(target: Album): void;
 
@@ -10339,7 +10573,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     placeBefore(album: Album): void;
 
@@ -10353,7 +10587,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dismiss(): void;
 
@@ -10366,7 +10600,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     resetCoverUri(): void;
   }
@@ -10378,7 +10612,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SharedPhotoAsset {
     /**
@@ -10388,7 +10622,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fileId: int;
     /**
@@ -10398,7 +10632,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uri: string;
     /**
@@ -10408,7 +10642,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     data: string;
     /**
@@ -10418,7 +10652,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     mediaType: PhotoType;
     /**
@@ -10428,7 +10662,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     displayName: string;
     /**
@@ -10438,7 +10672,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     size: long;
     /**
@@ -10448,7 +10682,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dateAdded: long;
     /**
@@ -10458,7 +10692,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dateModified: long;
     /**
@@ -10468,7 +10702,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     duration: int;
     /**
@@ -10478,7 +10712,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     width: int;
     /**
@@ -10488,7 +10722,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     height: int;
     /**
@@ -10498,7 +10732,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dateTaken: long;
     /**
@@ -10508,7 +10742,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     orientation: int;
     /**
@@ -10518,7 +10752,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isFavorite: boolean;
     /**
@@ -10528,7 +10762,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     title: string;
     /**
@@ -10538,7 +10772,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     position: PositionType;
     /**
@@ -10548,7 +10782,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dateTrashed: long;
     /**
@@ -10558,7 +10792,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     hidden: boolean;
     /**
@@ -10568,7 +10802,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     userComment: string;
     /**
@@ -10578,7 +10812,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cameraShotKey: string;
     /**
@@ -10588,7 +10822,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dateYear: string;
     /**
@@ -10598,7 +10832,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dateMonth: string;
     /**
@@ -10608,7 +10842,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dateDay: string;
     /**
@@ -10618,7 +10852,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pending: boolean;
     /**
@@ -10628,7 +10862,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dateAddedMs: long;
     /**
@@ -10638,7 +10872,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dateModifiedMs: long;
     /**
@@ -10648,7 +10882,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dateTrashedMs: long;
     /**
@@ -10658,7 +10892,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     subtype: PhotoSubtype;
     /**
@@ -10668,7 +10902,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     movingPhotoEffectMode: MovingPhotoEffectMode;
     /**
@@ -10678,7 +10912,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dynamicRangeType: DynamicRangeType;
     /**
@@ -10688,7 +10922,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     thumbnailReady: boolean;
     /**
@@ -10698,7 +10932,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     lcdSize: string;
     /**
@@ -10708,7 +10942,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     thmSize: string;
     /**
@@ -10718,7 +10952,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     thumbnailModifiedMs?: long;
     /**
@@ -10728,7 +10962,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     thumbnailVisible: ThumbnailVisibility;
   }
@@ -10740,7 +10974,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
     interface SharedAlbumAsset {
       /**
@@ -10750,7 +10984,7 @@ declare namespace photoAccessHelper {
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
        * @since 14 dynamic
-       * @since 22 static
+       * @since 23 static
        */
       albumId: int;
       /**
@@ -10760,7 +10994,7 @@ declare namespace photoAccessHelper {
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
        * @since 14 dynamic
-       * @since 22 static
+       * @since 23 static
        */
       albumType: AlbumType;
       /**
@@ -10770,7 +11004,7 @@ declare namespace photoAccessHelper {
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
        * @since 14 dynamic
-       * @since 22 static
+       * @since 23 static
        */
       albumSubType: AlbumSubtype;
       /**
@@ -10780,7 +11014,7 @@ declare namespace photoAccessHelper {
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
        * @since 14 dynamic
-       * @since 22 static
+       * @since 23 static
        */
       albumName: string;
       /**
@@ -10790,7 +11024,7 @@ declare namespace photoAccessHelper {
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
        * @since 14 dynamic
-       * @since 22 static
+       * @since 23 static
        */
       coverUri: string;
       /**
@@ -10800,7 +11034,7 @@ declare namespace photoAccessHelper {
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
        * @since 14 dynamic
-       * @since 22 static
+       * @since 23 static
        */
       count: int;
       /**
@@ -10810,7 +11044,7 @@ declare namespace photoAccessHelper {
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
        * @since 14 dynamic
-       * @since 22 static
+       * @since 23 static
        */
       imageCount: int;
       /**
@@ -10820,7 +11054,7 @@ declare namespace photoAccessHelper {
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
        * @since 14 dynamic
-       * @since 22 static
+       * @since 23 static
        */
       videoCount: int;
     }
@@ -10832,7 +11066,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MovingPhoto {
     /**
@@ -10849,7 +11083,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     requestContent(imageFileUri: string, videoFileUri: string): Promise<void>;
 
@@ -10867,7 +11101,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     requestContent(resourceType: ResourceType, fileUri: string): Promise<void>;
 
@@ -10884,7 +11118,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     requestContent(resourceType: ResourceType): Promise<ArrayBuffer>;
 
@@ -10898,7 +11132,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getUri(): string;
 
@@ -10914,7 +11148,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isVideoReady(): Promise<boolean>;
   }
@@ -10926,7 +11160,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum HighlightAlbumInfoType {
     /**
@@ -10935,7 +11169,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COVER_INFO = 0,
     /**
@@ -10944,7 +11178,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PLAY_INFO = 1,
     /**
@@ -10964,7 +11198,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum HighlightUserActionType {
     /**
@@ -10973,7 +11207,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INSERTED_PIC_COUNT = 0,
     /**
@@ -10982,7 +11216,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     REMOVED_PIC_COUNT,
     /**
@@ -10991,7 +11225,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHARED_SCREENSHOT_COUNT,
     /**
@@ -11000,7 +11234,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHARED_COVER_COUNT,
     /**
@@ -11009,7 +11243,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RENAMED_COUNT,
     /**
@@ -11018,7 +11252,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CHANGED_COVER_COUNT,
     /**
@@ -11027,7 +11261,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RENDER_VIEWED_TIMES = 100,
     /**
@@ -11036,7 +11270,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RENDER_VIEWED_DURATION,
     /**
@@ -11045,7 +11279,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ART_LAYOUT_VIEWED_TIMES,
     /**
@@ -11054,7 +11288,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ART_LAYOUT_VIEWED_DURATION
   }
@@ -11103,7 +11337,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ThumbnailType {
     /**
@@ -11112,7 +11346,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LCD = 1,
     /**
@@ -11121,7 +11355,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     THM = 2
   }
@@ -11133,7 +11367,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
    class MediaAnalysisAlbumChangeRequest extends MediaAlbumChangeRequest {
     /**
@@ -11146,7 +11380,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(album: Album);
 
@@ -11165,7 +11399,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setOrderPosition(assets: Array<PhotoAsset>, position: Array<int>): void;
 
@@ -11185,6 +11419,55 @@ declare namespace photoAccessHelper {
      * @since 21 dynamic
      */
      setRelationship(relationship: string): Promise<void>;
+
+    /**
+     * Creates a MediaAnalysisAlbumChangeRequest instance.
+     *
+     * @param { Context } context - Context of the ability instance.
+     * @param { string } name - Name of the album.
+     * @param { AlbumSubtype } subtype - Subtype of the album.
+     * @returns { MediaAnalysisAlbumChangeRequest | null} - Returns a MediaAnalysisAlbumChangeRequest instance.
+     *     If the operation fails, returns null.
+     * @throws {BusinessError } 202 - Called by non-system application.
+     * @throws {BusinessError } 23800151 - The scenario parameter verification fails.
+     *     <br>Possible causes: 1. The input parameter is not within the valid range.
+     * @throws {BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2.The file system is abnormal; 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    static createAnalysisAlbumRequest(
+      context:Context,
+      name: string,
+      subtype: AlbumSubtype
+    ): MediaAnalysisAlbumChangeRequest | null;
+
+    /**
+     * Creates a MediaAnalysisAlbumChangeRequest instance.
+     *
+     * @param { Context } context - Context of the ability instance.
+     * @param { string } name - Name of the album.
+     * @param { AlbumSubtype } subtype - Subtype of the album.
+     * @returns { MediaAnalysisAlbumChangeRequest } - Returns a MediaAnalysisAlbumChangeRequest instance.
+     * @throws {BusinessError } 202 - Called by non-system application.
+     * @throws {BusinessError } 23800151 - The scenario parameter verification fails.
+     *     <br>Possible causes: 1. The input parameter is not within the valid range.
+     * @throws {BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2.The file system is abnormal; 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    static createAnalysisAlbumRequest(
+      context:Context,
+      name: string,
+      subtype: AlbumSubtype
+    ): MediaAnalysisAlbumChangeRequest;
   }
 
   /**
@@ -11238,7 +11521,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class AnalysisAlbum {
     /**
@@ -11251,7 +11534,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(album: Album);
     /**
@@ -11269,7 +11552,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getOrderPosition(assets: Array<PhotoAsset>): Promise<Array<int>>;
 
@@ -11294,7 +11577,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class HighlightAlbum {
     /**
@@ -11308,7 +11591,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(album: Album);
 
@@ -11326,7 +11609,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getHighlightAlbumInfo(type: HighlightAlbumInfoType): Promise<string>;
 
@@ -11344,7 +11627,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getHighlightResource(resourceUri: string): Promise<ArrayBuffer>;
 
@@ -11363,7 +11646,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setHighlightUserActionData(type: HighlightUserActionType, actionData: int): Promise<void>;
 
@@ -11382,7 +11665,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setSubTitle(subTitle: string): Promise<void>;
 
@@ -11403,7 +11686,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static deleteHighlightAlbums(context: Context, albums: Array<Album>): Promise<int>;
   }
@@ -11415,7 +11698,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CloudEnhancementTaskStage {
     /**
@@ -11424,7 +11707,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TASK_STAGE_EXCEPTION = -1,
     /**
@@ -11433,7 +11716,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TASK_STAGE_PREPARING,
     /**
@@ -11442,7 +11725,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TASK_STAGE_UPLOADING,
     /**
@@ -11451,7 +11734,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TASK_STAGE_EXECUTING,
     /**
@@ -11460,7 +11743,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TASK_STAGE_DOWNLOADING,
     /**
@@ -11469,7 +11752,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TASK_STAGE_FAILED,
     /**
@@ -11478,7 +11761,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TASK_STAGE_COMPLETED
   }
@@ -11491,7 +11774,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CloudEnhancementTaskState {
     /**
@@ -11502,7 +11785,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly taskStage: CloudEnhancementTaskStage;
     /**
@@ -11513,7 +11796,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly transferredFileSize?: int;
     /**
@@ -11524,7 +11807,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly totalFileSize?: int;
     /**
@@ -11535,7 +11818,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly expectedDuration?: int;
     /**
@@ -11546,7 +11829,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly statusCode?: int;
   }
@@ -11559,7 +11842,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class CloudEnhancement {
     /**
@@ -11575,7 +11858,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getCloudEnhancementInstance(context: Context): CloudEnhancement;
 
@@ -11594,7 +11877,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     submitCloudEnhancementTasks(photoAssets: Array<PhotoAsset>, hasCloudWatermark: boolean): Promise<void>;
 
@@ -11616,7 +11899,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     submitCloudEnhancementTasks(
       photoAssets: Array<PhotoAsset>,
@@ -11638,7 +11921,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     prioritizeCloudEnhancementTask(photoAsset: PhotoAsset): Promise<void>;
 
@@ -11656,7 +11939,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cancelCloudEnhancementTasks(photoAssets: Array<PhotoAsset>): Promise<void>;
 
@@ -11671,7 +11954,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cancelAllCloudEnhancementTasks(): Promise<void>;
 
@@ -11689,7 +11972,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     queryCloudEnhancementTaskState(photoAsset: PhotoAsset): Promise<CloudEnhancementTaskState>;
 
@@ -11704,7 +11987,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     syncCloudEnhancementTaskStatus(): Promise<void>;
 
@@ -11722,7 +12005,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getCloudEnhancementPair(asset: PhotoAsset): Promise<PhotoAsset>;
   }
@@ -11734,7 +12017,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CloudEnhancementState {
     /**
@@ -11743,7 +12026,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNAVAILABLE = 0,
     /**
@@ -11752,7 +12035,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVAILABLE,
     /**
@@ -11761,7 +12044,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EXECUTING,
     /**
@@ -11770,7 +12053,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMPLETED
   }
@@ -11782,7 +12065,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CloudMediaAssetTaskStatus {
     /**
@@ -11791,7 +12074,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DOWNLOADING = 0,
     /**
@@ -11800,7 +12083,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PAUSED = 1,
     /**
@@ -11809,7 +12092,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IDLE = 2
   }
@@ -11821,7 +12104,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CloudMediaTaskPauseCause {
     /**
@@ -11830,7 +12113,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NO_PAUSE = 0,
     /**
@@ -11839,7 +12122,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TEMPERATURE_LIMIT = 1,
     /**
@@ -11848,7 +12131,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ROM_LIMIT = 2,
     /**
@@ -11857,7 +12140,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NETWORK_FLOW_LIMIT = 3,
     /**
@@ -11866,7 +12149,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WIFI_UNAVAILABLE = 4,
     /**
@@ -11875,7 +12158,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     POWER_LIMIT = 5,
     /**
@@ -11884,7 +12167,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BACKGROUND_TASK_UNAVAILABLE = 6,
     /**
@@ -11893,7 +12176,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FREQUENT_USER_REQUESTS = 7,
     /**
@@ -11902,7 +12185,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CLOUD_ERROR = 8,
     /**
@@ -11911,7 +12194,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     USER_PAUSED = 9
   }
@@ -11924,7 +12207,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CloudMediaAssetStatus {
     /**
@@ -11935,7 +12218,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly taskStatus: CloudMediaAssetTaskStatus;
     /**
@@ -11947,7 +12230,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly taskInfo: string;
     /**
@@ -11958,7 +12241,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly errorCode: CloudMediaTaskPauseCause;
   }
@@ -11970,7 +12253,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CloudMediaDownloadType {
     /**
@@ -11979,7 +12262,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DOWNLOAD_FORCE = 0,
     /**
@@ -11988,7 +12271,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DOWNLOAD_GENTLE = 1
   }
@@ -12000,7 +12283,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CloudMediaRetainType {
     /**
@@ -12009,7 +12292,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RETAIN_FORCE = 0,
     /**
@@ -12029,7 +12312,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class CloudMediaAssetManager {
     /**
@@ -12046,7 +12329,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getCloudMediaAssetManagerInstance(context: Context): CloudMediaAssetManager;
 
@@ -12065,7 +12348,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     startDownloadCloudMedia(downloadType: CloudMediaDownloadType): Promise<void>;
 
@@ -12081,7 +12364,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pauseDownloadCloudMedia(): Promise<void>;
 
@@ -12097,7 +12380,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cancelDownloadCloudMedia(): Promise<void>;
 
@@ -12116,7 +12399,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     retainCloudMediaAsset(retainType: CloudMediaRetainType): Promise<void>;
 
@@ -12132,7 +12415,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getCloudMediaAssetStatus(): Promise<CloudMediaAssetStatus>;
 
@@ -12152,7 +12435,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     startDownloadSpecificCloudMedia(assetUris: string[]): Promise<Map<string, CloudAssetDownloadCode>>;
 
@@ -12171,7 +12454,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pauseDownloadSpecificCloudMedia(assetUris: string[] | null): Promise<void>;
 
@@ -12190,7 +12473,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     resumeDownloadSpecificCloudMedia(assetUris: string[] | null): Promise<void>;
 
@@ -12209,7 +12492,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cancelDownloadSpecificCloudMedia(assetUris: string[] | null): Promise<void>;
 
@@ -12226,7 +12509,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     queryDownloadSpecificCloudMediaDetails(predicates: dataSharePredicates.DataSharePredicates): Promise<CloudAssetDownloadStatus>;
 
@@ -12243,7 +12526,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     queryDownloadSpecificCloudMediaTaskCount(predicates: dataSharePredicates.DataSharePredicates): Promise<int>;
 
@@ -12259,7 +12542,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onDownloadProgressChange(callback: Callback<CloudAssetDownloadProgressInfo>): void;
 
@@ -12275,7 +12558,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     offDownloadProgressChange(callback?: Callback<CloudAssetDownloadProgressInfo>): void;
   }
@@ -12449,7 +12732,8 @@ declare namespace photoAccessHelper {
    * @typedef {int | long | double | string | boolean | Uint8Array | null } ValueType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   type ValueType = int | long | double | string | boolean | Uint8Array | null;
 
@@ -12459,7 +12743,8 @@ declare namespace photoAccessHelper {
    * @typedef { Record<string, ValueType> } ValuesBucket
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   type ValuesBucket = Record<string, ValueType>;
 
@@ -12468,7 +12753,8 @@ declare namespace photoAccessHelper {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   class ResultSet {
     /**
@@ -12477,7 +12763,8 @@ declare namespace photoAccessHelper {
      * @type { int }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     columnCount: int;
     /**
@@ -12486,7 +12773,8 @@ declare namespace photoAccessHelper {
      * @type { int }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     rowCount: int;
     /**
@@ -12495,7 +12783,8 @@ declare namespace photoAccessHelper {
      * @type { int }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     rowIndex: int;
     /**
@@ -12504,7 +12793,8 @@ declare namespace photoAccessHelper {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     isAtLastRow: boolean;
     /**
@@ -12518,7 +12808,8 @@ declare namespace photoAccessHelper {
      *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     goToRow(position: int): boolean;
     /**
@@ -12530,7 +12821,8 @@ declare namespace photoAccessHelper {
      *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     goToFirstRow(): boolean;
     /**
@@ -12542,7 +12834,8 @@ declare namespace photoAccessHelper {
      *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     goToNextRow(): boolean;
     /**
@@ -12554,7 +12847,8 @@ declare namespace photoAccessHelper {
      *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     getRow(): ValuesBucket;
     /**
@@ -12568,7 +12862,8 @@ declare namespace photoAccessHelper {
      *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     getValue(columnIndex: int): ValueType;
     /**
@@ -12579,7 +12874,8 @@ declare namespace photoAccessHelper {
      *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     close(): void;
   }
@@ -12648,21 +12944,24 @@ declare namespace photoAccessHelper {
    *
    * @enum { int } VideoMode
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   enum VideoMode {
     /**
      * Default type
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     DEFAULT = 0,
     /**
      * Log video
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     LOG_VIDEO = 1,
   }
@@ -12674,7 +12973,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CloudAssetDownloadProgressInfo {
     /**
@@ -12685,7 +12984,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly downloadEventType: CloudAssetDownloadNotifyType;
 
@@ -12697,7 +12996,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly fileId: int;
 
@@ -12709,7 +13008,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly percent: int;
 
@@ -12721,7 +13020,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly autoPauseReason: int;
   }
@@ -12733,7 +13032,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CloudAssetDownloadStatus {
     /**
@@ -12744,7 +13043,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly taskInfos: string[];
   }
@@ -12756,7 +13055,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
    */
   enum CloudAssetDownloadCode {
     /**
@@ -12765,7 +13064,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ADD_DOWNLOAD_TASK_SUCCESS = 0,
 
@@ -12775,7 +13074,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DOWNLOAD_ASSET_NOT_EXIST = 1,
   }
@@ -12787,7 +13086,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CloudAssetDownloadNotifyType {
     /**
@@ -12796,7 +13095,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DOWNLOAD_PROGRESS = 0,
 
@@ -12806,7 +13105,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DOWNLOAD_FINISHED = 1,
 
@@ -12816,7 +13115,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DOWNLOAD_FAILED = 2,
 
@@ -12826,7 +13125,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DOWNLOAD_ASSET_DELETED = 3,
 
@@ -12836,7 +13135,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DOWNLOAD_AUTO_PAUSED = 4,
 
@@ -12846,7 +13145,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DOWNLOAD_AUTO_RESUMED = 5,
 
@@ -12856,7 +13155,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DOWNLOAD_REFRESHED = 6,
   }

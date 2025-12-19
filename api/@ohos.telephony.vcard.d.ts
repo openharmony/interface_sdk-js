@@ -52,7 +52,7 @@ declare namespace vcard {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function importVCard(context: Context, filePath: string, accountId: int, callback: AsyncCallback<void>): void;
 
@@ -77,7 +77,7 @@ declare namespace vcard {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function importVCard(context: Context, filePath: string, accountId?: int): Promise<void>;
 
@@ -98,7 +98,7 @@ declare namespace vcard {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function importVCard(context: Context, filePath: string, callback: AsyncCallback<void>): void;
 
@@ -118,7 +118,7 @@ declare namespace vcard {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, options: VCardBuilderOptions, callback: AsyncCallback<string>): void;
 
@@ -138,7 +138,7 @@ declare namespace vcard {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, options?: VCardBuilderOptions): Promise<string>;
 
@@ -157,7 +157,7 @@ declare namespace vcard {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<string>): void;
 

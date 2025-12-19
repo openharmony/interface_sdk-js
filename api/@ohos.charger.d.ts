@@ -25,7 +25,7 @@
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @systemapi
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace charger {
   /**
@@ -35,7 +35,7 @@ declare namespace charger {
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ChargeType {
     /**
@@ -44,7 +44,7 @@ declare namespace charger {
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NONE,
     /**
@@ -53,7 +53,7 @@ declare namespace charger {
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WIRED_NORMAL,
     /**
@@ -62,7 +62,7 @@ declare namespace charger {
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WIRED_QUICK,
     /**
@@ -71,7 +71,7 @@ declare namespace charger {
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WIRED_SUPER_QUICK,
     /**
@@ -80,7 +80,7 @@ declare namespace charger {
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WIRELESS_NORMAL,
     /**
@@ -89,7 +89,7 @@ declare namespace charger {
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WIRELESS_QUICK,
     /**
@@ -98,7 +98,7 @@ declare namespace charger {
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WIRELESS_SUPER_QUICK
   }

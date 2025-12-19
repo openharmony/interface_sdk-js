@@ -50,7 +50,7 @@ import type { ElementName } from './bundleManager/ElementName';
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace tag {
   /**
@@ -67,7 +67,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const NFC_A = 1;
 
@@ -85,7 +85,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const NFC_B = 2;
 
@@ -103,7 +103,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const ISO_DEP = 3;
 
@@ -121,7 +121,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const NFC_F = 4;
 
@@ -139,7 +139,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const NFC_V = 5;
 
@@ -157,7 +157,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const NDEF = 6;
 
@@ -192,7 +192,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const MIFARE_CLASSIC = 8;
 
@@ -210,7 +210,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const MIFARE_ULTRALIGHT = 9;
 
@@ -360,7 +360,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum NfcForumType {
     /**
@@ -435,7 +435,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIFARE_CLASSIC = 101
   }
@@ -1278,7 +1278,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface TagInfo {
     /**
@@ -1296,7 +1296,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uid: number[];
 
@@ -1315,7 +1315,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     technology: number[];
 
@@ -1460,7 +1460,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   namespace ndef {
     /**

@@ -24,7 +24,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * Provides methods to operate or manage Wi-Fi.
  * @namespace wifi
  * @since 6 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace wifi {
   /**
@@ -1135,7 +1135,7 @@ declare namespace wifi {
   interface WifiDeviceConfig {
     /** Wi-Fi SSID: the maximum length is 32
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiDeviceConfig.ssid
      */
@@ -1143,7 +1143,7 @@ declare namespace wifi {
 
     /** Wi-Fi bssid(MAC): the length is 6
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiDeviceConfig.bssid
      */
@@ -1151,7 +1151,7 @@ declare namespace wifi {
 
     /** Wi-Fi key: maximum length is 64
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiDeviceConfig.preSharedKey
      */
@@ -1159,7 +1159,7 @@ declare namespace wifi {
 
     /** Hide SSID or not, false(default): not hide
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiDeviceConfig.isHiddenSsid
      */
@@ -1167,7 +1167,7 @@ declare namespace wifi {
 
     /** Security type: reference definition of WifiSecurityType
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiDeviceConfig.securityType
      */
@@ -1176,7 +1176,7 @@ declare namespace wifi {
     /** The UID of the Wi-Fi configuration creator
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiDeviceConfig.creatorUid
      */
@@ -1185,7 +1185,7 @@ declare namespace wifi {
     /** Disable reason
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiDeviceConfig.disableReason
      */
@@ -1194,7 +1194,7 @@ declare namespace wifi {
     /** Allocated networkId
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiDeviceConfig.netId
      */
@@ -1203,7 +1203,7 @@ declare namespace wifi {
     /** Random mac type
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiDeviceConfig.randomMacType
      */
@@ -1212,7 +1212,7 @@ declare namespace wifi {
     /** Random mac address, the length is 6
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiDeviceConfig.randomMacAddr
      */
@@ -1221,7 +1221,7 @@ declare namespace wifi {
     /** IP Type
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiDeviceConfig.ipType
      */
@@ -1230,7 +1230,7 @@ declare namespace wifi {
     /** IP config of static
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiDeviceConfig.staticIp
      */
@@ -1252,7 +1252,7 @@ declare namespace wifi {
      * IP address.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpConfig.ipAddress
      */
@@ -1262,7 +1262,7 @@ declare namespace wifi {
      * Gate way.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpConfig.gateway
      */
@@ -1272,7 +1272,7 @@ declare namespace wifi {
      * DNS servers.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpConfig.dnsServers
      */
@@ -1282,7 +1282,7 @@ declare namespace wifi {
      * Domains.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpConfig.domains
      */
@@ -1301,7 +1301,7 @@ declare namespace wifi {
   interface WifiScanInfo {
     /** Wi-Fi SSID: the maximum length is 32
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiScanInfo.ssid
      */
@@ -1309,7 +1309,7 @@ declare namespace wifi {
 
     /** Wi-Fi bssid(MAC): the length is 6
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiScanInfo.bssid
      */
@@ -1317,7 +1317,7 @@ declare namespace wifi {
 
     /** Hotspot capability
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiScanInfo.capabilities
      */
@@ -1325,7 +1325,7 @@ declare namespace wifi {
 
     /** Security type: reference definition of WifiSecurityType
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiScanInfo.securityType
      */
@@ -1333,7 +1333,7 @@ declare namespace wifi {
 
     /** Received signal strength indicator (RSSI)
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiScanInfo.rssi
      */
@@ -1341,7 +1341,7 @@ declare namespace wifi {
 
     /** Frequency band, 1: 2.4G, 2: 5G
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiScanInfo.band
      */
@@ -1349,7 +1349,7 @@ declare namespace wifi {
 
     /** Frequency
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiScanInfo.frequency
      */
@@ -1357,7 +1357,7 @@ declare namespace wifi {
 
     /** Channel width
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiScanInfo.channelWidth
      */
@@ -1366,7 +1366,7 @@ declare namespace wifi {
     /**
      * Time stamp
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiScanInfo.timestamp
      */
@@ -1385,7 +1385,7 @@ declare namespace wifi {
   enum WifiSecurityType {
     /** Invalid security type
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiSecurityType.WIFI_SEC_TYPE_INVALID
      */
@@ -1393,7 +1393,7 @@ declare namespace wifi {
 
     /** Open
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiSecurityType.WIFI_SEC_TYPE_OPEN
      */
@@ -1402,7 +1402,7 @@ declare namespace wifi {
     /**
      * Wired Equivalent Privacy (WEP)
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiSecurityType.WIFI_SEC_TYPE_WEP
      * */
@@ -1411,7 +1411,7 @@ declare namespace wifi {
     /**
      * Pre-shared key (PSK)
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiSecurityType.WIFI_SEC_TYPE_PSK
      *  */
@@ -1420,7 +1420,7 @@ declare namespace wifi {
     /**
      * Simultaneous Authentication of Equals (SAE)
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiSecurityType.WIFI_SEC_TYPE_SAE
      * */
@@ -1440,7 +1440,7 @@ declare namespace wifi {
     /**
      * The SSID of the Wi-Fi hotspot
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.ssid
      * */
@@ -1449,7 +1449,7 @@ declare namespace wifi {
     /**
      *  The BSSID of the Wi-Fi hotspot
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.bssid
      * */
@@ -1459,7 +1459,7 @@ declare namespace wifi {
      * The ID(uniquely identifies) of a Wi-Fi connection.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.networkId
      */
@@ -1468,7 +1468,7 @@ declare namespace wifi {
     /**
      * The RSSI(dBm) of a Wi-Fi access point.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.rssi
      * */
@@ -1477,7 +1477,7 @@ declare namespace wifi {
     /**
      * The frequency band of a Wi-Fi access point.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.band
      *  */
@@ -1486,7 +1486,7 @@ declare namespace wifi {
     /**
      * The speed of a Wi-Fi access point.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.linkSpeed
      *  */
@@ -1495,7 +1495,7 @@ declare namespace wifi {
     /**
      * The frequency of a Wi-Fi access point.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.frequency
      *  */
@@ -1504,7 +1504,7 @@ declare namespace wifi {
     /**
      * Whether the SSID of the access point (AP) of this Wi-Fi connection is hidden.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.isHidden
      *  */
@@ -1513,7 +1513,7 @@ declare namespace wifi {
     /**
      * Whether this Wi-Fi connection restricts the data volume.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.isRestricted
      */
@@ -1524,7 +1524,7 @@ declare namespace wifi {
      * The load value of this Wi-Fi connection. A greater value indicates a higher load.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.chload
      */
@@ -1534,7 +1534,7 @@ declare namespace wifi {
      * The signal-to-noise ratio (SNR) of this Wi-Fi connection.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.snr
      */
@@ -1544,7 +1544,7 @@ declare namespace wifi {
      *
      * The Wi-Fi MAC address of a device.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.macAddress
      *  */
@@ -1553,7 +1553,7 @@ declare namespace wifi {
     /**
      * The IP address of this Wi-Fi connection.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.ipAddress
      *  */
@@ -1564,7 +1564,7 @@ declare namespace wifi {
      * The state of the supplicant of this Wi-Fi connection.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.suppState
      */
@@ -1573,7 +1573,7 @@ declare namespace wifi {
     /**
      * The state of this Wi-Fi connection.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.connState
      * */
@@ -1593,7 +1593,7 @@ declare namespace wifi {
     /**
      * The IP address of the Wi-Fi connection
      * @syscap SystemCapability.Communication.WiFi.AP.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpInfo.ipAddress
      *  */
@@ -1602,7 +1602,7 @@ declare namespace wifi {
     /**
      * The gateway of the Wi-Fi connection
      * @syscap SystemCapability.Communication.WiFi.AP.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpInfo.gateway
      *  */
@@ -1611,7 +1611,7 @@ declare namespace wifi {
     /**
      * The network mask of the Wi-Fi connection
      * @syscap SystemCapability.Communication.WiFi.AP.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpInfo.netmask
      *  */
@@ -1621,7 +1621,7 @@ declare namespace wifi {
      *
      * The primary DNS server IP address of the Wi-Fi connection
      * @syscap SystemCapability.Communication.WiFi.AP.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpInfo.primaryDns
      *  */
@@ -1630,7 +1630,7 @@ declare namespace wifi {
     /** T
      * he secondary DNS server IP address of the Wi-Fi connection
      * @syscap SystemCapability.Communication.WiFi.AP.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpInfo.secondDns
      *  */
@@ -1639,7 +1639,7 @@ declare namespace wifi {
     /**
      * The DHCP server IP address of the Wi-Fi connection
      * @syscap SystemCapability.Communication.WiFi.AP.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpInfo.serverIp
      *  */
@@ -1648,7 +1648,7 @@ declare namespace wifi {
     /**
      * The IP address lease duration of the Wi-Fi connection
      * @syscap SystemCapability.Communication.WiFi.AP.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpInfo.leaseDuration
      * */
@@ -1670,7 +1670,7 @@ declare namespace wifi {
      * The SSID of the Wi-Fi hotspot
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.HotspotConfig.ssid
      * */
@@ -1680,7 +1680,7 @@ declare namespace wifi {
      * The encryption mode of the Wi-Fi hotspot
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.HotspotConfig.securityType
      * */
@@ -1690,7 +1690,7 @@ declare namespace wifi {
      * The frequency band of the Wi-Fi hotspot
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.HotspotConfig.band
      *  */
@@ -1700,7 +1700,7 @@ declare namespace wifi {
      * The password of the Wi-Fi hotspot
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.HotspotConfig.preSharedKey
      *  */
@@ -1710,7 +1710,7 @@ declare namespace wifi {
      * The maximum number of connections allowed by the Wi-Fi hotspot
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.HotspotConfig.maxConn
      *  */
@@ -1732,7 +1732,7 @@ declare namespace wifi {
      * the network name of the Wi-Fi client
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.StationInfo.name
      *  */
@@ -1742,7 +1742,7 @@ declare namespace wifi {
      * The MAC address of the Wi-Fi client
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.StationInfo.macAddress
      * */
@@ -1752,7 +1752,7 @@ declare namespace wifi {
      * The IP address of the Wi-Fi client
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.StationInfo.ipAddress
      * */
@@ -1774,7 +1774,7 @@ declare namespace wifi {
      * Use statically configured IP settings
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpType.STATIC
      *  */
@@ -1784,7 +1784,7 @@ declare namespace wifi {
      * Use dynamically configured IP settings
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpType.DHCP
      * */
@@ -1794,7 +1794,7 @@ declare namespace wifi {
      *  No IP details are assigned
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpType.UNKNOWN
      *  */
@@ -1815,7 +1815,7 @@ declare namespace wifi {
     /** The supplicant is not associated with or is disconnected from the AP.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.DISCONNECTED
      */
@@ -1825,7 +1825,7 @@ declare namespace wifi {
      * The network interface is disabled.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.INTERFACE_DISABLED
      * */
@@ -1835,7 +1835,7 @@ declare namespace wifi {
      * The supplicant is disabled.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.INACTIVE
      * */
@@ -1845,7 +1845,7 @@ declare namespace wifi {
      * The supplicant is scanning for a Wi-Fi connection.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.SCANNING
      * */
@@ -1855,7 +1855,7 @@ declare namespace wifi {
      * The supplicant is authenticating with a specified AP.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.AUTHENTICATING
      *  */
@@ -1865,7 +1865,7 @@ declare namespace wifi {
      * The supplicant is associating with a specified AP.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.ASSOCIATING
      * */
@@ -1875,7 +1875,7 @@ declare namespace wifi {
      * The supplicant is associated with a specified AP.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.ASSOCIATED
      * */
@@ -1885,7 +1885,7 @@ declare namespace wifi {
      * The four-way handshake is ongoing.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.FOUR_WAY_HANDSHAKE
      *  */
@@ -1894,7 +1894,7 @@ declare namespace wifi {
     /** The group handshake is ongoing.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.GROUP_HANDSHAKE
      */
@@ -1904,7 +1904,7 @@ declare namespace wifi {
      * All authentication is completed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.COMPLETED
      *  */
@@ -1914,7 +1914,7 @@ declare namespace wifi {
      * Failed to establish a connection to the supplicant.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.UNINITIALIZED
      *  */
@@ -1924,7 +1924,7 @@ declare namespace wifi {
      * The supplicant is in an unknown or invalid state.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.INVALID
      *  */
@@ -1944,7 +1944,7 @@ declare namespace wifi {
     /**
      * The device is searching for an available AP.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.ConnState.SCANNING
      * */
@@ -1953,7 +1953,7 @@ declare namespace wifi {
     /**
      * The Wi-Fi connection is being set up.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.ConnState.CONNECTING
      * */
@@ -1962,7 +1962,7 @@ declare namespace wifi {
     /**
      * The Wi-Fi connection is being authenticated.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.ConnState.AUTHENTICATING
      * */
@@ -1971,7 +1971,7 @@ declare namespace wifi {
     /**
      * The IP address of the Wi-Fi connection is being obtained.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.ConnState.OBTAINING_IPADDR
      * */
@@ -1980,7 +1980,7 @@ declare namespace wifi {
     /**
      * The Wi-Fi connection has been set up.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.ConnState.CONNECTED
      *  */
@@ -1989,7 +1989,7 @@ declare namespace wifi {
     /**
      * The Wi-Fi connection is being torn down.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.ConnState.DISCONNECTING
      *  */
@@ -1998,7 +1998,7 @@ declare namespace wifi {
     /**
      * The Wi-Fi connection has been torn down.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.ConnState.DISCONNECTED
      * */
@@ -2007,7 +2007,7 @@ declare namespace wifi {
     /**
      * Failed to set up the Wi-Fi connection.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.ConnState.UNKNOWN
      * */
@@ -2027,7 +2027,7 @@ declare namespace wifi {
     /**
      * Device name
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pDevice.deviceName
      *  */
@@ -2036,7 +2036,7 @@ declare namespace wifi {
     /**
      * Device mac address
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pDevice.deviceAddress
      * */
@@ -2045,7 +2045,7 @@ declare namespace wifi {
     /**
      *  Primary device type
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pDevice.primaryDeviceType
      * */
@@ -2054,7 +2054,7 @@ declare namespace wifi {
     /**
      * Device status
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pDevice.deviceStatus
      * */
@@ -2063,7 +2063,7 @@ declare namespace wifi {
     /**
      * Device group capabilities
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pDevice.groupCapabilitys
      *  */
@@ -2082,7 +2082,7 @@ declare namespace wifi {
     /**
      * Device mac address s
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2PConfig.deviceAddress
      */
@@ -2092,7 +2092,7 @@ declare namespace wifi {
      * Group network ID. When creating a group, -1 indicates creates a temporary group,
      * -2: indicates creates a persistent group
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2PConfig.netId
      */
@@ -2101,7 +2101,7 @@ declare namespace wifi {
     /**
      * The passphrase of this {@code WifiP2pConfig} instance
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2PConfig.passphrase
      *  */
@@ -2110,7 +2110,7 @@ declare namespace wifi {
     /**
      * Group name
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2PConfig.groupName
      *  */
@@ -2119,7 +2119,7 @@ declare namespace wifi {
     /**
      * Group owner band
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2PConfig.goBand
      *  */
@@ -2138,7 +2138,7 @@ declare namespace wifi {
     /**
      * Indicates whether it is group owner
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo.isP2pGo
      *  */
@@ -2147,7 +2147,7 @@ declare namespace wifi {
     /**
      * Group owner information
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo.ownerInfo
      *  */
@@ -2156,7 +2156,7 @@ declare namespace wifi {
     /**
      * The group passphrase
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo.passphrase
      *  */
@@ -2165,7 +2165,7 @@ declare namespace wifi {
     /**
      * Interface name
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo.interface
      *  */
@@ -2174,7 +2174,7 @@ declare namespace wifi {
     /**
      * Group name
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo.groupName
      *  */
@@ -2182,7 +2182,7 @@ declare namespace wifi {
 
     /** Network ID
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo.networkId
      */
@@ -2190,7 +2190,7 @@ declare namespace wifi {
 
     /** Frequency
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo.frequency
      */
@@ -2199,7 +2199,7 @@ declare namespace wifi {
     /**
      * Client list
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo.clientDevices
      * */
@@ -2208,7 +2208,7 @@ declare namespace wifi {
     /**
      * Group owner IP address
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo.goIpAddress
      * */
@@ -2228,7 +2228,7 @@ declare namespace wifi {
     /**
      * p2p is disconnected.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.P2pConnectState.DISCONNECTED
      */
@@ -2237,7 +2237,7 @@ declare namespace wifi {
     /**
      * p2p is connected.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.P2pConnectState.CONNECTED
      */
@@ -2256,7 +2256,7 @@ declare namespace wifi {
     /**
      * Connection status
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pLinkedInfo.connectState
      * */
@@ -2265,7 +2265,7 @@ declare namespace wifi {
     /**
      * Indicates whether it is group owner
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pLinkedInfo.isGroupOwner
      * */
@@ -2274,7 +2274,7 @@ declare namespace wifi {
     /**
      * Group owner address
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pLinkedInfo.groupOwnerAddr
      *  */
@@ -2294,7 +2294,7 @@ declare namespace wifi {
     /**
      * Indicate p2p device is connected.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.P2pDeviceStatus.CONNECTED
      */
@@ -2303,7 +2303,7 @@ declare namespace wifi {
     /**
      * Indicate p2p device is invited.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.P2pDeviceStatus.INVITED
      */
@@ -2312,7 +2312,7 @@ declare namespace wifi {
     /**
      * Indicate p2p device is failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.P2pDeviceStatus.FAILED
      */
@@ -2321,7 +2321,7 @@ declare namespace wifi {
     /**
      * Indicate p2p device is available.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.P2pDeviceStatus.AVAILABLE
      */
@@ -2330,7 +2330,7 @@ declare namespace wifi {
     /**
      * Indicate p2p device is unavailable.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.P2pDeviceStatus.UNAVAILABLE
      */
@@ -2350,7 +2350,7 @@ declare namespace wifi {
     /**
      * default band.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.GroupOwnerBand.GO_BAND_AUTO
      */
@@ -2359,7 +2359,7 @@ declare namespace wifi {
     /**
      * 2.4G band.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.GroupOwnerBand.GO_BAND_2GHZ
      */
@@ -2368,7 +2368,7 @@ declare namespace wifi {
     /**
      * 5G band.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.GroupOwnerBand.GO_BAND_5GHZ
      */

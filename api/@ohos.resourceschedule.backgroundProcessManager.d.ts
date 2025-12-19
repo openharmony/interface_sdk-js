@@ -24,7 +24,7 @@
  * @namespace backgroundProcessManager
  * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
  * @since 17 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace backgroundProcessManager {
     /**
@@ -33,7 +33,7 @@ declare namespace backgroundProcessManager {
      * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 17 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export enum ProcessPriority {
         /**
@@ -41,7 +41,7 @@ declare namespace backgroundProcessManager {
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
          * @since 17 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         PROCESS_BACKGROUND = 1,
 
@@ -50,7 +50,7 @@ declare namespace backgroundProcessManager {
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
          * @since 17 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         PROCESS_INACTIVE = 2,
     }
@@ -90,7 +90,7 @@ declare namespace backgroundProcessManager {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: priority is out of range.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 17 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function setProcessPriority(pid: int, priority: ProcessPriority): Promise<void>;
 
@@ -101,7 +101,7 @@ declare namespace backgroundProcessManager {
      * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 17 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function resetProcessPriority(pid: int): Promise<void>;
 

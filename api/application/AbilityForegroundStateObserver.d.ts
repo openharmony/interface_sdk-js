@@ -38,7 +38,7 @@ export default class AbilityForegroundStateObserver {
  * @typedef AbilityForegroundStateObserver
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 declare interface AbilityForegroundStateObserver {
 /*** endif */
@@ -50,7 +50,7 @@ declare interface AbilityForegroundStateObserver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onAbilityStateChanged(abilityStateData: AbilityStateData): void;
 }

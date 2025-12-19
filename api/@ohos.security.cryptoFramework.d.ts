@@ -36,7 +36,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace cryptoFramework {
   /**
@@ -54,7 +54,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum Result {
     /**
@@ -70,7 +70,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INVALID_PARAMS = 401,
 
@@ -94,7 +94,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NOT_SUPPORT = 801,
 
@@ -111,7 +111,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_OUT_OF_MEMORY = 17620001,
 
@@ -135,7 +135,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_RUNTIME_ERROR = 17620002,
 
@@ -146,7 +146,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PARAMETER_CHECK_FAILED = 17620003,
 
@@ -163,7 +163,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CRYPTO_OPERATION = 17630001
   }
@@ -183,7 +183,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DataBlob {
     /**
@@ -201,7 +201,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     data: Uint8Array;
   }
@@ -230,7 +230,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ParamsSpec {
     /**
@@ -256,7 +256,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     algName: string;
   }
@@ -288,7 +288,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface IvParamsSpec extends ParamsSpec {
     /**
@@ -318,7 +318,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     iv: DataBlob;
   }
@@ -349,7 +349,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface GcmParamsSpec extends ParamsSpec {
     /**
@@ -375,7 +375,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     iv: DataBlob;
 
@@ -402,7 +402,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     aad: DataBlob;
 
@@ -429,7 +429,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     authTag: DataBlob;
   }
@@ -460,7 +460,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CcmParamsSpec extends ParamsSpec {
     /**
@@ -486,7 +486,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     iv: DataBlob;
 
@@ -513,7 +513,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     aad: DataBlob;
 
@@ -540,7 +540,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     authTag: DataBlob;
   }
@@ -553,7 +553,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface Poly1305ParamsSpec extends ParamsSpec {
     /**
@@ -563,7 +564,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     iv: DataBlob;
 
@@ -577,7 +579,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     aad: DataBlob;
 
@@ -591,7 +594,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     authTag: DataBlob;
   }
@@ -619,7 +623,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CryptoMode {
     /**
@@ -642,7 +646,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ENCRYPT_MODE = 0,
 
@@ -666,7 +670,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DECRYPT_MODE = 1
   }
@@ -679,7 +683,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface KeyEncodingConfig {
     /**
@@ -690,7 +694,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     password: string;
 
@@ -702,7 +706,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cipherName: string;
   }
@@ -732,7 +736,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Key {
     /**
@@ -770,7 +774,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getEncoded(): DataBlob;
 
@@ -800,7 +804,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly format: string;
 
@@ -830,7 +834,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -862,7 +866,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SymKey extends Key {
     /**
@@ -886,7 +890,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     clearMem(): void;
   }
@@ -917,7 +921,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PriKey extends Key {
     /**
@@ -940,7 +944,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     clearMem(): void;
 
@@ -985,7 +989,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | int;
 
@@ -1002,7 +1006,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getEncodedDer(format: string): DataBlob;
 
@@ -1020,7 +1024,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getEncodedPem(format: string): string;
 
@@ -1040,7 +1044,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getEncodedPem(format: string, config: KeyEncodingConfig): string;
 
@@ -1099,7 +1103,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PubKey extends Key {
     /**
@@ -1141,7 +1145,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | int;
 
@@ -1159,7 +1163,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getEncodedDer(format: string): DataBlob;
 
@@ -1177,7 +1181,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getEncodedPem(format: string): string;
   }
@@ -1205,7 +1209,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface KeyPair {
     /**
@@ -1234,7 +1238,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly priKey: PriKey;
 
@@ -1264,7 +1268,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly pubKey: PubKey;
   }
@@ -1293,7 +1297,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Random {
     /**
@@ -1335,7 +1339,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateRandom(len: int, callback: AsyncCallback<DataBlob>): void;
 
@@ -1378,7 +1382,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateRandom(len: int): Promise<DataBlob>;
 
@@ -1421,7 +1425,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateRandomSync(len: int): DataBlob;
 
@@ -1453,7 +1457,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setSeed(seed: DataBlob): void;
 
@@ -1467,7 +1471,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Rand
      * @atomicservice
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableHardwareEntropy(): void;
 
@@ -1498,7 +1502,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -1530,7 +1534,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createRandom(): Random;
 
@@ -1557,7 +1561,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AsyKeyGenerator {
     /**
@@ -1592,7 +1596,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateKeyPair(callback: AsyncCallback<KeyPair>): void;
 
@@ -1631,7 +1635,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateKeyPair(): Promise<KeyPair>;
 
@@ -1647,7 +1651,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateKeyPairSync(): KeyPair;
 
@@ -1736,7 +1740,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     convertKey(pubKey: DataBlob | null, priKey: DataBlob | null, callback: AsyncCallback<KeyPair>): void;
 
@@ -1825,7 +1829,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     convertKey(pubKey: DataBlob | null, priKey: DataBlob | null): Promise<KeyPair>;
 
@@ -1843,7 +1847,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     convertKeySync(pubKey: DataBlob | null, priKey: DataBlob | null): KeyPair;
 
@@ -1861,7 +1865,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     convertPemKey(pubKey: string | null, priKey: string | null): Promise<KeyPair>;
 
@@ -1880,7 +1884,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     convertPemKey(pubKey: string | null, priKey: string | null, password: string): Promise<KeyPair>;
 
@@ -1898,7 +1902,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     convertPemKeySync(pubKey: string | null, priKey: string | null): KeyPair;
 
@@ -1917,7 +1921,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     convertPemKeySync(pubKey: string | null, priKey: string | null, password: string): KeyPair;
 
@@ -1947,7 +1951,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -1975,7 +1979,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SymKeyGenerator {
     /**
@@ -2004,7 +2008,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateSymKey(callback: AsyncCallback<SymKey>): void;
 
@@ -2034,7 +2038,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateSymKey(): Promise<SymKey>;
 
@@ -2047,7 +2051,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateSymKeySync(): SymKey;
 
@@ -2086,7 +2090,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     convertKey(key: DataBlob, callback: AsyncCallback<SymKey>): void;
 
@@ -2125,7 +2129,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     convertKey(key: DataBlob): Promise<SymKey>;
 
@@ -2141,7 +2145,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     convertKeySync(key: DataBlob): SymKey;
 
@@ -2171,7 +2175,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -2214,7 +2218,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createAsyKeyGenerator(algName: string): AsyKeyGenerator;
 
@@ -2253,7 +2257,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createSymKeyGenerator(algName: string): SymKeyGenerator;
 
@@ -2266,7 +2270,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MacSpec {
     /**
@@ -2277,7 +2281,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     algName: string;
   }
@@ -2291,7 +2295,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface HmacSpec extends MacSpec {
     /**
@@ -2302,7 +2306,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     mdName: string;
   }
@@ -2316,7 +2320,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CmacSpec extends MacSpec {
     /**
@@ -2327,7 +2331,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cipherName: string;
   }
@@ -2356,7 +2360,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Mac {
     /**
@@ -2399,7 +2403,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     init(key: SymKey, callback: AsyncCallback<void>): void;
 
@@ -2443,7 +2447,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     init(key: SymKey): Promise<void>;
 
@@ -2461,7 +2465,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     initSync(key: SymKey): void;
 
@@ -2503,7 +2507,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     update(input: DataBlob, callback: AsyncCallback<void>): void;
 
@@ -2545,7 +2549,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     update(input: DataBlob): Promise<void>;
 
@@ -2561,7 +2565,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateSync(input: DataBlob): void;
 
@@ -2594,7 +2598,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doFinal(callback: AsyncCallback<DataBlob>): void;
 
@@ -2627,7 +2631,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doFinal(): Promise<DataBlob>;
 
@@ -2644,7 +2648,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doFinalSync(): DataBlob;
 
@@ -2674,7 +2678,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMacLength(): int;
 
@@ -2704,7 +2708,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -2744,7 +2748,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createMac(algName: string): Mac;
 
@@ -2762,7 +2766,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createMac(macSpec: MacSpec): Mac;
 
@@ -2790,7 +2794,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Md {
     /**
@@ -2831,7 +2835,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     update(input: DataBlob, callback: AsyncCallback<void>): void;
 
@@ -2873,7 +2877,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     update(input: DataBlob): Promise<void>;
 
@@ -2889,7 +2893,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateSync(input: DataBlob): void;
 
@@ -2922,7 +2926,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     digest(callback: AsyncCallback<DataBlob>): void;
 
@@ -2955,7 +2959,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     digest(): Promise<DataBlob>;
 
@@ -2972,7 +2976,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     digestSync(): DataBlob;
 
@@ -3002,7 +3006,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMdLength(): int;
 
@@ -3032,7 +3036,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -3072,7 +3076,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createMd(algName: string): Md;
 
@@ -3100,7 +3104,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CipherSpecItem {
     /**
@@ -3123,7 +3127,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OAEP_MD_NAME_STR = 100,
 
@@ -3147,7 +3151,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OAEP_MGF_NAME_STR = 101,
 
@@ -3171,7 +3175,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OAEP_MGF1_MD_STR = 102,
 
@@ -3195,7 +3199,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OAEP_MGF1_PSRC_UINT8ARR = 103,
 
@@ -3213,7 +3217,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SM2_MD_NAME_STR = 104
   }
@@ -3242,7 +3246,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum SignSpecItem {
     /**
@@ -3265,7 +3269,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PSS_MD_NAME_STR = 100,
 
@@ -3289,7 +3293,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PSS_MGF_NAME_STR = 101,
 
@@ -3316,7 +3320,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PSS_MGF1_MD_STR = 102,
 
@@ -3340,7 +3344,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PSS_SALT_LEN_NUM = 103,
 
@@ -3364,7 +3368,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PSS_TRAILER_FIELD_NUM = 104,
 
@@ -3382,7 +3386,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SM2_USER_ID_UINT8ARR = 105
   }
@@ -3410,7 +3414,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Cipher {
     /**
@@ -3571,7 +3575,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     init(opMode: CryptoMode, key: Key, params: ParamsSpec | null, callback: AsyncCallback<void>): void;
 
@@ -3733,7 +3738,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     init(opMode: CryptoMode, key: Key, params: ParamsSpec | null): Promise<void>;
 
@@ -3777,7 +3783,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     initSync(opMode: CryptoMode, key: Key, params: ParamsSpec | null): void;
 
@@ -3872,7 +3879,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     update(data: DataBlob, callback: AsyncCallback<DataBlob | null>): void;
 
@@ -3967,7 +3974,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     update(data: DataBlob): Promise<DataBlob | null>;
 
@@ -4029,7 +4036,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     updateSync(data: DataBlob): DataBlob | null;
 
@@ -4197,7 +4204,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob | null>): void;
 
@@ -4365,7 +4372,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     doFinal(data: DataBlob | null): Promise<DataBlob | null>;
 
@@ -4427,7 +4434,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     doFinalSync(data: DataBlob | null): DataBlob | null;
 
@@ -4500,7 +4507,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     setCipherSpec(itemType: CipherSpecItem, itemValue: Uint8Array): void;
 
@@ -4573,7 +4581,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     getCipherSpec(itemType: CipherSpecItem): string | Uint8Array;
 
@@ -4603,7 +4612,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -4653,7 +4662,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createCipher(transformation: string): Cipher;
 
@@ -4681,7 +4690,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Sign {
     /**
@@ -4726,7 +4735,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     init(priKey: PriKey, callback: AsyncCallback<void>): void;
 
@@ -4772,7 +4781,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     init(priKey: PriKey): Promise<void>;
 
@@ -4790,7 +4799,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     initSync(priKey: PriKey): void;
 
@@ -4836,7 +4845,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     update(data: DataBlob, callback: AsyncCallback<void>): void;
 
@@ -4882,7 +4891,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     update(data: DataBlob): Promise<void>;
 
@@ -4900,7 +4909,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateSync(data: DataBlob): void;
 
@@ -4989,7 +4998,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sign(data: DataBlob | null, callback: AsyncCallback<DataBlob>): void;
 
@@ -5078,7 +5087,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sign(data: DataBlob | null): Promise<DataBlob>;
 
@@ -5096,7 +5105,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     signSync(data: DataBlob | null): DataBlob;
 
@@ -5177,7 +5186,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setSignSpec(itemType: SignSpecItem, itemValue: int | Uint8Array): void;
 
@@ -5225,7 +5234,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSignSpec(itemType: SignSpecItem): string | int;
 
@@ -5255,7 +5264,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -5285,7 +5294,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Verify {
     /**
@@ -5329,7 +5338,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     init(pubKey: PubKey, callback: AsyncCallback<void>): void;
 
@@ -5374,7 +5383,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     init(pubKey: PubKey): Promise<void>;
 
@@ -5391,7 +5400,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     initSync(pubKey: PubKey): void;
 
@@ -5436,7 +5445,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     update(data: DataBlob, callback: AsyncCallback<void>): void;
 
@@ -5481,7 +5490,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     update(data: DataBlob): Promise<void>;
 
@@ -5498,7 +5507,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateSync(data: DataBlob): void;
 
@@ -5593,7 +5602,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     verify(data: DataBlob | null, signatureData: DataBlob, callback: AsyncCallback<boolean>): void;
 
@@ -5688,7 +5697,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     verify(data: DataBlob | null, signatureData: DataBlob): Promise<boolean>;
 
@@ -5707,7 +5716,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     verifySync(data: DataBlob | null, signatureData: DataBlob): boolean;
 
@@ -5726,7 +5735,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     recover(signatureData: DataBlob): Promise<DataBlob | null>;
 
@@ -5745,7 +5754,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     recoverSync(signatureData: DataBlob): DataBlob | null;
 
@@ -5826,7 +5835,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setVerifySpec(itemType: SignSpecItem, itemValue: int | Uint8Array): void;
 
@@ -5874,7 +5883,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getVerifySpec(itemType: SignSpecItem): string | int;
 
@@ -5904,7 +5913,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -5947,7 +5956,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createSign(algName: string): Sign;
 
@@ -5989,7 +5998,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createVerify(algName: string): Verify;
 
@@ -6017,7 +6026,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface KeyAgreement {
     /**
@@ -6064,7 +6073,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateSecret(priKey: PriKey, pubKey: PubKey, callback: AsyncCallback<DataBlob>): void;
 
@@ -6112,7 +6121,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateSecret(priKey: PriKey, pubKey: PubKey): Promise<DataBlob>;
 
@@ -6131,7 +6140,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateSecretSync(priKey: PriKey, pubKey: PubKey): DataBlob;
 
@@ -6161,7 +6170,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -6204,7 +6213,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createKeyAgreement(algName: string): KeyAgreement;
 
@@ -6231,7 +6240,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AsyKeySpecItem {
     /**
@@ -6254,7 +6263,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DSA_P_BN = 101,
 
@@ -6278,7 +6287,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DSA_Q_BN = 102,
 
@@ -6302,7 +6311,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DSA_G_BN = 103,
 
@@ -6326,7 +6335,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DSA_SK_BN = 104,
 
@@ -6350,7 +6359,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DSA_PK_BN = 105,
 
@@ -6374,7 +6383,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ECC_FP_P_BN = 201,
 
@@ -6398,7 +6407,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ECC_A_BN = 202,
 
@@ -6422,7 +6431,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ECC_B_BN = 203,
 
@@ -6446,7 +6455,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ECC_G_X_BN = 204,
 
@@ -6470,7 +6479,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ECC_G_Y_BN = 205,
 
@@ -6494,7 +6503,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ECC_N_BN = 206,
 
@@ -6518,7 +6527,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ECC_H_NUM = 207,
 
@@ -6542,7 +6551,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ECC_SK_BN = 208,
 
@@ -6566,7 +6575,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ECC_PK_X_BN = 209,
 
@@ -6590,7 +6599,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ECC_PK_Y_BN = 210,
 
@@ -6614,7 +6623,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ECC_FIELD_TYPE_STR = 211,
 
@@ -6641,7 +6650,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ECC_FIELD_SIZE_NUM = 212,
 
@@ -6665,7 +6674,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ECC_CURVE_NAME_STR = 213,
 
@@ -6689,7 +6698,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RSA_N_BN = 301,
 
@@ -6713,7 +6722,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RSA_SK_BN = 302,
 
@@ -6737,7 +6746,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RSA_PK_BN = 303,
 
@@ -6755,7 +6764,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DH_P_BN = 401,
 
@@ -6773,7 +6782,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DH_G_BN = 402,
 
@@ -6791,7 +6800,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DH_L_NUM = 403,
 
@@ -6809,7 +6818,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DH_SK_BN = 404,
 
@@ -6827,7 +6836,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DH_PK_BN = 405,
 
@@ -6845,7 +6854,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ED25519_SK_BN = 501,
 
@@ -6863,7 +6872,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ED25519_PK_BN = 502,
 
@@ -6881,7 +6890,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     X25519_SK_BN = 601,
 
@@ -6899,7 +6908,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     X25519_PK_BN = 602
   }
@@ -6927,7 +6936,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AsyKeySpecType {
     /**
@@ -6950,7 +6959,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMON_PARAMS_SPEC = 0,
 
@@ -6974,7 +6983,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRIVATE_KEY_SPEC = 1,
 
@@ -6998,7 +7007,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PUBLIC_KEY_SPEC = 2,
 
@@ -7022,7 +7031,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     KEY_PAIR_SPEC = 3
   }
@@ -7050,7 +7059,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AsyKeySpec {
     /**
@@ -7076,7 +7085,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     algName: string;
 
@@ -7103,7 +7112,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     specType: AsyKeySpecType;
   }
@@ -7135,7 +7144,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DSACommonParamsSpec extends AsyKeySpec {
     /**
@@ -7161,7 +7170,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     p: bigint;
 
@@ -7188,7 +7197,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     q: bigint;
 
@@ -7215,7 +7224,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     g: bigint;
   }
@@ -7247,7 +7256,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DSAPubKeySpec extends AsyKeySpec {
     /**
@@ -7273,7 +7282,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     params: DSACommonParamsSpec;
 
@@ -7300,7 +7309,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -7332,7 +7341,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DSAKeyPairSpec extends AsyKeySpec {
     /**
@@ -7358,7 +7367,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     params: DSACommonParamsSpec;
 
@@ -7385,7 +7394,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sk: bigint;
 
@@ -7412,7 +7421,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -7440,7 +7449,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ECField {
     /**
@@ -7469,7 +7478,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fieldType: string;
   }
@@ -7500,7 +7509,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ECFieldFp extends ECField {
     /**
@@ -7526,7 +7535,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     p: bigint;
   }
@@ -7554,7 +7563,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Point {
     /**
@@ -7580,7 +7589,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     x: bigint;
 
@@ -7607,7 +7616,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     y: bigint;
   }
@@ -7638,7 +7647,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ECCCommonParamsSpec extends AsyKeySpec {
     /**
@@ -7664,7 +7673,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     field: ECField;
 
@@ -7691,7 +7700,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     a: bigint;
 
@@ -7718,7 +7727,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     b: bigint;
 
@@ -7745,7 +7754,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     g: Point;
 
@@ -7772,7 +7781,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     n: bigint;
 
@@ -7799,7 +7808,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     h: int;
   }
@@ -7831,7 +7840,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ECCPriKeySpec extends AsyKeySpec {
     /**
@@ -7857,7 +7866,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     params: ECCCommonParamsSpec;
 
@@ -7884,7 +7893,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sk: bigint;
   }
@@ -7916,7 +7925,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ECCPubKeySpec extends AsyKeySpec {
     /**
@@ -7942,7 +7951,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     params: ECCCommonParamsSpec;
 
@@ -7969,7 +7978,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pk: Point;
   }
@@ -8001,7 +8010,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ECCKeyPairSpec extends AsyKeySpec {
     /**
@@ -8027,7 +8036,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     params: ECCCommonParamsSpec;
 
@@ -8054,7 +8063,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sk: bigint;
 
@@ -8081,7 +8090,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pk: Point;
   }
@@ -8100,7 +8109,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class ECCKeyUtil {
     /**
@@ -8131,7 +8140,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static genECCCommonParamsSpec(curveName: string): ECCCommonParamsSpec;
 
@@ -8150,7 +8159,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static convertPoint(curveName: string, encodedPoint: Uint8Array): Point;
 
@@ -8170,7 +8179,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getEncodedPoint(curveName: string, point: Point, format: string): Uint8Array;
   }
@@ -8194,7 +8203,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DHCommonParamsSpec extends AsyKeySpec {
     /**
@@ -8213,7 +8222,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     p: bigint;
 
@@ -8233,7 +8242,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     g: bigint;
 
@@ -8253,7 +8262,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     l: int;
   }
@@ -8277,7 +8286,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DHPriKeySpec extends AsyKeySpec {
     /**
@@ -8296,7 +8305,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     params: DHCommonParamsSpec;
 
@@ -8316,7 +8325,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sk: bigint;
   }
@@ -8340,7 +8349,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DHPubKeySpec extends AsyKeySpec {
     /**
@@ -8359,7 +8368,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     params: DHCommonParamsSpec;
 
@@ -8379,7 +8388,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -8403,7 +8412,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DHKeyPairSpec extends AsyKeySpec {
     /**
@@ -8422,7 +8431,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     params: DHCommonParamsSpec;
 
@@ -8442,7 +8451,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sk: bigint;
 
@@ -8462,7 +8471,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -8481,7 +8490,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class DHKeyUtil {
     /**
@@ -8516,7 +8525,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static genDHCommonParamsSpec(pLen: int, skLen?: int): DHCommonParamsSpec;
   }
@@ -8540,7 +8549,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ED25519PriKeySpec extends AsyKeySpec {
     /**
@@ -8559,7 +8568,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sk: bigint;
   }
@@ -8583,7 +8592,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ED25519PubKeySpec extends AsyKeySpec {
     /**
@@ -8602,7 +8611,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -8626,7 +8635,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ED25519KeyPairSpec extends AsyKeySpec {
     /**
@@ -8645,7 +8654,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sk: bigint;
 
@@ -8665,7 +8674,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -8689,7 +8698,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface X25519PriKeySpec extends AsyKeySpec {
     /**
@@ -8708,7 +8717,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sk: bigint;
   }
@@ -8732,7 +8741,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface X25519PubKeySpec extends AsyKeySpec {
     /**
@@ -8751,7 +8760,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -8775,7 +8784,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface X25519KeyPairSpec extends AsyKeySpec {
     /**
@@ -8794,7 +8803,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sk: bigint;
 
@@ -8814,7 +8823,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -8846,7 +8855,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface RSACommonParamsSpec extends AsyKeySpec {
     /**
@@ -8872,7 +8881,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     n: bigint;
   }
@@ -8904,7 +8913,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface RSAPubKeySpec extends AsyKeySpec {
     /**
@@ -8930,7 +8939,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     params: RSACommonParamsSpec;
 
@@ -8957,7 +8966,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -8989,7 +8998,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface RSAKeyPairSpec extends AsyKeySpec {
     /**
@@ -9015,7 +9024,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     params: RSACommonParamsSpec;
 
@@ -9042,7 +9051,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sk: bigint;
 
@@ -9069,7 +9078,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pk: bigint;
   }
@@ -9098,7 +9107,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AsyKeyGeneratorBySpec {
     /**
@@ -9133,7 +9142,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateKeyPair(callback: AsyncCallback<KeyPair>): void;
 
@@ -9172,7 +9181,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateKeyPair(): Promise<KeyPair>;
 
@@ -9188,7 +9197,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateKeyPairSync(): KeyPair;
 
@@ -9224,7 +9233,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generatePriKey(callback: AsyncCallback<PriKey>): void;
 
@@ -9263,7 +9272,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generatePriKey(): Promise<PriKey>;
 
@@ -9279,7 +9288,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generatePriKeySync(): PriKey;
 
@@ -9315,7 +9324,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generatePubKey(callback: AsyncCallback<PubKey>): void;
 
@@ -9354,7 +9363,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generatePubKey(): Promise<PubKey>;
 
@@ -9370,7 +9379,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generatePubKeySync(): PubKey;
 
@@ -9400,7 +9409,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -9443,7 +9452,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGeneratorBySpec;
 
@@ -9464,7 +9473,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface KdfSpec {
     /**
@@ -9483,7 +9492,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     algName: string;
   }
@@ -9506,7 +9515,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PBKDF2Spec extends KdfSpec {
     /**
@@ -9525,7 +9534,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     password: string | Uint8Array;
 
@@ -9545,7 +9554,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     salt: Uint8Array;
 
@@ -9565,7 +9574,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     iterations: int;
 
@@ -9585,7 +9594,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     keySize: int;
   }
@@ -9599,7 +9608,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface HKDFSpec extends KdfSpec {
     /**
@@ -9610,7 +9619,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     key: string | Uint8Array;
 
@@ -9622,7 +9631,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     salt: Uint8Array;
 
@@ -9634,7 +9643,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     info: Uint8Array;
 
@@ -9646,7 +9655,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     keySize: int;
   }
@@ -9660,7 +9669,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ScryptSpec extends KdfSpec {
     /**
@@ -9671,7 +9680,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     passphrase: string | Uint8Array;
 
@@ -9683,7 +9692,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     salt: Uint8Array;
 
@@ -9695,7 +9704,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     n: long;
 
@@ -9707,7 +9716,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     r: long;
 
@@ -9719,7 +9728,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     p: long;
 
@@ -9731,7 +9740,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     maxMemory: long;
 
@@ -9743,7 +9752,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     keySize: int;
   }
@@ -9756,7 +9765,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface X963KdfSpec extends KdfSpec {
     /**
@@ -9766,7 +9776,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     key: string | Uint8Array;
 
@@ -9777,7 +9788,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     info: Uint8Array;
 
@@ -9788,7 +9800,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     keySize: int;
   }
@@ -9810,7 +9823,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Kdf {
     /**
@@ -9862,7 +9875,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     generateSecret(params: KdfSpec, callback: AsyncCallback<DataBlob>): void;
 
@@ -9915,7 +9929,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     generateSecret(params: KdfSpec): Promise<DataBlob>;
 
@@ -9955,7 +9970,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     generateSecretSync(params: KdfSpec): DataBlob;
 
@@ -9977,7 +9993,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly algName: string;
   }
@@ -10008,7 +10024,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createKdf(algName: string): Kdf;
 
@@ -10020,7 +10036,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SM2CipherTextSpec {
     /**
@@ -10031,7 +10047,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     xCoordinate: bigint;
 
@@ -10043,7 +10059,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     yCoordinate: bigint;
 
@@ -10055,7 +10071,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cipherTextData: Uint8Array;
 
@@ -10067,7 +10083,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     hashData: Uint8Array;
   }
@@ -10079,7 +10095,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class SM2CryptoUtil {
     /**
@@ -10097,7 +10113,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static genCipherTextBySpec(spec: SM2CipherTextSpec, mode?: string): DataBlob;
 
@@ -10116,7 +10132,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getCipherTextSpec(cipherText: DataBlob, mode?: string): SM2CipherTextSpec;
   }
@@ -10129,7 +10145,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface EccSignatureSpec {
     /**
@@ -10140,7 +10156,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     r: bigint;
 
@@ -10152,7 +10168,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     s: bigint;
   }
@@ -10164,7 +10180,7 @@ declare namespace cryptoFramework {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class SignatureUtils {
     /**
@@ -10182,7 +10198,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static genEccSignatureSpec(data: Uint8Array): EccSignatureSpec;
 
@@ -10201,7 +10217,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static genEccSignature(spec: EccSignatureSpec): Uint8Array;
   }

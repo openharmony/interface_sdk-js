@@ -46,7 +46,7 @@ import { ValueType } from './@ohos.data.ValuesBucket';
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace dataSharePredicates {
   /**
@@ -76,7 +76,7 @@ declare namespace dataSharePredicates {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class DataSharePredicates {
     /**
@@ -120,7 +120,7 @@ declare namespace dataSharePredicates {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     equalTo(field: string, value: ValueType): DataSharePredicates;
 
@@ -137,7 +137,6 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 22 static
      */
     /**
      * Configure the DataSharePredicates to match the field whose data type is ValueType and value is unequal to
@@ -150,7 +149,8 @@ declare namespace dataSharePredicates {
      * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     notEqualTo(field: string, value: ValueType): DataSharePredicates;
 
@@ -164,7 +164,6 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 22 static
      */
     /**
      * Adds a left parenthesis to the DataSharePredicates.
@@ -174,7 +173,8 @@ declare namespace dataSharePredicates {
      * @returns { DataSharePredicates } Returns the DataSharePredicates with the left parenthesis.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     beginWrap(): DataSharePredicates;
 
@@ -189,7 +189,6 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 22 static
      */
     /**
      * Adds a right parenthesis to the DataSharePredicates.
@@ -200,7 +199,8 @@ declare namespace dataSharePredicates {
      * @returns { DataSharePredicates } Returns the DataSharePredicates with the right parenthesis.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     endWrap(): DataSharePredicates;
 
@@ -214,7 +214,6 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 22 static
      */
     /**
      * Adds an or condition to the DataSharePredicates.
@@ -224,7 +223,8 @@ declare namespace dataSharePredicates {
      * @returns { DataSharePredicates } Returns the DataSharePredicates with the or condition.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     or(): DataSharePredicates;
 
@@ -260,7 +260,7 @@ declare namespace dataSharePredicates {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     and(): DataSharePredicates;
 
@@ -277,7 +277,7 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     contains(field: string, value: string): DataSharePredicates;
 
@@ -318,6 +318,7 @@ declare namespace dataSharePredicates {
     /**
      * Configure the DataSharePredicates to match the fields whose value is null.
      * This method is similar to is null of the SQL statement.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name in the database table.
      * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
@@ -332,6 +333,7 @@ declare namespace dataSharePredicates {
     /**
      * Configure the DataSharePredicates to match the specified fields whose value is not null.
      * This method is similar to is not null of the SQL statement.
+     * Currently only used for RDB and KVDB(schema).
      *
      * @param { string } field - Indicates the column name in the database table.
      * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
@@ -357,7 +359,6 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 22 static
      */
     /**
      * Configure the DataSharePredicates to match the fields whose data type is string and value is
@@ -371,7 +372,8 @@ declare namespace dataSharePredicates {
      * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     like(field: string, value: string): DataSharePredicates;
 
@@ -422,7 +424,6 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 22 static
      */
     /**
      * Restricts the value of the field to the range between low value and high value.
@@ -434,7 +435,7 @@ declare namespace dataSharePredicates {
      * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 22 dynamic
      * @since 23 static
      */
     between(field: string, low: ValueType, high: ValueType): DataSharePredicates;
@@ -452,7 +453,6 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 22 static
      */
     /**
      * Configure DataSharePredicates to match the specified field whose data type is int and value is
@@ -465,7 +465,8 @@ declare namespace dataSharePredicates {
      * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     notBetween(field: string, low: ValueType, high: ValueType): DataSharePredicates;
 
@@ -480,7 +481,6 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 22 static
      */
     /**
      * Restricts the value of the field to be greater than the specified value.
@@ -491,7 +491,8 @@ declare namespace dataSharePredicates {
      * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     greaterThan(field: string, value: ValueType): DataSharePredicates;
 
@@ -506,7 +507,6 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 22 static
      */
     /**
      * Restricts the value of the field to be smaller than the specified value.
@@ -517,7 +517,8 @@ declare namespace dataSharePredicates {
      * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     lessThan(field: string, value: ValueType): DataSharePredicates;
 
@@ -532,7 +533,6 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 22 static
      */
     /**
      * Restricts the value of the field to be greater than or equal to the specified value.
@@ -543,7 +543,8 @@ declare namespace dataSharePredicates {
      * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     greaterThanOrEqualTo(field: string, value: ValueType): DataSharePredicates;
 
@@ -558,7 +559,6 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 22 static
      */
     /**
      * Restricts the value of the field to be smaller than or equal to the specified value.
@@ -569,7 +569,8 @@ declare namespace dataSharePredicates {
      * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     lessThanOrEqualTo(field: string, value: ValueType): DataSharePredicates;
 
@@ -608,7 +609,7 @@ declare namespace dataSharePredicates {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     orderByAsc(field: string): DataSharePredicates;
 
@@ -647,7 +648,7 @@ declare namespace dataSharePredicates {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     orderByDesc(field: string): DataSharePredicates;
 
@@ -699,7 +700,7 @@ declare namespace dataSharePredicates {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     limit(total: int, offset: int): DataSharePredicates;
 
@@ -713,7 +714,7 @@ declare namespace dataSharePredicates {
      * @systemapi
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     groupBy(fields: Array<string>): DataSharePredicates;
 
@@ -810,23 +811,10 @@ declare namespace dataSharePredicates {
      * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 23 dynamic
+     * @since 22 dynamic
      */
     notIn(field: string, value: Array<ValueType>): DataSharePredicates;
 
-    /**
-     * Configure {@code DataSharePredicates} to match the specified field whose data type is String array and values
-     * are out of a given range.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
-     * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 22 static
-     */
     /**
      * Configure {@code DataSharePredicates} to match the specified field whose data type is String array and values
      * are out of a given range.

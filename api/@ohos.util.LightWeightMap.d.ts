@@ -38,7 +38,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class LightWeightMap<K, V> {
   /**
@@ -64,7 +64,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   constructor();
   /**
@@ -99,7 +99,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get length(): int;
   /**
@@ -140,7 +140,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   hasAll(map: LightWeightMap<K, V>): boolean;
   /**
@@ -172,7 +172,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   hasKey(key: K): boolean;
   /**
@@ -204,7 +204,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   hasValue(value: V): boolean;
   /**
@@ -245,7 +245,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   increaseCapacityTo(minimumCapacity: int): void;
   /**
@@ -274,7 +274,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   entries(): IterableIterator<[K, V]>;
   /**
@@ -317,7 +317,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get(key: K): V | undefined;
 
@@ -350,7 +350,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getIndexOfKey(key: K): int;
   /**
@@ -382,7 +382,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getIndexOfValue(value: V): int;
   /**
@@ -411,7 +411,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isEmpty(): boolean;
   /**
@@ -469,7 +469,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   getKeyAt(index: int): K | undefined;
 
@@ -500,7 +500,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   keys(): IterableIterator<K>;
   /**
@@ -538,7 +538,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setAll(map: LightWeightMap<K, V>): void;
   /**
@@ -573,7 +573,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   set(key: K, value: V): Object;
   /**
@@ -616,7 +616,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   remove(key: K): V | undefined;
 
@@ -658,7 +658,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   removeAt(index: int): boolean;
   /**
@@ -687,7 +687,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clear(): void;
   /**
@@ -737,7 +737,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setValueAt(index: int, newValue: V): boolean;
   /**
@@ -803,7 +803,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   forEach(callbackFn: LightWeightMapCbFn<K, V>): void;
 
@@ -843,7 +843,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   $_iterator(): IterableIterator<[K, V]>;
 
@@ -873,7 +873,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toString(): String;
   /**
@@ -931,7 +931,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   getValueAt(index: int): V | undefined;
 
@@ -961,7 +961,7 @@ declare class LightWeightMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   values(): IterableIterator<V>;
 }
@@ -976,7 +976,7 @@ declare class LightWeightMap<K, V> {
    * @returns { void } This callback does not return a value
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   export type LightWeightMapCbFn<K, V> = (value: V, key: K, map: LightWeightMap<K, V>) => void;
 

@@ -614,7 +614,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11 dynamic
    */
-  Debug = 0,
+  Debug,
 
   /**
    * Error level.
@@ -630,7 +630,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11 dynamic
    */
-  Error = 1,
+  Error,
 
   /**
    * Info level.
@@ -646,7 +646,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11 dynamic
    */
-  Info = 2,
+  Info,
 
   /**
    * Log level.
@@ -662,7 +662,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11 dynamic
    */
-  Log = 3,
+  Log,
 
   /**
    * Warn level.
@@ -678,7 +678,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11 dynamic
    */
-  Warn = 4
+  Warn
 }
 
 /**
@@ -4947,15 +4947,6 @@ declare class WebResourceError {
    * @since 11 dynamic
    */
   getErrorCode(): number;
-
-  /**
-   * Gets the custom error code of the Web resource.
-   *
-   * @returns { number } Return the custom error code of the Web resource.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic
-   */
-  getCustomErrorCode(): number;
 }
 
 /**
@@ -5030,6 +5021,15 @@ declare class JsGeolocation {
  * @atomicservice
  * @since 11 dynamic
  */
+/**
+ * Defines the Web cookie.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 11 dynamiconly
+ * @deprecated since 23
+ * @useinstead ohos.web.webview.webview.WebCookieManager
+ */
 declare class WebCookie {
   /**
    * Constructor.
@@ -5043,6 +5043,15 @@ declare class WebCookie {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11 dynamiconly
+   * @deprecated since 23
+   * @useinstead ohos.web.webview.webview.WebCookieManager
    */
   constructor();
 
@@ -9137,7 +9146,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * 1. Fragment navigation also triggers onLoadFinished, but onPageEnd will not be triggered.
    * 2. onLoadFinished is triggered only once if the mainframe is automatically redirected before the page is
    *    completely loaded. onPageEnd is triggered every navigation on mainframe.
-   * 3. When the document of a pop-up window has been modified by Javascript before it is loaded , it will simulate the
+   * 3. When the document of a pop-up window has been modified by JavaScript before it is loaded , it will simulate the
    *    triggering of onLoadStarted with the URL set to empty because displaying the URL that is currently
    *    loading may be unsafe. onPageBegin will not be simulated.
    * </p>

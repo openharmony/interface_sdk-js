@@ -33,7 +33,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface Resource {
   /**
@@ -51,7 +51,7 @@ export interface Resource {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   bundleName: string;
 
@@ -70,7 +70,7 @@ export interface Resource {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   moduleName: string;
 
@@ -89,7 +89,7 @@ export interface Resource {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   id: long;
 
@@ -100,7 +100,7 @@ export interface Resource {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   params?: Array<string | int | long | double | Resource>;
 
@@ -138,7 +138,7 @@ export interface Resource {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type?: int;
 }

@@ -24,7 +24,7 @@
  *
  * @interface EnvPropsOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface EnvPropsOptions {
 
@@ -33,7 +33,7 @@ export declare interface EnvPropsOptions {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   key: string;
 
@@ -42,7 +42,7 @@ export declare interface EnvPropsOptions {
    *
    * @type { int | long | double | string | boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   defaultValue: int | long | double | string | boolean;
 }
@@ -51,7 +51,7 @@ export declare interface EnvPropsOptions {
  * Defines the Environment interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class Environment {
   /**
@@ -65,7 +65,7 @@ export declare class Environment {
    * @returns { boolean } false if method failed
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   static envProp<T>(key: string, value: T): boolean;
 
@@ -75,7 +75,7 @@ export declare class Environment {
    * @param { EnvPropsOptions[] } props environment parameter
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   static envProps(props: EnvPropsOptions[]): void;
 
@@ -85,7 +85,7 @@ export declare class Environment {
    * @returns { Array<string> } all environment property keys
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   static keys(): Array<string>;
 }

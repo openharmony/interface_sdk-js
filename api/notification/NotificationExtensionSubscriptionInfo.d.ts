@@ -25,7 +25,8 @@ import type notificationExtensionSubscription from '../@ohos.notificationExtensi
  *
  * @typedef NotificationExtensionSubscriptionInfo
  * @syscap SystemCapability.Notification.Notification
- * @since 22 dynamic&static
+ * @since 22 dynamic
+ * @since 23 static
  */
 export interface NotificationExtensionSubscriptionInfo {
   /**
@@ -33,7 +34,8 @@ export interface NotificationExtensionSubscriptionInfo {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   addr: string;
 
@@ -42,7 +44,8 @@ export interface NotificationExtensionSubscriptionInfo {
    *
    * @type { notificationExtensionSubscription.SubscribeType }
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   type: notificationExtensionSubscription.SubscribeType;
 }

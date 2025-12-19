@@ -50,7 +50,7 @@ import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult'
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace abilityDelegatorRegistry {
   /**
@@ -76,7 +76,7 @@ declare namespace abilityDelegatorRegistry {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAbilityDelegator(): AbilityDelegator;
 
@@ -103,7 +103,7 @@ declare namespace abilityDelegatorRegistry {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getArguments(): AbilityDelegatorArgs;
 
@@ -130,7 +130,7 @@ declare namespace abilityDelegatorRegistry {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum AbilityLifecycleState {
     /**
@@ -153,7 +153,7 @@ declare namespace abilityDelegatorRegistry {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNINITIALIZED,
 
@@ -177,7 +177,7 @@ declare namespace abilityDelegatorRegistry {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CREATE,
 
@@ -201,7 +201,7 @@ declare namespace abilityDelegatorRegistry {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FOREGROUND,
 
@@ -225,7 +225,7 @@ declare namespace abilityDelegatorRegistry {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BACKGROUND,
 
@@ -249,7 +249,7 @@ declare namespace abilityDelegatorRegistry {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DESTROY
   }
@@ -275,7 +275,7 @@ declare namespace abilityDelegatorRegistry {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type AbilityDelegator = _AbilityDelegator;
 
@@ -300,7 +300,7 @@ declare namespace abilityDelegatorRegistry {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type AbilityDelegatorArgs = _AbilityDelegatorArgs;
 
@@ -328,7 +328,7 @@ declare namespace abilityDelegatorRegistry {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type AbilityMonitor = _AbilityMonitor;
 
@@ -345,7 +345,7 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type ShellCmdResult = _ShellCmdResult;
 
@@ -358,7 +358,7 @@ declare namespace abilityDelegatorRegistry {
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type AbilityStageMonitor = _AbilityStageMonitor;
 }

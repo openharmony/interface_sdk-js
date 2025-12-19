@@ -33,14 +33,14 @@ import {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 declare enum CounterType {
     /**
      * List counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     LIST = 0,
@@ -48,7 +48,7 @@ declare enum CounterType {
     /**
      * Compact counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     COMPACT = 1,
@@ -56,7 +56,7 @@ declare enum CounterType {
     /**
      * Inline counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     INLINE = 2,
@@ -64,7 +64,7 @@ declare enum CounterType {
     /**
      * Date inline counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     INLINE_DATE = 3
@@ -76,7 +76,7 @@ declare enum CounterType {
  * @typedef { function } OnCounterHoverCallback
  * @param { boolean } isHover - isHover
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export type OnCounterHoverCallback = (isHover: boolean) => void;
@@ -85,7 +85,7 @@ export type OnCounterHoverCallback = (isHover: boolean) => void;
  * Defines the common options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 declare class CommonOptions {
@@ -94,7 +94,7 @@ declare class CommonOptions {
      * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     focusable?: boolean;
@@ -105,7 +105,7 @@ declare class CommonOptions {
      * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     step?: int;
@@ -115,7 +115,7 @@ declare class CommonOptions {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     onHoverIncrease?: OnCounterHoverCallback;
@@ -125,7 +125,7 @@ declare class CommonOptions {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     onHoverDecrease?: OnCounterHoverCallback;
@@ -137,7 +137,7 @@ declare class CommonOptions {
  * @extends CommonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 declare class InlineStyleOptions extends CommonOptions {
@@ -183,7 +183,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @type { ?double }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     textWidth?: double;
@@ -193,7 +193,7 @@ declare class InlineStyleOptions extends CommonOptions {
      *
      * @type { ?OnInlineCounterChange }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     onChange?: OnInlineCounterChange;
@@ -203,7 +203,7 @@ declare class InlineStyleOptions extends CommonOptions {
  * Defines the number style options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 declare class NumberStyleOptions extends InlineStyleOptions {
@@ -212,7 +212,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     label?: ResourceStr;
@@ -222,7 +222,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     onFocusIncrease?: VoidCallback;
@@ -232,7 +232,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     onFocusDecrease?: VoidCallback;
@@ -242,7 +242,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     onBlurIncrease?: VoidCallback;
@@ -252,7 +252,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     onBlurDecrease?: VoidCallback;
@@ -274,7 +274,7 @@ export type OnInlineCounterChange = (value: int) => void;
  * Defines the date data.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 declare class DateData {
@@ -283,7 +283,7 @@ declare class DateData {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     year: int;
@@ -293,7 +293,7 @@ declare class DateData {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     month: int;
@@ -303,7 +303,7 @@ declare class DateData {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     day: int;
@@ -315,7 +315,7 @@ declare class DateData {
      * @param { int } month - set the month of the DateData.
      * @param { int } day - set the day of the DateData.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     constructor(year: int, month: int, day: int);
@@ -325,7 +325,7 @@ declare class DateData {
      *
      * @returns { string } date data in string form.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     toString(): string;
@@ -337,7 +337,7 @@ declare class DateData {
  * @typedef { function } OnDateCounterChangeCallback
  * @param { DateData } date - date
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export type OnDateCounterChangeCallback = (date: DateData) => void;
@@ -347,7 +347,7 @@ export type OnDateCounterChangeCallback = (date: DateData) => void;
  * Defines the date style options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 declare class DateStyleOptions extends CommonOptions {
@@ -357,7 +357,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     year?: int;
@@ -368,7 +368,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     month?: int;
@@ -379,7 +379,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     day?: int;
@@ -389,7 +389,7 @@ declare class DateStyleOptions extends CommonOptions {
      *
      * @type { ?OnDateCounterChangeCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     onDateChange?: OnDateCounterChangeCallback;
@@ -400,7 +400,7 @@ declare class DateStyleOptions extends CommonOptions {
  * Defines the counter options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 declare class CounterOptions {
@@ -409,7 +409,7 @@ declare class CounterOptions {
      *
      * @type { CounterType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     type: CounterType;
@@ -419,7 +419,7 @@ declare class CounterOptions {
      *
      * @type { ?NumberStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     numberOptions?: NumberStyleOptions;
@@ -429,7 +429,7 @@ declare class CounterOptions {
      *
      * @type { ?InlineStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     inlineOptions?: InlineStyleOptions;
@@ -439,7 +439,7 @@ declare class CounterOptions {
      *
      * @type { ?DateStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     dateOptions?: DateStyleOptions;
@@ -449,7 +449,7 @@ declare class CounterOptions {
      *
      * @type { ?Direction }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     direction?: Direction;
@@ -460,7 +460,7 @@ declare class CounterOptions {
  *
  * @struct { CounterComponent }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @Component
@@ -470,7 +470,7 @@ declare struct CounterComponent {
      *
      * @type { CounterOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @PropRef
@@ -479,7 +479,7 @@ declare struct CounterComponent {
     /**
      * The method to build component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 staticonly
+     * @since 23 staticonly
      * @noninterop
      */
     @Builder

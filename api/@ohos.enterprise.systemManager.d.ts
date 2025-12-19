@@ -775,6 +775,40 @@ declare namespace systemManager {
    * @since 20
    */
   function getDisallowedNearLinkProtocols(admin: Want, accountId: number): Array<NearLinkProtocol>;
+
+  /**
+   * Starts collect log of device.
+   *
+   * @permission ohos.permission.ENTERPRISE_READ_LOG
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @returns { Promise<void> } the promise returned by the startCollectLog.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201009 - Collecting logs, please try again later.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function startCollectLog(admin: Want): Promise<void>;
+
+  /**
+   * Finish handle the collected log.
+   *
+   * @permission ohos.permission.ENTERPRISE_READ_LOG
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function finishLogCollected(admin: Want): void;
 }
 
 export default systemManager;

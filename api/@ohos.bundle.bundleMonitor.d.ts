@@ -27,7 +27,7 @@ import { Callback } from './@ohos.base';
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace bundleMonitor {
   /**
@@ -37,7 +37,7 @@ declare namespace bundleMonitor {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface BundleChangedInfo {
     /**
@@ -48,7 +48,7 @@ declare namespace bundleMonitor {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly bundleName: string;
     /**
@@ -59,7 +59,7 @@ declare namespace bundleMonitor {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly userId: int;
     /**
@@ -70,7 +70,7 @@ declare namespace bundleMonitor {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly appIndex: int;
   }
@@ -109,7 +109,7 @@ declare namespace bundleMonitor {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onAdd(callback: Callback<BundleChangedInfo>): void;
 
@@ -122,7 +122,7 @@ declare namespace bundleMonitor {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onUpdate(callback: Callback<BundleChangedInfo>): void;
 
@@ -135,7 +135,7 @@ declare namespace bundleMonitor {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onRemove(callback: Callback<BundleChangedInfo>): void;
 
@@ -163,7 +163,7 @@ declare namespace bundleMonitor {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offAdd(callback?: Callback<BundleChangedInfo>): void;
 
@@ -176,7 +176,7 @@ declare namespace bundleMonitor {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offUpdate(callback?: Callback<BundleChangedInfo>): void;
 
@@ -189,7 +189,7 @@ declare namespace bundleMonitor {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offRemove(callback?: Callback<BundleChangedInfo>): void;
 }

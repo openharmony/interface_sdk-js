@@ -25,7 +25,7 @@ import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
  *
  * @interface FlexOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface FlexOptions {
     /**
@@ -34,7 +34,7 @@ export declare interface FlexOptions {
      * @type { ?FlexDirection }
      * @default FlexDirection.Row
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     direction?: FlexDirection;
     /**
@@ -43,7 +43,7 @@ export declare interface FlexOptions {
      * @type { ?FlexWrap }
      * @default FlexWrap.NoWrap
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     wrap?: FlexWrap;
     /**
@@ -52,7 +52,7 @@ export declare interface FlexOptions {
      * @type { ?FlexAlign }
      * @default FlexAlign.Start
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     justifyContent?: FlexAlign;
     /**
@@ -61,7 +61,7 @@ export declare interface FlexOptions {
      * @type { ?ItemAlign }
      * @default ItemAlign.Start
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     alignItems?: ItemAlign;
     /**
@@ -71,7 +71,7 @@ export declare interface FlexOptions {
      * @type { ?FlexAlign }
      * @default FlexAlign.Start
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     alignContent?: FlexAlign;
     /**
@@ -80,7 +80,7 @@ export declare interface FlexOptions {
      * @type { ?FlexSpaceOptions }
      * @default {main: LengthMetrics.px(0), cross: LengthMetrics.px(0)}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     space?: FlexSpaceOptions;
 }
@@ -89,7 +89,7 @@ export declare interface FlexOptions {
  *
  * @interface FlexSpaceOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface FlexSpaceOptions {
     /**
@@ -97,7 +97,7 @@ export declare interface FlexSpaceOptions {
      *
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     main?: LengthMetrics;
     /**
@@ -105,7 +105,7 @@ export declare interface FlexSpaceOptions {
      *
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     cross?: LengthMetrics;
 }
@@ -116,7 +116,7 @@ export declare interface FlexSpaceOptions {
  * @extends CommonMethod
  * @interface FlexAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare interface FlexAttribute extends CommonMethod {
@@ -127,7 +127,7 @@ export declare interface FlexAttribute extends CommonMethod {
     * @returns { FlexAttribute } The attribute of the flex.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @systemapi
-    * @since 22 static
+    * @since 23 static
     */
     default pointLight(value: PointLightStyle | undefined): FlexAttribute;
     /**
@@ -136,7 +136,7 @@ export declare interface FlexAttribute extends CommonMethod {
      * @param { AttributeModifier<FlexAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { FlexAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<FlexAttribute> | AttributeModifier<CommonMethod>
         | undefined): this;
@@ -149,7 +149,7 @@ export declare interface FlexAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { FlexAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder

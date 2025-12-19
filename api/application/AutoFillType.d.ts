@@ -26,7 +26,7 @@
   * @systemapi
   * @StageModelOnly
   * @since 11 dynamic
-  * @since 22 static
+  * @since 23 static
   */
 export enum AutoFillType {
   /**
@@ -36,7 +36,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   UNSPECIFIED = 0,
 
@@ -47,7 +47,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   PASSWORD = 1,
 
@@ -58,7 +58,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   USER_NAME = 2,
 
@@ -69,7 +69,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   NEW_PASSWORD = 3,
 
@@ -80,7 +80,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   FULL_STREET_ADDRESS = 4,
 
@@ -91,7 +91,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   HOUSE_NUMBER = 5,
 
@@ -102,7 +102,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   DISTRICT_ADDRESS = 6,
 
@@ -113,7 +113,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   CITY_ADDRESS = 7,
 
@@ -124,7 +124,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   PROVINCE_ADDRESS = 8,
 
@@ -135,7 +135,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   COUNTRY_ADDRESS = 9,
 
@@ -146,7 +146,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   PERSON_FULL_NAME = 10,
 
@@ -157,7 +157,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   PERSON_LAST_NAME = 11,
 
@@ -168,7 +168,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   PERSON_FIRST_NAME = 12,
 
@@ -179,7 +179,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   PHONE_NUMBER = 13,
 
@@ -190,7 +190,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   PHONE_COUNTRY_CODE = 14,
 
@@ -201,7 +201,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   FULL_PHONE_NUMBER = 15,
 
@@ -212,7 +212,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   EMAIL_ADDRESS = 16,
 
@@ -223,7 +223,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   BANK_CARD_NUMBER = 17,
 
@@ -234,7 +234,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   ID_CARD_NUMBER = 18,
 
@@ -245,7 +245,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   NICKNAME = 24,
 
@@ -256,7 +256,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   DETAIL_INFO_WITHOUT_STREET = 25,
 
@@ -267,7 +267,7 @@ export enum AutoFillType {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   FORMAT_ADDRESS = 26,
 
@@ -278,7 +278,7 @@ export enum AutoFillType {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   PASSPORT_NUMBER = 27,
 
@@ -289,7 +289,7 @@ export enum AutoFillType {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   VALIDITY = 28,
 
@@ -300,7 +300,7 @@ export enum AutoFillType {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   ISSUE_AT = 29,
 
@@ -311,7 +311,7 @@ export enum AutoFillType {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   ORGANIZATION = 30,
 
@@ -322,7 +322,7 @@ export enum AutoFillType {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   TAX_ID = 31,
 
@@ -333,7 +333,7 @@ export enum AutoFillType {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   ADDRESS_CITY_AND_STATE = 32,
 
@@ -344,7 +344,7 @@ export enum AutoFillType {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   FLIGHT_NUMBER = 33,
 
@@ -355,7 +355,7 @@ export enum AutoFillType {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   LICENSE_NUMBER = 34,
 
@@ -366,7 +366,7 @@ export enum AutoFillType {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   LICENSE_FILE_NUMBER = 35,
 
@@ -377,7 +377,7 @@ export enum AutoFillType {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   LICENSE_PLATE = 36,
 
@@ -388,7 +388,7 @@ export enum AutoFillType {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   ENGINE_NUMBER = 37,
 
@@ -399,7 +399,7 @@ export enum AutoFillType {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   LICENSE_CHASSIS_NUMBER = 38
 }

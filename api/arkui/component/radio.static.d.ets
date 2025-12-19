@@ -27,28 +27,28 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum RadioIndicatorType {
     /**
      * Tick shape.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     TICK = 0,
     /**
      * Dot shape.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     DOT = 1,
     /**
    * custom shape.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
     CUSTOM = 2
 }
@@ -57,7 +57,7 @@ export declare enum RadioIndicatorType {
  *
  * @interface RadioOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface RadioOptions {
     /**
@@ -65,7 +65,7 @@ export declare interface RadioOptions {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     group: string;
     /**
@@ -73,7 +73,7 @@ export declare interface RadioOptions {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     value: string;
     /**
@@ -81,7 +81,7 @@ export declare interface RadioOptions {
      *
      * @type { ?RadioIndicatorType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     indicatorType?: RadioIndicatorType;
     /**
@@ -89,7 +89,7 @@ export declare interface RadioOptions {
      *
      * @type { ?CustomBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     indicatorBuilder?: CustomBuilder;
 }
@@ -98,7 +98,7 @@ export declare interface RadioOptions {
  *
  * @interface RadioStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface RadioStyle {
     /**
@@ -107,7 +107,7 @@ export declare interface RadioStyle {
      * @type { ?ResourceColor } checkedBackgroundColor - the background color when the radio box is checked.
      * @default #007DFF
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     checkedBackgroundColor?: ResourceColor;
     /**
@@ -116,7 +116,7 @@ export declare interface RadioStyle {
      * @type { ?ResourceColor } uncheckedBorderColor - the bolder color when the radio box is unchecked.
      * @default #182431
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     uncheckedBorderColor?: ResourceColor;
     /**
@@ -125,7 +125,7 @@ export declare interface RadioStyle {
      * @type { ?ResourceColor } indicatorColor - the indicator color when the radio box is checked.
      * @default #FFFFFF
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     indicatorColor?: ResourceColor;
 }
@@ -135,7 +135,7 @@ export declare interface RadioStyle {
  * @typedef {function} OnRadioChangeCallback
  * @param { boolean } isChecked
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type OnRadioChangeCallback = (isChecked: boolean) => void;
 /**
@@ -144,7 +144,7 @@ export type OnRadioChangeCallback = (isChecked: boolean) => void;
  * @extends CommonMethod
  * @interface RadioAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface RadioAttribute extends CommonMethod {
     /**
@@ -153,7 +153,7 @@ export declare interface RadioAttribute extends CommonMethod {
      * @param { boolean | undefined | Bindable<boolean> } isChecked
      * @returns { RadioAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default checked(isChecked: boolean | undefined | Bindable<boolean>): this;
     /**
@@ -162,7 +162,7 @@ export declare interface RadioAttribute extends CommonMethod {
      * @param { OnRadioChangeCallback | undefined } callback
      * @returns { RadioAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default onChange(callback: OnRadioChangeCallback | undefined): this;
     /**
@@ -171,7 +171,7 @@ export declare interface RadioAttribute extends CommonMethod {
      * @param { RadioStyle | undefined } [value] - the radio style.
      * @returns { RadioAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default radioStyle(value?: RadioStyle | undefined): this;
     /**
@@ -180,7 +180,7 @@ export declare interface RadioAttribute extends CommonMethod {
      * @param { ContentModifier<RadioConfiguration> | undefined } modifier - The contentModifier of radio.
      * @returns { RadioAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
     */
     default contentModifier(modifier: ContentModifier<RadioConfiguration> | undefined): this;
     /**
@@ -190,7 +190,7 @@ export declare interface RadioAttribute extends CommonMethod {
      *     The attribute modifier of radio.
      * @returns { RadioAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<RadioAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -200,7 +200,7 @@ export declare interface RadioAttribute extends CommonMethod {
  * @extends CommonConfiguration<RadioConfiguration>
  * @interface RadioConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface RadioConfiguration extends CommonConfiguration<RadioConfiguration> {
     /**
@@ -208,7 +208,7 @@ export declare interface RadioConfiguration extends CommonConfiguration<RadioCon
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
     value: string;
     /**
@@ -216,7 +216,7 @@ export declare interface RadioConfiguration extends CommonConfiguration<RadioCon
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
     checked: boolean;
     /**
@@ -224,7 +224,7 @@ export declare interface RadioConfiguration extends CommonConfiguration<RadioCon
      *
      * @type { Callback<boolean> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     triggerChange: Callback<boolean>;
 }
@@ -236,7 +236,7 @@ export declare interface RadioConfiguration extends CommonConfiguration<RadioCon
  * @param { CustomBuilder } [content_] - container
  * @returns { RadioAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @ComponentBuilder
 export declare function Radio(

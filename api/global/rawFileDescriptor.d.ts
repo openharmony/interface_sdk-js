@@ -41,7 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface RawFileDescriptor {
   /**
@@ -65,7 +65,7 @@ export interface RawFileDescriptor {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   fd: int;
 
@@ -90,7 +90,7 @@ export interface RawFileDescriptor {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   offset: long;
 
@@ -115,7 +115,7 @@ export interface RawFileDescriptor {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   length: long;
 }

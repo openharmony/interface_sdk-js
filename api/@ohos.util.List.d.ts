@@ -46,7 +46,7 @@ import { RecordData } from '@ohos.base';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class List<T> {
   /**
@@ -72,7 +72,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   constructor();
   /**
@@ -108,7 +108,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get length(): int;
 
@@ -141,7 +141,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   add(element: T): boolean;
   /**
@@ -188,7 +188,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   insert(element: T, index: int): void;
   /**
@@ -232,7 +232,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   get(index: int): T;
 
@@ -265,7 +265,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   has(element: T): boolean;
   /**
@@ -290,7 +290,7 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains the index of the last occurrence of the specified element in this container.
+   * Obtains the index of the first occurrence of the specified element in this container.
    *
    * @param { T } element - Target element.
    * @returns { int } the int type ,returns the lowest index such that or -1 if there is no such index.
@@ -299,7 +299,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getIndexOf(element: T): int;
   /**
@@ -360,7 +360,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   removeByIndex(index: int): T | undefined;
 
@@ -397,7 +397,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   remove(element: T): boolean;
   /**
@@ -431,7 +431,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getLastIndexOf(element: T): int;
   /**
@@ -495,7 +495,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getLast(): T;
 
@@ -543,7 +543,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   set(index: int, element: T): T;
   /**
@@ -590,7 +590,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   equal(obj: RecordData): boolean;
   
@@ -650,7 +650,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   forEach(callbackfn: ListForEachCb<T>): void;
 
@@ -715,7 +715,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   sort(comparator: ListComparatorFn<T>): void;
   /**
@@ -743,7 +743,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clear(): void;
   /**
@@ -791,7 +791,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getSubList(fromIndex: int, toIndex: int): List<T>;
   /**
@@ -849,7 +849,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   replaceAllElements(callbackfn: ListReplaceCb<T>): void;
 
@@ -879,7 +879,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   convertToArray(): Array<T>;
   /**
@@ -908,7 +908,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isEmpty(): boolean;
 
@@ -922,7 +922,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   [index: int]: T;
 
@@ -962,7 +962,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   $_iterator(): IterableIterator<T>;
 
@@ -977,7 +977,8 @@ declare class List<T> {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic&static
+ * @since 22 dynamic
+ * @since 23 static
  */
 export type ListComparatorFn<T> = (firstValue: T, secondValue: T) => double;
 /**
@@ -990,7 +991,7 @@ export type ListComparatorFn<T> = (firstValue: T, secondValue: T) => double;
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type ListForEachCb<T> = (value: T, index: int, list: List<T>) => void
 
@@ -1004,7 +1005,7 @@ export type ListForEachCb<T> = (value: T, index: int, list: List<T>) => void
  * @returns { T } - The new value of current element
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type ListReplaceCb<T> = (value: T, index: int, list: List<T>) => T
 
