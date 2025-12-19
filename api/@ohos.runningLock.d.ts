@@ -121,9 +121,12 @@ declare namespace runningLock {
 
   /**
    * Enumerates the {@link RunningLock} types.
-   * <p>Two {@link RunningLock} types are available: {@link BACKGROUND}, and {@link PROXIMITY_SCREEN_CONTROL}.
+   * <p>These {@link RunningLock} types are available: {@link BACKGROUND}, {@link PROXIMITY_SCREEN_CONTROL}
+   * and {@link BACKGROUND_USER_IDLE}.
    * {@link BACKGROUND} ensures that applications can run in the background.
    * {@link PROXIMITY_SCREEN_CONTROL} determines whether to turn on or off the screen based on the proximity sensor.
+   * {@link BACKGROUND_USER_IDLE} ensures that applications can prevent the system from automatic sleep due to a period
+   * of idle user activity.
    *
    * @enum { int }
    * @syscap SystemCapability.PowerManager.PowerManager.Core
@@ -150,7 +153,17 @@ declare namespace runningLock {
      * @since 7 dynamic
      * @since 23 static
      */
-    PROXIMITY_SCREEN_CONTROL = 2
+    PROXIMITY_SCREEN_CONTROL = 2,
+    /**
+     * Indicates the lock that prevents the system from automatic sleep due to a period of idle user activity,
+     * but cannot prevent the forcing sleep such as scenarios of lid close, etc.
+     * The caller must listen to the {@link ohos.commonEventManager#commonEventManager#COMMON_EVENT_ENTER_FORCE_SLEEP}
+     * to release this lock.
+     *
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
+     * @since 23 dynamic&static
+     */
+    BACKGROUND_USER_IDLE = 129
   }
 
   /**
@@ -234,13 +247,12 @@ declare namespace runningLock {
    *
    * @permission ohos.permission.RUNNING_LOCK
    * @param { string } name Indicates the {@link RunningLock} name. A recommended name consists of the package or
-   * class name and a suffix.
-   * name parameter must be of type string.
+   *     class name and a suffix. name parameter must be of type string.
    * @param { RunningLockType } type Indicates the {@link RunningLockType}.
-   * the RunningLockType type is an enumeration class.
+   *     the RunningLockType type is an enumeration class.
    * @param { AsyncCallback<RunningLock> } callback Indicates the callback of {@link RunningLock} object.
-   * AsyncCallback encapsulates a class of RunningLock type
-   * @throws { BusinessError } 201 – If the permission is denied.
+   *     AsyncCallback encapsulates a class of RunningLock type
+   * @throws { BusinessError } 201 - If the permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9 dynamic
@@ -255,12 +267,11 @@ declare namespace runningLock {
    *
    * @permission ohos.permission.RUNNING_LOCK
    * @param { string } name Indicates the {@link RunningLock} name. A recommended name consists of the package or
-   * class name and a suffix.
-   * name parameter must be of type string.
+   *     class name and a suffix. name parameter must be of type string.
    * @param { RunningLockType } type Indicates the {@link RunningLockType}.
-   * the RunningLockType type is an enumeration class.
+   *     the RunningLockType type is an enumeration class.
    * @returns { Promise<RunningLock> } The {@link RunningLock} object.
-   * @throws { BusinessError } 201 – If the permission is denied.
+   * @throws { BusinessError } 201 - If the permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9 dynamic
