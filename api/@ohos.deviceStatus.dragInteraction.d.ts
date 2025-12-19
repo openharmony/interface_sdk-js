@@ -126,7 +126,6 @@ declare namespace dragInteraction {
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 23 static
    */
   function on(type: 'drag', callback: Callback<DragState>): void;
 
@@ -167,7 +166,6 @@ declare namespace dragInteraction {
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 23 static
    */
   function off(type: 'drag', callback?: Callback<DragState>): void;
 
