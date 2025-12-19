@@ -251,6 +251,7 @@ declare namespace backup {
    *
    * @permission ohos.permission.BACKUP
    * @param { FileSystemRequestConfig } config - Configuration parameters for garbage collection.
+   *     <br>triggerType: 0. writeSize: 0 - 2097152(MB). waitTime: 0-300(s).
    * @returns { Promise<int> } The errcode of garbage collection.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed,
@@ -261,7 +262,7 @@ declare namespace backup {
    * @stagemodelonly
    * @since 23 dynamic&static
    */
-  function fileSytemServiceRequest(config: FileSystemRequestConfig): Promise<int>;
+  function fileSystemServiceRequest(config: FileSystemRequestConfig): Promise<int>;
 
   /**
    * Obtain the backupVersion.
