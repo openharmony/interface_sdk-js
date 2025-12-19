@@ -4863,6 +4863,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 19 dynamic
+   * @since 23 static
    */
   export interface PoiInfo {
     /**
@@ -6193,7 +6194,7 @@ declare namespace geoLocationManager {
    * @typedef LocationCommand
    * @syscap SystemCapability.Location.Location.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface LocationCommand {
     /**
@@ -6202,7 +6203,7 @@ declare namespace geoLocationManager {
      * @type { LocationRequestScenario }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     scenario: LocationRequestScenario;
 
@@ -6212,7 +6213,7 @@ declare namespace geoLocationManager {
      * @type { string }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     command: string;
   }
