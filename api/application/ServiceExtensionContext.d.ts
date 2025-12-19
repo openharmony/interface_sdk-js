@@ -36,7 +36,7 @@ import Want from '../@ohos.app.ability.Want';
  * @systemapi
  * @stagemodelonly
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class ServiceExtensionContext extends ExtensionContext {
   /**
@@ -173,7 +173,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -309,7 +309,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -451,7 +451,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -487,7 +487,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   openLink(link: string, options?: OpenLinkOptions): Promise<void>;
 
@@ -601,7 +601,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityAsCaller(want: Want, callback: AsyncCallback<void>): void;
 
@@ -712,7 +712,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityAsCaller(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -829,7 +829,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityAsCaller(want: Want, options?: StartOptions): Promise<void>;
 
@@ -951,7 +951,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
@@ -1100,7 +1100,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityWithAccount(want: Want, accountId: int, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -1225,7 +1225,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityWithAccount(want: Want, accountId: int, options?: StartOptions): Promise<void>;
 
@@ -1309,7 +1309,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -1393,7 +1393,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -1483,7 +1483,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
@@ -1573,7 +1573,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
@@ -1622,7 +1622,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stopServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -1671,7 +1671,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stopServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -1725,7 +1725,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stopServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
@@ -1779,7 +1779,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stopServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
@@ -1813,7 +1813,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   terminateSelf(callback: AsyncCallback<void>): void;
 
@@ -1843,7 +1843,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   terminateSelf(): Promise<void>;
 
@@ -1898,7 +1898,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
@@ -1959,7 +1959,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   connectServiceExtensionAbilityWithAccount(want: Want, accountId: int, options: ConnectOptions): long;
 
@@ -1976,7 +1976,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
@@ -1993,7 +1993,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   disconnectServiceExtensionAbility(connection: long): Promise<void>;
 
@@ -2046,7 +2046,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityByCall(want: Want): Promise<Caller>;
 
@@ -2082,7 +2082,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityByCallWithAccount(want: Want, accountId: int): Promise<Caller>;
 
@@ -2182,7 +2182,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startRecentAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -2281,7 +2281,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startRecentAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -2384,7 +2384,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -2428,7 +2428,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
 
@@ -2472,7 +2472,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   requestModalUIExtension(pickerWant: Want): Promise<void>;
 
@@ -2496,7 +2496,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */  
   preStartMission(bundleName: string, moduleName: string, abilityName: string, startTime: string): Promise<void>;
 
@@ -2528,7 +2528,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startUIServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -2554,7 +2554,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<void>;
 
@@ -2595,7 +2595,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startUIAbilities(wantList: Array<Want>): Promise<void>;
 }

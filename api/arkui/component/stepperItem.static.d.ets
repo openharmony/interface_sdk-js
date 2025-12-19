@@ -27,14 +27,14 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ItemState {
   /**
    * Default State
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Normal,
 
@@ -42,7 +42,7 @@ export declare enum ItemState {
    * Disabled State
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Disabled,
 
@@ -50,7 +50,7 @@ export declare enum ItemState {
    * Waiting State
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Waiting,
 
@@ -58,7 +58,7 @@ export declare enum ItemState {
    * Skip State
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   Skip
 }
@@ -68,7 +68,7 @@ export declare enum ItemState {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface StepperItemAttribute extends CommonMethod {
   /**
@@ -77,7 +77,7 @@ export declare interface StepperItemAttribute extends CommonMethod {
    * @param { string | undefined } value
    * @returns { StepperItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   default prevLabel(value: string | undefined): this;
 
@@ -87,7 +87,7 @@ export declare interface StepperItemAttribute extends CommonMethod {
    * @param { string | undefined } value
    * @returns { StepperItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   default nextLabel(value: string | undefined): this;
 
@@ -97,7 +97,7 @@ export declare interface StepperItemAttribute extends CommonMethod {
    * @param { ItemState | undefined } value
    * @returns { StepperItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   default status(value?: ItemState | undefined): this;
 
@@ -108,7 +108,7 @@ export declare interface StepperItemAttribute extends CommonMethod {
    *     The attribute modifier of stepperItem.
    * @returns { StepperItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   default attributeModifier(modifier: AttributeModifier<StepperItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -119,7 +119,7 @@ export declare interface StepperItemAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { StepperItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder

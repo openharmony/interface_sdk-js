@@ -43,7 +43,7 @@ export default class AppForegroundStateObserver {
  * @typedef AppForegroundStateObserver
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 declare interface AppForegroundStateObserver {
 /*** endif */
@@ -54,7 +54,7 @@ declare interface AppForegroundStateObserver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onAppStateChanged(appStateData: AppStateData): void;
 }

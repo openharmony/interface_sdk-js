@@ -31,7 +31,7 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  * @namespace runningLock
  * @syscap SystemCapability.PowerManager.PowerManager.Core
  * @since 7 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace runningLock {
 
@@ -40,7 +40,7 @@ declare namespace runningLock {
    * when the screen is off.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class RunningLock {
     /**
@@ -69,7 +69,7 @@ declare namespace runningLock {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     hold(timeout: int): void;
 
@@ -90,7 +90,7 @@ declare namespace runningLock {
      * @returns { boolean } Returns true if the lock is held or in use; returns false if the lock has been released.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isHolding(): boolean;
 
@@ -114,7 +114,7 @@ declare namespace runningLock {
      * @throws { BusinessError } 201 – If the permission is denied.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     unhold(): void;
   }
@@ -128,7 +128,7 @@ declare namespace runningLock {
    * @enum { int }
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum RunningLockType {
     /**
@@ -148,7 +148,7 @@ declare namespace runningLock {
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PROXIMITY_SCREEN_CONTROL = 2
   }
@@ -189,7 +189,7 @@ declare namespace runningLock {
    * 2. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isSupported(type: RunningLockType): boolean;
 
@@ -244,7 +244,7 @@ declare namespace runningLock {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function create(name: string, type: RunningLockType, callback: AsyncCallback<RunningLock>): void;
 
@@ -264,7 +264,7 @@ declare namespace runningLock {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function create(name: string, type: RunningLockType): Promise<RunningLock>;
 }

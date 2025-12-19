@@ -41,7 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default abstract class BaseContext {
   /**
@@ -67,7 +67,7 @@ export default abstract class BaseContext {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stageMode: boolean;
 }

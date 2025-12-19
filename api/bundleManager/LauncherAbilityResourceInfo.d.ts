@@ -27,7 +27,7 @@ import { DrawableDescriptor } from './../@ohos.arkui.drawableDescriptor';
  * @syscap SystemCapability.BundleManager.BundleFramework.Resource
  * @systemapi
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface LauncherAbilityResourceInfo {
   /**
@@ -38,7 +38,7 @@ export interface LauncherAbilityResourceInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly bundleName: string;
 
@@ -50,7 +50,7 @@ export interface LauncherAbilityResourceInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly moduleName: string;
 
@@ -62,7 +62,7 @@ export interface LauncherAbilityResourceInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly abilityName: string;
 
@@ -74,7 +74,7 @@ export interface LauncherAbilityResourceInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly icon: string;
 
@@ -86,7 +86,7 @@ export interface LauncherAbilityResourceInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly label: string;
 
@@ -108,7 +108,7 @@ export interface LauncherAbilityResourceInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   readonly drawableDescriptor: DrawableDescriptor | null;
 
@@ -120,7 +120,7 @@ export interface LauncherAbilityResourceInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly appIndex: int;
 }

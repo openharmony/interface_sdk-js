@@ -42,7 +42,8 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.Sensors.MiscDevice
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic&static
+ * @since 22 dynamic
+ * @since 23 static
  */
 declare namespace vibrator {
   /**
@@ -143,7 +144,8 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>): void;
 
@@ -193,7 +195,8 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function startVibration(effect: VibrateEffect, attribute: VibrateAttribute): Promise<void>;
 
@@ -220,7 +223,8 @@ declare namespace vibrator {
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function stopVibration(stopMode: VibratorStopMode): Promise<void>;
 
@@ -247,7 +251,8 @@ declare namespace vibrator {
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function stopVibration(stopMode: VibratorStopMode, callback: AsyncCallback<void>): void;
 
@@ -279,7 +284,8 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function stopVibration(callback: AsyncCallback<void>): void;
 
@@ -311,7 +317,8 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function stopVibration(): Promise<void>;
 
@@ -334,7 +341,8 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function stopVibrationSync(): void;
 
@@ -361,7 +369,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function stopVibration(param?: VibratorInfoParam): Promise<void>;
 
@@ -386,7 +395,8 @@ declare namespace vibrator {
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function isSupportEffect(effectId: string, callback: AsyncCallback<boolean>): void;
 
@@ -411,7 +421,8 @@ declare namespace vibrator {
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function isSupportEffect(effectId: string): Promise<boolean>;
 
@@ -436,7 +447,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function isSupportEffectSync(effectId: string): boolean;
 
@@ -461,7 +473,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getEffectInfoSync(effectId: string, param?: VibratorInfoParam): EffectInfo;
 
@@ -478,7 +491,8 @@ declare namespace vibrator {
   * @interface EffectInfo
   * @syscap SystemCapability.Sensors.MiscDevice
   * @crossplatform
-  * @since 22 dynamic&static
+  * @since 22 dynamic
+  * @since 23 static
   */
   interface EffectInfo {
     /**
@@ -494,7 +508,8 @@ declare namespace vibrator {
      * @type { boolean }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     isEffectSupported: boolean;
   }
@@ -540,7 +555,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function isHdHapticSupported(): boolean;
 
@@ -557,7 +573,8 @@ declare namespace vibrator {
    * @enum { string }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   enum EffectId {
   /**
@@ -571,7 +588,8 @@ declare namespace vibrator {
    *
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
     EFFECT_CLOCK_TIMER = 'haptic.clock.timer'
   }
@@ -589,7 +607,8 @@ declare namespace vibrator {
    * @enum { string }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   enum HapticFeedback {
     /**
@@ -603,7 +622,8 @@ declare namespace vibrator {
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     EFFECT_SOFT = 'haptic.effect.soft',
 
@@ -618,7 +638,8 @@ declare namespace vibrator {
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     EFFECT_HARD = 'haptic.effect.hard',
 
@@ -633,7 +654,8 @@ declare namespace vibrator {
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     EFFECT_SHARP = 'haptic.effect.sharp',
 
@@ -648,7 +670,8 @@ declare namespace vibrator {
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     EFFECT_NOTICE_SUCCESS = 'haptic.notice.success',
 
@@ -663,7 +686,8 @@ declare namespace vibrator {
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     EFFECT_NOTICE_FAILURE = 'haptic.notice.fail',
 
@@ -678,7 +702,8 @@ declare namespace vibrator {
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     EFFECT_NOTICE_WARNING = 'haptic.notice.warning'
   }
@@ -696,7 +721,8 @@ declare namespace vibrator {
    * @enum { string }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   enum VibratorStopMode {
   /**
@@ -710,7 +736,8 @@ declare namespace vibrator {
    *
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
     VIBRATOR_STOP_MODE_TIME = 'time',
 
@@ -725,7 +752,8 @@ declare namespace vibrator {
    *
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
     VIBRATOR_STOP_MODE_PRESET = 'preset'
   }
@@ -755,7 +783,8 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   type Usage = 'unknown' | 'alarm' | 'ring' | 'notification' | 'communication' |
   'touch' | 'media' | 'physicalFeedback' | 'simulateReality';
@@ -782,7 +811,8 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface VibrateAttribute {
   /**
@@ -806,7 +836,8 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
     id?: int;
 
@@ -827,7 +858,8 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
     deviceId?: number;
 
@@ -852,7 +884,8 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
     usage: Usage;
 
@@ -863,7 +896,7 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
     systemUsage?: boolean;
   }
@@ -905,7 +938,8 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFromPattern;
 
@@ -931,7 +965,8 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface VibrateTime {
     /**
@@ -955,7 +990,8 @@ declare namespace vibrator {
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     type: 'time';
 
@@ -980,7 +1016,8 @@ declare namespace vibrator {
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     duration: int; /** The duration of the vibration, in ms */
   }
@@ -998,7 +1035,8 @@ declare namespace vibrator {
    * @interface VibratePreset
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface VibratePreset {
     /**
@@ -1014,7 +1052,8 @@ declare namespace vibrator {
      * @type { 'preset' }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     type: 'preset';
 
@@ -1031,7 +1070,8 @@ declare namespace vibrator {
      * @type { string }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     effectId: string;
 
@@ -1054,7 +1094,8 @@ declare namespace vibrator {
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     count?: int;
 
@@ -1071,7 +1112,8 @@ declare namespace vibrator {
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     intensity?: int;
   }
@@ -1089,7 +1131,8 @@ declare namespace vibrator {
    * @interface VibrateFromFile
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface VibrateFromFile {
   /**
@@ -1105,7 +1148,8 @@ declare namespace vibrator {
    * @type { 'file' }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
     type: 'file';
 
@@ -1122,7 +1166,8 @@ declare namespace vibrator {
    * @type { HapticFileDescriptor }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
     hapticFd: HapticFileDescriptor;
   }
@@ -1142,7 +1187,8 @@ declare namespace vibrator {
    * @interface HapticFileDescriptor
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface HapticFileDescriptor {
     /**
@@ -1160,7 +1206,8 @@ declare namespace vibrator {
      * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     fd: int;
 
@@ -1179,7 +1226,8 @@ declare namespace vibrator {
      * @type { ?long }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     offset?: long;
 
@@ -1198,7 +1246,8 @@ declare namespace vibrator {
      * @type { ?long }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     length?: long;
   }
@@ -1216,7 +1265,8 @@ declare namespace vibrator {
    * @enum { int }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   enum VibratorEventType {
     /**
@@ -1230,7 +1280,8 @@ declare namespace vibrator {
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CONTINUOUS = 0,
 
@@ -1245,7 +1296,8 @@ declare namespace vibrator {
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     TRANSIENT = 1,
   }
@@ -1263,7 +1315,8 @@ declare namespace vibrator {
    * @interface VibratorCurvePoint
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface VibratorCurvePoint {
     /**
@@ -1279,7 +1332,8 @@ declare namespace vibrator {
       * @type { int }
       * @syscap SystemCapability.Sensors.MiscDevice
       * @crossplatform
-      * @since 22 dynamic&static
+      * @since 22 dynamic
+      * @since 23 static
       */
     time: int;
 
@@ -1296,7 +1350,8 @@ declare namespace vibrator {
       * @type { ?double }
       * @syscap SystemCapability.Sensors.MiscDevice
       * @crossplatform
-      * @since 22 dynamic&static
+      * @since 22 dynamic
+      * @since 23 static
       */
     intensity?: double;
     /**
@@ -1312,7 +1367,8 @@ declare namespace vibrator {
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     frequency?: int;
   }
@@ -1330,7 +1386,8 @@ declare namespace vibrator {
    * @interface VibratorEvent
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface VibratorEvent {
     /**
@@ -1346,7 +1403,8 @@ declare namespace vibrator {
      * @type { VibratorEventType }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     eventType: VibratorEventType;
 
@@ -1363,7 +1421,8 @@ declare namespace vibrator {
      * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     time: int;
 
@@ -1380,7 +1439,8 @@ declare namespace vibrator {
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     duration?: int;
 
@@ -1397,7 +1457,8 @@ declare namespace vibrator {
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     intensity?: int;
 
@@ -1414,7 +1475,8 @@ declare namespace vibrator {
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     frequency?: int;
 
@@ -1431,7 +1493,8 @@ declare namespace vibrator {
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     index?: int;
 
@@ -1448,7 +1511,8 @@ declare namespace vibrator {
      * @type { ?Array<VibratorCurvePoint> }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     points?: Array<VibratorCurvePoint>;
   }
@@ -1466,7 +1530,8 @@ declare namespace vibrator {
    * @interface VibratorPattern
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface VibratorPattern {
     /**
@@ -1482,7 +1547,8 @@ declare namespace vibrator {
      * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     time: int;
 
@@ -1499,7 +1565,8 @@ declare namespace vibrator {
      * @type { Array<VibratorEvent> }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     events: Array<VibratorEvent>;
   }
@@ -1517,7 +1584,8 @@ declare namespace vibrator {
    * @interface ContinuousParam
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface ContinuousParam {
     /**
@@ -1533,7 +1601,8 @@ declare namespace vibrator {
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     intensity?: int;
 
@@ -1550,7 +1619,8 @@ declare namespace vibrator {
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     frequency?: int;
 
@@ -1567,7 +1637,8 @@ declare namespace vibrator {
      * @type { ?VibratorCurvePoint[] }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     points?: VibratorCurvePoint[];
 
@@ -1584,7 +1655,8 @@ declare namespace vibrator {
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     index?: int;
   }
@@ -1602,7 +1674,8 @@ declare namespace vibrator {
    * @interface TransientParam
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface TransientParam {
     /**
@@ -1618,7 +1691,8 @@ declare namespace vibrator {
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     intensity?: int;
 
@@ -1635,7 +1709,8 @@ declare namespace vibrator {
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     frequency?: int;
 
@@ -1652,7 +1727,8 @@ declare namespace vibrator {
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     index?: int;
   }
@@ -1670,7 +1746,8 @@ declare namespace vibrator {
    * @name VibratorPatternBuilder
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   class VibratorPatternBuilder {
     /**
@@ -1696,7 +1773,8 @@ declare namespace vibrator {
      * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     addContinuousEvent(time: int, duration: int, options?: ContinuousParam): VibratorPatternBuilder;
 
@@ -1721,7 +1799,8 @@ declare namespace vibrator {
      * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     addTransientEvent(time: int, options?: TransientParam): VibratorPatternBuilder;
 
@@ -1738,7 +1817,8 @@ declare namespace vibrator {
      * @returns { VibratorPattern } Return VibratorPattern object.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     build(): VibratorPattern;
   }
@@ -1756,7 +1836,8 @@ declare namespace vibrator {
    * @interface VibrateFromPattern
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface VibrateFromPattern {
     /**
@@ -1772,7 +1853,8 @@ declare namespace vibrator {
      * @type { 'pattern' }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     type: 'pattern';
 
@@ -1789,7 +1871,8 @@ declare namespace vibrator {
      * @type { VibratorPattern }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     pattern: VibratorPattern;
   }
@@ -1807,7 +1890,8 @@ declare namespace vibrator {
   * @interface VibratorInfoParam
   * @syscap SystemCapability.Sensors.MiscDevice
   * @crossplatform
-  * @since 22 dynamic&static
+  * @since 22 dynamic
+  * @since 23 static
   */
   interface VibratorInfoParam {
     /**
@@ -1825,7 +1909,8 @@ declare namespace vibrator {
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     deviceId?: int;
     /**
@@ -1843,7 +1928,8 @@ declare namespace vibrator {
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     vibratorId?: int;
   }
@@ -1859,7 +1945,8 @@ declare namespace vibrator {
    * @interface VibratorInfo
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface VibratorInfo {
     /**
@@ -1875,7 +1962,8 @@ declare namespace vibrator {
      * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     deviceId: int;
 
@@ -1892,7 +1980,8 @@ declare namespace vibrator {
      * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     vibratorId: int;
 
@@ -1909,7 +1998,8 @@ declare namespace vibrator {
      * @type { string }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     deviceName: string;
 
@@ -1926,7 +2016,8 @@ declare namespace vibrator {
      * @type { boolean }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     isHdHapticSupported: boolean;
 
@@ -1945,7 +2036,8 @@ declare namespace vibrator {
      * @type { boolean }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     isLocalVibrator: boolean;
   }
@@ -1969,7 +2061,8 @@ declare namespace vibrator {
    * <br> about the vibrator device.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getVibratorInfoSync(param?: VibratorInfoParam): Array<VibratorInfo>;
 

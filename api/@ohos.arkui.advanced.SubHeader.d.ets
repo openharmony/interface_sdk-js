@@ -754,5 +754,5 @@ export declare struct SubHeader {
    * @atomicservice
    * @since 23 dynamic
    */
-  titleAccessibilityText?: ResourceStr;
+  @Prop titleAccessibilityText?: ResourceStr;
 }

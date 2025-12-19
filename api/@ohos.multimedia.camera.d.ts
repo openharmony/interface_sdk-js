@@ -34,7 +34,7 @@ import photoAccessHelper from './@ohos.file.photoAccessHelper';
  * @syscap SystemCapability.Multimedia.Camera.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace camera {
   /**
@@ -57,7 +57,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getCameraManager(context: Context): CameraManager;
 
@@ -75,7 +75,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CameraStatus {
     /**
@@ -90,7 +90,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_STATUS_APPEAR = 0,
 
@@ -106,7 +106,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_STATUS_DISAPPEAR = 1,
 
@@ -122,7 +122,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_STATUS_AVAILABLE = 2,
 
@@ -138,7 +138,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_STATUS_UNAVAILABLE = 3
   }
@@ -157,7 +157,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum FoldStatus {
     /**
@@ -172,7 +172,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NON_FOLDABLE = 0,
 
@@ -188,7 +188,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EXPANDED = 1,
 
@@ -204,7 +204,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FOLDED = 2
   }
@@ -216,7 +216,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum SystemPressureLevel {
     /**
@@ -224,7 +224,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_PRESSURE_NORMAL = 0,
 
@@ -233,7 +233,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_PRESSURE_MILD = 1,
 
@@ -242,7 +242,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_PRESSURE_SEVERE = 2,
 
@@ -251,7 +251,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_PRESSURE_CRITICAL = 3,
 
@@ -261,7 +261,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SYSTEM_PRESSURE_SHUTDOWN = 4
   }
@@ -280,7 +280,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Profile {
     /**
@@ -299,7 +299,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly format: CameraFormat;
 
@@ -319,7 +319,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly size: Size;
   }
@@ -338,7 +338,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FrameRateRange {
     /**
@@ -357,7 +357,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly min: int;
 
@@ -377,7 +377,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly max: int;
   }
@@ -398,7 +398,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface VideoProfile extends Profile {
     /**
@@ -417,7 +417,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly frameRateRange: FrameRateRange;
   }
@@ -436,7 +436,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CameraOutputCapability {
     /**
@@ -455,7 +455,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly previewProfiles: Array<Profile>;
 
@@ -475,7 +475,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly photoProfiles: Array<Profile>;
 
@@ -495,7 +495,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly videoProfiles: Array<VideoProfile>;
 
@@ -507,7 +507,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly depthProfiles: Array<DepthProfile>;
 
@@ -527,7 +527,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly supportedMetadataObjectTypes: Array<MetadataObjectType>;
   }
@@ -578,7 +578,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CameraErrorCode {
     /**
@@ -593,7 +593,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INVALID_ARGUMENT = 7400101,
 
@@ -609,7 +609,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OPERATION_NOT_ALLOWED = 7400102,
 
@@ -625,7 +625,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SESSION_NOT_CONFIG = 7400103,
 
@@ -641,7 +641,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SESSION_NOT_RUNNING = 7400104,
 
@@ -657,7 +657,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SESSION_CONFIG_LOCKED = 7400105,
 
@@ -673,7 +673,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEVICE_SETTING_LOCKED = 7400106,
 
@@ -689,7 +689,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONFLICT_CAMERA = 7400107,
 
@@ -705,7 +705,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEVICE_DISABLED = 7400108,
 
@@ -721,7 +721,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEVICE_PREEMPTED = 7400109,
 
@@ -737,7 +737,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNRESOLVED_CONFLICTS_WITH_CURRENT_CONFIGURATIONS = 7400110,
 
@@ -747,7 +747,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEVICE_FREQUENTLY_SWITCHED = 7400111,
 
@@ -757,7 +757,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_LENS_RETRACTED = 7400112,
 
@@ -773,7 +773,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SERVICE_FATAL_ERROR = 7400201
   }
@@ -785,7 +785,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum RestoreParamType {
     /**
@@ -794,7 +794,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NO_NEED_RESTORE_PARAM = 0,
 
@@ -804,7 +804,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRESISTENT_DEFAULT_PARAM = 1,
 
@@ -814,7 +814,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TRANSIENT_ACTIVE_PARAM = 2
   }
@@ -826,7 +826,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SettingParam {
     /**
@@ -836,7 +836,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     skinSmoothLevel: int;
 
@@ -847,7 +847,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     faceSlender: int;
 
@@ -858,7 +858,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     skinTone: int;
   }
@@ -870,7 +870,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PrelaunchConfig {
     /**
@@ -880,7 +880,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cameraDevice: CameraDevice;
 
@@ -891,7 +891,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     restoreParamType?: RestoreParamType;
 
@@ -902,7 +902,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     activeTime?: int;
 
@@ -913,7 +913,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     settingParam?: SettingParam;
   }
@@ -932,7 +932,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CameraManager {
     /**
@@ -949,7 +949,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedCameras(): Array<CameraDevice>;
 
@@ -966,7 +966,7 @@ declare namespace camera {
     getSupportedOutputCapability(camera: CameraDevice): CameraOutputCapability;
 
     /**
-     * Get supported full output capability for specific camera, inclluding capabilities of yuv, heif and hdr etc.
+     * Get supported full output capability for specific camera, including capabilities of yuv, heif and hdr etc.
      *
      * @param { CameraDevice } camera - Camera device.
      * @param { SceneMode } mode - Scene mode.
@@ -995,7 +995,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedSceneModes(camera: CameraDevice): Array<SceneMode>;
 
@@ -1017,7 +1017,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedOutputCapability(camera: CameraDevice, mode: SceneMode): CameraOutputCapability;
 
@@ -1035,7 +1035,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isCameraMuted(): boolean;
 
@@ -1055,7 +1055,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isCameraMuteSupported(): boolean;
 
@@ -1083,7 +1083,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     muteCameraPersistent(mute: boolean, type: PolicyType): void;
 
@@ -1126,7 +1126,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createCameraInput(camera: CameraDevice): CameraInput;
 
@@ -1172,7 +1172,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createCameraInput(position: CameraPosition, type: CameraType): CameraInput;
 
@@ -1209,7 +1209,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createPreviewOutput(profile: Profile, surfaceId: string): PreviewOutput;
 
@@ -1237,7 +1237,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createPreviewOutput(surfaceId: string): PreviewOutput;
 
@@ -1297,7 +1297,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createPhotoOutput(profile?: Profile): PhotoOutput;
 
@@ -1334,7 +1334,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createVideoOutput(profile: VideoProfile, surfaceId: string): VideoOutput;
 
@@ -1362,7 +1362,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createVideoOutput(surfaceId: string): VideoOutput;
 
@@ -1396,7 +1396,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createMetadataOutput(metadataObjectTypes: Array<MetadataObjectType>): MetadataOutput;
 
@@ -1410,7 +1410,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createDepthDataOutput(profile: DepthProfile): DepthDataOutput;
 
@@ -1452,7 +1452,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createSession<T extends Session>(mode: SceneMode): T;
 
@@ -1476,7 +1476,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getCameraDevice(position: CameraPosition, type: CameraType): CameraDevice;
 
@@ -1514,7 +1514,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getCameraConcurrentInfos(cameras: Array<CameraDevice>): Array<CameraConcurrentInfo>;
 
@@ -1546,7 +1546,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<CameraStatusInfo> } callback - Callback used to get the camera status change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onCameraStatus(callback: AsyncCallback<CameraStatusInfo>): void;
 
@@ -1574,7 +1574,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<CameraStatusInfo> } [callback] - Callback used to get the camera status change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
     */
     offCameraStatus(callback?: AsyncCallback<CameraStatusInfo>): void;
 
@@ -1605,7 +1605,7 @@ declare namespace camera {
      * 
      * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to get the fold status change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
     */
     onFoldStatusChange(callback: AsyncCallback<FoldStatusInfo>): void;
 
@@ -1633,7 +1633,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<FoldStatusInfo> } [callback] - Callback used to get the fold status change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offFoldStatusChange(callback?: AsyncCallback<FoldStatusInfo>): void;
 
@@ -1665,7 +1665,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onCameraMute(callback: AsyncCallback<boolean>): void;
 
@@ -1697,7 +1697,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offCameraMute(callback?: AsyncCallback<boolean>): void;
 
@@ -1771,7 +1771,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isPrelaunchSupported(camera: CameraDevice): boolean;
 
@@ -1800,7 +1800,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setPrelaunchConfig(prelaunchConfig: PrelaunchConfig): void;
 
@@ -1820,7 +1820,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     prelaunch(): void;
 
@@ -1846,7 +1846,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     preSwitchCamera(cameraId: string): void;
 
@@ -1872,7 +1872,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createDeferredPreviewOutput(profile?: Profile): PreviewOutput;
 
@@ -1890,7 +1890,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isTorchSupported(): boolean;
 
@@ -1908,7 +1908,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isTorchModeSupported(mode: TorchMode): boolean;
 
@@ -1926,7 +1926,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getTorchMode(): TorchMode;
 
@@ -1966,7 +1966,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setTorchMode(mode: TorchMode): void;
 
@@ -1998,7 +1998,7 @@ declare namespace camera {
      * 
      * @param { AsyncCallback<TorchStatusInfo> } callback - Callback used to return the torch status change
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
     */
     onTorchStatusChange(callback: AsyncCallback<TorchStatusInfo>): void;
 
@@ -2026,7 +2026,7 @@ declare namespace camera {
      * 
      * @param { AsyncCallback<TorchStatusInfo> } [callback] - Callback used to return the torch status change
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
     */
     offTorchStatusChange(callback?: AsyncCallback<TorchStatusInfo>): void;
   }
@@ -2045,7 +2045,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface TorchStatusInfo {
     /**
@@ -2064,7 +2064,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly isTorchAvailable: boolean;
 
@@ -2085,7 +2085,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly isTorchActive: boolean;
 
@@ -2105,7 +2105,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly torchLevel: double;
   }
@@ -2124,7 +2124,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum TorchMode {
     /**
@@ -2139,7 +2139,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OFF = 0,
 
@@ -2155,7 +2155,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ON = 1,
 
@@ -2171,7 +2171,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO = 2
   }
@@ -2190,7 +2190,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CameraStatusInfo {
     /**
@@ -2207,7 +2207,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     camera: CameraDevice;
 
@@ -2225,7 +2225,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     status: CameraStatus;
   }
@@ -2244,7 +2244,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FoldStatusInfo {
     /**
@@ -2263,7 +2263,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly supportedCameras: Array<CameraDevice>;
 
@@ -2283,7 +2283,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly foldStatus: FoldStatus;
   }
@@ -2302,7 +2302,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CameraPosition {
     /**
@@ -2317,7 +2317,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_POSITION_UNSPECIFIED = 0,
 
@@ -2333,7 +2333,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_POSITION_BACK = 1,
 
@@ -2349,7 +2349,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_POSITION_FRONT = 2,
 
@@ -2384,7 +2384,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CameraType {
     /**
@@ -2399,7 +2399,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_TYPE_DEFAULT = 0,
 
@@ -2415,7 +2415,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_TYPE_WIDE_ANGLE = 1,
 
@@ -2431,7 +2431,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_TYPE_ULTRA_WIDE = 2,
 
@@ -2447,7 +2447,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_TYPE_TELEPHOTO = 3,
 
@@ -2463,7 +2463,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_TYPE_TRUE_DEPTH = 4
   }
@@ -2482,7 +2482,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ConnectionType {
     /**
@@ -2497,7 +2497,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_CONNECTION_BUILT_IN = 0,
 
@@ -2513,7 +2513,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_CONNECTION_USB_PLUGIN = 1,
 
@@ -2529,7 +2529,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_CONNECTION_REMOTE = 2
   }
@@ -2556,7 +2556,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum HostDeviceType {
     /**
@@ -2578,7 +2578,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNKNOWN_TYPE = 0,
 
@@ -2601,7 +2601,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PHONE = 0x0E,
 
@@ -2624,7 +2624,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TABLET = 0x11
   }
@@ -2643,7 +2643,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CameraDevice {
     /**
@@ -2662,7 +2662,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly cameraId: string;
 
@@ -2682,7 +2682,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly cameraPosition: CameraPosition;
 
@@ -2702,7 +2702,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly cameraType: CameraType;
 
@@ -2722,7 +2722,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly connectionType: ConnectionType;
 
@@ -2751,7 +2751,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly hostDeviceName: string;
 
@@ -2780,7 +2780,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly hostDeviceType: HostDeviceType;
 
@@ -2800,7 +2800,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly cameraOrientation: int;
 
@@ -2812,7 +2812,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly isRetractable?: boolean;
 
@@ -2824,7 +2824,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly lensEquivalentFocalLength?: Array<int>;
   }
@@ -2843,7 +2843,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Size {
     /**
@@ -2860,7 +2860,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     height: int;
 
@@ -2878,7 +2878,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     width: int;
   }
@@ -2897,7 +2897,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Point {
     /**
@@ -2914,7 +2914,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     x: double;
 
@@ -2932,7 +2932,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     y: double;
   }
@@ -2951,7 +2951,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CameraInput {
     /**
@@ -2974,7 +2974,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     open(callback: AsyncCallback<void>): void;
 
@@ -3000,7 +3000,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     open(): Promise<void>;
 
@@ -3027,7 +3027,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     open(isSecureEnabled: boolean): Promise<bigint>;
 
@@ -3055,7 +3055,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     open(type: CameraConcurrentType): Promise<void>;
 
@@ -3075,7 +3075,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     close(callback: AsyncCallback<void>): void;
 
@@ -3095,7 +3095,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     close(): Promise<void>;
 
@@ -3110,7 +3110,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     closeDelayed(time: int): Promise<void>;
 
@@ -3145,7 +3145,7 @@ declare namespace camera {
      * @param { CameraDevice } camera - Camera device.}
      * @param { ErrorCallback } callback - Callback used to get the camera input errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onError(camera: CameraDevice, callback: ErrorCallback): void;
 
@@ -3176,7 +3176,7 @@ declare namespace camera {
      * @param { CameraDevice } camera - Camera device.
      * @param { ErrorCallback } [callback] - Callback used to get the camera input errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offError(camera: CameraDevice, callback?: ErrorCallback): void;
 
@@ -3199,7 +3199,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onCameraOcclusionDetection(callback: AsyncCallback<CameraOcclusionDetectionResult>): void;
 
@@ -3222,7 +3222,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offCameraOcclusionDetection(callback?: AsyncCallback<CameraOcclusionDetectionResult>): void;
 
@@ -3236,7 +3236,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     usedAsPosition(position: CameraPosition): void;
 
@@ -3252,7 +3252,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     controlAuxiliary(auxiliaryType: AuxiliaryType, auxiliaryStatus: AuxiliaryStatus): Promise<void>;
 
@@ -3262,7 +3262,8 @@ declare namespace camera {
      * @returns { boolean } Is physical camera orientation variable under different fold status.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     isPhysicalCameraOrientationVariable(): boolean;
 
@@ -3272,7 +3273,8 @@ declare namespace camera {
      * @returns { int } The physical camera orientation.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     getPhysicalCameraOrientation(): int;
   
@@ -3284,7 +3286,8 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     usePhysicalCameraOrientation(isUsed: boolean): void;
   }
@@ -3303,7 +3306,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum SceneMode {
     /**
@@ -3318,7 +3321,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORMAL_PHOTO = 1,
 
@@ -3334,7 +3337,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORMAL_VIDEO = 2,
 
@@ -3344,7 +3347,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PORTRAIT_PHOTO = 3,
 
@@ -3354,7 +3357,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NIGHT_PHOTO = 4,
 
@@ -3364,7 +3367,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PROFESSIONAL_PHOTO = 5,
 
@@ -3374,7 +3377,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PROFESSIONAL_VIDEO = 6,
 
@@ -3384,7 +3387,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SLOW_MOTION_VIDEO = 7,
 
@@ -3394,7 +3397,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MACRO_PHOTO = 8,
 
@@ -3404,7 +3407,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MACRO_VIDEO = 9,
 
@@ -3414,7 +3417,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LIGHT_PAINTING_PHOTO = 10,
 
@@ -3424,7 +3427,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HIGH_RESOLUTION_PHOTO = 11,
 
@@ -3440,7 +3443,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SECURE_PHOTO = 12,
 
@@ -3450,7 +3453,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     QUICK_SHOT_PHOTO = 13,
 
@@ -3460,7 +3463,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     APERTURE_VIDEO = 14,
 
@@ -3470,7 +3473,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PANORAMA_PHOTO = 15,
 
@@ -3480,7 +3483,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TIME_LAPSE_PHOTO = 16,
 
@@ -3490,7 +3493,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLUORESCENCE_PHOTO = 17
   }
@@ -3509,7 +3512,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CameraFormat {
     /**
@@ -3524,7 +3527,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_FORMAT_RGBA_8888 = 3,
 
@@ -3534,7 +3537,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_FORMAT_DNG = 4,
 
@@ -3544,7 +3547,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_FORMAT_DNG_XDRAW = 5,
 
@@ -3560,7 +3563,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_FORMAT_YUV_420_SP = 1003,
 
@@ -3576,7 +3579,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_FORMAT_JPEG = 2000,
 
@@ -3592,7 +3595,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_FORMAT_YCBCR_P010,
 
@@ -3608,7 +3611,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_FORMAT_YCRCB_P010,
 
@@ -3624,7 +3627,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_FORMAT_HEIC = 2003,
 
@@ -3634,7 +3637,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_FORMAT_DEPTH_16 = 3000,
 
@@ -3644,7 +3647,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_FORMAT_DEPTH_32 = 3001
   }
@@ -3663,7 +3666,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum FlashMode {
     /**
@@ -3678,7 +3681,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLASH_MODE_CLOSE = 0,
 
@@ -3694,7 +3697,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLASH_MODE_OPEN = 1,
 
@@ -3710,7 +3713,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLASH_MODE_AUTO = 2,
 
@@ -3726,7 +3729,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLASH_MODE_ALWAYS_OPEN = 3
   }
@@ -3738,7 +3741,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface LcdFlashStatus {
     /**
@@ -3749,7 +3752,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly isLcdFlashNeeded: boolean;
 
@@ -3761,7 +3764,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly lcdCompensation: int;
   }
@@ -3780,7 +3783,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FlashQuery {
     /**
@@ -3809,7 +3812,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     hasFlash(): boolean;
 
@@ -3842,7 +3845,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isFlashModeSupported(flashMode: FlashMode): boolean;
 
@@ -3855,7 +3858,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isLcdFlashSupported(): boolean;
   }
@@ -3876,7 +3879,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Flash extends FlashQuery {
     /**
@@ -3895,7 +3898,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getFlashMode(): FlashMode;
 
@@ -3915,7 +3918,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setFlashMode(flashMode: FlashMode): void;
 
@@ -3928,7 +3931,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableLcdFlash(enabled: boolean): void;
   }
@@ -3947,7 +3950,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ExposureMode {
     /**
@@ -3962,7 +3965,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EXPOSURE_MODE_LOCKED = 0,
 
@@ -3978,7 +3981,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EXPOSURE_MODE_AUTO = 1,
 
@@ -3994,7 +3997,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EXPOSURE_MODE_CONTINUOUS_AUTO = 2,
 
@@ -4004,7 +4007,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EXPOSURE_MODE_MANUAL = 3
   }
@@ -4016,7 +4019,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ExposureMeteringMode {
     /**
@@ -4025,7 +4028,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MATRIX = 0,
 
@@ -4035,7 +4038,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CENTER = 1,
 
@@ -4045,7 +4048,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SPOT = 2
   }
@@ -4064,7 +4067,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AutoExposureQuery {
     /**
@@ -4096,7 +4099,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isExposureModeSupported(aeMode: ExposureMode): boolean;
 
@@ -4126,7 +4129,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getExposureBiasRange(): Array<double>;
 
@@ -4141,7 +4144,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isExposureMeteringModeSupported(aeMeteringMode: ExposureMeteringMode): boolean;
   }
@@ -4162,7 +4165,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AutoExposure extends AutoExposureQuery {
     /**
@@ -4181,7 +4184,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getExposureMode(): ExposureMode;
 
@@ -4202,7 +4205,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setExposureMode(aeMode: ExposureMode): void;
 
@@ -4222,7 +4225,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMeteringPoint(): Point;
 
@@ -4242,7 +4245,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setMeteringPoint(point: Point): void;
 
@@ -4272,7 +4275,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setExposureBias(exposureBias: double): void;
 
@@ -4292,7 +4295,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getExposureValue(): double;
 
@@ -4305,7 +4308,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getExposureMeteringMode(): ExposureMeteringMode;
 
@@ -4319,7 +4322,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setExposureMeteringMode(aeMeteringMode: ExposureMeteringMode): void;
   }
@@ -4338,7 +4341,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum FocusMode {
     /**
@@ -4353,7 +4356,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FOCUS_MODE_MANUAL = 0,
 
@@ -4369,7 +4372,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FOCUS_MODE_CONTINUOUS_AUTO = 1,
 
@@ -4385,7 +4388,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FOCUS_MODE_AUTO = 2,
 
@@ -4401,7 +4404,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FOCUS_MODE_LOCKED = 3
   }
@@ -4420,7 +4423,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum FocusState {
     /**
@@ -4435,7 +4438,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FOCUS_STATE_SCAN = 0,
 
@@ -4451,7 +4454,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FOCUS_STATE_FOCUSED = 1,
 
@@ -4467,7 +4470,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FOCUS_STATE_UNFOCUSED = 2
   }
@@ -4479,7 +4482,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum FocusRangeType {
     /**
@@ -4488,7 +4491,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO = 0,
 
@@ -4498,7 +4501,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NEAR = 1
   }
@@ -4510,7 +4513,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum FocusDrivenType {
     /**
@@ -4519,7 +4522,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO = 0,
 
@@ -4529,7 +4532,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FACE = 1
   }
@@ -4541,7 +4544,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum FocusTrackingMode {
     /**
@@ -4550,7 +4553,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO = 0
   }
@@ -4562,7 +4565,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FocusTrackingInfo {
     /**
@@ -4572,7 +4575,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     trackingMode: FocusTrackingMode;
 
@@ -4583,7 +4586,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     trackingRegion: Rect;
   }
@@ -4602,7 +4605,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FocusQuery {
     /**
@@ -4634,7 +4637,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isFocusModeSupported(afMode: FocusMode): boolean;
 
@@ -4663,7 +4666,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isFocusRangeTypeSupported(type: FocusRangeType): boolean;
 
@@ -4680,7 +4683,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isFocusDrivenTypeSupported(type: FocusDrivenType): boolean;
   }
@@ -4701,7 +4704,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Focus extends FocusQuery {
     /**
@@ -4720,7 +4723,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getFocusMode(): FocusMode;
 
@@ -4740,7 +4743,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setFocusMode(afMode: FocusMode): void;
 
@@ -4760,7 +4763,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setFocusPoint(point: Point): void;
 
@@ -4781,7 +4784,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getFocusPoint(): Point;
 
@@ -4801,7 +4804,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getFocalLength(): double;
 
@@ -4827,7 +4830,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setFocusAssist(enabled: boolean): void;
 
@@ -4840,7 +4843,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getFocusRange(): FocusRangeType;
 
@@ -4858,7 +4861,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setFocusRange(type: FocusRangeType): void;
 
@@ -4871,7 +4874,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getFocusDriven(): FocusDrivenType;
 
@@ -4889,7 +4892,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setFocusDriven(type: FocusDrivenType): void;
   }
@@ -4901,7 +4904,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ManualFocus {
     /**
@@ -4913,7 +4916,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getFocusDistance(): double;
 
@@ -4927,7 +4930,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setFocusDistance(distance: double): void;
   }
@@ -4947,7 +4950,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum WhiteBalanceMode {
     /**
@@ -4961,7 +4964,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO = 0,
 
@@ -4978,7 +4981,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CLOUDY = 1,
 
@@ -4995,7 +4998,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INCANDESCENT = 2,
 
@@ -5012,7 +5015,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLUORESCENT = 3,
 
@@ -5029,7 +5032,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DAYLIGHT = 4,
 
@@ -5046,7 +5049,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MANUAL = 5,
 
@@ -5063,7 +5066,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOCKED = 6
   }
@@ -5083,7 +5086,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface WhiteBalanceQuery {
     /**
@@ -5107,7 +5110,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isWhiteBalanceModeSupported(mode: WhiteBalanceMode): boolean;
 
@@ -5129,7 +5132,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getWhiteBalanceRange(): Array<int>;
   }
@@ -5151,7 +5154,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface WhiteBalance extends WhiteBalanceQuery {
     /**
@@ -5171,7 +5174,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getWhiteBalanceMode(): WhiteBalanceMode;
 
@@ -5195,7 +5198,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setWhiteBalanceMode(mode: WhiteBalanceMode): void;
 
@@ -5217,7 +5220,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getWhiteBalance(): int;
 
@@ -5241,7 +5244,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setWhiteBalance(whiteBalance: int): void;
   }
@@ -5253,7 +5256,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ManualIsoQuery {
     /**
@@ -5265,7 +5268,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isManualIsoSupported(): boolean;
 
@@ -5278,7 +5281,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getIsoRange(): Array<int>;
   }
@@ -5291,7 +5294,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ManualIso extends ManualIsoQuery {
     /**
@@ -5303,7 +5306,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getIso(): int;
 
@@ -5317,7 +5320,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setIso(iso: int): void;
   }
@@ -5336,7 +5339,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum SmoothZoomMode {
     /**
@@ -5351,7 +5354,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORMAL = 0
   }
@@ -5370,7 +5373,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SmoothZoomInfo {
     /**
@@ -5387,7 +5390,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     duration: int;
   }
@@ -5399,7 +5402,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ZoomPointInfo {
     /**
@@ -5410,7 +5413,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly zoomRatio: double;
 
@@ -5422,7 +5425,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly equivalentFocalLength: int;
   }
@@ -5441,7 +5444,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ZoomQuery {
     /**
@@ -5470,7 +5473,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getZoomRatioRange(): Array<double>;
 
@@ -5483,7 +5486,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getZoomPointInfos(): Array<ZoomPointInfo>;
 
@@ -5516,7 +5519,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Zoom extends ZoomQuery {
     /**
@@ -5545,7 +5548,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getZoomRatio(): double;
 
@@ -5565,7 +5568,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setZoomRatio(zoomRatio: double): void;
 
@@ -5594,7 +5597,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setSmoothZoom(targetRatio: double, mode?: SmoothZoomMode): void;
 
@@ -5606,7 +5609,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     prepareZoom(): void;
 
@@ -5618,7 +5621,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     unprepareZoom(): void;
 
@@ -5661,7 +5664,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum VideoStabilizationMode {
     /**
@@ -5676,7 +5679,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OFF = 0,
 
@@ -5692,7 +5695,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOW = 1,
 
@@ -5708,7 +5711,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIDDLE = 2,
 
@@ -5724,7 +5727,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HIGH = 3,
 
@@ -5740,7 +5743,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO = 4
   }
@@ -5759,7 +5762,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface StabilizationQuery {
     /**
@@ -5791,7 +5794,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isVideoStabilizationModeSupported(vsMode: VideoStabilizationMode): boolean;
   }
@@ -5812,7 +5815,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Stabilization extends StabilizationQuery {
     /**
@@ -5831,7 +5834,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getActiveVideoStabilizationMode(): VideoStabilizationMode;
 
@@ -5851,7 +5854,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setVideoStabilizationMode(mode: VideoStabilizationMode): void;
   }
@@ -5863,7 +5866,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PortraitThemeType {
     /**
@@ -5872,7 +5875,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NATURAL = 0,
 
@@ -5882,7 +5885,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DELICATE = 1,
 
@@ -5892,7 +5895,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     STYLISH = 2
   }
@@ -5904,7 +5907,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum BeautyType {
     /**
@@ -5913,7 +5916,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO = 0,
 
@@ -5923,7 +5926,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SKIN_SMOOTH = 1,
 
@@ -5933,7 +5936,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FACE_SLENDER = 2,
 
@@ -5943,7 +5946,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SKIN_TONE = 3,
 
@@ -5952,7 +5955,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     SKIN_TONE_BRIGHT = 4,
 
@@ -5961,7 +5965,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     EYE_BIG_EYES = 5,
 
@@ -5970,7 +5975,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     HAIR_HAIRLINE = 6,
 
@@ -5979,7 +5985,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     FACE_MAKEUP = 7,
 
@@ -5988,7 +5995,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     HEAD_SHRINK = 8,
 
@@ -5997,7 +6005,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     NOSE_SLENDER = 9
   }
@@ -6009,7 +6018,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface BeautyQuery {
     /**
@@ -6032,7 +6041,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedBeautyTypes(): Array<BeautyType>;
 
@@ -6058,7 +6067,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedBeautyRange(type: BeautyType): Array<int>;
 
@@ -6071,7 +6080,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedPortraitThemeTypes(): Array<PortraitThemeType>;
 
@@ -6084,7 +6093,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isPortraitThemeSupported(): boolean;
   }
@@ -6097,7 +6106,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Beauty extends BeautyQuery {
     /**
@@ -6110,7 +6119,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getBeauty(type: BeautyType): int;
 
@@ -6124,7 +6133,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setBeauty(type: BeautyType, value: int): void;
 
@@ -6138,7 +6147,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setPortraitThemeType(type: PortraitThemeType): void;
   }
@@ -6150,7 +6159,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface EffectSuggestion {
 
@@ -6163,7 +6172,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isEffectSuggestionSupported(): boolean;
 
@@ -6177,7 +6186,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableEffectSuggestion(enabled: boolean): void;
 
@@ -6190,7 +6199,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedEffectSuggestionTypes(): Array<EffectSuggestionType>;
 
@@ -6205,7 +6214,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setEffectSuggestionStatus(status: Array<EffectSuggestionStatus>): void;
 
@@ -6220,7 +6229,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateEffectSuggestion(type: EffectSuggestionType, enabled: boolean): void;
   }
@@ -6232,7 +6241,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ColorEffectType {
     /**
@@ -6241,7 +6250,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORMAL = 0,
 
@@ -6251,7 +6260,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BRIGHT = 1,
 
@@ -6261,7 +6270,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SOFT = 2,
 
@@ -6271,7 +6280,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BLACK_WHITE = 3
   }
@@ -6310,7 +6319,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PolicyType {
     /**
@@ -6319,7 +6328,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRIVACY = 1
   }
@@ -6331,7 +6340,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ColorEffectQuery {
     /**
@@ -6354,7 +6363,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedColorEffects(): Array<ColorEffectType>;
   }
@@ -6367,7 +6376,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ColorEffect extends ColorEffectQuery {
     /**
@@ -6379,7 +6388,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getColorEffect(): ColorEffectType;
 
@@ -6392,7 +6401,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setColorEffect(type: ColorEffectType): void;
   }
@@ -6411,7 +6420,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ColorManagementQuery {
     /**
@@ -6436,7 +6445,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedColorSpaces(): Array<colorSpaceManager.ColorSpace>;
   }
@@ -6457,7 +6466,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ColorManagement extends ColorManagementQuery {
     /**
@@ -6476,7 +6485,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getActiveColorSpace(): colorSpaceManager.ColorSpace;
 
@@ -6502,7 +6511,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpace): void;
   }
@@ -6514,7 +6523,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ControlCenterQuery {
     /**
@@ -6546,7 +6555,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ControlCenter extends ControlCenterQuery {
     /**
@@ -6575,7 +6584,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AutoDeviceSwitchQuery {
     /**
@@ -6600,7 +6609,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isAutoDeviceSwitchSupported(): boolean;
   }
@@ -6621,7 +6630,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AutoDeviceSwitch extends AutoDeviceSwitchQuery {
     /**
@@ -6650,7 +6659,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableAutoDeviceSwitch(enabled: boolean): void;
   }
@@ -6669,7 +6678,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AutoDeviceSwitchStatus {
     /**
@@ -6688,7 +6697,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly isDeviceSwitched: boolean;
 
@@ -6708,7 +6717,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly isDeviceCapabilityChanged: boolean;
   }
@@ -6728,7 +6737,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MacroQuery {
     /**
@@ -6757,7 +6766,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isMacroSupported(): boolean;
   }
@@ -6779,7 +6788,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Macro extends MacroQuery {
     /**
@@ -6812,7 +6821,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableMacro(enabled: boolean): void;
   }
@@ -6824,7 +6833,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum UsageType {
     /**
@@ -6833,7 +6842,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BOKEH = 0
   }
@@ -6852,7 +6861,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Session {
     /**
@@ -6878,7 +6887,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     beginConfig(): void;
 
@@ -6900,7 +6909,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     commitConfig(callback: AsyncCallback<void>): void;
 
@@ -6922,7 +6931,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     commitConfig(): Promise<void>;
 
@@ -6944,7 +6953,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     canAddInput(cameraInput: CameraInput): boolean;
 
@@ -6993,7 +7002,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     addInput(cameraInput: CameraInput): void;
 
@@ -7042,7 +7051,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     removeInput(cameraInput: CameraInput): void;
 
@@ -7064,7 +7073,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     canAddOutput(cameraOutput: CameraOutput): boolean;
 
@@ -7113,7 +7122,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     addOutput(cameraOutput: CameraOutput): void;
 
@@ -7162,7 +7171,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     removeOutput(cameraOutput: CameraOutput): void;
 
@@ -7195,7 +7204,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     start(callback: AsyncCallback<void>): void;
 
@@ -7228,7 +7237,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     start(): Promise<void>;
 
@@ -7248,7 +7257,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -7268,7 +7277,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stop(): Promise<void>;
 
@@ -7288,7 +7297,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -7308,7 +7317,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(): Promise<void>;
 
@@ -7325,7 +7334,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setUsage(usage: UsageType, enabled: boolean): void;
 
@@ -7340,7 +7349,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getCameraOutputCapabilities(camera: CameraDevice): Array<CameraOutputCapability>;
   }
@@ -7934,7 +7943,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PreconfigType {
     /**
@@ -7949,7 +7958,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRECONFIG_720P = 0,
 
@@ -7965,7 +7974,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRECONFIG_1080P = 1,
 
@@ -7981,7 +7990,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRECONFIG_4K = 2,
 
@@ -7997,7 +8006,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRECONFIG_HIGH_QUALITY = 3
   }
@@ -8016,7 +8025,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PreconfigRatio {
     /**
@@ -8031,7 +8040,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRECONFIG_RATIO_1_1 = 0,
 
@@ -8047,7 +8056,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRECONFIG_RATIO_4_3 = 1,
 
@@ -8063,7 +8072,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRECONFIG_RATIO_16_9 = 2
   }
@@ -8075,7 +8084,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum SceneFeatureType {
     /**
@@ -8084,7 +8093,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MOON_CAPTURE_BOOST = 0,
 
@@ -8094,7 +8103,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TRIPOD_DETECTION = 1,
 
@@ -8104,7 +8113,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOW_LIGHT_BOOST = 2
   }
@@ -8116,7 +8125,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SceneFeatureDetectionResult {
     /**
@@ -8127,7 +8136,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly featureType: SceneFeatureType;
 
@@ -8139,7 +8148,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly detected: boolean;
   }
@@ -8151,7 +8160,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum TripodStatus {
     /**
@@ -8160,7 +8169,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INVALID = 0,
 
@@ -8170,7 +8179,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ACTIVE = 1,
 
@@ -8180,7 +8189,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ENTERING = 2,
 
@@ -8190,7 +8199,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EXITING = 3
   }
@@ -8203,7 +8212,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface TripodDetectionResult extends SceneFeatureDetectionResult {
     /**
@@ -8214,7 +8223,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly tripodStatus: TripodStatus;
   }
@@ -8226,7 +8235,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SceneDetectionQuery {
     /**
@@ -8239,7 +8248,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isSceneFeatureSupported(type: SceneFeatureType): boolean;
   }
@@ -8252,7 +8261,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SceneDetection extends SceneDetectionQuery {
     /**
@@ -8265,7 +8274,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableSceneFeature(type: SceneFeatureType, enabled: boolean): void;
   }
@@ -8287,7 +8296,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion, DepthFusion {
   }
@@ -8322,7 +8331,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PhotoSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, ColorManagement, AutoDeviceSwitch, Macro {
     /**
@@ -8349,7 +8358,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     canPreconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): boolean;
 
@@ -8375,7 +8384,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     preconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): void;
 
@@ -8407,7 +8416,7 @@ declare namespace camera {
      *
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -8435,7 +8444,7 @@ declare namespace camera {
      *
      * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
     */
     offError(callback?: ErrorCallback): void;
 
@@ -8467,7 +8476,7 @@ declare namespace camera {
      * 
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -8495,7 +8504,7 @@ declare namespace camera {
      * 
      * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
@@ -8527,7 +8536,7 @@ declare namespace camera {
      * 
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -8555,7 +8564,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -8589,7 +8598,7 @@ declare namespace camera {
      *     true indicating macro scene is detected and can be enabled, false indicating no macro scene is detected,
      *     and macro should be disabled.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onMacroStatusChanged(callback: AsyncCallback<boolean>): void;
 
@@ -8623,7 +8632,7 @@ declare namespace camera {
      *     true indicating macro scene is detected and can be enabled, false indicating no macro scene is detected,
      *     and macro should be disabled.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offMacroStatusChanged(callback?: AsyncCallback<boolean>): void;
 
@@ -8643,7 +8652,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<SystemPressureLevel> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onSystemPressureLevelChange(callback: AsyncCallback<SystemPressureLevel>): void
 
@@ -8663,7 +8672,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<SystemPressureLevel> } [callback] - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offSystemPressureLevelChange(callback?: AsyncCallback<SystemPressureLevel>): void
 
@@ -8688,7 +8697,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onFeatureDetection(featureType: SceneFeatureType, callback: AsyncCallback<SceneFeatureDetectionResult>): void;
 
@@ -8713,7 +8722,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offFeatureDetection(featureType: SceneFeatureType, callback?: AsyncCallback<SceneFeatureDetectionResult>): void;
 
@@ -8734,7 +8743,7 @@ declare namespace camera {
      * @param { AsyncCallback<EffectSuggestionType> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onEffectSuggestionChange(callback: AsyncCallback<EffectSuggestionType>): void;
 
@@ -8755,7 +8764,7 @@ declare namespace camera {
      * @param { AsyncCallback<EffectSuggestionType> } [callback] - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offEffectSuggestionChange(callback?: AsyncCallback<EffectSuggestionType>): void;
 
@@ -8787,7 +8796,7 @@ declare namespace camera {
      * 
      * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onAutoDeviceSwitchStatusChange(callback: AsyncCallback<AutoDeviceSwitchStatus>): void;
 
@@ -8815,7 +8824,7 @@ declare namespace camera {
      * 
      * @param { AsyncCallback<AutoDeviceSwitchStatus> } [callback] - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offAutoDeviceSwitchStatusChange(callback?: AsyncCallback<AutoDeviceSwitchStatus>): void;
 
@@ -8838,7 +8847,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onLcdFlashStatus(callback: AsyncCallback<LcdFlashStatus>): void;
 
@@ -8861,7 +8870,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offLcdFlashStatus(callback?: AsyncCallback<LcdFlashStatus>): void;
 
@@ -8875,7 +8884,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSessionFunctions(outputCapability: CameraOutputCapability): Array<PhotoFunctions>;
 
@@ -8887,7 +8896,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSessionConflictFunctions(): Array<PhotoConflictFunctions>;
   }
@@ -8918,7 +8927,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface VideoSessionForSys extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, Aperture, ColorReservation, EffectSuggestion {
   }
@@ -8937,7 +8946,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum QualityPrioritization {
     /**
@@ -8952,7 +8961,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HIGH_QUALITY = 0,
 
@@ -8968,7 +8977,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     POWER_BALANCE = 1
   }
@@ -9006,7 +9015,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface VideoSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter, AutoDeviceSwitch, Macro {
     /**
@@ -9033,7 +9042,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     canPreconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): boolean;
 
@@ -9059,7 +9068,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     preconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): void;
 
@@ -9091,7 +9100,7 @@ declare namespace camera {
      *
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -9119,7 +9128,7 @@ declare namespace camera {
      *
      * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -9151,7 +9160,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -9179,7 +9188,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
@@ -9211,7 +9220,7 @@ declare namespace camera {
      * 
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -9239,7 +9248,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -9273,7 +9282,7 @@ declare namespace camera {
      *     true indicating macro scene is detected and can be enabled, false indicating no macro scene is detected,
      *     and macro should be disabled.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onMacroStatusChanged(callback: AsyncCallback<boolean>): void;
 
@@ -9307,7 +9316,7 @@ declare namespace camera {
      *     true indicating macro scene is detected and can be enabled, false indicating no macro scene is detected,
      *     and macro should be disabled.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offMacroStatusChanged(callback?: AsyncCallback<boolean>): void;
 
@@ -9327,7 +9336,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<SystemPressureLevel> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onSystemPressureLevelChange(callback: AsyncCallback<SystemPressureLevel>): void
 
@@ -9347,7 +9356,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<SystemPressureLevel> } [callback] - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offSystemPressureLevelChange(callback?: AsyncCallback<SystemPressureLevel>): void
 
@@ -9392,7 +9401,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
     */
     onLcdFlashStatus(callback: AsyncCallback<LcdFlashStatus>): void;
 
@@ -9415,7 +9424,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
     */
     offLcdFlashStatus(callback?: AsyncCallback<LcdFlashStatus>): void;
 
@@ -9448,7 +9457,7 @@ declare namespace camera {
      * 
      * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
     */
     onAutoDeviceSwitchStatusChange(callback: AsyncCallback<AutoDeviceSwitchStatus>): void;
 
@@ -9476,7 +9485,7 @@ declare namespace camera {
      * 
      * @param { AsyncCallback<AutoDeviceSwitchStatus> } [callback] - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
     */
     offAutoDeviceSwitchStatusChange(callback?: AsyncCallback<AutoDeviceSwitchStatus>): void;
 
@@ -9499,7 +9508,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onFocusTrackingInfoAvailable(callback: Callback<FocusTrackingInfo>): void;
 
@@ -9522,7 +9531,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offFocusTrackingInfoAvailable(callback?: Callback<FocusTrackingInfo>): void;
 
@@ -9544,7 +9553,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.[object Object]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onEffectSuggestionChange(callback: AsyncCallback<EffectSuggestionType>): void;
 
@@ -9567,7 +9576,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.[object Object]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offEffectSuggestionChange(callback?: AsyncCallback<EffectSuggestionType>): void;
 
@@ -9581,7 +9590,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSessionFunctions(outputCapability: CameraOutputCapability): Array<VideoFunctions>;
 
@@ -9593,7 +9602,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSessionConflictFunctions(): Array<VideoConflictFunctions>;
 
@@ -9623,7 +9632,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setQualityPrioritization(quality : QualityPrioritization) : void;
 
@@ -9646,7 +9655,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onLightStatusChange(callback: AsyncCallback<LightStatus>): void;
 
@@ -9669,7 +9678,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offLightStatusChange(callback?: AsyncCallback<LightStatus>): void;
 
@@ -9680,7 +9689,8 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     onIsoInfoChange(callback: Callback<IsoInfo>): void
 
@@ -9691,7 +9701,8 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     offIsoInfoChange(callback?: Callback<IsoInfo>): void
   }
@@ -9703,7 +9714,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum LightStatus {
     /**
@@ -9712,7 +9723,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORMAL = 0,
 
@@ -9722,7 +9733,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INSUFFICIENT = 1
   }
@@ -9734,7 +9745,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PortraitEffect {
     /**
@@ -9743,7 +9754,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OFF = 0,
 
@@ -9753,7 +9764,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CIRCLES = 1,
 
@@ -9763,7 +9774,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HEART = 2,
 
@@ -9773,7 +9784,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ROTATED = 3,
 
@@ -9783,7 +9794,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     STUDIO = 4,
 
@@ -9793,7 +9804,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     THEATER = 5
   }
@@ -9805,7 +9816,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PortraitQuery {
     /**
@@ -9838,7 +9849,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedPortraitEffects(): Array<PortraitEffect>;
   }
@@ -9851,7 +9862,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Portrait extends PortraitQuery {
     /**
@@ -9873,7 +9884,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getPortraitEffect(): PortraitEffect;
 
@@ -9896,7 +9907,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setPortraitEffect(effect: PortraitEffect): void;
   }
@@ -9908,7 +9919,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ZoomRange {
     /**
@@ -9919,7 +9930,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly min: double;
 
@@ -9931,7 +9942,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly max: double;
   }
@@ -9943,7 +9954,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PhysicalAperture {
     /**
@@ -9953,7 +9964,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     zoomRange: ZoomRange;
 
@@ -9964,7 +9975,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     apertures: Array<double>;
   }
@@ -9976,7 +9987,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ApertureQuery {
     /**
@@ -9999,7 +10010,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedVirtualApertures(): Array<double>;
 
@@ -10023,7 +10034,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedPhysicalApertures(): Array<PhysicalAperture>;
   }
@@ -10036,7 +10047,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Aperture extends ApertureQuery {
     /**
@@ -10048,7 +10059,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getVirtualAperture(): double;
 
@@ -10061,7 +10072,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setVirtualAperture(aperture: double): void;
 
@@ -10074,7 +10085,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getPhysicalAperture(): double;
 
@@ -10087,7 +10098,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setPhysicalAperture(aperture: double): void;
   }
@@ -10100,7 +10111,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PortraitPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty, ColorEffect, ColorManagement, Portrait, Aperture {
     /**
@@ -10120,7 +10131,7 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -10141,7 +10152,7 @@ declare namespace camera {
      * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -10162,7 +10173,7 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -10183,7 +10194,7 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
@@ -10204,7 +10215,7 @@ declare namespace camera {
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -10225,7 +10236,7 @@ declare namespace camera {
      * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -10248,7 +10259,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onLcdFlashStatus(callback: AsyncCallback<LcdFlashStatus>): void;
 
@@ -10271,7 +10282,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offLcdFlashStatus(callback?: AsyncCallback<LcdFlashStatus>): void;
 
@@ -10285,7 +10296,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSessionFunctions(outputCapability: CameraOutputCapability): Array<PortraitPhotoFunctions>;
 
@@ -10297,7 +10308,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSessionConflictFunctions(): Array<PortraitPhotoConflictFunctions>;
   }
@@ -10310,7 +10321,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ApertureVideoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, Aperture {
     /**
@@ -10332,7 +10343,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -10355,7 +10366,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -10378,7 +10389,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -10401,7 +10412,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
@@ -10424,7 +10435,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -10447,7 +10458,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
   }
@@ -10459,7 +10470,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ManualExposureQuery {
     /**
@@ -10483,7 +10494,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedExposureRange(): Array<int>;
   }
@@ -10496,7 +10507,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ManualExposure extends ManualExposureQuery {
     /**
@@ -10519,7 +10530,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getExposure(): int;
 
@@ -10543,7 +10554,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setExposure(exposure: int): void;
   }
@@ -10556,7 +10567,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface NightPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, Beauty, ColorManagement, ManualExposure {
     /**
@@ -10576,7 +10587,7 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -10597,7 +10608,7 @@ declare namespace camera {
      * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -10618,7 +10629,7 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -10639,7 +10650,7 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
@@ -10660,7 +10671,7 @@ declare namespace camera {
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -10681,7 +10692,7 @@ declare namespace camera {
      * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -10704,7 +10715,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onLcdFlashStatus(callback: AsyncCallback<LcdFlashStatus>): void;
 
@@ -10727,7 +10738,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offLcdFlashStatus(callback?: AsyncCallback<LcdFlashStatus>): void;
   }
@@ -10746,7 +10757,8 @@ declare namespace camera {
    * @typedef IsoInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface IsoInfo {
     /**
@@ -10765,7 +10777,8 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     readonly iso?: int;
   }
@@ -10777,7 +10790,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ExposureInfo {
     /**
@@ -10788,7 +10801,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
      readonly exposureTime?: int;
   }
@@ -10800,7 +10813,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ApertureInfo {
     /**
@@ -10811,7 +10824,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly aperture?: double;
   }
@@ -10823,7 +10836,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface LuminationInfo {
     /**
@@ -10834,7 +10847,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly lumination?: double;
   }
@@ -10846,7 +10859,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ProfessionalPhotoSession extends Session, AutoExposure, ManualExposure, Focus, ManualFocus, WhiteBalance, ManualIso, Flash, Zoom, ColorEffect, Aperture {
     /**
@@ -10866,7 +10879,7 @@ declare namespace camera {
      *
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -10887,7 +10900,7 @@ declare namespace camera {
      *
      * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -10908,7 +10921,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -10929,7 +10942,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
@@ -10950,7 +10963,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -10971,7 +10984,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -10992,7 +11005,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<IsoInfo> } callback - Callback used to get the ISO info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onIsoInfoChange(callback: AsyncCallback<IsoInfo>): void;
 
@@ -11013,7 +11026,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<IsoInfo> } [callback] - Callback used to get the ISO info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offIsoInfoChange(callback?: AsyncCallback<IsoInfo>): void;
 
@@ -11034,7 +11047,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<ExposureInfo> } callback - Callback used to get the exposure info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onExposureInfoChange(callback: AsyncCallback<ExposureInfo>): void;
 
@@ -11055,7 +11068,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<ExposureInfo> } [callback] - Callback used to get the exposure info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offExposureInfoChange(callback?: AsyncCallback<ExposureInfo>): void;
 
@@ -11078,7 +11091,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onApertureInfoChange(callback: AsyncCallback<ApertureInfo>): void;
 
@@ -11101,7 +11114,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offApertureInfoChange(callback?: AsyncCallback<ApertureInfo>): void;
 
@@ -11124,7 +11137,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onLuminationInfoChange(callback: AsyncCallback<LuminationInfo>): void;
 
@@ -11147,7 +11160,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offLuminationInfoChange(callback?: AsyncCallback<LuminationInfo>): void;
   }
@@ -11160,7 +11173,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ProfessionalVideoSession extends Session, AutoExposure, ManualExposure, Focus, ManualFocus, WhiteBalance, ManualIso, Flash, Zoom, ColorEffect, Aperture {
     /**
@@ -11180,7 +11193,7 @@ declare namespace camera {
      *
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -11201,7 +11214,7 @@ declare namespace camera {
      *
      * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -11222,7 +11235,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -11243,7 +11256,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
@@ -11264,7 +11277,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -11285,7 +11298,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<SmoothZoomInfo> } [callback] - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -11306,7 +11319,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<IsoInfo> } callback - Callback used to get the ISO info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onIsoInfoChange(callback: AsyncCallback<IsoInfo>): void;
 
@@ -11327,7 +11340,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<IsoInfo> } [callback] - Callback used to get the ISO info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offIsoInfoChange(callback?: AsyncCallback<IsoInfo>): void;
 
@@ -11348,7 +11361,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<ExposureInfo> } callback - Callback used to get the exposure info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onExposureInfoChange(callback: AsyncCallback<ExposureInfo>): void;
 
@@ -11369,7 +11382,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<ExposureInfo> } [callback] - Callback used to get the exposure info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offExposureInfoChange(callback?: AsyncCallback<ExposureInfo>): void;
 
@@ -11392,7 +11405,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onApertureInfoChange(callback: AsyncCallback<ApertureInfo>): void;
 
@@ -11415,7 +11428,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offApertureInfoChange(callback?: AsyncCallback<ApertureInfo>): void;
 
@@ -11438,7 +11451,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onLuminationInfoChange(callback: AsyncCallback<LuminationInfo>): void;
 
@@ -11461,7 +11474,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offLuminationInfoChange(callback?: AsyncCallback<LuminationInfo>): void;
   }
@@ -11473,7 +11486,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum SlowMotionStatus {
     /**
@@ -11482,7 +11495,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DISABLED = 0,
 
@@ -11492,7 +11505,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     READY = 1,
 
@@ -11502,7 +11515,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_START = 2,
 
@@ -11512,7 +11525,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_DONE = 3,
 
@@ -11522,7 +11535,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FINISHED = 4
   }
@@ -11535,7 +11548,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SlowMotionVideoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect {
     /**
@@ -11557,7 +11570,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -11580,7 +11593,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -11603,7 +11616,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -11626,7 +11639,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
@@ -11649,7 +11662,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -11672,7 +11685,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -11694,7 +11707,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isSlowMotionDetectionSupported(): boolean;
 
@@ -11717,7 +11730,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setSlowMotionDetectionArea(area: Rect): void;
 
@@ -11740,7 +11753,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onSlowMotionStatus(callback: AsyncCallback<SlowMotionStatus>): void;
 
@@ -11763,7 +11776,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offSlowMotionStatus(callback?: AsyncCallback<SlowMotionStatus>): void;
   }
@@ -11776,7 +11789,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface HighResolutionPhotoSession extends Session, AutoExposure, Focus {
     /**
@@ -11798,7 +11811,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -11821,7 +11834,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -11844,7 +11857,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -11867,7 +11880,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
   }
@@ -11898,7 +11911,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MacroPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion, ColorManagement {
     /**
@@ -11920,7 +11933,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -11943,7 +11956,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -11966,7 +11979,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -11989,7 +12002,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
@@ -12012,7 +12025,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -12035,7 +12048,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
   }
@@ -12057,7 +12070,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MacroVideoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, ColorManagement {
     /**
@@ -12079,7 +12092,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -12102,7 +12115,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -12125,7 +12138,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -12148,7 +12161,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
@@ -12171,7 +12184,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -12194,7 +12207,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
   }
@@ -12224,7 +12237,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SecureSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom {
     /**
@@ -12255,7 +12268,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     addSecureOutput(previewOutput: PreviewOutput): void;
 
@@ -12287,7 +12300,7 @@ declare namespace camera {
      *
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -12315,7 +12328,7 @@ declare namespace camera {
      *
      * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -12347,7 +12360,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -12375,7 +12388,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
   }
@@ -12388,7 +12401,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface LightPaintingPhotoSession extends Session, Flash, Focus, Zoom, ColorEffect {
     /**
@@ -12410,7 +12423,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -12433,7 +12446,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -12456,7 +12469,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -12479,7 +12492,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
@@ -12502,7 +12515,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -12525,7 +12538,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -12538,7 +12551,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getLightPaintingType(): LightPaintingType;
 
@@ -12552,7 +12565,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setLightPaintingType(type: LightPaintingType): void;
 
@@ -12565,7 +12578,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedLightPaintingTypes(): Array<LightPaintingType>;
   }
@@ -12586,7 +12599,8 @@ declare namespace camera {
    * @interface QuickShotPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface QuickShotPhotoSession extends Session, AutoExposure, ColorEffect, ColorManagement, EffectSuggestion,
     Flash, Focus, Zoom, Beauty {
@@ -12609,7 +12623,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -12632,7 +12646,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -12655,7 +12669,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onEffectSuggestionChange(callback: AsyncCallback<EffectSuggestionType>): void;
 
@@ -12678,7 +12692,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offEffectSuggestionChange(callback?: AsyncCallback<EffectSuggestionType>): void;
 
@@ -12701,7 +12715,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -12724,7 +12738,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
@@ -12747,7 +12761,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onSmoothZoomInfoAvailable(callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -12770,7 +12784,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offSmoothZoomInfoAvailable(callback?: AsyncCallback<SmoothZoomInfo>): void;
   }
@@ -12783,7 +12797,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PanoramaPhotoSession extends Session, Focus, AutoExposure, WhiteBalance, ColorEffect {
     /**
@@ -12805,7 +12819,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -12828,7 +12842,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -12851,7 +12865,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -12874,7 +12888,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
   }
@@ -12887,7 +12901,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FluorescencePhotoSession extends Session, AutoExposure, Focus, Zoom {
     /**
@@ -12909,7 +12923,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -12932,7 +12946,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -12955,7 +12969,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -12978,7 +12992,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
   }
@@ -12991,7 +13005,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PhotoFunctions extends FlashQuery, AutoExposureQuery, ManualExposureQuery, FocusQuery, ZoomQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, MacroQuery, SceneDetectionQuery {
   }
@@ -13004,7 +13018,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface VideoFunctions extends FlashQuery, AutoExposureQuery, ManualExposureQuery, FocusQuery, ZoomQuery, StabilizationQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, MacroQuery, SceneDetectionQuery {
   }
@@ -13017,7 +13031,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PortraitPhotoFunctions extends FlashQuery, AutoExposureQuery, FocusQuery, ZoomQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, PortraitQuery, ApertureQuery, SceneDetectionQuery {
   }
@@ -13030,7 +13044,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PhotoConflictFunctions extends ZoomQuery, MacroQuery {
   }
@@ -13043,7 +13057,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface VideoConflictFunctions extends ZoomQuery, MacroQuery {
   }
@@ -13056,7 +13070,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PortraitPhotoConflictFunctions extends ZoomQuery, PortraitQuery, ApertureQuery {
   }
@@ -13075,7 +13089,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CameraOutput {
     /**
@@ -13094,7 +13108,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -13114,7 +13128,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(): Promise<void>;
   }
@@ -13126,7 +13140,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SketchStatusData {
     /**
@@ -13137,7 +13151,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     status: int;
 
@@ -13148,7 +13162,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sketchRatio: double;
 
@@ -13179,7 +13193,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PreviewOutput extends CameraOutput {
     /**
@@ -13256,7 +13270,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onFrameStart(callback: AsyncCallback<void>): void;
 
@@ -13284,7 +13298,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offFrameStart(callback?: AsyncCallback<void>): void;
 
@@ -13316,7 +13330,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onFrameEnd(callback: AsyncCallback<void>): void;
 
@@ -13344,7 +13358,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<void> } [callback] - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offFrameEnd(callback?: AsyncCallback<void>): void;
 
@@ -13376,7 +13390,7 @@ declare namespace camera {
      *
      * @param { ErrorCallback } callback - Callback used to get the preview output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -13404,7 +13418,7 @@ declare namespace camera {
      *
      * @param { ErrorCallback } [callback] - Callback used to get the preview output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -13422,7 +13436,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedFrameRates(): Array<FrameRateRange>;
 
@@ -13446,7 +13460,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setFrameRate(minFps: int, maxFps: int): void;
 
@@ -13464,7 +13478,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getActiveFrameRate(): FrameRateRange;
 
@@ -13484,7 +13498,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getActiveProfile(): Profile;
 
@@ -13508,7 +13522,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getPreviewRotation(displayRotation: int): ImageRotation;
 
@@ -13532,7 +13546,7 @@ declare namespace camera {
       * @syscap SystemCapability.Multimedia.Camera.Core
       * @atomicservice
       * @since 19 dynamic
-      * @since 22 static
+      * @since 23 static
       */
     setPreviewRotation(previewRotation: ImageRotation, isDisplayLocked?: boolean): void;
 
@@ -13554,7 +13568,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     addDeferredSurface(surfaceId: string): void;
 
@@ -13566,7 +13580,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isSketchSupported(): boolean;
 
@@ -13579,7 +13593,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSketchRatio(): double;
 
@@ -13604,7 +13618,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableSketch(enabled: boolean): void;
 
@@ -13629,7 +13643,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     attachSketchSurface(surfaceId: string): void;
 
@@ -13652,7 +13666,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onSketchStatusChanged(callback: AsyncCallback<SketchStatusData>): void;
 
@@ -13675,7 +13689,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offSketchStatusChanged(callback?: AsyncCallback<SketchStatusData>): void;
 
@@ -13710,7 +13724,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum EffectSuggestionType {
     /**
@@ -13719,7 +13733,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EFFECT_SUGGESTION_NONE = 0,
     /**
@@ -13728,7 +13742,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EFFECT_SUGGESTION_PORTRAIT = 1,
     /**
@@ -13737,7 +13751,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EFFECT_SUGGESTION_FOOD = 2,
 
@@ -13747,7 +13761,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EFFECT_SUGGESTION_SKY = 3,
 
@@ -13757,7 +13771,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EFFECT_SUGGESTION_SUNRISE_SUNSET = 4,
 
@@ -13767,7 +13781,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EFFECT_SUGGESTION_STAGE = 5
   }
@@ -13778,7 +13792,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class EffectSuggestionStatus {
     /**
@@ -13788,7 +13802,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     type: EffectSuggestionType;
     /**
@@ -13798,7 +13812,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     status: boolean;
   }
@@ -13817,7 +13831,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ImageRotation {
     /**
@@ -13832,7 +13846,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ROTATION_0 = 0,
 
@@ -13848,7 +13862,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ROTATION_90 = 90,
 
@@ -13864,7 +13878,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ROTATION_180 = 180,
 
@@ -13880,7 +13894,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ROTATION_270 = 270
   }
@@ -13899,7 +13913,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Location {
     /**
@@ -13916,7 +13930,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     latitude: double;
 
@@ -13934,7 +13948,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     longitude: double;
 
@@ -13952,7 +13966,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     altitude: double;
   }
@@ -13971,7 +13985,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum QualityLevel {
     /**
@@ -13986,7 +14000,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     QUALITY_LEVEL_HIGH = 0,
 
@@ -14002,7 +14016,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     QUALITY_LEVEL_MEDIUM = 1,
 
@@ -14018,7 +14032,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     QUALITY_LEVEL_LOW = 2
   }
@@ -14037,7 +14051,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PhotoCaptureSetting {
     /**
@@ -14054,7 +14068,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     quality?: QualityLevel;
 
@@ -14072,7 +14086,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     rotation?: ImageRotation;
 
@@ -14090,7 +14104,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     location?: Location;
 
@@ -14110,7 +14124,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     mirror?: boolean;
   }
@@ -14122,7 +14136,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum DeferredDeliveryImageType {
     /**
@@ -14131,7 +14145,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NONE = 0,
 
@@ -14141,7 +14155,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PHOTO = 1,
 
@@ -14151,7 +14165,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO = 2
   }
@@ -14170,7 +14184,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Photo {
     /**
@@ -14187,7 +14201,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     main: image.Image;
 
@@ -14198,7 +14212,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     raw?: image.Image;
 
@@ -14209,7 +14223,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     depthData?: DepthData;
 
@@ -14227,7 +14241,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(): Promise<void>;
   }
@@ -14243,7 +14257,7 @@ declare namespace camera {
   type ImageType = image.Image | image.Picture;
 
   /**
-   * PhotoEx object, which supports capturing uncompresssed photo, compared to Photo.
+   * PhotoEx object, which supports capturing uncompressed photo, compared to Photo.
    *
    * @typedef PhotoEx
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -14264,7 +14278,7 @@ declare namespace camera {
     /**
      * Release PhotoEx object.
      *
-     * @returns { Promise<void> } Promise used to return tthe result.
+     * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 23 dynamic&static
@@ -14279,7 +14293,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DeferredPhotoProxy {
     /**
@@ -14290,7 +14304,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getThumbnail(): Promise<image.PixelMap>;
 
@@ -14302,7 +14316,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(): Promise<void>;
   }
@@ -14321,7 +14335,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum VideoCodecType {
     /**
@@ -14336,7 +14350,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AVC = 0,
 
@@ -14352,7 +14366,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HEVC = 1
   }
@@ -14401,7 +14415,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PhotoOutput extends CameraOutput {
     /**
@@ -14422,7 +14436,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     capture(callback: AsyncCallback<void>): void;
 
@@ -14444,7 +14458,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     capture(): Promise<void>;
 
@@ -14470,7 +14484,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     capture(setting: PhotoCaptureSetting, callback: AsyncCallback<void>): void;
 
@@ -14509,7 +14523,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     capture(setting: PhotoCaptureSetting): Promise<void>;
 
@@ -14525,7 +14539,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     burstCapture(setting: PhotoCaptureSetting): Promise<void>;
 
@@ -14551,7 +14565,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isRawDeliverySupported(): boolean;
 
@@ -14566,7 +14580,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableRawDelivery(enabled: boolean): void;
 
@@ -14582,7 +14596,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isDeferredImageDeliverySupported(type: DeferredDeliveryImageType): boolean;
 
@@ -14598,7 +14612,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isDeferredImageDeliveryEnabled(type: DeferredDeliveryImageType): boolean;
 
@@ -14613,7 +14627,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deferImageDelivery(type: DeferredDeliveryImageType): void;
 
@@ -14627,7 +14641,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isDepthDataDeliverySupported(): boolean;
 
@@ -14642,7 +14656,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableDepthDataDelivery(enabled: boolean): void;
 
@@ -14662,7 +14676,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedMovingPhotoVideoCodecTypes(): Array<VideoCodecType>;
 
@@ -14682,7 +14696,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setMovingPhotoVideoCodecType(codecType: VideoCodecType): void;
 
@@ -14714,7 +14728,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<Photo> } callback - Callback used to get the Photo.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onPhotoAvailable(callback: AsyncCallback<Photo>): void;
 
@@ -14742,14 +14756,14 @@ declare namespace camera {
      *
      * @param { AsyncCallback<Photo> } [callback] - Callback used to get the Photo.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offPhotoAvailable(callback?: AsyncCallback<Photo>): void;
 
     /**
      * Subscribes photo available event callback, which supports delivery of uncompressed photo.
      *
-     * @param { Callback<PhotoEx> } callback - Callback used to getthe PhotoEx
+     * @param { Callback<PhotoEx> } callback - Callback used to get the PhotoEx.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 23 dynamic&static
      */
@@ -14783,7 +14797,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onDeferredPhotoProxyAvailable(callback: AsyncCallback<DeferredPhotoProxy>): void;
 
@@ -14806,7 +14820,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offDeferredPhotoProxyAvailable(callback?: AsyncCallback<DeferredPhotoProxy>): void;
 
@@ -14850,7 +14864,7 @@ declare namespace camera {
      * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-camera-shot2see}. </p>
      * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } callback - Callback used to get the asset.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
     */
     onPhotoAssetAvailable(callback: AsyncCallback<photoAccessHelper.PhotoAsset>): void;
 
@@ -14878,7 +14892,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } [callback] - Callback used to get the asset.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offPhotoAssetAvailable(callback?: AsyncCallback<photoAccessHelper.PhotoAsset>): void;
 
@@ -14896,7 +14910,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isMirrorSupported(): boolean;
 
@@ -14924,7 +14938,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableMirror(enabled: boolean): void;
 
@@ -14980,7 +14994,7 @@ declare namespace camera {
      * 
      * @param { AsyncCallback<CaptureStartInfo> } callback - Callback used to get the capture start info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onCaptureStartWithInfo(callback: AsyncCallback<CaptureStartInfo>): void;
 
@@ -15008,7 +15022,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<CaptureStartInfo> } [callback] - Callback used to get the capture start info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offCaptureStartWithInfo(callback?: AsyncCallback<CaptureStartInfo>): void;
 
@@ -15036,7 +15050,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<FrameShutterInfo> } callback - Callback used to get the frame shutter information.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onFrameShutter(callback: AsyncCallback<FrameShutterInfo>): void;
 
@@ -15064,7 +15078,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<FrameShutterInfo> } [callback] - Callback used to get the frame shutter information.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offFrameShutter(callback?: AsyncCallback<FrameShutterInfo>): void;
 
@@ -15096,7 +15110,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<FrameShutterEndInfo> } callback - Callback used to get the frame shutter end information.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onFrameShutterEnd(callback: AsyncCallback<FrameShutterEndInfo>): void;
 
@@ -15124,7 +15138,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<FrameShutterEndInfo> } [callback] - Callback used to get the frame shutter end information.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offFrameShutterEnd(callback?: AsyncCallback<FrameShutterEndInfo>): void;
 
@@ -15157,7 +15171,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<CaptureEndInfo> } callback - Callback used to get the capture end information.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onCaptureEnd(callback: AsyncCallback<CaptureEndInfo>): void;
 
@@ -15185,7 +15199,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<CaptureEndInfo> } [callback] - Callback used to get the capture end information.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offCaptureEnd(callback?: AsyncCallback<CaptureEndInfo>): void;
 
@@ -15217,7 +15231,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<void> } callback - Callback used to notice capture ready.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onCaptureReady(callback: AsyncCallback<void>): void;
 
@@ -15245,7 +15259,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<void> } [callback] - Callback used to notice capture ready.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offCaptureReady(callback?: AsyncCallback<void>): void;
 
@@ -15277,7 +15291,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<double> } callback - Callback used to notify the estimated capture duration (in milliseconds).
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onEstimatedCaptureDuration(callback: AsyncCallback<double>): void;
 
@@ -15305,7 +15319,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<double> } [callback] - Callback used to notify the estimated capture duration (in milliseconds).
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offEstimatedCaptureDuration(callback?: AsyncCallback<double>): void;
 
@@ -15337,7 +15351,7 @@ declare namespace camera {
      *
      * @param { ErrorCallback } callback - Callback used to get the photo output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -15365,7 +15379,7 @@ declare namespace camera {
      * 
      * @param { ErrorCallback } [callback] - Callback used to get the photo output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
     */
     offError(callback?: ErrorCallback): void;
 
@@ -15385,7 +15399,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getActiveProfile(): Profile;
 
@@ -15409,7 +15423,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isQuickThumbnailSupported(): boolean;
 
@@ -15439,7 +15453,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableQuickThumbnail(enabled: boolean): void;
 
@@ -15462,7 +15476,7 @@ declare namespace camera {
      * @param { AsyncCallback<image.PixelMap> } callback - Callback used to get the quick thumbnail.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onQuickThumbnail(callback: AsyncCallback<image.PixelMap>): void;
 
@@ -15485,7 +15499,7 @@ declare namespace camera {
      * @param { AsyncCallback<image.PixelMap> } [callback] - Callback used to get the quick thumbnail.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offQuickThumbnail(callback?: AsyncCallback<image.PixelMap>): void;
 
@@ -15499,7 +15513,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isAutoHighQualityPhotoSupported(): boolean;
 
@@ -15514,7 +15528,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableAutoHighQualityPhoto(enabled: boolean): void;
 
@@ -15527,7 +15541,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isAutoCloudImageEnhancementSupported(): boolean;
 
@@ -15541,7 +15555,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableAutoCloudImageEnhancement(enabled: boolean): void;
 
@@ -15561,7 +15575,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isMovingPhotoSupported(): boolean;
 
@@ -15587,7 +15601,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableMovingPhoto(enabled: boolean): void;
 
@@ -15611,7 +15625,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getPhotoRotation(deviceDegree: int): ImageRotation;
 
@@ -15624,7 +15638,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isOfflineSupported(): boolean;
 
@@ -15637,7 +15651,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableOffline(): void;
 
@@ -15662,7 +15676,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onOfflineDeliveryFinished(callback: AsyncCallback<void>): void;
 
@@ -15687,7 +15701,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offOfflineDeliveryFinished(callback?: AsyncCallback<void>): void;
 
@@ -15732,7 +15746,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FrameShutterInfo {
     /**
@@ -15749,7 +15763,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     captureId: int;
     /**
@@ -15766,7 +15780,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     timestamp: long;
   }
@@ -15785,7 +15799,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface FrameShutterEndInfo {
     /**
@@ -15802,7 +15816,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     captureId: int;
   }
@@ -15821,7 +15835,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CaptureStartInfo {
     /**
@@ -15838,7 +15852,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     captureId: int;
     /**
@@ -15855,7 +15869,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     time: long;
   }
@@ -15874,7 +15888,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CaptureEndInfo {
     /**
@@ -15891,7 +15905,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     captureId: int;
     /**
@@ -15908,7 +15922,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     frameCount: int;
   }
@@ -15920,7 +15934,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DeferredVideoEnhancementInfo {
     /**
@@ -15931,7 +15945,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly isDeferredVideoEnhancementAvailable: boolean;
     /**
@@ -15942,7 +15956,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly videoId?: string;
   }
@@ -15963,7 +15977,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface VideoOutput extends CameraOutput {
     /**
@@ -15984,7 +15998,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     start(callback: AsyncCallback<void>): void;
 
@@ -16006,7 +16020,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     start(): Promise<void>;
 
@@ -16024,7 +16038,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -16042,7 +16056,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stop(): Promise<void>;
 
@@ -16069,7 +16083,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isMirrorSupported(): boolean;
 
@@ -16109,7 +16123,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableMirror(enabled: boolean): void;
 
@@ -16127,7 +16141,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedFrameRates(): Array<FrameRateRange>;
 
@@ -16151,7 +16165,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setFrameRate(minFps: int, maxFps: int): void;
 
@@ -16169,7 +16183,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getActiveFrameRate(): FrameRateRange;
 
@@ -16193,7 +16207,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getVideoRotation(deviceDegree: int): ImageRotation;
 
@@ -16206,7 +16220,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isAutoDeferredVideoEnhancementSupported(): boolean;
 
@@ -16219,7 +16233,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isAutoDeferredVideoEnhancementEnabled(): boolean;
 
@@ -16233,7 +16247,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableAutoDeferredVideoEnhancement(enabled: boolean): void;
 
@@ -16245,7 +16259,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedRotations(): Array<ImageRotation>;
 
@@ -16257,7 +16271,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isRotationSupported(): boolean;
 
@@ -16270,7 +16284,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setRotation(rotation: ImageRotation): void;
 
@@ -16282,7 +16296,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isAutoVideoFrameRateSupported(): boolean;
 
@@ -16295,7 +16309,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableAutoVideoFrameRate(enabled: boolean): void;
 
@@ -16318,7 +16332,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
     */
     onDeferredVideoEnhancementInfo(callback: AsyncCallback<DeferredVideoEnhancementInfo>): void;
 
@@ -16341,7 +16355,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offDeferredVideoEnhancementInfo(callback?: AsyncCallback<DeferredVideoEnhancementInfo>): void;
 
@@ -16373,7 +16387,7 @@ declare namespace camera {
      * 
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
     */
     onFrameStart(callback: AsyncCallback<void>): void;
 
@@ -16401,7 +16415,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<void> } [callback] - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offFrameStart(callback?: AsyncCallback<void>): void;
 
@@ -16429,7 +16443,7 @@ declare namespace camera {
      * 
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onFrameEnd(callback: AsyncCallback<void>): void;
 
@@ -16457,7 +16471,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<void> } [callback] - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offFrameEnd(callback?: AsyncCallback<void>): void;
 
@@ -16489,7 +16503,7 @@ declare namespace camera {
      * 
      * @param { ErrorCallback } callback - Callback used to get the video output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
     */
     onError(callback: ErrorCallback): void;
 
@@ -16517,7 +16531,7 @@ declare namespace camera {
      * 
      * @param { ErrorCallback } [callback] - Callback used to get the video output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
@@ -16537,7 +16551,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getActiveProfile(): VideoProfile;
 
@@ -16549,7 +16563,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedVideoMetaTypes(): Array<VideoMetaType>;
 
@@ -16563,7 +16577,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     attachMetaSurface(surfaceId: string, type: VideoMetaType): void;
   }
@@ -16575,7 +16589,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum VideoMetaType {
     /**
@@ -16583,7 +16597,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_META_MAKER_INFO = 0
   }
@@ -16602,7 +16616,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum MetadataObjectType {
     /**
@@ -16617,7 +16631,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FACE_DETECTION = 0,
 
@@ -16627,7 +16641,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HUMAN_BODY = 1,
 
@@ -16637,7 +16651,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAT_FACE = 2,
 
@@ -16647,7 +16661,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAT_BODY = 3,
 
@@ -16657,7 +16671,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DOG_FACE = 4,
 
@@ -16667,7 +16681,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DOG_BODY = 5,
 
@@ -16677,7 +16691,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SALIENT_DETECTION = 6,
 
@@ -16687,7 +16701,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BAR_CODE_DETECTION = 7,
 
@@ -16709,7 +16723,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum LightPaintingType {
     /**
@@ -16718,7 +16732,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TRAFFIC_TRAILS = 0,
 
@@ -16728,7 +16742,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     STAR_TRAILS = 1,
 
@@ -16738,7 +16752,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SILKY_WATER = 2,
 
@@ -16748,7 +16762,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LIGHT_GRAFFITI = 3
   }
@@ -16767,7 +16781,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Rect {
     /**
@@ -16784,7 +16798,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     topLeftX: double;
     /**
@@ -16801,7 +16815,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     topLeftY: double;
     /**
@@ -16818,7 +16832,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     width: double;
     /**
@@ -16835,7 +16849,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     height: double;
   }
@@ -16847,7 +16861,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum Emotion {
     /**
@@ -16856,7 +16870,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NEUTRAL = 0,
 
@@ -16866,7 +16880,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SADNESS = 1,
 
@@ -16876,7 +16890,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SMILE = 2,
 
@@ -16886,7 +16900,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SURPRISE = 3
   }
@@ -16905,7 +16919,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MetadataObject {
     /**
@@ -16924,7 +16938,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly type: MetadataObjectType;
     /**
@@ -16943,7 +16957,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly timestamp: int;
     /**
@@ -16962,7 +16976,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly boundingBox: Rect;
     /**
@@ -16973,7 +16987,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly objectId: int;
     /**
@@ -16984,7 +16998,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly confidence: int;
   }
@@ -16997,7 +17011,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MetadataFaceObject extends MetadataObject {
     /**
@@ -17008,7 +17022,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly leftEyeBoundingBox: Rect;
 
@@ -17020,7 +17034,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly rightEyeBoundingBox: Rect;
 
@@ -17032,7 +17046,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly emotion: Emotion;
 
@@ -17044,7 +17058,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly emotionConfidence: int;
 
@@ -17056,7 +17070,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly pitchAngle: int;
 
@@ -17068,7 +17082,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly yawAngle: int;
 
@@ -17080,7 +17094,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly rollAngle: int;
   }
@@ -17159,7 +17173,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MetadataHumanBodyObject extends MetadataObject {
   }
@@ -17172,7 +17186,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MetadataCatFaceObject extends MetadataObject {
     /**
@@ -17183,7 +17197,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly leftEyeBoundingBox: Rect;
 
@@ -17195,7 +17209,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly rightEyeBoundingBox: Rect;
   }
@@ -17208,7 +17222,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MetadataCatBodyObject extends MetadataObject {
   }
@@ -17221,7 +17235,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MetadataDogFaceObject extends MetadataObject {
     /**
@@ -17232,7 +17246,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly leftEyeBoundingBox: Rect;
 
@@ -17244,7 +17258,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly rightEyeBoundingBox: Rect;
   }
@@ -17257,7 +17271,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MetadataDogBodyObject extends MetadataObject {
   }
@@ -17270,7 +17284,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MetadataSalientDetectionObject extends MetadataObject {
   }
@@ -17283,7 +17297,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MetadataBarcodeObject extends MetadataObject {
   }
@@ -17295,7 +17309,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CameraOcclusionDetectionResult {
     /**
@@ -17306,7 +17320,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly isCameraOccluded: boolean;
 
@@ -17318,7 +17332,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly isCameraLensDirty: boolean;
   }
@@ -17339,7 +17353,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MetadataOutput extends CameraOutput {
     /**
@@ -17360,7 +17374,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     start(callback: AsyncCallback<void>): void;
 
@@ -17382,7 +17396,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     start(): Promise<void>;
 
@@ -17400,7 +17414,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -17418,7 +17432,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stop(): Promise<void>;
 
@@ -17433,7 +17447,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     addMetadataObjectTypes(types: Array<MetadataObjectType>): void;
 
@@ -17448,7 +17462,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     removeMetadataObjectTypes(types: Array<MetadataObjectType>): void;
 
@@ -17480,7 +17494,7 @@ declare namespace camera {
      * 
      * @param { AsyncCallback<Array<MetadataObject>> } callback - Callback used to get the available metadata objects.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
     */
     onMetadataObjectsAvailable(callback: AsyncCallback<Array<MetadataObject>>): void;
 
@@ -17508,7 +17522,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<Array<MetadataObject>> } [callback] - Callback used to get the available metadata objects.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offMetadataObjectsAvailable(callback?: AsyncCallback<Array<MetadataObject>>): void;
 
@@ -17540,7 +17554,7 @@ declare namespace camera {
      *
      * @param { ErrorCallback } callback - Callback used to get the video output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -17568,7 +17582,7 @@ declare namespace camera {
      *
      * @param { ErrorCallback } [callback] - Callback used to get the video output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
   }
@@ -17587,7 +17601,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CameraConcurrentType {
     /**
@@ -17602,7 +17616,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_LIMITED_CAPABILITY = 0,
 
@@ -17618,7 +17632,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA_FULL_CAPABILITY = 1,
   }
@@ -17637,7 +17651,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CameraConcurrentInfo {
     /**
@@ -17656,7 +17670,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly device: CameraDevice;
 
@@ -17676,7 +17690,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly type: CameraConcurrentType;
 
@@ -17696,7 +17710,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly modes: Array<SceneMode>;
 
@@ -17716,7 +17730,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly outputCapabilities: Array<CameraOutputCapability>;
   }
@@ -17728,7 +17742,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum TimeLapseRecordState {
     /**
@@ -17737,7 +17751,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IDLE = 0,
 
@@ -17747,7 +17761,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RECORDING = 1
   }
@@ -17759,7 +17773,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum TimeLapsePreviewType {
     /**
@@ -17768,7 +17782,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DARK = 1,
 
@@ -17778,7 +17792,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LIGHT = 2
   }
@@ -17790,7 +17804,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface TryAEInfo {
     /**
@@ -17801,7 +17815,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly isTryAEDone: boolean;
 
@@ -17813,7 +17827,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly isTryAEHintNeeded?: boolean;
 
@@ -17825,7 +17839,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly previewType?: TimeLapsePreviewType;
 
@@ -17837,7 +17851,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly captureInterval?: int;
   }
@@ -17850,7 +17864,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface TimeLapsePhotoSession extends Session, Focus, ManualFocus, AutoExposure, ManualExposure, ManualIso, WhiteBalance, Zoom, ColorEffect {
     /**
@@ -17872,7 +17886,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -17895,7 +17909,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
     */
     offError(callback?: ErrorCallback): void;
 
@@ -17918,7 +17932,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
     */
     onFocusStateChange(callback: AsyncCallback<FocusState>): void;
 
@@ -17941,7 +17955,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
     */
     offFocusStateChange(callback?: AsyncCallback<FocusState>): void;
 
@@ -17964,7 +17978,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onIsoInfoChange(callback: AsyncCallback<IsoInfo>): void;
 
@@ -17987,7 +18001,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offIsoInfoChange(callback?: AsyncCallback<IsoInfo>): void;
 
@@ -18010,7 +18024,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onExposureInfoChange(callback: AsyncCallback<ExposureInfo>): void;
 
@@ -18033,7 +18047,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offExposureInfoChange(callback?: AsyncCallback<ExposureInfo>): void;
 
@@ -18056,7 +18070,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onLuminationInfoChange(callback: AsyncCallback<LuminationInfo>): void;
 
@@ -18079,7 +18093,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offLuminationInfoChange(callback?: AsyncCallback<LuminationInfo>): void;
 
@@ -18092,7 +18106,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isTryAENeeded(): boolean;
 
@@ -18105,7 +18119,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     startTryAE(): void;
 
@@ -18118,7 +18132,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stopTryAE(): void;
 
@@ -18141,7 +18155,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onTryAEInfoChange(callback: AsyncCallback<TryAEInfo>): void;
 
@@ -18164,7 +18178,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offTryAEInfoChange(callback?: AsyncCallback<TryAEInfo>): void;
 
@@ -18177,7 +18191,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedTimeLapseIntervalRange(): Array<int>;
 
@@ -18190,7 +18204,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getTimeLapseInterval(): int;
 
@@ -18204,7 +18218,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setTimeLapseInterval(interval: int): void;
 
@@ -18230,7 +18244,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setTimeLapseRecordState(state: TimeLapseRecordState): void;
 
@@ -18256,7 +18270,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setTimeLapsePreviewType(type: TimeLapsePreviewType): void;
   }
@@ -18290,7 +18304,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum DepthDataAccuracy {
     /**
@@ -18299,7 +18313,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEPTH_DATA_ACCURACY_RELATIVE = 0,
 
@@ -18309,7 +18323,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEPTH_DATA_ACCURACY_ABSOLUTE = 1
   }
@@ -18321,7 +18335,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum DepthDataQualityLevel {
     /**
@@ -18330,7 +18344,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEPTH_DATA_QUALITY_BAD = 0,
 
@@ -18340,7 +18354,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEPTH_DATA_QUALITY_FAIR = 1,
 
@@ -18350,7 +18364,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEPTH_DATA_QUALITY_GOOD = 2
   }
@@ -18362,7 +18376,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DepthProfile {
     /**
@@ -18373,7 +18387,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly format: CameraFormat;
 
@@ -18385,7 +18399,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly dataAccuracy: DepthDataAccuracy;
 
@@ -18397,7 +18411,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly size: Size;
   }
@@ -18409,7 +18423,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DepthData {
     /**
@@ -18420,7 +18434,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly format: CameraFormat;
 
@@ -18432,7 +18446,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly depthMap: image.PixelMap;
 
@@ -18444,7 +18458,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly qualityLevel: DepthDataQualityLevel;
 
@@ -18456,7 +18470,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly dataAccuracy: DepthDataAccuracy;
 
@@ -18468,7 +18482,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(): Promise<void>;
   }
@@ -18481,7 +18495,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DepthDataOutput extends CameraOutput {
     /**
@@ -18494,7 +18508,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     start(): Promise<void>;
 
@@ -18508,7 +18522,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stop(): Promise<void>;
 
@@ -18531,7 +18545,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onDepthDataAvailable(callback: AsyncCallback<DepthData>): void;
 
@@ -18554,7 +18568,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offDepthDataAvailable(callback?: AsyncCallback<DepthData>): void;
 
@@ -18577,7 +18591,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     onError(callback: ErrorCallback): void;
 
@@ -18600,7 +18614,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
   }
@@ -18612,7 +18626,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DepthFusionQuery {
     /**
@@ -18624,7 +18638,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isDepthFusionSupported(): boolean;
 
@@ -18637,7 +18651,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getDepthFusionThreshold(): Array<double>;
   }
@@ -18650,7 +18664,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DepthFusion extends DepthFusionQuery {
     /**
@@ -18662,7 +18676,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isDepthFusionEnabled(): boolean;
 
@@ -18677,7 +18691,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableDepthFusion(enabled: boolean): void;
   }
@@ -18689,7 +18703,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AuxiliaryType {
     /**
@@ -18698,7 +18712,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONTRACT_LENS = 0
   }
@@ -18710,7 +18724,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AuxiliaryStatus {
     /**
@@ -18719,7 +18733,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOCKED = 0,
 
@@ -18729,7 +18743,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ON = 1,
 
@@ -18739,7 +18753,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OFF = 2
   }
@@ -18751,7 +18765,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ColorReservationType {
     /**
@@ -18760,7 +18774,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NONE = 0,
 
@@ -18770,7 +18784,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PORTRAIT = 1
   }
@@ -18782,7 +18796,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ColorReservationQuery {
     /**
@@ -18794,7 +18808,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getSupportedColorReservationTypes(): Array<ColorReservationType>;
   }
@@ -18807,7 +18821,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ColorReservation extends ColorReservationQuery {
     /**
@@ -18819,7 +18833,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getColorReservation(): ColorReservationType;
 
@@ -18837,7 +18851,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setColorReservation(type: ColorReservationType): void;
   }

@@ -27,7 +27,7 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  * @syscap SystemCapability.PowerManager.BatteryStatistics
  * @systemapi
  * @since 8 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace batteryStats {
   /**
@@ -37,7 +37,7 @@ declare namespace batteryStats {
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ConsumptionType {
     /**
@@ -46,7 +46,7 @@ declare namespace batteryStats {
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONSUMPTION_TYPE_INVALID = -17,
 
@@ -56,7 +56,7 @@ declare namespace batteryStats {
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONSUMPTION_TYPE_APP,
 
@@ -66,7 +66,7 @@ declare namespace batteryStats {
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONSUMPTION_TYPE_BLUETOOTH,
 
@@ -76,7 +76,7 @@ declare namespace batteryStats {
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONSUMPTION_TYPE_IDLE,
 
@@ -86,7 +86,7 @@ declare namespace batteryStats {
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONSUMPTION_TYPE_PHONE,
 
@@ -96,7 +96,7 @@ declare namespace batteryStats {
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONSUMPTION_TYPE_RADIO,
 
@@ -106,7 +106,7 @@ declare namespace batteryStats {
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONSUMPTION_TYPE_SCREEN,
 
@@ -116,7 +116,7 @@ declare namespace batteryStats {
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONSUMPTION_TYPE_USER,
 
@@ -126,7 +126,7 @@ declare namespace batteryStats {
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONSUMPTION_TYPE_WIFI
   }
@@ -140,7 +140,7 @@ declare namespace batteryStats {
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBatteryStats(): Promise<Array<BatteryStatsInfo>>;
 
@@ -155,7 +155,7 @@ declare namespace batteryStats {
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBatteryStats(callback: AsyncCallback<Array<BatteryStatsInfo>>): void;
 
@@ -170,7 +170,7 @@ declare namespace batteryStats {
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAppPowerValue(uid: int): double;
 
@@ -185,7 +185,7 @@ declare namespace batteryStats {
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAppPowerPercent(uid: int): double;
 
@@ -201,7 +201,7 @@ declare namespace batteryStats {
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getHardwareUnitPowerValue(type: ConsumptionType): double;
 
@@ -217,7 +217,7 @@ declare namespace batteryStats {
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getHardwareUnitPowerPercent(type: ConsumptionType): double;
 
@@ -229,7 +229,7 @@ declare namespace batteryStats {
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface BatteryStatsInfo {
     /**
@@ -239,7 +239,7 @@ declare namespace batteryStats {
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uid: int;
 
@@ -250,7 +250,7 @@ declare namespace batteryStats {
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     type: ConsumptionType;
 
@@ -261,7 +261,7 @@ declare namespace batteryStats {
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     power: double;
   }
@@ -274,6 +274,6 @@ declare namespace batteryStats {
  * @syscap SystemCapability.PowerManager.BatteryStatistics
  * @systemapi
  * @since 8 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default batteryStats;

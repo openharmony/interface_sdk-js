@@ -24,7 +24,7 @@
  * @typedef BundleOption
  * @syscap SystemCapability.Notification.Notification
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface BundleOption {
   /**
@@ -33,7 +33,7 @@ export interface BundleOption {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   bundle: string;
 
@@ -43,7 +43,7 @@ export interface BundleOption {
    * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   uid?: int;
 }
@@ -54,7 +54,8 @@ export interface BundleOption {
  *
  * @typedef GrantedBundleInfo
  * @syscap SystemCapability.Notification.Notification
- * @since 22 dynamic&static
+ * @since 22 dynamic
+ * @since 23 static
  */
 export interface GrantedBundleInfo {
   /**
@@ -62,7 +63,8 @@ export interface GrantedBundleInfo {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   bundleName: string;
 
@@ -72,7 +74,8 @@ export interface GrantedBundleInfo {
    * @type { int }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   readonly appIndex: int;
 
@@ -82,7 +85,8 @@ export interface GrantedBundleInfo {
    * @type { ?string }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   readonly appName?: string;
 }

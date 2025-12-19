@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { ChildrenMainSize, ItemDragInfo, RectResult, ScrollableCommonMethod, OnWillScrollCallback, OnScrollCallback, OnItemDragStartCallback } from './common';
+import { ChildrenMainSize, EditModeOptions, ItemDragInfo, RectResult, ScrollableCommonMethod, OnWillScrollCallback, OnScrollCallback, OnItemDragStartCallback } from './common';
 import { Axis } from './enums';
 import { OnScrollFrameBeginCallback, ScrollAlign, Scroller } from "./scroll";
 import { Dimension, Length, LengthConstrain, ResourceColor } from './units';
@@ -28,7 +28,7 @@ import { AttributeModifier, CommonMethod } from "./common";
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ScrollState {
     /**
@@ -36,7 +36,7 @@ export declare enum ScrollState {
      * non-animated methods are used to control the scroll.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     Idle,
     /**
@@ -44,14 +44,14 @@ export declare enum ScrollState {
      * when the scrollbar is dragged, or when the mouse scroll wheel is used.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     Scroll,
     /**
      * Inertial scrolling state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     Fling
 }
@@ -60,28 +60,28 @@ export declare enum ScrollState {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ListItemAlign {
     /**
      * The list items are packed toward the start edge of the <em>List</em> component along the cross axis.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     Start,
     /**
      * The list items are centered in the <em>List</em> component along the cross axis.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     Center,
     /**
      * The list items are packed toward the end edge of the <em>List</em> component along the cross axis.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     End
 }
@@ -90,35 +90,35 @@ export declare enum ListItemAlign {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ListItemGroupArea {
     /**
      * The edge of the viewport is in the position of <em>none</em>.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     NONE = 0,
     /**
      * The edge of the viewport is in the position of a list item.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     IN_LIST_ITEM_AREA = 1,
     /**
      * The edge of the viewport is in the position of a header.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     IN_HEADER_AREA = 2,
     /**
      * The edge of the viewport is in the position of a footer.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     IN_FOOTER_AREA = 3
 }
@@ -127,7 +127,7 @@ export declare enum ListItemGroupArea {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum StickyStyle {
     /**
@@ -135,7 +135,7 @@ export declare enum StickyStyle {
      * and the footer is not pinned to the bottom.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     None = 0,
     /**
@@ -143,7 +143,7 @@ export declare enum StickyStyle {
      * and the footer is not pinned to the bottom.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     Header = 1,
     /**
@@ -151,7 +151,7 @@ export declare enum StickyStyle {
      * and the header is not pinned to the top.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     Footer = 2,
     /**
@@ -159,7 +159,7 @@ export declare enum StickyStyle {
      * and the footer is pinned to the bottom.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     BOTH = 3
 }
@@ -169,7 +169,7 @@ export declare enum StickyStyle {
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ChainEdgeEffect {
     /**
@@ -178,7 +178,7 @@ export declare enum ChainEdgeEffect {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT,
     /**
@@ -186,7 +186,7 @@ export declare enum ChainEdgeEffect {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     STRETCH
 }
@@ -195,14 +195,14 @@ export declare enum ChainEdgeEffect {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ScrollSnapAlign {
     /**
      * No alignment. This is the default value.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     NONE = 0,
     /**
@@ -214,7 +214,7 @@ export declare enum ScrollSnapAlign {
      * </p>
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     START = 1,
     /**
@@ -226,7 +226,7 @@ export declare enum ScrollSnapAlign {
      * </pr>
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     CENTER = 2,
     /**
@@ -238,7 +238,7 @@ export declare enum ScrollSnapAlign {
      * </p>
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     END = 3
 }
@@ -248,7 +248,7 @@ export declare enum ScrollSnapAlign {
  * @interface ChainAnimationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ChainAnimationOptions {
     /**
@@ -257,7 +257,7 @@ export declare interface ChainAnimationOptions {
      * @type { Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     minSpace: Length;
     /**
@@ -266,7 +266,7 @@ export declare interface ChainAnimationOptions {
      * @type { Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     maxSpace: Length;
     /**
@@ -276,7 +276,7 @@ export declare interface ChainAnimationOptions {
      * @default 0.7
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     conductivity?: double;
     /**
@@ -286,7 +286,7 @@ export declare interface ChainAnimationOptions {
      * @default 0.3
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     intensity?: double;
     /**
@@ -296,7 +296,7 @@ export declare interface ChainAnimationOptions {
      * @default ChainEdgeEffect.DEFAULT
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     edgeEffect?: ChainEdgeEffect;
     /**
@@ -306,7 +306,7 @@ export declare interface ChainAnimationOptions {
      * @default 228
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     stiffness?: double;
     /**
@@ -316,7 +316,7 @@ export declare interface ChainAnimationOptions {
      * @default 30
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     damping?: double;
 }
@@ -325,7 +325,7 @@ export declare interface ChainAnimationOptions {
  *
  * @interface CloseSwipeActionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface CloseSwipeActionOptions {
     /**
@@ -333,7 +333,7 @@ export declare interface CloseSwipeActionOptions {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     onFinish?: () => void;
 }
@@ -342,7 +342,7 @@ export declare interface CloseSwipeActionOptions {
  *
  * @interface VisibleListContentInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface VisibleListContentInfo {
     /**
@@ -350,7 +350,7 @@ export declare interface VisibleListContentInfo {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     index: int;
     /**
@@ -359,7 +359,7 @@ export declare interface VisibleListContentInfo {
      *
      * @type { ?ListItemGroupArea }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     itemGroupArea?: ListItemGroupArea;
     /**
@@ -368,7 +368,7 @@ export declare interface VisibleListContentInfo {
      *
      * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     itemIndexInGroup?: int;
 }
@@ -379,13 +379,13 @@ export declare interface VisibleListContentInfo {
  * @param {VisibleListContentInfo} start - Information about the currently displayed first list item or list item group.
  * @param {VisibleListContentInfo} end - Information about the currently displayed last list item or list item group.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type OnScrollVisibleContentChangeCallback = (start: VisibleListContentInfo, end: VisibleListContentInfo) => void;
 /**
  * @extends Scroller
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class ListScroller extends Scroller {
     /**
@@ -410,7 +410,7 @@ export declare class ListScroller extends Scroller {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100004 - Controller not bound to component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     getItemRectInGroup(index: int, indexInGroup: int): RectResult;
     /**
@@ -433,7 +433,7 @@ export declare class ListScroller extends Scroller {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100004 - Controller not bound to component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     scrollToItemInGroup(index: int, indexInGroup: int, smooth?: boolean, align?: ScrollAlign): void;
     /**
@@ -450,7 +450,7 @@ export declare class ListScroller extends Scroller {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100004 - Controller not bound to component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     closeAllSwipeActions(options?: CloseSwipeActionOptions): void;
     /**
@@ -471,7 +471,7 @@ export declare class ListScroller extends Scroller {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100004 - The controller not bound to component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     getVisibleListContentInfo(x: double, y: double): VisibleListContentInfo;
 }
@@ -484,7 +484,7 @@ export declare class ListScroller extends Scroller {
  *
  * @interface ListOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface ListOptions {
     /**
@@ -499,7 +499,7 @@ export interface ListOptions {
      * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     initialIndex?: int;
     /**
@@ -515,7 +515,7 @@ export interface ListOptions {
      * @type { ?(double | string) }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     space?: double | string;
     /**
@@ -528,7 +528,7 @@ export interface ListOptions {
      *
      * @type { ?Scroller }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     scroller?: Scroller;
 }
@@ -537,7 +537,7 @@ export interface ListOptions {
  *
  * @interface ListDividerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ListDividerOptions {
     /**
@@ -546,7 +546,7 @@ export declare interface ListDividerOptions {
      *
      * @type { Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     strokeWidth: Length;
     /**
@@ -556,7 +556,7 @@ export declare interface ListDividerOptions {
      * @type { ?ResourceColor }
      * @default 0x08000000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     color?: ResourceColor;
     /**
@@ -566,7 +566,7 @@ export declare interface ListDividerOptions {
      * @type { ?Length }
      * @default 0vp
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     startMargin?: Length;
     /**
@@ -576,7 +576,7 @@ export declare interface ListDividerOptions {
      * @type { ?Length }
      * @default 0vp
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     endMargin?: Length;
 }
@@ -586,7 +586,7 @@ export declare interface ListDividerOptions {
  * @extends ScrollableCommonMethod
  * @interface ListAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare interface ListAttribute extends ScrollableCommonMethod {
@@ -598,7 +598,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @param { Dimension | undefined } [gutter] - Gap between columns.<br>Default value: <em>0</em>
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default lanes(value: int | LengthConstrain | undefined, gutter?: Dimension | undefined): this;
     /**
@@ -608,7 +608,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @param { ListItemAlign | undefined } value - Alignment mode of list items along the cross axis.<br>Default value: <em>ListItemAlign.Start</em>
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default alignListItem(value: ListItemAlign | undefined): this;
     /**
@@ -617,7 +617,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @param { Axis | undefined } value - Direction in which the list items are arranged.<br>Default value: <em>Axis.Vertical</em>
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default listDirection(value: Axis | undefined): this;
     /**
@@ -626,7 +626,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * <br>Default value: <em>0</em>
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default contentStartOffset(value: double | undefined): this;
     /**
@@ -636,7 +636,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * <br>Default value: <em>0</em>
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default contentEndOffset(value: double | undefined): this;
     /**
@@ -646,7 +646,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @param { ListDividerOptions | null | undefined } value - Style of the divider for the list items.<br>Default value: <em>null</em>
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default divider(value: ListDividerOptions | null | undefined): this;
     /**
@@ -657,7 +657,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * <br><em>true</em>: Multiselect is enabled.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default multiSelectable(value: boolean | undefined): this;
     /**
@@ -668,7 +668,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * <br>Value range: [0, +∞)
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default cachedCount(value: int | undefined): this;
     /**
@@ -680,7 +680,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @param { boolean | undefined } show - Whether to display the preloaded list items.<br> Default value: <em>false</em>
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default cachedCount(count: int | undefined, show: boolean | undefined): this;
     /**
@@ -692,7 +692,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * <br><em>true</em>: Chained animations are enabled.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default chainAnimation(value: boolean | undefined): this;
     /**
@@ -702,7 +702,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     default chainAnimationOptions(value: ChainAnimationOptions | undefined): this;
     /**
@@ -717,7 +717,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * <br> Default value: <em>StickyStyle.None</em>
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default sticky(value: StickyStyle | undefined): this;
     /**
@@ -727,7 +727,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @param { ScrollSnapAlign | undefined } value - Alignment mode of the scroll snap position.<br>Default value: <em>ScrollSnapAlign.NONE</em>
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default scrollSnapAlign(value: ScrollSnapAlign | undefined): this;
     /**
@@ -736,7 +736,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @param { ChildrenMainSize | undefined } value - children main size for List
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default childrenMainSize(value: ChildrenMainSize | undefined): this;
     /**
@@ -757,9 +757,23 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * when data is inserted or deleted above the visible area.<br>Default value: <em>false</em>
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default maintainVisibleContentPosition(enabled: boolean | undefined): this;
+    /**
+     * Sets whether empty branches are supported in lazy loading.
+     *
+     * @param { boolean | undefined } supported - Indicates whether empty branches are supported in lazy loading.
+     *     <br>Default value: false, passing undefined will restore the default value.
+     *     <br>If set to false, LazyForEach or Repeat with virtualScroll does not allow empty branches.
+     *     <br>If set to true, an empty branch of LazyForEach or Repeat with virtualScroll is treated as a node of
+     *     zero size.
+     * @returns { this } the attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default supportEmptyBranchInLazyLoading(supported: boolean | undefined): this;
     /**
      * Sets whether the list's layout starts from the bottom (end) rather than the top (beginning).
      *
@@ -776,16 +790,26 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * <br>Default value: <em>false</em>
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default stackFromEnd(enabled: boolean | undefined): this;
+    /**
+     * Sets the edit mode options.
+     *
+     * @param { EditModeOptions } [options] - edit mode options.
+     *     <br>Default value: <em>{ enableGatherSelectedItemsAnimation: false }</em>
+     * @returns { this } The attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default editModeOptions(options?: EditModeOptions): this;
     /**
      * Triggered when a child component enters or leaves the list display area.
      *
      * @param { function | undefined } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default onScrollIndex(event: ((start: int, end: int, center: int) => void) | undefined): this;
     /**
@@ -794,7 +818,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @param { OnScrollVisibleContentChangeCallback | undefined } handler - Callback invoked when the displayed content changes.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default onScrollVisibleContentChange(handler: OnScrollVisibleContentChangeCallback | undefined): this;
     /**
@@ -803,7 +827,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @param { function } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default onItemMove(event: ((from: int, to: int) => boolean) | undefined): this;
     /**
@@ -813,7 +837,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @param { OnItemDragStartCallback | undefined } event - callback function, triggered when the item drag start.
      * @returns { this } Returns the instance of the ListAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default onItemDragStart(event: OnItemDragStartCallback | undefined): this;
     /**
@@ -822,7 +846,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @param { function | undefined } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default onItemDragEnter(event: ((event: ItemDragInfo) => void) | undefined): this;
     /**
@@ -831,7 +855,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @param { function } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default onItemDragMove(event: ((event: ItemDragInfo, itemIndex: int, insertIndex: int) => void) | undefined): this;
     /**
@@ -840,7 +864,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @param { function | undefined } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default onItemDragLeave(event: ((event: ItemDragInfo, itemIndex: int) => void) | undefined): this;
     /**
@@ -849,7 +873,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @param { function | undefined } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default onItemDrop(event: ((event: ItemDragInfo, itemIndex: int, insertIndex: int, isSuccess: boolean) => void) | undefined): this;
     /**
@@ -859,7 +883,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @param { OnScrollFrameBeginCallback | undefined } event - callback function, triggered when the scrolling begin each frame.
      * @returns { this } Returns the instance of the ListAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default onScrollFrameBegin(event: OnScrollFrameBeginCallback | undefined): this;
     /**
@@ -868,7 +892,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
     * @param { OnWillScrollCallback | undefined } handler - callback of scrollable.
     * @returns { this }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 22 static
+    * @since 23 static
     */
     default onWillScroll(handler: OnWillScrollCallback | undefined): this;
     /**
@@ -878,7 +902,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default onDidScroll(handler: OnScrollCallback | undefined): this;
     /**
@@ -887,7 +911,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @param { AttributeModifier<ListAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ListAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -899,7 +923,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
  * @param { CustomBuilder } [content_]
  * @returns { ListAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder

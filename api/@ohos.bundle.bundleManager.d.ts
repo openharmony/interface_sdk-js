@@ -73,7 +73,7 @@ import { Skill as _Skill, SkillUri as _SkillUri } from './bundleManager/Skill';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace bundleManager {
   /**
@@ -101,7 +101,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum BundleFlag {
     /**
@@ -127,7 +127,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_INFO_DEFAULT = 0x00000000,
     /**
@@ -153,7 +153,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_INFO_WITH_APPLICATION = 0x00000001,
     /**
@@ -179,7 +179,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_INFO_WITH_HAP_MODULE = 0x00000002,
     /**
@@ -211,7 +211,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_INFO_WITH_ABILITY = 0x00000004,
     /**
@@ -232,7 +232,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY = 0x00000008,
     /**
@@ -258,7 +258,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION = 0x00000010,
     /**
@@ -293,7 +293,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_INFO_WITH_METADATA = 0x00000020,
     /**
@@ -322,7 +322,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_INFO_WITH_DISABLE = 0x00000040,
     /**
@@ -348,7 +348,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_INFO_WITH_SIGNATURE_INFO = 0x00000080,
     /**
@@ -360,7 +360,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_INFO_WITH_MENU = 0x00000100,
     /**
@@ -372,7 +372,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_INFO_WITH_ROUTER_MAP = 0x00000200,
     /**
@@ -385,7 +385,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_INFO_WITH_SKILL = 0x00000800,
     /**
@@ -395,7 +395,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_INFO_ONLY_WITH_LAUNCHER_ABILITY = 0x00001000,
     /**
@@ -406,7 +406,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_INFO_OF_ANY_USER = 0x00002000,
     /**
@@ -416,7 +416,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_INFO_EXCLUDE_CLONE = 0x00004000,
     /**
@@ -426,7 +426,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_BUNDLE_INFO_WITH_CLOUD_KIT = 0x00008000,
     /**
@@ -448,7 +448,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ApplicationFlag {
     /**
@@ -458,7 +458,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_APPLICATION_INFO_DEFAULT = 0x00000000,
     /**
@@ -467,7 +467,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_APPLICATION_INFO_WITH_PERMISSION = 0x00000001,
     /**
@@ -476,7 +476,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_APPLICATION_INFO_WITH_METADATA = 0x00000002,
     /**
@@ -485,7 +485,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_APPLICATION_INFO_WITH_DISABLE = 0x00000004
   }
@@ -505,7 +505,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AbilityFlag {
     /**
@@ -523,7 +523,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_ABILITY_INFO_DEFAULT = 0x00000000,
     /**
@@ -539,7 +539,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_ABILITY_INFO_WITH_PERMISSION = 0x00000001,
     /**
@@ -555,7 +555,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_ABILITY_INFO_WITH_APPLICATION = 0x00000002,
     /**
@@ -571,7 +571,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_ABILITY_INFO_WITH_METADATA = 0x00000004,
     /**
@@ -587,7 +587,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_ABILITY_INFO_WITH_DISABLE = 0x00000008,
     /**
@@ -610,7 +610,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_ABILITY_INFO_ONLY_SYSTEM_APP = 0x00000010,
     /**
@@ -626,7 +626,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_ABILITY_INFO_WITH_APP_LINKING = 0x00000040,
     /**
@@ -642,7 +642,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_ABILITY_INFO_WITH_SKILL = 0x00000080,
   }
@@ -654,7 +654,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ExtensionAbilityFlag {
     /**
@@ -664,7 +664,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_EXTENSION_ABILITY_INFO_DEFAULT = 0x00000000,
     /**
@@ -673,7 +673,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_EXTENSION_ABILITY_INFO_WITH_PERMISSION = 0x00000001,
     /**
@@ -682,7 +682,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_EXTENSION_ABILITY_INFO_WITH_APPLICATION = 0x00000002,
     /**
@@ -691,7 +691,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_EXTENSION_ABILITY_INFO_WITH_METADATA = 0x00000004,
     /**
@@ -700,7 +700,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GET_EXTENSION_ABILITY_INFO_WITH_SKILL = 0x00000010,
   }
@@ -719,7 +719,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ExtensionAbilityType {
     /**
@@ -734,7 +734,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FORM = 0,
 
@@ -743,7 +743,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WORK_SCHEDULER = 1,
 
@@ -752,7 +752,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INPUT_METHOD = 2,
 
@@ -761,7 +761,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SERVICE = 3,
 
@@ -770,7 +770,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ACCESSIBILITY = 4,
 
@@ -779,7 +779,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DATA_SHARE = 5,
 
@@ -788,7 +788,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FILE_SHARE = 6,
 
@@ -797,7 +797,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     STATIC_SUBSCRIBER = 7,
 
@@ -806,7 +806,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WALLPAPER = 8,
 
@@ -815,7 +815,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BACKUP = 9,
 
@@ -824,7 +824,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WINDOW = 10,
 
@@ -833,7 +833,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ENTERPRISE_ADMIN = 11,
 
@@ -842,7 +842,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     THUMBNAIL = 13,
 
@@ -851,7 +851,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PREVIEW = 14,
 
@@ -860,7 +860,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRINT = 15,
 
@@ -869,7 +869,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHARE = 16,
 
@@ -878,7 +878,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PUSH = 17,
 
@@ -887,7 +887,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DRIVER = 18,
 
@@ -896,7 +896,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ACTION = 19,
 
@@ -905,7 +905,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ADS_SERVICE = 20,
 
@@ -914,7 +914,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EMBEDDED_UI = 21,
 
@@ -923,7 +923,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INSIGHT_INTENT_UI = 22,
 
@@ -932,7 +932,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FENCE = 24,
 
@@ -941,7 +941,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CALLER_INFO_QUERY = 25,
 
@@ -950,7 +950,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ASSET_ACCELERATION = 26,
 
@@ -959,7 +959,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FORM_EDIT = 27,
 
@@ -968,7 +968,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DISTRIBUTED = 28,
 
@@ -977,7 +977,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     APP_SERVICE = 29,
 
@@ -987,7 +987,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LIVE_FORM = 30,
 
@@ -996,6 +996,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 21 dynamic
+     * @since 23 static
      */
     WEB_NATIVE_MESSAGING = 32,
 
@@ -1004,7 +1005,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
     */
     FAULT_LOG = 33,
 
@@ -1012,7 +1013,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of the notification subscriber
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     NOTIFICATION_SUBSCRIBER = 34,
 
@@ -1028,7 +1030,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNSPECIFIED = 255
   }
@@ -1056,7 +1058,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum PermissionGrantState {
     /**
@@ -1079,7 +1081,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PERMISSION_DENIED = -1,
 
@@ -1103,7 +1105,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PERMISSION_GRANTED = 0
   }
@@ -1131,7 +1133,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum SupportWindowMode {
     /**
@@ -1154,7 +1156,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FULL_SCREEN = 0,
     /**
@@ -1177,7 +1179,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SPLIT = 1,
     /**
@@ -1200,7 +1202,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLOATING = 2
   }
@@ -1228,7 +1230,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum LaunchType {
     /**
@@ -1251,7 +1253,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SINGLETON = 0,
 
@@ -1275,7 +1277,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MULTITON = 1,
 
@@ -1299,7 +1301,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SPECIFIED = 2
   }
@@ -1364,7 +1366,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum DisplayOrientation {
     /**
@@ -1387,7 +1389,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNSPECIFIED,
 
@@ -1411,7 +1413,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LANDSCAPE,
 
@@ -1435,7 +1437,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PORTRAIT,
 
@@ -1459,7 +1461,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FOLLOW_RECENT,
 
@@ -1483,7 +1485,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LANDSCAPE_INVERTED,
 
@@ -1507,7 +1509,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PORTRAIT_INVERTED,
 
@@ -1531,7 +1533,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO_ROTATION,
 
@@ -1555,7 +1557,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO_ROTATION_LANDSCAPE,
 
@@ -1579,7 +1581,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO_ROTATION_PORTRAIT,
 
@@ -1603,7 +1605,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO_ROTATION_RESTRICTED,
 
@@ -1627,7 +1629,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO_ROTATION_LANDSCAPE_RESTRICTED,
 
@@ -1651,7 +1653,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO_ROTATION_PORTRAIT_RESTRICTED,
 
@@ -1675,7 +1677,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOCKED,
 
@@ -1685,7 +1687,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO_ROTATION_UNSPECIFIED,
 
@@ -1695,7 +1697,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FOLLOW_DESKTOP
   }
@@ -1723,7 +1725,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ModuleType {
     /**
@@ -1746,7 +1748,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ENTRY = 1,
     /**
@@ -1769,7 +1771,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FEATURE = 2,
     /**
@@ -1792,7 +1794,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SHARED = 3
   }
@@ -1811,7 +1813,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum BundleType {
     /**
@@ -1826,7 +1828,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     APP = 0,
     /**
@@ -1839,7 +1841,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ATOMIC_SERVICE = 1
   }
@@ -1858,7 +1860,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum CompatiblePolicy {
     /**
@@ -1873,7 +1875,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BACKWARD_COMPATIBILITY = 1
   }
@@ -1885,7 +1887,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ProfileType {
     /**
@@ -1894,7 +1896,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INTENT_PROFILE = 1
   }
@@ -1906,7 +1908,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum AppDistributionType {
     /**
@@ -1915,7 +1917,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     APP_GALLERY = 1,
 
@@ -1925,7 +1927,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ENTERPRISE = 2,
 
@@ -1936,7 +1938,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ENTERPRISE_NORMAL = 3,
 
@@ -1947,7 +1949,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ENTERPRISE_MDM = 4,
 
@@ -1957,7 +1959,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OS_INTEGRATION = 5,
 
@@ -1967,7 +1969,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CROWDTESTING = 6,
 
@@ -1977,7 +1979,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NONE = 7
   }
@@ -1988,7 +1990,7 @@ declare namespace bundleManager {
    * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
   */
   export enum MultiAppModeType {
     /**
@@ -1996,7 +1998,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNSPECIFIED = 0,
     /**
@@ -2004,7 +2006,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MULTI_INSTANCE = 1,
     /**
@@ -2012,7 +2014,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
     */
     APP_CLONE = 2,
   }
@@ -2059,7 +2061,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
   */
   export enum ApplicationInfoFlag {
     /**
@@ -2068,7 +2070,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLAG_INSTALLED = 0x00000001,
     /**
@@ -2077,7 +2079,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLAG_OTHER_INSTALLED = 0x00000010,
     /**
@@ -2086,7 +2088,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLAG_PREINSTALLED_APP = 0x00000020,
     /**
@@ -2095,7 +2097,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FLAG_PREINSTALLED_APP_UPDATE = 0x00000040,
   }
@@ -2129,7 +2131,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleInfoForSelf(bundleFlags: int): Promise<BundleInfo>;
 
@@ -2162,7 +2164,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleInfoForSelf(bundleFlags: int, callback: AsyncCallback<BundleInfo>): void;
 
@@ -2195,7 +2197,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleInfoForSelfSync(bundleFlags: int): BundleInfo;
 
@@ -2212,7 +2214,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleInfo(bundleName: string, bundleFlags: int, callback: AsyncCallback<BundleInfo>): void;
 
@@ -2231,7 +2233,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleInfo(bundleName: string,
     bundleFlags: int, userId: int, callback: AsyncCallback<BundleInfo>): void;
@@ -2251,7 +2253,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleInfo(bundleName: string, bundleFlags: int, userId?: int): Promise<BundleInfo>;
 
@@ -2270,7 +2272,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getApplicationInfo(bundleName: string, appFlags: int, callback: AsyncCallback<ApplicationInfo>): void;
 
@@ -2291,7 +2293,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getApplicationInfo(bundleName: string,
     appFlags: int, userId: int, callback: AsyncCallback<ApplicationInfo>): void;
@@ -2313,7 +2315,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getApplicationInfo(bundleName: string, appFlags: int, userId?: int): Promise<ApplicationInfo>;
 
@@ -2329,7 +2331,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllBundleInfo(bundleFlags: int, callback: AsyncCallback<Array<BundleInfo>>): void;
 
@@ -2347,7 +2349,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllBundleInfo(bundleFlags: int, userId: int, callback: AsyncCallback<Array<BundleInfo>>): void;
 
@@ -2365,7 +2367,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllBundleInfo(bundleFlags: int, userId?: int): Promise<Array<BundleInfo>>;
 
@@ -2381,7 +2383,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllApplicationInfo(appFlags: int, callback: AsyncCallback<Array<ApplicationInfo>>): void;
 
@@ -2399,7 +2401,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllApplicationInfo(appFlags: int,
     userId: int, callback: AsyncCallback<Array<ApplicationInfo>>): void;
@@ -2418,7 +2420,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllApplicationInfo(appFlags: int, userId?: int): Promise<Array<ApplicationInfo>>;
 
@@ -2440,7 +2442,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAbilityInfo(want: Want, abilityFlags: int, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
@@ -2464,7 +2466,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAbilityInfo(want: Want,
     abilityFlags: int, userId: int, callback: AsyncCallback<Array<AbilityInfo>>): void;
@@ -2489,7 +2491,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAbilityInfo(want: Want, abilityFlags: int, userId?: int): Promise<Array<AbilityInfo>>;
 
@@ -2513,7 +2515,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAbilityInfo(wants: Array<Want>, abilityFlags: int, userId?: int): Promise<Array<AbilityInfo>>;
 
@@ -2537,7 +2539,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAbilityInfoSync(want: Want, abilityFlags: int, userId?: int): Array<AbilityInfo>;
 
@@ -2553,7 +2555,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAbilityInfo(uri: string, abilityFlags: int): Promise<Array<AbilityInfo>>;
 
@@ -2576,7 +2578,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType,
     extensionAbilityFlags: int, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
@@ -2602,7 +2604,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType,
     extensionAbilityFlags: int, userId: int, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
@@ -2628,7 +2630,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType,
     extensionAbilityFlags: int, userId?: int): Promise<Array<ExtensionAbilityInfo>>;
@@ -2654,7 +2656,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryExtensionAbilityInfoSync(want: Want, extensionAbilityType: ExtensionAbilityType,
     extensionAbilityFlags: int, userId?: int): Array<ExtensionAbilityInfo>;
@@ -2680,7 +2682,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryExtensionAbilityInfoSync(want: Want, extensionAbilityType: string,
     extensionAbilityFlags: int, userId?: int): Array<ExtensionAbilityInfo>;
@@ -2703,7 +2705,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryExtensionAbilityInfoSync(extensionAbilityType: string, extensionAbilityFlags: int,
     userId?: int): Array<ExtensionAbilityInfo>;
@@ -2719,7 +2721,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleNameByUid(uid: int, callback: AsyncCallback<string>): void;
 
@@ -2734,7 +2736,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleNameByUid(uid: int): Promise<string>;
 
@@ -2749,7 +2751,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleNameByUidSync(uid: int): string;
 
@@ -2768,7 +2770,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: int, callback: AsyncCallback<BundleInfo>): void;
 
@@ -2787,7 +2789,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: int): Promise<BundleInfo>;
 
@@ -2806,7 +2808,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleArchiveInfoSync(hapFilePath: string, bundleFlags: int): BundleInfo;
 
@@ -2824,7 +2826,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function cleanBundleCacheFiles(bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -2842,7 +2844,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function cleanBundleCacheFiles(bundleName: string): Promise<void>;
 
@@ -2862,7 +2864,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function cleanBundleCacheFiles(bundleName: string, appIndex: int): Promise<void>;
 
@@ -2873,7 +2875,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function cleanBundleCacheFilesForSelf(): Promise<void>;
 
@@ -2887,7 +2889,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllBundleCacheSize(): Promise<long>;
 
@@ -2901,7 +2903,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function cleanAllBundleCache(): Promise<void>;
 
@@ -2921,7 +2923,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setApplicationEnabled(bundleName: string, appIndex: int, isEnabled: boolean): Promise<void>;
 
@@ -2939,7 +2941,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setApplicationEnabled(bundleName: string, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
@@ -2957,7 +2959,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setApplicationEnabled(bundleName: string, isEnabled: boolean): Promise<void>;
 
@@ -2974,7 +2976,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setApplicationEnabledSync(bundleName: string, isEnabled: boolean): void;
 
@@ -2995,7 +2997,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setAbilityEnabled(info: AbilityInfo, appIndex: int, isEnabled: boolean): Promise<void>;
 
@@ -3014,7 +3016,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setAbilityEnabled(info: AbilityInfo, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
@@ -3033,7 +3035,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setAbilityEnabled(info: AbilityInfo, isEnabled: boolean): Promise<void>;
 
@@ -3051,7 +3053,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setAbilityEnabledSync(info: AbilityInfo, isEnabled: boolean): void;
 
@@ -3068,7 +3070,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isApplicationEnabled(bundleName: string, appIndex: int): Promise<boolean>;
 
@@ -3083,7 +3085,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isApplicationEnabled(bundleName: string, callback: AsyncCallback<boolean>): void;
 
@@ -3098,7 +3100,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isApplicationEnabled(bundleName: string): Promise<boolean>;
 
@@ -3113,7 +3115,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isApplicationEnabledSync(bundleName: string): boolean;
 
@@ -3131,7 +3133,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isAbilityEnabled(info: AbilityInfo, appIndex: int): Promise<boolean>;
 
@@ -3147,7 +3149,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isAbilityEnabled(info: AbilityInfo, callback: AsyncCallback<boolean>): void;
 
@@ -3163,7 +3165,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isAbilityEnabled(info: AbilityInfo): Promise<boolean>;
 
@@ -3179,7 +3181,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isAbilityEnabledSync(info: AbilityInfo): boolean;
 
@@ -3201,7 +3203,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getLaunchWantForBundle(bundleName: string, userId: int, callback: AsyncCallback<Want>): void;
 
@@ -3221,7 +3223,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getLaunchWantForBundle(bundleName: string, callback: AsyncCallback<Want>): void;
 
@@ -3243,7 +3245,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getLaunchWantForBundle(bundleName: string, userId?: int): Promise<Want>;
 
@@ -3265,7 +3267,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getLaunchWantForBundleSync(bundleName: string, userId?: int): Want;
 
@@ -3279,7 +3281,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getLaunchWant(): Want;
 
@@ -3313,7 +3315,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getProfileByAbility(moduleName: string, abilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
 
@@ -3347,7 +3349,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getProfileByAbility(moduleName: string, abilityName: string, metadataName?: string): Promise<Array<string>>;
 
@@ -3381,7 +3383,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getProfileByAbilitySync(moduleName: string, abilityName: string, metadataName?: string): Array<string>;
 
@@ -3413,7 +3415,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
 
@@ -3445,7 +3447,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName?: string): Promise<Array<string>>;
 
@@ -3477,7 +3479,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getProfileByExtensionAbilitySync(moduleName: string, extensionAbilityName: string, metadataName?: string): Array<string>;
 
@@ -3494,7 +3496,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPermissionDef(permissionName: string, callback: AsyncCallback<PermissionDef>): void;
 
@@ -3511,7 +3513,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPermissionDef(permissionName: string): Promise<PermissionDef>;
 
@@ -3528,7 +3530,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPermissionDefSync(permissionName: string): PermissionDef;
 
@@ -3552,7 +3554,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<string>): void;
 
@@ -3576,7 +3578,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string): Promise<string>;
 
@@ -3600,7 +3602,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAbilityLabelSync(bundleName: string, moduleName: string, abilityName: string): string;
 
@@ -3621,7 +3623,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getApplicationInfoSync(bundleName: string, applicationFlags: int, userId: int): ApplicationInfo;
 
@@ -3640,7 +3642,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getApplicationInfoSync(bundleName: string, applicationFlags: int): ApplicationInfo;
 
@@ -3659,7 +3661,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleInfoSync(bundleName: string, bundleFlags: int, userId: int): BundleInfo;
 
@@ -3676,7 +3678,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getBundleInfoSync(bundleName: string, bundleFlags: int): BundleInfo;
 
@@ -3690,7 +3692,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllSharedBundleInfo(callback: AsyncCallback<Array<SharedBundleInfo>>): void;
 
@@ -3704,7 +3706,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllSharedBundleInfo(): Promise<Array<SharedBundleInfo>>;
 
@@ -3723,7 +3725,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSharedBundleInfo(bundleName: string, moduleName: string, callback: AsyncCallback<Array<SharedBundleInfo>>): void;
 
@@ -3742,7 +3744,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSharedBundleInfo(bundleName: string, moduleName: string): Promise<Array<SharedBundleInfo>>;
 
@@ -3760,7 +3762,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAppProvisionInfo(bundleName: string, callback: AsyncCallback<AppProvisionInfo>): void;
 
@@ -3780,7 +3782,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAppProvisionInfo(bundleName: string, userId: int, callback: AsyncCallback<AppProvisionInfo>): void;
 
@@ -3800,7 +3802,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAppProvisionInfo(bundleName: string, userId?: int): Promise<AppProvisionInfo>;
 
@@ -3811,12 +3813,13 @@ declare namespace bundleManager {
    * If you need to get all app provision info under other users, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and
    * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
+   *     (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
    * @param { int } [userId] - Indicates the user ID.
    * @returns { Promise<Array<AppProvisionInfo>> } Returns a list of AppProvisionInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 17700004 - The specified user id is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 23 dynamic&static
@@ -3839,7 +3842,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAppProvisionInfoSync(bundleName: string, userId?: int): AppProvisionInfo;
 
@@ -3856,7 +3859,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSpecifiedDistributionType(bundleName: string): string;
 
@@ -3874,7 +3877,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAdditionalInfo(bundleName: string): string;
 
@@ -3917,7 +3920,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getJsonProfile(profileType: ProfileType, bundleName: string, moduleName?: string, userId?: int): string;
 
@@ -3935,7 +3938,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getExtResource(bundleName: string): Promise<Array<string>>;
 
@@ -3999,7 +4002,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableDynamicIcon(bundleName: string, moduleName: string, option?: BundleOptions): Promise<void>;
 
@@ -4040,7 +4043,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function disableDynamicIcon(bundleName: string, option?: BundleOptions): Promise<void>;
 
@@ -4058,7 +4061,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDynamicIcon(bundleName: string): Promise<string>;
 
@@ -4075,7 +4078,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDynamicIconInfo(bundleName: string): Promise<Array<DynamicIconInfo>>;
 
@@ -4096,7 +4099,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllDynamicIconInfo(userId?: int): Promise<Array<DynamicIconInfo>>;
 
@@ -4127,7 +4130,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function verifyAbc(abcPaths: Array<string>, deleteOriginalFiles: boolean, callback: AsyncCallback<void>): void;
 
@@ -4158,7 +4161,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function verifyAbc(abcPaths: Array<string>, deleteOriginalFiles: boolean): Promise<void>;
 
@@ -4172,7 +4175,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRecoverableApplicationInfo(callback: AsyncCallback<Array<RecoverableApplicationInfo>>): void;
 
@@ -4186,7 +4189,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRecoverableApplicationInfo(): Promise<Array<RecoverableApplicationInfo>>;
 
@@ -4205,7 +4208,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setAdditionalInfo(bundleName: string, additionalInfo: string): void;
 
@@ -4234,7 +4237,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function deleteAbc(abcPath: string): Promise<void>;
 
@@ -4249,7 +4252,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function canOpenLink(link: string): boolean;
 
@@ -4263,7 +4266,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllPreinstalledApplicationInfo(): Promise<Array<PreinstalledApplicationInfo>>;
 
@@ -4281,7 +4284,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllBundleInfoByDeveloperId(developerId: string): Array<BundleInfo>;
 
@@ -4297,7 +4300,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDeveloperIds(appDistributionType?: int): Array<string>;
 
@@ -4315,7 +4318,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function switchUninstallState(bundleName: string, state: boolean): void;
 
@@ -4329,7 +4332,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSignatureInfo(uid: int): SignatureInfo;
 
@@ -4352,7 +4355,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAppCloneBundleInfo(bundleName: string, appIndex: int, bundleFlags: int, userId?: int): Promise<BundleInfo>;
 
@@ -4373,7 +4376,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllAppCloneBundleInfo(bundleName: string, bundleFlags: int, userId?: int): Promise<Array<BundleInfo>>;
 
@@ -4388,7 +4391,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAppCloneIdentity(uid: int): Promise<AppCloneIdentity>;
 
@@ -4406,7 +4409,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllPluginInfo(hostBundleName: string, userId?: int): Promise<Array<PluginBundleInfo>>;
 
@@ -4429,7 +4432,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function migrateData(sourcePaths: Array<string>, destinationPath: string): Promise<void>;
 
@@ -4447,7 +4450,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSandboxDataDir(bundleName: string, appIndex: int): string;
 
@@ -4459,7 +4462,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAppCloneIdentityBySandboxDataDir(sandboxDataDir: string): AppCloneIdentity;
 
@@ -4482,7 +4485,8 @@ declare namespace bundleManager {
    *     4. The array contains wildcard or general.object.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function setAbilityFileTypesForSelf(moduleName: string, abilityName: string, fileTypes: Array<string>): void;
 
@@ -4493,7 +4497,8 @@ declare namespace bundleManager {
    * @returns { string } Returns the bundle path of specified plugin.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getPluginBundlePathForSelf(pluginBundleName: string): string;
 
@@ -4513,7 +4518,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function recoverBackupBundleData(bundleName: string, userId: int, appIndex: int): Promise<void>;
 
@@ -4533,7 +4538,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function removeBackupBundleData(bundleName: string, userId: int, appIndex: int): Promise<void>;
 
@@ -4544,7 +4549,7 @@ declare namespace bundleManager {
    * @param { string } bundleName - Indicates the bundle name.
    * @returns { BundleInstallStatus } Returns the bundle install status.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 23 dynamic&static
@@ -4574,7 +4579,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type ApplicationInfo = _ApplicationInfo;
 
@@ -4601,7 +4606,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type ModuleMetadata = _ModuleMetadata;
 
@@ -4628,7 +4633,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type Metadata = _Metadata;
 
@@ -4664,7 +4669,7 @@ declare namespace bundleManager {
    * @typedef { _BundleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
   export type BundleInfo = _BundleInfo;
 
@@ -4700,7 +4705,7 @@ declare namespace bundleManager {
    * @typedef { _UsedScene }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
   export type UsedScene = _UsedScene;
 
@@ -4736,7 +4741,7 @@ declare namespace bundleManager {
    * @typedef { _ReqPermissionDetail }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
   export type ReqPermissionDetail = _ReqPermissionDetail;
 
@@ -4772,7 +4777,7 @@ declare namespace bundleManager {
    * @typedef { _SignatureInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
   export type SignatureInfo = _SignatureInfo;
 
@@ -4790,7 +4795,7 @@ declare namespace bundleManager {
    *
    * @typedef { _AppCloneIdentity }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 22 static
+   * @since 23 static
    */
   export type AppCloneIdentity = _AppCloneIdentity;
 
@@ -4827,7 +4832,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   export type HapModuleInfo = _HapModuleInfo;
 
@@ -4854,7 +4859,7 @@ declare namespace bundleManager {
    * @typedef { _PreloadItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   export type PreloadItem = _PreloadItem;
 
@@ -4881,7 +4886,7 @@ declare namespace bundleManager {
    * @typedef { _Dependency }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   export type Dependency = _Dependency;
 
@@ -4900,7 +4905,7 @@ declare namespace bundleManager {
    *
    * @typedef { _RouterItem}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 22 static
+   * @since 23 static
    */
   export type RouterItem = _RouterItem;
 
@@ -4920,7 +4925,7 @@ declare namespace bundleManager {
    * @typedef { _DataItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   export type DataItem = _DataItem;
 
@@ -4957,7 +4962,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   export type AbilityInfo = _AbilityInfo;
 
@@ -4994,7 +4999,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   export type WindowSize = _WindowSize;
 
@@ -5021,7 +5026,7 @@ declare namespace bundleManager {
    * @typedef { _ExtensionAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   export type ExtensionAbilityInfo = _ExtensionAbilityInfo;
 
@@ -5032,7 +5037,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type PermissionDef = _PermissionDef;
 
@@ -5050,7 +5055,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type ElementName = _ElementName;
 
@@ -5061,7 +5066,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type SharedBundleInfo = _SharedBundleInfo;
 
@@ -5081,7 +5086,7 @@ declare namespace bundleManager {
    * @typedef { _AppProvisionInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type AppProvisionInfo = _AppProvisionInfo;
 
@@ -5101,7 +5106,7 @@ declare namespace bundleManager {
    * @typedef { _Validity }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type Validity = _Validity;
 
@@ -5112,7 +5117,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type RecoverableApplicationInfo = _RecoverableApplicationInfo;
 
@@ -5132,7 +5137,7 @@ declare namespace bundleManager {
    * @typedef { _Skill }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   export type Skill = _Skill;
 
@@ -5152,7 +5157,7 @@ declare namespace bundleManager {
    * @typedef { _SkillUri }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   export type SkillUrl = _SkillUri;
 
@@ -5163,7 +5168,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;
 
@@ -5174,7 +5179,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type PluginBundleInfo = _PluginBundleInfo;
 
@@ -5185,7 +5190,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type PluginModuleInfo = _PluginModuleInfo;
 
@@ -5205,7 +5210,7 @@ declare namespace bundleManager {
    * @typedef { _DynamicIconInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type DynamicIconInfo = _DynamicIconInfo;
 
@@ -5225,7 +5230,7 @@ declare namespace bundleManager {
    * @typedef { _BundleOptions }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type BundleOptions = _BundleOptions;
 }

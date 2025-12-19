@@ -27,7 +27,7 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace quickFixManager {
   /**
@@ -37,7 +37,7 @@ declare namespace quickFixManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface HapModuleQuickFixInfo {
     /**
@@ -48,7 +48,7 @@ declare namespace quickFixManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly moduleName: string;
 
@@ -60,7 +60,7 @@ declare namespace quickFixManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly originHapHash: string;
 
@@ -72,7 +72,7 @@ declare namespace quickFixManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly quickFixFilePath: string;
   }
@@ -84,7 +84,7 @@ declare namespace quickFixManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
    */
   export interface ApplicationQuickFixInfo {
     /**
@@ -95,7 +95,7 @@ declare namespace quickFixManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly bundleName: string;
 
@@ -107,7 +107,7 @@ declare namespace quickFixManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly bundleVersionCode: long;
 
@@ -119,7 +119,7 @@ declare namespace quickFixManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly bundleVersionName: string;
 
@@ -131,7 +131,7 @@ declare namespace quickFixManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly quickFixVersionCode: long;
 
@@ -143,7 +143,7 @@ declare namespace quickFixManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly quickFixVersionName: string;
 
@@ -155,7 +155,7 @@ declare namespace quickFixManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly hapModuleQuickFixInfo: Array<HapModuleQuickFixInfo>;
   }
@@ -176,7 +176,7 @@ declare namespace quickFixManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function applyQuickFix(hapModuleQuickFixFiles: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -196,7 +196,7 @@ declare namespace quickFixManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function applyQuickFix(hapModuleQuickFixFiles: Array<string>): Promise<void>;
 
@@ -215,7 +215,7 @@ declare namespace quickFixManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function revokeQuickFix(bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -234,7 +234,7 @@ declare namespace quickFixManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function revokeQuickFix(bundleName: string): Promise<void>;
 
@@ -253,7 +253,7 @@ declare namespace quickFixManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getApplicationQuickFixInfo(bundleName: string, callback: AsyncCallback<ApplicationQuickFixInfo>): void;
 
@@ -272,7 +272,7 @@ declare namespace quickFixManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getApplicationQuickFixInfo(bundleName: string): Promise<ApplicationQuickFixInfo>;
 }

@@ -42,7 +42,7 @@ export default class ApplicationStateObserver {
  * The application state observer.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 22 static
+ * @since 23 static
  */
 declare interface ApplicationStateObserver {
 /*** endif */
@@ -52,7 +52,7 @@ declare interface ApplicationStateObserver {
    * @param { AppStateData } appStateData - State changed Application info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onForegroundApplicationChanged(appStateData: AppStateData): void;
 
@@ -62,7 +62,7 @@ declare interface ApplicationStateObserver {
    * @param { AbilityStateData } abilityStateData - State changed ability info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onAbilityStateChanged(abilityStateData: AbilityStateData): void;
 
@@ -72,7 +72,7 @@ declare interface ApplicationStateObserver {
    * @param { ProcessData } processData - Process info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onProcessCreated(processData: ProcessData): void;
 
@@ -82,7 +82,7 @@ declare interface ApplicationStateObserver {
    * @param { ProcessData } processData - Process info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onProcessDied(processData: ProcessData): void;
 
@@ -92,7 +92,7 @@ declare interface ApplicationStateObserver {
    * @param { ProcessData } processData - Process info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onProcessStateChanged(processData: ProcessData): void;
 
@@ -102,7 +102,7 @@ declare interface ApplicationStateObserver {
    * @param { AppStateData } appStateData - State changed Application info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onAppStarted(appStateData: AppStateData): void;
 
@@ -112,7 +112,7 @@ declare interface ApplicationStateObserver {
    * @param { AppStateData } appStateData - State changed Application info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onAppStopped(appStateData: AppStateData): void;
 }
@@ -129,7 +129,7 @@ export type ProcessData = _ProcessData.default;
  * The process data.
  * @typedef { _ProcessData }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 22 static
+ * @since 23 static
  */
 export type ProcessData = _ProcessData;
 

@@ -391,7 +391,7 @@ export type Matrix4 = [
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export type Offset = Vector2;
 
@@ -1064,7 +1064,7 @@ declare class ColorMetrics {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   get green(): number;
 

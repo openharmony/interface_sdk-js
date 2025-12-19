@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -20,9 +19,10 @@
  */
 
 import type image from './@ohos.multimedia.image';
-import { Callback } from './@ohos.base';
-import type matrix4 from './@ohos.matrix4';
-import { UIContext } from './@ohos.arkui.UIContext'
+import { BusinessError, Callback } from './@ohos.base';
+import type common2D from './@ohos.graphics.common2D';
+import type componentUtils from './@ohos.arkui.componentUtils';
+import { UIContext } from './@ohos.arkui.UIContext';
 
 /**
  * Module for AI-generated images using UI Component.
@@ -34,6 +34,46 @@ import { UIContext } from './@ohos.arkui.UIContext'
  * @since 23 dynamic
  */
 declare namespace imageGeneration {
+
+  /**
+   * Provides stream output result type definition.
+   *
+   * @enum { int } Constants
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  enum PartialResultType {
+    /**
+     * Indicates the action for partial result.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    PARTIAL = 0,
+    /**
+     * Indicates the action for complete result.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    COMPLETED = 1,
+    /**
+     * Indicates the action for partial fail result.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    PARTIAL_FAIL = 2,
+  }
+
   /**
    * Style types supported by AI image generation models, like Graffiti, Watercolor.
    *
@@ -43,7 +83,7 @@ declare namespace imageGeneration {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  export interface ImageStyle {
+  interface ImageStyle {
     /**
      * The style icon information which will display in style list.
      *
@@ -76,7 +116,7 @@ declare namespace imageGeneration {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  export interface GenerateImageTaskParams {
+  interface GenerateImageTaskParams {
     /**
      * image information used for AI-generated image tasks.
      *
@@ -87,6 +127,7 @@ declare namespace imageGeneration {
      * @since 23 dynamic
      */
     images: Array<ImageItem>;
+
     /**
      * Location reference map for multi-image generated tasks.
      *
@@ -97,6 +138,18 @@ declare namespace imageGeneration {
      * @since 23 dynamic
      */
     positionImage?: image.PixelMap;
+
+    /**
+     * Path information for lasso selection in AI-generated image tasks.
+     *
+     * @type { ?Array<common2D.Point> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    selectPath?: Array<common2D.Point>;
+
     /**
      * Description information for AI-generated image tasks.
      *
@@ -107,6 +160,127 @@ declare namespace imageGeneration {
      * @since 23 dynamic
      */
     prompt: string;
+
+    /**
+     * the style of AI-generated image in one task.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    style?: string;
+
+    /**
+     * the size information of AI-generated image in one task.
+     *
+     * @type { image.Size }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    imageSize: image.Size;
+
+    /**
+     * the number of AI-generated image in one task.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    imageCount?: int;
+  }
+
+  /**
+   * Configuration stream result for AI-generated image tasks.
+   *
+   * @interface GenerateImageTaskPartialResult
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  interface GenerateImageTaskPartialResult {
+    /**
+     * The type information used for AI-generated image task.
+     *
+     * @type { PartialResultType }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    type: PartialResultType;
+
+    /**
+     * Sequence number of the image corresponding to AI-generated image task, available in partial and partial error result.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    imageIndex?: int;
+
+    /**
+     * Image data of the image corresponding to AI-generated image task, available in partial result.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    imageData?: string;
+
+    /**
+     * Total number of the image corresponding to AI-generated image task, available in completed result.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    totalCount?: int;
+
+    /**
+     * Information of the partial error corresponding to AI-generated image task, available in partial error result.
+     *
+     * @type { ?BusinessError }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    partialFail?: BusinessError;
+  }
+
+  /**
+   * Configuration result for AI-generated image tasks.
+   *
+   * @interface GenerateImageTaskResult
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  interface GenerateImageTaskResult {
+    /**
+     * The image result corresponding to AI-generated image task.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    imageData: Array<string>;
   }
 
   /**
@@ -118,7 +292,7 @@ declare namespace imageGeneration {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  export interface ImageGenerationModel {
+  interface ImageGenerationModel {
     /**
      * Get the types of image styles supported by the AI model.
      *
@@ -129,30 +303,135 @@ declare namespace imageGeneration {
      * @since 23 dynamic
      */
     getModelSupportStyles(): Array<ImageStyle>;
+
     /**
      * Request AI image generation task to get the generated image.
      *
-     * @param { number } sessionId - The session id for requesting an AI image generation task.
-     *     <br>Value range:[0, +∞]
-     * @param { GenerateImageTaskParams } params - Parameters for requesting an AI image generation task.
-     * @returns { Promise<string> } Returns the url of generated image.
+     * @param { int } sessionId - The session id for requesting an AI image generation task.
+     *     <br>Value: range:[0, +∞]
+     * @param { GenerateImageTaskOptions } params - Parameters for requesting an AI image generation task.
+     * @param { Callback<GenerateImageTaskPartialResult> } callback - the callback used to return the GenerateImageTaskPartialResult.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    requestImageGeneration(sessionId: number, params: GenerateImageTaskParams): Promise<string>;
+    requestImageGeneration(sessionId: int, params: GenerateImageTaskParams,
+      callback: Callback<GenerateImageTaskPartialResult>): void;
+
     /**
      * Cancel AI image generation task.
      *
-     * @param { number } sessionId - The session id for cancel an AI image generation task.
-     *     <br>Value range:[0, +∞]
+     * @param { int } sessionId - The session id for cancel an AI image generation task.
+     *     <br>Value: range: [0, +∞]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    cancelImageGeneration(sessionId: number): void;
+    cancelImageGeneration(sessionId: int): void;
+
+    /**
+     * User use complaint menu to complain the result of an AI-generated image task.
+     *
+     * @param { int } sessionId - The session id of AI image generation task.
+     *     <br>Value: range: [0, +∞]
+     * @param { GenerateImageTaskParams } request - The origin request for AI-generated image task.
+     * @param { GenerateImageTaskResult } result - The result for AI-generated image task.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    onComplain(sessionId: int, request: GenerateImageTaskParams, result: GenerateImageTaskResult): void;
+  }
+
+  /**
+   * Configuration stream result for AI-generated text tasks.
+   *
+   * @interface GenerateTextTaskPartialResult
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  interface GenerateTextTaskPartialResult {
+    /**
+     * The type information used for AI-generated text task.
+     *
+     * @type { PartialResultType }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    type: PartialResultType;
+
+    /**
+     * Think information in AI-generated text task, available in partial result.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    reasoningContent?: string;
+
+    /**
+     * Final data in AI-generated text task, available in partial result.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    content?: string;
+
+    /**
+     * Information of the partial error corresponding to AI-generated text task, available in partial error result.
+     *
+     * @type { ?BusinessError }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    partialFail?: BusinessError;
+  }
+
+  /**
+   * Configuration result for AI-generated text tasks.
+   *
+   * @interface GenerateTextTaskResult
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  interface GenerateTextTaskResult {
+    /**
+     * Think information in AI-generated text task.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    reasoningContent: string;
+
+    /**
+     * Final data in AI-generated text task.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    content: string;
   }
 
   /**
@@ -169,26 +448,40 @@ declare namespace imageGeneration {
      * Request AI text generation task to get the generated text.
      *
      * @param { number } sessionId - The session id for requesting an AI text generation task.
-     *     <br>Value range:[0, +∞]
+     *     <br>Value: range: [0, +∞]
      * @param { string } value - Parameters for requesting an AI text generation task.
-     * @returns { Promise<string> } Returns the generated text.
+     * @param { Callback<GenerateTextTaskPartialResult> } callback - the callback used to return the GenerateTextTaskPartialResult.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    requestTextGeneration(sessionId: number, value: string): Promise<string>;
+    requestTextGeneration(sessionId: number, value: string,
+      callback: Callback<GenerateTextTaskPartialResult>): void;
     /**
      * Cancel AI text generation task.
      *
      * @param { number } sessionId - The session id for cancel an AI text generation task.
-     *     <br>Value range:[0, +∞]
+     *     <br>Value: range: [0, +∞]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
     cancelTextGeneration(sessionId: number): void;
+    /**
+     * User use complaint menu to complain the result of an AI-generated text task.
+     *
+     * @param { int } sessionId - The session id of AI text generation task.
+     *     <br>Value: range: [0, +∞]
+     * @param { string } request - The origin request for AI-generated text task.
+     * @param { GenerateTextTaskResult } result - The result for AI-generated text task.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    onComplain(sessionId: int, request: string, result: GenerateTextTaskResult): void;
   }
 
   /**
@@ -200,7 +493,7 @@ declare namespace imageGeneration {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  export interface ImageItem {
+  interface ImageItem {
     /**
      * Image decoding information for preview in the page of ImageGeneratorDialog.
      *
@@ -233,19 +526,34 @@ declare namespace imageGeneration {
     url?: ResourceStr;
 
     /**
-     * In scenarios with multiple images, information about graphic transformations, such as the position of the image,
-     * scaling factors for width and height, and rotation angle.
+     * The size and position of the container used to display images in the preview canvas.
+     *
      * <p>**NOTE**:
      * it is recommended to be provided in multi-image fusion scenarios to achieve better results.
      * </p>
      *
-     * @type { ?matrix4.Matrix4Transit }
+     * @type { ?common2D.Rect }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    transform?: matrix4.Matrix4Transit;
+    rect?: common2D.Rect;
+
+    /**
+     * The rotation of the container used to display images in the preview canvas.
+     *
+     * <p>**NOTE**:
+     * it is recommended to be provided in multi-image fusion scenarios to achieve better results.
+     * </p>
+     *
+     * @type { ?componentUtils.Rotation2D }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    rotation?: componentUtils.Rotation2D;
 
     /**
      * In scenarios with multiple images, information about image rendering hierarchy.
@@ -254,13 +562,13 @@ declare namespace imageGeneration {
      * it is recommended to be provided in multi-image fusion scenarios to achieve better results.
      * </p>
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    zIndex?: number;
+    zIndex?: int;
 
     /**
      * whether the image type is a hand-drawn line art.
@@ -287,7 +595,7 @@ declare namespace imageGeneration {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  export interface TaskStatistic {
+  interface TaskStatistic {
     /**
      * The style used in AI image generation tasks.
      *
@@ -313,24 +621,24 @@ declare namespace imageGeneration {
     /**
      * Number of images used for AI image generation tasks.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    imageCount: number;
+    imageCount: int;
 
     /**
      * Time taken for AI image generation task in seconds.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    generationTime: number;
+    generationTime: double;
   }
 
   /**
@@ -342,19 +650,19 @@ declare namespace imageGeneration {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  export interface GeneratorResult {
+  interface GeneratorResult {
     /**
      * Decoded data of AI-generated images.
      *
-     * @type { image.PixelMap }
+     * @type { ?image.PixelMap }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    image: image.PixelMap;
+    image?: image.PixelMap;
     /**
-     * The local save path for AI-generated images, only when the user saves them.
+     * The path information of AI-generated images.
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -367,13 +675,13 @@ declare namespace imageGeneration {
     /**
      * Statistics of AI-generated image tasks.
      *
-     * @type { Array<TaskStatistic> }
+     * @type { TaskStatistic }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    statistic: Array<TaskStatistic>;
+    statistic: TaskStatistic;
   }
 
   /**
@@ -385,7 +693,7 @@ declare namespace imageGeneration {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  export interface GeneratorResultPageIcon {
+  interface GeneratorResultPageIcon {
     /**
      * Icon image information.
      *
@@ -427,7 +735,7 @@ declare namespace imageGeneration {
    * @stagemodelonly
    * @since 23 dynamic
    */
-  export interface GeneratorDialogOptions {
+  interface GeneratorDialogOptions {
     /**
      * Initial image parameters used for AI-generated image tasks.
      *
@@ -481,13 +789,13 @@ declare namespace imageGeneration {
     /**
      * Callback triggered when the ImageGeneratorDialog changes in size or position.
      *
-     * @type { ?Callback<Area> }
+     * @type { ?Callback<common2D.Rect> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
      * @since 23 dynamic
      */
-    onAreaDidChange?: Callback<Area>;
+    onAreaDidChange?: Callback<common2D.Rect>;
   }
 
   /**
@@ -495,13 +803,13 @@ declare namespace imageGeneration {
    *
    * @param { UIContext } uiContext - the context of dialog for ui display.
    * @param { GeneratorDialogOptions } [options] - Generate image task parameters.
-   * @returns { Promise<GeneratorResult> } Returns the result of generated image.
+   * @returns { Promise<Array<GeneratorResult>> } - Returns the result of generated image.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 23 dynamic
    */
-  function showGeneratorDialog(uiContext: UIContext, options?: GeneratorDialogOptions): Promise<GeneratorResult>;
+  function showGeneratorDialog(uiContext: UIContext, options?: GeneratorDialogOptions): Promise<Array<GeneratorResult>>;
 }
 
 export default imageGeneration;

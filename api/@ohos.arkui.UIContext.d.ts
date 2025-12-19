@@ -2570,6 +2570,81 @@ export class UIObserver {
    * @since 23 dynamic
    */
   offSwiperContentUpdate(config: observer.ObserverOptions, callback?: Callback<SwiperContentInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the visible router page's size is changed.
+   *
+   * @param { Callback<observer.RouterPageInfo> } callback - The callback function to be called
+   *     when the visible router page's size is changed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onRouterPageSizeChange(callback: Callback<observer.RouterPageInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with 'onRouterPageSizeChange()'.
+   *
+   * @param { Callback<observer.RouterPageInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  offRouterPageSizeChange(callback?: Callback<observer.RouterPageInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the visible NavDestination's size is changed.
+   *
+   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called
+   *     when the visible NavDestination's size is changed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onNavDestinationSizeChange(callback: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with 'onNavDestinationSizeChange()'.
+   *
+   * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  offNavDestinationSizeChange(callback?: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the size of the visible NavDestination of the navigation
+   * with the specified uniqueId changes.
+   *
+   * @param { number } navigationUniqueId - The uniqueId of the Navigation to which NavDestination belongs.
+   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called
+   *     when the visible NavDestination's size is changed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onNavDestinationSizeChangeByUniqueId(navigationUniqueId: number, callback: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with 'onNavDestinationSizeChangeByUniqueId()'.
+   *
+   * @param { number } navigationUniqueId - The uniqueId of the Navigation to which NavDestination belongs.
+   * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  offNavDestinationSizeChangeByUniqueId(navigationUniqueId: number, callback?: Callback<observer.NavDestinationInfo>): void;
 }
 
 /**
@@ -4525,7 +4600,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   setImageCacheCount(value: number): void;
 
@@ -4537,7 +4612,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   setImageRawDataCacheSize(value: number): void;
 
@@ -5365,6 +5440,18 @@ export class UIContext {
    * @since 22 dynamic
    */
   getId(): number;
+
+  /**
+   * Set the switch for memory recycling of invisible image nodes.
+   * 
+   * @param { boolean } enabled - The switch for memory recycling.
+   *    <br>Default value: false, Passing `undefined` restores the default value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  recycleInvisibleImageMemory(enabled: boolean): void;
 }
 
 /**

@@ -26,6 +26,6 @@ import { ProgressAttribute } from '@ohos.arkui.component';
  *
  * @implements { ProgressAttribute, AttributeModifier<ProgressAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class ProgressModifier implements ProgressAttribute, AttributeModifier<ProgressAttribute> {}

@@ -27,7 +27,7 @@ import { OnPickerStateCallback } from './@ohos.multimedia.avCastPicker';
  * A picker view to show availale input device list.
  * @struct { AVInputCastPicker }
  * @syscap SystemCapability.Multimedia.AVSession.AVInputCast
- * @since 22
+ * @since 23 static
  */
 @Component
 export declare struct AVInputCastPicker {
@@ -37,7 +37,7 @@ export declare struct AVInputCastPicker {
    * If not set, system will show the default appearance for different device type.
    * @type { ? CustomBuilder }
    * @syscap SystemCapability.Multimedia.AVSession.AVInputCast
-   * @since 22
+   * @since 23 static
    */
   @BuilderParam
   customPicker?: CustomBuilder;
@@ -46,14 +46,14 @@ export declare struct AVInputCastPicker {
    * Picker state change callback.
    * @type { ?OnPickerStateCallback }
    * @syscap SystemCapability.Multimedia.AVSession.AVInputCast
-   * @since 22
+   * @since 23 static
    */
   onStateChange?: OnPickerStateCallback;
 
    /**
    * The method to build component.
    * @syscap SystemCapability.Multimedia.AVSession.AVInputCast
-   * @since 22
+   * @since 23 static
    */
    @Builder
    build(): void;

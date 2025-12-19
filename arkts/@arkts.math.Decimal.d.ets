@@ -42,7 +42,7 @@ type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 type Rounding = int;
 
@@ -70,7 +70,7 @@ type Modulo = Rounding | 9;
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 type Modulo = int;
 
@@ -89,7 +89,7 @@ type Modulo = int;
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
- * @since 22 static
+ * @since 23 static
  */
 type Value = string | double | Decimal;
 
@@ -109,7 +109,7 @@ type Value = string | double | Decimal;
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
- * @since 22 static
+ * @since 23 static
  */
 interface DecimalConfig {
   /**
@@ -130,7 +130,7 @@ interface DecimalConfig {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   precision?: double;
   /**
@@ -155,7 +155,7 @@ interface DecimalConfig {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   rounding?: Rounding;
   /**
@@ -176,7 +176,7 @@ interface DecimalConfig {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toExpNeg?: double;
   /**
@@ -197,7 +197,7 @@ interface DecimalConfig {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toExpPos?: double;
   /**
@@ -218,7 +218,7 @@ interface DecimalConfig {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   minE?: double;
   /**
@@ -239,7 +239,7 @@ interface DecimalConfig {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   maxE?: double;
   /**
@@ -260,7 +260,7 @@ interface DecimalConfig {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   crypto?: boolean;
   /**
@@ -281,7 +281,7 @@ interface DecimalConfig {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   modulo?: Modulo;
   /**
@@ -302,7 +302,7 @@ interface DecimalConfig {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   defaults?: boolean;
 }
@@ -321,7 +321,7 @@ interface DecimalConfig {
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class Decimal {
   /**
@@ -353,7 +353,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get d(): Array<double> | null;
 
@@ -375,7 +375,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   get e(): double;
 
@@ -397,7 +397,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   get s(): double;
 
@@ -423,7 +423,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   constructor(n: Value);
 
@@ -443,7 +443,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   abs(): Decimal;
 
@@ -465,7 +465,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   floor(): Decimal;
 
@@ -487,7 +487,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   ceil(): Decimal;
 
@@ -507,7 +507,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   trunc(): Decimal;
 
@@ -541,7 +541,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clamp(min: Value, max: Value): Decimal;
 
@@ -571,7 +571,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   add(n: Value): Decimal;
 
@@ -601,7 +601,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   sub(n: Value): Decimal;
 
@@ -631,7 +631,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   mul(n: Value): Decimal;
 
@@ -661,7 +661,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   div(n: Value): Decimal;
 
@@ -691,7 +691,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   mod(n: Value): Decimal;
 
@@ -713,7 +713,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   sqrt(): Decimal;
 
@@ -735,7 +735,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   cbrt(): Decimal;
 
@@ -767,7 +767,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   pow(n: Value): Decimal;
 
@@ -793,7 +793,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   exp(): Decimal;
 
@@ -825,7 +825,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   log(n: Value): Decimal;
 
@@ -849,7 +849,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   ln(): Decimal;
 
@@ -869,7 +869,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   cos(): Decimal;
 
@@ -889,7 +889,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   sin(): Decimal;
 
@@ -909,7 +909,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   tan(): Decimal;
 
@@ -931,7 +931,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   cosh(): Decimal;
 
@@ -951,7 +951,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   sinh(): Decimal;
 
@@ -971,7 +971,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   tanh(): Decimal;
 
@@ -993,7 +993,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   acos(): Decimal;
 
@@ -1017,7 +1017,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   asin(): Decimal;
 
@@ -1039,7 +1039,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   atan(): Decimal;
 
@@ -1063,7 +1063,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   acosh(): Decimal;
 
@@ -1087,7 +1087,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   asinh(): Decimal;
 
@@ -1111,7 +1111,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   atanh(): Decimal;
 
@@ -1147,7 +1147,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   comparedTo(n: Value): double;
 
@@ -1175,7 +1175,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   equals(n: Value): boolean;
 
@@ -1203,7 +1203,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   greaterThan(n: Value): boolean;
 
@@ -1233,7 +1233,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   greaterThanOrEqualTo(n: Value): boolean;
 
@@ -1261,7 +1261,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   lessThan(n: Value): boolean;
 
@@ -1289,7 +1289,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   lessThanOrEqualTo(n: Value): boolean;
 
@@ -1309,7 +1309,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isFinite(): boolean;
 
@@ -1329,7 +1329,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isInteger(): boolean;
 
@@ -1349,7 +1349,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isNaN(): boolean;
 
@@ -1369,7 +1369,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isNegative(): boolean;
 
@@ -1389,7 +1389,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isPositive(): boolean;
 
@@ -1409,7 +1409,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isZero(): boolean;
 
@@ -1439,7 +1439,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   dividedToIntegerBy(n: Value): Decimal;
 
@@ -1459,7 +1459,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   negate(): Decimal;
 
@@ -1479,7 +1479,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toBinary(): string;
 
@@ -1505,7 +1505,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toBinary(significantDigits: double): string;
 
@@ -1533,7 +1533,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toBinary(significantDigits: double, rounding: Rounding): string;
 
@@ -1553,7 +1553,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toOctal(): string;
 
@@ -1577,7 +1577,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toOctal(significantDigits: double): string;
 
@@ -1605,7 +1605,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toOctal(significantDigits: double, rounding: Rounding): string;
 
@@ -1625,7 +1625,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toHexadecimal(): string;
 
@@ -1649,7 +1649,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toHexadecimal(significantDigits: double): string;
 
@@ -1677,7 +1677,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toHexadecimal(significantDigits: double, rounding: Rounding): string;
 
@@ -1697,7 +1697,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toDecimalPlaces(): Decimal;
 
@@ -1723,7 +1723,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toDecimalPlaces(decimalPlaces: double): Decimal;
 
@@ -1751,7 +1751,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toDecimalPlaces(decimalPlaces: double, rounding: Rounding): Decimal;
 
@@ -1771,7 +1771,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toExponential(): string;
 
@@ -1797,7 +1797,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toExponential(decimalPlaces: double): string;
 
@@ -1825,7 +1825,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toExponential(decimalPlaces: double, rounding: Rounding): string;
 
@@ -1845,7 +1845,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toFixed(): string;
 
@@ -1870,7 +1870,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toFixed(decimalPlaces: double): string;
 
@@ -1898,7 +1898,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toFixed(decimalPlaces: double, rounding: Rounding): string;
 
@@ -1920,7 +1920,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toFraction(): Decimal[];
 
@@ -1952,7 +1952,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toFraction(maxDenominator: Value): Decimal[];
 
@@ -1980,7 +1980,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toNearest(n: Value): Decimal;
 
@@ -2014,7 +2014,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toNearest(n: Value, rounding: Rounding): Decimal;
 
@@ -2034,7 +2034,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toPrecision(): string;
 
@@ -2058,7 +2058,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toPrecision(significantDigits: double): string;
 
@@ -2086,7 +2086,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toPrecision(significantDigits: double, rounding: Rounding): string;
 
@@ -2106,7 +2106,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toSignificantDigits(): Decimal;
 
@@ -2132,7 +2132,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toSignificantDigits(significantDigits: double): Decimal;
 
@@ -2160,7 +2160,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toSignificantDigits(significantDigits: double, rounding: Rounding): Decimal;
 
@@ -2180,7 +2180,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toNumber(): double;
 
@@ -2204,7 +2204,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toString(): string;
 
@@ -2226,7 +2226,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   valueOf(): string;
 
@@ -2246,7 +2246,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   decimalPlaces(): double;
 
@@ -2266,7 +2266,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   precision(): double;
 
@@ -2294,7 +2294,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   precision(includeZeros: boolean | int): double;
 
@@ -2324,7 +2324,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static abs(n: Value): Decimal;
 
@@ -2354,7 +2354,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static floor(n: Value): Decimal;
 
@@ -2384,7 +2384,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static ceil(n: Value): Decimal;
 
@@ -2414,7 +2414,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static trunc(n: Value): Decimal;
 
@@ -2450,7 +2450,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static clamp(n: Value, min: Value, max: Value): Decimal;
 
@@ -2484,7 +2484,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static add(x: Value, y: Value): Decimal;
 
@@ -2520,7 +2520,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static sum(...n: Value[]): Decimal;
 
@@ -2554,7 +2554,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static sub(x: Value, y: Value): Decimal;
 
@@ -2588,7 +2588,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static mul(x: Value, y: Value): Decimal;
 
@@ -2622,7 +2622,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static div(x: Value, y: Value): Decimal;
 
@@ -2656,7 +2656,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static mod(x: Value, y: Value): Decimal;
 
@@ -2688,7 +2688,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static sqrt(n: Value): Decimal;
 
@@ -2720,7 +2720,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static cbrt(n: Value): Decimal;
 
@@ -2756,7 +2756,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static pow(base: Value, exponent: Value): Decimal;
 
@@ -2790,7 +2790,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static exp(n: Value): Decimal;
 
@@ -2826,7 +2826,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static log(n: Value, base: Value): Decimal;
 
@@ -2860,7 +2860,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static ln(n: Value): Decimal;
 
@@ -2894,7 +2894,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static log2(n: Value): Decimal;
 
@@ -2928,7 +2928,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static log10(n: Value): Decimal;
 
@@ -2960,7 +2960,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static cos(n: Value): Decimal;
 
@@ -2992,7 +2992,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static sin(n: Value): Decimal;
 
@@ -3024,7 +3024,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static tan(n: Value): Decimal;
 
@@ -3056,7 +3056,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static cosh(n: Value): Decimal;
 
@@ -3088,7 +3088,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static sinh(n: Value): Decimal;
 
@@ -3120,7 +3120,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static tanh(n: Value): Decimal;
 
@@ -3152,7 +3152,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static acos(n: Value): Decimal;
 
@@ -3186,7 +3186,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static asin(n: Value): Decimal;
 
@@ -3220,7 +3220,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static atan(n: Value): Decimal;
 
@@ -3254,7 +3254,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static acosh(n: Value): Decimal;
 
@@ -3288,7 +3288,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static asinh(n: Value): Decimal;
 
@@ -3322,7 +3322,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static atanh(n: Value): Decimal;
 
@@ -3358,7 +3358,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static atan2(y: Value, x: Value): Decimal;
 
@@ -3390,7 +3390,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static hypot(...n: Value[]): Decimal;
 
@@ -3420,7 +3420,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static max(...n: Value[]): Decimal;
 
@@ -3450,7 +3450,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static min(...n: Value[]): Decimal;
 
@@ -3474,7 +3474,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static random(): Decimal;
 
@@ -3508,7 +3508,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static random(significantDigits: double): Decimal;
 
@@ -3548,7 +3548,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static sign(n: Value): double;
 
@@ -3578,7 +3578,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static round(n: Value): Decimal;
 
@@ -3630,7 +3630,7 @@ declare class Decimal {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   static set(config: DecimalConfig): void;
 
@@ -3664,7 +3664,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   static readonly ROUND_UP: int;
 
@@ -3698,7 +3698,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   static readonly ROUND_DOWN: int;
 
@@ -3732,7 +3732,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   static readonly ROUND_CEILING: int;
 
@@ -3766,7 +3766,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   static readonly ROUND_FLOOR: int;
 
@@ -3800,7 +3800,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   static readonly ROUND_HALF_UP: int;
 
@@ -3834,7 +3834,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   static readonly ROUND_HALF_DOWN: int;
 
@@ -3868,7 +3868,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   static readonly ROUND_HALF_EVEN: int;
 
@@ -3902,7 +3902,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   static readonly ROUND_HALF_CEILING: int;
 
@@ -3936,7 +3936,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   static readonly ROUND_HALF_FLOOR: int;
 
@@ -3970,7 +3970,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   static readonly EUCLIDEAN: int;
 }

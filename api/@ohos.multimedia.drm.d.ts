@@ -30,7 +30,7 @@
  * @syscap SystemCapability.Multimedia.Drm.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace drm {
 /**
@@ -45,7 +45,7 @@ declare namespace drm {
  * @syscap SystemCapability.Multimedia.Drm.Core
  * @atomicservice
  * @since 14 dynamic
- * @since 22 static
+ * @since 23 static
  */
   enum DrmErrorCode {
     /**
@@ -58,7 +58,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERROR_UNKNOWN = 24700101,
     /**
@@ -71,7 +71,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MAX_SYSTEM_NUM_REACHED = 24700103,
     /**
@@ -84,7 +84,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MAX_SESSION_NUM_REACHED = 24700104,
     /**
@@ -97,7 +97,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SERVICE_FATAL_ERROR = 24700201
   }
@@ -114,7 +114,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PreDefinedConfigName {
     /**
@@ -127,7 +127,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONFIG_DEVICE_VENDOR = 'vendor',
     /**
@@ -140,7 +140,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONFIG_DEVICE_VERSION = 'version',
     /**
@@ -153,7 +153,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONFIG_DEVICE_DESCRIPTION = 'description',
     /**
@@ -166,7 +166,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONFIG_DEVICE_ALGORITHMS = 'algorithms',
     /**
@@ -179,7 +179,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONFIG_DEVICE_UNIQUE_ID = 'deviceUniqueId',
     /**
@@ -192,7 +192,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONFIG_SESSION_MAX = 'maxSessionNum',
     /**
@@ -205,7 +205,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONFIG_SESSION_CURRENT = 'currentSessionNum',
   }
@@ -222,7 +222,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum MediaKeyType {
     /**
@@ -235,7 +235,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_KEY_TYPE_OFFLINE = 0,
     /**
@@ -248,7 +248,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_KEY_TYPE_ONLINE,
   }
@@ -265,7 +265,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum OfflineMediaKeyStatus {
     /**
@@ -278,7 +278,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OFFLINE_MEDIA_KEY_STATUS_UNKNOWN = 0,
     /**
@@ -291,7 +291,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OFFLINE_MEDIA_KEY_STATUS_USABLE = 1,
     /**
@@ -304,7 +304,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OFFLINE_MEDIA_KEY_STATUS_INACTIVE = 2,
   }
@@ -321,7 +321,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum CertificateStatus {
     /**
@@ -334,7 +334,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CERT_STATUS_PROVISIONED = 0,
     /**
@@ -347,7 +347,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CERT_STATUS_NOT_PROVISIONED,
     /**
@@ -360,7 +360,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CERT_STATUS_EXPIRED,
     /**
@@ -373,7 +373,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CERT_STATUS_INVALID,
     /**
@@ -386,7 +386,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CERT_STATUS_UNAVAILABLE,
   }
@@ -403,7 +403,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum MediaKeyRequestType {
     /**
@@ -416,7 +416,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_UNKNOWN = 0,
     /**
@@ -429,7 +429,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_INITIAL = 1,
     /**
@@ -442,7 +442,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_RENEWAL = 2,
     /**
@@ -455,7 +455,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_RELEASE = 3,
     /**
@@ -468,7 +468,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_NONE = 4,
     /**
@@ -481,7 +481,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_UPDATE = 5,
   }
@@ -498,7 +498,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ContentProtectionLevel {
     /**
@@ -511,7 +511,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONTENT_PROTECTION_LEVEL_UNKNOWN = 0,
     /**
@@ -524,7 +524,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONTENT_PROTECTION_LEVEL_SW_CRYPTO,
     /**
@@ -537,7 +537,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONTENT_PROTECTION_LEVEL_HW_CRYPTO,
     /**
@@ -550,7 +550,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONTENT_PROTECTION_LEVEL_ENHANCED_HW,
     /**
@@ -563,7 +563,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONTENT_PROTECTION_LEVEL_MAX,
   }
@@ -580,7 +580,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ProvisionRequest {
     /**
@@ -595,7 +595,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     data: Uint8Array;
     /**
@@ -610,7 +610,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     defaultURL: string;
   }
@@ -627,7 +627,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface OptionsData {
     /**
@@ -642,7 +642,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
     /**
@@ -657,7 +657,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     value: string;
   }
@@ -674,7 +674,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MediaKeyRequest {
     /**
@@ -689,7 +689,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     mediaKeyRequestType: MediaKeyRequestType;
     /**
@@ -704,7 +704,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     data: Uint8Array;
     /**
@@ -719,7 +719,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     defaultURL: string;
   }
@@ -736,7 +736,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface EventInfo {
     /**
@@ -751,7 +751,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     info: Uint8Array;
     /**
@@ -766,7 +766,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     extraInfo: string;
   }
@@ -783,7 +783,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface StatisticKeyValue {
     /**
@@ -798,7 +798,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
     /**
@@ -813,7 +813,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     value: string;
   }
@@ -830,7 +830,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MediaKeyStatus {
     /**
@@ -845,7 +845,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
     /**
@@ -860,7 +860,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     value: string;
   }
@@ -877,7 +877,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface KeysInfo {
     /**
@@ -892,7 +892,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     keyId: Uint8Array;
     /**
@@ -907,7 +907,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     value: string;
   }
@@ -924,7 +924,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MediaKeySystemInfo {
     /**
@@ -939,7 +939,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uuid: string;
     /**
@@ -954,7 +954,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pssh: Uint8Array;
   }
@@ -971,7 +971,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MediaKeySystemDescription {
     /**
@@ -986,7 +986,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
     /**
@@ -1001,7 +1001,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uuid: string;
   }
@@ -1028,7 +1028,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getMediaKeySystemUuid(name: string): string;
 
@@ -1048,7 +1048,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getMediaKeySystems(): MediaKeySystemDescription[];
 
@@ -1089,7 +1089,7 @@ declare namespace drm {
    * @throws { BusinessError } 24700103 - Meet max MediaKeySystem num limit.
    * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 22 static
+   * @since 23 static
    */
   function createMediaKeySystem(name: string): MediaKeySystem | undefined;
 
@@ -1121,7 +1121,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isMediaKeySystemSupported(name: string, mimeType: string, level: ContentProtectionLevel): boolean;
 
@@ -1151,7 +1151,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isMediaKeySystemSupported(name: string, mimeType: string): boolean;
 
@@ -1179,7 +1179,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isMediaKeySystemSupported(name: string): boolean;
 
@@ -1197,7 +1197,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MediaKeySystem {
     /**
@@ -1224,7 +1224,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getConfigurationString(configName: string): string;
 
@@ -1252,7 +1252,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setConfigurationString(configName: string, value: string): void;
 
@@ -1278,7 +1278,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getConfigurationByteArray(configName: string): Uint8Array;
 
@@ -1306,7 +1306,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setConfigurationByteArray(configName: string, value: Uint8Array): void;
 
@@ -1328,7 +1328,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getStatistics(): StatisticKeyValue[];
 
@@ -1348,7 +1348,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMaxContentProtectionLevel(): ContentProtectionLevel;
 
@@ -1368,7 +1368,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateKeySystemRequest(): Promise<ProvisionRequest>;
 
@@ -1396,7 +1396,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     processKeySystemResponse(response: Uint8Array): Promise<void>;
 
@@ -1416,7 +1416,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getCertificateStatus(): CertificateStatus;
 
@@ -1440,7 +1440,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     on(type: 'keySystemRequired', callback: (eventInfo: EventInfo) => void): void;
 
@@ -1464,7 +1464,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     off(type: 'keySystemRequired', callback?: (eventInfo: EventInfo) => void): void;
 
@@ -1508,7 +1508,7 @@ declare namespace drm {
      * @throws { BusinessError } 24700104 - Meet max MediaKeySession num limit.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 22 static
+     * @since 23 static
      */
     createMediaKeySession(level: ContentProtectionLevel): MediaKeySession | undefined;
 
@@ -1540,7 +1540,7 @@ declare namespace drm {
      * @throws { BusinessError } 24700104 - Meet max MediaKeySession num limit.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 22 static
+     * @since 23 static
      */
     createMediaKeySession(): MediaKeySession | undefined;
 
@@ -1560,7 +1560,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getOfflineMediaKeyIds(): Uint8Array[];
 
@@ -1588,7 +1588,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getOfflineMediaKeyStatus(mediaKeyId: Uint8Array): OfflineMediaKeyStatus;
 
@@ -1612,7 +1612,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     clearOfflineMediaKeys(mediaKeyId: Uint8Array): void;
     /**
@@ -1629,7 +1629,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     destroy(): void;
   }
@@ -1648,7 +1648,7 @@ declare namespace drm {
    * @syscap SystemCapability.Multimedia.Drm.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MediaKeySession {
 
@@ -1682,7 +1682,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateMediaKeyRequest(mimeType: string, initData: Uint8Array, mediaKeyType: int, options?: OptionsData[]): Promise<MediaKeyRequest>;
 
@@ -1710,7 +1710,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     processMediaKeyResponse(response: Uint8Array): Promise<Uint8Array>;
 
@@ -1730,7 +1730,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     checkMediaKeyStatus(): MediaKeyStatus[];
 
@@ -1748,7 +1748,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     clearMediaKeys(): void;
 
@@ -1778,7 +1778,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     generateOfflineReleaseRequest(mediaKeyId: Uint8Array): Promise<Uint8Array>;
 
@@ -1808,7 +1808,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     processOfflineReleaseResponse(mediaKeyId: Uint8Array, response: Uint8Array): Promise<void>;
 
@@ -1836,7 +1836,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     restoreOfflineMediaKeys(mediaKeyId: Uint8Array): Promise<void>;
 
@@ -1856,7 +1856,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getContentProtectionLevel(): ContentProtectionLevel;
 
@@ -1884,7 +1884,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     requireSecureDecoderModule(mimeType: string): boolean;
 
@@ -1910,7 +1910,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     on(type: 'keyRequired', callback: (eventInfo: EventInfo) => void): void;
 
@@ -1936,7 +1936,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     off(type: 'keyRequired', callback?: (eventInfo: EventInfo) => void): void;
 
@@ -1962,7 +1962,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     on(type: 'keyExpired', callback: (eventInfo: EventInfo) => void): void;
 
@@ -1988,7 +1988,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     off(type: 'keyExpired', callback?: (eventInfo: EventInfo) => void): void;
 
@@ -2014,7 +2014,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     on(type: 'vendorDefined', callback: (eventInfo: EventInfo) => void): void;
 
@@ -2040,7 +2040,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     off(type: 'vendorDefined', callback?: (eventInfo: EventInfo) => void): void;
 
@@ -2066,7 +2066,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     on(type: 'expirationUpdate', callback: (eventInfo: EventInfo) => void): void;
 
@@ -2092,7 +2092,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     off(type: 'expirationUpdate', callback?: (eventInfo: EventInfo) => void): void;
 
@@ -2118,7 +2118,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     on(type: 'keysChange', callback: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
 
@@ -2144,7 +2144,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     off(type: 'keysChange', callback?: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
 
@@ -2162,7 +2162,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     destroy(): void;
 

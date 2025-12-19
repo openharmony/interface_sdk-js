@@ -28,7 +28,7 @@ import { RecordData } from '@ohos.base';
  *
  * @interface FormLinkOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface FormLinkOptions {
     /**
@@ -36,7 +36,7 @@ export declare interface FormLinkOptions {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     action: string;
     /**
@@ -44,7 +44,7 @@ export declare interface FormLinkOptions {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     moduleName?: string;
     /**
@@ -52,7 +52,7 @@ export declare interface FormLinkOptions {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     bundleName?: string;
     /**
@@ -60,7 +60,7 @@ export declare interface FormLinkOptions {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     abilityName?: string;
     /**
@@ -68,7 +68,7 @@ export declare interface FormLinkOptions {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     uri?: string;
     /**
@@ -76,7 +76,7 @@ export declare interface FormLinkOptions {
      *
      * @type { ?RecordData  }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     params?: RecordData;
 }
@@ -86,7 +86,7 @@ export declare interface FormLinkOptions {
  * @extends CommonMethod
  * @interface FormLinkAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare interface FormLinkAttribute extends CommonMethod {
@@ -96,7 +96,7 @@ export declare interface FormLinkAttribute extends CommonMethod {
      * @param { AttributeModifier<FormLinkAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     default attributeModifier(modifier: AttributeModifier<FormLinkAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -107,7 +107,7 @@ export declare interface FormLinkAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { FormLinkAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder

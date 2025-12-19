@@ -30,7 +30,7 @@ import { RecordData } from '../@ohos.base';
  * @stagemodelonly
  * @atomicservice
  * @since 14 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default interface UIServiceExtensionConnectCallback {
   /**
@@ -50,7 +50,7 @@ export default interface UIServiceExtensionConnectCallback {
    * @param { Record<string, RecordData> } data - Indicates the received data.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onData(data: Record<string, RecordData>): void;
 
@@ -61,7 +61,7 @@ export default interface UIServiceExtensionConnectCallback {
    * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onDisconnect(): void;
 }

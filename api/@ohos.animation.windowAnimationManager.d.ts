@@ -27,7 +27,7 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi Hide this for inner system use.
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace windowAnimationManager {
   /**
@@ -37,7 +37,7 @@ declare namespace windowAnimationManager {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setController(controller: WindowAnimationController): void;
 
@@ -49,7 +49,7 @@ declare namespace windowAnimationManager {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function minimizeWindowWithAnimation(windowTarget: WindowAnimationTarget,
     callback: AsyncCallback<WindowAnimationFinishedCallback>): void;
@@ -62,7 +62,7 @@ declare namespace windowAnimationManager {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function minimizeWindowWithAnimation(windowTarget: WindowAnimationTarget): Promise<WindowAnimationFinishedCallback>;
 
@@ -73,7 +73,7 @@ declare namespace windowAnimationManager {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface RRect {
     /**
@@ -82,7 +82,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     left: double;
 
@@ -92,7 +92,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     top: double;
 
@@ -102,7 +102,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     width: double;
 
@@ -112,7 +112,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     height: double;
 
@@ -122,7 +122,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     radius: double;
   }
@@ -134,7 +134,7 @@ declare namespace windowAnimationManager {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface WindowAnimationTarget {
     /**
@@ -144,7 +144,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly bundleName: string;
 
@@ -155,7 +155,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly abilityName: string;
 
@@ -166,7 +166,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly windowBounds: RRect;
 
@@ -177,7 +177,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly missionId: int;
   }
@@ -189,7 +189,7 @@ declare namespace windowAnimationManager {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface WindowAnimationFinishedCallback {
     /**
@@ -198,7 +198,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onAnimationFinish(): void;
   }
@@ -211,7 +211,7 @@ declare namespace windowAnimationManager {
    * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   type AppStartCallback = (startingWindowTarget: WindowAnimationTarget,
     finishCallback: WindowAnimationFinishedCallback) => void;
@@ -225,7 +225,7 @@ declare namespace windowAnimationManager {
    * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   type AppTransitionCallback = (fromWindowTarget: WindowAnimationTarget, toWindowTarget: WindowAnimationTarget,
     finishCallback: WindowAnimationFinishedCallback) => void;
@@ -238,7 +238,7 @@ declare namespace windowAnimationManager {
    * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   type WindowMinimizationCallback = (minimizingWindowTarget: WindowAnimationTarget,
     finishCallback: WindowAnimationFinishedCallback) => void;
@@ -251,7 +251,7 @@ declare namespace windowAnimationManager {
    * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   type WindowCloseCallback = (closingWindowTarget: WindowAnimationTarget,
     finishCallback: WindowAnimationFinishedCallback) => void;
@@ -263,7 +263,7 @@ declare namespace windowAnimationManager {
    * @param {WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   type ScreenUnlockCallback = (finishCallback: WindowAnimationFinishedCallback) => void;
 
@@ -275,7 +275,7 @@ declare namespace windowAnimationManager {
    * @param { Array<WindowAnimationTarget> } floatingWindowTargets - All the floating window targets.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   type WindowAnimationTargetsUpdationCallback = (fullScreenWindowTarget: WindowAnimationTarget,
     floatingWindowTargets: Array<WindowAnimationTarget>) => void;
@@ -287,7 +287,7 @@ declare namespace windowAnimationManager {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface WindowAnimationController {
     /**
@@ -297,17 +297,10 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
-    /**
-     * Callback function on starting an application form launcher.
-     *
-     * @type { ?AppStartCallback }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 23 dynamic&static
-     */
-    onStartAppFromLauncher?: AppStartCallback;
+    onStartAppFromLauncher(startingWindowTarget: WindowAnimationTarget,
+      finishCallback: WindowAnimationFinishedCallback): void;
 
     /**
      * Called on starting an application form recent.
@@ -316,17 +309,10 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
-    /**
-     * Callback function on starting an application form recent.
-     *
-     * @type { ?AppStartCallback }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 23 dynamic&static
-     */
-    onStartAppFromRecent?: AppStartCallback;
+    onStartAppFromRecent(startingWindowTarget: WindowAnimationTarget,
+      finishCallback: WindowAnimationFinishedCallback): void;
 
     /**
      * Called on starting an application form other.
@@ -335,17 +321,10 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
-    /**
-     * Callback function on starting an application form other.
-     *
-     * @type { ?AppStartCallback }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 23 dynamic&static
-     */
-    onStartAppFromOther?: AppStartCallback;
+    onStartAppFromOther(startingWindowTarget: WindowAnimationTarget,
+      finishCallback: WindowAnimationFinishedCallback): void;
 
     /**
      * Called on application transition.
@@ -355,17 +334,10 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
-    /**
-     * Callback function on application transition.
-     *
-     * @type { ?AppTransitionCallback }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 23 dynamic&static
-     */
-    onAppTransition?: AppTransitionCallback;
+    onAppTransition(fromWindowTarget: WindowAnimationTarget, toWindowTarget: WindowAnimationTarget,
+      finishCallback: WindowAnimationFinishedCallback): void;
 
     /**
      * Called on minimizing a window.
@@ -374,17 +346,10 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
-    /**
-     * Callback function on minimizing a window.
-     *
-     * @type { ?WindowMinimizationCallback }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 23 dynamic&static
-     */
-    onMinimizeWindow?: WindowMinimizationCallback;
+    onMinimizeWindow(minimizingWindowTarget: WindowAnimationTarget,
+      finishCallback: WindowAnimationFinishedCallback): void;
 
     /**
      * Called on closing a window.
@@ -393,17 +358,9 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
-    /**
-     * Callback function on closing a window.
-     *
-     * @type { ?WindowCloseCallback }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 23 dynamic&static
-     */
-    onCloseWindow?: WindowCloseCallback;
+    onCloseWindow(closingWindowTarget: WindowAnimationTarget, finishCallback: WindowAnimationFinishedCallback): void;
 
     /**
      * Called on unlocking the screen.
@@ -411,17 +368,9 @@ declare namespace windowAnimationManager {
      * @param {WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
-    /**
-     * Callback function on unlocking the screen.
-     *
-     * @type { ?ScreenUnlockCallback }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 23 dynamic&static
-     */
-    onScreenUnlock?: ScreenUnlockCallback;
+    onScreenUnlock(finishCallback: WindowAnimationFinishedCallback): void;
 
     /**
      * Called on window animation targets update.
@@ -430,15 +379,88 @@ declare namespace windowAnimationManager {
      * @param { Array<WindowAnimationTarget> } floatingWindowTargets - All the floating window targets.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
+    onWindowAnimationTargetsUpdate(fullScreenWindowTarget: WindowAnimationTarget,
+      floatingWindowTargets: Array<WindowAnimationTarget>): void;
+
+    /**
+     * Callback function on starting an application form launcher.
+     *
+     * @type { ?AppStartCallback }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 23 static
+     */
+    onStartAppFromLauncher?: AppStartCallback;
+
+    /**
+     * Callback function on starting an application form recent.
+     *
+     * @type { ?AppStartCallback }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 23 static
+     */
+    onStartAppFromRecent?: AppStartCallback;
+
+    /**
+     * Callback function on starting an application form other.
+     *
+     * @type { ?AppStartCallback }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 23 static
+     */
+    onStartAppFromOther?: AppStartCallback;
+
+    /**
+     * Callback function on application transition.
+     *
+     * @type { ?AppTransitionCallback }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 23 static
+     */
+    onAppTransition?: AppTransitionCallback;
+
+    /**
+     * Callback function on minimizing a window.
+     *
+     * @type { ?WindowMinimizationCallback }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 23 static
+     */
+    onMinimizeWindow?: WindowMinimizationCallback;
+
+    /**
+     * Callback function on closing a window.
+     *
+     * @type { ?WindowCloseCallback }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 23 static
+     */
+    onCloseWindow?: WindowCloseCallback;
+
+    /**
+     * Callback function on unlocking the screen.
+     *
+     * @type { ?ScreenUnlockCallback }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 23 static
+     */
+    onScreenUnlock?: ScreenUnlockCallback;
+
     /**
      * Callback function on window animation targets update.
      *
      * @type { ?WindowAnimationTargetsUpdationCallback }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     onWindowAnimationTargetsUpdate?: WindowAnimationTargetsUpdationCallback;
   }

@@ -33,7 +33,7 @@ import notification from '../@ohos.notification';
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 7 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface NotificationSubscriber {
   /**
@@ -43,7 +43,7 @@ export interface NotificationSubscriber {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onConsume?: (data: SubscribeCallbackData) => void;
 
@@ -54,7 +54,7 @@ export interface NotificationSubscriber {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onCancel?: (data: SubscribeCallbackData) => void;
 
@@ -65,7 +65,7 @@ export interface NotificationSubscriber {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onUpdate?: (data: NotificationSortingMap) => void;
 
@@ -76,7 +76,7 @@ export interface NotificationSubscriber {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onConnect?: () => void;
 
@@ -87,7 +87,7 @@ export interface NotificationSubscriber {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onDisconnect?: () => void;
 
@@ -98,7 +98,7 @@ export interface NotificationSubscriber {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onDestroy?: () => void;
 
@@ -121,7 +121,7 @@ export interface NotificationSubscriber {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onDoNotDisturbChanged?: (mode: notificationManager.DoNotDisturbDate) => void;
 
@@ -132,7 +132,7 @@ export interface NotificationSubscriber {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onEnabledNotificationChanged?: (callbackData: EnabledNotificationCallbackData) => void;
 
@@ -163,7 +163,7 @@ export interface NotificationSubscriber {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onBadgeChanged?: (data: BadgeNumberCallbackData) => void;
 
@@ -174,7 +174,7 @@ export interface NotificationSubscriber {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onBadgeEnabledChanged?: BadgeEnabledChangedCallback;
 
@@ -185,7 +185,7 @@ export interface NotificationSubscriber {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onBatchCancel?: (data: Array<SubscribeCallbackData>) => void;
 }
@@ -198,7 +198,7 @@ export interface NotificationSubscriber {
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 7 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface SubscribeCallbackData {
   /**
@@ -209,7 +209,7 @@ export interface SubscribeCallbackData {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly request: NotificationRequest;
 
@@ -221,7 +221,7 @@ export interface SubscribeCallbackData {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly sortingMap?: NotificationSortingMap;
 
@@ -233,7 +233,7 @@ export interface SubscribeCallbackData {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly reason?: int;
 
@@ -245,7 +245,7 @@ export interface SubscribeCallbackData {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly sound?: string;
 
@@ -257,7 +257,7 @@ export interface SubscribeCallbackData {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly vibrationValues?: Array<long>;
 }
@@ -269,7 +269,7 @@ export interface SubscribeCallbackData {
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 8 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface EnabledNotificationCallbackData {
   /**
@@ -280,7 +280,7 @@ export interface EnabledNotificationCallbackData {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly bundle: string;
 
@@ -292,7 +292,7 @@ export interface EnabledNotificationCallbackData {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly uid: int;
 
@@ -304,7 +304,7 @@ export interface EnabledNotificationCallbackData {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly enable: boolean;
 }
@@ -380,7 +380,7 @@ export interface EnabledPriorityNotificationByBundleCallbackData {
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface BadgeNumberCallbackData {
   /**
@@ -391,7 +391,7 @@ export interface BadgeNumberCallbackData {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly bundle: string;
 
@@ -403,7 +403,7 @@ export interface BadgeNumberCallbackData {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly uid: int;
 
@@ -415,7 +415,7 @@ export interface BadgeNumberCallbackData {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly badgeNumber: int;
 
@@ -440,7 +440,7 @@ export interface BadgeNumberCallbackData {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly appInstanceKey?: string;
 }
@@ -467,6 +467,6 @@ export interface BadgeEnabledChangedCallback {
  * @param { EnabledNotificationCallbackData } data
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 export type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData) => void;

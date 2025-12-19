@@ -30,7 +30,7 @@ import { Callback } from '../@ohos.base';
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export enum SceneResourceType {
   /**
@@ -38,7 +38,7 @@ export enum SceneResourceType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   UNKNOWN = 0,
 
@@ -47,7 +47,7 @@ export enum SceneResourceType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   NODE = 1,
 
@@ -56,7 +56,7 @@ export enum SceneResourceType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   ENVIRONMENT = 2,
 
@@ -65,7 +65,7 @@ export enum SceneResourceType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   MATERIAL = 3,
 
@@ -74,7 +74,7 @@ export enum SceneResourceType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   MESH = 4,
 
@@ -83,7 +83,7 @@ export enum SceneResourceType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   ANIMATION = 5,
 
@@ -92,7 +92,7 @@ export enum SceneResourceType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   SHADER = 6,
 
@@ -101,7 +101,7 @@ export enum SceneResourceType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   IMAGE = 7,
 
@@ -110,7 +110,7 @@ export enum SceneResourceType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   MESH_RESOURCE = 8,
 
@@ -129,7 +129,7 @@ export enum SceneResourceType {
  * @interface SceneResource
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface SceneResource {
   /**
@@ -138,7 +138,7 @@ export interface SceneResource {
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   name: string;
 
@@ -149,7 +149,7 @@ export interface SceneResource {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly resourceType: SceneResourceType;
 
@@ -160,7 +160,7 @@ export interface SceneResource {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly uri?: ResourceStr;
 
@@ -170,7 +170,7 @@ export interface SceneResource {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   destroy(): void;
 }
@@ -182,7 +182,7 @@ export interface SceneResource {
  * @interface Shader
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface Shader extends SceneResource {
   /**
@@ -192,7 +192,7 @@ export interface Shader extends SceneResource {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly inputs: Record<string, double | Vec2 | Vec3 | Vec4 | Image>;
 
@@ -213,7 +213,7 @@ export interface Shader extends SceneResource {
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export enum MaterialType {
   /**
@@ -221,7 +221,7 @@ export enum MaterialType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   SHADER = 1,
   
@@ -230,7 +230,7 @@ export enum MaterialType {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   METALLIC_ROUGHNESS = 2,
 
@@ -268,7 +268,7 @@ export enum MaterialType {
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export enum CullMode {
   /**
@@ -276,7 +276,7 @@ export enum CullMode {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   NONE = 0,
 
@@ -285,7 +285,7 @@ export enum CullMode {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   FRONT = 1,
 
@@ -294,7 +294,7 @@ export enum CullMode {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   BACK = 2
 }
@@ -338,7 +338,7 @@ export enum PolygonMode {
  * @interface Blend
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface Blend {
   /**
@@ -347,7 +347,7 @@ export interface Blend {
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enabled: boolean;
 }
@@ -362,7 +362,7 @@ export interface Blend {
  * @interface RenderSort
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface RenderSort {
   /**
@@ -373,7 +373,7 @@ export interface RenderSort {
    * @default 32 Default render sort layer id.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   renderSortLayer?: int;
 
@@ -385,7 +385,7 @@ export interface RenderSort {
    * @default 0 Default render sort layer order.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   renderSortLayerOrder?: int;
 }
@@ -397,7 +397,7 @@ export interface RenderSort {
  * @interface Material
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface Material extends SceneResource {
   /**
@@ -407,7 +407,7 @@ export interface Material extends SceneResource {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly materialType: MaterialType;
   
@@ -417,7 +417,7 @@ export interface Material extends SceneResource {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   shadowReceiver?: boolean;
 
@@ -427,7 +427,7 @@ export interface Material extends SceneResource {
    * @type { ?CullMode }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   cullMode?: CullMode;
 
@@ -438,7 +438,7 @@ export interface Material extends SceneResource {
    * @default undefined, which means that blending is disabled.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   blend?: Blend;
 
@@ -448,7 +448,7 @@ export interface Material extends SceneResource {
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   alphaCutoff?: double;
 
@@ -458,7 +458,7 @@ export interface Material extends SceneResource {
    * @type { ?RenderSort }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   renderSort?: RenderSort;
 
@@ -479,7 +479,7 @@ export interface Material extends SceneResource {
  * @interface MaterialProperty
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface MaterialProperty {
   /**
@@ -488,7 +488,7 @@ export interface MaterialProperty {
    * @type { Image | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   image: Image | null;
 
@@ -498,7 +498,7 @@ export interface MaterialProperty {
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   factor: Vec4;
 
@@ -508,7 +508,7 @@ export interface MaterialProperty {
    * @type { ?Sampler }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   sampler?: Sampler;
 }
@@ -520,7 +520,7 @@ export interface MaterialProperty {
  * @interface MetallicRoughnessMaterial
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface MetallicRoughnessMaterial extends Material {
   /**
@@ -530,7 +530,7 @@ export interface MetallicRoughnessMaterial extends Material {
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   baseColor: MaterialProperty;
 
@@ -541,7 +541,7 @@ export interface MetallicRoughnessMaterial extends Material {
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   normal: MaterialProperty;
 
@@ -552,7 +552,7 @@ export interface MetallicRoughnessMaterial extends Material {
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   material: MaterialProperty;
 
@@ -563,7 +563,7 @@ export interface MetallicRoughnessMaterial extends Material {
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   ambientOcclusion: MaterialProperty;
 
@@ -573,7 +573,7 @@ export interface MetallicRoughnessMaterial extends Material {
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   emissive: MaterialProperty;
 
@@ -584,7 +584,7 @@ export interface MetallicRoughnessMaterial extends Material {
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clearCoat: MaterialProperty;
 
@@ -595,7 +595,7 @@ export interface MetallicRoughnessMaterial extends Material {
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clearCoatRoughness: MaterialProperty;
   
@@ -606,7 +606,7 @@ export interface MetallicRoughnessMaterial extends Material {
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clearCoatNormal: MaterialProperty;
 
@@ -618,7 +618,7 @@ export interface MetallicRoughnessMaterial extends Material {
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   sheen: MaterialProperty;
 
@@ -630,7 +630,7 @@ export interface MetallicRoughnessMaterial extends Material {
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   specular: MaterialProperty;
 }
@@ -686,7 +686,7 @@ export interface UnlitShadowAlphaMaterial extends Material {
  * @interface ShaderMaterial
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface ShaderMaterial extends Material {
   /**
@@ -695,7 +695,7 @@ export interface ShaderMaterial extends Material {
    * @type { ?Shader }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   colorShader?: Shader;
 }
@@ -717,7 +717,7 @@ export interface OcclusionMaterial extends Material {
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export enum SamplerFilter {
   /**
@@ -725,7 +725,7 @@ export enum SamplerFilter {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   NEAREST = 0,
   /**
@@ -733,7 +733,7 @@ export enum SamplerFilter {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   LINEAR = 1,
 }
@@ -744,7 +744,7 @@ export enum SamplerFilter {
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export enum SamplerAddressMode {
   /**
@@ -752,7 +752,7 @@ export enum SamplerAddressMode {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   REPEAT = 0,
 
@@ -761,7 +761,7 @@ export enum SamplerAddressMode {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   MIRRORED_REPEAT = 1,
 
@@ -770,7 +770,7 @@ export enum SamplerAddressMode {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   CLAMP_TO_EDGE = 2,
 }
@@ -781,7 +781,7 @@ export enum SamplerAddressMode {
  * @interface { Sampler }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface Sampler {
   /**
@@ -790,7 +790,7 @@ export interface Sampler {
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   magFilter?: SamplerFilter;
 
@@ -800,7 +800,7 @@ export interface Sampler {
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   minFilter?: SamplerFilter;
 
@@ -810,7 +810,7 @@ export interface Sampler {
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   mipMapMode?: SamplerFilter;
 
@@ -820,7 +820,7 @@ export interface Sampler {
    * @type { ?SamplerAddressMode }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   addressModeU?: SamplerAddressMode;
 
@@ -830,7 +830,7 @@ export interface Sampler {
    * @type { ?SamplerAddressMode }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   addressModeV?: SamplerAddressMode;
 }
@@ -841,7 +841,7 @@ export interface Sampler {
  * @interface SubMesh
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface SubMesh {
   /**
@@ -850,7 +850,7 @@ export interface SubMesh {
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   name: string;
 
@@ -860,7 +860,7 @@ export interface SubMesh {
    * @type { Material }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   material: Material;
 
@@ -871,7 +871,7 @@ export interface SubMesh {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly aabb: Aabb;
 }
@@ -882,7 +882,7 @@ export interface SubMesh {
  * @interface Morpher
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface Morpher {
   /**
@@ -892,7 +892,7 @@ export interface Morpher {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly targets: Record<string, double>;
 }
@@ -904,7 +904,7 @@ export interface Morpher {
  * @interface Mesh
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface Mesh extends SceneResource {
   /**
@@ -914,7 +914,7 @@ export interface Mesh extends SceneResource {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly subMeshes: SubMesh[];
 
@@ -925,7 +925,7 @@ export interface Mesh extends SceneResource {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly aabb: Aabb;
 
@@ -935,7 +935,7 @@ export interface Mesh extends SceneResource {
    * @type { ?Material }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   materialOverride?: Material;
 }
@@ -948,7 +948,7 @@ export interface Mesh extends SceneResource {
  * @interface MeshResource
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface MeshResource extends SceneResource {
 }
@@ -960,7 +960,7 @@ export interface MeshResource extends SceneResource {
  * @interface Animation
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface Animation extends SceneResource {
   /**
@@ -969,7 +969,7 @@ export interface Animation extends SceneResource {
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enabled: boolean;
 
@@ -980,7 +980,7 @@ export interface Animation extends SceneResource {
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   speed?: double;
 
@@ -991,7 +991,7 @@ export interface Animation extends SceneResource {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly duration: double;
 
@@ -1002,7 +1002,7 @@ export interface Animation extends SceneResource {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly running: boolean;
 
@@ -1013,7 +1013,7 @@ export interface Animation extends SceneResource {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly progress: double;
 
@@ -1023,7 +1023,7 @@ export interface Animation extends SceneResource {
    * @param { Callback<void> } callback - the callback invoked when animation finished
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onFinished(callback: Callback<void>): void;
 
@@ -1033,7 +1033,7 @@ export interface Animation extends SceneResource {
    * @param { Callback<void> } callback - the callback invoked when animation started
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onStarted(callback: Callback<void>): void;
 
@@ -1042,7 +1042,7 @@ export interface Animation extends SceneResource {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   pause(): void;
 
@@ -1051,7 +1051,7 @@ export interface Animation extends SceneResource {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   restart(): void;
 
@@ -1061,7 +1061,7 @@ export interface Animation extends SceneResource {
    * @param { double } position - the position seek between 0~1
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   seek(position: double): void;
 
@@ -1070,7 +1070,7 @@ export interface Animation extends SceneResource {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   start(): void;
 
@@ -1079,7 +1079,7 @@ export interface Animation extends SceneResource {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stop(): void;
 
@@ -1088,7 +1088,7 @@ export interface Animation extends SceneResource {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   finish(): void;
 }
@@ -1098,7 +1098,7 @@ export interface Animation extends SceneResource {
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export enum EnvironmentBackgroundType {
   /**
@@ -1106,7 +1106,7 @@ export enum EnvironmentBackgroundType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   BACKGROUND_NONE = 0,
 
@@ -1115,7 +1115,7 @@ export enum EnvironmentBackgroundType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   BACKGROUND_IMAGE = 1,
 
@@ -1124,7 +1124,7 @@ export enum EnvironmentBackgroundType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   BACKGROUND_CUBEMAP = 2,
 
@@ -1133,7 +1133,7 @@ export enum EnvironmentBackgroundType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   BACKGROUND_EQUIRECTANGULAR = 3,
 }
@@ -1145,7 +1145,7 @@ export enum EnvironmentBackgroundType {
  * @interface Environment
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface Environment extends SceneResource {
   /**
@@ -1154,7 +1154,7 @@ export interface Environment extends SceneResource {
    * @type { EnvironmentBackgroundType }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   backgroundType: EnvironmentBackgroundType;
 
@@ -1164,7 +1164,7 @@ export interface Environment extends SceneResource {
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   indirectDiffuseFactor: Vec4;
 
@@ -1174,7 +1174,7 @@ export interface Environment extends SceneResource {
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   indirectSpecularFactor: Vec4;
 
@@ -1184,7 +1184,7 @@ export interface Environment extends SceneResource {
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   environmentMapFactor: Vec4;
 
@@ -1194,7 +1194,7 @@ export interface Environment extends SceneResource {
    * @type { ?(Image | null) }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   environmentImage?: Image | null;
 
@@ -1204,7 +1204,7 @@ export interface Environment extends SceneResource {
    * @type { ?(Image | null) }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   radianceImage?: Image | null;
 
@@ -1214,7 +1214,7 @@ export interface Environment extends SceneResource {
    * @type { ?Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   irradianceCoefficients?: Vec3[];
 
@@ -1236,7 +1236,7 @@ export interface Environment extends SceneResource {
  * @interface Image
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface Image extends SceneResource {
   /**
@@ -1246,7 +1246,7 @@ export interface Image extends SceneResource {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly width: int;
 
@@ -1257,7 +1257,7 @@ export interface Image extends SceneResource {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly height: int;
 }

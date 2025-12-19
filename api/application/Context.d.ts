@@ -55,7 +55,7 @@ import contextConstant from '../@ohos.app.ability.contextConstant';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class Context extends BaseContext {
   /**
@@ -84,7 +84,7 @@ declare class Context extends BaseContext {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   resourceManager: resmgr.ResourceManager;
 
@@ -114,7 +114,7 @@ declare class Context extends BaseContext {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   applicationInfo: ApplicationInfo;
 
@@ -144,7 +144,7 @@ declare class Context extends BaseContext {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   cacheDir: string;
 
@@ -174,7 +174,7 @@ declare class Context extends BaseContext {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   tempDir: string;
 
@@ -204,7 +204,7 @@ declare class Context extends BaseContext {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   filesDir: string;
 
@@ -234,7 +234,7 @@ declare class Context extends BaseContext {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   databaseDir: string;
 
@@ -264,7 +264,7 @@ declare class Context extends BaseContext {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   preferencesDir: string;
 
@@ -298,7 +298,7 @@ declare class Context extends BaseContext {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   bundleCodeDir: string;
 
@@ -318,7 +318,7 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   distributedFilesDir: string;
 
@@ -336,7 +336,7 @@ declare class Context extends BaseContext {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   resourceDir: string;
 
@@ -348,7 +348,7 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   cloudFileDir: string;
 
@@ -359,7 +359,8 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   get logFileDir(): string;
 
@@ -389,7 +390,7 @@ declare class Context extends BaseContext {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   eventHub: EventHub;
 
@@ -419,7 +420,7 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get area(): contextConstant.AreaMode;
 
@@ -430,7 +431,7 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   set area(mode: contextConstant.AreaMode);
 
@@ -443,7 +444,7 @@ declare class Context extends BaseContext {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   processName: string;
 
@@ -548,7 +549,7 @@ declare class Context extends BaseContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   createSystemHspModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
 
@@ -581,7 +582,7 @@ declare class Context extends BaseContext {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getApplicationContext(): ApplicationContext;
 
@@ -611,7 +612,7 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getGroupDir(dataGroupID: string, callback: AsyncCallback<string>): void;
 
@@ -640,7 +641,7 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getGroupDir(dataGroupID: string): Promise<string>;
 
@@ -659,7 +660,7 @@ declare class Context extends BaseContext {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   createModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
 
@@ -674,7 +675,7 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   createAreaModeContext(areaMode: contextConstant.AreaMode): Context;
 
@@ -690,7 +691,7 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   createDisplayContext(displayId: long): Context;
 }

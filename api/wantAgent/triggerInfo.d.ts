@@ -38,7 +38,7 @@ import { RecordData } from '../@ohos.base';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface TriggerInfo {
   /**
@@ -55,7 +55,7 @@ export interface TriggerInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   code: int;
 
@@ -83,7 +83,7 @@ export interface TriggerInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   want?: Want;
 
@@ -105,7 +105,7 @@ export interface TriggerInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   permission?: string;
 
@@ -131,7 +131,7 @@ export interface TriggerInfo {
    *
    * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 22 static
+   * @since 23 static
    */
   extraInfo?: Record<string, RecordData>;
 
@@ -160,7 +160,7 @@ export interface TriggerInfo {
    *
    * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 22 static
+   * @since 23 static
    */
   extraInfos?: Record<string, RecordData>;
 
@@ -172,7 +172,7 @@ export interface TriggerInfo {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
    startOptions?: StartOptions;
 }

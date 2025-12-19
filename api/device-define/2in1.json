@@ -88,7 +88,6 @@
     "SystemCapability.DistributedDataManager.DataShare.Provider",
     "SystemCapability.DistributedDataManager.DataShare.Core",
     "SystemCapability.DistributedDataManager.DataShare.Consumer",
-    "SystemCapability.Communication.SoftBus.Core",
     "SystemCapability.Communication.IPC.Core",
     "SystemCapability.XTS.DeviceAttest",
     "SystemCapability.ArkUI.ArkUI.Libuv",

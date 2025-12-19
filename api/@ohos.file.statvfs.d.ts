@@ -34,7 +34,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace statfs {
   /**
@@ -79,7 +79,7 @@ declare namespace statfs {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getFreeSize(path: string): Promise<long>;
 
@@ -125,7 +125,7 @@ declare namespace statfs {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getFreeSize(path: string, callback: AsyncCallback<long>): void;
 
@@ -171,7 +171,7 @@ declare namespace statfs {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getFreeSizeSync(path: string): long;
 
@@ -217,7 +217,7 @@ declare namespace statfs {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTotalSize(path: string): Promise<long>;
 
@@ -263,7 +263,7 @@ declare namespace statfs {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTotalSize(path: string, callback: AsyncCallback<long>): void;
 
@@ -309,7 +309,7 @@ declare namespace statfs {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTotalSizeSync(path: string): long;
 }

@@ -32,7 +32,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @namespace usageStatistics
  * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace usageStatistics {
   /**
@@ -40,7 +40,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface BundleStatsInfo {
     /**
@@ -49,7 +49,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     id: int;
 
@@ -59,7 +59,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilityInFgTotalTime?: long;
 
@@ -69,7 +69,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilityPrevAccessTime?: long;
 
@@ -79,7 +79,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilityPrevSeenTime?: long;
 
@@ -89,7 +89,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilitySeenTotalTime?: long;
 
@@ -99,7 +99,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleName?: string;
 
@@ -109,7 +109,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fgAbilityAccessTotalTime?: long;
 
@@ -119,7 +119,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fgAbilityPrevAccessTime?: long;
 
@@ -130,7 +130,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     infosBeginTime?: long;
 
@@ -141,7 +141,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     infosEndTime?: long;
 
@@ -151,7 +151,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appIndex?: int;
   }
@@ -161,7 +161,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface HapFormInfo {
     /**
@@ -170,7 +170,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     formName: string;
 
@@ -180,7 +180,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     formDimension: int;
 
@@ -190,7 +190,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     formId: long;
 
@@ -200,7 +200,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     formLastUsedTime: long;
 
@@ -210,7 +210,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     count: int;
   }
@@ -220,7 +220,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface HapModuleInfo {
     /**
@@ -229,7 +229,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceId?: string;
 
@@ -239,7 +239,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleName: string;
 
@@ -249,7 +249,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     moduleName: string;
 
@@ -259,7 +259,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilityName?: string;
 
@@ -269,7 +269,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appLabelId?: long;
 
@@ -279,7 +279,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     labelId?: long;
 
@@ -289,7 +289,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     descriptionId?: long;
 
@@ -299,7 +299,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilityLableId?: long;
 
@@ -309,7 +309,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilityDescriptionId?: long;
 
@@ -319,7 +319,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     abilityIconId?: long;
 
@@ -329,7 +329,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     launchedCount: int;
 
@@ -339,7 +339,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     lastModuleUsedTime: long;
 
@@ -349,7 +349,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     formRecords: Array<HapFormInfo>;
   }
@@ -359,7 +359,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DeviceEventStats {
     /**
@@ -368,7 +368,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
 
@@ -378,7 +378,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     eventId: int;
 
@@ -388,7 +388,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     count: int;
   }
@@ -398,7 +398,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface BundleEvents {
     /**
@@ -407,7 +407,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appGroup?: int;
 
@@ -417,7 +417,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleName?: string;
 
@@ -427,7 +427,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     indexOfLink?: string;
 
@@ -437,7 +437,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     nameOfClass?: string;
 
@@ -447,7 +447,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     eventOccurredTime?: long;
 
@@ -457,7 +457,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     eventId?: int;
   }
@@ -467,7 +467,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
    */
   interface AppGroupCallbackInfo {
     /**
@@ -476,7 +476,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appOldGroup: int;
 
@@ -486,7 +486,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appNewGroup: int;
 
@@ -496,7 +496,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     userId: int;
 
@@ -506,7 +506,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     changeReason: long;
 
@@ -516,7 +516,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleName: string;
   }
@@ -543,7 +543,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isIdleState(bundleName: string, callback: AsyncCallback<boolean>): void;
 
@@ -569,7 +569,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isIdleState(bundleName: string): Promise<boolean>;
 
@@ -595,7 +595,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isIdleStateSync(bundleName: string): boolean;
 
@@ -622,7 +622,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAppGroup(callback: AsyncCallback<int>): void;
 
@@ -648,7 +648,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAppGroup(): Promise<int>;
 
@@ -673,7 +673,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAppGroupSync(): int;
 
@@ -701,7 +701,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAppGroup(bundleName: string, callback: AsyncCallback<int>): void;
 
@@ -729,7 +729,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAppGroup(bundleName: string): Promise<int>;
 
@@ -756,7 +756,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAppGroupSync(bundleName: string): int;
 
@@ -765,7 +765,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type BundleStatsMap = Record<string, BundleStatsInfo>;
 
@@ -792,7 +792,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryBundleStatsInfos(begin: long, end: long, callback: AsyncCallback<BundleStatsMap>): void;
 
@@ -819,7 +819,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryBundleStatsInfos(begin: long, end: long): Promise<BundleStatsMap>;
 
@@ -828,7 +828,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type AppStatsMap = Record<string, Array<BundleStatsInfo>>;
 
@@ -855,7 +855,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAppStatsInfos(begin: long, end: long): Promise<AppStatsMap>;
 
@@ -880,7 +880,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryLastUseTime(appInfo: Record<string, Array<long>>): Promise<AppStatsMap>;
 
@@ -891,7 +891,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum IntervalType {
     /**
@@ -900,7 +900,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BY_OPTIMIZED = 0,
 
@@ -910,7 +910,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BY_DAILY = 1,
 
@@ -920,7 +920,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BY_WEEKLY = 2,
 
@@ -930,7 +930,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BY_MONTHLY = 3,
 
@@ -940,7 +940,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BY_ANNUALLY = 4
   }
@@ -970,7 +970,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryBundleStatsInfoByInterval(
     byInterval: IntervalType,
@@ -1004,7 +1004,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryBundleStatsInfoByInterval(
     byInterval: IntervalType,
@@ -1035,7 +1035,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryBundleEvents(begin: long, end: long, callback: AsyncCallback<Array<BundleEvents>>): void;
 
@@ -1062,7 +1062,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryBundleEvents(begin: long, end: long): Promise<Array<BundleEvents>>;
 
@@ -1087,7 +1087,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryCurrentBundleEvents(begin: long, end: long, callback: AsyncCallback<Array<BundleEvents>>): void;
 
@@ -1112,7 +1112,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryCurrentBundleEvents(begin: long, end: long): Promise<Array<BundleEvents>>;
 
@@ -1138,7 +1138,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryModuleUsageRecords(maxNum: int, callback: AsyncCallback<Array<HapModuleInfo>>): void;
 
@@ -1164,7 +1164,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryModuleUsageRecords(maxNum: int): Promise<Array<HapModuleInfo>>;
 
@@ -1189,7 +1189,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryModuleUsageRecords(callback: AsyncCallback<Array<HapModuleInfo>>): void;
 
@@ -1214,7 +1214,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryModuleUsageRecords(): Promise<Array<HapModuleInfo>>;
 
@@ -1225,7 +1225,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum GroupType {
     /**
@@ -1234,7 +1234,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ALIVE_GROUP = 10,
 
@@ -1244,7 +1244,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DAILY_GROUP = 20,
 
@@ -1254,7 +1254,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FIXED_GROUP = 30,
 
@@ -1264,7 +1264,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RARE_GROUP = 40,
 
@@ -1274,7 +1274,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LIMITED_GROUP = 50,
 
@@ -1284,7 +1284,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NEVER_GROUP = 60
   }
@@ -1311,7 +1311,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setAppGroup(bundleName: string, newGroup: GroupType, callback: AsyncCallback<void>): void;
 
@@ -1337,7 +1337,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setAppGroup(bundleName: string, newGroup: GroupType): Promise<void>;
 
@@ -1362,7 +1362,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function registerAppGroupCallBack(groupCallback: Callback<AppGroupCallbackInfo>, callback: AsyncCallback<void>): void;
 
@@ -1387,7 +1387,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function registerAppGroupCallBack(groupCallback: Callback<AppGroupCallbackInfo>): Promise<void>;
 
@@ -1410,7 +1410,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function unregisterAppGroupCallBack(callback: AsyncCallback<void>): void;
 
@@ -1433,7 +1433,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function unregisterAppGroupCallBack(): Promise<void>;
 
@@ -1460,7 +1460,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryDeviceEventStats(begin: long, end: long, callback: AsyncCallback<Array<DeviceEventStats>>): void;
 
@@ -1487,7 +1487,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryDeviceEventStats(begin: long, end: long): Promise<Array<DeviceEventStats>>;
 
@@ -1514,7 +1514,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryNotificationEventStats(
     begin: long,
@@ -1545,7 +1545,7 @@ declare namespace usageStatistics {
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryNotificationEventStats(begin: long, end: long): Promise<Array<DeviceEventStats>>;
 }

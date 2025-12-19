@@ -25,7 +25,7 @@ import type { AsyncCallback } from './@ohos.base';
 *
 * @namespace uiAppearance
 * @syscap SystemCapability.ArkUI.UiAppearance
-* @since 22 static
+* @since 23 static
 */
 declare namespace uiAppearance {
     
@@ -34,7 +34,7 @@ declare namespace uiAppearance {
      *
      * @enum { number }
      * @syscap SystemCapability.ArkUI.UiAppearance
-     * @since 22 static
+     * @since 23 static
      */
     enum DarkMode {
         
@@ -42,7 +42,7 @@ declare namespace uiAppearance {
          * Always display with dark mode.
          *
          * @syscap SystemCapability.ArkUI.UiAppearance
-         * @since 22 static
+         * @since 23 static
          */
         ALWAYS_DARK = 0,
         
@@ -50,7 +50,7 @@ declare namespace uiAppearance {
          * Always display with light mode.
          *
          * @syscap SystemCapability.ArkUI.UiAppearance
-         * @since 22 static
+         * @since 23 static
          */
         ALWAYS_LIGHT = 1
     }
@@ -68,7 +68,7 @@ declare namespace uiAppearance {
      * @throws { BusinessError } 500001 - Internal error.
      * @syscap SystemCapability.ArkUI.UiAppearance
      * @systemapi hide this for inner system use
-     * @since 22 static
+     * @since 23 static
      */
     function setDarkMode(mode: DarkMode, callback: AsyncCallback<void>): void;
     /**
@@ -85,7 +85,7 @@ declare namespace uiAppearance {
      * @throws { BusinessError } 500001 - Internal error.
      * @syscap SystemCapability.ArkUI.UiAppearance
      * @systemapi hide this for inner system use
-     * @since 22 static
+     * @since 23 static
      */
     function setDarkMode(mode: DarkMode): Promise<void>;
     
@@ -99,7 +99,7 @@ declare namespace uiAppearance {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 500001 - Internal error.
      * @syscap SystemCapability.ArkUI.UiAppearance
-     * @since 22 static
+     * @since 23 static
      */
     function getDarkMode(): DarkMode;
     /**
@@ -113,7 +113,7 @@ declare namespace uiAppearance {
      * @throws { BusinessError } 500001 - Internal error.
      * @syscap SystemCapability.ArkUI.UiAppearance
      * @systemapi hide this for inner system use
-     * @since 22 static
+     * @since 23 static
      */
     function setFontScale(fontScale: double): Promise<void>;
     
@@ -123,7 +123,7 @@ declare namespace uiAppearance {
      * @returns { double } current font-scale.
      * @throws { BusinessError } 500001 - Internal error.
      * @syscap SystemCapability.ArkUI.UiAppearance
-     * @since 22 static
+     * @since 23 static
      */
     function getFontScale(): double;
     /**
@@ -137,7 +137,7 @@ declare namespace uiAppearance {
      * @throws { BusinessError } 500001 - Internal error.
      * @syscap SystemCapability.ArkUI.UiAppearance
      * @systemapi hide this for inner system use
-     * @since 22 static
+     * @since 23 static
      */
     function setFontWeightScale(fontWeightScale: double): Promise<void>;
     
@@ -147,7 +147,7 @@ declare namespace uiAppearance {
      * @returns { double } current font-weight-scale.
      * @throws { BusinessError } 500001 - Internal error.
      * @syscap SystemCapability.ArkUI.UiAppearance
-     * @since 22 static
+     * @since 23 static
      */
     function getFontWeightScale(): double;
 }

@@ -26,7 +26,7 @@
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface AutoStartupInfo {
   /**
@@ -37,7 +37,7 @@ export interface AutoStartupInfo {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   bundleName: string;
 
@@ -49,7 +49,7 @@ export interface AutoStartupInfo {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   moduleName?: string;
 
@@ -61,7 +61,7 @@ export interface AutoStartupInfo {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   abilityName: string;
 
@@ -73,7 +73,7 @@ export interface AutoStartupInfo {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   abilityTypeName?: string;
 
@@ -84,7 +84,7 @@ export interface AutoStartupInfo {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   appCloneIndex?: int;
 
@@ -97,7 +97,7 @@ export interface AutoStartupInfo {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly userId?: int;
 
@@ -110,7 +110,7 @@ export interface AutoStartupInfo {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly setterUserId?: int;
 
@@ -123,7 +123,7 @@ export interface AutoStartupInfo {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly canUserModify?: boolean;
 }

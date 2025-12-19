@@ -25,7 +25,7 @@ import { Callback } from './@ohos.base';
  * @syscap SystemCapability.AI.MindSporeLite
  * @stagemodelonly
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace mindSporeLite {
 
@@ -41,7 +41,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function loadModelFromFile(
     model: string,
@@ -58,7 +58,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function loadModelFromFile(
     model: string, callback: Callback<Model>): void;
@@ -75,7 +75,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function loadModelFromFile(
     model: string,
@@ -93,7 +93,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function loadModelFromBuffer(
     model: ArrayBuffer,
@@ -110,7 +110,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function loadModelFromBuffer(
     model: ArrayBuffer, callback: Callback<Model>): void;
@@ -127,7 +127,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function loadModelFromBuffer(
     model: ArrayBuffer,
@@ -143,7 +143,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function loadModelFromFd(
     model: int,
@@ -158,7 +158,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function loadModelFromFd(
     model: int, callback: Callback<Model>): void;
@@ -173,7 +173,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function loadModelFromFd(
     model: int,
@@ -191,7 +191,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function loadTrainModelFromFile(
     model: string,
@@ -210,7 +210,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function loadTrainModelFromBuffer(
     model: ArrayBuffer,
@@ -228,7 +228,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function loadTrainModelFromFd(
     model: int,
@@ -241,7 +241,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Model {
     /**
@@ -250,7 +250,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     learningRate?: double;
 
@@ -260,7 +260,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     trainMode?: boolean;
 
@@ -270,7 +270,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getInputs(): MSTensor[];
 
@@ -281,7 +281,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     predict(inputs: MSTensor[], callback: Callback<MSTensor[]>): void;
 
@@ -292,7 +292,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     predict(inputs: MSTensor[]): Promise<MSTensor[]>;
 
@@ -304,7 +304,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     resize(inputs: MSTensor[], dims: Array<Array<int>>): boolean;
 
@@ -315,7 +315,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     runStep(inputs: MSTensor[]): boolean;
 
@@ -325,7 +325,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getWeights(): MSTensor[];
 
@@ -336,7 +336,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateWeights(weights: MSTensor[]): boolean;
 
@@ -349,7 +349,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setupVirtualBatch(virtualBatchMultiplier: int, lr: double, momentum: double): boolean;
 
@@ -363,7 +363,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     exportModel(
       modelFile: string,
@@ -381,7 +381,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     exportWeightsCollaborateWithMicro(
       weightFile: string,
@@ -396,7 +396,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum QuantizationType {
     /**
@@ -404,7 +404,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NO_QUANT = 0,
     /**
@@ -412,7 +412,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WEIGHT_QUANT = 1,
     /**
@@ -420,7 +420,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FULL_QUANT = 2,
   }
@@ -430,7 +430,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum OptimizationLevel {
     /**
@@ -438,7 +438,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     O0 = 0,
     /**
@@ -446,7 +446,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     O2 = 2,
     /**
@@ -454,7 +454,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     O3 = 3,
     /**
@@ -462,7 +462,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUTO = 4,
   }
@@ -473,7 +473,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface TrainCfg {
     /**
@@ -482,7 +482,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     lossName?: string[],
     /**
@@ -491,7 +491,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     optimizationLevel?: OptimizationLevel,
   }
@@ -502,7 +502,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Context {
     /**
@@ -511,7 +511,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     target?: string[];
     /**
@@ -520,7 +520,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cpu?: CpuDevice;
     /**
@@ -529,7 +529,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     nnrt?: NNRTDevice;
   }
@@ -540,7 +540,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface CpuDevice {
     /**
@@ -549,7 +549,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     threadNum?: int;
 
@@ -559,7 +559,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     threadAffinityMode?: ThreadAffinityMode;
 
@@ -569,7 +569,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     threadAffinityCoreList?: int[];
 
@@ -579,7 +579,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     precisionMode?: string;
   }
@@ -590,7 +590,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum PerformanceMode {
     /**
@@ -598,7 +598,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PERFORMANCE_NONE = 0,
     /**
@@ -606,7 +606,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PERFORMANCE_LOW = 1,
     /**
@@ -614,7 +614,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PERFORMANCE_MEDIUM = 2,
     /**
@@ -622,7 +622,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PERFORMANCE_HIGH = 3,
     /**
@@ -630,7 +630,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PERFORMANCE_EXTREME = 4,
   }
@@ -641,7 +641,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum Priority {
     /**
@@ -649,7 +649,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRIORITY_NONE = 0,
     /**
@@ -657,7 +657,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRIORITY_LOW = 1,
     /**
@@ -665,7 +665,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRIORITY_MEDIUM = 2,
     /**
@@ -673,7 +673,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PRIORITY_HIGH = 3,
   }
@@ -684,7 +684,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Extension {
     /**
@@ -693,7 +693,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string,
     /**
@@ -702,7 +702,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     value: ArrayBuffer
   }
@@ -713,7 +713,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum NNRTDeviceType {
     /**
@@ -721,7 +721,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NNRTDEVICE_OTHERS = 0,
 
@@ -730,7 +730,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NNRTDEVICE_CPU = 1,
 
@@ -739,7 +739,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NNRTDEVICE_GPU = 2,
 
@@ -748,7 +748,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NNRTDEVICE_ACCELERATOR = 3,
   }
@@ -759,7 +759,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface NNRTDeviceDescription {
     /**
@@ -768,7 +768,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceID() : bigint;
     /**
@@ -777,7 +777,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceType() : NNRTDeviceType;
     /**
@@ -786,7 +786,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceName() : string;
   }
@@ -797,7 +797,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllNNRTDeviceDescriptions() : NNRTDeviceDescription[];
 
@@ -807,7 +807,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface NNRTDevice {
     /**
@@ -816,7 +816,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceID?: bigint,
     /**
@@ -825,7 +825,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     performanceMode?: PerformanceMode,
     /**
@@ -834,7 +834,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     priority?: Priority,
     /**
@@ -843,7 +843,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     extensions?: Extension[],
   }
@@ -854,7 +854,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ThreadAffinityMode {
     /**
@@ -862,7 +862,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NO_AFFINITIES = 0,
 
@@ -871,7 +871,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BIG_CORES_FIRST = 1,
 
@@ -880,7 +880,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LITTLE_CORES_FIRST = 2,
   }
@@ -891,7 +891,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MSTensor {
     /**
@@ -900,7 +900,7 @@ declare namespace mindSporeLite {
       * @syscap SystemCapability.AI.MindSporeLite
       * @stagemodelonly
       * @since 10 dynamic
-      * @since 22 static
+      * @since 23 static
       */
     name: string;
 
@@ -910,7 +910,7 @@ declare namespace mindSporeLite {
       * @syscap SystemCapability.AI.MindSporeLite
       * @stagemodelonly
       * @since 10 dynamic
-      * @since 22 static
+      * @since 23 static
       */
     shape: int[];
 
@@ -920,7 +920,7 @@ declare namespace mindSporeLite {
       * @syscap SystemCapability.AI.MindSporeLite
       * @stagemodelonly
       * @since 10 dynamic
-      * @since 22 static
+      * @since 23 static
       */
     elementNum: int;
 
@@ -930,7 +930,7 @@ declare namespace mindSporeLite {
       * @syscap SystemCapability.AI.MindSporeLite
       * @stagemodelonly
       * @since 10 dynamic
-      * @since 22 static
+      * @since 23 static
       */
     dataSize: int;
 
@@ -940,7 +940,7 @@ declare namespace mindSporeLite {
       * @syscap SystemCapability.AI.MindSporeLite
       * @stagemodelonly
       * @since 10 dynamic
-      * @since 22 static
+      * @since 23 static
       */
     dtype: DataType;
     /**
@@ -949,7 +949,7 @@ declare namespace mindSporeLite {
       * @syscap SystemCapability.AI.MindSporeLite
       * @stagemodelonly
       * @since 10 dynamic
-      * @since 22 static
+      * @since 23 static
       */
     format: Format;
 
@@ -959,7 +959,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getData(): ArrayBuffer;
 
@@ -970,7 +970,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setData(inputArray: ArrayBuffer): void;
   }
@@ -981,7 +981,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum DataType {
     /**
@@ -989,7 +989,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TYPE_UNKNOWN = 0,
    /**
@@ -997,7 +997,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NUMBER_TYPE_INT8 = 32,
    /**
@@ -1005,7 +1005,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NUMBER_TYPE_INT16 = 33,
    /**
@@ -1013,7 +1013,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NUMBER_TYPE_INT32 = 34,
    /**
@@ -1021,7 +1021,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NUMBER_TYPE_INT64 = 35,
    /**
@@ -1029,7 +1029,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NUMBER_TYPE_UINT8 = 37,
    /**
@@ -1037,7 +1037,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NUMBER_TYPE_UINT16 = 38,
    /**
@@ -1045,7 +1045,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NUMBER_TYPE_UINT32 = 39,
    /**
@@ -1053,7 +1053,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NUMBER_TYPE_UINT64 = 40,
    /**
@@ -1061,7 +1061,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NUMBER_TYPE_FLOAT16 = 42,
    /**
@@ -1069,7 +1069,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NUMBER_TYPE_FLOAT32 = 43,
    /**
@@ -1077,7 +1077,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NUMBER_TYPE_FLOAT64 = 44,
   }
@@ -1088,7 +1088,7 @@ declare namespace mindSporeLite {
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */ 
   export enum Format {
    /**
@@ -1096,7 +1096,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */  
     DEFAULT_FORMAT = -1,
    /**
@@ -1104,7 +1104,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */  
     NCHW = 0,
    /**
@@ -1112,7 +1112,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NHWC = 1,
    /**
@@ -1120,7 +1120,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NHWC4 = 2,
    /**
@@ -1128,7 +1128,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HWKC = 3,
    /**
@@ -1136,7 +1136,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HWCK = 4,
    /**
@@ -1144,7 +1144,7 @@ declare namespace mindSporeLite {
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     KCHW = 5,
   }

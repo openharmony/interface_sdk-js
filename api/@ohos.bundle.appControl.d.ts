@@ -34,7 +34,7 @@ import Want from './@ohos.app.ability.Want';
  * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace appControl {
   /**
@@ -44,7 +44,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ComponentType {
     /**
@@ -53,7 +53,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UI_ABILITY = 1,
 
@@ -63,7 +63,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UI_EXTENSION = 2
   }
@@ -75,7 +75,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum UninstallComponentType {
     /**
@@ -84,7 +84,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EXTENSION = 1,
     /**
@@ -92,7 +92,8 @@ declare namespace appControl {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     UI_EXTENSION = 2
   }
@@ -104,7 +105,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum DisposedType {
     /**
@@ -113,7 +114,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BLOCK_APPLICATION = 1,
     /**
@@ -122,7 +123,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BLOCK_ABILITY = 2,
     /**
@@ -131,7 +132,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NON_BLOCK = 3
   }
@@ -143,7 +144,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ControlType {
     /**
@@ -152,7 +153,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ALLOWED_LIST = 1,
     /**
@@ -161,7 +162,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DISALLOWED_LIST = 2
   }
@@ -173,7 +174,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface DisposedRule {
     /**
@@ -183,7 +184,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     want: Want;
 
@@ -194,7 +195,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     componentType: ComponentType;
 
@@ -205,7 +206,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     disposedType: DisposedType;
 
@@ -216,7 +217,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     controlType: ControlType;
 
@@ -227,7 +228,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     elementList: Array<ElementName>;
 
@@ -238,7 +239,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     priority: int;
   }
@@ -250,7 +251,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface UninstallDisposedRule {
     /**
@@ -260,7 +261,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     want: Want;
 
@@ -271,7 +272,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uninstallComponentType: UninstallComponentType;
 
@@ -282,7 +283,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     priority: int;
   }
@@ -294,7 +295,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface DisposedRuleConfiguration {
     /**
@@ -304,7 +305,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appId: string;
 
@@ -315,7 +316,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appIndex: int;
 
@@ -326,7 +327,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     disposedRule: DisposedRule;
   }
@@ -346,7 +347,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setDisposedStatus(appId: string, disposedWant: Want, callback: AsyncCallback<void>): void;
 
@@ -365,7 +366,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setDisposedStatus(appId: string, disposedWant: Want): Promise<void>;
 
@@ -383,7 +384,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setDisposedStatusSync(appId: string, disposedWant: Want): void;
 
@@ -401,7 +402,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDisposedStatus(appId: string, callback: AsyncCallback<Want>): void;
 
@@ -419,7 +420,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDisposedStatus(appId: string): Promise<Want>;
 
@@ -437,7 +438,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDisposedStatusSync(appId: string): Want;
 
@@ -455,7 +456,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function deleteDisposedStatus(appId: string, callback: AsyncCallback<void>): void;
 
@@ -473,7 +474,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function deleteDisposedStatus(appId: string): Promise<void>;
 
@@ -506,7 +507,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function deleteDisposedStatusSync(appId: string, appIndex?: int): void;
 
@@ -541,7 +542,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDisposedRule(appId: string, appIndex?: int): DisposedRule;
 
@@ -576,7 +577,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setDisposedRule(appId: string, rule: DisposedRule, appIndex?: int): void;
 
@@ -597,7 +598,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setUninstallDisposedRule(appIdentifier: string, rule: UninstallDisposedRule, appIndex?: int): void;
   
@@ -617,7 +618,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getUninstallDisposedRule(appIdentifier: string, appIndex?: int): UninstallDisposedRule;
 
@@ -636,7 +637,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function deleteUninstallDisposedRule(appIdentifier: string, appIndex?: int): void;
 
@@ -653,7 +654,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setDisposedRules(disposedRuleConfigurations: Array<DisposedRuleConfiguration>): void;
 
