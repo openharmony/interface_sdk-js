@@ -114,7 +114,9 @@ import {
 } from '@ohos.arkui.node';
 import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
-import { AppStorageV2, PersistenceV2, Type, UIUtils, ConnectOptions, Binding, MutableBinding } from '@ohos.arkui.StateManagement';
+import { AppStorageV2, PersistenceV2, Type, UIUtils, ConnectOptions, Binding, MutableBinding, CustomComponentLifecycle, CustomComponentLifecycleObserver, 
+CustomComponentLifecycleState, ComponentInit, ComponentAppear, ComponentBuilt, ComponentAttach, ComponentDetach, ComponentReuse, 
+ComponentRecycle, ComponentDisappear } from '@ohos.arkui.StateManagement';
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
 import {
   AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager,
@@ -317,5 +319,6 @@ export {
   ExpandMode, Magnifier,
   HalfScreenLaunchComponent, ArcSliderPosition, ArcSwiper, ArcSwiperAttribute, ArcDotIndicator, ArcDirection, ArcSwiperController, TargetInfo, UIState,
   StepperModifier, TextMenuController, InputEventType, GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback,
-  SwiperContentInfo, SwiperItemInfo, PickerModifier, imageGeneration, ResolvedUIContext
+  SwiperContentInfo, SwiperItemInfo, PickerModifier, imageGeneration, ResolvedUIContext, CustomComponentLifecycle, CustomComponentLifecycleObserver, CustomComponentLifecycleState, ComponentInit, ComponentAppear,
+  ComponentBuilt, ComponentAttach, ComponentDetach, ComponentReuse, ComponentRecycle, ComponentDisappear
 };
