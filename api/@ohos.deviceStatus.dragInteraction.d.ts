@@ -131,6 +131,19 @@ declare namespace dragInteraction {
   function on(type: 'drag', callback: Callback<DragState>): void;
 
   /**
+   * Listens for dragging state change events.
+   *
+   * @param { Callback<DragState> } callback Indicates the callback to receive the changed dragging state.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+   * @systemapi Hide this for inner system use.
+   * @since 23 static
+   */
+    function onDrag(callback: Callback<DragState>): void;
+
+  /**
    * Disables listening for dragging state change events.
    *
    * @param { 'drag' } type Indicates the event type.
@@ -157,6 +170,20 @@ declare namespace dragInteraction {
    * @since 23 static
    */
   function off(type: 'drag', callback?: Callback<DragState>): void;
+
+  /**
+   * Disables listening for dragging state change events.
+   *
+   * @param { Callback<DragState> }callback Indicates the callback for which listening is disabled. If this parameter
+   * is not specified, listening will be disabled for all registered callbacks.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+   * @systemapi Hide this for inner system use.
+   * @since 23 static
+   */
+    function offDrag(callback?: Callback<DragState>): void;
 
   /**
    * Obtains the abstract of a dragged object.
