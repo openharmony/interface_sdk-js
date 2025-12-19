@@ -5041,7 +5041,7 @@ declare namespace image {
    */
   interface ImageReceiverOptions {
     /**
-     * Image size.
+     * Image size, both Size.witdh and Size.height should be greater than 0.
      *
      * @type { ?Size }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
@@ -5051,7 +5051,7 @@ declare namespace image {
     size?: Size;
 
     /**
-     * The maximum number of images the user wants to access simultaneously.
+     * The maximum number of images the user wants to access simultaneously, 0 < capacity <= 64.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
