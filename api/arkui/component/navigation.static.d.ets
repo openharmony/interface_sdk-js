@@ -1650,6 +1650,18 @@ export declare interface NavigationAttribute extends CommonMethod {
     default enableDragBar(isEnabled: boolean | undefined): this;
 
     /**
+     * Set the navigation divider style in split mode.
+     *
+     * @param { NavigationDividerStyle | null } style - navigation divider style in split mode.
+     *      null indicates that the divider is hidden.
+     * @returns { NavigationAttribute } - Returns the instance of the NavigationAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default divider(style: NavigationDividerStyle | null): this;
+
+    /**
      * whether to enable modeChangeAnimation
      *
      * @param { boolean | undefined } isEnabled - enableModeChangeAnimation.
@@ -1866,6 +1878,42 @@ export declare interface NavContentInfo {
      * @since 23 static
      */
     navDestinationId?: string;
+}
+
+/**
+* Define the style of the Navigation divider.
+*
+* @interface NavigationDividerStyle
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @since 23 static
+*/
+export declare interface NavigationDividerStyle {
+  /**
+   * Define the color of the navigation divider.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  color?: ResourceColor;
+
+  /**
+   * Define the start margin of the navigation divider.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  startMargin?: Length;
+
+  /**
+   * Define the end margin of the navigation divider.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  endMargin?: Length;
 }
 
 /**
