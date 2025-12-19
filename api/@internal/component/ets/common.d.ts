@@ -32628,6 +32628,21 @@ declare type OnWillScrollCallback =
 declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
 
 /**
+ * Defines the callback type used in onItemDragStart.
+ *
+ * @typedef { function } OnItemDragStartCallback
+ * @param { ItemDragInfo } event - Information about the dragged item.
+ * @param { number } itemIndex - The index number of the dragged item.
+ * @returns { CustomBuilder }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: number) => CustomBuilder;
+
+/**
  * On scroll callback using in scrollable onWillStopDragging.
  *
  * @typedef { function } OnWillStopDraggingCallback

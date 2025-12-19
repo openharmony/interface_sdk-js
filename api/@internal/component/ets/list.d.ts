@@ -2563,7 +2563,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 8 dynamic
    */
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
@@ -2573,7 +2573,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Triggered when a list item starts to be dragged.
@@ -2585,7 +2585,19 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @atomicservice
    * @since 11 dynamic
    */
-  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => ((() => any) | void)): ListAttribute;
+  /**
+   * Triggered when a list item starts to be dragged.
+   * Anonymous Object Rectification.
+   *
+   * @param { function } event - callback function, triggered when a list item starts to be dragged.
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onItemDragStart(event: OnItemDragStartCallback): ListAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.

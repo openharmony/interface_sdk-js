@@ -1050,7 +1050,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 8 dynamic
    */
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
@@ -1060,7 +1060,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
@@ -1073,7 +1073,20 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @atomicservice
    * @since 11 dynamic
    */
-  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => (() => any) | void): GridAttribute;
+  /**
+   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+   * (To be triggered, press and hold for 170 milliseconds (ms))
+   * Anonymous Object Rectification.
+   *
+   * @param { function } event - callback function, triggered when a grid item starts to be dragged.
+   * @returns { GridAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onItemDragStart(event: OnItemDragStartCallback): GridAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
