@@ -694,7 +694,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.decodeWithStream
+     * @useinstead ohos.util.decodeToString
      */
     decode(input: Uint8Array, options?: { stream?: false }): string;
 
