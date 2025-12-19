@@ -35,7 +35,7 @@ import { RecordData } from './@ohos.base';
  * @systemapi
  * @stagemodelonly
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 type OnErrorFn = (code: number, name: string, message: string) => void;
 
@@ -48,7 +48,7 @@ type OnErrorFn = (code: number, name: string, message: string) => void;
  * @systemapi
  * @stagemodelonly
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 type OnResultFn = (parameter: AbilityResult) => void;
 
@@ -60,7 +60,7 @@ type OnResultFn = (parameter: AbilityResult) => void;
  * @systemapi
  * @stagemodelonly
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace verticalPanelManager {
 
@@ -107,7 +107,7 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   function startVerticalPanel(
       context: common.UIAbilityContext,
@@ -124,7 +124,7 @@ declare namespace verticalPanelManager {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PanelConfig {
     /**
@@ -135,7 +135,7 @@ declare namespace verticalPanelManager {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     type: VerticalType;
 
@@ -155,7 +155,7 @@ declare namespace verticalPanelManager {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sourceAppInfo: Record<string, string>;
   }
@@ -168,7 +168,7 @@ declare namespace verticalPanelManager {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum VerticalType {
     /**
@@ -178,7 +178,7 @@ declare namespace verticalPanelManager {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NAVIGATION = 'navigation',
   }
@@ -191,7 +191,7 @@ declare namespace verticalPanelManager {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface PanelStartCallback {
     /**
@@ -202,7 +202,7 @@ declare namespace verticalPanelManager {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onError: OnErrorFn;
     
@@ -214,7 +214,7 @@ declare namespace verticalPanelManager {
      * @systemapi
      * @stagemodelonly
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onResult?: OnResultFn;
   }
@@ -226,7 +226,7 @@ declare namespace verticalPanelManager {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export const SOURCE_APP_BUNDLE_NAME = 'bundleName';
 
@@ -237,7 +237,7 @@ declare namespace verticalPanelManager {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export const SOURCE_APP_MODULE_NAME = 'moduleName';
 
@@ -248,7 +248,7 @@ declare namespace verticalPanelManager {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export const SOURCE_APP_ABILITY_NAME = 'abilityName';
 
@@ -259,7 +259,7 @@ declare namespace verticalPanelManager {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export const SOURCE_APP_WINDOW_ID = 'windowId';
 
@@ -270,7 +270,7 @@ declare namespace verticalPanelManager {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export const SOURCE_APP_SCREEN_MODE = 'screenMode';
 }

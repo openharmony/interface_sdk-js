@@ -40,7 +40,7 @@ import { ExtensionAbilityInfo } from '../bundleManager/ExtensionAbilityInfo';
  * @StageModelOnly
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class ExtensionContext extends Context {
   /**
@@ -59,7 +59,7 @@ declare class ExtensionContext extends Context {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   currentHapModuleInfo: HapModuleInfo;
 
@@ -79,7 +79,7 @@ declare class ExtensionContext extends Context {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   config: Configuration;
 
@@ -99,7 +99,7 @@ declare class ExtensionContext extends Context {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   extensionAbilityInfo: ExtensionAbilityInfo;
 }

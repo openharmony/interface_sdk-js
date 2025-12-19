@@ -2797,7 +2797,7 @@ declare enum Edge {
    * Center horizontal and vertical.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   Center,
@@ -2829,7 +2829,7 @@ declare enum Edge {
    * Cross axis direction text baseline alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   Baseline,
@@ -2861,7 +2861,7 @@ declare enum Edge {
    * Middle
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   Middle,
@@ -8005,7 +8005,7 @@ declare enum CopyOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 12
    */
   CROSS_DEVICE = 3,
@@ -10303,6 +10303,15 @@ declare enum AccessibilityHoverType {
  * @atomicservice
  * @since 13 dynamic
  */
+/**
+ * Type of window width breakpoint.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
 declare enum WidthBreakpoint {
   /**
    * Window width < 320vp type.
@@ -10310,6 +10319,14 @@ declare enum WidthBreakpoint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 13 dynamic
+   */
+  /**
+   * Window width < 320vp type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   WIDTH_XS = 0,
 
@@ -10320,6 +10337,14 @@ declare enum WidthBreakpoint {
    * @atomicservice
    * @since 13 dynamic
    */
+  /**
+   * Window width >= 320vp and < 600vp type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   WIDTH_SM = 1,
 
   /**
@@ -10328,6 +10353,14 @@ declare enum WidthBreakpoint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 13 dynamic
+   */
+  /**
+   * Window width >= 600vp and < 840vp type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   WIDTH_MD = 2,
 
@@ -10338,6 +10371,14 @@ declare enum WidthBreakpoint {
    * @atomicservice
    * @since 13 dynamic
    */
+  /**
+   * Window width >= 840vp and < 1440vp type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   WIDTH_LG = 3,
 
   /**
@@ -10346,6 +10387,14 @@ declare enum WidthBreakpoint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 13 dynamic
+   */
+  /**
+   * Window width >= 1440vp type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   WIDTH_XL = 4,
 }
@@ -10358,6 +10407,15 @@ declare enum WidthBreakpoint {
  * @atomicservice
  * @since 13 dynamic
  */
+/**
+ * Type of window height breakpoint.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
 declare enum HeightBreakpoint {
   /**
    * Window aspectRatio < 0.8 type.
@@ -10365,6 +10423,14 @@ declare enum HeightBreakpoint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 13 dynamic
+   */
+  /**
+   * Window aspectRatio < 0.8 type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   HEIGHT_SM = 0,
 
@@ -10375,6 +10441,14 @@ declare enum HeightBreakpoint {
    * @atomicservice
    * @since 13 dynamic
    */
+  /**
+   * Window aspectRatio >= 0.8 and < 1.2 type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   HEIGHT_MD = 1,
 
   /**
@@ -10383,6 +10457,14 @@ declare enum HeightBreakpoint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 13 dynamic
+   */
+  /**
+   * Window aspectRatio >= 1.2 type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   HEIGHT_LG = 2,
 }
@@ -11008,7 +11090,7 @@ declare enum AnimationPropertyType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 23 dynamic
+ * @since 22 dynamic
  */
 declare enum ResponseRegionSupportedTool {
   /**
@@ -11017,7 +11099,7 @@ declare enum ResponseRegionSupportedTool {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   ALL = 0,
 
@@ -11027,7 +11109,7 @@ declare enum ResponseRegionSupportedTool {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   FINGER = 1,
 
@@ -11037,7 +11119,7 @@ declare enum ResponseRegionSupportedTool {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   PEN = 2,
 
@@ -11047,7 +11129,7 @@ declare enum ResponseRegionSupportedTool {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   MOUSE = 3
 }

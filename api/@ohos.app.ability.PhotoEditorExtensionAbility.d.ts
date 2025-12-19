@@ -30,7 +30,7 @@ import type Want from './@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
  * @StageModelOnly
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class PhotoEditorExtensionAbility extends ExtensionAbility {
      /**
@@ -40,7 +40,7 @@ declare class PhotoEditorExtensionAbility extends ExtensionAbility {
       * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
       * @StageModelOnly
       * @since 12 dynamic
-      * @since 22 static
+      * @since 23 static
       */
     context: PhotoEditorExtensionContext;
 
@@ -50,7 +50,7 @@ declare class PhotoEditorExtensionAbility extends ExtensionAbility {
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @StageModelOnly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onCreate(): void;
 
@@ -60,7 +60,7 @@ declare class PhotoEditorExtensionAbility extends ExtensionAbility {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onForeground(): void;
 
@@ -70,7 +70,7 @@ declare class PhotoEditorExtensionAbility extends ExtensionAbility {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onBackground(): void;
 
@@ -90,7 +90,7 @@ declare class PhotoEditorExtensionAbility extends ExtensionAbility {
      * @returns { Promise<void> | undefined } the promise returned by the function.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @StageModelOnly
-     * @since 22 static
+     * @since 23 static
      */
     onDestroy(): Promise<void> | undefined;
 
@@ -103,7 +103,7 @@ declare class PhotoEditorExtensionAbility extends ExtensionAbility {
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @StageModelOnly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onStartContentEditing(uri: string, want: Want, session: UIExtensionContentSession): void;
 }

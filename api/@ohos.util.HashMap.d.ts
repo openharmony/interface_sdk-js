@@ -41,7 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class HashMap<K, V> {
   /**
@@ -67,7 +67,7 @@ declare class HashMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   constructor();
   /**
@@ -102,7 +102,7 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get length(): int;
   /**
@@ -131,7 +131,7 @@ declare class HashMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isEmpty(): boolean;
   /**
@@ -163,7 +163,7 @@ declare class HashMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   hasKey(key: K): boolean;
   /**
@@ -195,7 +195,7 @@ declare class HashMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   hasValue(value: V): boolean;
   /**
@@ -238,7 +238,7 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get(key: K): V | undefined;
 
@@ -277,7 +277,7 @@ declare class HashMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setAll(map: HashMap<K, V>): void;
   /**
@@ -318,7 +318,7 @@ declare class HashMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   set(key: K, value: V): Object;
   /**
@@ -361,7 +361,7 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   remove(key: K): V | undefined;
 
@@ -388,7 +388,7 @@ declare class HashMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clear(): void;
   /**
@@ -417,7 +417,7 @@ declare class HashMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   keys(): IterableIterator<K>;
   /**
@@ -446,7 +446,7 @@ declare class HashMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   values(): IterableIterator<V>;
   /**
@@ -481,7 +481,7 @@ declare class HashMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   replace(key: K, newValue: V): boolean;
   /**
@@ -542,7 +542,7 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   forEach(callbackFn: HashMapCbFn<K, V>): void;
 
@@ -572,7 +572,7 @@ declare class HashMap<K, V> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   entries(): IterableIterator<[K, V]>;
   /**
@@ -611,7 +611,7 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   $_iterator(): IterableIterator<[K, V]>;
 }
@@ -626,7 +626,7 @@ declare class HashMap<K, V> {
    * @returns { void } This callback does not return a value
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   export type HashMapCbFn<K, V> = (value: V, key: K, map: HashMap<K, V>) => void;
 

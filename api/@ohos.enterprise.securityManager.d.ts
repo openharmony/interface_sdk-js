@@ -29,7 +29,7 @@ import type image from './@ohos.multimedia.image';
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @stagemodelonly
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace securityManager {
   /**
@@ -314,7 +314,7 @@ declare namespace securityManager {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPasswordPolicy(): PasswordPolicy;
 
@@ -502,7 +502,7 @@ declare namespace securityManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface PasswordPolicy {
     /**
@@ -512,7 +512,7 @@ declare namespace securityManager {
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     complexityRegex?: string;
 
@@ -523,7 +523,7 @@ declare namespace securityManager {
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     validityPeriod?: long;
 
@@ -534,7 +534,7 @@ declare namespace securityManager {
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     additionalDescription?: string;
   }

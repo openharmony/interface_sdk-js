@@ -32,7 +32,7 @@ import { WebNetErrorList } from './@ohos.web.netErrorList';
   *
   * @namespace webview
   * @syscap SystemCapability.Web.Webview.Core
-  * @since 22 static
+  * @since 23 static
   */
 declare namespace webview {
 
@@ -41,14 +41,14 @@ declare namespace webview {
      *
      * @typedef WebHeader
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface WebHeader {
         /**
          * Gets the key of the request/response header.
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         headerKey: string;
 
@@ -56,7 +56,7 @@ declare namespace webview {
          * Gets the value of the request/response header.
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         headerValue: string;
     }
@@ -65,62 +65,62 @@ declare namespace webview {
      * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum WebHitTestType {
         /**
          * The edit text.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         EDIT_TEXT,
 
         /**
          * The email address.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         EMAIL,
 
         /**
          * The HTML::a tag with src=http.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         HTTP_ANCHOR,
 
         /**
          * The HTML::a tag with src=http + HTML::img.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         HTTP_ANCHOR_IMG,
 
         /**
          * The HTML::img tag.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         IMG,
 
         /**
          * The map address.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         MAP,
 
         /**
          * The phone number.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         PHONE,
 
         /**
          * Other unknown HitTest.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         UNKNOWN
     }
@@ -129,27 +129,27 @@ declare namespace webview {
      * Defines the mode for using HttpDns.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum SecureDnsMode {
         /**
          * Do not use HttpDns, can be used to revoke previously used HttpDns configuration.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         OFF = 0,
         /**
          * By default, the user-settings of HttpDns is used for dns resolution, and if it fails,
          * the system dns is used for resolution.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         AUTO = 1,
         /**
          * Use the user-settings of HttpDns for dns resolution. If it fails, it will not
          * fall back to the system dns, which will directly cause the page to fail to load.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SECURE_ONLY = 2,
     }
@@ -159,14 +159,14 @@ declare namespace webview {
      *
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum SecurityLevel {
         /**
          * Unable to determine whether it is safe or not, the non-http/https protocol used.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NONE = 0,
 
@@ -174,7 +174,7 @@ declare namespace webview {
          * Indicates the HTTPS protocol used by the page and the authentication is successful.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SECURE = 1,
 
@@ -183,7 +183,7 @@ declare namespace webview {
          * is used but use an legacy TLS version.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         WARNING = 2,
 
@@ -191,7 +191,7 @@ declare namespace webview {
          * Attempted HTTPS and failed, the authentication is failed.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         DANGEROUS = 3,
     }
@@ -203,27 +203,27 @@ declare namespace webview {
      * <p>See [ArkWeb Dual Web Engine Versioning Convention] for switching between Legacy and Evergreen Web Engine.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum ArkWebEngineVersion {
         /**
          * Use the system default ArkWeb engine.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SYSTEM_DEFAULT = 0,
 
         /**
          * ArkWeb M114 version.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         M114 = 1,
 
         /**
          * ArkWeb M132 version.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         M132 = 2,
 
@@ -239,34 +239,34 @@ declare namespace webview {
      * The playback status of all audio and video.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum MediaPlaybackState {
         /**
          * No audio or video currently.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NONE = 0,
 
         /**
          * The audio and video on the page are being played.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         PLAYING = 1,
 
         /**
          * The audio and video on the page are paused.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         PAUSED = 2,
 
         /**
          * The audio and video on the page are stopped.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         STOPPED = 3
     }
@@ -275,20 +275,20 @@ declare namespace webview {
      * The memory pressure level that can be set.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum PressureLevel {
         /**
          * Modules are advised to free buffers that are cheap to re-allocate and not immediately needed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         MEMORY_PRESSURE_LEVEL_MODERATE = 1,
 
         /**
          * At this level, modules are advised to free all possible memory.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         MEMORY_PRESSURE_LEVEL_CRITICAL = 2
     }
@@ -298,7 +298,7 @@ declare namespace webview {
      *
      * @typedef HitTestValue
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface HitTestValue {
         /**
@@ -306,7 +306,7 @@ declare namespace webview {
          *
          * @type { WebHitTestType }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         type: WebHitTestType;
 
@@ -316,7 +316,7 @@ declare namespace webview {
          *
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         extra: string;
     }
@@ -326,7 +326,7 @@ declare namespace webview {
      *
      * @typedef WebCustomScheme
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface WebCustomScheme {
         /**
@@ -334,7 +334,7 @@ declare namespace webview {
          *
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         schemeName: string;
 
@@ -343,7 +343,7 @@ declare namespace webview {
          *
          * @type { boolean }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isSupportCORS: boolean;
 
@@ -352,7 +352,7 @@ declare namespace webview {
          *
          * @type { boolean }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isSupportFetch: boolean;
 
@@ -363,7 +363,7 @@ declare namespace webview {
          *
          * @type { ?boolean }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isStandard?: boolean;
 
@@ -373,7 +373,7 @@ declare namespace webview {
          *
          * @type { ?boolean }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isLocal?: boolean;
 
@@ -383,7 +383,7 @@ declare namespace webview {
          *
          * @type { ?boolean }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isDisplayIsolated?: boolean;
 
@@ -393,7 +393,7 @@ declare namespace webview {
          *
          * @type { ?boolean }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isSecure?: boolean;
 
@@ -403,7 +403,7 @@ declare namespace webview {
          *
          * @type { ?boolean }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isCspBypassing?: boolean;
 
@@ -412,7 +412,7 @@ declare namespace webview {
          *
          * @type { ?boolean }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isCodeCacheSupported?: boolean;
     }
@@ -421,7 +421,7 @@ declare namespace webview {
      * Defines the callback of createPdf, related to {@link createPDF} method.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class PdfData {
         /**
@@ -429,7 +429,7 @@ declare namespace webview {
          *
          * @returns { Uint8Array } return pdf data.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         pdfArrayBuffer(): Uint8Array;
     }
@@ -439,7 +439,7 @@ declare namespace webview {
      *
      * @typedef PdfConfiguration
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface PdfConfiguration {
         /**
@@ -447,7 +447,7 @@ declare namespace webview {
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         width: double;
 
@@ -456,7 +456,7 @@ declare namespace webview {
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         height: double;
 
@@ -465,7 +465,7 @@ declare namespace webview {
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         marginTop: double;
 
@@ -474,7 +474,7 @@ declare namespace webview {
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         marginBottom: double;
 
@@ -483,7 +483,7 @@ declare namespace webview {
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         marginRight: double;
 
@@ -492,7 +492,7 @@ declare namespace webview {
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         marginLeft: double;
 
@@ -501,7 +501,7 @@ declare namespace webview {
          *
          * @type { ?double }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         scale?: double;
 
@@ -510,7 +510,7 @@ declare namespace webview {
          *
          * @type { ?boolean }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         shouldPrintBackground?: boolean;
     }
@@ -520,7 +520,7 @@ declare namespace webview {
      *
      * @typedef WebStorageOrigin
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface WebStorageOrigin {
         /**
@@ -528,7 +528,7 @@ declare namespace webview {
          *
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         origin: string;
         /**
@@ -536,7 +536,7 @@ declare namespace webview {
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         usage: double;
         /**
@@ -544,7 +544,7 @@ declare namespace webview {
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         quota: double;
     }
@@ -554,14 +554,14 @@ declare namespace webview {
      *
      * @typedef RequestInfo
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface RequestInfo {
         /**
          * Gets the url of the request.
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         url: string;
 
@@ -569,7 +569,7 @@ declare namespace webview {
          * Gets the method of the request.
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         method: string;
 
@@ -577,7 +577,7 @@ declare namespace webview {
          * Gets the form data of the request.
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         formData: string;
     }
@@ -588,7 +588,7 @@ declare namespace webview {
      *
      * @typedef ScrollOffset
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface ScrollOffset {
         /**
@@ -601,7 +601,7 @@ declare namespace webview {
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         x: double;
 
@@ -615,7 +615,7 @@ declare namespace webview {
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         y: double;
     }
@@ -629,7 +629,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     function once(type: string, callback: Callback<void>): void;
 
@@ -642,7 +642,7 @@ declare namespace webview {
      * </p>
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class WebStorage {
         /**
@@ -652,7 +652,7 @@ declare namespace webview {
          *                                {@code true} means to delete all data in the Web SQL Database in incognito mode;
          *                                {@code false} means to delete all data in the Web SQL Database in normal non-incognito mode.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static deleteAllData(incognito?: boolean): void;
 
@@ -664,7 +664,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100011 - Invalid origin.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static deleteOrigin(origin: string): void;
 
@@ -678,7 +678,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100012 - Invalid web storage origin.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static getOrigins(): Promise<Array<WebStorageOrigin>>;
 
@@ -692,7 +692,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100012 - Invalid web storage origin.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>): void;
 
@@ -705,7 +705,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100011 - Invalid origin.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static getOriginQuota(origin: string): Promise<double>;
 
@@ -718,7 +718,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100011 - Invalid origin.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static getOriginQuota(origin: string, callback: AsyncCallback<double>): void;
 
@@ -731,7 +731,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100011 - Invalid origin.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static getOriginUsage(origin: string): Promise<double>;
 
@@ -744,7 +744,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100011 - Invalid origin.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static getOriginUsage(origin: string, callback: AsyncCallback<double>): void;
     }
@@ -757,14 +757,14 @@ declare namespace webview {
      * </p>
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class WebDataBase {
         /**
          * Get whether instances holds any http authentication credentials.
          * @returns { boolean } true if instances saved any http authentication credentials otherwise false.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static existHttpAuthCredentials(): boolean;
 
@@ -772,7 +772,7 @@ declare namespace webview {
          * Deletes all HTTP authentication credentials saved in the cache. This API returns the result synchronously.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static deleteHttpAuthCredentials(): void;
 
@@ -784,7 +784,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static getHttpAuthCredentials(host: string, realm: string): Array<string>;
 
@@ -797,7 +797,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void;
     }
@@ -810,7 +810,7 @@ declare namespace webview {
      * </p>
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class GeolocationPermissions {
         /**
@@ -824,7 +824,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100011 - Invalid origin.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static allowGeolocation(origin: string, incognito?: boolean): void;
 
@@ -837,7 +837,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100011 - Invalid origin.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static deleteGeolocation(origin: string, incognito?: boolean): void;
 
@@ -849,7 +849,7 @@ declare namespace webview {
          *                                all sources in incognito mode; {@code false} means to clear the geolocation
          *                                permission status of all sources in normal non-incognito mode.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static deleteAllGeolocation(incognito?: boolean): void;
 
@@ -867,7 +867,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100011 - Invalid origin.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static getAccessibleGeolocation(origin: string, incognito?: boolean): Promise<boolean>;
 
@@ -886,7 +886,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100011 - Invalid origin.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static getAccessibleGeolocation(origin: string, callback: AsyncCallback<boolean>, incognito?: boolean): void;
 
@@ -899,7 +899,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static getStoredGeolocation(incognito?: boolean): Promise<Array<string>>;
 
@@ -912,7 +912,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static getStoredGeolocation(callback: AsyncCallback<Array<string>>, incognito?: boolean): void;
     }
@@ -921,7 +921,7 @@ declare namespace webview {
      * Provides methods for managing the web cookies.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class WebCookieManager {
         /**
@@ -935,7 +935,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types.
          * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static fetchCookieSync(url: string, incognito?: boolean): string;
 
@@ -948,7 +948,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types.
          * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static fetchCookie(url: string): Promise<string>;
 
@@ -963,7 +963,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types.
          * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static fetchCookie(url: string, incognito: boolean): Promise<string>;
 
@@ -976,7 +976,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types.
          * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static fetchCookie(url: string, callback: AsyncCallback<string>): void;
 
@@ -993,7 +993,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
          * <br>in RFC 6265.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static configCookieSync(url: string, value: string, incognito?: boolean): void;
 
@@ -1012,7 +1012,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
          * <br>in RFC 6265.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static configCookieSync(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): void;
 
@@ -1028,7 +1028,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
          * <br>in RFC 6265.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static configCookie(url: string, value: string): Promise<void>;
 
@@ -1048,7 +1048,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
          * <br>in RFC 6265.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static configCookie(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): Promise<void>;
 
@@ -1064,14 +1064,14 @@ declare namespace webview {
          * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
          * <br>in RFC 6265.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static configCookie(url: string, value: string, callback: AsyncCallback<void>): void;
 
         /**
          * Save the cookies synchronously.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static saveCookieSync(): void;
 
@@ -1081,7 +1081,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static saveCookieAsync(): Promise<void>;
 
@@ -1091,7 +1091,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static saveCookieAsync(callback: AsyncCallback<void>): void;
 
@@ -1100,7 +1100,7 @@ declare namespace webview {
          *
          * @returns { boolean } True if the instance can send and accept cookies else false.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static isCookieAllowed(): boolean;
 
@@ -1112,7 +1112,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static putAcceptCookieEnabled(accept: boolean): void;
 
@@ -1121,7 +1121,7 @@ declare namespace webview {
          *
          * @returns { boolean } True if the instance can send and accept thirdparty cookies else false.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static isThirdPartyCookieAllowed(): boolean;
 
@@ -1133,7 +1133,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static putAcceptThirdPartyCookieEnabled(accept: boolean): void;
 
@@ -1144,7 +1144,7 @@ declare namespace webview {
          *                                in incognito mode; {@code false} otherwise.
          * @returns { boolean } True if exists more than one cookie else false;
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static existCookie(incognito?: boolean): boolean;
 
@@ -1154,7 +1154,7 @@ declare namespace webview {
          * @param { boolean } incognito - {@code true} remove all cookies in incognito mode;
          *                                {@code false} otherwise.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static clearAllCookiesSync(incognito?: boolean): void;
 
@@ -1163,7 +1163,7 @@ declare namespace webview {
          * @returns { Promise<void> } - A promise resolved after the cookies have been deleted.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static clearAllCookies(): Promise<void>;
 
@@ -1173,14 +1173,14 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static clearAllCookies(callback: AsyncCallback<void>): void;
 
         /**
          * Delete the session cookies.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static clearSessionCookieSync(): void;
 
@@ -1189,7 +1189,7 @@ declare namespace webview {
          * @returns { Promise<void> } - A promise resolved after the cookies have been deleted.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static clearSessionCookie(): Promise<void>;
 
@@ -1199,7 +1199,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static clearSessionCookie(callback: AsyncCallback<void>): void;
 
@@ -1234,14 +1234,14 @@ declare namespace webview {
      *
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum WebMessageType {
         /**
          * Unsupported data type.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NOT_SUPPORT,
 
@@ -1249,7 +1249,7 @@ declare namespace webview {
          * The string data type.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         STRING,
 
@@ -1257,7 +1257,7 @@ declare namespace webview {
          * The number data type.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NUMBER,
 
@@ -1265,7 +1265,7 @@ declare namespace webview {
          * The boolean data type.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         BOOLEAN,
 
@@ -1273,7 +1273,7 @@ declare namespace webview {
          * The arraybuffer data type.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         ARRAY_BUFFER,
 
@@ -1281,7 +1281,7 @@ declare namespace webview {
          * The array data type.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         ARRAY,
 
@@ -1289,7 +1289,7 @@ declare namespace webview {
          * The error data type.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         ERROR
     }
@@ -1298,14 +1298,14 @@ declare namespace webview {
      * The message received or sent from web message port.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class WebMessageExt {
         /**
          * Get the type of the web message.
          * @returns { WebMessageType } - Returns data of WebMessageType type
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getType(): WebMessageType;
 
@@ -1315,7 +1315,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getString(): string;
 
@@ -1325,7 +1325,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getNumber(): double | long;
 
@@ -1335,7 +1335,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getBoolean(): boolean;
 
@@ -1345,7 +1345,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getArrayBuffer(): ArrayBuffer;
 
@@ -1355,7 +1355,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getArray(): Array<string | double | long | boolean>;
 
@@ -1365,7 +1365,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getError(): Error;
 
@@ -1377,7 +1377,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setType(type: WebMessageType): void;
 
@@ -1389,7 +1389,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setString(message: string): void;
 
@@ -1401,7 +1401,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setNumber(message: double): void;
 
@@ -1413,7 +1413,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setBoolean(message: boolean): void;
 
@@ -1425,7 +1425,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setArrayBuffer(message: ArrayBuffer): void;
 
@@ -1436,7 +1436,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setArray(message: Array<string | double | long | boolean>): void;
 
@@ -1448,7 +1448,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setError(message: Error): void;
     }
@@ -1458,7 +1458,7 @@ declare namespace webview {
      *
      * @typedef { ArrayBuffer | string }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     type WebMessage = ArrayBuffer | string;
 
@@ -1466,7 +1466,7 @@ declare namespace webview {
      * Define html web message port.
      * @typedef WebMessagePort
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface WebMessagePort {
         /**
@@ -1474,14 +1474,14 @@ declare namespace webview {
          *
          * @type { ?boolean }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isExtentionType?: boolean;
 
         /**
          * Close port.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         close(): void;
 
@@ -1492,7 +1492,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100010 - Failed to post messages through the port.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         postMessageEvent(message: WebMessage): void;
 
@@ -1503,7 +1503,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100006 - Failed to register a message event for the port.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         onMessageEvent(callback: (result: WebMessage) => void): void;
 
@@ -1514,7 +1514,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100010 - Failed to post messages through the port.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         postMessageEventExt(message: WebMessageExt): void;
 
@@ -1525,7 +1525,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @throws { BusinessError } 17100006 - Failed to register a message event for the port.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         onMessageEventExt(callback: (result: WebMessageExt) => void): void;
     }
@@ -1534,14 +1534,14 @@ declare namespace webview {
      * Provides information for history item in BackForwardList.
      * @typedef HistoryItem
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface HistoryItem {
         /**
          * Pixelmap of icon.
          * @type { image.PixelMap }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         icon: image.PixelMap;
 
@@ -1549,7 +1549,7 @@ declare namespace webview {
          * Url of this history item.
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         historyUrl: string;
 
@@ -1557,7 +1557,7 @@ declare namespace webview {
          * Original request url of this history item.
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         historyRawUrl: string;
 
@@ -1565,7 +1565,7 @@ declare namespace webview {
          * Title of this history item.
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         title: string;
     }
@@ -1574,14 +1574,14 @@ declare namespace webview {
      * Provides back and forward history list information method. related to {@link HistoryItem}.
      * @typedef BackForwardList
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface BackForwardList {
         /**
          * Current index in BackForwardList.
          * @type { int }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         currentIndex: int;
 
@@ -1589,7 +1589,7 @@ declare namespace webview {
          * Size of in BackForwardList.
          * @type { int }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         size: int;
 
@@ -1601,7 +1601,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getItemAtIndex(index: int): HistoryItem;
     }
@@ -1611,7 +1611,7 @@ declare namespace webview {
      *
      * @typedef SnapshotInfo
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface SnapshotInfo {
         /**
@@ -1619,7 +1619,7 @@ declare namespace webview {
          *
          * @type { ?string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         id?: string;
 
@@ -1632,7 +1632,7 @@ declare namespace webview {
          *
          * @type { ?SizeOptions }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         size?: SizeOptions;
     }
@@ -1642,7 +1642,7 @@ declare namespace webview {
      *
      * @typedef SnapshotResult
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface SnapshotResult {
         /**
@@ -1650,7 +1650,7 @@ declare namespace webview {
          *
          * @type { ?string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         id?: string;
 
@@ -1661,7 +1661,7 @@ declare namespace webview {
          *
          * @type { ?boolean }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         status?: boolean;
 
@@ -1671,7 +1671,7 @@ declare namespace webview {
          *
          * @type { ?SizeOptions }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         size?: SizeOptions;
 
@@ -1680,7 +1680,7 @@ declare namespace webview {
          *
          * @type { ?image.PixelMap }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         imagePixelMap?: image.PixelMap;
     }
@@ -1689,48 +1689,48 @@ declare namespace webview {
      * Enum type supplied to {@link runJavaScriptExt} for indicating the result of JavaScript code execution.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum JsMessageType {
         /**
          * Unsupported data type.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NOT_SUPPORT,
 
         /**
          * The string data type.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         STRING,
 
         /**
          * The number data type.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NUMBER,
 
         /**
          * The boolean data type.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         BOOLEAN,
 
         /**
          * The arraybuffer data type.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         ARRAY_BUFFER,
 
         /**
          * The array data type.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         ARRAY
     }
@@ -1738,14 +1738,14 @@ declare namespace webview {
     /**
      * The message for indicating the of result of JavaScript code execution.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class JsMessageExt {
         /**
          * Get the type of the JavaScript code execution result.
          * @returns { JsMessageType } - Returns data of JsMessageType type
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getType(): JsMessageType;
 
@@ -1754,7 +1754,7 @@ declare namespace webview {
          * @returns { string } - Returns data of string type
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getString(): string;
 
@@ -1763,7 +1763,7 @@ declare namespace webview {
          * @returns { double | long } - Returns data of number type
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getNumber(): double | long;
 
@@ -1772,7 +1772,7 @@ declare namespace webview {
          * @returns { boolean } - Returns data of Boolean type
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getBoolean(): boolean;
 
@@ -1781,7 +1781,7 @@ declare namespace webview {
          * @returns { ArrayBuffer } - Returns data of ArrayBuffer
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getArrayBuffer(): ArrayBuffer;
 
@@ -1790,7 +1790,7 @@ declare namespace webview {
          * @returns { Array<string | double | long | boolean> } - Returns data of Array type
          * @throws { BusinessError } 17100014 - The type and value of the message do not match.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getArray(): Array<string | double | long | boolean>;
 
@@ -1800,7 +1800,7 @@ declare namespace webview {
          *     serialized string in the format of "Not support type: <{exception|object}>", Parts exceeding a length of
          *     2048 will be truncated; otherwise, return null.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getErrorDescription(): string | null;
     }
@@ -1810,14 +1810,14 @@ declare namespace webview {
      *
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum RenderProcessMode {
         /**
          * ArkWeb single rendering subprocess mode. In this mode, multiple Web pages reuse a rendering subprocess.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SINGLE = 0,
 
@@ -1825,7 +1825,7 @@ declare namespace webview {
          * ArkWeb multi-rendering subprocess mode. In this mode, there is one rendering subprocess per Web.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         MULTIPLE,
     }
@@ -1834,7 +1834,7 @@ declare namespace webview {
      * Options of generating code cache
      * @typedef CacheOptions
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface CacheOptions {
         /**
@@ -1843,7 +1843,7 @@ declare namespace webview {
          *
          * @type { Array<WebHeader> }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         responseHeaders: Array<WebHeader>;
     }
@@ -1852,14 +1852,14 @@ declare namespace webview {
      * Enum type supplied to {@link OfflineResourceMap} for indicating the type of resource.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum OfflineResourceType {
         /**
          * Resource of the image type.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         IMAGE,
 
@@ -1867,7 +1867,7 @@ declare namespace webview {
          * Resource of the CSS type.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         CSS,
 
@@ -1875,7 +1875,7 @@ declare namespace webview {
          * Javascript resource loaded through the <script src="" /> tag.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         CLASSIC_JS,
 
@@ -1883,7 +1883,7 @@ declare namespace webview {
          * Javascript resource loaded through the <script src="" type="module" /> tag.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         MODULE_JS
     }
@@ -1892,7 +1892,7 @@ declare namespace webview {
      * Define offline resource's content and info.
      * @typedef OfflineResourceMap
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface OfflineResourceMap {
         /**
@@ -1900,7 +1900,7 @@ declare namespace webview {
          *
          * @type { Array<string> }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         urlList: Array<string>,
 
@@ -1909,7 +1909,7 @@ declare namespace webview {
          *
          * @type { Uint8Array }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         resource: Uint8Array,
 
@@ -1918,7 +1918,7 @@ declare namespace webview {
          *
          * @type { Array<WebHeader> }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         responseHeaders: Array<WebHeader>,
 
@@ -1927,7 +1927,7 @@ declare namespace webview {
          *
          * @type { OfflineResourceType }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         type: OfflineResourceType
     }
@@ -1937,14 +1937,14 @@ declare namespace webview {
      *
      * @enum { number }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum ScrollType {
         /**
          * Indicates scrolling the web page through scroll event, include touch screen, touch pad, and mouse wheel.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         EVENT
     }
@@ -1954,14 +1954,14 @@ declare namespace webview {
      *
      * @enum { number }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum ControllerAttachState {
         /**
          * Indicates webviewController is not attached a web component.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         UNATTACHED = 0,
 
@@ -1969,7 +1969,7 @@ declare namespace webview {
          * Indicates webviewController is attached a web component.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         ATTACHED = 1
     }
@@ -1980,14 +1980,14 @@ declare namespace webview {
      *
      * @enum { number }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum WebBlanklessErrorCode {
         /**
          * The operation is successful.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SUCCESS = 0,
 
@@ -1995,7 +1995,7 @@ declare namespace webview {
          * Unknown error.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         ERR_UNKNOWN = -1,
 
@@ -2003,7 +2003,7 @@ declare namespace webview {
          * Invalid parameter.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         ERR_INVALID_PARAM = -2,
 
@@ -2011,7 +2011,7 @@ declare namespace webview {
          * The web controller is not bound to any component.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         ERR_CONTROLLER_NOT_INITED = -3,
 
@@ -2020,7 +2020,7 @@ declare namespace webview {
          * setBlanklessLodingWithKey and getBlanklessInfoWithKey are not matched.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         ERR_KEY_NOT_MATCH = -4,
 
@@ -2029,7 +2029,7 @@ declare namespace webview {
          * the setBlanklessLodingWithKey API fails to enable frame interpolation.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         ERR_SIGNIFICANT_CHANGE = -5
     }
@@ -2038,20 +2038,20 @@ declare namespace webview {
      * Indicates the keyboard behavior mode of the web component, default value is DEFAULT.
      * @enum {int}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum WebSoftKeyboardBehaviorMode {
         /**
          * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue or blur/focus state.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         DEFAULT = 0,
 
         /**
          * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue state
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         DISABLE_AUTO_KEYBOARD_ON_ACTIVE = 1
     }
@@ -2061,14 +2061,14 @@ declare namespace webview {
      *
      * @typedef BlanklessInfo
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface BlanklessInfo {
         /**
          * Defines the error codes of blankless.
          * @type { WebBlanklessErrorCode }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         errCode: WebBlanklessErrorCode;
 
@@ -2080,7 +2080,7 @@ declare namespace webview {
          * functionality be disabled when the similarity is 0.
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         similarity: double;
 
@@ -2090,7 +2090,7 @@ declare namespace webview {
          *
          * @type { int }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         loadingTime: int;
     }
@@ -2102,7 +2102,7 @@ declare namespace webview {
      * and methods on the Webviewcontroller (except static methods) can only be called
      * after the web component is bound to the WebviewController.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class WebviewController {
         /**
@@ -2110,7 +2110,7 @@ declare namespace webview {
          *
          * @param { string } [webTag] - specified the name of the web component, Empty by default.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         constructor(webTag?: string);
 
@@ -2119,7 +2119,7 @@ declare namespace webview {
          * This is a global static API that must be called on the UI thread, and it will have no effect if any
          * Web components are loaded.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static initializeWebEngine(): void;
 
@@ -2131,7 +2131,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3. Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setHttpDns(secureDnsMode: SecureDnsMode, secureDnsConfig: string): void;
 
@@ -2150,7 +2150,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setWebDebuggingAccess(webDebuggingAccess: boolean): void;
 
@@ -2161,7 +2161,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         enableSafeBrowsing(enable: boolean): void;
 
@@ -2169,7 +2169,7 @@ declare namespace webview {
          * Get whether checking website security risks is enabled.
          * @returns { boolean } True if enable the ability to check website security risks else false.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isSafeBrowsingEnabled(): boolean;
 
@@ -2187,7 +2187,7 @@ declare namespace webview {
          * @param {ArkWebEngineVersion} engineVersion - the ArkWebEngineVersion
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setActiveWebEngineVersion(engineVersion: ArkWebEngineVersion): void;
 
@@ -2196,7 +2196,7 @@ declare namespace webview {
          * @returns {ArkWebEngineVersion} Active ArkWeb Engine version as defined by ArkWebEngineVersion
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static getActiveWebEngineVersion(): ArkWebEngineVersion;
 
@@ -2215,7 +2215,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         accessForward(): boolean;
 
@@ -2225,7 +2225,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         accessBackward(): boolean;
 
@@ -2239,7 +2239,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         accessStep(step: int): boolean;
 
@@ -2249,7 +2249,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         forward(): void;
 
@@ -2259,7 +2259,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         backward(): void;
 
@@ -2269,7 +2269,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         clearHistory(): void;
 
@@ -2283,7 +2283,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         onActive(): void;
 
@@ -2297,7 +2297,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         onInactive(): void;
 
@@ -2307,7 +2307,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         refresh(): void;
 
@@ -2327,7 +2327,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         loadData(data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string): void;
 
@@ -2344,7 +2344,7 @@ declare namespace webview {
          *                           length exceeds 2048.
          * @throws { BusinessError } 17100003 - Invalid resource path or file type.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         loadUrl(url: string | Resource, headers?: Array<WebHeader>): void;
 
@@ -2365,7 +2365,7 @@ declare namespace webview {
          *                           The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 17100003 - Invalid resource path or file type.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         storeWebArchive(baseName: string, autoName: boolean): Promise<string>;
 
@@ -2386,7 +2386,7 @@ declare namespace webview {
          *                           The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 17100003 - Invalid resource path or file type.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         storeWebArchive(baseName: string, autoName: boolean, callback: AsyncCallback<string>): void;
 
@@ -2403,7 +2403,7 @@ declare namespace webview {
          *                           The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 17100004 - Function not enabled.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         zoom(factor: double): void;
 
@@ -2414,7 +2414,7 @@ declare namespace webview {
          *                           The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 17100004 - Function not enabled.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         zoomIn(): void;
 
@@ -2425,7 +2425,7 @@ declare namespace webview {
          *                           The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 17100004 - Function not enabled.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         zoomOut(): void;
 
@@ -2435,7 +2435,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getWebId(): int;
 
@@ -2445,7 +2445,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getUserAgent(): string;
 
@@ -2455,7 +2455,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getTitle(): string;
 
@@ -2465,7 +2465,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getPageHeight(): int;
 
@@ -2478,7 +2478,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         backOrForward(step: int): void;
 
@@ -2488,7 +2488,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         requestFocus(): void;
 
@@ -2502,7 +2502,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         createWebMessagePorts(isExtentionType?: boolean): Array<WebMessagePort>;
 
@@ -2517,7 +2517,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         postMessage(name: string, ports: Array<WebMessagePort>, uri: string): void;
 
@@ -2527,7 +2527,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         stop(): void;
 
@@ -2558,7 +2558,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         registerJavaScriptProxy(jsObject: object, name: string, methodList: Array<string>,
             asyncMethodList?: Array<string>, permission?: string): void;
@@ -2573,7 +2573,7 @@ declare namespace webview {
          *                           The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 17100008 - Failed to delete JavaScriptProxy because it does not exist.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         deleteJavaScriptRegister(name: string): void;
 
@@ -2587,7 +2587,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                         The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         searchAllAsync(searchString: string): void;
 
@@ -2597,7 +2597,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         clearMatches(): void;
 
@@ -2610,7 +2610,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         searchNext(forward: boolean): void;
 
@@ -2620,7 +2620,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         clearSslCache(): void;
 
@@ -2630,7 +2630,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         clearClientAuthenticationCache(): void;
 
@@ -2656,7 +2656,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         runJavaScript(script: string): Promise<string>;
 
@@ -2677,7 +2677,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         runJavaScript(script: string, callback: AsyncCallback<string>): void;
 
@@ -2694,7 +2694,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         runJavaScriptExt(script: string | ArrayBuffer): Promise<JsMessageExt>;
 
@@ -2708,7 +2708,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         runJavaScriptExt(script: string | ArrayBuffer, callback: AsyncCallback<JsMessageExt>): void;
 
@@ -2725,7 +2725,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         createPdf(configuration: PdfConfiguration, callback: AsyncCallback<PdfData>): void;
 
@@ -2744,7 +2744,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         createPdf(configuration: PdfConfiguration): Promise<PdfData>;
 
@@ -2754,7 +2754,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getUrl(): string;
 
@@ -2769,7 +2769,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         pageUp(top: boolean): void;
 
@@ -2784,7 +2784,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         pageDown(bottom: boolean): void;
 
@@ -2794,7 +2794,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getOriginalUrl(): string;
 
@@ -2804,7 +2804,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getFavicon(): image.PixelMap;
 
@@ -2817,7 +2817,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setNetworkAvailable(enable: boolean): void;
 
@@ -2829,7 +2829,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         hasImage(): Promise<boolean>;
 
@@ -2842,7 +2842,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         hasImage(callback: AsyncCallback<boolean>): void;
 
@@ -2852,7 +2852,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getBackForwardEntries(): BackForwardList;
 
@@ -2871,7 +2871,7 @@ declare namespace webview {
         * @throws { BusinessError } 17100001 - Init error.
         *                           The WebviewController must be associated with a Web component.
         * @syscap SystemCapability.Web.Webview.Core
-          * @since 22 static
+          * @since 23 static
         */
         removeCache(clearRom: boolean): void;
 
@@ -2884,7 +2884,7 @@ declare namespace webview {
         * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
         * <br>2. Incorrect parameter types.
         * @syscap SystemCapability.Web.Webview.Core
-        * @since 22 static
+        * @since 23 static
         */
         static removeAllCache(clearRom: boolean): void;
 
@@ -2900,7 +2900,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         scrollTo(x: double, y: double, duration?: int): void;
 
@@ -2920,7 +2920,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         scrollBy(deltaX: double, deltaY: double, duration?: int): void;
 
@@ -2934,7 +2934,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         slideScroll(vx: double, vy: double): void;
 
@@ -2944,7 +2944,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         serializeWebState(): Uint8Array;
 
@@ -2956,7 +2956,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         restoreWebState(state: Uint8Array): void;
 
@@ -2967,9 +2967,28 @@ declare namespace webview {
          * <br>2. Incorrect parameter types.
          * @throws { BusinessError } 17100020 - Failed to register custom schemes.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static customizeSchemes(schemes: Array<WebCustomScheme>): void;
+
+        /**
+         * Register Web custom schemes.
+         *
+         * @param { Array<WebCustomScheme> } schemes - Configuration of web custom scheme.
+         * @param { boolean } lazyInitWebEngine - When true: The interface internally skips initializing WebEngine and
+         *     temporarily stores the registered schemes, which will be passed to WebEngine when it actually
+         *     initializes. When false: The interface automatically performs WebEngine initialization internally.
+         * @throws { BusinessError } 17100020 - Failed to register custom schemes.
+         * @throws { BusinessError } 401 - Parameter error. Possible causes:
+         *     1. The length of the schemes array is greater than 10.
+         *     2. The character length of the scheme is greater than 32.
+         *     3. The character in the scheme is not within the allowed range of lowercase English letters, numbers,
+         *     and the symbols ".", "+", "-".
+         * @static
+         * @syscap SystemCapability.Web.Webview.Core
+         * @since 23 static
+         */
+        static customizeSchemes(schemes: Array<WebCustomScheme>, lazyInitWebEngine: boolean): void
 
         /**
          * Get certificate for the current website.
@@ -2977,7 +2996,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getCertificate(): Promise<Array<cert.X509Cert>>;
 
@@ -2989,7 +3008,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void;
 
@@ -3001,7 +3020,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setAudioMuted(mute: boolean): void;
 
@@ -3010,11 +3029,11 @@ declare namespace webview {
          * @param { string } url - Which url to preresolve/preconnect.
          * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associated with a Web component.
+         *     The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-         *                           length exceeds 2048.
+         *     length exceeds 2*1024*1024.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         prefetchPage(url: string, additionalHeaders?: Array<WebHeader>): void;
 
@@ -3027,7 +3046,7 @@ declare namespace webview {
          *                           length exceeds 2048.
          * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static prepareForPageLoad(url: string, preconnectable: boolean, numSockets: int): void;
 
@@ -3039,27 +3058,28 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setCustomUserAgent(userAgent: string): void;
 
         /**
          * Prefetch the resources required by the page, but will not execute js or render the page.
          * <p><strong>API Note</strong>:<br>
-         * ‌prefetchPage‌ does not cache resources with Cache-Control: no-store by default, and only allows one prefetch within
-         * 500ms.
-         * Prefetch behavior can be customized via ‌prefetchOptions‌, including ignoring Cache-Control: no-store and adjusting
-         * the throttling interval.
-         *
+         * ‌prefetchPage‌ does not cache resources with Cache-Control: no-store by default,
+         * and only allows one prefetch within 500ms.
+         * Prefetch behavior can be customized via ‌prefetchOptions‌, including ignoring Cache-Control:
+         * no-store and adjusting the throttling interval.
+         * 
          * @param { string } url - Which url to preresolve/preconnect.
          * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
-         * @param { PrefetchOptions } [prefetchOptions] - Prefetch behavior can be customized via ‌prefetchOptions‌, including
-         *     ignoring Cache-Control: no-store and adjusting the throttling interval.
-         * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
+         * @param { PrefetchOptions } [prefetchOptions] - Prefetch behavior can be customized via ‌prefetchOptions‌,
+         *     including ignoring Cache-Control: no-store and adjusting the throttling interval.
+         * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with
+         *     a Web component.
          * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-         *     length exceeds 2 *1024 *1024.
+         *     length exceeds 2*1024*1024.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         prefetchPage(url: string, additionalHeaders?: Array<WebHeader>, prefetchOptions?: PrefetchOptions): void;
 
@@ -3069,7 +3089,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getCustomUserAgent(): string;
 
@@ -3079,7 +3099,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3. Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setConnectionTimeout(timeout: int): void;
 
@@ -3090,7 +3110,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setDownloadDelegate(delegate: WebDownloadDelegate): void;
 
@@ -3102,7 +3122,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
          *     length exceeds 2 *1024 *1024.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         startDownload(url: string): void;
 
@@ -3115,10 +3135,9 @@ declare namespace webview {
          * <br>2. Incorrect parameter types.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
-         * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
-         *                           length exceeds 2048.
+         * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         postUrl(url: string, postData: ArrayBuffer): void;
 
@@ -3131,7 +3150,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         createWebPrintDocumentAdapter(jobName: string): print.PrintDocumentAdapter;
 
@@ -3142,7 +3161,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getSecurityLevel(): SecurityLevel;
 
@@ -3153,7 +3172,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isIncognitoMode(): boolean;
 
@@ -3173,7 +3192,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setScrollable(enable: boolean, type?: ScrollType): void;
 
@@ -3183,7 +3202,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getScrollable(): boolean;
 
@@ -3196,7 +3215,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setPrintBackground(enable: boolean): void;
 
@@ -3206,7 +3225,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getPrintBackground(): boolean;
 
@@ -3218,7 +3237,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getLastJavascriptProxyCallingFrameUrl(): string;
 
@@ -3228,7 +3247,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         startCamera(): void;
 
@@ -3238,7 +3257,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         stopCamera(): void;
 
@@ -3248,7 +3267,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         closeCamera(): void;
 
@@ -3258,7 +3277,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static pauseAllTimers(): void;
 
@@ -3268,7 +3287,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static resumeAllTimers(): void;
 
@@ -3278,7 +3297,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         stopAllMedia(): void;
 
@@ -3288,7 +3307,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         resumeAllMedia(): void;
 
@@ -3298,7 +3317,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         pauseAllMedia(): void;
 
@@ -3308,7 +3327,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         closeAllMediaPresentations(): void;
 
@@ -3319,7 +3338,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getMediaPlaybackState(): MediaPlaybackState;
 
@@ -3332,7 +3351,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setWebSchemeHandler(scheme: string, handler: WebSchemeHandler): void;
 
@@ -3341,7 +3360,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         clearWebSchemeHandler(): void;
 
@@ -3351,14 +3370,14 @@ declare namespace webview {
          * @param { WebSchemeHandler } handler - Web scheme handler.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setServiceWorkerWebSchemeHandler(scheme: string, handler: WebSchemeHandler): void;
 
         /**
          * Clear all web service worker scheme handlers.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static clearServiceWorkerWebSchemeHandler(): void;
 
@@ -3372,7 +3391,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types.
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         enableIntelligentTrackingPrevention(enable: boolean): void;
 
@@ -3384,7 +3403,7 @@ declare namespace webview {
          *                           The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isIntelligentTrackingPreventionEnabled(): boolean;
 
@@ -3396,7 +3415,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types.
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static addIntelligentTrackingPreventionBypassingList(hostList: Array<string>): void;
 
@@ -3408,7 +3427,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types.
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static removeIntelligentTrackingPreventionBypassingList(hostList: Array<string>): void;
 
@@ -3417,7 +3436,7 @@ declare namespace webview {
          *
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static clearIntelligentTrackingPreventionBypassingList(): void;
 
@@ -3426,7 +3445,7 @@ declare namespace webview {
          *
          * @returns {string} The default user agent string.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static getDefaultUserAgent(): string;
 
@@ -3435,7 +3454,7 @@ declare namespace webview {
          *
          * @param { CreateNativeMediaPlayerCallback } callback - Called everytime when web pages try to play media.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         onCreateNativeMediaPlayer(callback: CreateNativeMediaPlayerCallback): void;
 
@@ -3444,7 +3463,7 @@ declare namespace webview {
          * This API works only during Web component initialization.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static enableWholeWebPageDrawing(): void;
 
@@ -3460,7 +3479,7 @@ declare namespace webview {
          * @param { SnapshotInfo } info - The snapshot info.
          * @param { AsyncCallback<SnapshotResult> } callback - the callback of snapshot.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         webPageSnapshot(info: SnapshotInfo, callback: AsyncCallback<SnapshotResult>): void;
 
@@ -3483,7 +3502,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
          *     length exceeds 2 *1024 *1024.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static prefetchResource(request: RequestInfo, additionalHeaders?: Array<WebHeader>, cacheKey?: string,
         cacheValidTime?: int): void;
@@ -3494,7 +3513,7 @@ declare namespace webview {
          * @param { Array<string> } cacheKeyList - The keys for memory cache.
          *    The key in cacheKeyList only support number and letters.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static clearPrefetchedResource(cacheKeyList: Array<string>): void;
 
@@ -3510,7 +3529,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setRenderProcessMode(mode: RenderProcessMode): void;
 
@@ -3523,7 +3542,7 @@ declare namespace webview {
          *          If the obtained value is not within the range of the RenderProcessMode enumeration value,
          *          it defaults to the multi-rendering subprocess mode.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static getRenderProcessMode(): RenderProcessMode;
 
@@ -3539,7 +3558,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         terminateRenderProcess(): boolean;
 
@@ -3556,7 +3575,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *    The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         precompileJavaScript(url: string, script: string | Uint8Array, cacheOptions: CacheOptions): Promise<int>;
 
@@ -3569,7 +3588,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setHostIP(hostName: string, address: string, aliveTime: int): void;
 
@@ -3580,7 +3599,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static clearHostIP(hostName: string): void;
 
@@ -3590,7 +3609,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
          *                           length exceeds 2048.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static warmupServiceWorker(url: string): void;
 
@@ -3604,7 +3623,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
          *     length exceeds 2 *1024 *1024.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         injectOfflineResources(resourceMaps: Array<OfflineResourceMap>): void;
 
@@ -3618,7 +3637,7 @@ declare namespace webview {
          *     The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         enableAdsBlock(enable: boolean): void;
 
@@ -3628,7 +3647,7 @@ declare namespace webview {
          * @returns { boolean } True if the ability of AdsBlock is enabled; else false.
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isAdsBlockEnabled(): boolean;
 
@@ -3638,7 +3657,7 @@ declare namespace webview {
          * @returns { boolean } True if the ability of AdsBlock is enabled for current Webpage; else false.
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isAdsBlockEnabledForCurPage(): boolean;
 
@@ -3647,7 +3666,7 @@ declare namespace webview {
          *
          * @returns { string } The ID of the surface created by ArkWeb.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getSurfaceId(): string;
 
@@ -3662,7 +3681,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setUrlTrustList(urlTrustList: string): void;
 
@@ -3690,7 +3709,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setPathAllowingUniversalAccess(pathList: Array<string>): void;
 
@@ -3701,7 +3720,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Parameter string is too long. 3.Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static trimMemoryByPressureLevel(level: PressureLevel): void;
 
@@ -3712,7 +3731,7 @@ declare namespace webview {
          * @param { BackForwardCacheSupportedFeatures } [features] - The features that supports BackForwardCache.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static enableBackForwardCache(features?: BackForwardCacheSupportedFeatures): void;
 
@@ -3723,7 +3742,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setBackForwardCacheOptions(options?: BackForwardCacheOptions): void;
         /**
@@ -3731,7 +3750,7 @@ declare namespace webview {
          *
          * @returns { ScrollOffset } The current scroll offset of the web page (including the over-scroll offset).
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getScrollOffset(): ScrollOffset;
 
@@ -3750,7 +3769,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         scrollByWithResult(deltaX: double, deltaY: double): boolean;
 
@@ -3760,7 +3779,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getLastHitTest(): HitTestValue;
 
@@ -3770,7 +3789,7 @@ declare namespace webview {
          * @returns { ScrollOffset } The current scroll offset of the web page (excluding over-scroll offset).
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getPageOffset(): ScrollOffset;
 
@@ -3792,7 +3811,7 @@ declare namespace webview {
          * @param { string } userAgent - The User-Agent string.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setAppCustomUserAgent(userAgent: string) : void;
 
@@ -3808,7 +3827,7 @@ declare namespace webview {
          * @param { Array<string> } hosts - The hosts to which the User-Agent apply.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setUserAgentForHosts(userAgent: string, hosts : Array<string>) : void;
 
@@ -3816,7 +3835,7 @@ declare namespace webview {
          * Get whether webviewController is attached to a web component.
          * @returns { ControllerAttachState } the attach state of controller
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getAttachState(): ControllerAttachState;
 
@@ -3825,7 +3844,7 @@ declare namespace webview {
          *
          * @param { Callback<ControllerAttachState> } callback Callback used to return the controller attach state.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         onControllerAttachStateChange(callback: Callback<ControllerAttachState>): void;
 
@@ -3834,7 +3853,7 @@ declare namespace webview {
          *
          * @param { Callback<ControllerAttachState> } [callback] Callback used to return the controller attach state.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         offControllerAttachStateChange(callback?: Callback<ControllerAttachState>): void;
 
@@ -3844,7 +3863,7 @@ declare namespace webview {
          * @param { int } timeout - the wait timeout, if timeout reach, promise will return, the unit is millisecond.
          * @returns { Promise<ControllerAttachState> } Promise used to return the state of attach.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         waitForAttached(timeout: int): Promise<ControllerAttachState>;
 
@@ -3861,7 +3880,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100023 - The port number is not within the allowed range.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setWebDebuggingAccess(webDebuggingAccess: boolean, port: int): void;
 
@@ -3871,7 +3890,7 @@ declare namespace webview {
          * @returns { int } The loading progress for the current page.
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getProgress() : int;
 
@@ -3891,7 +3910,7 @@ declare namespace webview {
          *                           The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         avoidVisibleViewportBottom(avoidHeight: int): void;
 
@@ -3907,7 +3926,7 @@ declare namespace webview {
          * @returns { BlanklessInfo } The prediction information about the blankless loading solution.
          * @throws { BusinessError } 801 Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getBlanklessInfoWithKey(key: string) : BlanklessInfo;
 
@@ -3929,7 +3948,7 @@ declare namespace webview {
          * @returns { WebBlanklessErrorCode } WebBlanklessErrorCode.
          * @throws { BusinessError } 801 Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setBlanklessLoadingWithKey(key: string, is_start: boolean) : WebBlanklessErrorCode;
 
@@ -3946,7 +3965,7 @@ declare namespace webview {
          * @throws { BusinessError } 801 Capability not supported.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static clearBlanklessLoadingCache(keys?: Array<string>) : void;
 
@@ -3964,7 +3983,7 @@ declare namespace webview {
          * @throws { BusinessError } 801 Capability not supported.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setBlanklessLoadingCacheCapacity(capacity: int) : int;
 
@@ -3975,7 +3994,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getErrorPageEnabled(): boolean;
 
@@ -3986,7 +4005,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setErrorPageEnabled(enable: boolean): void;
 
@@ -3999,7 +4018,7 @@ declare namespace webview {
          * @param {boolean} enable - {@code true} enable the private network access check; {@code false} otherwise.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static enablePrivateNetworkAccess(enable: boolean): void;
 
@@ -4009,7 +4028,7 @@ declare namespace webview {
          * @returns {boolean} True is enable the ability to check private network access else false.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static isPrivateNetworkAccessEnabled(): boolean;
 
@@ -4018,7 +4037,7 @@ declare namespace webview {
          * @param { WebDestroyMode } mode web destroy mode, default NORMAL_MODE.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setWebDestroyMode(mode: WebDestroyMode): void;
 
@@ -4028,7 +4047,7 @@ declare namespace webview {
          * @param { boolean } enabled - Enable if true, disable if false.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setAutoPreconnect(enabled: boolean): void;
 
@@ -4038,7 +4057,7 @@ declare namespace webview {
          * @returns { boolean } Return true if enabled, false if disabled.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static isAutoPreconnectEnabled(): boolean;
 
@@ -4053,7 +4072,7 @@ declare namespace webview {
          *     3. Site Isolation mode cannot be changed while Secure Shield mode is active.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setSiteIsolationMode(mode: SiteIsolationMode): void;
 
@@ -4063,7 +4082,7 @@ declare namespace webview {
          * @returns { SiteIsolationMode } The site isolation mode of the application.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static getSiteIsolationMode(): SiteIsolationMode;
 
@@ -4076,7 +4095,7 @@ declare namespace webview {
          * @param { int } timeout - Socket idle timeout.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setSocketIdleTimeout(timeout: int): void;
 
@@ -4088,7 +4107,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setSoftKeyboardBehaviorMode(mode: WebSoftKeyboardBehaviorMode): void;
 
@@ -4101,61 +4120,88 @@ declare namespace webview {
          * @since 23 static
          */
         static setScrollbarMode(scrollbarMode: ScrollbarMode): void;
+
+        /**
+         * Resume current microphone.
+         *
+         * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @since 23 static
+         */
+        resumeMicrophone(): void;
+
+        /**
+         * Pause current microphone.
+         *
+         * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @since 23 static
+         */
+        pauseMicrophone(): void;
+
+        /**
+         * Stop current microphone.
+         *
+         * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @since 23 static
+         */
+        stopMicrophone(): void;
     }
 
     /**
      * Defines the state for download.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum WebDownloadState {
         /**
          * The web download is in progress.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         IN_PROGRESS = 0,
 
         /**
          * The web download has been completed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         COMPLETED,
 
         /**
          * The web download was canceled.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         CANCELED,
 
         /**
          * The web download was interrupted.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         INTERRUPTED,
 
         /**
          * The web download is pending.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         PENDING,
 
         /**
          * The web download has been paused.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         PAUSED,
 
         /**
          * Unknown state.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         UNKNOWN,
     }
@@ -4164,202 +4210,202 @@ declare namespace webview {
      * Defines the error code for download.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum WebDownloadErrorCode {
         /**
          * Unknown error.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         ERROR_UNKNOWN = 0,
 
         /**
          * Generic file operation failure.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         FILE_FAILED = 1,
 
         /**
          * The file cannot be accessed due to certain restrictions.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         FILE_ACCESS_DENIED = 2,
 
         /**
          * There is not enough disk space.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         FILE_NO_SPACE = 3,
 
         /**
          * The file name is too long.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         FILE_NAME_TOO_LONG = 5,
 
         /**
          * The file is too large.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         FILE_TOO_LARGE = 6,
 
         /**
          * Some temporary problems occurred, such as not enough memory, files in use, and too many files open at the same time.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         FILE_TRANSIENT_ERROR = 10,
 
         /**
          * The file is blocked from accessing because of some local policy.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         FILE_BLOCKED = 11,
 
         /**
          * When trying to resume the download, Found that the file is not long enough, maybe the file no longer exists.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         FILE_TOO_SHORT = 13,
 
         /**
          * Hash mismatch.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         FILE_HASH_MISMATCH = 14,
 
         /**
          * The file already exists.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         FILE_SAME_AS_SOURCE = 15,
 
         /**
          * Generic network error.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NETWORK_FAILED = 20,
 
         /**
          * The network operation timed out.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NETWORK_TIMEOUT = 21,
 
         /**
          * The network was disconnected.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NETWORK_DISCONNECTED = 22,
 
         /**
          * Server down.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NETWORK_SERVER_DOWN = 23,
 
         /**
          * Invalid network requests，may redirect to unsupported scheme or an invalid URL.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NETWORK_INVALID_REQUEST = 24,
 
         /**
          * The server returned a generic error.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SERVER_FAILED = 30,
 
         /**
          * The server does not support range requests.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SERVER_NO_RANGE = 31,
 
         /**
          * The server does not have the requested data.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SERVER_BAD_CONTENT = 33,
 
         /**
          * The server does not allow the file to be downloaded.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SERVER_UNAUTHORIZED = 34,
 
         /**
          * Server certificate error.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SERVER_CERT_PROBLEM = 35,
 
         /**
          * Server access forbidden.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SERVER_FORBIDDEN = 36,
 
         /**
          * Server unreachable.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SERVER_UNREACHABLE = 37,
 
         /**
          * The received data does not match content-length.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SERVER_CONTENT_LENGTH_MISMATCH = 38,
 
         /**
          * An unexpected cross-origin redirect happened.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SERVER_CROSS_ORIGIN_REDIRECT = 39,
 
         /**
          * User cancel.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         USER_CANCELED = 40,
 
         /**
          * User shut down the application.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         USER_SHUTDOWN = 41,
 
         /**
          * Application crash.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         CRASH = 50,
     }
@@ -4367,14 +4413,14 @@ declare namespace webview {
     /**
      * Represents a download task, You can use this object to operate the corresponding download task.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class WebDownloadItem {
         /**
          * Get guid.
          * @returns { string } - Returns the download's guid.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getGuid(): string;
 
@@ -4382,7 +4428,7 @@ declare namespace webview {
          * Get current speed, in bytes per second.
          * @returns { int } - Returns the current download speed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getCurrentSpeed(): int;
 
@@ -4390,7 +4436,7 @@ declare namespace webview {
          * Get percent complete.
          * @returns { int } - Returns -1 if progress is unknown. 100 if the download is already complete.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getPercentComplete(): int;
 
@@ -4398,7 +4444,7 @@ declare namespace webview {
          * Get total bytes.
          * @returns { long } - Returns the total bytes received, -1 if the total size is unknown.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getTotalBytes(): long;
 
@@ -4406,7 +4452,7 @@ declare namespace webview {
          * Get state of the web download.
          * @returns { WebDownloadState } - Returns the current download state.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getState(): WebDownloadState;
 
@@ -4414,7 +4460,7 @@ declare namespace webview {
          * Get last error code of the web download.
          * @returns { WebDownloadErrorCode } - Returns the last error code.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getLastErrorCode(): WebDownloadErrorCode;
 
@@ -4422,7 +4468,7 @@ declare namespace webview {
          * Get http method of the web download request.
          * @returns { string } - Returns the http request method.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getMethod(): string;
 
@@ -4430,7 +4476,7 @@ declare namespace webview {
          * Get mime type of the web download.
          * @returns { string } - Returns the mimetype.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getMimeType(): string;
 
@@ -4438,7 +4484,7 @@ declare namespace webview {
          * Get url of the web download request.
          * @returns { string } - Returns the url.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getUrl(): string;
 
@@ -4446,7 +4492,7 @@ declare namespace webview {
          * Get suggested file name of the web download request.
          * @returns { string } - Returns the suggested file name.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getSuggestedFileName(): string;
 
@@ -4457,14 +4503,14 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
          * <br>2. Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         start(downloadPath: string): void;
 
         /**
          * Cancel the web download.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         cancel(): void;
 
@@ -4472,7 +4518,7 @@ declare namespace webview {
          * Pause the web download.
          * @throws { BusinessError } 17100019 - The download task is not started yet.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         pause(): void;
 
@@ -4482,7 +4528,7 @@ declare namespace webview {
          * WebDownloadItem.resume is only used to resume the currently paused download.
          * @throws { BusinessError } 17100016 - The download task is not paused.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         resume(): void;
 
@@ -4490,7 +4536,7 @@ declare namespace webview {
          * Get received bytes.
          * @returns { long } - Returns the received bytes.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getReceivedBytes(): long;
 
@@ -4498,7 +4544,7 @@ declare namespace webview {
          * Get full path of the web download.
          * @returns { string } - Returns the full path of the download.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getFullPath(): string;
 
@@ -4506,7 +4552,7 @@ declare namespace webview {
          * Serialize web download to typed array.
          * @returns { Uint8Array } - Returns the serialized data.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         serialize(): Uint8Array;
 
@@ -4517,7 +4563,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
          * <br>2. Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static deserialize(serializedData: Uint8Array): WebDownloadItem;
     }
@@ -4525,14 +4571,14 @@ declare namespace webview {
     /**
      * The download state is notified through this delegate.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class WebDownloadDelegate {
         /**
          * Callback will be triggered before web download start.
          * @param { Callback<WebDownloadItem> } callback - The callback of download will be start.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         onBeforeDownload(callback: Callback<WebDownloadItem>): void;
 
@@ -4540,7 +4586,7 @@ declare namespace webview {
          * Callback will be triggered when web download is processing.
          * @param { Callback<WebDownloadItem> } callback - The callback of download did update.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         onDownloadUpdated(callback: Callback<WebDownloadItem>): void;
 
@@ -4548,7 +4594,7 @@ declare namespace webview {
          * Callback will be triggered when web download is completed.
          * @param { Callback<WebDownloadItem> } callback - The callback of download did finish.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         onDownloadFinish(callback: Callback<WebDownloadItem>): void;
 
@@ -4556,7 +4602,7 @@ declare namespace webview {
          * Callback will be triggered when web download is interrupted or canceled.
          * @param { Callback<WebDownloadItem> } callback - The callback of download did fail.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         onDownloadFailed(callback: Callback<WebDownloadItem>): void;
     }
@@ -4564,14 +4610,14 @@ declare namespace webview {
     /**
      * You can trigger download manually through this interface, or resume failed or canceled downloads.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class WebDownloadManager {
         /**
          * Set a delegate used to receive the progress of the download triggered from WebDownloadManager.
          * @param { WebDownloadDelegate } delegate - Delegate used for download triggered from WebDownloadManager.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setDownloadDelegate(delegate: WebDownloadDelegate): void;
 
@@ -4580,7 +4626,7 @@ declare namespace webview {
          * @param { WebDownloadItem } webDownloadItem - Download that need to be resume.
          * @throws { BusinessError } 17100018 - No WebDownloadDelegate has been set yet.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static resumeDownload(webDownloadItem: WebDownloadItem): void;
     }
@@ -4589,7 +4635,7 @@ declare namespace webview {
      * The http body stream of the request.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class WebHttpBodyStream {
         /**
@@ -4598,7 +4644,7 @@ declare namespace webview {
          * @returns { Promise<void> } The promise of data stream is initialized.
          * @throws { BusinessError } 17100022 - Failed to initialize the HTTP body stream.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         initialize(): Promise<void>;
         /**
@@ -4609,7 +4655,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types. 3.Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         read(size: int): Promise<ArrayBuffer>;
         /**
@@ -4617,7 +4663,7 @@ declare namespace webview {
          *
          * @returns { long } Return size of data stream size.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getSize(): long;
         /**
@@ -4625,7 +4671,7 @@ declare namespace webview {
          *
          * @returns { long } Return position in post data stream.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getPosition(): long;
         /**
@@ -4633,7 +4679,7 @@ declare namespace webview {
          *
          * @returns { boolean } Whether data stream is chunked.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isChunked(): boolean;
         /**
@@ -4642,7 +4688,7 @@ declare namespace webview {
          *
          * @returns { boolean } Whether data stream has been consumed.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isEof(): boolean;
         /**
@@ -4651,7 +4697,7 @@ declare namespace webview {
          *
          * @returns { boolean } Whether the data stream is in memory.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isInMemory(): boolean;
     }
@@ -4660,14 +4706,14 @@ declare namespace webview {
      * Defines the resource type of request.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum WebResourceType {
         /**
          * Top level page.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         MAIN_FRAME = 0,
 
@@ -4675,7 +4721,7 @@ declare namespace webview {
          * Frame or Iframe.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SUB_FRAME = 1,
 
@@ -4683,7 +4729,7 @@ declare namespace webview {
          * CSS stylesheet.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         STYLE_SHEET = 2,
 
@@ -4691,7 +4737,7 @@ declare namespace webview {
          * External script.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SCRIPT = 3,
 
@@ -4699,7 +4745,7 @@ declare namespace webview {
          * Image (jpg/gif/png/etc).
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         IMAGE = 4,
 
@@ -4707,7 +4753,7 @@ declare namespace webview {
          * Font.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         FONT_RESOURCE = 5,
 
@@ -4715,7 +4761,7 @@ declare namespace webview {
          * Some other subresource. This is the default type if the actual type is unknown.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SUB_RESOURCE = 6,
 
@@ -4723,7 +4769,7 @@ declare namespace webview {
          * Object (or embed) tag for a plugin, or a resource that a plugin requested.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         OBJECT = 7,
 
@@ -4731,7 +4777,7 @@ declare namespace webview {
          * Media resource.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         MEDIA = 8,
 
@@ -4739,7 +4785,7 @@ declare namespace webview {
          * Main resource of a dedicated worker.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         WORKER = 9,
 
@@ -4747,7 +4793,7 @@ declare namespace webview {
          * Main resource of a shared worker.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SHARED_WORKER = 10,
 
@@ -4755,7 +4801,7 @@ declare namespace webview {
          * Explicitly requested prefetch.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         PREFETCH = 11,
 
@@ -4763,7 +4809,7 @@ declare namespace webview {
          * Favicon.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         FAVICON = 12,
 
@@ -4771,7 +4817,7 @@ declare namespace webview {
          * XMLHttpRequest.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         XHR = 13,
 
@@ -4779,7 +4825,7 @@ declare namespace webview {
          * Ping request for <a ping>/sendBeacon.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         PING = 14,
 
@@ -4787,7 +4833,7 @@ declare namespace webview {
          * The main resource of a service worker.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         SERVICE_WORKER = 15,
 
@@ -4795,7 +4841,7 @@ declare namespace webview {
          * Report of Content Security Policy violations.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         CSP_REPORT = 16,
 
@@ -4803,7 +4849,7 @@ declare namespace webview {
          * Resource that a plugin requested.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         PLUGIN_RESOURCE = 17,
 
@@ -4811,7 +4857,7 @@ declare namespace webview {
          * A main-frame service worker navigation preload request.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NAVIGATION_PRELOAD_MAIN_FRAME = 19,
 
@@ -4819,7 +4865,7 @@ declare namespace webview {
          * A sub-frame service worker navigation preload request.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NAVIGATION_PRELOAD_SUB_FRAME = 20,
     }
@@ -4828,7 +4874,7 @@ declare namespace webview {
      * Defines the Web resource request used for scheme handler.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class WebSchemeHandlerRequest {
         /**
@@ -4836,7 +4882,7 @@ declare namespace webview {
          *
          * @returns { Array<WebHeader> } Return the request headers.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getHeader(): Array<WebHeader>;
         /**
@@ -4844,7 +4890,7 @@ declare namespace webview {
          *
          * @returns { string } Return the request URL.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getRequestUrl(): string;
         /**
@@ -4852,7 +4898,7 @@ declare namespace webview {
          *
          * @returns { string } Return the request method.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getRequestMethod(): string;
         /**
@@ -4860,7 +4906,7 @@ declare namespace webview {
          *
          * @returns { string } Return referrer of request.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getReferrer(): string;
         /**
@@ -4868,7 +4914,7 @@ declare namespace webview {
          *
          * @returns { boolean } Whether request is main frame.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isMainFrame(): boolean;
         /**
@@ -4876,7 +4922,7 @@ declare namespace webview {
          *
          * @returns { boolean } Whether request has user gesture.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         hasGesture(): boolean;
         /**
@@ -4884,7 +4930,7 @@ declare namespace webview {
          *
          * @returns { WebHttpBodyStream | null } Return http body stream. If request has no http body stream, return null.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getHttpBodyStream(): WebHttpBodyStream | null;
         /**
@@ -4892,7 +4938,7 @@ declare namespace webview {
          *
          * @returns { WebResourceType } Return the request's resource type.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getRequestResourceType(): WebResourceType;
         /**
@@ -4900,7 +4946,7 @@ declare namespace webview {
          *
          * @returns { string } Return the URL of frame which trigger this request.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getFrameUrl(): string;
     }
@@ -4909,14 +4955,14 @@ declare namespace webview {
      * Defines the Web resource response used for scheme handler.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class WebSchemeHandlerResponse {
         /**
          * Constructor.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         constructor();
         /**
@@ -4925,7 +4971,7 @@ declare namespace webview {
          * @param { string } url - Set response url for redirects.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setUrl(url: string): void;
         /**
@@ -4933,7 +4979,7 @@ declare namespace webview {
          *
          * @returns { string } Return response url for redirects.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getUrl(): string;
         /**
@@ -4942,7 +4988,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setNetErrorCode(code: WebNetErrorList): void;
         /**
@@ -4950,7 +4996,7 @@ declare namespace webview {
          *
          * @returns { WebNetErrorList } Return response error code.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getNetErrorCode(): WebNetErrorList;
         /**
@@ -4959,7 +5005,7 @@ declare namespace webview {
          * @param { int } code - Http status code.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setStatus(code: int): void;
         /**
@@ -4967,7 +5013,7 @@ declare namespace webview {
          *
          * @returns { int } Return http status code.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getStatus(): int;
         /**
@@ -4976,7 +5022,7 @@ declare namespace webview {
          * @param { string } text - Status text.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setStatusText(text: string): void;
         /**
@@ -4984,7 +5030,7 @@ declare namespace webview {
          *
          * @returns { string } Return http status text.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getStatusText(): string;
         /**
@@ -4993,7 +5039,7 @@ declare namespace webview {
          * @param { string } type - Mime type.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setMimeType(type: string): void;
         /**
@@ -5001,7 +5047,7 @@ declare namespace webview {
          *
          * @returns { string } Return mime type of response.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getMimeType(): string;
         /**
@@ -5010,7 +5056,7 @@ declare namespace webview {
          * @param { string } encoding - Encoding.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setEncoding(encoding: string): void;
         /**
@@ -5018,7 +5064,7 @@ declare namespace webview {
          *
          * @returns { string } Return encoding of response.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getEncoding(): string;
         /**
@@ -5030,7 +5076,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setHeaderByName(name: string, value: string, overwrite: boolean): void;
         /**
@@ -5039,7 +5085,7 @@ declare namespace webview {
          * @param { string } name - Header name.
          * @returns { string } Return header value by name.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getHeaderByName(name: string): string
     }
@@ -5049,7 +5095,7 @@ declare namespace webview {
      * WebResourceHandler.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class WebResourceHandler {
         /**
@@ -5059,7 +5105,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * @throws { BusinessError } 17100021 - The resource handler is invalid.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         didReceiveResponse(response: WebSchemeHandlerResponse): void;
         /**
@@ -5069,7 +5115,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * @throws { BusinessError } 17100021 - The resource handler is invalid.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         didReceiveResponseBody(data: ArrayBuffer): void;
         /**
@@ -5077,7 +5123,7 @@ declare namespace webview {
          *
          * @throws { BusinessError } 17100021 - The resource handler is invalid.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         didFinish(): void;
         /**
@@ -5087,7 +5133,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
          * @throws { BusinessError } 17100021 - The resource handler is invalid.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         didFail(code: WebNetErrorList): void;
         /**
@@ -5101,7 +5147,7 @@ declare namespace webview {
          *                                      in WebNetErrorList.
          * @throws { BusinessError } 17100021 - The resource handler is invalid.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         didFail(code: WebNetErrorList, completeIfNoResponse: boolean): void;
     }
@@ -5110,7 +5156,7 @@ declare namespace webview {
      * This class is used to intercept requests for a specified scheme.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class WebSchemeHandler {
         /**
@@ -5121,7 +5167,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         onRequestStart(
         callback: (request: WebSchemeHandlerRequest, handler: WebResourceHandler) => boolean): void;
@@ -5132,7 +5178,7 @@ declare namespace webview {
          * @param { Callback<WebSchemeHandlerRequest> } callback - Callback of request is completed.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         onRequestStop(callback: Callback<WebSchemeHandlerRequest>): void;
     }
@@ -5141,19 +5187,19 @@ declare namespace webview {
      * Enum type supplied to {@link handleStatusChanged} for indicating the playback status.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum PlaybackStatus {
         /**
          * Player status is paused.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         PAUSED = 0,
         /**
          * Player status is playing.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         PLAYING,
     }
@@ -5162,31 +5208,31 @@ declare namespace webview {
      * Enum type supplied to {@link handleNetworkStateChanged} for indicating the native player network state.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum NetworkState {
         /**
          * Player does not do any download tasks.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         EMPTY = 0,
         /**
          * Player downloads finished, waiting for next task.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         IDLE,
         /**
          * Player is downloading contents.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         LOADING,
         /**
          * Player downloads failed, due to network error.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NETWORK_ERROR
     }
@@ -5195,37 +5241,37 @@ declare namespace webview {
      * Enum type supplied to {@link handleReadyStateChanged} for indicating the native player network state.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum ReadyState {
         /**
          * Player hasn't downloaded anything.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         HAVE_NOTHING = 0,
         /**
          * Player has downloaded metadata.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         HAVE_METADATA,
         /**
          * Player has played all downloaded media data.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         HAVE_CURRENT_DATA,
         /**
          * The buffered media data is not enough, and will cause jank.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         HAVE_FUTURE_DATA,
         /**
          * The buffered media data is enough.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         HAVE_ENOUGH_DATA,
     }
@@ -5234,25 +5280,25 @@ declare namespace webview {
      * Enum type supplied to {@link handleError} for indicating the error type of native media player.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum MediaError {
         /**
          * Network error
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NETWORK_ERROR = 1,
         /**
          * Media format error, such as not a valid file.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         FORMAT_ERROR,
         /**
          * Decode error, such as decoder doesn't support this format.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         DECODE_ERROR
     }
@@ -5263,7 +5309,7 @@ declare namespace webview {
      *
      * @typedef NativeMediaPlayerHandler
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface NativeMediaPlayerHandler {
 
@@ -5272,7 +5318,7 @@ declare namespace webview {
          *
          * @param { PlaybackStatus } status - Playback status of native media player.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         handleStatusChanged(status: PlaybackStatus): void;
 
@@ -5283,7 +5329,7 @@ declare namespace webview {
          *
          * @param { double } volume - Current volume of native media player.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         handleVolumeChanged(volume: double): void;
 
@@ -5292,7 +5338,7 @@ declare namespace webview {
          *
          * @param { boolean } muted - Current mute status of native media player.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         handleMutedChanged(muted: boolean): void;
 
@@ -5303,7 +5349,7 @@ declare namespace webview {
          *
          * @param { double } playbackRate - Current playback rate of native media player.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         handlePlaybackRateChanged(playbackRate: double): void;
 
@@ -5314,7 +5360,7 @@ declare namespace webview {
          *
          * @param { double } duration - Duration time (in seconds) of media.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         handleDurationChanged(duration: double): void;
 
@@ -5325,7 +5371,7 @@ declare namespace webview {
          *
          * @param { double } currentPlayTime - Current playing time (in seconds) of media.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         handleTimeUpdate(currentPlayTime: double): void;
 
@@ -5336,7 +5382,7 @@ declare namespace webview {
          *
          * @param { double } bufferedEndTime - Buffered end time (in seconds) of media.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         handleBufferedEndTimeChanged(bufferedEndTime: double): void;
 
@@ -5344,7 +5390,7 @@ declare namespace webview {
          * Handle native player ended event.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         handleEnded(): void;
 
@@ -5353,7 +5399,7 @@ declare namespace webview {
          *
          * @param { NetworkState } state - Network state of native media player.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         handleNetworkStateChanged(state: NetworkState): void;
 
@@ -5362,7 +5408,7 @@ declare namespace webview {
          *
          * @param { ReadyState } state - Ready state of native media player.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         handleReadyStateChanged(state: ReadyState): void;
 
@@ -5371,7 +5417,7 @@ declare namespace webview {
          *
          * @param { boolean } fullscreen - Fullscreen state of native media player.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         handleFullscreenChanged(fullscreen: boolean): void;
 
@@ -5379,7 +5425,7 @@ declare namespace webview {
          * Handle native media player seeking state.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         handleSeeking(): void;
 
@@ -5387,7 +5433,7 @@ declare namespace webview {
          * Handle native media player seek finished state.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         handleSeekFinished(): void;
 
@@ -5397,7 +5443,7 @@ declare namespace webview {
          * @param { MediaError } error - Error type of native media player.
          * @param { string } errorMessage - Description of current error.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         handleError(error: MediaError, errorMessage: string): void;
 
@@ -5407,7 +5453,7 @@ declare namespace webview {
          * @param { double } width - Width of video.
          * @param { double } height - Height of video.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         handleVideoSizeChanged(width: double, height: double): void;
     }
@@ -5416,27 +5462,27 @@ declare namespace webview {
      * The scenarios for suspending the media player.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum SuspendType {
         /**
          * Page enters the BackForwardCache.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         ENTER_BACK_FORWARD_CACHE = 0,
 
         /**
          * Page enters background.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         ENTER_BACKGROUND,
 
         /**
          * Cleanup when the number of paused media player over limit.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         AUTO_CLEANUP
     }
@@ -5446,7 +5492,7 @@ declare namespace webview {
      *
      * @typedef { function } ResumePlayerFn
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     type ResumePlayerFn = () => void;
 
@@ -5456,7 +5502,7 @@ declare namespace webview {
      * @typedef { function } SuspendPlayerFn
      * @param { SuspendType } type - The scenario for suspending the media player.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     type SuspendPlayerFn = (type: SuspendType) => void;
 
@@ -5469,7 +5515,7 @@ declare namespace webview {
      * @param { double } width - The width of video tag.
      * @param { double } height - The height of video tag.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     type UpdateRectFn = (x: double, y: double, width: double, height: double) => void;
 
@@ -5480,7 +5526,7 @@ declare namespace webview {
      *
      * @typedef NativeMediaPlayerBridge
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface NativeMediaPlayerBridge {
         /**
@@ -5488,7 +5534,7 @@ declare namespace webview {
          *
          * @typedef { UpdateRectFn }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         updateRect: UpdateRectFn;
 
@@ -5497,7 +5543,7 @@ declare namespace webview {
          *
          * @typedef { ZeroParamFn<> }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         play: ZeroParamFn<>;
 
@@ -5506,7 +5552,7 @@ declare namespace webview {
          *
          * @typedef { ZeroParamFn<> }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         pause: ZeroParamFn<>;
 
@@ -5517,7 +5563,7 @@ declare namespace webview {
          *
          * @typedef { OneParamFn<double> }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         seek: OneParamFn<double>;
 
@@ -5528,7 +5574,7 @@ declare namespace webview {
          *
          * @typedef { OneParamFn<double> }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setVolume: OneParamFn<double>;
 
@@ -5537,7 +5583,7 @@ declare namespace webview {
          *
          * @typedef { OneParamFn<boolean> }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setMuted: OneParamFn<boolean>;
 
@@ -5548,7 +5594,7 @@ declare namespace webview {
          *
          * @typedef { OneParamFn<double> }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         setPlaybackRate: OneParamFn<double>;
 
@@ -5557,7 +5603,7 @@ declare namespace webview {
          *
          * @typedef { ZeroParamFn<> }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         release: ZeroParamFn<>;
 
@@ -5566,7 +5612,7 @@ declare namespace webview {
          *
          * @typedef { ZeroParamFn<> }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         enterFullscreen: ZeroParamFn<>;
 
@@ -5575,7 +5621,7 @@ declare namespace webview {
          *
          * @typedef { ZeroParamFn<> }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         exitFullscreen: ZeroParamFn<>;
 
@@ -5584,7 +5630,7 @@ declare namespace webview {
          *
          * @type { ?ResumePlayerFn }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         resumePlayer?: ResumePlayerFn;
 
@@ -5595,7 +5641,7 @@ declare namespace webview {
          *
          * @type { ?SuspendPlayerFn }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         suspendPlayer?: SuspendPlayerFn;
     }
@@ -5604,19 +5650,19 @@ declare namespace webview {
      * Enum type for indicating the media type of native media player.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum MediaType {
         /**
          * Media type is video.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         VIDEO = 0,
         /**
          * Media type is audio.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         AUDIO
     }
@@ -5625,19 +5671,19 @@ declare namespace webview {
      * Enum type for indicating the media source type of native media player.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum SourceType {
         /**
          * The type of media source is URL.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         URL = 0,
         /**
          * The type of media source is blob.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         MSE
     }
@@ -5646,14 +5692,14 @@ declare namespace webview {
      * Media source information. Uri and format.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class MediaSourceInfo {
         /**
          * Source type, most time is URL.
          * @type { SourceType }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         type: SourceType;
 
@@ -5661,7 +5707,7 @@ declare namespace webview {
          * Media source, most time is Uri.
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         source: string;
 
@@ -5669,7 +5715,7 @@ declare namespace webview {
          * Media format, such as mp4, webm, m3u8 etc.
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         format: string;
     }
@@ -5679,7 +5725,7 @@ declare namespace webview {
      *
      * @typedef RectEvent
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface RectEvent {
         /**
@@ -5687,7 +5733,7 @@ declare namespace webview {
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         x: double;
         /**
@@ -5695,7 +5741,7 @@ declare namespace webview {
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         y: double;
         /**
@@ -5703,7 +5749,7 @@ declare namespace webview {
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         width: double;
         /**
@@ -5711,7 +5757,7 @@ declare namespace webview {
          *
          * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         height: double;
     }
@@ -5720,14 +5766,14 @@ declare namespace webview {
      * Surface information.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class NativeMediaPlayerSurfaceInfo {
         /**
          * Id of surface.
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         id: string;
 
@@ -5735,7 +5781,7 @@ declare namespace webview {
          * Surface rect info.
          * @type { RectEvent }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         rect: RectEvent;
     }
@@ -5744,25 +5790,25 @@ declare namespace webview {
      * Enum type for indicating the preload type.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum Preload {
         /**
          * Doesn't do preload.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NONE = 0,
         /**
          * Only preload metadata.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         METADATA,
         /**
          * Preload enough data to ensure playing is smooth.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         AUTO
     }
@@ -5772,42 +5818,42 @@ declare namespace webview {
      *
      * @typedef MediaInfo
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     interface MediaInfo {
         /**
          * Id of media element.
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         embedID: string,
         /**
          * Media type : Video or Audio.
          * @type { MediaType }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         mediaType: MediaType,
         /**
          * Media source list, player should choose an appropriate one to play.
          * @type { MediaSourceInfo[] }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         mediaSrcList: MediaSourceInfo[],
         /**
          * Surface to render media content on.
          * @type { NativeMediaPlayerSurfaceInfo }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         surfaceInfo: NativeMediaPlayerSurfaceInfo,
         /**
          * Should show media controls.
          * @type { boolean }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         controlsShown: boolean,
         /**
@@ -5815,42 +5861,42 @@ declare namespace webview {
          *  Such as 'nodownload', 'nofullscreen', 'noremoteplayback'
          * @type { string[] }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         controlList: string[],
         /**
          * Player should be muted;
          * @type { boolean }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         muted: boolean,
         /**
          * Player should show poster before media first frame shown.
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         posterUrl: string,
         /**
          * Preload type.
          * @type { Preload }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         preload: Preload,
         /**
          * Header information of a media network request.
          * @type { Record<string, string> }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         headers: Record<string, string>,
         /**
          * The information list of attributes of media tag.
          * @type { Record<string, string> }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         attributes: Record<string, string>,
     }
@@ -5863,7 +5909,7 @@ declare namespace webview {
      * @param { MediaInfo } mediaInfo - callback information of onCreateNativeMediaPlayer.
      * @returns { NativeMediaPlayerBridge } Returns whether the app takes over the media.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     type CreateNativeMediaPlayerCallback =
         (handler: NativeMediaPlayerHandler, mediaInfo: MediaInfo) => NativeMediaPlayerBridge;
@@ -5871,7 +5917,7 @@ declare namespace webview {
     /**
      * This class is used to set adblock config.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class AdsBlockManager {
         /**
@@ -5882,7 +5928,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types.
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static setAdsBlockRules(rulesFile: string, replace: boolean): void;
 
@@ -5894,7 +5940,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types.
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static addAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
 
@@ -5909,7 +5955,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types.
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static addAdsBlockAllowedList(domainSuffixes: Array<string>): void;
 
@@ -5920,7 +5966,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types.
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static removeAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
 
@@ -5931,7 +5977,7 @@ declare namespace webview {
          * <br>2. Incorrect parameter types.
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static removeAdsBlockAllowedList(domainSuffixes: Array<string>): void;
 
@@ -5939,7 +5985,7 @@ declare namespace webview {
          * clear Ads Block Disallowed list.
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static clearAdsBlockDisallowedList(): void;
 
@@ -5947,7 +5993,7 @@ declare namespace webview {
          * clear Ads Block Allowed list.
          * @throws { BusinessError } 801 - Capability not supported.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static clearAdsBlockAllowedList(): void;
     }
@@ -5956,7 +6002,7 @@ declare namespace webview {
      * This class is used to enable back forward cache supported features.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class BackForwardCacheSupportedFeatures {
         /**
@@ -5965,7 +6011,7 @@ declare namespace webview {
          *
          * @type { boolean }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         nativeEmbed: boolean;
 
@@ -5975,13 +6021,13 @@ declare namespace webview {
          *
          * @type { boolean }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         mediaTakeOver: boolean;
 
         /**
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         constructor();
     }
@@ -5990,7 +6036,7 @@ declare namespace webview {
      * This class is used to set back forward cache options.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class BackForwardCacheOptions {
         /**
@@ -5999,7 +6045,7 @@ declare namespace webview {
          *
          * @type { int }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         size: int;
 
@@ -6009,13 +6055,13 @@ declare namespace webview {
          *
          * @type { int }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         timeToLive: int;
 
         /**
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         constructor();
     }
@@ -6024,7 +6070,7 @@ declare namespace webview {
      * Defines the PrefetchOptions class.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class PrefetchOptions {
 
@@ -6036,7 +6082,7 @@ declare namespace webview {
          *
          * @type { int }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         minTimeBetweenPrefetchesMs: int;
 
@@ -6049,14 +6095,14 @@ declare namespace webview {
          *
          * @type { boolean }
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         ignoreCacheControlNoStore: boolean;
 
         /**
          * Constructor for PrefetchOptions.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         constructor();
     }
@@ -6065,25 +6111,25 @@ declare namespace webview {
      * Enum type supplied to {@link insertProxyRule} for indicating the scheme filter for proxy.
      * @enum { number }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum ProxySchemeFilter {
         /**
          * This indicates all the schemes will use the proxy.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         MATCH_ALL_SCHEMES = 0,
         /**
          * This indicates only the HTTP requests will use the proxy.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         MATCH_HTTP = 1,
         /**
          * This indicates only the HTTPS requests will use the proxy.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         MATCH_HTTPS = 2,
     }
@@ -6092,7 +6138,7 @@ declare namespace webview {
      * The ProxyConfig used by applyProxyOverride.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class ProxyConfig {
         /**
@@ -6104,7 +6150,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         insertBypassRule(bypassRule: string): void;
 
@@ -6115,7 +6161,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         insertDirectRule(schemeFilter?: ProxySchemeFilter): void;
 
@@ -6140,7 +6186,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         insertProxyRule(proxyRule: string, schemeFilter?: ProxySchemeFilter): void;
 
@@ -6149,7 +6195,7 @@ declare namespace webview {
          * Examples: "abc", "local", "some-domain".
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         bypassHostnamesWithoutPeriod(): void;
 
@@ -6159,7 +6205,7 @@ declare namespace webview {
          * Call this function to override the default behavior and force localhost and link-local URLs to be sent through the proxy.
          *
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         clearImplicitRules(): void;
 
@@ -6173,7 +6219,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         enableReverseBypass(reverse: boolean): void;
 
@@ -6182,7 +6228,7 @@ declare namespace webview {
          *
          * @returns { Array<string> } The bypass rules.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getBypassRules(): Array<string>;
 
@@ -6191,7 +6237,7 @@ declare namespace webview {
          *
          * @returns { Array<ProxyRule> } The proxy rules.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getProxyRules(): Array<ProxyRule>;
 
@@ -6200,7 +6246,7 @@ declare namespace webview {
          *
          * @returns { boolean } If reverse bypass enabled.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         isReverseBypassEnabled(): boolean;
     }
@@ -6209,7 +6255,7 @@ declare namespace webview {
      * The ProxyRule used by insertProxyRule.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class ProxyRule {
         /**
@@ -6217,7 +6263,7 @@ declare namespace webview {
          *
          * @returns { ProxySchemeFilter } The scheme filter used for this rule.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getSchemeFilter(): ProxySchemeFilter;
 
@@ -6226,7 +6272,7 @@ declare namespace webview {
          *
          * @returns { string } The proxy URL.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         getUrl(): string;
     }
@@ -6235,21 +6281,21 @@ declare namespace webview {
      * Enum type supplied to {@link SetWebDestroyMode} for indicating the web component destroy mode.
      * @enum { number }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum WebDestroyMode {
         /**
          * The normal destroy mode, when the web component triggers destroy,
          * the resources will be released at the appropriate time.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         NORMAL_MODE = 0,
 
         /**
          * The fast destroy mode, when the web component triggers destroy, the resources will be immediately released.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         FAST_MODE = 1
     }
@@ -6258,20 +6304,20 @@ declare namespace webview {
      * Indicates the site isolation mode of the application, default value depends on different devices type.
      * @enum {number}
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     enum SiteIsolationMode {
         /**
          * The partial site isolation mode
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         PARTIAL = 0,
 
         /**
          * The strict site isolation mode
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         STRICT = 1
     }
@@ -6305,7 +6351,7 @@ declare namespace webview {
      *
      * @typedef { function }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     type OnProxyConfigChangeCallback = () => void;
 
@@ -6313,7 +6359,7 @@ declare namespace webview {
      * This class is used for set proxy for ArkWeb.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     class ProxyController {
         /**
@@ -6327,7 +6373,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static applyProxyOverride(proxyConfig: ProxyConfig, callback: OnProxyConfigChangeCallback): void;
 
@@ -6339,7 +6385,7 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
          * <br>2. Incorrect parameter types.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 22 static
+         * @since 23 static
          */
         static removeProxyOverride(callback: OnProxyConfigChangeCallback): void;
     }
@@ -6477,7 +6523,7 @@ declare namespace webview {
      * @typedef { function } zeroParamFn
      * @returns { V } The return value.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     type ZeroParamFn<V=void> = () => V;
 
@@ -6488,7 +6534,7 @@ declare namespace webview {
      * @param { T } param - the first param.
      * @returns { V } The return value.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     type OneParamFn<T,V=void> = (param: T) => V;
 
@@ -6500,7 +6546,7 @@ declare namespace webview {
      * @param { C } paramB - the second param.
      * @returns { V } The return value.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
+     * @since 23 static
      */
     type TwoParamFn<T,C,V=void> = (paramA: T,paramB: C) => V;
 }

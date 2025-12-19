@@ -24,7 +24,7 @@ import type { Callback } from "./@ohos.base";
  * @namespace motion
  * @syscap SystemCapability.MultimodalAwareness.Motion
  * @since 15 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace motion {
   /**
@@ -33,7 +33,7 @@ declare namespace motion {
    * @enum { int } OperatingHandStatus
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum OperatingHandStatus {
     /**
@@ -41,7 +41,7 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNKNOWN_STATUS = 0,
     /**
@@ -49,7 +49,7 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LEFT_HAND_OPERATED = 1,
     /**
@@ -57,7 +57,7 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RIGHT_HAND_OPERATED = 2
   }
@@ -67,7 +67,7 @@ declare namespace motion {
    * @enum { int } HoldingHandStatus
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum HoldingHandStatus {
     /**
@@ -75,7 +75,7 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NOT_HELD = 0,
     /**
@@ -83,7 +83,7 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LEFT_HAND_HELD = 1,
     /**
@@ -91,7 +91,7 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RIGHT_HAND_HELD = 2,
     /**
@@ -99,7 +99,7 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BOTH_HANDS_HELD = 3,
     /**
@@ -107,7 +107,7 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNKNOWN_STATUS = 16
   }
@@ -154,7 +154,7 @@ declare namespace motion {
    * @throws { BusinessError } 31500001 - Service exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRecentOperatingHandStatus(): OperatingHandStatus;
   /**
@@ -187,9 +187,6 @@ declare namespace motion {
    * @since 20 dynamic
    */
   function off(type: 'holdingHandChanged', callback?: Callback<HoldingHandStatus>): void;
-
-
-
   /**
    * Subscribe to detect the operating hand changed event.
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
@@ -201,7 +198,7 @@ declare namespace motion {
    * @throws { BusinessError } 31500001 - Service exception.
    * @throws { BusinessError } 31500002 - Subscribe Failed.
    * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @since 22 static
+   * @since 23 static
    */
   function onOperatingHandChanged(callback: Callback<OperatingHandStatus>): void;
   /**
@@ -215,7 +212,7 @@ declare namespace motion {
    * @throws { BusinessError } 31500001 - Service exception.
    * @throws { BusinessError } 31500003 - Unsubscribe Failed.
    * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @since 22 static
+   * @since 23 static
    */
   function offOperatingHandChanged(callback?: Callback<OperatingHandStatus>): void;
 }

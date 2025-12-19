@@ -40,7 +40,7 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 11 dynamiconly
+ * @since 11 dynamic
  */
 declare namespace xml {
   /**
@@ -65,7 +65,7 @@ declare namespace xml {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   interface ConvertOptions {
     /**
@@ -90,7 +90,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     trim: boolean;
     /**
@@ -115,7 +115,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     ignoreDeclaration?: boolean;
     /**
@@ -140,7 +140,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     ignoreInstruction?: boolean;
     /**
@@ -165,7 +165,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     ignoreAttributes?: boolean;
     /**
@@ -190,7 +190,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     ignoreComment?: boolean;
     /**
@@ -215,7 +215,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     ignoreCDATA?: boolean;
     /**
@@ -240,7 +240,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     ignoreDoctype?: boolean;
     /**
@@ -265,7 +265,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     ignoreText?: boolean;
     /**
@@ -290,7 +290,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     declarationKey: string;
     /**
@@ -315,7 +315,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     instructionKey: string;
     /**
@@ -340,7 +340,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     attributesKey: string;
     /**
@@ -365,7 +365,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     textKey: string;
     /**
@@ -390,7 +390,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     cdataKey: string;
     /**
@@ -415,7 +415,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     doctypeKey: string;
     /**
@@ -440,7 +440,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     commentKey: string;
     /**
@@ -465,7 +465,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     parentKey: string;
     /**
@@ -490,7 +490,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     typeKey: string;
     /**
@@ -515,7 +515,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     nameKey: string;
     /**
@@ -540,7 +540,7 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamiconly
+     * @since 11 dynamic
      */
     elementsKey: string;
   }
@@ -566,7 +566,7 @@ declare namespace xml {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   class ConvertXML {
     /**
@@ -637,15 +637,33 @@ declare namespace xml {
      * which consists of the default values of the attributes in the object.
      * @returns { Object } Returns a JavaScript object converting from XML text.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200002 - Invalid xml string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 14 dynamiconly
+     * @since 14 dynamic
      */
     fastConvertToJSObject(xml: string, options?: ConvertOptions): Object;
+
+    /**
+     * Convert XML text to JavaScript objects, this method supports parsing large XML texts 
+     * with a single node size exceeding 10M.
+     *
+     * @param { string } xml - XML text to convert. If the XML text contains the ampersand (&), replace it with the
+     *     entity reference &amp;.
+     * @param { ConvertOptions } [options] - Options for conversion. The default value is a ConvertOptions object,
+     *     which consists of the default values of the attributes in the object.
+     * @returns { Object } Returns a JavaScript object converting from XML text.
+     * @throws { BusinessError } 10200002 - Invalid xml string.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    largeConvertToJSObject(xml: string, options?: ConvertOptions): Object;
   }
 }
 export default xml;

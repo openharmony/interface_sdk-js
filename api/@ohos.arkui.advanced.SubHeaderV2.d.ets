@@ -76,6 +76,16 @@ export interface SubHeaderV2TitleOptions {
    * @since 18 dynamic
    */
   secondaryTitleModifier?: TextModifier;
+   /**
+   * Set the ability to customize the broadcast of the title.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  titleAccessibilityText?: ResourceStr;
 }
 
 /**
@@ -123,6 +133,17 @@ export declare class SubHeaderV2Title {
    * @since 18 dynamic
    */
   @Trace secondaryTitleModifier?: TextModifier;
+  /**
+   * Set the ability to customize the broadcast of the title.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  @Trace titleAccessibilityText?: ResourceStr;
   /**
    * The constructor of SubHeaderV2Title
    *

@@ -34,7 +34,7 @@ import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, Parameter
  * @namespace shortcutManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace shortcutManager {
   /**
@@ -55,7 +55,7 @@ declare namespace shortcutManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function addDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: int): Promise<void>;
 
@@ -73,7 +73,7 @@ declare namespace shortcutManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function deleteDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: int): Promise<void>;
 
@@ -90,7 +90,7 @@ declare namespace shortcutManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllDesktopShortcutInfo(userId: int): Promise<Array<ShortcutInfo>>;
 
@@ -103,7 +103,7 @@ declare namespace shortcutManager {
    * @throws { BusinessError } 17700070 - The specified shortcut id is illegal.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setShortcutVisibleForSelf(id: string, visible: boolean): Promise<void>;
 
@@ -113,7 +113,7 @@ declare namespace shortcutManager {
    * @returns { Promise<Array<ShortcutInfo>> } The LauncherShortcutInfo object.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllShortcutInfoForSelf(): Promise<Array<ShortcutInfo>>;
 
@@ -130,13 +130,13 @@ declare namespace shortcutManager {
    *     contains shortcut want. The sourceType in shortcutInfo will be fixed as 2 (indicating dynamic shortcuts).
    * @param { int } userId - Indicates the id for the user.
    * @returns { Promise<void> } - the promise returned by the function.
-   * @throws { BusinessError } 201 - Verify permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 801 - Capability not support.
-   * @throws { BusinessError } 17700001 - The specified bundle name is not found.
-   * @throws { BusinessError } 17700002 - The specified module name is not found.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700001 - The specified bundle is not found.
+   * @throws { BusinessError } 17700002 - The specified module is not found.
    * @throws { BusinessError } 17700003 - The specified ability is not found.
-   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700004 - The specified user id is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700061 - The specified app index is invalid.
    * @throws { BusinessError } 17700070 - The specified shortcut id is illegal.
@@ -161,13 +161,13 @@ declare namespace shortcutManager {
    * @param { int } appIndex - Indicates the index of clone app.
    * @param { int } userId - Indicates the user ID.
    * @param { Array<string> } [ids] - Indicates the list of dynamic shortcut ids to be deleted.
-   *     If not provided or empty, all dynmaic shortcuts will be removed.
+   *     If not provided or empty, all dynamic shortcuts will be removed.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Verify permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 801 - Capability not support.
-   * @throws { BusinessError } 17700001 - The specified bundle name is not found.
-   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700001 - The specified bundle is not found.
+   * @throws { BusinessError } 17700004 - The specified user id is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700061 - The specified app index is invalid.
    * @throws { BusinessError } 17700070 - The specified shortcut id is illegal.
@@ -176,6 +176,24 @@ declare namespace shortcutManager {
    * @since 23 dynamic&static
    */
   function deleteDynamicShortcutInfos(bundleName: string, appIndex: int, userId: int, ids?: Array<string>): Promise<void>;
+
+  /**
+   * Set whether to enable specified shortcuts.
+   *
+   * @permission ohos.permission.MANAGE_SHORTCUTS
+   * @param { Array<ShortcutInfo> } shortcutsInfo - Indicates the ShortcutInfo object.
+   * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700001 - The specified bundle is not found.
+   * @throws { BusinessError } 17700070 - The specified shortcut id is illegal.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function setShortcutsEnabled(shortcutsInfo: Array<ShortcutInfo>, isEnabled: boolean): Promise<void>;
 
   /**
    * Provides information about a shortcut, including the shortcut ID and label.
@@ -191,7 +209,7 @@ declare namespace shortcutManager {
    * @typedef { _ShortcutInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type ShortcutInfo = _ShortcutInfo;
   /**
@@ -208,7 +226,7 @@ declare namespace shortcutManager {
    * @typedef { _ShortcutWant }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type ShortcutWant = _ShortcutWant;
   /**
@@ -225,7 +243,7 @@ declare namespace shortcutManager {
    * @typedef { _ParameterItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type ParameterItem = _ParameterItem;
   }

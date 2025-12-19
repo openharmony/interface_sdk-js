@@ -41,7 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class PermissionRequestResult {
   /**
@@ -70,7 +70,7 @@ declare class PermissionRequestResult {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   permissions: Array<string>;
 
@@ -103,7 +103,7 @@ declare class PermissionRequestResult {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   authResults: Array<int>;
 
@@ -116,7 +116,7 @@ declare class PermissionRequestResult {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   dialogShownResults?: Array<boolean>;
 
@@ -136,7 +136,6 @@ declare class PermissionRequestResult {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   /**
    * Enumerates the return values of the permission request operation.
@@ -155,7 +154,7 @@ declare class PermissionRequestResult {
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   errorReasons?: Array<int>;
 }

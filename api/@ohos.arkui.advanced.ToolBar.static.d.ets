@@ -31,7 +31,7 @@ import { Builder } from '@ohos.arkui.component';
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare enum ItemState {
@@ -39,21 +39,21 @@ export declare enum ItemState {
    * Enable type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ENABLE = 1,
   /**
    * Disable type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   DISABLE = 2,
   /**
    * Activate type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   ACTIVATE = 3
 }
@@ -62,7 +62,7 @@ export declare enum ItemState {
  *
  * @interface ToolBarSymbolGlyphOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface ToolBarSymbolGlyphOptions {
@@ -71,7 +71,7 @@ export interface ToolBarSymbolGlyphOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   normal?: SymbolGlyphModifier;
   /**
@@ -79,7 +79,7 @@ export interface ToolBarSymbolGlyphOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   activated?: SymbolGlyphModifier;
 }
@@ -87,7 +87,7 @@ export interface ToolBarSymbolGlyphOptions {
  * Declare type ToolBarOption.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @Observed
@@ -97,7 +97,7 @@ export declare class ToolBarOption {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   public content: ResourceStr;
   /**
@@ -105,7 +105,7 @@ export declare class ToolBarOption {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   public action?: () => void;
   /**
@@ -113,7 +113,7 @@ export declare class ToolBarOption {
    *
    * @type { ?Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   public icon?: Resource;
   /**
@@ -121,7 +121,7 @@ export declare class ToolBarOption {
    *
    * @type { ?ItemState }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   public state?: ItemState;
   /**
@@ -129,7 +129,7 @@ export declare class ToolBarOption {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   public textColor?: ResourceColor;
   /**
@@ -137,7 +137,7 @@ export declare class ToolBarOption {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   public activatedTextColor?: ResourceColor;
   /**
@@ -145,7 +145,7 @@ export declare class ToolBarOption {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   public iconColor?: ResourceColor;
   /**
@@ -153,7 +153,7 @@ export declare class ToolBarOption {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   public activatedIconColor?: ResourceColor;
   /**
@@ -161,7 +161,7 @@ export declare class ToolBarOption {
    *
    * @type { ?ToolBarSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   public toolBarSymbolOptions?: ToolBarSymbolGlyphOptions;
   /**
@@ -169,7 +169,7 @@ export declare class ToolBarOption {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   public accessibilityText?: ResourceStr;
   /**
@@ -177,7 +177,7 @@ export declare class ToolBarOption {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   public accessibilityDescription?: ResourceStr;
   /**
@@ -186,7 +186,7 @@ export declare class ToolBarOption {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   public accessibilityLevel?: string;
 }
@@ -194,7 +194,7 @@ export declare class ToolBarOption {
  * Declare ToolBarOptions use in ToolBar.
  * @typedef { Array<ToolBarOption> } ToolBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export type ToolBarOptions = Array<ToolBarOption>
@@ -202,7 +202,7 @@ export type ToolBarOptions = Array<ToolBarOption>
  * Declare ToolBarModifier use in ToolBar.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare class ToolBarModifier {
@@ -212,7 +212,7 @@ export declare class ToolBarModifier {
    * @param { LengthMetrics } height - toolBar's height.
    * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   public height(height: LengthMetrics): ToolBarModifier;
   /**
@@ -221,7 +221,7 @@ export declare class ToolBarModifier {
    * @param { ResourceColor } backgroundColor - toolBar's backgroundColor.
    * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   public backgroundColor(backgroundColor: ResourceColor): ToolBarModifier;
   /**
@@ -230,7 +230,7 @@ export declare class ToolBarModifier {
    * @param { LengthMetrics } padding - left and right padding.
    * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   public padding(padding: LengthMetrics): ToolBarModifier;
   /**
@@ -239,7 +239,7 @@ export declare class ToolBarModifier {
    * @param { boolean } stateEffect - press status effect.
    * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   public stateEffect(stateEffect: boolean): ToolBarModifier;
 }
@@ -247,7 +247,7 @@ export declare class ToolBarModifier {
  * Declare Component ToolBar.
  * @struct { ToolBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @Component
@@ -257,7 +257,7 @@ export declare struct ToolBar {
    *
    * @type { ToolBarOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   @ObjectLink
   toolBarList: ToolBarOptions;
@@ -266,7 +266,7 @@ export declare struct ToolBar {
    *
    * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   @PropRef
   activateIndex?: int;
@@ -275,7 +275,7 @@ export declare struct ToolBar {
    *
    * @type { TabsController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   controller: TabsController;
   /**
@@ -283,7 +283,7 @@ export declare struct ToolBar {
    *
    * @type { ?DividerModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   @PropRef
   dividerModifier?: DividerModifier;
@@ -292,14 +292,14 @@ export declare struct ToolBar {
    *
    * @type { ?ToolBarModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   @PropRef
   toolBarModifier?: ToolBarModifier;
   /**
    * The method to build component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 staticonly
+   * @since 23 staticonly
    */
   @Builder
   build(): void;

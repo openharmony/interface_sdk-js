@@ -390,7 +390,7 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   appendChild(node: FrameNode): void;
 
@@ -429,7 +429,7 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   insertChildAfter(child: FrameNode, sibling: FrameNode | null): void;
 
@@ -610,7 +610,7 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   moveTo(targetParent: FrameNode, index?: number): void;
 
@@ -1279,7 +1279,7 @@ export class FrameNode {
    * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   adoptChild(child: FrameNode): void;
 
@@ -1295,11 +1295,11 @@ export class FrameNode {
    * @FaAndStageModel
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   removeAdoptedChild(child: FrameNode): void;
 
-   /**
+  /**
    * Converts a point's coordinates from the current node's coordinate system
    * to the target node's coordinate system.
    *
@@ -1318,7 +1318,37 @@ export class FrameNode {
    */
   convertPosition(position: Position, targetNode: FrameNode): Position;
 
-   /**
+  /**
+   * Converts a point's coordinates from the current node's coordinate system
+   * to the current window's coordinate system.
+   *
+   * @param { Position } positionByLocal - The point's coordinates in the current node's local coordinate system.
+   * @returns { Position } - The converted coordinates in the current window's coordinate system.
+   * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
+   * @throws { BusinessError } 100028 - The current FrameNode is not on the main tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  convertPositionToWindow(positionByLocal: Position): Position;
+
+  /**
+   * Converts a point's coordinates from the current window's coordinate system
+   * to the current node's coordinate system.
+   *
+   * @param { Position } positionByWindow - The point's coordinates in the current window's coordinate system.
+   * @returns { Position } - The converted coordinates in the current node's local coordinate system.
+   * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
+   * @throws { BusinessError } 100028 - The current FrameNode is not on the main tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  convertPositionFromWindow(positionByWindow: Position): Position;
+
+  /**
    * Get if the FrameNode is in the render state. A FrameNode is considered to be in the render state if its
    * corresponding RenderNode is on the render tree.
    * @returns { boolean } - Returns whether the node is in the render state. True indicates it is in the
@@ -2782,6 +2812,7 @@ export namespace typeNode {
    * @returns { UIWaterFlowEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
    * does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 23 dynamic
    */

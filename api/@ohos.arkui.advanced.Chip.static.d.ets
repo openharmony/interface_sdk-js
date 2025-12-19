@@ -40,7 +40,7 @@ import { PropRef, Require } from './arkui/stateManagement/decorator';
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare enum ChipSize {
@@ -49,7 +49,7 @@ export declare enum ChipSize {
    * Normal type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   NORMAL = 'NORMAL',
@@ -58,7 +58,7 @@ export declare enum ChipSize {
    * Small type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   SMALL = 'SMALL'
@@ -69,7 +69,7 @@ export declare enum ChipSize {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare enum AccessibilitySelectedType {
@@ -77,7 +77,7 @@ export declare enum AccessibilitySelectedType {
    * Default type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   CLICKED = 0,
@@ -86,7 +86,7 @@ export declare enum AccessibilitySelectedType {
    * Checked type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   CHECKED = 1,
@@ -95,7 +95,7 @@ export declare enum AccessibilitySelectedType {
    * Selected type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   SELECTED = 2
@@ -106,7 +106,7 @@ export declare enum AccessibilitySelectedType {
  *
  * @interface IconCommonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface IconCommonOptions {
@@ -116,7 +116,7 @@ export interface IconCommonOptions {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   src: ResourceStr;
@@ -126,7 +126,7 @@ export interface IconCommonOptions {
    *
    * @type { ?SizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   size?: SizeOptions;
@@ -136,7 +136,7 @@ export interface IconCommonOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   fillColor?: ResourceColor;
@@ -146,7 +146,7 @@ export interface IconCommonOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   activatedFillColor?: ResourceColor;
@@ -158,7 +158,7 @@ export interface IconCommonOptions {
  * @extends IconCommonOptions
  * @interface SuffixIconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface SuffixIconOptions extends IconCommonOptions {
@@ -168,7 +168,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   action?: VoidCallback;
@@ -178,7 +178,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   accessibilityText?: ResourceStr;
@@ -188,7 +188,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   accessibilityDescription?: ResourceStr;
@@ -199,7 +199,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   accessibilityLevel?: string;
@@ -211,7 +211,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
  * @extends IconCommonOptions
  * @interface PrefixIconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface PrefixIconOptions extends IconCommonOptions {}
@@ -221,7 +221,7 @@ export interface PrefixIconOptions extends IconCommonOptions {}
  *
  * @interface AccessibilityOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface AccessibilityOptions {
@@ -231,7 +231,7 @@ export interface AccessibilityOptions {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   accessibilityLevel?: string;
@@ -241,7 +241,7 @@ export interface AccessibilityOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   accessibilityText?: ResourceStr;
@@ -251,7 +251,7 @@ export interface AccessibilityOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   accessibilityDescription?: ResourceStr;
@@ -263,19 +263,19 @@ export interface AccessibilityOptions {
  * @extends AccessibilityOptions
  * @interface CloseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface CloseOptions extends AccessibilityOptions {
   /**
    * Set font size for the close icon.
    *
-   * @type { ?(number | Resource) }
+   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  fontSize?: number | Resource;
+  fontSize?: Dimension;
 }
 
 /**
@@ -283,7 +283,7 @@ export interface CloseOptions extends AccessibilityOptions {
  *
  * @interface ChipSymbolGlyphOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface ChipSymbolGlyphOptions {
@@ -293,7 +293,7 @@ export interface ChipSymbolGlyphOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   normal?: SymbolGlyphModifier;
@@ -303,7 +303,7 @@ export interface ChipSymbolGlyphOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   activated?: SymbolGlyphModifier;
@@ -314,7 +314,7 @@ export interface ChipSymbolGlyphOptions {
  *
  * @interface ChipSuffixSymbolGlyphOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface ChipSuffixSymbolGlyphOptions {
@@ -323,7 +323,7 @@ export interface ChipSuffixSymbolGlyphOptions {
    *
    * @type { ?AccessibilityOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   normalAccessibility?: AccessibilityOptions;
@@ -333,7 +333,7 @@ export interface ChipSuffixSymbolGlyphOptions {
    *
    * @type { ?AccessibilityOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   activatedAccessibility?: AccessibilityOptions;
@@ -343,7 +343,7 @@ export interface ChipSuffixSymbolGlyphOptions {
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   action?: VoidCallback;
@@ -354,7 +354,7 @@ export interface ChipSuffixSymbolGlyphOptions {
  *
  * @interface LabelMarginOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface LabelMarginOptions {
@@ -364,7 +364,7 @@ export interface LabelMarginOptions {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   left?: Dimension;
@@ -374,7 +374,7 @@ export interface LabelMarginOptions {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   right?: Dimension;
@@ -385,7 +385,7 @@ export interface LabelMarginOptions {
  *
  * @interface LocalizedLabelMarginOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface LocalizedLabelMarginOptions {
@@ -395,7 +395,7 @@ export interface LocalizedLabelMarginOptions {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
    start?: LengthMetrics;
@@ -405,7 +405,7 @@ export interface LocalizedLabelMarginOptions {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   end?: LengthMetrics;
@@ -416,7 +416,7 @@ export interface LocalizedLabelMarginOptions {
  *
  * @interface LabelOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface LabelOptions {
@@ -426,7 +426,7 @@ export interface LabelOptions {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   text: string;
@@ -436,7 +436,7 @@ export interface LabelOptions {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   fontSize?: Dimension;
@@ -446,7 +446,7 @@ export interface LabelOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   fontColor?: ResourceColor;
@@ -456,7 +456,7 @@ export interface LabelOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   activatedFontColor?: ResourceColor;
@@ -466,7 +466,7 @@ export interface LabelOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   fontFamily?: string;
@@ -476,7 +476,7 @@ export interface LabelOptions {
    *
    * @type { ?LabelMarginOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   labelMargin?: LabelMarginOptions;
@@ -486,7 +486,7 @@ export interface LabelOptions {
    *
    * @type { ?LocalizedLabelMarginOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   localizedLabelMargin?: LocalizedLabelMarginOptions;
@@ -497,7 +497,7 @@ export interface LabelOptions {
  *
  * @interface ChipOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface ChipOptions {
@@ -506,7 +506,7 @@ export interface ChipOptions {
    *
    * @type { ?PrefixIconOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   prefixIcon?: PrefixIconOptions;
@@ -516,7 +516,7 @@ export interface ChipOptions {
    *
    * @type { ?ChipSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   prefixSymbol?: ChipSymbolGlyphOptions;
@@ -526,7 +526,7 @@ export interface ChipOptions {
    *
    * @type { LabelOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   label: LabelOptions;
@@ -536,7 +536,7 @@ export interface ChipOptions {
    *
    * @type { ?SuffixIconOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   suffixIcon?: SuffixIconOptions;
@@ -546,7 +546,7 @@ export interface ChipOptions {
    *
    * @type { ?ChipSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   suffixSymbol?: ChipSymbolGlyphOptions;
@@ -556,7 +556,7 @@ export interface ChipOptions {
    *
    * @type { ?ChipSuffixSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   suffixSymbolOptions?: ChipSuffixSymbolGlyphOptions;
@@ -566,7 +566,7 @@ export interface ChipOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   allowClose?: boolean;
@@ -576,7 +576,7 @@ export interface ChipOptions {
    *
    * @type { ?CloseOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   closeOptions?: CloseOptions;
@@ -586,7 +586,7 @@ export interface ChipOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   enabled?: boolean;
@@ -596,7 +596,7 @@ export interface ChipOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   activated?: boolean;
@@ -606,7 +606,7 @@ export interface ChipOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   backgroundColor?: ResourceColor;
@@ -616,7 +616,7 @@ export interface ChipOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   activatedBackgroundColor?: ResourceColor;
@@ -626,7 +626,7 @@ export interface ChipOptions {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   borderRadius?: Dimension;
@@ -636,7 +636,7 @@ export interface ChipOptions {
    *
    * @type { ?(ChipSize | SizeOptions) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   size?: ChipSize | SizeOptions;
@@ -646,7 +646,7 @@ export interface ChipOptions {
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   onClose?: VoidCallback;
@@ -656,7 +656,7 @@ export interface ChipOptions {
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   onClicked?: VoidCallback;
@@ -666,7 +666,7 @@ export interface ChipOptions {
    *
    * @type { ?Direction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
    direction?: Direction;
@@ -676,7 +676,7 @@ export interface ChipOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   accessibilityDescription?: ResourceStr;
@@ -687,7 +687,7 @@ export interface ChipOptions {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   accessibilityLevel?: string;
@@ -697,7 +697,7 @@ export interface ChipOptions {
    *
    * @type { ?AccessibilitySelectedType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @noninterop
    */
   accessibilitySelectedType?: AccessibilitySelectedType;
@@ -705,22 +705,22 @@ export interface ChipOptions {
   /**
    * Maximum font scale for Chip.
    *
-   * @type { ?(number | Resource) }
+   * @type { ?(double | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  maxFontScale?: number | Resource;
+  maxFontScale?: double | Resource;
 
   /**
    * Minimum font scale for Chip.
    *
-   * @type { ?(number | Resource) }
+   * @type { ?(double | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  minFontScale?: number | Resource;
+  minFontScale?: double | Resource;
 
   /**
    * Chip padding.
@@ -735,12 +735,12 @@ export interface ChipOptions {
   /**
    * Set font size for the label text and the close icon.
    *
-   * @type { ?(number | Resource) }
+   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  fontSize?: number | Resource;
+  fontSize?: Dimension;
 }
 
  /**
@@ -748,7 +748,7 @@ export interface ChipOptions {
  *
  * @param { ChipOptions } options - chip option.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @Builder

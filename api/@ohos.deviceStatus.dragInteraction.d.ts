@@ -27,7 +27,7 @@ import { Callback } from './@ohos.base';
  * @syscap SystemCapability.Msdp.DeviceStatus.Drag
  * @systemapi Hide this for inner system use.
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace dragInteraction {
   /**
@@ -37,7 +37,7 @@ declare namespace dragInteraction {
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum DragState {
     /**
@@ -46,7 +46,7 @@ declare namespace dragInteraction {
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MSG_DRAG_STATE_START = 1,
 
@@ -56,7 +56,7 @@ declare namespace dragInteraction {
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MSG_DRAG_STATE_STOP = 2,
 
@@ -66,7 +66,7 @@ declare namespace dragInteraction {
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MSG_DRAG_STATE_CANCEL = 3,
   }
@@ -78,7 +78,7 @@ declare namespace dragInteraction {
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Summary {
     /**
@@ -88,7 +88,7 @@ declare namespace dragInteraction {
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dataType: string;
 
@@ -99,7 +99,7 @@ declare namespace dragInteraction {
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dataSize: int;
   }
@@ -126,7 +126,7 @@ declare namespace dragInteraction {
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function on(type: 'drag', callback: Callback<DragState>): void;
 
@@ -154,7 +154,7 @@ declare namespace dragInteraction {
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function off(type: 'drag', callback?: Callback<DragState>): void;
 
@@ -166,7 +166,7 @@ declare namespace dragInteraction {
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDataSummary(): Array<Summary>;
 
@@ -178,6 +178,7 @@ declare namespace dragInteraction {
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
+   * @since 23 static
    */
   function setDragSwitchState(enabled: boolean): void;
 
@@ -192,6 +193,7 @@ declare namespace dragInteraction {
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
+   * @since 23 static
    */
   function setAppDragSwitchState(enabled: boolean, bundleName: string): void;
 }

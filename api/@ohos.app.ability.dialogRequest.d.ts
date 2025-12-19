@@ -26,7 +26,7 @@ import Want from './@ohos.app.ability.Want';
  * @namespace dialogRequest
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace dialogRequest {
   /**
@@ -36,7 +36,7 @@ declare namespace dialogRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface WindowRect {
     /**
@@ -46,7 +46,7 @@ declare namespace dialogRequest {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     left: int;
 
@@ -57,7 +57,7 @@ declare namespace dialogRequest {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     top: int;
 
@@ -68,7 +68,7 @@ declare namespace dialogRequest {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     width: int;
 
@@ -79,7 +79,7 @@ declare namespace dialogRequest {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     height: int;
   }
@@ -89,7 +89,7 @@ declare namespace dialogRequest {
    * @typedef RequestInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface RequestInfo {
     /**
@@ -99,7 +99,7 @@ declare namespace dialogRequest {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     windowRect?: WindowRect
   }
@@ -110,7 +110,7 @@ declare namespace dialogRequest {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ResultCode {
     /**
@@ -118,7 +118,7 @@ declare namespace dialogRequest {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RESULT_OK = 0,
 
@@ -127,7 +127,7 @@ declare namespace dialogRequest {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     RESULT_CANCEL = 1
   }
@@ -139,7 +139,7 @@ declare namespace dialogRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface RequestResult {
     /**
@@ -149,7 +149,7 @@ declare namespace dialogRequest {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     result: ResultCode;
 
@@ -160,7 +160,7 @@ declare namespace dialogRequest {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     want?: Want;
   }
@@ -171,7 +171,7 @@ declare namespace dialogRequest {
    * @interface RequestCallback
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface RequestCallback {
     /**
@@ -183,7 +183,7 @@ declare namespace dialogRequest {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setRequestResult(result: RequestResult): void;
   }
@@ -197,7 +197,7 @@ declare namespace dialogRequest {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRequestInfo(want: Want): RequestInfo;
 
@@ -210,7 +210,7 @@ declare namespace dialogRequest {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRequestCallback(want: Want): RequestCallback;
 }

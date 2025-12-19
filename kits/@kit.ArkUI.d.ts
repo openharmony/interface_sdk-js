@@ -34,7 +34,7 @@ import {
   OperationParams,
 } from '@ohos.atomicservice.AtomicServiceSearch';
 import {
-  ArcButton, ArcButtonOptions, ArcButtonPosition, ArcButtonStyleMode, ArcButtonStatus
+  ArcButton, ArcButtonOptions, ArcButtonProgressConfig, ArcButtonPosition, ArcButtonStyleMode, ArcButtonStatus
 } from '@ohos.arkui.advanced.ArcButton';
 import {
   Chip, ChipOptions, ChipSize, IconCommonOptions, LabelMarginOptions, LabelOptions, PrefixIconOptions,
@@ -120,7 +120,7 @@ import {
   AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager,
   PromptAction, Router, UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MeasureUtils, FrameCallback,
   OverlayManagerOptions, TargetInfo, MarqueeDynamicSyncScene, MarqueeDynamicSyncSceneType, TextMenuController,
-  NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, Magnifier
+  NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, Magnifier, ResolvedUIContext
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
 import {
@@ -246,7 +246,7 @@ export {
   AtomicServiceNavigation, NavDestinationBuilder, MixMode, GradientAlpha, BackgroundTheme, TitleBarType, SideBarOptions, TitleOptions, GradientBackground,
   NavPushPathHelper,
   BackRouterOptions, BuilderNode, ReactiveBuilderNode, Button, ButtonOptions, CallbackParam,
-  ArcButton, ArcButtonOptions, ArcButtonPosition, ArcButtonStyleMode,
+  ArcButton, ArcButtonOptions, ArcButtonProgressConfig, ArcButtonPosition, ArcButtonStyleMode,
   ArcButtonStatus,
   CapsuleSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, Chip, ChipOptions, ChipSize, CircleShape, ComponentUtils,
   ComposeListItem, ComposeTitleBar, ComposeTitleBarMenuItem, Configuration, ConfirmDialog, ContentItem, ContextMenuController,
@@ -317,5 +317,5 @@ export {
   ExpandMode, Magnifier,
   HalfScreenLaunchComponent, ArcSliderPosition, ArcSwiper, ArcSwiperAttribute, ArcDotIndicator, ArcDirection, ArcSwiperController, TargetInfo, UIState,
   StepperModifier, TextMenuController, InputEventType, GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback,
-  SwiperContentInfo, SwiperItemInfo, PickerModifier, imageGeneration
+  SwiperContentInfo, SwiperItemInfo, PickerModifier, imageGeneration, ResolvedUIContext
 };

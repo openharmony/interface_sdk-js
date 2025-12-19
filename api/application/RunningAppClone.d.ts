@@ -25,7 +25,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface RunningAppClone {
   /**
@@ -35,7 +35,7 @@ export interface RunningAppClone {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
    appCloneIndex: int;
 
@@ -46,7 +46,7 @@ export interface RunningAppClone {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   uid: int;
 
@@ -57,7 +57,7 @@ export interface RunningAppClone {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   pids: Array<int>;
 }

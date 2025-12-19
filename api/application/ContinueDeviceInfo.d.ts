@@ -24,7 +24,9 @@
  * @typedef ContinueDeviceInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
+ * @stagemodelonly
  * @since 9 dynamic
+ * @since 23 static
  */
 export interface ContinueDeviceInfo {
   /**
@@ -33,7 +35,9 @@ export interface ContinueDeviceInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
   srcDeviceId: string;
   /**
@@ -42,18 +46,22 @@ export interface ContinueDeviceInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
   dstDeviceId: string;
   /**
    * Indicates the mission to continue.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
-  missionId: number;
+  missionId: int;
   /**
    * Indicates the extended param.
    *
@@ -68,7 +76,9 @@ export interface ContinueDeviceInfo {
    * @type { Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
+   * @stagemodelonly
    * @since 11 dynamic
+   * @since 23 static
    */
   wantParam: Record<string, Object>;
 }

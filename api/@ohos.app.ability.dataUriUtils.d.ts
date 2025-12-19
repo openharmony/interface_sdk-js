@@ -24,7 +24,7 @@
  * @namespace dataUriUtils
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace dataUriUtils {
   /**
@@ -36,7 +36,7 @@ declare namespace dataUriUtils {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getId(uri: string): double;
 
@@ -50,7 +50,7 @@ declare namespace dataUriUtils {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function attachId(uri: string, id: double): string;
 
@@ -63,7 +63,7 @@ declare namespace dataUriUtils {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function deleteId(uri: string): string;
 
@@ -77,7 +77,7 @@ declare namespace dataUriUtils {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function updateId(uri: string, id: double): string;
 }

@@ -31,7 +31,7 @@
  * @interface AppResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export interface AppResponse {
   /**
@@ -47,7 +47,7 @@ export interface AppResponse {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   appID: string;
 
@@ -64,7 +64,7 @@ export interface AppResponse {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   appName: string;
 
@@ -81,7 +81,7 @@ export interface AppResponse {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   versionName: string;
 
@@ -98,7 +98,7 @@ export interface AppResponse {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   versionCode: number;
 }
@@ -116,7 +116,7 @@ export interface AppResponse {
  * @interface ScreenOnVisibleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export interface ScreenOnVisibleOptions {
   /**
@@ -132,7 +132,7 @@ export interface ScreenOnVisibleOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   visible?: boolean;
 
@@ -149,7 +149,7 @@ export interface ScreenOnVisibleOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   success?: () => void;
 
@@ -166,7 +166,7 @@ export interface ScreenOnVisibleOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   fail?: (data: string, code: number) => void;
 
@@ -183,7 +183,7 @@ export interface ScreenOnVisibleOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   complete?: () => void;
 }
@@ -201,7 +201,7 @@ export interface ScreenOnVisibleOptions {
  * @interface RequestFullWindowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export interface RequestFullWindowOptions {
   /**
@@ -217,7 +217,7 @@ export interface RequestFullWindowOptions {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   duration: number;
 }
@@ -233,7 +233,7 @@ export interface RequestFullWindowOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
  declare class App {
   /**
@@ -249,7 +249,7 @@ export interface RequestFullWindowOptions {
    * @returns { AppResponse }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   static getInfo(): AppResponse;
 
@@ -264,7 +264,7 @@ export interface RequestFullWindowOptions {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   static terminate(): void;
 
@@ -274,7 +274,7 @@ export interface RequestFullWindowOptions {
    *
    * @param { ScreenOnVisibleOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @deprecated since 8
    */
   static screenOnVisible(options?: ScreenOnVisibleOptions): void;
@@ -288,7 +288,7 @@ export interface RequestFullWindowOptions {
    * @param { RequestFullWindowOptions } options Transition time from non-full window to full window, in milliseconds.
    * By default, the value is in direct proportion to the distance between the non-full window and the full window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    * @deprecated since 8
    * @useinstead startAbility
    */
@@ -309,7 +309,7 @@ export interface RequestFullWindowOptions {
    * @param { number } value - capacity of decoded image count.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   static setImageCacheCount(value: number): void;
 
@@ -328,7 +328,7 @@ export interface RequestFullWindowOptions {
    * @param { number } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   static setImageRawDataCacheSize(value: number): void;
 
@@ -347,7 +347,7 @@ export interface RequestFullWindowOptions {
    * @param { number } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   static setImageFileCacheSize(value: number): void;
 }

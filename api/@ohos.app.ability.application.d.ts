@@ -29,7 +29,7 @@ import Context from './application/Context';
  * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace application {
   /**
@@ -38,7 +38,8 @@ declare namespace application {
    * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum AppPreloadType {
     /**
@@ -46,7 +47,8 @@ declare namespace application {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     UNSPECIFIED = 0,
 
@@ -55,7 +57,8 @@ declare namespace application {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     TYPE_CREATE_PROCESS = 1,
 
@@ -64,7 +67,8 @@ declare namespace application {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     TYPE_CREATE_ABILITY_STAGE = 2,
 
@@ -73,7 +77,8 @@ declare namespace application {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     TYPE_CREATE_WINDOW_STAGE = 3
   }
@@ -89,7 +94,7 @@ declare namespace application {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export function createModuleContext(context: Context, moduleName: string): Promise<Context>;
 
@@ -108,7 +113,7 @@ declare namespace application {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export function createModuleContext(context: Context, bundleName: string, moduleName: string): Promise<Context>;
 
@@ -122,7 +127,7 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export function createPluginModuleContext(context: Context, pluginBundleName: string, pluginModuleName: string): Promise<Context>;
 
@@ -141,7 +146,7 @@ declare namespace application {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export function createPluginModuleContextForHostBundle(context: Context, pluginBundleName: string, pluginModuleName: string, hostBundleName: string): Promise<Context>;
 
@@ -159,7 +164,7 @@ declare namespace application {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export function createBundleContext(context: Context, bundleName: string): Promise<Context>;
 
@@ -204,7 +209,7 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export function promoteCurrentToCandidateMasterProcess(insertToHead: boolean): Promise<void>;
 
@@ -218,7 +223,7 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export function demoteCurrentFromCandidateMasterProcess(): Promise<void>;
 
@@ -235,7 +240,7 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
    export function exitMasterProcessRole(): Promise<void>
 
@@ -248,7 +253,8 @@ declare namespace application {
    * @returns { AppPreloadType } The preload type of the process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export function getAppPreloadType(): AppPreloadType;
 }

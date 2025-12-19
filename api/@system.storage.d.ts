@@ -233,6 +233,7 @@ export interface DeleteStorageOptions {
  * @FAModelOnly
  * @since 3 dynamiconly
  * @deprecated since 6
+ * @reserved ["liteWearable"]
  */
 export default class Storage {
   /**
@@ -243,7 +244,7 @@ export default class Storage {
    * @FAModelOnly
    * @since 3 dynamiconly
    * @deprecated since 6
-   * @reserverd ["liteWearable"]
+   * @reserved ["liteWearable"]
    * @useinstead ohos.preferences.preferences.get
    */
   static get(options: GetStorageOptions): void;
@@ -256,7 +257,7 @@ export default class Storage {
    * @FAModelOnly
    * @since 3 dynamiconly
    * @deprecated since 6
-   * @reserverd ["liteWearable"]
+   * @reserved ["liteWearable"]
    */
   static set(options: SetStorageOptions): void;
 
@@ -268,7 +269,7 @@ export default class Storage {
    * @FAModelOnly
    * @since 3 dynamiconly
    * @deprecated since 6
-   * @reserverd ["liteWearable"]
+   * @reserved ["liteWearable"]
    * @useinstead ohos.preferences.preferences.clear
    */
   static clear(options?: ClearStorageOptions): void;
@@ -281,7 +282,7 @@ export default class Storage {
    * @FAModelOnly
    * @since 3 dynamiconly
    * @deprecated since 6
-   * @reserverd ["liteWearable"]
+   * @reserved ["liteWearable"]
    * @useinstead ohos.preferences.preferences.delete
    */
   static delete(options: DeleteStorageOptions): void;

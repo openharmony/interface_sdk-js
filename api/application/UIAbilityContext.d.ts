@@ -72,7 +72,7 @@ import UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallba
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class UIAbilityContext extends Context {
   /**
@@ -101,7 +101,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   abilityInfo: AbilityInfo;
 
@@ -131,7 +131,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   currentHapModuleInfo: HapModuleInfo;
 
@@ -161,7 +161,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   config: Configuration;
 
@@ -174,7 +174,6 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   /**
    * Indicates windowStage information.
@@ -186,7 +185,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   windowStage: window.WindowStage;
 
@@ -352,7 +351,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -564,7 +563,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -787,7 +786,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -822,7 +821,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   openLink(link: string, options?: OpenLinkOptions, callback?: AsyncCallback<AbilityResult>): Promise<void>;
 
@@ -936,7 +935,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityAsCaller(want: Want, callback: AsyncCallback<void>): void;
 
@@ -1047,7 +1046,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityAsCaller(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -1164,7 +1163,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityAsCaller(want: Want, options?: StartOptions): Promise<void>;
 
@@ -1295,7 +1294,9 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed.
+   * 2.Sending restart message to system service failed. 3.System service failed to communicate with dependency module.
+   * 4.Non-system applications are only allowed to call this interface across devices, not on the current device.
    * @throws { BusinessError } 16000071 - App clone is not supported.
    * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
    * @throws { BusinessError } 16000073 - The app clone index is invalid.
@@ -1307,7 +1308,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityByCall(want: Want): Promise<Caller>;
 
@@ -1533,7 +1534,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
@@ -1678,7 +1679,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityWithAccount(want: Want, accountId: int, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -1800,7 +1801,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityWithAccount(want: Want, accountId: int, options?: StartOptions): Promise<void>;
 
@@ -2009,7 +2010,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
 
@@ -2214,7 +2215,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
 
@@ -2429,7 +2430,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
@@ -2566,7 +2567,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityForResultWithAccount(want: Want, accountId: int, callback: AsyncCallback<AbilityResult>): void;
 
@@ -2711,7 +2712,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityForResultWithAccount(
     want: Want,
@@ -2857,7 +2858,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityForResultWithAccount(want: Want, accountId: int, options?: StartOptions): Promise<AbilityResult>;
 
@@ -2938,7 +2939,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -3019,7 +3020,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -3106,7 +3107,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
@@ -3193,7 +3194,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
@@ -3242,7 +3243,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stopServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -3289,7 +3290,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stopServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -3341,7 +3342,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stopServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
@@ -3393,7 +3394,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stopServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
@@ -3438,7 +3439,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   terminateSelf(callback: AsyncCallback<void>): void;
 
@@ -3480,7 +3481,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   terminateSelf(): Promise<void>;
 
@@ -3526,7 +3527,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
 
@@ -3572,7 +3573,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
 
@@ -3594,7 +3595,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   backToCallerAbilityWithResult(abilityResult: AbilityResult, requestCode: string): Promise<void>;
 
@@ -3639,7 +3640,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
@@ -3692,7 +3693,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   connectServiceExtensionAbilityWithAccount(want: Want, accountId: int, options: ConnectOptions): long;
 
@@ -3707,7 +3708,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
@@ -3722,7 +3723,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   disconnectServiceExtensionAbility(connection: long): Promise<void>;
 
@@ -3750,7 +3751,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setMissionLabel(label: string, callback: AsyncCallback<void>): void;
 
@@ -3778,7 +3779,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setMissionLabel(label: string): Promise<void>;
 
@@ -3808,7 +3809,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setMissionIcon(icon: image.PixelMap, callback: AsyncCallback<void>): void;
 
@@ -3838,7 +3839,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setMissionIcon(icon: image.PixelMap): Promise<void>;
 
@@ -3918,7 +3919,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   restoreWindowStage(localStorage: LocalStorage): void;
 
@@ -3940,7 +3941,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isTerminating(): boolean;
 
@@ -4078,7 +4079,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startRecentAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -4214,7 +4215,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startRecentAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -4356,7 +4357,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -4413,7 +4414,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   requestDialogService(want: Want, result: AsyncCallback<dialogRequest.RequestResult>): void;
 
@@ -4471,7 +4472,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   requestDialogService(want: Want): Promise<dialogRequest.RequestResult>;
 
@@ -4507,7 +4508,7 @@ declare class UIAbilityContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   reportDrawnCompleted(callback: AsyncCallback<void>): void;
 
@@ -4563,7 +4564,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityByType(type: string, wantParam: Record<string, RecordData>,
     abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void;
@@ -4620,7 +4621,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityByType(type: string, wantParam: Record<string, RecordData>,
     abilityStartCallback: AbilityStartCallback): Promise<void>;
@@ -4663,7 +4664,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
 
@@ -4705,7 +4706,7 @@ declare class UIAbilityContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   requestModalUIExtension(pickerWant: Want): Promise<void>;
 
@@ -4729,7 +4730,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<AbilityResult>;
 
@@ -4746,7 +4747,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   moveAbilityToBackground(): Promise<void>;
 
@@ -4762,7 +4763,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   showAbility(): Promise<void>;
 
@@ -4778,7 +4779,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   hideAbility(): Promise<void>;
 
@@ -4793,7 +4794,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setRestoreEnabled(enabled: boolean): void;
 
@@ -4824,7 +4825,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startUIServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4854,7 +4855,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise<UIServiceProxy>;
 
@@ -4871,7 +4872,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>;
 
@@ -4892,7 +4893,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setAbilityInstanceInfo(label: string, icon: image.PixelMap): Promise<void>;
 
@@ -4909,7 +4910,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 17 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   revokeDelegator(): Promise<void>;
 
@@ -4922,7 +4923,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 
@@ -4949,7 +4950,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAppServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4972,7 +4973,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stopAppServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4997,7 +4998,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   connectAppServiceExtensionAbility(want: Want, callback: ConnectOptions): long;
 
@@ -5012,7 +5013,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   disconnectAppServiceExtensionAbility(connection: long): Promise<void>;
 
@@ -5054,7 +5055,8 @@ declare class UIAbilityContext extends Context {
   * @throws { BusinessError } 16000131 - The UIAbility is already exist, can not start again.
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @stagemodelonly
-  * @since 22 dynamic&static
+  * @since 22 dynamic
+  * @since 23 static
   */
   startSelfUIAbilityInCurrentProcess(want: Want, specifiedFlag: string, options?: StartOptions): Promise<void>;
 
@@ -5074,7 +5076,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   restartApp(want: Want): Promise<void>;
 
@@ -5089,7 +5092,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000135 - The main window of this ability not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   setMissionWindowIcon(windowIcon: image.PixelMap): Promise<void>;
 }

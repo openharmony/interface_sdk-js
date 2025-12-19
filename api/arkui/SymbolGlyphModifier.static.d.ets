@@ -30,7 +30,7 @@ import { Resource } from '../global/resource';
  *
  * @implements { SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
 */
 export declare class SymbolGlyphModifier implements SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute> {
     /**
@@ -38,7 +38,7 @@ export declare class SymbolGlyphModifier implements SymbolGlyphAttribute, Attrib
      *
      * @param { Resource } [src]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     constructor(src?: Resource);
 }

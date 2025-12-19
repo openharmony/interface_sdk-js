@@ -21,7 +21,7 @@
 /**
  * @interface BrightnessResponse
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
- * @since 3 dynamic
+ * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
  */
@@ -31,7 +31,7 @@ export interface BrightnessResponse {
    *
    * @type { number }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -41,7 +41,7 @@ export interface BrightnessResponse {
 /**
  * @interface GetBrightnessOptions
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
- * @since 3 dynamic
+ * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
  */
@@ -51,7 +51,7 @@ export interface GetBrightnessOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -62,7 +62,7 @@ export interface GetBrightnessOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -73,7 +73,7 @@ export interface GetBrightnessOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -83,7 +83,7 @@ export interface GetBrightnessOptions {
 /**
  * @interface SetBrightnessOptions
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
- * @since 3 dynamic
+ * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
  */
@@ -97,7 +97,7 @@ export interface SetBrightnessOptions {
    *
    * @type { number }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -108,7 +108,7 @@ export interface SetBrightnessOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -119,7 +119,7 @@ export interface SetBrightnessOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -130,7 +130,7 @@ export interface SetBrightnessOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -140,7 +140,7 @@ export interface SetBrightnessOptions {
 /**
  * @interface BrightnessModeResponse
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
- * @since 3 dynamic
+ * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
  */
@@ -152,7 +152,7 @@ export interface BrightnessModeResponse {
    *
    * @type { number }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -162,7 +162,7 @@ export interface BrightnessModeResponse {
 /**
  * @interface GetBrightnessModeOptions
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
- * @since 3 dynamic
+ * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
  */
@@ -172,7 +172,7 @@ export interface GetBrightnessModeOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -183,7 +183,7 @@ export interface GetBrightnessModeOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -194,7 +194,7 @@ export interface GetBrightnessModeOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -204,7 +204,7 @@ export interface GetBrightnessModeOptions {
 /**
  * @interface SetBrightnessModeOptions
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
- * @since 3 dynamic
+ * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
  */
@@ -216,7 +216,7 @@ export interface SetBrightnessModeOptions {
    *
    * @type { number }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -227,7 +227,7 @@ export interface SetBrightnessModeOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -238,7 +238,7 @@ export interface SetBrightnessModeOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -249,7 +249,7 @@ export interface SetBrightnessModeOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -259,7 +259,7 @@ export interface SetBrightnessModeOptions {
 /**
  * @interface SetKeepScreenOnOptions
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
- * @since 3 dynamic
+ * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
  */
@@ -269,7 +269,7 @@ export interface SetKeepScreenOnOptions {
    *
    * @type { boolean }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -280,7 +280,7 @@ export interface SetKeepScreenOnOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -291,7 +291,7 @@ export interface SetKeepScreenOnOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -302,7 +302,7 @@ export interface SetKeepScreenOnOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -311,7 +311,7 @@ export interface SetKeepScreenOnOptions {
 
 /**
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
- * @since 3 dynamic
+ * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
  */
@@ -321,7 +321,7 @@ export default class Brightness {
    *
    * @param { GetBrightnessOptions } options Options.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -344,7 +344,7 @@ export default class Brightness {
    *
    * @param { GetBrightnessModeOptions } options Options.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */
@@ -355,7 +355,7 @@ export default class Brightness {
    *
    * @param { SetBrightnessModeOptions } options Options.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
    */

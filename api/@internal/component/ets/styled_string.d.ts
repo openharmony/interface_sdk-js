@@ -1292,9 +1292,10 @@ declare class UrlStyle {
  * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan |
  * UserDataSpan } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 
 /**
@@ -1304,6 +1305,7 @@ declare class UrlStyle {
  * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
  * UserDataSpan | BackgroundColorStyle } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 14 dynamic
@@ -2170,10 +2172,12 @@ declare interface LeadingMarginSpanDrawInfo {
     baseline: number;
 
     /**
-     * The direction of text.
+     * The direction of text. The default value is TextDirection.DEFAULT.
      *
      * @type { TextDirection }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
      * @since 22 dynamic
      */
     direction: TextDirection;

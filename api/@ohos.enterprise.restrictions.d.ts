@@ -718,6 +718,44 @@ declare namespace restrictions {
    * @since 20
    */
   function getUserRestricted(admin: Want, settingsItem: string): boolean;
+
+  /**
+   * Restricting users from changing specified settings item for account on the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } settingsItem - settingsItem indicates the specific settings item to be disallowed.
+   * the supported settingsItems are as follows: modifyWallpaper.
+   * @param { int } accountId - accountId indicates the account ID to be restricted.
+   * @param { boolean } restricted - true if restrict the specific settings item of device, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function setUserRestrictionForAccount(admin: Want, settingsItem: string, accountId: int, restricted: boolean): void;
+
+  /**
+   * Gets whether users are restricted from changing specified settings items for account on the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_USER_RESTRICTION
+   * @param { Want | null } admin - admin indicates the administrator ability information.
+   * @param { string } settingsItem - settingsItem indicates the specific settings item to be disallowed.
+   * the supported settingsItems are as follows: modifyWallpaper.
+   * @param { int } accountId - accountId indicates the account ID to be restricted.
+   * @returns { boolean } true if restrict the specific settings item of device, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function getUserRestrictedForAccount(admin: Want | null, settingsItem: string, accountId: int): boolean;
 }
 
 export default restrictions;

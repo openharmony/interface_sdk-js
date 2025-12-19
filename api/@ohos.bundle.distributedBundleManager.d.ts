@@ -29,7 +29,7 @@ import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundleManager/RemoteA
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace distributedBundleManager {
   /**
@@ -49,7 +49,7 @@ declare namespace distributedBundleManager {
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRemoteAbilityInfo(elementName: ElementName, callback: AsyncCallback<RemoteAbilityInfo>): void;
 
@@ -70,7 +70,7 @@ declare namespace distributedBundleManager {
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRemoteAbilityInfo(elementName: ElementName): Promise<RemoteAbilityInfo>;
 
@@ -91,7 +91,7 @@ declare namespace distributedBundleManager {
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRemoteAbilityInfo(elementNames: Array<ElementName>,
     callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
@@ -113,7 +113,7 @@ declare namespace distributedBundleManager {
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRemoteAbilityInfo(elementNames: Array<ElementName>): Promise<Array<RemoteAbilityInfo>>;
 
@@ -135,7 +135,7 @@ declare namespace distributedBundleManager {
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRemoteAbilityInfo(elementName: ElementName,
     locale: string, callback: AsyncCallback<RemoteAbilityInfo>): void;
@@ -158,7 +158,7 @@ declare namespace distributedBundleManager {
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRemoteAbilityInfo(elementName: ElementName, locale: string): Promise<RemoteAbilityInfo>;
 
@@ -180,7 +180,7 @@ declare namespace distributedBundleManager {
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRemoteAbilityInfo(elementNames: Array<ElementName>,
     locale: string, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
@@ -203,7 +203,7 @@ declare namespace distributedBundleManager {
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getRemoteAbilityInfo(elementNames: Array<ElementName>, locale: string): Promise<Array<RemoteAbilityInfo>>;
 
@@ -214,7 +214,7 @@ declare namespace distributedBundleManager {
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type RemoteAbilityInfo = _RemoteAbilityInfo;
 }

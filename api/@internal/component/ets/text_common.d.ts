@@ -185,26 +185,6 @@ declare interface TextDataDetectorConfig {
 }
 
 /**
- * Text selected data detector config.
- *
- * @interface SelectDataDetectorConfig
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 22 dynamic
- */
-declare interface SelectDataDetectorConfig {
-  /**
-   * Text data detector types.
-   *
-   * @type { TextDataDetectorType[] | undefined }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  types: TextDataDetectorType[] | undefined;
-}
-
-/**
  * Defines range of text type component.
  *
  * @interface TextRange
@@ -1225,6 +1205,19 @@ declare class TextMenuItemId {
    * @since 23 dynamic
    */
   static readonly autoFill: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId for password vault.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  static readonly passwordVault: TextMenuItemId;
 }
  
 /**

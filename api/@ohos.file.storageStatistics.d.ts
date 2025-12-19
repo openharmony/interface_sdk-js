@@ -26,7 +26,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @namespace storageStatistics
  * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
  * @since 8 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace storageStatistics {
   /**
@@ -34,7 +34,7 @@ declare namespace storageStatistics {
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } volumeUuid - The uuid of the volume
-   * @param { AsyncCallback<number> } callback - callback
+   * @param { AsyncCallback<long> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
@@ -46,15 +46,16 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 8 dynamic
+   * @since 23 static
    */
-  function getTotalSizeOfVolume(volumeUuid: string, callback: AsyncCallback<number>): void;
+  function getTotalSizeOfVolume(volumeUuid: string, callback: AsyncCallback<long>): void;
 
   /**
    * Get the total size of volume.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } volumeUuid - The uuid of the volume
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<long> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
@@ -66,14 +67,15 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 8 dynamic
+   * @since 23 static
    */
-  function getTotalSizeOfVolume(volumeUuid: string): Promise<number>;
+  function getTotalSizeOfVolume(volumeUuid: string): Promise<long>;
   /**
    * Get the free size of volume.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } volumeUuid - The uuid of the volume
-   * @param { AsyncCallback<number> } callback - callback
+   * @param { AsyncCallback<long> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
@@ -85,15 +87,16 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 8 dynamic
+   * @since 23 static
    */
-  function getFreeSizeOfVolume(volumeUuid: string, callback: AsyncCallback<number>): void;
+  function getFreeSizeOfVolume(volumeUuid: string, callback: AsyncCallback<long>): void;
 
   /**
    * Get the free size of volume.
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } volumeUuid - The uuid of the volume
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<long> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory
@@ -105,8 +108,9 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 8 dynamic
+   * @since 23 static
    */
-  function getFreeSizeOfVolume(volumeUuid: string): Promise<number>;
+  function getFreeSizeOfVolume(volumeUuid: string): Promise<long>;
 
   /**
    * Get the bundle statistics.
@@ -114,7 +118,7 @@ parameters are left unspecified;
    * @interface BundleStats
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface BundleStats {
     /**
@@ -123,7 +127,7 @@ parameters are left unspecified;
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appSize: long;
 
@@ -133,7 +137,7 @@ parameters are left unspecified;
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cacheSize: long;
 
@@ -143,7 +147,7 @@ parameters are left unspecified;
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dataSize: long;
   }
@@ -181,8 +185,9 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 12 dynamic
+   * @since 23 static
    */
-  function getBundleStats(packageName: string, callback: AsyncCallback<BundleStats>, index?: number): void;
+  function getBundleStats(packageName: string, callback: AsyncCallback<BundleStats>, index?: int): void;
 
   /**
    * Get the bundle statistics.
@@ -207,7 +212,7 @@ parameters are left unspecified;
    *
    * @permission ohos.permission.STORAGE_MANAGER
    * @param { string } packageName - The name of the application
-   * @param { number } index - The index number of the clone application, the default value is 0.
+   * @param { int } index - The index number of the clone application, the default value is 0.
    * @returns { Promise<BundleStats> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -218,8 +223,9 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 12 dynamic
+   * @since 23 static
    */
-  function getBundleStats(packageName: string, index?: number): Promise<BundleStats>;
+  function getBundleStats(packageName: string, index?: int): Promise<BundleStats>;
 
   /**
    * Get the current bundle statistics.
@@ -231,7 +237,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getCurrentBundleStats(callback: AsyncCallback<BundleStats>): void;
 
@@ -245,7 +251,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getCurrentBundleStats(): Promise<BundleStats>;
 
@@ -253,7 +259,7 @@ parameters are left unspecified;
    * Get the system size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @param { AsyncCallback<number> } callback - callback
+   * @param { AsyncCallback<long> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
@@ -263,14 +269,15 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function getSystemSize(callback: AsyncCallback<number>): void;
+  function getSystemSize(callback: AsyncCallback<long>): void;
 
   /**
    * Get the system size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<long> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
@@ -280,8 +287,9 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9 dynamic
+   * @since 23 static
    */
-  function getSystemSize(): Promise<number>;
+  function getSystemSize(): Promise<long>;
 
   /**
    * Get the user storage statistics.
@@ -290,7 +298,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface StorageStats {
     /**
@@ -300,7 +308,7 @@ parameters are left unspecified;
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     total: long;
 
@@ -311,7 +319,7 @@ parameters are left unspecified;
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     audio: long;
 
@@ -322,7 +330,7 @@ parameters are left unspecified;
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     video: long;
 
@@ -333,7 +341,7 @@ parameters are left unspecified;
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     image: long;
 
@@ -344,7 +352,7 @@ parameters are left unspecified;
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     file: long;
 
@@ -355,7 +363,7 @@ parameters are left unspecified;
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     app: long;
   }
@@ -375,7 +383,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getUserStorageStats(): Promise<StorageStats>;
 
@@ -394,7 +402,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getUserStorageStats(callback: AsyncCallback<StorageStats>): void;
 
@@ -415,7 +423,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
 function getUserStorageStats(userId: long): Promise<StorageStats>;
 
@@ -436,7 +444,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
 function getUserStorageStats(userId: long, callback: AsyncCallback<StorageStats>): void;
 
@@ -465,7 +473,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
 function getTotalSize(callback: AsyncCallback<long>): void;
 
@@ -492,7 +500,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTotalSize(): Promise<long>;
 
@@ -514,13 +522,14 @@ parameters are left unspecified;
   /**
    * Get the total size with sync interface
    *
-   * @returns { number } return the total size
+   * @returns { long } return the total size
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 15 dynamic
+   * @since 23 static
    */
-  function getTotalSizeSync(): number;
+  function getTotalSizeSync(): long;
 
   /**
    * Get the free size.
@@ -547,7 +556,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
 function getFreeSize(callback: AsyncCallback<long>): void;
 
@@ -574,7 +583,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getFreeSize(): Promise<long>;
 
@@ -596,13 +605,170 @@ parameters are left unspecified;
   /**
    * Get the free size with sync interface.
    *
-   * @returns { number } return the free size
+   * @returns { long } return the free size
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 15 dynamic
+   * @since 23 static
    */
-  function getFreeSizeSync(): number;
+  function getFreeSizeSync(): long;
+
+  /**
+   * Space occupancy information of the business.
+   *
+   * @interface ExtBundleStats
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export interface ExtBundleStats { 
+    /**
+    * The business name.
+    *
+    * @type { string }
+    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+    * @systemapi
+    * @stagemodelonly
+    * @since 23 dynamic&static
+    */
+    businessName: string;
+
+    /**
+    * The business size.
+    *
+    * @type { long }
+    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+    * @systemapi
+    * @stagemodelonly
+    * @since 23 dynamic&static
+    */
+    size: long;
+
+    /**
+    * The business flag. Whether it is displayed independently on the interface.
+    *
+    * @type { boolean }
+    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+    * @systemapi
+    * @stagemodelonly
+    * @since 23 dynamic&static
+    */
+    flag: boolean;
+  }
+
+  /**
+   * Applications actively report the amount of space occupied by their respective services.
+   *
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @param { int } userId - The id of the user
+   * @param { ExtBundleStats } stats - Space occupancy information of the business.
+   * @returns { Promise<void> } return Promise
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
+   * @throws { BusinessError } 13600011 - Failed to report the specified business space usage.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function setExtBundleStats(userId: int, stats: ExtBundleStats): Promise<void>;
+
+   /**
+   * Querying the usage of a specified business space.
+   *
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @param { int } userId - The id of the user
+   * @param { string } businessName - Space occupancy information of the business.
+   * @returns { Promise<ExtBundleStats> } return Promise
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
+   * @throws { BusinessError } 13600012 - Failed to query the specified business space usage.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getExtBundleStats(userId: int, businessName: string): Promise<ExtBundleStats>;
+
+    /**
+   * Querying the Space Usage of All Business.
+   *
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @param { int } userId - The id of the user
+   * @returns { Promise<Array<ExtBundleStats>> } return Promise
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
+   * @throws { BusinessError } 13600013 - Failed to query all business space usage.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getAllExtBundleStats(userId: int): Promise<Array<ExtBundleStats>>;
+  /**
+   * Scan user data dirs.
+   * @interface StorageStats
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export interface UserdataDirInfo {  
+   /**
+    * The user data dirs list.
+    *
+    * @type { string }
+    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+    * @systemapi
+    * @stagemodelonly
+    * @since 23 dynamic&static
+    */
+   path: string;
+   /**
+    * The size of user data dirs.
+    *
+    * @type { long }
+    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+    * @systemapi
+    * @stagemodelonly
+    * @since 23 dynamic&static
+    */
+   totalSize: long;
+   /**
+    * The size of inode count.
+    *
+    * @type { int }
+    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+    * @systemapi
+    * @stagemodelonly
+    * @since 23 dynamic&static
+    */
+   totalCnt: int;
+ }
+
+ /**
+  * Scan user data dirs.
+  *
+  * @permission ohos.permission.STORAGE_MANAGER
+  * @returns { Promise<Array<UserdataDirInfo>> } return the user data dirs scan result
+  * @throws { BusinessError } 201 - Permission verification failed.
+  * @throws { BusinessError } 202 - The caller is not a system application.
+  * @throws { BusinessError } 13600001 - IPC error.
+  * @throws { BusinessError } 13600015 - Failed to traverse the query data partition directory.
+  * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+  * @systemapi
+  * @stagemodelonly
+  * @since 23 dynamic&static
+  */
+ function listUserdataDirInfo(): Promise<Array<UserdataDirInfo>>;
 }
 
 export default storageStatistics;

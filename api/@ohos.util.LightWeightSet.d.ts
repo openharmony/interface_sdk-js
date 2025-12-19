@@ -38,7 +38,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class LightWeightSet<T> {
   /**
@@ -64,7 +64,7 @@ declare class LightWeightSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   constructor();
   /**
@@ -100,7 +100,7 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get length(): int;
 
@@ -133,7 +133,7 @@ declare class LightWeightSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   add(obj: T): boolean;
   /**
@@ -174,7 +174,7 @@ declare class LightWeightSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   addAll(set: LightWeightSet<T>): boolean;
   /**
@@ -215,7 +215,7 @@ declare class LightWeightSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   hasAll(set: LightWeightSet<T>): boolean;
   /**
@@ -247,7 +247,7 @@ declare class LightWeightSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   has(key: T): boolean;
   /**
@@ -315,7 +315,7 @@ declare class LightWeightSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   increaseCapacityTo(minimumCapacity: int): void;
   /**
@@ -347,7 +347,7 @@ declare class LightWeightSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getIndexOf(key: T): int;
   /**
@@ -390,7 +390,7 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   remove(key: T): T | undefined;
 
@@ -432,7 +432,7 @@ declare class LightWeightSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   removeAt(index: int): boolean;
   /**
@@ -461,7 +461,7 @@ declare class LightWeightSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clear(): void;
   /**
@@ -528,7 +528,7 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   forEach(callbackFn: LightWeightSetForEachCb<T>): void;
 
@@ -568,7 +568,7 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   $_iterator(): IterableIterator<T>;
 
@@ -595,7 +595,7 @@ declare class LightWeightSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toString(): String;
   /**
@@ -624,7 +624,7 @@ declare class LightWeightSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toArray(): Array<T>;
   /**
@@ -676,7 +676,7 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   getValueAt(index: int): T | undefined;
 
@@ -706,7 +706,7 @@ declare class LightWeightSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   values(): IterableIterator<T>;
   /**
@@ -735,7 +735,7 @@ declare class LightWeightSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   entries(): IterableIterator<[T, T]>;
   /**
@@ -764,7 +764,7 @@ declare class LightWeightSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isEmpty(): boolean;
 }
@@ -779,7 +779,7 @@ declare class LightWeightSet<T> {
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type LightWeightSetForEachCb<T> = (value: T, key: T, set: LightWeightSet<T>) => void
 

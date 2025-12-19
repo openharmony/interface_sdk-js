@@ -26,7 +26,7 @@
  * @systemapi
  * @stagemodelonly
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
  export default interface AutoFillPopupConfig {
   /**
@@ -37,7 +37,7 @@
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   popupSize?: PopupSize;
 
@@ -49,7 +49,7 @@
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   placement?: PopupPlacement;
 }
@@ -62,7 +62,7 @@
  * @systemapi
  * @stagemodelonly
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
  export interface PopupSize {
   /**
@@ -73,7 +73,7 @@
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   width: double;
 
@@ -85,7 +85,7 @@
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   height: double;
 }
@@ -98,7 +98,7 @@
  * @systemapi
  * @stagemodelonly
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare enum PopupPlacement {
   /**
@@ -108,7 +108,7 @@ export declare enum PopupPlacement {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   LEFT = 0,
 
@@ -119,7 +119,7 @@ export declare enum PopupPlacement {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   RIGHT = 1,
 
@@ -130,7 +130,7 @@ export declare enum PopupPlacement {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   TOP = 2,
 
@@ -141,7 +141,7 @@ export declare enum PopupPlacement {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   BOTTOM = 3,
 
@@ -152,7 +152,7 @@ export declare enum PopupPlacement {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   TOP_LEFT = 4,
 
@@ -163,7 +163,7 @@ export declare enum PopupPlacement {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   TOP_RIGHT = 5,
 
@@ -174,7 +174,7 @@ export declare enum PopupPlacement {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   BOTTOM_LEFT = 6,
 
@@ -185,7 +185,7 @@ export declare enum PopupPlacement {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   BOTTOM_RIGHT = 7,
 
@@ -196,7 +196,7 @@ export declare enum PopupPlacement {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   LEFT_TOP = 8,
 
@@ -207,7 +207,7 @@ export declare enum PopupPlacement {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   LEFT_BOTTOM = 9,
 
@@ -218,7 +218,7 @@ export declare enum PopupPlacement {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   RIGHT_TOP = 10,
 
@@ -229,7 +229,7 @@ export declare enum PopupPlacement {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   RIGHT_BOTTOM = 11,
 
@@ -240,7 +240,7 @@ export declare enum PopupPlacement {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   NONE = 12
 }

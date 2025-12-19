@@ -24,7 +24,7 @@
  * @namespace formError
  * @syscap SystemCapability.Ability.Form
  * @since 8 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace formError {
   /**
@@ -33,7 +33,7 @@ declare namespace formError {
    * @enum { int }
    * @syscap SystemCapability.Ability.Form
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum FormError {
     /**
@@ -41,7 +41,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_COMMON = 1,
 
@@ -52,7 +52,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PERMISSION_DENY = 2,
 
@@ -63,7 +63,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_GET_INFO_FAILED = 4,
 
@@ -73,7 +73,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_GET_BUNDLE_FAILED = 5,
 
@@ -83,7 +83,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_GET_LAYOUT_FAILED = 6,
 
@@ -93,7 +93,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_ADD_INVALID_PARAM = 7,
 
@@ -103,7 +103,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CFG_NOT_MATCH_ID = 8,
 
@@ -112,7 +112,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_NOT_EXIST_ID = 9,
 
@@ -121,7 +121,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_BIND_PROVIDER_FAILED = 10,
 
@@ -130,7 +130,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_MAX_SYSTEM_FORMS = 11,
 
@@ -140,7 +140,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_MAX_INSTANCES_PER_FORM = 12,
 
@@ -150,7 +150,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_OPERATION_FORM_NOT_SELF = 13,
 
@@ -159,7 +159,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_PROVIDER_DEL_FAIL = 14,
 
@@ -168,7 +168,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_MAX_FORMS_PER_CLIENT = 15,
 
@@ -177,7 +177,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_MAX_SYSTEM_TEMP_FORMS = 16,
 
@@ -186,7 +186,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FORM_NO_SUCH_MODULE = 17,
 
@@ -195,7 +195,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FORM_NO_SUCH_ABILITY = 18,
 
@@ -204,7 +204,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FORM_NO_SUCH_DIMENSION = 19,
 
@@ -213,7 +213,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FORM_FA_NOT_INSTALLED = 20,
 
@@ -223,7 +223,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_SYSTEM_RESPONSES_FAILED = 30,
 
@@ -236,7 +236,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_FORM_DUPLICATE_ADDED = 31,
 
@@ -246,7 +246,7 @@ declare namespace formError {
      *
      * @syscap SystemCapability.Ability.Form
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_IN_RECOVERY = 36,
 
@@ -256,7 +256,7 @@ declare namespace formError {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_DISTRIBUTED_SCHEDULE_FAILED = 37
   }

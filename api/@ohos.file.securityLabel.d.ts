@@ -26,7 +26,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace securityLabel
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace securityLabel {
   /**
@@ -35,7 +35,7 @@ declare namespace securityLabel {
    * @typedef { 's0' | 's1' | 's2' | 's3' | 's4' }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type DataLevel = 's0' | 's1' | 's2' | 's3' | 's4';
 
@@ -55,7 +55,7 @@ declare namespace securityLabel {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setSecurityLabel(path: string, type: DataLevel): Promise<void>;
 
@@ -75,7 +75,7 @@ declare namespace securityLabel {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setSecurityLabel(path: string, type: DataLevel, callback: AsyncCallback<void>): void;
 
@@ -94,7 +94,7 @@ declare namespace securityLabel {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setSecurityLabelSync(path: string, type: DataLevel): void;
 
@@ -113,7 +113,7 @@ declare namespace securityLabel {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSecurityLabel(path: string): Promise<string>;
 
@@ -132,7 +132,7 @@ declare namespace securityLabel {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSecurityLabel(path: string, callback: AsyncCallback<string>): void;
 
@@ -151,7 +151,7 @@ declare namespace securityLabel {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSecurityLabelSync(path: string): string;
 }

@@ -29,35 +29,35 @@ import { CommonConfiguration, CommonMethod, ContentModifier, AttributeModifier }
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ButtonType {
     /**
      * Capsule button (rounded corners default to half the height).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     Capsule,
     /**
      * Round buttons.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     Circle,
     /**
      * Common button (no rounded corners by default).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     Normal,
     /**
      * Rounded rectangle button.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     ROUNDED_RECTANGLE = 3
 }
@@ -66,28 +66,28 @@ export declare enum ButtonType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ButtonStyleMode {
     /**
      * Normal button (with normal background color).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     NORMAL = 0,
     /**
      * Emphasized button (with emphasized background color).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     EMPHASIZED = 1,
     /**
      * Textual button (with none background color).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     TEXTUAL = 2
 }
@@ -96,21 +96,21 @@ export declare enum ButtonStyleMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ButtonRole {
     /**
      * Normal button.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     NORMAL = 0,
     /**
      * Error button.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     ERROR = 1
 }
@@ -121,7 +121,7 @@ export declare enum ButtonRole {
  * @param { double } xPos - The value of xPos is x coordinate.
  * @param { double } yPos - The value of yPos is y coordinate.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export type ButtonTriggerClickCallback = (xPos: double, yPos: double) => void;
 /**
@@ -130,7 +130,7 @@ export type ButtonTriggerClickCallback = (xPos: double, yPos: double) => void;
  * @extends CommonConfiguration<ButtonConfiguration>
  * @interface ButtonConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfiguration> {
     /**
@@ -138,7 +138,7 @@ export declare interface ButtonConfiguration extends CommonConfiguration<ButtonC
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     label: string;
     /**
@@ -146,7 +146,7 @@ export declare interface ButtonConfiguration extends CommonConfiguration<ButtonC
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     pressed: boolean;
     /**
@@ -154,7 +154,7 @@ export declare interface ButtonConfiguration extends CommonConfiguration<ButtonC
      *
      * @type { ButtonTriggerClickCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     triggerClick: ButtonTriggerClickCallback;
 }
@@ -163,21 +163,21 @@ export declare interface ButtonConfiguration extends CommonConfiguration<ButtonC
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ControlSize {
     /**
      * The component size is small.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     SMALL = 'small',
     /**
      * The component size is normal.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     NORMAL = 'normal'
 }
@@ -186,7 +186,7 @@ export declare enum ControlSize {
  *
  * @interface ButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ButtonOptions {
     /**
@@ -194,7 +194,7 @@ export declare interface ButtonOptions {
      *
      * @type { ?ButtonType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     type?: ButtonType;
     /**
@@ -202,7 +202,7 @@ export declare interface ButtonOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     stateEffect?: boolean;
     /**
@@ -211,7 +211,7 @@ export declare interface ButtonOptions {
      * @type { ?ButtonStyleMode }
      * @default ButtonStyleMode.EMPHASIZED
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     buttonStyle?: ButtonStyleMode;
     /**
@@ -220,7 +220,7 @@ export declare interface ButtonOptions {
      * @type { ?ControlSize }
      * @default ControlSize.NORMAL
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     controlSize?: ControlSize;
     /**
@@ -229,7 +229,7 @@ export declare interface ButtonOptions {
      * @type { ?ButtonRole }
      * @default ButtonRole.NORMAL
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     role?: ButtonRole;
 }
@@ -238,7 +238,7 @@ export declare interface ButtonOptions {
  *
  * @interface ButtonLabelStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ButtonLabelStyle {
     /**
@@ -246,7 +246,7 @@ export declare interface ButtonLabelStyle {
      *
      * @type { ?TextOverflow }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     overflow?: TextOverflow;
     /**
@@ -254,7 +254,7 @@ export declare interface ButtonLabelStyle {
      *
      * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     maxLines?: int;
     /**
@@ -262,7 +262,7 @@ export declare interface ButtonLabelStyle {
      *
      * @type { ?(double | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     minFontSize?: double | ResourceStr;
     /**
@@ -270,7 +270,7 @@ export declare interface ButtonLabelStyle {
      *
      * @type { ?(double | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     maxFontSize?: double | ResourceStr;
     /**
@@ -278,7 +278,7 @@ export declare interface ButtonLabelStyle {
      *
      * @type { ?TextHeightAdaptivePolicy }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     heightAdaptivePolicy?: TextHeightAdaptivePolicy;
     /**
@@ -286,7 +286,7 @@ export declare interface ButtonLabelStyle {
      *
      * @type { ?Font }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     font?: Font;
     /**
@@ -308,7 +308,7 @@ export declare interface ButtonLabelStyle {
  * @extends CommonMethod
  * @interface ButtonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ButtonAttribute extends CommonMethod {
     /**
@@ -317,7 +317,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @param { ButtonType } value
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default type(value: ButtonType | undefined): this;
     /**
@@ -326,7 +326,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @param { boolean } value
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default stateEffect(value: boolean | undefined): this;
     /**
@@ -335,7 +335,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @param { ButtonStyleMode } value - button style mode
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default buttonStyle(value: ButtonStyleMode | undefined): this;
     /**
@@ -344,7 +344,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @param { ControlSize } value - control size
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default controlSize(value: ControlSize | undefined): this;
     /**
@@ -353,7 +353,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @param { ButtonRole } value - button role
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default role(value: ButtonRole | undefined): this;
     /**
@@ -362,7 +362,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @param { ResourceColor } value
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default fontColor(value: ResourceColor | undefined): this;
     /**
@@ -371,7 +371,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @param { Length } value
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default fontSize(value: Length | undefined): this;
     /**
@@ -380,7 +380,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @param { int | FontWeight | string } value
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default fontWeight(value: int | FontWeight | string | undefined): this;
     /**
@@ -389,7 +389,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @param { FontStyle } value
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default fontStyle(value: FontStyle | undefined): this;
     /**
@@ -398,7 +398,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @param { string | Resource } value
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default fontFamily(value: string | Resource | undefined): this;
     /**
@@ -407,7 +407,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @param { ContentModifier<ButtonConfiguration> } modifier - The content modifier of button.
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default contentModifier(modifier: ContentModifier<ButtonConfiguration> | undefined): this;
     /**
@@ -416,7 +416,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @param { ButtonLabelStyle } value - The label style configuration on button.
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default labelStyle(value: ButtonLabelStyle | undefined): this;
     /**
@@ -425,7 +425,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @param { double | Resource } scale
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default minFontScale(scale: double | Resource | undefined): this;
     /**
@@ -434,7 +434,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @param { double | Resource  } scale
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default maxFontScale(scale: double | Resource | undefined): this;
     /**
@@ -444,7 +444,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      *     The attribute modifier of button.
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ButtonAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -457,7 +457,7 @@ export declare interface ButtonAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { ButtonAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @ComponentBuilder
 export declare function Button(
@@ -472,7 +472,7 @@ export declare function Button(
  * @param { CustomBuilder } [content_] - container
  * @returns { ButtonAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @ComponentBuilder
 export declare function Button(

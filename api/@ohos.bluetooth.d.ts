@@ -1264,7 +1264,7 @@ declare namespace bluetooth {
      * The UUID of a GattService instance
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattService.serviceUuid
      */
@@ -1273,7 +1273,7 @@ declare namespace bluetooth {
      * Indicates whether the GattService instance is primary or secondary.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattService.isPrimary
      */
@@ -1282,7 +1282,7 @@ declare namespace bluetooth {
      * The {@link BLECharacteristic} list belongs to this GattService instance
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattService.characteristics
      */
@@ -1291,7 +1291,7 @@ declare namespace bluetooth {
      * The list of GATT services contained in the service
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattService.includeServices
      */
@@ -1312,7 +1312,7 @@ declare namespace bluetooth {
      * The UUID of the {@link GattService} instance to which the characteristic belongs
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BLECharacteristic.serviceUuid
      */
@@ -1321,7 +1321,7 @@ declare namespace bluetooth {
      * The UUID of a BLECharacteristic instance
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BLECharacteristic.characteristicUuid
      */
@@ -1330,7 +1330,7 @@ declare namespace bluetooth {
      * The value of a BLECharacteristic instance
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BLECharacteristic.characteristicValue
      */
@@ -1339,7 +1339,7 @@ declare namespace bluetooth {
      * The list of {@link BLEDescriptor} contained in the characteristic
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BLECharacteristic.descriptors
      */
@@ -1360,7 +1360,7 @@ declare namespace bluetooth {
      * The UUID of the {@link GattService} instance to which the descriptor belongs
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BLEDescriptor.serviceUuid
      */
@@ -1369,7 +1369,7 @@ declare namespace bluetooth {
      * The UUID of the {@link BLECharacteristic} instance to which the descriptor belongs
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BLEDescriptor.characteristicUuid
      */
@@ -1378,7 +1378,7 @@ declare namespace bluetooth {
      * The UUID of the BLEDescriptor instance
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BLEDescriptor.descriptorUuid
      */
@@ -1387,7 +1387,7 @@ declare namespace bluetooth {
      * The value of the BLEDescriptor instance
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BLEDescriptor.descriptorValue
      */
@@ -1408,7 +1408,7 @@ declare namespace bluetooth {
      * The UUID of the {@link GattService} instance to which the characteristic belongs
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.NotifyCharacteristic.serviceUuid
      */
@@ -1417,7 +1417,7 @@ declare namespace bluetooth {
      * The UUID of a NotifyCharacteristic instance
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.NotifyCharacteristic.characteristicUuid
      */
@@ -1426,7 +1426,7 @@ declare namespace bluetooth {
      * The value of a NotifyCharacteristic instance
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.NotifyCharacteristic.characteristicValue
      */
@@ -1436,7 +1436,7 @@ declare namespace bluetooth {
      * send a notification. Value {@code true} indicates the former and {@code false} indicates the latter.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.NotifyCharacteristic.confirm
      */
@@ -1457,7 +1457,7 @@ declare namespace bluetooth {
      * Indicates the address of the client that initiates the read request
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.CharacteristicReadRequest.deviceId
      */
@@ -1466,7 +1466,7 @@ declare namespace bluetooth {
      * The Id of the read request
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.CharacteristicReadRequest.transId
      */
@@ -1475,7 +1475,7 @@ declare namespace bluetooth {
      * Indicates the byte offset of the start position for reading characteristic value
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.CharacteristicReadRequest.offset
      */
@@ -1484,7 +1484,7 @@ declare namespace bluetooth {
      * The UUID of a CharacteristicReadReq instance
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.CharacteristicReadRequest.characteristicUuid
      */
@@ -1493,7 +1493,7 @@ declare namespace bluetooth {
      * The UUID of the service to which the characteristic belongs
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.CharacteristicReadRequest.serviceUuid
      */
@@ -1514,7 +1514,7 @@ declare namespace bluetooth {
      * Indicates the address of the client that initiates the write request
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.CharacteristicWriteRequest.deviceId
      */
@@ -1523,7 +1523,7 @@ declare namespace bluetooth {
      * The Id of the write request
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.CharacteristicWriteRequest.transId
      */
@@ -1532,7 +1532,7 @@ declare namespace bluetooth {
      * Indicates the byte offset of the start position for writing characteristic value
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.CharacteristicWriteRequest.offset
      */
@@ -1541,7 +1541,7 @@ declare namespace bluetooth {
      * Whether this request should be pending for later operation
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.CharacteristicWriteRequest.isPrep
      */
@@ -1550,7 +1550,7 @@ declare namespace bluetooth {
      * Whether the remote client need a response
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.CharacteristicWriteRequest.needRsp
      */
@@ -1559,7 +1559,7 @@ declare namespace bluetooth {
      * Indicates the value to be written
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.CharacteristicWriteRequest.value
      */
@@ -1568,7 +1568,7 @@ declare namespace bluetooth {
      * The UUID of a CharacteristicWriteReq instance
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.CharacteristicWriteRequest.characteristicUuid
      */
@@ -1577,7 +1577,7 @@ declare namespace bluetooth {
      * The UUID of the service to which the characteristic belongs
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.CharacteristicWriteRequest.serviceUuid
      */
@@ -1598,7 +1598,7 @@ declare namespace bluetooth {
      * Indicates the address of the client that initiates the read request
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorReadRequest.deviceId
      */
@@ -1607,7 +1607,7 @@ declare namespace bluetooth {
      * The Id of the read request
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorReadRequest.transId
      */
@@ -1616,7 +1616,7 @@ declare namespace bluetooth {
      * Indicates the byte offset of the start position for reading characteristic value
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorReadRequest.offset
      */
@@ -1625,7 +1625,7 @@ declare namespace bluetooth {
      * The UUID of a DescriptorReadReq instance
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorReadRequest.descriptorUuid
      */
@@ -1634,7 +1634,7 @@ declare namespace bluetooth {
      * The UUID of the characteristic to which the descriptor belongs
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorReadRequest.characteristicUuid
      */
@@ -1643,7 +1643,7 @@ declare namespace bluetooth {
      * The UUID of the service to which the descriptor belongs
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorReadRequest.serviceUuid
      */
@@ -1664,7 +1664,7 @@ declare namespace bluetooth {
      * Indicates the address of the client that initiates the write request
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorWriteRequest.deviceId
      */
@@ -1673,7 +1673,7 @@ declare namespace bluetooth {
      * The Id of the write request
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorWriteRequest.transId
      */
@@ -1682,7 +1682,7 @@ declare namespace bluetooth {
      * Indicates the byte offset of the start position for writing characteristic value
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorWriteRequest.offset
      */
@@ -1691,7 +1691,7 @@ declare namespace bluetooth {
      * Whether this request should be pending for later operation
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorWriteRequest.isPrep
      */
@@ -1700,7 +1700,7 @@ declare namespace bluetooth {
      * Whether the remote client need a response
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorWriteRequest.needRsp
      */
@@ -1709,7 +1709,7 @@ declare namespace bluetooth {
      * Indicates the value to be written
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorWriteRequest.value
      */
@@ -1718,7 +1718,7 @@ declare namespace bluetooth {
      * The UUID of a DescriptorWriteReq instance
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorWriteRequest.descriptorUuid
      */
@@ -1727,7 +1727,7 @@ declare namespace bluetooth {
      * The UUID of the characteristic to which the descriptor belongs
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorWriteRequest.characteristicUuid
      */
@@ -1736,7 +1736,7 @@ declare namespace bluetooth {
      * The UUID of the service to which the descriptor belongs
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorWriteRequest.serviceUuid
      */
@@ -1757,7 +1757,7 @@ declare namespace bluetooth {
      * Indicates the address of the client to which to send the response
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ServerResponse.deviceId
      */
@@ -1766,7 +1766,7 @@ declare namespace bluetooth {
      * The Id of the write request
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ServerResponse.transId
      */
@@ -1775,7 +1775,7 @@ declare namespace bluetooth {
      * Indicates the status of the read or write request, set this parameter to '0' in normal cases
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ServerResponse.status
      */
@@ -1784,7 +1784,7 @@ declare namespace bluetooth {
      * Indicates the byte offset of the start position for reading or writing operation
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ServerResponse.offset
      */
@@ -1793,7 +1793,7 @@ declare namespace bluetooth {
      * Indicates the value to be sent
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ServerResponse.value
      */
@@ -1814,7 +1814,7 @@ declare namespace bluetooth {
      * Indicates the peer device address
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BLEConnectChangedState.deviceId
      */
@@ -1823,7 +1823,7 @@ declare namespace bluetooth {
      * Connection state of the Gatt profile
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BLEConnectChangedState.state
      */
@@ -1844,7 +1844,7 @@ declare namespace bluetooth {
      * Address of the scanned device
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanResult.deviceId
      */
@@ -1853,7 +1853,7 @@ declare namespace bluetooth {
      * RSSI of the remote device
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanResult.rssi
      */
@@ -1862,7 +1862,7 @@ declare namespace bluetooth {
      * The raw data of broadcast packet
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanResult.data
      */
@@ -1885,7 +1885,7 @@ declare namespace bluetooth {
      * Default slot value for the advertising interval, which is {@code 1600} (1s)
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.AdvertiseSetting.interval
      */
@@ -1896,7 +1896,7 @@ declare namespace bluetooth {
      * Default transmission power level for advertising, which is {@code -7}
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.AdvertiseSetting.txPower
      */
@@ -1905,7 +1905,7 @@ declare namespace bluetooth {
      * Indicates whether the BLE is connectable, default is {@code true}
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.AdvertiseSetting.connectable
      */
@@ -1926,7 +1926,7 @@ declare namespace bluetooth {
      * The specified service UUID list to this advertisement
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.AdvertiseData.serviceUuids
      */
@@ -1935,7 +1935,7 @@ declare namespace bluetooth {
      * The specified manufacturer data list to this advertisement
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.AdvertiseData.manufactureData
      */
@@ -1944,7 +1944,7 @@ declare namespace bluetooth {
      * The specified service data list to this advertisement
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.AdvertiseData.serviceData
      */
@@ -1965,7 +1965,7 @@ declare namespace bluetooth {
      * Indicates the manufacturer ID assigned by Bluetooth SIG
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ManufactureData.manufactureId
      */
@@ -1974,7 +1974,7 @@ declare namespace bluetooth {
      * Indicates the manufacturer data to add
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ManufactureData.manufactureValue
      */
@@ -1995,7 +1995,7 @@ declare namespace bluetooth {
      * Indicates the UUID of the service data to add
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ServiceData.serviceUuid
      */
@@ -2004,7 +2004,7 @@ declare namespace bluetooth {
      * Indicates the service data to add
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ServiceData.serviceValue
      */
@@ -2025,7 +2025,7 @@ declare namespace bluetooth {
      * The address of a BLE peripheral device
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanFilter.deviceId
      */
@@ -2034,7 +2034,7 @@ declare namespace bluetooth {
      * The name of a BLE peripheral device
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanFilter.name
      */
@@ -2043,7 +2043,7 @@ declare namespace bluetooth {
      * The service UUID of a BLE peripheral device
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanFilter.serviceUuid
      */
@@ -2064,7 +2064,7 @@ declare namespace bluetooth {
      * Time of delay for reporting the scan result
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanOptions.interval
      */
@@ -2073,7 +2073,7 @@ declare namespace bluetooth {
      * Bluetooth LE scan mode
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanOptions.dutyMode
      */
@@ -2082,7 +2082,7 @@ declare namespace bluetooth {
      * Match mode for Bluetooth LE scan filters hardware match
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanOptions.matchMode
      */
@@ -2103,7 +2103,7 @@ declare namespace bluetooth {
      * Indicates the UUID in the SDP record.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.SppOption.uuid
      */
@@ -2112,7 +2112,7 @@ declare namespace bluetooth {
      * Indicates secure channel or not
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.SppOption.secure
      */
@@ -2121,7 +2121,7 @@ declare namespace bluetooth {
      * Spp link type {@link SppType}
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.SppOption.type
      */
@@ -2142,7 +2142,7 @@ declare namespace bluetooth {
      * ID of the device to pair.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.PinRequiredParam.deviceId
      */
@@ -2151,7 +2151,7 @@ declare namespace bluetooth {
      * Key for the device pairing.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.PinRequiredParam.pinCode
      */
@@ -2172,7 +2172,7 @@ declare namespace bluetooth {
      * Major classes of Bluetooth devices.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DeviceClass.majorClass
      */
@@ -2181,7 +2181,7 @@ declare namespace bluetooth {
      * Major and minor classes of Bluetooth devices.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DeviceClass.majorMinorClass
      */
@@ -2190,7 +2190,7 @@ declare namespace bluetooth {
      * Class of the device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.DeviceClass.classOfDevice
      */
@@ -2211,7 +2211,7 @@ declare namespace bluetooth {
      * Address of a Bluetooth device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BondStateParam.deviceId
      */
@@ -2220,7 +2220,7 @@ declare namespace bluetooth {
      * Profile connection state of the device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BondStateParam.state
      */
@@ -2241,7 +2241,7 @@ declare namespace bluetooth {
      * low power mode
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanDuty.SCAN_MODE_LOW_POWER
      */
@@ -2250,7 +2250,7 @@ declare namespace bluetooth {
      * balanced power mode
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanDuty.SCAN_MODE_BALANCED
      */
@@ -2259,7 +2259,7 @@ declare namespace bluetooth {
      * Scan using highest duty cycle
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanDuty.SCAN_MODE_LOW_LATENCY
      */
@@ -2280,7 +2280,7 @@ declare namespace bluetooth {
      * aggressive mode
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MatchMode.MATCH_MODE_AGGRESSIVE
      */
@@ -2289,7 +2289,7 @@ declare namespace bluetooth {
      * sticky mode
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MatchMode.MATCH_MODE_STICKY
      */
@@ -2310,7 +2310,7 @@ declare namespace bluetooth {
      * the current profile is disconnected
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ProfileConnectionState.STATE_DISCONNECTED
      */
@@ -2319,7 +2319,7 @@ declare namespace bluetooth {
      * the current profile is being connected
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ProfileConnectionState.STATE_CONNECTING
      */
@@ -2328,7 +2328,7 @@ declare namespace bluetooth {
      * the current profile is connected
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ProfileConnectionState.STATE_CONNECTED
      */
@@ -2337,7 +2337,7 @@ declare namespace bluetooth {
      * the current profile is being disconnected
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ProfileConnectionState.STATE_DISCONNECTING
      */
@@ -2358,7 +2358,7 @@ declare namespace bluetooth {
      * Indicates the local Bluetooth is off
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BluetoothState.STATE_OFF
      */
@@ -2367,7 +2367,7 @@ declare namespace bluetooth {
      * Indicates the local Bluetooth is turning on
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BluetoothState.STATE_TURNING_ON
      */
@@ -2376,7 +2376,7 @@ declare namespace bluetooth {
      * Indicates the local Bluetooth is on, and ready for use
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BluetoothState.STATE_ON
      */
@@ -2385,7 +2385,7 @@ declare namespace bluetooth {
      * Indicates the local Bluetooth is turning off
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BluetoothState.STATE_TURNING_OFF
      */
@@ -2394,7 +2394,7 @@ declare namespace bluetooth {
      * Indicates the local Bluetooth is turning LE mode on
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BluetoothState.STATE_BLE_TURNING_ON
      */
@@ -2403,7 +2403,7 @@ declare namespace bluetooth {
      * Indicates the local Bluetooth is in LE only mode
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BluetoothState.STATE_BLE_ON
      */
@@ -2412,7 +2412,7 @@ declare namespace bluetooth {
      * Indicates the local Bluetooth is turning off LE only mode
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BluetoothState.STATE_BLE_TURNING_OFF
      */
@@ -2433,7 +2433,7 @@ declare namespace bluetooth {
      * RFCOMM
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.SppType.SPP_RFCOMM
      */
@@ -2454,7 +2454,7 @@ declare namespace bluetooth {
      * Indicates the scan mode is none
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanMode.SCAN_MODE_NONE
      */
@@ -2463,7 +2463,7 @@ declare namespace bluetooth {
      * Indicates the scan mode is connectable
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanMode.SCAN_MODE_CONNECTABLE
      */
@@ -2472,7 +2472,7 @@ declare namespace bluetooth {
      * Indicates the scan mode is general discoverable
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanMode.SCAN_MODE_GENERAL_DISCOVERABLE
      */
@@ -2481,7 +2481,7 @@ declare namespace bluetooth {
      * Indicates the scan mode is limited discoverable
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanMode.SCAN_MODE_LIMITED_DISCOVERABLE
      */
@@ -2490,7 +2490,7 @@ declare namespace bluetooth {
      * Indicates the scan mode is connectable and general discoverable
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanMode.SCAN_MODE_CONNECTABLE_GENERAL_DISCOVERABLE
      */
@@ -2499,7 +2499,7 @@ declare namespace bluetooth {
      * Indicates the scan mode is connectable and limited discoverable
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ScanMode.SCAN_MODE_CONNECTABLE_LIMITED_DISCOVERABLE
      */
@@ -2520,7 +2520,7 @@ declare namespace bluetooth {
      * Indicate the bond state is invalid
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BondState.BOND_STATE_INVALID
      */
@@ -2529,7 +2529,7 @@ declare namespace bluetooth {
      * Indicate the bond state is bonding
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BondState.BOND_STATE_BONDING
      */
@@ -2538,7 +2538,7 @@ declare namespace bluetooth {
      * Indicate the bond state is bonded
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BondState.BOND_STATE_BONDED
      */
@@ -2559,7 +2559,7 @@ declare namespace bluetooth {
      * Miscellaneous device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorClass.MAJOR_MISC
      */
@@ -2568,7 +2568,7 @@ declare namespace bluetooth {
      * Computer.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorClass.MAJOR_COMPUTER
      */
@@ -2577,7 +2577,7 @@ declare namespace bluetooth {
      * Mobile phone.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorClass.MAJOR_PHONE
      */
@@ -2586,7 +2586,7 @@ declare namespace bluetooth {
      * Network device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorClass.MAJOR_NETWORKING
      */
@@ -2595,7 +2595,7 @@ declare namespace bluetooth {
      * Audio or video device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorClass.MAJOR_AUDIO_VIDEO
      */
@@ -2604,7 +2604,7 @@ declare namespace bluetooth {
      * Peripheral device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorClass.MAJOR_PERIPHERAL
      */
@@ -2613,7 +2613,7 @@ declare namespace bluetooth {
      * Imaging device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorClass.MAJOR_IMAGING
      */
@@ -2622,7 +2622,7 @@ declare namespace bluetooth {
      * Wearable device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorClass.MAJOR_WEARABLE
      */
@@ -2631,7 +2631,7 @@ declare namespace bluetooth {
      * Toy.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorClass.MAJOR_TOY
      */
@@ -2640,7 +2640,7 @@ declare namespace bluetooth {
      * Health device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorClass.MAJOR_HEALTH
      */
@@ -2649,7 +2649,7 @@ declare namespace bluetooth {
      * Unclassified device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorClass.MAJOR_UNCATEGORIZED
      */
@@ -2671,7 +2671,7 @@ declare namespace bluetooth {
      * Computer Major Class
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.COMPUTER_UNCATEGORIZED
      */
@@ -2680,7 +2680,7 @@ declare namespace bluetooth {
      * Desktop computer.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.COMPUTER_DESKTOP
      */
@@ -2689,7 +2689,7 @@ declare namespace bluetooth {
      * Server.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.COMPUTER_SERVER
      */
@@ -2698,7 +2698,7 @@ declare namespace bluetooth {
      * Laptop.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.COMPUTER_LAPTOP
      */
@@ -2707,7 +2707,7 @@ declare namespace bluetooth {
      * Hand-held computer.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.COMPUTER_HANDHELD_PC_PDA
      */
@@ -2716,7 +2716,7 @@ declare namespace bluetooth {
      * Palmtop computer.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.COMPUTER_PALM_SIZE_PC_PDA
      */
@@ -2725,7 +2725,7 @@ declare namespace bluetooth {
      * Wearable computer.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.COMPUTER_WEARABLE
      */
@@ -2734,7 +2734,7 @@ declare namespace bluetooth {
      * Tablet.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.COMPUTER_TABLET
      */
@@ -2744,7 +2744,7 @@ declare namespace bluetooth {
      * Phone Major Class
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PHONE_UNCATEGORIZED
      */
@@ -2753,7 +2753,7 @@ declare namespace bluetooth {
      * Portable phone.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PHONE_CELLULAR
      */
@@ -2762,7 +2762,7 @@ declare namespace bluetooth {
      * Cordless phone.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PHONE_CORDLESS
      */
@@ -2771,7 +2771,7 @@ declare namespace bluetooth {
      * Smartphone.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PHONE_SMART
      */
@@ -2780,7 +2780,7 @@ declare namespace bluetooth {
      * Modem or gateway phone.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PHONE_MODEM_OR_GATEWAY
      */
@@ -2789,7 +2789,7 @@ declare namespace bluetooth {
      * ISDN phone.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PHONE_ISDN
      */
@@ -2799,7 +2799,7 @@ declare namespace bluetooth {
      * LAN/Network Access Point Major Class
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.NETWORK_FULLY_AVAILABLE
      */
@@ -2808,7 +2808,7 @@ declare namespace bluetooth {
      * Device used on network 1 to 17.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.NETWORK_1_TO_17_UTILIZED
      */
@@ -2817,7 +2817,7 @@ declare namespace bluetooth {
      * Device used on network 17 to 33.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.NETWORK_17_TO_33_UTILIZED
      */
@@ -2826,7 +2826,7 @@ declare namespace bluetooth {
      * Device used on network 33 to 50.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.NETWORK_33_TO_50_UTILIZED
      */
@@ -2835,7 +2835,7 @@ declare namespace bluetooth {
      * Device used on network 60 to 67.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.NETWORK_60_TO_67_UTILIZED
      */
@@ -2844,7 +2844,7 @@ declare namespace bluetooth {
      * Device used on network 67 to 83.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.NETWORK_67_TO_83_UTILIZED
      */
@@ -2853,7 +2853,7 @@ declare namespace bluetooth {
      * Device used on network 83 to 99.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.NETWORK_83_TO_99_UTILIZED
      */
@@ -2862,7 +2862,7 @@ declare namespace bluetooth {
      * Device without network service.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.NETWORK_NO_SERVICE
      */
@@ -2872,7 +2872,7 @@ declare namespace bluetooth {
      * Unclassified audio or video device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_UNCATEGORIZED
      */
@@ -2881,7 +2881,7 @@ declare namespace bluetooth {
      * Wearable audio or video headset.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_WEARABLE_HEADSET
      */
@@ -2890,7 +2890,7 @@ declare namespace bluetooth {
      * Hands-free audio or video device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_HANDSFREE
      */
@@ -2899,7 +2899,7 @@ declare namespace bluetooth {
      * Audio or video microphone.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_MICROPHONE
      */
@@ -2908,7 +2908,7 @@ declare namespace bluetooth {
      * Audio or video loudspeaker.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_LOUDSPEAKER
      */
@@ -2917,7 +2917,7 @@ declare namespace bluetooth {
      * Audio or video headphones.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_HEADPHONES
      */
@@ -2926,7 +2926,7 @@ declare namespace bluetooth {
      * Portable audio or video device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_PORTABLE_AUDIO
      */
@@ -2935,7 +2935,7 @@ declare namespace bluetooth {
      * In-vehicle audio or video device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_CAR_AUDIO
      */
@@ -2944,7 +2944,7 @@ declare namespace bluetooth {
      * Audio or video STB device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_SET_TOP_BOX
      */
@@ -2953,7 +2953,7 @@ declare namespace bluetooth {
      * High-fidelity speaker device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_HIFI_AUDIO
      */
@@ -2962,7 +2962,7 @@ declare namespace bluetooth {
      * Video cassette recording (VCR) device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_VCR
      */
@@ -2971,7 +2971,7 @@ declare namespace bluetooth {
      * Camera.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_VIDEO_CAMERA
      */
@@ -2980,7 +2980,7 @@ declare namespace bluetooth {
      * Camcorder.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_CAMCORDER
      */
@@ -2989,7 +2989,7 @@ declare namespace bluetooth {
      * Audio or video monitor.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_VIDEO_MONITOR
      */
@@ -2998,7 +2998,7 @@ declare namespace bluetooth {
      * Video display or loudspeaker.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_VIDEO_DISPLAY_AND_LOUDSPEAKER
      */
@@ -3007,7 +3007,7 @@ declare namespace bluetooth {
      * Video conferencing device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_VIDEO_CONFERENCING
      */
@@ -3016,7 +3016,7 @@ declare namespace bluetooth {
      * Audio or video gaming toy.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.AUDIO_VIDEO_VIDEO_GAMING_TOY
      */
@@ -3026,7 +3026,7 @@ declare namespace bluetooth {
      * Peripheral Major Class
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PERIPHERAL_NON_KEYBOARD_NON_POINTING
      */
@@ -3035,7 +3035,7 @@ declare namespace bluetooth {
      * Keyboard device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PERIPHERAL_KEYBOARD
      */
@@ -3044,7 +3044,7 @@ declare namespace bluetooth {
      * Pointing peripheral device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PERIPHERAL_POINTING_DEVICE
      */
@@ -3053,7 +3053,7 @@ declare namespace bluetooth {
      * Keyboard pointing device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PERIPHERAL_KEYBOARD_POINTING
      */
@@ -3062,7 +3062,7 @@ declare namespace bluetooth {
      * Unclassified peripheral device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PERIPHERAL_UNCATEGORIZED
      */
@@ -3071,7 +3071,7 @@ declare namespace bluetooth {
      * Peripheral joystick.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PERIPHERAL_JOYSTICK
      */
@@ -3080,7 +3080,7 @@ declare namespace bluetooth {
      * Peripheral game pad.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PERIPHERAL_GAMEPAD
      */
@@ -3089,7 +3089,7 @@ declare namespace bluetooth {
      * Peripheral remote control device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PERIPHERAL_REMOTE_CONTROL
      */
@@ -3098,7 +3098,7 @@ declare namespace bluetooth {
      * Peripheral sensing device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PERIPHERAL_SENSING_DEVICE
      */
@@ -3107,7 +3107,7 @@ declare namespace bluetooth {
      * Peripheral digitizer tablet.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PERIPHERAL_DIGITIZER_TABLET
      */
@@ -3116,7 +3116,7 @@ declare namespace bluetooth {
      * Peripheral card reader.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PERIPHERAL_CARD_READER
      */
@@ -3125,7 +3125,7 @@ declare namespace bluetooth {
      * Peripheral digital pen.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PERIPHERAL_DIGITAL_PEN
      */
@@ -3134,7 +3134,7 @@ declare namespace bluetooth {
      * Peripheral RFID scanner.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PERIPHERAL_SCANNER_RFID
      */
@@ -3143,7 +3143,7 @@ declare namespace bluetooth {
      * Gesture input device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.PERIPHERAL_GESTURAL_INPUT
      */
@@ -3153,7 +3153,7 @@ declare namespace bluetooth {
      * Imaging Major Class
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.IMAGING_UNCATEGORIZED
      */
@@ -3162,7 +3162,7 @@ declare namespace bluetooth {
      * Imaging display device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.IMAGING_DISPLAY
      */
@@ -3171,7 +3171,7 @@ declare namespace bluetooth {
      * Imaging camera device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.IMAGING_CAMERA
      */
@@ -3180,7 +3180,7 @@ declare namespace bluetooth {
      * Imaging scanner.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.IMAGING_SCANNER
      */
@@ -3189,7 +3189,7 @@ declare namespace bluetooth {
      * Imaging printer.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.IMAGING_PRINTER
      */
@@ -3199,7 +3199,7 @@ declare namespace bluetooth {
      * Wearable Major Class
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.WEARABLE_UNCATEGORIZED
      */
@@ -3208,7 +3208,7 @@ declare namespace bluetooth {
      * Smart watch.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.WEARABLE_WRIST_WATCH
      */
@@ -3217,7 +3217,7 @@ declare namespace bluetooth {
      * Wearable pager.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.WEARABLE_PAGER
      */
@@ -3226,7 +3226,7 @@ declare namespace bluetooth {
      * Smart jacket.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.WEARABLE_JACKET
      */
@@ -3235,7 +3235,7 @@ declare namespace bluetooth {
      * Wearable helmet.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.WEARABLE_HELMET
      */
@@ -3244,7 +3244,7 @@ declare namespace bluetooth {
      * Wearable glasses.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.WEARABLE_GLASSES
      */
@@ -3254,7 +3254,7 @@ declare namespace bluetooth {
      * Minor Device Class field - Toy Major Class
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.TOY_UNCATEGORIZED
      */
@@ -3263,7 +3263,7 @@ declare namespace bluetooth {
      * Toy robot.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.TOY_ROBOT
      */
@@ -3272,7 +3272,7 @@ declare namespace bluetooth {
      * Toy vehicle.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.TOY_VEHICLE
      */
@@ -3281,7 +3281,7 @@ declare namespace bluetooth {
      * Humanoid toy doll.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.TOY_DOLL_ACTION_FIGURE
      */
@@ -3290,7 +3290,7 @@ declare namespace bluetooth {
      * Toy controller.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.TOY_CONTROLLER
      */
@@ -3299,7 +3299,7 @@ declare namespace bluetooth {
      * Toy gaming device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.TOY_GAME
      */
@@ -3309,7 +3309,7 @@ declare namespace bluetooth {
      * Minor Device Class field - Health
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.HEALTH_UNCATEGORIZED
      */
@@ -3318,7 +3318,7 @@ declare namespace bluetooth {
      * Blood pressure device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.HEALTH_BLOOD_PRESSURE
      */
@@ -3327,7 +3327,7 @@ declare namespace bluetooth {
      * Thermometer.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.HEALTH_THERMOMETER
      */
@@ -3336,7 +3336,7 @@ declare namespace bluetooth {
      * Body scale.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.HEALTH_WEIGHING
      */
@@ -3345,7 +3345,7 @@ declare namespace bluetooth {
      * Blood glucose monitor.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.HEALTH_GLUCOSE
      */
@@ -3354,7 +3354,7 @@ declare namespace bluetooth {
      * Pulse oximeter.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.HEALTH_PULSE_OXIMETER
      */
@@ -3363,7 +3363,7 @@ declare namespace bluetooth {
      * Heart rate monitor.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.HEALTH_PULSE_RATE
      */
@@ -3372,7 +3372,7 @@ declare namespace bluetooth {
      * Health data display.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.HEALTH_DATA_DISPLAY
      */
@@ -3381,7 +3381,7 @@ declare namespace bluetooth {
      * Step counter.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.HEALTH_STEP_COUNTER
      */
@@ -3390,7 +3390,7 @@ declare namespace bluetooth {
      * Body composition analyzer.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.HEALTH_BODY_COMPOSITION_ANALYZER
      */
@@ -3399,7 +3399,7 @@ declare namespace bluetooth {
      * Hygrometer.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.HEALTH_PEAK_FLOW_MOITOR
      */
@@ -3408,7 +3408,7 @@ declare namespace bluetooth {
      * Medication monitor.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.HEALTH_MEDICATION_MONITOR
      */
@@ -3417,7 +3417,7 @@ declare namespace bluetooth {
      * Prosthetic knee.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.HEALTH_KNEE_PROSTHESIS
      */
@@ -3426,7 +3426,7 @@ declare namespace bluetooth {
      * Prosthetic ankle.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.HEALTH_ANKLE_PROSTHESIS
      */
@@ -3435,7 +3435,7 @@ declare namespace bluetooth {
      * Generic health management device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.HEALTH_GENERIC_HEALTH_MANAGER
      */
@@ -3444,7 +3444,7 @@ declare namespace bluetooth {
      * Personal mobility device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass.HEALTH_PERSONAL_MOBILITY_DEVICE
      */
@@ -3465,7 +3465,7 @@ declare namespace bluetooth {
      * The address of device
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.StateChangeParam.deviceId
      */
@@ -3475,7 +3475,7 @@ declare namespace bluetooth {
      * Profile state value
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.StateChangeParam.state
      */
@@ -3496,7 +3496,7 @@ declare namespace bluetooth {
      * Not playing.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.PlayingState.STATE_NOT_PLAYING
      */
@@ -3505,7 +3505,7 @@ declare namespace bluetooth {
      * Playing.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.PlayingState.STATE_PLAYING
      */
@@ -3526,7 +3526,7 @@ declare namespace bluetooth {
      * A2DP profile.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ProfileId.PROFILE_A2DP_SOURCE
      */
@@ -3536,7 +3536,7 @@ declare namespace bluetooth {
      * HFP profile.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.ProfileId.PROFILE_HANDS_FREE_AUDIO_GATEWAY
      */

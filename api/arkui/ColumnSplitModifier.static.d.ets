@@ -26,6 +26,6 @@ import { ColumnSplitAttribute } from '@ohos.arkui.component';
  *
  * @implements ColumnSplitAttribute, AttributeModifier<ColumnSplitAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
 */
 export declare class ColumnSplitModifier implements ColumnSplitAttribute, AttributeModifier<ColumnSplitAttribute> {}

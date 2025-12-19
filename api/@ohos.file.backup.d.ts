@@ -675,7 +675,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cleanBundleTempDir(bundleName: string): Promise<boolean>;
 
@@ -691,7 +691,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getCompatibilityInfo(bundleName: string, extInfo: string): Promise<string>;
   }
@@ -916,7 +916,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cleanBundleTempDir(bundleName: string): Promise<boolean>;
 
@@ -932,7 +932,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getCompatibilityInfo(bundleName: string, extInfo: string): Promise<string>;
   }
@@ -1091,7 +1091,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cleanBundleTempDir(bundleName: string): Promise<boolean>;
 
@@ -1107,7 +1107,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getCompatibilityInfo(bundleName: string, extInfo: string): Promise<string>;
   }

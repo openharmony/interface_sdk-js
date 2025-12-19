@@ -33,21 +33,21 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum SelectedMode {
   /**
    * Indicator mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   INDICATOR = 0,
   /**
    * Board mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   BOARD = 1
 }
@@ -56,28 +56,28 @@ export declare enum SelectedMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum LayoutMode {
   /**
    * The the content is laid vertically or horizontally, according to its width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   AUTO = 0,
   /**
    * The the content is laid vertically
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   VERTICAL = 1,
   /**
    * The the content is laid horizontally
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   HORIZONTAL = 2
 }
@@ -87,7 +87,7 @@ export declare enum LayoutMode {
  *
  * @interface SubTabBarIndicatorStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface SubTabBarIndicatorStyle {
   /**
@@ -95,7 +95,7 @@ export declare interface SubTabBarIndicatorStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   color?: ResourceColor;
   /**
@@ -103,7 +103,7 @@ export declare interface SubTabBarIndicatorStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   height?: Length;
   /**
@@ -113,7 +113,7 @@ export declare interface SubTabBarIndicatorStyle {
    * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   width?: Length;
   /**
@@ -122,7 +122,7 @@ export declare interface SubTabBarIndicatorStyle {
    * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   borderRadius?: Length;
   /**
@@ -131,7 +131,7 @@ export declare interface SubTabBarIndicatorStyle {
    * @type { ?Length }
    * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   marginTop?: Length;
 }
@@ -140,7 +140,7 @@ export declare interface SubTabBarIndicatorStyle {
  *
  * @interface BoardStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface BoardStyle {
   /**
@@ -148,7 +148,7 @@ export interface BoardStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   borderRadius?: Length;
 }
@@ -157,7 +157,7 @@ export interface BoardStyle {
  *
  * @interface TabBarLabelStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface TabBarLabelStyle {
   /**
@@ -165,7 +165,7 @@ export declare interface TabBarLabelStyle {
    *
    * @type { ?TextOverflow }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   overflow?: TextOverflow;
   /**
@@ -173,7 +173,7 @@ export declare interface TabBarLabelStyle {
    *
    * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   maxLines?: int;
   /**
@@ -181,7 +181,7 @@ export declare interface TabBarLabelStyle {
    *
    * @type { ?(double | ResourceStr) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   minFontSize?: double | ResourceStr;
   /**
@@ -189,7 +189,7 @@ export declare interface TabBarLabelStyle {
    *
    * @type { ?(double | ResourceStr) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   maxFontSize?: double | ResourceStr;
   /**
@@ -197,7 +197,7 @@ export declare interface TabBarLabelStyle {
    *
    * @type { ?TextHeightAdaptivePolicy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   heightAdaptivePolicy?: TextHeightAdaptivePolicy;
   /**
@@ -205,7 +205,7 @@ export declare interface TabBarLabelStyle {
    *
    * @type { ?Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   font?: Font;
   /**
@@ -213,7 +213,7 @@ export declare interface TabBarLabelStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   selectedColor?: ResourceColor;
   /**
@@ -221,7 +221,7 @@ export declare interface TabBarLabelStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   unselectedColor?: ResourceColor;
 }
@@ -230,7 +230,7 @@ export declare interface TabBarLabelStyle {
  *
  * @interface TabBarIconStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface TabBarIconStyle {
   /**
@@ -238,7 +238,7 @@ export declare interface TabBarIconStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   selectedColor?: ResourceColor;
   /**
@@ -246,7 +246,7 @@ export declare interface TabBarIconStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   unselectedColor?: ResourceColor;
 }
@@ -254,7 +254,7 @@ export declare interface TabBarIconStyle {
  * TabBarSymbol object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class TabBarSymbol {
   /**
@@ -263,7 +263,7 @@ export declare class TabBarSymbol {
    * @type { SymbolGlyphModifier }
    * @default fontColor: #66182431, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   normal: SymbolGlyphModifier;
   /**
@@ -272,7 +272,7 @@ export declare class TabBarSymbol {
    * @type { ?SymbolGlyphModifier }
    * @default fontColor: #ff007dff, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   selected?: SymbolGlyphModifier;
 }
@@ -281,7 +281,7 @@ export declare class TabBarSymbol {
  *
  * @typedef TabBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface TabBarOptions {
   /**
@@ -295,7 +295,7 @@ export declare interface TabBarOptions {
    *
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   icon?: string | Resource;
   /**
@@ -304,7 +304,7 @@ export declare interface TabBarOptions {
    *
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   text?: string | Resource;
 }
@@ -312,7 +312,7 @@ export declare interface TabBarOptions {
  * Define SubTabBarStyle, the style is text and underline.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class SubTabBarStyle {
   /**
@@ -320,7 +320,7 @@ export declare class SubTabBarStyle {
    *
    * @param { ResourceStr | ComponentContent } content - indicates the content of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor(content: ResourceStr | ComponentContent);
   /**
@@ -330,7 +330,7 @@ export declare class SubTabBarStyle {
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   static of(content: ResourceStr | ComponentContent): SubTabBarStyle;
   /**
@@ -339,7 +339,7 @@ export declare class SubTabBarStyle {
    * @param { SubTabBarIndicatorStyle } style - indicates the indicator style of the sub tab bar
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   indicator(style: SubTabBarIndicatorStyle): SubTabBarStyle;
   /**
@@ -352,7 +352,7 @@ export declare class SubTabBarStyle {
    * @param { SelectedMode } value - display mode of the selected subtab. Default value is SelectedMode.INDICATOR.
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   selectedMode(value: SelectedMode): SubTabBarStyle;
   /**
@@ -365,7 +365,7 @@ export declare class SubTabBarStyle {
    * @param { BoardStyle } value - background style object for the selected subtab.
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   board(value: BoardStyle): SubTabBarStyle;
   /**
@@ -374,7 +374,7 @@ export declare class SubTabBarStyle {
    * @param { TabBarLabelStyle } style - indicates the label style of the sub tab bar
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   labelStyle(style: TabBarLabelStyle): SubTabBarStyle;
   /**
@@ -388,7 +388,7 @@ export declare class SubTabBarStyle {
    * @param { Padding | Dimension } value - indicates the padding of the sub tab bar
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   padding(value: Padding | Dimension): SubTabBarStyle;
   /**
@@ -401,7 +401,7 @@ export declare class SubTabBarStyle {
    * @param { LocalizedPadding } padding - indicates the padding of the sub tab bar
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   padding(padding: LocalizedPadding): SubTabBarStyle;
   /**
@@ -410,7 +410,7 @@ export declare class SubTabBarStyle {
    * @param { string } value - id of the sub tab bar to identify it
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   id(value: string): SubTabBarStyle;
 }
@@ -418,7 +418,7 @@ export declare class SubTabBarStyle {
  * Define BottomTabBarStyle, the style is icon and text.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class BottomTabBarStyle {
   /**
@@ -427,7 +427,7 @@ export declare class BottomTabBarStyle {
    * @param { ResourceStr | TabBarSymbol } icon - indicates the icon of the bottom tab bar
    * @param { ResourceStr } text - indicates the text of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   constructor(icon: ResourceStr | TabBarSymbol, text: ResourceStr);
   /**
@@ -438,7 +438,7 @@ export declare class BottomTabBarStyle {
    * @returns { BottomTabBarStyle } the style of the bottom tab bar
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   static of(icon: ResourceStr | TabBarSymbol, text: ResourceStr): BottomTabBarStyle;
   /**
@@ -447,7 +447,7 @@ export declare class BottomTabBarStyle {
    * @param { TabBarLabelStyle } style - indicates the label style of the bottom tab bar
    * @returns { BottomTabBarStyle } the style of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   labelStyle(style: TabBarLabelStyle): BottomTabBarStyle;
   /**
@@ -462,7 +462,7 @@ export declare class BottomTabBarStyle {
    * Default value is { left:4.0vp, right:4.0vp, top:0.0vp, bottom:0.0vp }.
    * @returns { BottomTabBarStyle } the style of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   padding(value: Padding | Dimension | LocalizedPadding): BottomTabBarStyle;
   /**
@@ -472,7 +472,7 @@ export declare class BottomTabBarStyle {
    * Default value is LayoutMode.VERTICAL.
    * @returns { BottomTabBarStyle } the style of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   layoutMode(value: LayoutMode): BottomTabBarStyle;
   /**
@@ -482,7 +482,7 @@ export declare class BottomTabBarStyle {
    * Default value is VerticalAlign.Center.
    * @returns { BottomTabBarStyle } the style of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   verticalAlign(value: VerticalAlign): BottomTabBarStyle;
   /**
@@ -496,7 +496,7 @@ export declare class BottomTabBarStyle {
    * @param { boolean } value - indicates whether the bottom tab bar is extensible. Default value is false.
    * @returns { BottomTabBarStyle } the style of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   symmetricExtensible(value: boolean): BottomTabBarStyle;
   /**
@@ -505,7 +505,7 @@ export declare class BottomTabBarStyle {
    * @param { string } value - id of the bottom tab bar to identify it
    * @returns { BottomTabBarStyle } the style of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   id(value: string): BottomTabBarStyle;
   /**
@@ -514,7 +514,7 @@ export declare class BottomTabBarStyle {
    * @param { TabBarIconStyle } style - style of the label icon on the bottom tab.
    * @returns { BottomTabBarStyle } the style of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   iconStyle(style: TabBarIconStyle): BottomTabBarStyle;
 }
@@ -524,7 +524,7 @@ export declare class BottomTabBarStyle {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface TabContentAttribute extends CommonMethod {
   /**
@@ -541,7 +541,7 @@ export declare interface TabContentAttribute extends CommonMethod {
    * Content displayed on the tab bar.
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions | undefined): this;
   /**
@@ -551,7 +551,7 @@ export declare interface TabContentAttribute extends CommonMethod {
    * @param { VoidCallback  } event
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   onWillShow(event: VoidCallback | undefined): this;
   /**
@@ -561,7 +561,7 @@ export declare interface TabContentAttribute extends CommonMethod {
    * @param { VoidCallback  } event
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   onWillHide(event: VoidCallback | undefined): this;
 
@@ -571,7 +571,7 @@ export declare interface TabContentAttribute extends CommonMethod {
    * @param { AttributeModifier<TabContentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   attributeModifier(modifier: AttributeModifier<TabContentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -582,7 +582,7 @@ export declare interface TabContentAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - TabContent
  * @returns { TabContentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @ComponentBuilder
 export declare function TabContent(

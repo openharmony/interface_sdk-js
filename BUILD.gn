@@ -695,18 +695,18 @@ action("gen_api_check_plugin") {
         get_path_info("./build-tools/compile-plugins/api-check-plugin-static",
                       "abspath")),
     "--output_path",
-    rebase_path("${target_gen_dir}"),
+    rebase_path("${target_gen_dir}/${target_name}"),
     "--npm",
     rebase_path(npm_path),
   ]
-  outputs = [ "${target_gen_dir}" ]
+  outputs = [ "${target_gen_dir}/${target_name}" ]
 }
 
 ohos_copy("api_check_plugin") {
   deps = [ ":gen_api_check_plugin" ]
-  sources = [ rebase_path("${target_gen_dir}") ]
-  outputs = [ target_out_dir + "/${target_name}" ]
-  module_source_dir = target_out_dir + "/${target_name}"
+  sources = [ rebase_path("${target_gen_dir}/gen_api_check_plugin") ]
+  outputs = [ target_out_dir + "/api-check-plugin" ]
+  module_source_dir = target_out_dir + "/api-check-plugin"
   module_install_name = ""
 }
 

@@ -33,7 +33,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface CommonEventSubscribeInfo {
   /**
@@ -51,7 +51,7 @@ export interface CommonEventSubscribeInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   events: Array<string>;
 
@@ -69,7 +69,7 @@ export interface CommonEventSubscribeInfo {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   publisherPermission?: string;
 
@@ -87,7 +87,7 @@ export interface CommonEventSubscribeInfo {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   publisherDeviceId?: string;
 
@@ -107,7 +107,7 @@ export interface CommonEventSubscribeInfo {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   userId?: int;
 
@@ -125,7 +125,7 @@ export interface CommonEventSubscribeInfo {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   priority?: int;
 
@@ -136,7 +136,7 @@ export interface CommonEventSubscribeInfo {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   publisherBundleName?: string;
 }

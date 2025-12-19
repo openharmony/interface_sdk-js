@@ -41,7 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class PlainArray<T> {
   /**
@@ -67,7 +67,7 @@ declare class PlainArray<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   constructor();
   /**
@@ -103,7 +103,7 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get length(): int;
 
@@ -145,7 +145,7 @@ declare class PlainArray<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   add(key: int, value: T): void;
   /**
@@ -171,7 +171,7 @@ declare class PlainArray<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clear(): void;
   /**
@@ -200,7 +200,7 @@ declare class PlainArray<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clone(): PlainArray<T>;
   /**
@@ -241,7 +241,7 @@ declare class PlainArray<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   has(key: int): boolean;
   /**
@@ -294,7 +294,7 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get(key: int): T | undefined;
 
@@ -336,7 +336,7 @@ declare class PlainArray<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getIndexOfKey(key: int): int;
   /**
@@ -368,7 +368,7 @@ declare class PlainArray<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getIndexOfValue(value: T): int;
   /**
@@ -397,7 +397,7 @@ declare class PlainArray<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isEmpty(): boolean;
   /**
@@ -438,7 +438,7 @@ declare class PlainArray<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getKeyAt(index: int): int;
   /**
@@ -491,7 +491,7 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   remove(key: int): T | undefined;
 
@@ -545,7 +545,7 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   removeAt(index: int): T | undefined;
 
@@ -593,7 +593,7 @@ declare class PlainArray<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   removeRangeFrom(index: int, size: int): int;
   /**
@@ -637,7 +637,7 @@ declare class PlainArray<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setValueAt(index: int, value: T): void;
   /**
@@ -666,7 +666,7 @@ declare class PlainArray<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toString(): String;
   /**
@@ -710,7 +710,7 @@ declare class PlainArray<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getValueAt(index: int): T;
   /**
@@ -773,7 +773,7 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   forEach(callbackFn: PlainArrayForEachCb<T>): void;
 
@@ -813,7 +813,7 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   $_iterator(): IterableIterator<[int, T]>;
 
@@ -829,7 +829,7 @@ declare class PlainArray<T> {
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type PlainArrayForEachCb<T> = (value: T, key: int, PlainArray: PlainArray<T>) => void
 

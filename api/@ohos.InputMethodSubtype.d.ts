@@ -24,7 +24,7 @@
  * @interface InputMethodSubtype
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default interface InputMethodSubtype {
   /**
@@ -34,7 +34,7 @@ export default interface InputMethodSubtype {
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly label?: string;
 
@@ -45,7 +45,7 @@ export default interface InputMethodSubtype {
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly labelId?: double;
 
@@ -56,7 +56,7 @@ export default interface InputMethodSubtype {
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly name: string;
 
@@ -67,7 +67,7 @@ export default interface InputMethodSubtype {
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly id: string;
 
@@ -78,7 +78,7 @@ export default interface InputMethodSubtype {
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly mode?: 'upper' | 'lower';
 
@@ -89,7 +89,7 @@ export default interface InputMethodSubtype {
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly locale: string;
 
@@ -100,7 +100,7 @@ export default interface InputMethodSubtype {
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly language: string;
 
@@ -111,7 +111,7 @@ export default interface InputMethodSubtype {
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly icon?: string;
 
@@ -122,7 +122,7 @@ export default interface InputMethodSubtype {
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly iconId?: double;
 
@@ -139,7 +139,7 @@ export default interface InputMethodSubtype {
    * @type { ?object }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   extra?: object;
 }

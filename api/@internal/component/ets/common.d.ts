@@ -276,6 +276,16 @@ declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassD
  * @atomicservice
  * @since 12 dynamic
  */
+/**
+ * Defining ComponentV2 ClassDecorator
+ *
+ * ComponentV2 is a ClassDecorator and it supports ComponentOptions as parameters.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare const ComponentV2: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
@@ -818,10 +828,11 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
  * @returns { PropertyDecorator } Env decorator
  * @throws { BusinessError } 140000 - Invalid key for @Env
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 22 dynamic
  */
-declare type EnvDecorator = (value: string) => PropertyDecorator;
+declare type EnvDecorator = (value: SystemProperties) => PropertyDecorator;
 
 /**
  * Defining Env PropertyDecorator.
@@ -842,13 +853,45 @@ declare const Env: EnvDecorator;
  */
 declare enum SystemProperties {
  /**
-  * System environmental breakpoin key that is used to obtain the width and height breakpoint value of the window.
+  * System environmental breakpoint key that is used to obtain the width and height breakpoint value of the window.
   * 
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 22 dynamic
   */
-  BREAK_POINT = 'system.arkui.breakpoint'
+  BREAK_POINT = 'system.arkui.breakpoint',
+  /**
+   * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in vp.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  WINDOW_AVOID_AREA = 'system.window.avoidarea',
+  /**
+   * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in px.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  WINDOW_AVOID_AREA_PX = 'system.window.avoidarea.px',
+  /**
+   * System environmental windowsize key that is used to obtain the size of the window, measured in vp.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  WINDOW_SIZE = 'system.window.size',
+  /**
+   * System environmental windowsize key that is used to obtain the size of the window, measured in px.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  WINDOW_SIZE_PX = 'system.window.size.px',
 };
 
 /**
@@ -2050,7 +2093,7 @@ declare interface Rectangle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 23 dynamic
+ * @since 22 dynamic
  */
 declare interface ResponseRegion {
   /**
@@ -2061,7 +2104,7 @@ declare interface ResponseRegion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   tool?: ResponseRegionSupportedTool;
 
@@ -2073,7 +2116,7 @@ declare interface ResponseRegion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   x?: LengthMetrics;
 
@@ -2085,7 +2128,7 @@ declare interface ResponseRegion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   y?: LengthMetrics;
 
@@ -2097,7 +2140,7 @@ declare interface ResponseRegion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   width?: LengthMetrics | string;
 
@@ -2109,7 +2152,7 @@ declare interface ResponseRegion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   height?: LengthMetrics | string;
 }
@@ -6918,17 +6961,31 @@ declare class DrawModifier {
   drawFront?(drawContext: DrawContext): void;
 
   /**
-   * drawforeground Method. This method is executed after drawing associated Node and its children.
+   * drawforeground Method. This method is executed after drawing the associated Node and its children.
    * It allows you to perform additional drawing operations on top of the already rendered content.
    * This can be useful for adding visual elements that should appear above the main content.
    * 
-   * @param { DrawContext } drawContext - The drawContext used to draw
+   * @param { DrawContext } drawContext - The drawContext used to draw.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
-  drawForeground?(drawContext: DrawContext): void;
+  drawForeground(drawContext: DrawContext): void;
+
+  /**
+   * Draws content in the overlay layer after the associated Node and all its children have been drawn.
+   *
+   * Custom drawing consists of five layers: Behind, Content, Front, Foreground, and Overlay.
+   * - The Foreground and Overlay layers are drawn after child nodes.
+   * - The Overlay layer differs from Foreground in that it can draw outside the bounds of the component.
+   * @param { DrawContext } drawContext - The drawContext used to draw
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  drawOverlay(drawContext: DrawContext): void;
 
   /**
    * Invalidate the component, which will cause a re-render of the component.
@@ -8644,7 +8701,7 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  MOUSE = 3,
+  MOUSE,
 
   /**
    * The touchpad type.
@@ -8654,7 +8711,7 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  TOUCHPAD = 4,
+  TOUCHPAD,
 
   /**
    * The joystick type.
@@ -8664,7 +8721,7 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  JOYSTICK = 5
+  JOYSTICK
 }
 
 /**
@@ -18912,6 +18969,41 @@ declare class ContentTransitionEffect {
 }
 
 /**
+ * Define the mode of menu how to avoid keyboard.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare enum MenuKeyboardAvoidMode {
+  /**
+   * Menu will not aovid keyboard.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  NONE = 0,
+
+  /**
+   * First menu will avoid keyboard by changing its placement.
+   * And then menu will avoid by resizing height when new placement is still not high enough.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  TRANSLATE_AND_RESIZE = 1,
+}
+
+/**
  * Defines the context menu options.
  *
  * @interface ContextMenuOptions
@@ -19452,6 +19544,33 @@ declare interface ContextMenuOptions {
    * @since 20 dynamic
    */
   anchorPosition?: Position;
+
+  /**
+   * Determine the mode of menu how to avoid keyboard.
+   * 
+   * No avoiding by default
+   *
+   * @type { ?MenuKeyboardAvoidMode }
+   * @default MenuKeyboardAvoidMode.NONE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  keyboardAvoidMode?: MenuKeyboardAvoidMode;
+
+  /**
+   * Defines the minimum distance between menu and keyboard.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  minKeyboardAvoidDistance?: LengthMetrics;
 }
 
 /**
@@ -21063,6 +21182,7 @@ declare type Matrix4Transit = import('../api/@ohos.matrix4').default.Matrix4Tran
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
+ * @form
  * @since 23 dynamic
  */
 declare type SystemUiMaterial = import('../api/@ohos.arkui.uiMaterial').default.Material;
@@ -21453,7 +21573,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   responseRegionList(regions: Array<ResponseRegion>): T;
   
@@ -28709,6 +28829,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
+   * @form
    * @since 23 dynamic
    */
   systemMaterial(material: SystemUiMaterial | undefined): T;
@@ -30037,8 +30158,9 @@ declare interface MotionBlurOptions {
  * @interface LayoutBorderInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
- * @since 9 dynamic
+ * @since 9 dynamiconly
  * @deprecated since 10
+ * @useinstead Measurable/Layoutable
  */
 declare interface LayoutBorderInfo {
   /**
@@ -30047,8 +30169,9 @@ declare interface LayoutBorderInfo {
    * @type { EdgeWidths }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead getBorderWidth
    */
   borderWidth: EdgeWidths;
 
@@ -30058,8 +30181,9 @@ declare interface LayoutBorderInfo {
    * @type { Margin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead getMargin
    */
   margin: Margin,
 
@@ -30069,8 +30193,9 @@ declare interface LayoutBorderInfo {
    * @type { Padding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead getPadding
    */
   padding: Padding,
 }
@@ -30081,8 +30206,9 @@ declare interface LayoutBorderInfo {
  * @interface LayoutInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
- * @since 9 dynamic
+ * @since 9 dynamiconly
  * @deprecated since 10
+ * @useinstead Layoutable
  */
 declare interface LayoutInfo {
   /**
@@ -30091,8 +30217,9 @@ declare interface LayoutInfo {
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Layoutable
    */
   position: Position,
 
@@ -30102,8 +30229,9 @@ declare interface LayoutInfo {
    * @type { ConstraintSizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Layoutable
    */
   constraint: ConstraintSizeOptions,
 }
@@ -30114,8 +30242,9 @@ declare interface LayoutInfo {
  * @interface LayoutChild
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
- * @since 9 dynamic
+ * @since 9 dynamiconly
  * @deprecated since 10
+ * @useinstead Measurable/Layoutable
  */
 declare interface LayoutChild {
   /**
@@ -30124,8 +30253,9 @@ declare interface LayoutChild {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Measurable/Layoutable
    */
   name: string,
 
@@ -30135,8 +30265,9 @@ declare interface LayoutChild {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Measurable/Layoutable
    */
   id: string,
 
@@ -30146,8 +30277,9 @@ declare interface LayoutChild {
    * @type { ConstraintSizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Measurable/Layoutable
    */
   constraint: ConstraintSizeOptions,
 
@@ -30157,8 +30289,9 @@ declare interface LayoutChild {
    * @type { LayoutBorderInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Measurable/Layoutable
    */
   borderInfo: LayoutBorderInfo,
 
@@ -30168,8 +30301,9 @@ declare interface LayoutChild {
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Measurable/Layoutable
    */
   position: Position,
 
@@ -30179,8 +30313,9 @@ declare interface LayoutChild {
    * @param { ConstraintSizeOptions } childConstraint
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Measurable/Layoutable
    */
   measure(childConstraint: ConstraintSizeOptions);
 
@@ -30190,8 +30325,9 @@ declare interface LayoutChild {
    * @param { LayoutInfo } childLayoutInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
+   * @useinstead Measurable/Layoutable
    */
   layout(childLayoutInfo: LayoutInfo);
 }
@@ -30533,7 +30669,7 @@ declare interface SizeResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12 dynamic
+ * @since 11 dynamic
  */
 declare interface MeasureResult extends SizeResult {
 
@@ -30981,7 +31117,7 @@ declare class BaseCustomComponent extends CommonAttribute {
 
   /**
    * The aboutToInit function is executed when a custom component initialization is about to be completed.
-   * Developers can modify state variables at this stage.
+   * Developers can modify non-state variable data at this stage.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -31023,7 +31159,7 @@ declare class BaseCustomComponent extends CommonAttribute {
   aboutToDelete?(): void;
 
   /**
-   * The aboutToAttach function is executed when a custom component is about to be attached to the main tree.
+   * The aboutToAttach function is executed when a custom component is attached to the main tree.
    * Developers can implement functions that do not affect the actual UI, such as event data reporting at this stage.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31035,7 +31171,7 @@ declare class BaseCustomComponent extends CommonAttribute {
   aboutToAttach?(): void;
 
   /**
-   * The aboutToDetach function executes when a custom component is about to be detached from the main tree.
+   * The aboutToDetach function executes when a custom component is detached from the main tree.
    * Developers can implement functions that do not affect the actual UI, such as initialization of non-state
    * variable data at this stage.
    *
@@ -31076,7 +31212,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 23 dynamic
    */
-  aboutToCover?(params?: Record<string, Object | undefined | null>): void;
+  aboutToRecover?(params?: Record<string, Object | undefined | null>): void;
 
   /**
    * The getLifecycle function get the lifecycle instance of the class CustomComponent.
@@ -32492,6 +32628,21 @@ declare type OnWillScrollCallback =
 declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
 
 /**
+ * Defines the callback type used in onItemDragStart.
+ *
+ * @typedef { function } OnItemDragStartCallback
+ * @param { ItemDragInfo } event - Information about the dragged item.
+ * @param { number } itemIndex - The index number of the dragged item.
+ * @returns { CustomBuilder }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: number) => CustomBuilder;
+
+/**
  * On scroll callback using in scrollable onWillStopDragging.
  *
  * @typedef { function } OnWillStopDraggingCallback
@@ -32791,6 +32942,28 @@ declare class ChildrenMainSize {
    * @since 12 dynamic
    */
   update(index: number, childSize: number): void;
+}
+
+/**
+ * Define edit mode options.
+ *
+ * @interface EditModeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare interface EditModeOptions {
+  /**
+   * Define whether to gather selected items in grid or list when item is long pressed for context menu or drag.
+   *
+   * @type { ?boolean } - The default value is false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  enableGatherSelectedItemsAnimation?: boolean;
 }
 
 /**
