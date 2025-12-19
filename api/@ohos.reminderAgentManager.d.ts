@@ -25,6 +25,7 @@ import { ValuesBucket } from './@ohos.data.ValuesBucket';
 /*** if arkts static */
 import { RecordData } from './@ohos.base';
 /*** endif */
+import type { Callback } from './@ohos.base';
 
 /**
  * Providers static methods for managing reminders, including publishing or canceling a reminder.
@@ -269,6 +270,34 @@ declare namespace reminderAgentManager {
    * @since 23 dynamic&static
    */
   function cancelReminderOnDisplay(reminderId: int): Promise<void>;
+
+  /**
+   * Subscribe Reminder State.
+   * 
+   * @permission ohos.permission.PUBLISH_AGENT_REMINDER
+   * @param { Callback<Array<ReminderState>> } callback - Indicates the callback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 1700007 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @stagemodeonly
+   * @since 23 dynamic&static
+   */
+  function subscribeReminderState(callback: Callback<Array<ReminderState>>): Promise<void>;
+
+  /**
+   * UnSubscribe Reminder State. If the parameter is not set, cancel all callbacks.
+   * 
+   * @permission ohos.permission.PUBLISH_AGENT_REMINDER
+   * @param { Callback<Array<ReminderState>> } callback - Indicates the callback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 1700007 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @stagemodeonly
+   * @since 23 dynamic&static
+   */
+  function unsubscribeReminderState(callback?: Callback<Array<ReminderState>>): Promise<void>;
 
   /**
    * Declares action button type.
@@ -1092,6 +1121,48 @@ declare namespace reminderAgentManager {
      * @since 23 static
      */
     second?: int;
+  }
+
+  /**
+   * Reminder state.
+   * 
+   * @interface ReminderState
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @stagemodeonly
+   * @since 23 dynamic&static
+   */
+  interface ReminderState {
+    /**
+     * Reminder id.
+     * 
+     * @type { int }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @stagemodeonly
+     * @since 23 dynamic&static
+     */
+    reminderId: int;
+
+    /**
+     * Action button type.
+     * 
+     * @type { ActionButtonType }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @stagemodeonly
+     * @since 23 dynamic&static
+     */
+    buttonType: ActionButtonType;
+
+    /**
+     * To ensure that the application can receive the callback, this message will be sent twice.
+     * false: The first time when the user clicks on the button.
+     * true: The second time when the application registers a new callback.
+     * 
+     * @type { boolean }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @stagemodeonly
+     * @since 23 dynamic&static
+     */
+    isMessageResent: boolean;
   }
 }
 export default reminderAgentManager;
