@@ -3527,6 +3527,50 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Setting to create photo asset
+   *
+   * @interface CreationSetting
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  interface CreationSetting {  
+    /**
+     * Title of the asset
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    title?: string;
+
+    /**
+     * Extension of the asset
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    fileNameExtension: string;
+
+    /**
+     * Specify photo type of the asset to create, include image or video
+     *
+     * @type { PhotoType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    photoType: PhotoType;
+  }
+
+  /**
    * Options for creating an image or video asset.
    *
    * @interface CreateOptions
@@ -6057,6 +6101,20 @@ declare namespace photoAccessHelper {
      */
     showAssetsCreationDialog(srcFileUris: Array<string>, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
     /**
+     * Create a save dialog to save photos
+     *
+     * @param { Array<string> } srcFileUris - List of the file uris to be saved
+     * @param { Array<CreationSetting> } creationSettings - List of the photo asset creation settings
+     * @param { boolean } isImageFullyDisplayed - Supports displaying the image without cropping in the window
+     * @returns { Promise<Array<string>> } - Returns the media library file uri list to application which has been authorized
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    showAssetsCreationDialogEx(srcFileUris: Array<string>, creationSettings: Array<CreationSetting>, isImageFullyDisplayed: boolean): Promise<Array<string>>;
+    /**
      * Create assets and grant save permission to the app which called the save dialog.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -6090,6 +6148,19 @@ declare namespace photoAccessHelper {
      * @since 12 dynamic
      */
     createAssetWithShortTermPermission(photoCreationConfig: PhotoCreationConfig): Promise<string>;
+    /**
+     * Create asset and grant short term permission to the application.
+     *
+     * @permission ohos.permission.SHORT_TERM_WRITE_IMAGEVIDEO
+     * @param { CreationSetting } creationSetting - photo asset creation settings
+     * @returns { Promise<string> } - Returns the media library file uri to application which has been authorized
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    createAssetWithShortTermPermissionEx(creationSetting: CreationSetting): Promise<string>;
     /**
      * Creates assets with a temporary permission. This API uses a promise to return the result.
      *
