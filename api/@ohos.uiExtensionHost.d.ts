@@ -229,7 +229,7 @@ declare namespace uiExtensionHost {
     createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
 
     /**
-     * Create sub window.
+     * Create subwindow.
      *
      * @param { string } name - Name of the subwindow.
      * @param { window.SubWindowOptions } subWindowConfig - Configuration parameters for creating the subwindow.

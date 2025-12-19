@@ -266,7 +266,7 @@ declare namespace uiExtension {
     createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
 
     /**
-     * Creates a subwindow for this window proxy. This API uses a promise to return the result.
+     * Create subwindow.
      *
      * @param { string } name - Name of the subwindow.
      * @param { window.SubWindowOptions } subWindowConfig - Configuration parameters for creating the subwindow.
