@@ -140,7 +140,7 @@ declare namespace dragInteraction {
    * @systemapi Hide this for inner system use.
    * @since 23 static
    */
-    function onDrag(callback: Callback<DragState>): void;
+    function onDragStateChange(callback: Callback<DragState>): void;
 
   /**
    * Disables listening for dragging state change events.
@@ -181,7 +181,7 @@ declare namespace dragInteraction {
    * @systemapi Hide this for inner system use.
    * @since 23 static
    */
-    function offDrag(callback?: Callback<DragState>): void;
+    function offDragStateChange(callback?: Callback<DragState>): void;
 
   /**
    * Obtains the abstract of a dragged object.
