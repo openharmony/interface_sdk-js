@@ -89,13 +89,14 @@ declare namespace unifiedDataChannel {
 
   /**
    * Indicated delay get UnifiedData
-   * 
+   *
    * @typedef {function} GetDelayData
    * @param { string } type - the type of UnifiedData required.
    * @returns { UnifiedData } Return the UnifiedData required.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   type GetDelayData = (type: string) => UnifiedData;
 
@@ -130,6 +131,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   class UnifiedDataProperties {
     /**
@@ -155,6 +157,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     tag?: string;
     /**
@@ -164,6 +167,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     readonly timestamp?: Date;
     /**
@@ -173,6 +177,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     shareOptions?: ShareOptions;
 
@@ -182,6 +187,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     getDelayData?: GetDelayData;
   }
