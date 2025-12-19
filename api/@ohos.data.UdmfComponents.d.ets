@@ -24,6 +24,7 @@ import uniformDataStruct from '@ohos.data.uniformDataStruct';
  * @enum { int }
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @since 20 dynamic
+ * @since 23 static
  */
 declare enum FormType {
   /**
@@ -31,6 +32,7 @@ declare enum FormType {
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   TYPE_BIG = 0,
 
@@ -39,6 +41,7 @@ declare enum FormType {
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   TYPE_MID = 1,
 
@@ -47,6 +50,7 @@ declare enum FormType {
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   TYPE_SMALL = 2
 }
@@ -57,6 +61,7 @@ declare enum FormType {
  * @struct { ContentFormCard }
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @since 20 dynamic
+ * @since 23 static
  */
 @Component
 declare struct ContentFormCard {
@@ -66,6 +71,7 @@ declare struct ContentFormCard {
    * @type { uniformDataStruct.ContentForm }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   contentFormData: uniformDataStruct.ContentForm;
 
@@ -75,6 +81,7 @@ declare struct ContentFormCard {
    * @type { FormType }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   @Prop
   formType: FormType;
@@ -85,6 +92,7 @@ declare struct ContentFormCard {
    * @type { ?double }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   @Prop
   formWidth?: double;
@@ -95,6 +103,7 @@ declare struct ContentFormCard {
    * @type { ?double }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   @Prop
   formHeight?: double;
@@ -105,6 +114,7 @@ declare struct ContentFormCard {
    * @type { ?Function }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20 dynamic
+   * @since 23 static
    */
   handleOnClick?: Function;
 }
