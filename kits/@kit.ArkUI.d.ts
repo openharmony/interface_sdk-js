@@ -42,7 +42,7 @@ import {
   ChipSuffixSymbolGlyphOptions
 } from '@ohos.arkui.advanced.Chip';
 import { NavPushPathHelper } from '@ohos.atomicservice.NavPushPathHelper';
-import { AtomicServiceMenuBar } from '@ohos.atomicservice.AtomicServiceMenubar';
+import { AtomicServiceMenuBar } from '@ohos.atomicservice.AtomicServiceMenuBar';
 import {
   IconOptions, LabelOptions as ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle,
   ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup, SuffixImageIconOptions,
