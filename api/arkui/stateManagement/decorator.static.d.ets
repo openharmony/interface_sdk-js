@@ -675,32 +675,32 @@ export declare interface ILocalStorageLinkDecoratedVariable<T> extends IDecorate
 /**
  * Define Local decoration variable interface.
  *
- * @extends IDecoratedMutableVariable<T>, IDecoratedV2Variable
+ * @extends IDecoratedMutableVariable<T>, IDecoratedV2Variable<T>
  * @interface ILocalDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
-export declare interface ILocalDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV2Variable {} 
+export declare interface ILocalDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV2Variable<T> {}
 
 /**
  * Define Param decoration variable interface.
  *
- * @extends IDecoratedImmutableVariable<T>,  IDecoratedUpdatableVariable<T>, IDecoratedV2Variable
+ * @extends IDecoratedImmutableVariable<T>,  IDecoratedUpdatableVariable<T>, IDecoratedV2Variable<T>
  * @interface IParamDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
-export declare interface IParamDecoratedVariable<T> extends IDecoratedImmutableVariable<T>, IDecoratedUpdatableVariable<T>, IDecoratedV2Variable {}
+export declare interface IParamDecoratedVariable<T> extends IDecoratedImmutableVariable<T>, IDecoratedUpdatableVariable<T>, IDecoratedV2Variable<T> {}
 
 /**
  * Define Param Once decoration variable interface.
  *
- * @extends IDecoratedMutableVariable<T>, IDecoratedV2Variable
+ * @extends IDecoratedMutableVariable<T>, IDecoratedV2Variable<T>
  * @interface IParamOnceDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
-export declare interface IParamOnceDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV2Variable {}
+export declare interface IParamOnceDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV2Variable<T> {}
 
 /**
  * Define Link source type.
@@ -1165,31 +1165,42 @@ export declare interface IStateMgmtFactory {
  * Define V2 decorated variable interface.
  *
  * @extends IDecoratedVariable
- * @interface IDecoratedV2Variable
+ * @interface IDecoratedV2Variable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-export interface IDecoratedV2Variable extends IDecoratedVariable {}
+export interface IDecoratedV2Variable<T> extends IDecoratedVariable {
+  /**
+   * Reset V2 decorated variable when then ComponentV2 instance is reused.
+   *
+   * @param { T } newValue
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  resetOnReuse(newValue: T): void;
+}
 
 /**
  * Define Provider decoration variable interface.
  *
- * @extends IDecoratedMutableVariable<T>, IDecoratedV2Variable
+ * @extends IDecoratedMutableVariable<T>, IDecoratedV2Variable<T>
  * @interface IProviderDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
-export declare interface IProviderDecoratedVariable<T>  extends IDecoratedMutableVariable<T>, IDecoratedV2Variable {}
+export declare interface IProviderDecoratedVariable<T>  extends IDecoratedMutableVariable<T>, IDecoratedV2Variable<T> {}
 
 /**
  * Define Consumer decoration variable interface.
  *
- * @extends IDecoratedMutableVariable<T>, IDecoratedV2Variable
+ * @extends IDecoratedMutableVariable<T>, IDecoratedV2Variable<T>
  * @interface IConsumerDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
  */
-export declare interface IConsumerDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV2Variable {}
+export declare interface IConsumerDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV2Variable<T> {}
 
 /**
  * Defines computed callback function
@@ -1292,14 +1303,22 @@ export declare interface ISubscribedWatches extends IWatchSubscriberRegister {
  * @since 23 static
  */
 export declare interface IComputedDecoratedVariable<T> extends IDecoratedReadableVariable<T> {
-    /**
-     * Set owner for the computed variable. Used to detect component freezing.
-     *
-     * @param { IVariableOwner } owner - owner of this variable
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    setOwner(owner: IVariableOwner): void;
+  /**
+   * Set owner for the computed variable. Used to detect component freezing.
+   *
+   * @param { IVariableOwner } owner - owner of this variable
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  setOwner(owner: IVariableOwner): void;
+  /**
+   * Reset Computed when the ComponentV2 instance is reused.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  resetOnReuse(): void;
 }
 
 /**
@@ -1319,6 +1338,14 @@ export declare interface IMonitorDecoratedVariable {
    * @since 23 static
    */
   readonly path: string[];
+  /**
+   * Reset Monitor when the ComponentV2 instance is reused.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  resetOnReuse(): void;
 }
 
 /**
