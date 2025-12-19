@@ -38,6 +38,7 @@ export interface VibrateOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.vibrator/vibrator.VibrateTime
    */
   mode?: 'long' | 'short';
 
@@ -50,6 +51,7 @@ export interface VibrateOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.vibrator/vibrator#startVibration
    */
   success: () => void;
 
@@ -62,6 +64,7 @@ export interface VibrateOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.vibrator/vibrator#startVibration
    */
   fail?: (data: string, code: number) => void;
 
@@ -74,6 +77,7 @@ export interface VibrateOptions {
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
+   * @useinstead ohos.vibrator/vibrator#startVibration
    */
   complete?: () => void;
 }
