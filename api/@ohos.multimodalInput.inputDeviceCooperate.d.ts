@@ -166,7 +166,7 @@ declare namespace inputDeviceCooperate {
    * Starts mouse traversal.
    *
    * @param { string } sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
-   * @param { int } srcInputDeviceId Identifier of the peripheral device for mouse traversal.
+   * @param { number } srcInputDeviceId Identifier of the peripheral device for mouse traversal.
    * @param { AsyncCallback<void> } callback Asynchronous callback function.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -179,7 +179,7 @@ declare namespace inputDeviceCooperate {
    * @deprecated since 23
    * @useinstead ohos.cooperate/cooperate#activateCooperate
    */
-  function start(sinkDeviceDescriptor: string, srcInputDeviceId: int, callback: AsyncCallback<void>): void;
+  function start(sinkDeviceDescriptor: string, srcInputDeviceId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Starts mouse traversal.
@@ -199,7 +199,7 @@ declare namespace inputDeviceCooperate {
    * Starts mouse traversal.
    *
    * @param { string } sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
-   * @param { int } srcInputDeviceId Identifier of the peripheral device for mouse traversal.
+   * @param { number } srcInputDeviceId Identifier of the peripheral device for mouse traversal.
    * @returns { Promise<void> } Promise returned by this function
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -212,7 +212,7 @@ declare namespace inputDeviceCooperate {
    * @deprecated since 23
    * @useinstead ohos.cooperate/cooperate#activateCooperate
    */
-  function start(sinkDeviceDescriptor: string, srcInputDeviceId: int): Promise<void>;
+  function start(sinkDeviceDescriptor: string, srcInputDeviceId: number): Promise<void>;
 
   /**
    * Stops mouse traversal.
