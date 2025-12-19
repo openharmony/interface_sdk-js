@@ -26,7 +26,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace certificateManager
  * @syscap SystemCapability.Security.CertificateManager
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace certificateManager {
   /**
@@ -35,7 +35,7 @@ declare namespace certificateManager {
    * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum CMErrorCode {
     /**
@@ -43,7 +43,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_ERROR_NO_PERMISSION = 201,
 
@@ -53,7 +53,7 @@ declare namespace certificateManager {
      * @syscap SystemCapability.Security.CertificateManager
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_ERROR_NOT_SYSTEM_APP = 202,
 
@@ -63,7 +63,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_ERROR_INVALID_PARAMS = 401,
 
@@ -72,7 +72,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_ERROR_GENERIC = 17500001,
 
@@ -81,7 +81,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_ERROR_NO_FOUND = 17500002,
 
@@ -90,7 +90,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_ERROR_INCORRECT_FORMAT = 17500003,
 
@@ -99,7 +99,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_ERROR_MAX_CERT_COUNT_REACHED = 17500004,
 
@@ -108,7 +108,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_ERROR_NO_AUTHORIZATION = 17500005,
 
@@ -117,7 +117,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_ERROR_DEVICE_ENTER_ADVSECMODE = 17500007,
 
@@ -126,7 +126,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_ERROR_STORE_PATH_NOT_SUPPORTED = 17500009,
 
@@ -134,7 +134,8 @@ declare namespace certificateManager {
      * Indicates that access USB key service failed.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CM_ERROR_ACCESS_UKEY_SERVICE_FAILED = 17500010,
 
@@ -143,7 +144,8 @@ declare namespace certificateManager {
      * For example, the parameter format is incorrect or the value range is invalid.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CM_ERROR_PARAMETER_VALIDATION_FAILED = 17500011,
   }
@@ -154,7 +156,7 @@ declare namespace certificateManager {
    * @typedef CertInfo
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface CertInfo {
     /**
@@ -163,7 +165,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uri: string;
 
@@ -173,7 +175,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     certAlias: string;
 
@@ -183,7 +185,7 @@ declare namespace certificateManager {
      * @type { boolean }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     state: boolean;
 
@@ -193,7 +195,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     issuerName: string;
 
@@ -203,7 +205,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     subjectName: string;
 
@@ -213,7 +215,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     serial: string;
 
@@ -223,7 +225,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     notBefore: string;
 
@@ -233,7 +235,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     notAfter: string;
 
@@ -243,7 +245,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fingerprintSha256: string;
 
@@ -253,7 +255,7 @@ declare namespace certificateManager {
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cert: Uint8Array;
   }
@@ -264,7 +266,7 @@ declare namespace certificateManager {
    * @typedef CertAbstract
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface CertAbstract {
     /**
@@ -273,7 +275,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uri: string;
 
@@ -283,7 +285,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     certAlias: string;
 
@@ -293,7 +295,7 @@ declare namespace certificateManager {
      * @type { boolean }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     state: boolean;
 
@@ -303,7 +305,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     subjectName: string;
   }
@@ -314,7 +316,7 @@ declare namespace certificateManager {
    * @typedef Credential
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface Credential {
     /**
@@ -323,7 +325,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     type: string;
 
@@ -333,7 +335,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     alias: string;
 
@@ -343,7 +345,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     keyUri: string;
 
@@ -353,7 +355,7 @@ declare namespace certificateManager {
      * @type { int }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     certNum: int;
 
@@ -363,7 +365,7 @@ declare namespace certificateManager {
      * @type { int }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     keyNum: int;
 
@@ -373,7 +375,7 @@ declare namespace certificateManager {
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     credentialData: Uint8Array;
 
@@ -382,7 +384,8 @@ declare namespace certificateManager {
      *
      * @type { ?CertificatePurpose }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     certPurpose?: CertificatePurpose;
   }
@@ -393,7 +396,7 @@ declare namespace certificateManager {
    * @typedef CredentialAbstract
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface CredentialAbstract {
     /**
@@ -402,7 +405,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     type: string;
 
@@ -412,7 +415,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     alias: string;
 
@@ -422,7 +425,7 @@ declare namespace certificateManager {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     keyUri: string;
   }
@@ -433,7 +436,7 @@ declare namespace certificateManager {
    * @typedef CMResult
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface CMResult {
     /**
@@ -442,7 +445,7 @@ declare namespace certificateManager {
      * @type { ?Array<CertAbstract> }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     certList?: Array<CertAbstract>;
 
@@ -452,7 +455,7 @@ declare namespace certificateManager {
      * @type { ?CertInfo }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     certInfo?: CertInfo;
 
@@ -462,7 +465,7 @@ declare namespace certificateManager {
      * @type { ?Array<CredentialAbstract> }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     credentialList?: Array<CredentialAbstract>;
 
@@ -472,7 +475,7 @@ declare namespace certificateManager {
      * @type { ?Credential }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     credential?: Credential;
 
@@ -482,7 +485,7 @@ declare namespace certificateManager {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appUidList?: Array<string>;
 
@@ -492,7 +495,7 @@ declare namespace certificateManager {
      * @type { ?string }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uri?: string;
 
@@ -502,7 +505,7 @@ declare namespace certificateManager {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     outData?: Uint8Array;
 
@@ -511,7 +514,8 @@ declare namespace certificateManager {
      *
      * @type { ?Array<Credential> }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     credentialDetailList?: Array<Credential>;
   }
@@ -522,7 +526,7 @@ declare namespace certificateManager {
    * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum CmKeyPurpose {
     /**
@@ -530,7 +534,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_KEY_PURPOSE_SIGN = 4,
 
@@ -539,7 +543,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_KEY_PURPOSE_VERIFY = 8
   }
@@ -550,7 +554,7 @@ declare namespace certificateManager {
    * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum CmKeyDigest {
     /**
@@ -558,7 +562,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_DIGEST_NONE = 0,
 
@@ -567,7 +571,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_DIGEST_MD5 = 1,
 
@@ -576,7 +580,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_DIGEST_SHA1 = 2,
 
@@ -585,7 +589,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_DIGEST_SHA224 = 3,
 
@@ -594,7 +598,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_DIGEST_SHA256 = 4,
 
@@ -603,7 +607,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_DIGEST_SHA384 = 5,
 
@@ -612,7 +616,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_DIGEST_SHA512 = 6,
 
@@ -621,7 +625,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_DIGEST_SM3 = 7,
   }
@@ -632,7 +636,7 @@ declare namespace certificateManager {
    * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum CmKeyPadding {
     /**
@@ -640,7 +644,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_PADDING_NONE = 0,
 
@@ -649,7 +653,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_PADDING_PSS = 1,
 
@@ -658,7 +662,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CM_PADDING_PKCS1_V1_5 = 2
   }
@@ -669,7 +673,7 @@ declare namespace certificateManager {
    * @typedef CMSignatureSpec
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface CMSignatureSpec {
     /**
@@ -678,7 +682,7 @@ declare namespace certificateManager {
      * @type { CmKeyPurpose }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     purpose: CmKeyPurpose;
 
@@ -688,7 +692,7 @@ declare namespace certificateManager {
      * @type { ?CmKeyPadding }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     padding?: CmKeyPadding;
 
@@ -698,7 +702,7 @@ declare namespace certificateManager {
      * @type { ?CmKeyDigest }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     digest?: CmKeyDigest;
   }
@@ -709,7 +713,7 @@ declare namespace certificateManager {
    * @typedef CMHandle
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface CMHandle {
     /**
@@ -718,7 +722,7 @@ declare namespace certificateManager {
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     handle: Uint8Array;
   }
@@ -757,7 +761,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500004 - The number of certificates or credentials reaches the maximum allowed.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function installPrivateCertificate(
     keystore: Uint8Array,
@@ -800,7 +804,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500004 - The number of certificates or credentials reaches the maximum allowed.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string): Promise<CMResult>;
 
@@ -818,7 +822,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function uninstallPrivateCertificate(keyUri: string, callback: AsyncCallback<void>): void;
 
@@ -836,7 +840,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function uninstallPrivateCertificate(keyUri: string): Promise<void>;
 
@@ -854,7 +858,7 @@ declare namespace certificateManager {
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllAppPrivateCertificates(callback: AsyncCallback<CMResult>): void;
 
@@ -870,7 +874,7 @@ declare namespace certificateManager {
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllAppPrivateCertificates(): Promise<CMResult>;
 
@@ -888,7 +892,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPrivateCertificate(keyUri: string, callback: AsyncCallback<CMResult>): void;
 
@@ -906,7 +910,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPrivateCertificate(keyUri: string): Promise<CMResult>;
 
@@ -942,7 +946,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500005 - The application is not authorized by the user.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function init(authUri: string, spec: CMSignatureSpec, callback: AsyncCallback<CMHandle>): void;
 
@@ -978,7 +982,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500005 - The application is not authorized by the user.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function init(authUri: string, spec: CMSignatureSpec): Promise<CMHandle>;
 
@@ -996,7 +1000,7 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function update(handle: Uint8Array, data: Uint8Array, callback: AsyncCallback<void>): void;
 
@@ -1014,7 +1018,7 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function update(handle: Uint8Array, data: Uint8Array): Promise<void>;
 
@@ -1031,7 +1035,7 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function finish(handle: Uint8Array, callback: AsyncCallback<CMResult>): void;
 
@@ -1049,7 +1053,7 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function finish(handle: Uint8Array, signature: Uint8Array, callback: AsyncCallback<CMResult>): void;
 
@@ -1067,7 +1071,7 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function finish(handle: Uint8Array, signature?: Uint8Array): Promise<CMResult>;
 
@@ -1084,7 +1088,7 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function abort(handle: Uint8Array, callback: AsyncCallback<void>): void;
 
@@ -1101,7 +1105,7 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function abort(handle: Uint8Array): Promise<void>;
 
@@ -1120,7 +1124,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500005 - The application is not authorized by the user.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPublicCertificate(keyUri: string): Promise<CMResult>;
 
@@ -1137,7 +1141,7 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isAuthorizedApp(keyUri: string): Promise<boolean>;
 
@@ -1151,7 +1155,7 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllUserTrustedCertificates(): Promise<CMResult>;
 
@@ -1169,7 +1173,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getUserTrustedCertificate(certUri: string): Promise<CMResult>;
 
@@ -1185,7 +1189,7 @@ declare namespace certificateManager {
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllSystemAppCertificates(): Promise<CMResult>;
 
@@ -1199,7 +1203,7 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPrivateCertificates(): Promise<CMResult>;
 
@@ -1231,7 +1235,7 @@ declare namespace certificateManager {
    * For example, the device outside China does not support the certificate that uses SM algorithm.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getCertificateStorePath(property: CertStoreProperty): string;
 
@@ -1252,7 +1256,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500007 - Indicates that the device enters advanced security mode. In this mode, the user CA certificate cannot be installed.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function installUserTrustedCertificateSync(cert: Uint8Array, certScope: CertScope): CMResult;
 
@@ -1262,7 +1266,7 @@ declare namespace certificateManager {
    * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum AuthStorageLevel {
     /**
@@ -1270,7 +1274,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EL1 = 1,
 
@@ -1279,7 +1283,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EL2 = 2,
 
@@ -1288,7 +1292,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EL4 = 4
   }
@@ -1299,7 +1303,7 @@ declare namespace certificateManager {
    * @typedef CertStoreProperty
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface CertStoreProperty {
     /**
@@ -1308,7 +1312,7 @@ declare namespace certificateManager {
      * @type { CertType }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     certType: CertType;
 
@@ -1318,7 +1322,7 @@ declare namespace certificateManager {
      * @type { ?CertScope }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     certScope?: CertScope;
 
@@ -1328,7 +1332,7 @@ declare namespace certificateManager {
      * @type { ?CertAlgorithm }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     certAlg?: CertAlgorithm;
   }
@@ -1339,7 +1343,7 @@ declare namespace certificateManager {
    * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum CertType {
     /**
@@ -1347,7 +1351,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CA_CERT_SYSTEM = 0,
 
@@ -1356,7 +1360,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CA_CERT_USER = 1
   }
@@ -1379,7 +1383,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500004 - The number of certificates or credentials reaches the maximum allowed.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string, level: AuthStorageLevel): Promise<CMResult>;
 
@@ -1396,7 +1400,7 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllUserTrustedCertificates(scope: CertScope): Promise<CMResult>;
 
@@ -1406,7 +1410,7 @@ declare namespace certificateManager {
    * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum CertScope {
     /**
@@ -1414,7 +1418,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CURRENT_USER = 1,
 
@@ -1423,7 +1427,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GLOBAL_USER = 2
   }
@@ -1441,7 +1445,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function uninstallUserTrustedCertificateSync(certUri: string): void;
 
@@ -1451,7 +1455,7 @@ declare namespace certificateManager {
    * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum CertAlgorithm {
     /**
@@ -1459,7 +1463,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INTERNATIONAL = 1,
 
@@ -1468,7 +1472,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SM = 2,
   }
@@ -1478,14 +1482,16 @@ declare namespace certificateManager {
    *
    * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export enum CertificatePurpose {
     /**
      * Indicates default certificate purpose.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     PURPOSE_DEFAULT = 0,
 
@@ -1493,7 +1499,8 @@ declare namespace certificateManager {
      * Indicates all certificate purposes, used for query certificates function.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     PURPOSE_ALL = 1,
 
@@ -1501,7 +1508,8 @@ declare namespace certificateManager {
      * Indicates certificate for signature.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     PURPOSE_SIGN = 2,
 
@@ -1509,7 +1517,8 @@ declare namespace certificateManager {
      * Indicates certificate for encryption.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     PURPOSE_ENCRYPT = 3,
   }
@@ -1531,7 +1540,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500011 - Indicates that the input parameters validation failed.
    *     For example, the parameter format is incorrect or the value range is invalid.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getUkeyCertificate(keyUri: string, ukeyInfo: UkeyInfo): Promise<CMResult>;
 
@@ -1540,7 +1550,8 @@ declare namespace certificateManager {
    *
    * @typedef UkeyInfo
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface UkeyInfo {
     /**
@@ -1548,7 +1559,8 @@ declare namespace certificateManager {
      *
      * @type { ?CertificatePurpose }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
      certPurpose?: CertificatePurpose;
   }

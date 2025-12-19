@@ -43,7 +43,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class LinkedList<T> {
   /**
@@ -69,7 +69,7 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   constructor();
   /**
@@ -105,7 +105,7 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get length(): int;
 
@@ -138,7 +138,7 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   add(element: T): boolean;
   /**
@@ -184,7 +184,7 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   insert(index: int, element: T): void;
   /**
@@ -238,7 +238,7 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get(index: int): T | undefined;
 
@@ -268,7 +268,7 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   addFirst(element: T): void;
   /**
@@ -311,7 +311,7 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   removeFirst(): T | undefined;
 
@@ -355,7 +355,7 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   removeLast(): T | undefined;
 
@@ -388,7 +388,7 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   has(element: T): boolean;
   /**
@@ -422,7 +422,7 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getIndexOf(element: T): int;
   /**
@@ -486,7 +486,7 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   removeByIndex(index: int): T | undefined;
 
@@ -523,7 +523,7 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   remove(element: T): boolean;
   /**
@@ -565,7 +565,7 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   removeFirstFound(element: T): boolean;
   /**
@@ -607,7 +607,7 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   removeLastFound(element: T): boolean;
   /**
@@ -641,7 +641,7 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getLastIndexOf(element: T): int;
   /**
@@ -682,7 +682,7 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   getFirst(): T | undefined;
 
@@ -724,7 +724,7 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   getLast(): T | undefined;
 
@@ -791,7 +791,7 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   set(index: int, element: T): T | undefined;
 
@@ -857,7 +857,7 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   forEach(callbackfn: LinkedListForEachCb<T>): void;
 
@@ -886,7 +886,7 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clear(): void;
   /**
@@ -915,7 +915,7 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clone(): LinkedList<T>;
   /**
@@ -944,7 +944,7 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   convertToArray(): Array<T>;
   /**
@@ -983,7 +983,7 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   $_iterator(): IterableIterator<T>;
 
@@ -999,7 +999,7 @@ declare class LinkedList<T> {
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type LinkedListForEachCb<T> = (value: T, index: int, linkedList: LinkedList<T>) => void
 

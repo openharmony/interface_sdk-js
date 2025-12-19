@@ -25,7 +25,7 @@ import { ExtendableComponent } from '../component/extendableComponent';
  * UIUtils is a state management tool class for operating the observed data.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class UIUtils {
   /**
@@ -36,7 +36,7 @@ export declare class UIUtils {
    * @returns { T } raw object.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   static getTarget<T extends object>(source: T): T;
 
@@ -48,7 +48,7 @@ export declare class UIUtils {
    * @returns { T } proxy object from the source object data.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
    static makeObserved<T extends object>(source: T): T;
 
@@ -65,7 +65,7 @@ export declare class UIUtils {
    * @returns { Binding<T> } read-only data binding value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   static makeBinding<T>(getter: GetterCallback<T>): Binding<T>;
 
@@ -86,7 +86,7 @@ export declare class UIUtils {
    * @returns { MutableBinding<T> } mutable data binding value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   static makeBinding<T>(getter: GetterCallback<T>, setter: SetterCallback<T>): MutableBinding<T>;
 
@@ -122,7 +122,7 @@ export declare class UIUtils {
  * @typedef { function } GetterCallback
  * @returns { T }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare type GetterCallback<T> = () => T;
 
@@ -132,7 +132,7 @@ export declare type GetterCallback<T> = () => T;
  * @typedef { function } SetterCallback
  * @param { T } newValue - update the value with newValue.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare type SetterCallback<T> = (newValue: T) => void;
 
@@ -140,14 +140,14 @@ export declare type SetterCallback<T> = (newValue: T) => void;
  * Represents a read-only data binding.
  * Use with @Builder argument list for primitive types. Use makeBinding to pass values when calling the function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class Binding<T> {
   /**
    * Get function that can acquire the value.
    * @returns T
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get value(): T;
 }
@@ -156,21 +156,21 @@ export declare class Binding<T> {
  * Represents a mutable data binding allowing both read and write operations.
  * Use with @Builder argument list for primitive types. Use makeBinding to pass values when calling the function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class MutableBinding<T> {
   /**
    * Get function that can acquire the value.
    * @returns T
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   get value(): T;
   /**
    * Set function that can set the new value.
    * @param { T } newValue new value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   set value(newValue: T);
 }

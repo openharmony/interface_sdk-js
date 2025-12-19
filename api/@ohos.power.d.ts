@@ -26,7 +26,7 @@ import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
  * @namespace power
  * @syscap SystemCapability.PowerManager.PowerManager.Core
  * @since 7 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace power {
   /**
@@ -43,7 +43,7 @@ declare namespace power {
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function shutdown(reason: string): void;
 
@@ -76,7 +76,7 @@ declare namespace power {
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function reboot(reason: string): void;
 
@@ -110,7 +110,7 @@ declare namespace power {
    * @returns { boolean } Returns true if the device is active; returns false otherwise.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isActive(): boolean;
 
@@ -139,7 +139,7 @@ declare namespace power {
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function wakeup(detail: string): void;
 
@@ -176,7 +176,7 @@ declare namespace power {
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function suspend(isImmediate?: boolean): void;
 
@@ -186,7 +186,7 @@ declare namespace power {
    * @returns { DevicePowerMode } The power mode {@link DevicePowerMode} of current device .
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPowerMode(): DevicePowerMode;
 
@@ -263,7 +263,7 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isStandby(): boolean;
 
@@ -290,7 +290,7 @@ declare namespace power {
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function hibernate(clearMemory: boolean): void;
 
@@ -317,7 +317,7 @@ declare namespace power {
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setScreenOffTime(timeout: long): void;
 
@@ -336,7 +336,7 @@ declare namespace power {
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function refreshActivity(reason: string): void;
 
@@ -377,7 +377,7 @@ declare namespace power {
    * @enum { int }
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum DevicePowerMode {
     /**
@@ -385,14 +385,14 @@ declare namespace power {
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MODE_NORMAL = 600,
     /**
      * Power save mode
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      *
      */
     MODE_POWER_SAVE,
@@ -401,7 +401,7 @@ declare namespace power {
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MODE_PERFORMANCE,
     /**
@@ -409,7 +409,7 @@ declare namespace power {
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MODE_EXTREME_POWER_SAVE,
     /**
@@ -417,7 +417,7 @@ declare namespace power {
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MODE_CUSTOM_POWER_SAVE = 650
   }

@@ -30,7 +30,7 @@ import { RecordData } from '../@ohos.base';
  * @stagemodelonly
  * @atomicservice
  * @since 14 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default interface UIServiceProxy {
   /**
@@ -54,7 +54,7 @@ export default interface UIServiceProxy {
    * @throws { BusinessError } 16000050 - Internal error. Possible cause: Connect to stub failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   sendData(data: Record<string, RecordData>): void;
 }

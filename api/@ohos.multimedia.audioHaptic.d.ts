@@ -27,7 +27,7 @@ import type audio from './@ohos.multimedia.audio';
  * @namespace audioHaptic
  * @syscap SystemCapability.Multimedia.AudioHaptic.Core
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace audioHaptic {
   /**
@@ -35,7 +35,7 @@ declare namespace audioHaptic {
    * @returns { AudioHapticManager } AudioHapticManager instance.
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAudioHapticManager(): AudioHapticManager;
 
@@ -44,14 +44,14 @@ declare namespace audioHaptic {
    * @enum {int}
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AudioLatencyMode {
     /**
      * Normal audio mode.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_LATENCY_MODE_NORMAL = 0,
 
@@ -60,7 +60,7 @@ declare namespace audioHaptic {
      * source is long, it may be truncated. This behavior is the same with sound pool.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_LATENCY_MODE_FAST = 1
   }
@@ -70,7 +70,7 @@ declare namespace audioHaptic {
    * @typedef AudioHapticPlayerOptions
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AudioHapticPlayerOptions {
     /**
@@ -78,7 +78,7 @@ declare namespace audioHaptic {
      * @type {?boolean}
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     muteAudio?: boolean;
 
@@ -87,7 +87,7 @@ declare namespace audioHaptic {
      * @type {?boolean}
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     muteHaptics?: boolean;
   }
@@ -97,7 +97,7 @@ declare namespace audioHaptic {
    * @typedef AudioHapticManager
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AudioHapticManager {
     /**
@@ -111,7 +111,7 @@ declare namespace audioHaptic {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     registerSource(audioUri: string, hapticUri: string): Promise<int>;
 
@@ -124,7 +124,7 @@ declare namespace audioHaptic {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     unregisterSource(id: int): Promise<void>;
 
@@ -138,7 +138,7 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setAudioLatencyMode(id:int, latencyMode: AudioLatencyMode): void;
 
@@ -153,7 +153,7 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setStreamUsage(id: int, usage: audio.StreamUsage): void;
 
@@ -188,7 +188,7 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400106 - Unsupport format.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 22 static
+     * @since 23 static
      */
     createPlayer(id: int, options?: AudioHapticPlayerOptions): Promise<AudioHapticPlayer | null>;
 
@@ -200,7 +200,7 @@ declare namespace audioHaptic {
      * @returns { Promise<int> } Promise used to return the source id.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     registerSourceFromFd(audioFd: AudioHapticFileDescriptor, hapticFd: AudioHapticFileDescriptor): Promise<int>;
   }
@@ -210,14 +210,14 @@ declare namespace audioHaptic {
    * @enum {int}
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AudioHapticType {
     /**
      * Audio.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_HAPTIC_TYPE_AUDIO = 0,
 
@@ -225,7 +225,7 @@ declare namespace audioHaptic {
      * Haptic.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO_HAPTIC_TYPE_HAPTIC = 1,
   }
@@ -236,7 +236,7 @@ declare namespace audioHaptic {
    * @typedef AudioHapticFileDescriptor
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AudioHapticFileDescriptor {
     /**
@@ -244,7 +244,7 @@ declare namespace audioHaptic {
      * @type { int }
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fd: int;
 
@@ -254,7 +254,7 @@ declare namespace audioHaptic {
      * @type { ?long }
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     length?: long;
 
@@ -264,7 +264,7 @@ declare namespace audioHaptic {
      * @type { ?long }
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     offset?: long
   }
@@ -274,7 +274,7 @@ declare namespace audioHaptic {
    * @typedef AudioHapticPlayer
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AudioHapticPlayer {
     /**
@@ -286,7 +286,7 @@ declare namespace audioHaptic {
      *                                 2.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isMuted(type: AudioHapticType): boolean;
 
@@ -298,7 +298,7 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 5400105 - Service died.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     start(): Promise<void>;
 
@@ -309,7 +309,7 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 5400105 - Service died.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stop(): Promise<void>;
 
@@ -319,7 +319,7 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 5400105 - Service died.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     release(): Promise<void>;
 
@@ -336,7 +336,7 @@ declare namespace audioHaptic {
      * Subscribes end of stream event.
      * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 22 static
+     * @since 23 static
      */
     onEndOfStream(callback: Callback<void>): void;
 
@@ -353,7 +353,7 @@ declare namespace audioHaptic {
      * Unsubscribes end of stream event.
      * @param { Callback<void> } [callback] - Callback used to listen for the playback end of stream.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 22 static
+     * @since 23 static
      */
     offEndOfStream(callback?: Callback<void>): void;
 
@@ -370,7 +370,7 @@ declare namespace audioHaptic {
      * Subscribes audio interrupt event.
      * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for audio interrupt info.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 22 static
+     * @since 23 static
      */
     onAudioInterrupt(callback: Callback<audio.InterruptEvent>): void;
 
@@ -388,7 +388,7 @@ declare namespace audioHaptic {
      * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
      * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for audio interrupt info.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 22 static
+     * @since 23 static
      */
     offAudioInterrupt(callback?: Callback<audio.InterruptEvent>): void;
 
@@ -401,7 +401,7 @@ declare namespace audioHaptic {
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enableHapticsInSilentMode(enable: boolean): void;
 
@@ -416,7 +416,7 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 5400108 - Parameter out of range.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setVolume(volume: double): Promise<void>;
 
@@ -427,7 +427,7 @@ declare namespace audioHaptic {
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isHapticsIntensityAdjustmentSupported(): boolean;
 
@@ -444,7 +444,7 @@ declare namespace audioHaptic {
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setHapticsIntensity(intensity: double): Promise<void>;
 
@@ -455,7 +455,7 @@ declare namespace audioHaptic {
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isHapticsRampSupported(): boolean;
 
@@ -476,7 +476,7 @@ declare namespace audioHaptic {
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setHapticsRamp(duration: int, startIntensity: double, endIntensity: double): Promise<void>;
 
@@ -488,7 +488,7 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 5400102 - Operate not permit in current state.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setLoop(loop: boolean): Promise<void>;
   }

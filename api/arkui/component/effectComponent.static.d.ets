@@ -29,7 +29,7 @@ import { CustomBuilder } from '@ohos.arkui.component';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
- * @since 22 static
+ * @since 23 static
  */
 export declare enum EffectLayer {
   /**
@@ -37,7 +37,7 @@ export declare enum EffectLayer {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   NONE = 0,
 
@@ -46,7 +46,7 @@ export declare enum EffectLayer {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   CHARGE_MOTION = 1,
 
@@ -55,7 +55,7 @@ export declare enum EffectLayer {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   CHARGE_TEXT = 2
 }
@@ -67,7 +67,7 @@ export declare enum EffectLayer {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
- * @since 22 static
+ * @since 23 static
  */
 export declare interface EffectComponentOptions {
 
@@ -76,7 +76,7 @@ export declare interface EffectComponentOptions {
    * @type { ?EffectLayer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   effectLayer?: EffectLayer;
 }
@@ -87,7 +87,7 @@ export declare interface EffectComponentOptions {
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 export declare interface EffectComponentAttribute extends CommonMethod {
     /**
@@ -98,7 +98,7 @@ export declare interface EffectComponentAttribute extends CommonMethod {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     alwaysSnapshot(enable: boolean): this;
     /**
@@ -108,7 +108,7 @@ export declare interface EffectComponentAttribute extends CommonMethod {
      * @returns { EffectComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     attributeModifier(modifier: AttributeModifier<EffectComponentAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
@@ -121,7 +121,7 @@ export declare interface EffectComponentAttribute extends CommonMethod {
  * @returns { EffectComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 @ComponentBuilder
 export declare function EffectComponent(
@@ -137,7 +137,7 @@ export declare function EffectComponent(
  * @returns{EffectComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder

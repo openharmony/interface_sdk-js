@@ -29,7 +29,7 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface FormMenuItemStyle {
@@ -40,7 +40,7 @@ export interface FormMenuItemStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   options?: MenuItemOptions;
 }
@@ -52,7 +52,7 @@ export interface FormMenuItemStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface AddFormOptions {
@@ -63,7 +63,7 @@ export interface AddFormOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   formBindingData?: formBindingData.FormBindingData;
 
@@ -74,7 +74,7 @@ export interface AddFormOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   callback?: AsyncCallback<string>;
 
@@ -85,7 +85,7 @@ export interface AddFormOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   style?: FormMenuItemStyle;
 }
@@ -99,7 +99,7 @@ export interface AddFormOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @Builder

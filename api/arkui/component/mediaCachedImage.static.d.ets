@@ -30,7 +30,7 @@ import { PixelMap } from './common';
  * @interface ASTCResource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 export interface ASTCResource {
     /**
@@ -38,7 +38,7 @@ export interface ASTCResource {
      * @type { Array<string> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     sources: Array<string>;
     /**
@@ -46,7 +46,7 @@ export interface ASTCResource {
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @since 23 static
      */
     column: int;
 }
@@ -59,7 +59,7 @@ export interface ASTCResource {
  * @returns { MediaCachedImageAttribute } The attribute of the mediaCachedImage.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 export type MediaCachedImageInterface = (src: PixelMap | ResourceStr | DrawableDescriptor | ASTCResource)
     => MediaCachedImageAttribute;
@@ -71,7 +71,7 @@ export type MediaCachedImageInterface = (src: PixelMap | ResourceStr | DrawableD
  * @interface MediaCachedImageAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 export interface MediaCachedImageAttribute extends ImageAttribute {
 }
@@ -84,7 +84,7 @@ export interface MediaCachedImageAttribute extends ImageAttribute {
  * @returns { MediaCachedImageAttribute } The attribute of the mediaCachedImage.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder

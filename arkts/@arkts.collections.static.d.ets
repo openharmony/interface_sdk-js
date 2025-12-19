@@ -24,7 +24,7 @@
  *
  * @namespace collections
  * @syscap SystemCapability.Utils.Lang
- * @since 22 static
+ * @since 23 static
  */
 declare namespace collections {
  /**
@@ -34,7 +34,7 @@ declare namespace collections {
    * it must be synchronized externally. 
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 22 static
+   * @since 23 static
    */
   class BitVector {
     /**
@@ -42,7 +42,7 @@ declare namespace collections {
      *
      * @param { int } length - The length of BitVector object.
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     constructor(length: int);
     /**
@@ -51,7 +51,7 @@ declare namespace collections {
      *
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     get length(): int;
     /**
@@ -62,7 +62,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The push method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     push(element: int): boolean;
     /**
@@ -70,7 +70,7 @@ declare namespace collections {
      *
      * @returns { int | undefined } The boolean type, if the bit push successfully, return true, else return false.
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     pop(): int | undefined;
     /**
@@ -85,7 +85,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The has method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     has(element: int, fromIndex: int, toIndex: int): boolean;
     /**
@@ -98,7 +98,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The setBitsByRange method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     setBitsByRange(element: int, fromIndex: int, toIndex: int): void;
     /**
@@ -108,7 +108,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The setAllBits method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     setAllBits(element: int): void;
     /**
@@ -121,7 +121,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The getBitsByRange method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     getBitsByRange(fromIndex: int, toIndex: int): BitVector;
     /**
@@ -132,7 +132,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The resize method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     resize(size: int): void;
     /**
@@ -146,7 +146,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The getBitCountByRange method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     getBitCountByRange(element: int, fromIndex: int, toIndex: int): int;
     /**
@@ -161,7 +161,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     getIndexOf(element: int, fromIndex: int, toIndex: int): int;
     /**
@@ -176,7 +176,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     getLastIndexOf(element: int, fromIndex: int, toIndex: int): int;
     /**
@@ -187,7 +187,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The flipBitByIndex method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     flipBitByIndex(index: int): void;
     /**
@@ -199,7 +199,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The flipBitsByRange method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     flipBitsByRange(fromIndex: int, toIndex: int): void;
     /**
@@ -207,7 +207,7 @@ declare namespace collections {
      *
      * @returns { IterableIterator<int> } A new iterable iterator object.
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     $_iterator(): IterableIterator<int>;
     /**
@@ -217,7 +217,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The values method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     values(): IterableIterator<int>;
     /**
@@ -228,7 +228,7 @@ declare namespace collections {
      * @returns { int } The element in the BitVector at the given index.
      * @throws { BusinessError } 10200001 - The value of index is out of range.
      * @syscap SystemCapability.Utils.Lang
-     * @since 22 static
+     * @since 23 static
      */
     [index: int]: int;
   }

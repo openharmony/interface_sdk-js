@@ -28,7 +28,7 @@ import _DriverExtensionContext from './application/DriverExtensionContext';
  * @typedef { _DriverExtensionContext }
  * @syscap SystemCapability.Driver.ExternalDevice
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export type DriverExtensionContext = _DriverExtensionContext;
 
@@ -37,7 +37,7 @@ export type DriverExtensionContext = _DriverExtensionContext;
  * @syscap SystemCapability.Driver.ExternalDevice
  * @StageModelOnly
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class DriverExtensionAbility {
   /**
@@ -47,7 +47,7 @@ declare class DriverExtensionAbility {
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   context: DriverExtensionContext;
 
@@ -57,7 +57,7 @@ declare class DriverExtensionAbility {
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onInit(want: Want): void;
 
@@ -66,7 +66,7 @@ declare class DriverExtensionAbility {
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onRelease(): void;
 
@@ -77,7 +77,7 @@ declare class DriverExtensionAbility {
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onConnect(want: Want): rpc.RemoteObject | Promise<rpc.RemoteObject>;
 
@@ -97,7 +97,7 @@ declare class DriverExtensionAbility {
    * @returns { undefined | Promise<void> }
    * @syscap SystemCapability.Driver.ExternalDevice
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onDisconnect(want: Want): undefined | Promise<void>;
 
@@ -109,7 +109,7 @@ declare class DriverExtensionAbility {
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onDump(params: Array<string>): Array<string>;
 }
@@ -119,6 +119,6 @@ declare class DriverExtensionAbility {
  * @syscap SystemCapability.Driver.ExternalDevice
  * @stagemodelonly
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default DriverExtensionAbility;

@@ -41,7 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace xml {
     /**
@@ -51,7 +51,7 @@ declare namespace xml {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    * @name XmlDynamicSerializer
    */
   class XmlDynamicSerializer {
@@ -65,7 +65,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(encoding?: string);
 
@@ -81,7 +81,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setAttributes(name: string, value: string): void;
 
@@ -95,7 +95,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     addEmptyElement(name: string): void;
 
@@ -107,7 +107,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setDeclaration(): void;
 
@@ -121,7 +121,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     startElement(name: string): void;
 
@@ -134,7 +134,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     endElement(): void;
 
@@ -149,7 +149,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setNamespace(prefix: string, namespace: string): void;
 
@@ -163,7 +163,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setComment(text: string): void;
 
@@ -177,7 +177,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setCdata(text: string): void;
 
@@ -191,7 +191,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setText(text: string): void;
 
@@ -205,7 +205,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setDocType(text: string): void;
 
@@ -217,7 +217,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getOutput(): ArrayBuffer;
   }
@@ -243,7 +243,7 @@ declare namespace xml {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    * @name XmlSerializer
    */
   class XmlSerializer {
@@ -293,7 +293,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(buffer: ArrayBuffer | DataView, encoding?: string);
 
@@ -334,7 +334,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setAttributes(name: string, value: string): void;
 
@@ -373,7 +373,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     addEmptyElement(name: string): void;
 
@@ -397,7 +397,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setDeclaration(): void;
 
@@ -436,7 +436,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     startElement(name: string): void;
 
@@ -460,7 +460,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     endElement(): void;
 
@@ -502,7 +502,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setNamespace(prefix: string, namespace: string): void;
 
@@ -541,7 +541,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setComment(text: string): void;
 
@@ -580,7 +580,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setCDATA(text: string): void;
 
@@ -619,7 +619,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setText(text: string): void;
 
@@ -658,7 +658,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setDocType(text: string): void;
   }
@@ -686,7 +686,7 @@ declare namespace xml {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum EventType {
     /**
@@ -709,7 +709,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     START_DOCUMENT,
     /**
@@ -732,7 +732,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     END_DOCUMENT,
     /**
@@ -755,7 +755,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     START_TAG,
     /**
@@ -778,7 +778,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     END_TAG,
     /**
@@ -801,7 +801,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TEXT,
     /**
@@ -824,7 +824,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CDSECT,
     /**
@@ -847,7 +847,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COMMENT,
     /**
@@ -870,7 +870,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DOCDECL,
     /**
@@ -893,7 +893,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INSTRUCTION,
     /**
@@ -916,7 +916,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ENTITY_REFERENCE,
     /**
@@ -939,7 +939,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WHITESPACE
   }
@@ -967,7 +967,7 @@ declare namespace xml {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ParseInfo {
     /**
@@ -993,7 +993,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getColumnNumber(): int;
     /**
@@ -1019,7 +1019,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getDepth(): int;
     /**
@@ -1045,7 +1045,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getLineNumber(): int;
     /**
@@ -1071,7 +1071,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getName(): string;
     /**
@@ -1097,7 +1097,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getNamespace(): string;
     /**
@@ -1123,7 +1123,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getPrefix(): string;
     /**
@@ -1149,7 +1149,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getText(): string;
     /**
@@ -1175,7 +1175,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isEmptyElementTag(): boolean;
     /**
@@ -1201,7 +1201,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isWhitespace(): boolean;
     /**
@@ -1227,7 +1227,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getAttributeCount(): int;
   }
@@ -1255,7 +1255,7 @@ declare namespace xml {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ParseOptions {
     /**
@@ -1281,7 +1281,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     supportDoctype?: boolean;
 
@@ -1308,7 +1308,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ignoreNameSpace?: boolean;
 
@@ -1335,7 +1335,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     tagValueCallbackFunction?: (name: string, value: string) => boolean;
 
@@ -1362,7 +1362,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     attributeValueCallbackFunction?: (name: string, value: string) => boolean;
 
@@ -1389,7 +1389,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     tokenValueCallbackFunction?: (eventType: EventType, value: ParseInfo) => boolean;
 
@@ -1416,7 +1416,6 @@ declare namespace xml {
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
    */
   /**
    * The type of ParseOptions attributeWithTagCallbackFunction.
@@ -1429,7 +1428,8 @@ declare namespace xml {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   type AttributeWithTagCb = (tagName: string, key: string, value: string) => boolean;
 
@@ -1455,7 +1455,7 @@ declare namespace xml {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    * @name XmlPullParser
    */
   class XmlPullParser {
@@ -1497,7 +1497,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(buffer: ArrayBuffer | DataView, encoding?: string);
 
@@ -1552,7 +1552,7 @@ declare namespace xml {
      * @crossplatform
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     parseXml(option: ParseOptions): void;
   }

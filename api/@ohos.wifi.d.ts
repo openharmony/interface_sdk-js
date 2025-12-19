@@ -24,7 +24,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * Provides methods to operate or manage Wi-Fi.
  * @namespace wifi
  * @since 6 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace wifi {
   /**

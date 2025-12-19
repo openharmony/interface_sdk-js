@@ -61,7 +61,7 @@ import ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStat
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class ApplicationContext extends Context {
   /**
@@ -115,7 +115,7 @@ declare class ApplicationContext extends Context {
    * @returns { int } Returns the number code of the callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onAbilityLifecycle(callback: AbilityLifecycleCallback): int;
 
@@ -185,7 +185,7 @@ declare class ApplicationContext extends Context {
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the deregistration is successful,
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   offAbilityLifecycle(callbackId: int, callback: AsyncCallback<void>): void;
 
@@ -245,7 +245,7 @@ declare class ApplicationContext extends Context {
    * @returns { Promise<void> } ThePromise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   offAbilityLifecycle(callbackId: int): Promise<void>;
 
@@ -295,7 +295,7 @@ declare class ApplicationContext extends Context {
    * @returns { int } Returns the number code of the callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onEnvironment(callback: EnvironmentCallback): int;
 
@@ -331,7 +331,7 @@ declare class ApplicationContext extends Context {
    * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   offEnvironment(callbackId: int, callback: AsyncCallback<void>): void;
 
@@ -367,7 +367,7 @@ declare class ApplicationContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   offEnvironment(callbackId: int): Promise<void>;
 
@@ -420,7 +420,7 @@ declare class ApplicationContext extends Context {
    * @param { ApplicationStateChangeCallback } callback - The applicationStateChange callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onApplicationStateChange(callback: ApplicationStateChangeCallback): void;
 
@@ -475,7 +475,7 @@ declare class ApplicationContext extends Context {
    * @param { ApplicationStateChangeCallback } [callback] - The applicationStateChange callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   offApplicationStateChange(callback?: ApplicationStateChangeCallback): void;
 
@@ -517,7 +517,7 @@ declare class ApplicationContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
 
@@ -559,7 +559,7 @@ declare class ApplicationContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
@@ -592,7 +592,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   killAllProcesses(): Promise<void>;
 
@@ -616,7 +616,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   killAllProcesses(clearPageStack: boolean): Promise<void>;
 
@@ -650,7 +650,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   killAllProcesses(callback: AsyncCallback<void>): void;
 
@@ -682,7 +682,7 @@ declare class ApplicationContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 
@@ -718,7 +718,7 @@ declare class ApplicationContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setLanguage(language: string): void;
 
@@ -738,7 +738,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clearUpApplicationData(): Promise<void>;
 
@@ -761,7 +761,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clearUpApplicationData(callback: AsyncCallback<void>): void;
 
@@ -785,7 +785,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   restartApp(want: Want): void;
 
@@ -812,7 +812,7 @@ declare class ApplicationContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   preloadUIExtensionAbility(want: Want): Promise<void>;
 
@@ -840,7 +840,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setSupportedProcessCache(isSupported : boolean): void;
 
@@ -874,7 +874,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setFont(font: string): void;
 
@@ -888,7 +888,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getCurrentAppCloneIndex(): int;
 
@@ -916,7 +916,7 @@ declare class ApplicationContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setFontSizeScale(fontSizeScale: double): void;
 
@@ -934,7 +934,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getCurrentInstanceKey(): string;
 
@@ -955,7 +955,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
     getAllRunningInstanceKeys(): Promise<Array<string>>;
 

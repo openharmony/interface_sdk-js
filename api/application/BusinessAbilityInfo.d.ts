@@ -28,7 +28,7 @@ import type businessAbilityRouter from '../@ohos.app.businessAbilityRouter';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface BusinessAbilityInfo {
   /**
@@ -39,7 +39,7 @@ export interface BusinessAbilityInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly bundleName: string;
 
@@ -51,7 +51,7 @@ export interface BusinessAbilityInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly moduleName: string;
 
@@ -63,7 +63,7 @@ export interface BusinessAbilityInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly name: string;
 
@@ -75,7 +75,7 @@ export interface BusinessAbilityInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly labelId: int;
 
@@ -87,7 +87,7 @@ export interface BusinessAbilityInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly descriptionId: int;
 
@@ -99,7 +99,7 @@ export interface BusinessAbilityInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly iconId: int;
 
@@ -111,7 +111,7 @@ export interface BusinessAbilityInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly businessType: businessAbilityRouter.BusinessType;
 
@@ -123,7 +123,7 @@ export interface BusinessAbilityInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly applicationInfo: ApplicationInfo;
 }

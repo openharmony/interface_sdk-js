@@ -31,7 +31,7 @@ import type camera from './@ohos.multimedia.camera';
  * @syscap SystemCapability.Multimedia.Camera.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace cameraPicker {
 
@@ -47,7 +47,7 @@ declare namespace cameraPicker {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class PickerProfile {
     /**
@@ -64,7 +64,7 @@ declare namespace cameraPicker {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cameraPosition: camera.CameraPosition;
 
@@ -82,7 +82,7 @@ declare namespace cameraPicker {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     saveUri?: string;
 
@@ -100,7 +100,7 @@ declare namespace cameraPicker {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     videoDuration?: int;
   }
@@ -119,7 +119,7 @@ declare namespace cameraPicker {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PickerMediaType {
     /**
@@ -134,7 +134,7 @@ declare namespace cameraPicker {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PHOTO = 'photo',
 
@@ -150,7 +150,7 @@ declare namespace cameraPicker {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO = 'video'
   }
@@ -167,7 +167,7 @@ declare namespace cameraPicker {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class PickerResult {
     /**
@@ -184,7 +184,7 @@ declare namespace cameraPicker {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     resultCode: int;
 
@@ -202,7 +202,7 @@ declare namespace cameraPicker {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     resultUri: string;
 
@@ -220,7 +220,7 @@ declare namespace cameraPicker {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     mediaType: PickerMediaType;
   }
@@ -247,7 +247,7 @@ declare namespace cameraPicker {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function pick(context: Context, mediaTypes: Array<PickerMediaType>, pickerProfile: PickerProfile): Promise<PickerResult>;
 }
