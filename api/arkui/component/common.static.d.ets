@@ -3191,31 +3191,6 @@ export declare enum ThemeColorMode {
 }
 
 /**
- * enum color mode of pointing popup
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-export declare enum AnchoredColorMode {
-  /**
-   * Defines the mode which is follow up with system.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  FOLLOW_SYSTEM = 0,
-
-  /**
-   * Defines the mode which is follow up with target.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  FOLLOW_TARGET = 1
-}
-
-/**
  * Defines adaptive color
  *
  * @enum { number }
@@ -6926,16 +6901,6 @@ export declare interface PopupCommonOptions {
     borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
-   * Define the popup theme color mode.
-   *
-   * @type { ?AnchoredColorMode }
-   * @default AnchoredColorMode.SYSTEM
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  colorMode?: AnchoredColorMode;
-
-  /**
    * Callback function when the popup disappears.
    *
    * @type { ?VoidCallback }
@@ -7355,16 +7320,6 @@ export declare interface PopupOptions {
     borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
-   * Define the popup theme color mode.
-   *
-   * @type { ?AnchoredColorMode }
-   * @default AnchoredColorMode.SYSTEM
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  colorMode?: AnchoredColorMode;
-
-  /**
    * Callback function before the popup closeAnimation starts.
    *
    * @type { ?VoidCallback }
@@ -7696,16 +7651,6 @@ export declare interface CustomPopupOptions {
      * @since 23 static
      */
     borderLinearGradient?: PopupBorderLinearGradient;
-
-  /**
-   * Define the popup theme color mode.
-   *
-   * @type { ?AnchoredColorMode }
-   * @default AnchoredColorMode.SYSTEM
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  colorMode?: AnchoredColorMode;
 
   /**
    * Callback function when the popup appears.
@@ -8291,35 +8236,6 @@ export declare interface ContextMenuOptions {
      * @since 23 static
      */
     anchorPosition?: Position;
-
-    /**
-     * Defines the max height of menu.
-     *
-     * @type { ?LengthMetrics }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    maxHeight?: LengthMetrics;
-
-    /**
-     * Define the menu theme color mode.
-     *
-     * @type { ?AnchoredColorMode }
-     * @default AnchoredColorMode.SYSTEM
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    colorMode?: AnchoredColorMode;
-
-    /**
-     * Determine if preview scale maintain aspect ratio.
-     *
-     * @type { ?boolean }
-     * @default false
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    maintainScaleEnabled?: boolean;
 
     /**
      * Determine the mode of menu how to avoid keyboard.
