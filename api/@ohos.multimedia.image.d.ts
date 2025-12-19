@@ -5033,15 +5033,16 @@ declare namespace image {
   }
 
   /**
-   * Describes ImageReceiver creation options.
+   * Describes the initialization options for ImageReceiver.
    *
    * @typedef ImageReceiverOptions
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+   * @stagemodelonly
    * @since 23 dynamic&static
    */
   interface ImageReceiverOptions {
     /**
-     * Image size, both Size.witdh and Size.height should be greater than 0.
+     * Image size, with both the witdh and height greater than 0.
      *
      * @type { ?Size }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
@@ -5051,7 +5052,8 @@ declare namespace image {
     size?: Size;
 
     /**
-     * The maximum number of images the user wants to access simultaneously, 0 < capacity <= 64.
+     * Maximum number of images that can be accessed simultaneously. The value must be a positive integer less than
+     * or equal to 64.
      *
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
@@ -10306,7 +10308,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly timestamp: long;
 
     /**
-     * Image colorspace.
+     * Color space of the image.
      *
      * @type { colorSpaceManager.ColorSpace }
      * @readonly
@@ -10314,7 +10316,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @stagemodelonly
      * @since 23 dynamic&static
      */
-    readonly colorspace: colorSpaceManager.ColorSpace;
+    readonly colorSpace: colorSpaceManager.ColorSpace;
 
     /**
      * Get component buffer from image and uses a callback to return the result.
