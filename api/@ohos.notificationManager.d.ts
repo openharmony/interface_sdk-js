@@ -88,7 +88,7 @@ declare namespace notificationManager {
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, err is undefined;
    *                                           otherwise, err is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -107,7 +107,7 @@ declare namespace notificationManager {
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, err is undefined;
    *                                           otherwise, err is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -131,7 +131,7 @@ declare namespace notificationManager {
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, err is undefined;
    *                                           otherwise, err is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -159,7 +159,7 @@ declare namespace notificationManager {
    * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -177,7 +177,7 @@ declare namespace notificationManager {
    * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -200,7 +200,7 @@ declare namespace notificationManager {
    * @param { NotificationRequest } request - Content and related configuration of the notification to publish.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -300,7 +300,37 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 23 static
+   */
+  /**
+   * Publishes a notification to the specified user.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER or ohos.permission.SEND_NOTIFICATION_CROSS_USER
+   * @param { NotificationRequest } request - a notification.
+   * @param { int } userId - of subscriber receiving the notification.
+   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - The device does not support geofencing.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600005 - Notification slot disabled.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 1600014 - No permission.
+   * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
+   * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
+   * @throws { BusinessError } 1600025 - Geofencing disabled.
+   * @throws { BusinessError } 2300007 - Network unreachable.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
    */
   function publish(request: NotificationRequest, userId: int, callback: AsyncCallback<void>): void;
 
@@ -383,7 +413,37 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 23 static
+   */
+  /**
+   * Publishes a notification to the specified user.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER or ohos.permission.SEND_NOTIFICATION_CROSS_USER
+   * @param { NotificationRequest } request - a notification.
+   * @param { int } userId - of subscriber receiving the notification.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - The device does not support geofencing.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600005 - Notification slot disabled.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 1600014 - No permission.
+   * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
+   * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
+   * @throws { BusinessError } 1600025 - Geofencing disabled.
+   * @throws { BusinessError } 2300007 - Network unreachable.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
    */
   function publish(request: NotificationRequest, userId: int): Promise<void>;
 
@@ -398,7 +458,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -415,7 +475,37 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 23 static
+   */
+  /**
+   * Publishes a representative notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { NotificationRequest } request - a notification.
+   * @param { string } representativeBundle - bundle name of the representative
+   * @param { int } userId - userid of the representative
+   * @param { AsyncCallback<void> } callback - The callback of publishAsBundle.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - The device does not support geofencing.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600005 - Notification slot disabled.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
+   * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
+   * @throws { BusinessError } 1600025 - Geofencing disabled.
+   * @throws { BusinessError } 2300007 - Network unreachable.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
    */
   function publishAsBundle(
     request: NotificationRequest,
@@ -435,7 +525,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -452,7 +542,37 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 23 static
+   */
+  /**
+   * Publishes a representative notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { NotificationRequest } request - a notification.
+   * @param { string } representativeBundle - bundle name of the representative
+   * @param { int } userId - userid of the representative
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - The device does not support geofencing.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600005 - Notification slot disabled.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
+   * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
+   * @throws { BusinessError } 1600025 - Geofencing disabled.
+   * @throws { BusinessError } 2300007 - Network unreachable.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
    */
   function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: int): Promise<void>;
 
@@ -466,7 +586,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -483,7 +603,37 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 23 static
+   */
+  /**
+   * Publishes a representative notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { NotificationRequest } request - a notification.
+   * @param { string } representativeBundle - bundle name of the representative
+   * @param { int } userId - userid of the representative
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - The device does not support geofencing.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600005 - Notification slot disabled.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
+   * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission settings.
+   * @throws { BusinessError } 1600025 - Geofencing disabled.
+   * @throws { BusinessError } 2300007 - Network unreachable.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
    */
   function publishAsBundle(representativeBundle: BundleOption, request: NotificationRequest): Promise<void>;
 
