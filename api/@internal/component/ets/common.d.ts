@@ -24661,6 +24661,21 @@ declare class CommonMethod<T> {
   useEffect(value: boolean): T;
 
   /**
+   * Specify whether the current component participates in the fusion effect of the ancestor component UnionEffectContainer
+   *
+   * @param { boolean | undefined } value - Whether the component participates in the fusion effect of
+   *     the ancestor component **UnionEffectContainer**.<br>The value **true** means that the component participates
+   *     in the fusion effect of the ancestor component **UnionEffectContainer**, and **false** means the opposite.
+   *     <br>Default value: **false**. Undefined means to default value.
+   * @returns { T } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  useUnionEffect(value: boolean | undefined): T;
+
+  /**
    * Applies a background blur effect to the component. You can customize the blur radius and grayscale parameters.
    *
    * @param { number } value - Background blur effect to apply to the component.
