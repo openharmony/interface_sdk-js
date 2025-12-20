@@ -311,6 +311,16 @@ export declare class Router {
   getLength(): string;
 
   /**
+   * Obtains the number of pages in the current stack.
+   *
+   * @returns { int } Number of pages in the stack. The maximum value is 32.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  getStackSize(): int;
+
+  /**
    * Obtains information about the current page state.
    *
    * @returns { router.RouterState } Page state.
