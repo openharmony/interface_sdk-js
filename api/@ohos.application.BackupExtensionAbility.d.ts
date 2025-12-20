@@ -17,10 +17,7 @@
  * @file
  * @kit CoreFileKit
  */
-
-/*** if arkts dynamic */
 import type BackupExtensionContext from './@ohos.file.BackupExtensionContext';
-/*** endif */
 
 /**
  * Describe bundle version
@@ -35,13 +32,13 @@ export interface BundleVersion {
   /**
    * Indicates bundle's version code.
    *
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 10 dynamic
    * @since 23 static
    */
-  code: number;
+  code: long;
 
   /**
    * Indicates bundle's version name.
@@ -79,6 +76,7 @@ declare class BackupExtensionAbility {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 12 dynamic
+   * @since 23 static
    */
   context: BackupExtensionContext;
 
@@ -104,6 +102,7 @@ declare class BackupExtensionAbility {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 12 dynamic
+   * @since 23 static
    */
   onBackupEx(backupInfo: string): string | Promise<string>;
 
@@ -131,6 +130,7 @@ declare class BackupExtensionAbility {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 12 dynamic
+   * @since 23 static
    */
   onRestoreEx(bundleVersion: BundleVersion, restoreInfo: string): string | Promise<string>;
 
@@ -143,6 +143,7 @@ declare class BackupExtensionAbility {
     * @systemapi
     * @StageModelOnly
     * @since 12 dynamic
+    * @since 23 static
     */
   getBackupInfo(): string;
 
@@ -154,6 +155,7 @@ declare class BackupExtensionAbility {
     * @syscap SystemCapability.FileManagement.StorageService.Backup
     * @StageModelOnly
     * @since 12 dynamic
+    * @since 23 static
     */
   onProcess(): string;
   

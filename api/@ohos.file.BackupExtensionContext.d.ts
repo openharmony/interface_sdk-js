@@ -29,8 +29,9 @@ import ExtensionContext from './application/ExtensionContext';
  * @syscap SystemCapability.FileManagement.StorageService.Backup
  * @StageModelOnly
  * @since 12 dynamic
+ * @since 23 static
  */
-export default class BackupExtensionContext extends ExtensionContext {
+declare class BackupExtensionContext extends ExtensionContext {
   /**
    * Indicates backup dir.
    *
@@ -40,4 +41,15 @@ export default class BackupExtensionContext extends ExtensionContext {
    * @since 12 dynamic
    */
    readonly backupDir: string;
+
+  /**
+   * Indicates the backup directory.
+   *
+   * @returns { string } The backup directory.
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @stagemodelonly
+   * @since 23 static
+   */
+    get backupDir(): string;
 }
+export default BackupExtensionContext;
