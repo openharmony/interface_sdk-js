@@ -6089,6 +6089,21 @@ export declare interface SheetOptions extends BindOptions {
      */
     modalTransition?: ModalTransition;
     /**
+    * Define strategy for drawing rounded corners.
+    * NOTE
+    * 1. **RenderStrategy.FAST**: The current component and its child components will be drawn directly
+    * onto the canvas with rounded corners applied.
+    * 2. **RenderStrategy.OFFSCREEN**: The current component and its child components will first be rendered onto
+    * an off-screen canvas, then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
+    *
+    * @type { ?RenderStrategy }
+    * @default RenderStrategy.FAST
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    */
+    radiusRenderStrategy?: RenderStrategy;
+    /**
      * Mask color of the sheet.
      *
      * @type { ?ResourceColor }
