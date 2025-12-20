@@ -660,9 +660,10 @@ declare namespace audio {
 
   /**
    * Enumerates audio loopback equalizer preset.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 21 dynamic
+   * @since 23 static
    */
   enum AudioLoopbackEqualizerPreset {
     /**
@@ -1269,8 +1270,9 @@ declare namespace audio {
     /**
      * Bluetooth device using the SCO link.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.DeviceType#BLUETOOTH_SCO
      */
     BLUETOOTH_SCO = 7,
   }
@@ -1307,10 +1309,11 @@ declare namespace audio {
 
   /**
    * Enumerates the device select strategy.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @systemapi
    * @since 21 dynamic
+   * @since 23 static
    */
   enum AudioDevcieSelectStrategy {
     /**
@@ -2998,24 +3001,27 @@ declare namespace audio {
    * Enumerates interrupt action types.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Renderer
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.multimedia.audio.InterruptType
    */
   enum InterruptActionType {
 
     /**
      * Focus gain event.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptType#INTERRUPT_TYPE_BEGIN
      */
     TYPE_ACTIVATED = 0,
 
     /**
      * Audio interruption event.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptType#INTERRUPT_TYPE_END
      */
     TYPE_INTERRUPT = 1
   }
@@ -6363,7 +6369,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12 dynamic
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:streamVolumeChange
      */
@@ -6378,7 +6384,7 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 12 dynamic
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:streamVolumeChange
      */
@@ -9212,8 +9218,9 @@ declare namespace audio {
      * The value TYPE_ACTIVATED means the focus gain event, and TYPE_INTERRUPT means the audio interruption event.
      * @type { InterruptActionType }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptEvent#eventType
      */
     actionType: InterruptActionType;
 
@@ -9221,8 +9228,9 @@ declare namespace audio {
      * Type of the audio interruption event.
      * @type { ?InterruptType }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptEvent#eventType
      */
     type?: InterruptType;
 
@@ -9230,8 +9238,9 @@ declare namespace audio {
      * Hint for the audio interruption event.
      * @type { ?InterruptHint }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptEvent#hintType
      */
     hint?: InterruptHint;
 
@@ -9240,8 +9249,9 @@ declare namespace audio {
      * and false means that the focus fails to be gained or released.
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptEvent#hintType
      */
     activated?: boolean;
   }
@@ -9250,8 +9260,9 @@ declare namespace audio {
    * Describes input parameters of audio listening events.
    * @typedef AudioInterrupt
    * @syscap SystemCapability.Multimedia.Audio.Renderer
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.multimedia.audio.AudioRendererOptions
    */
   interface AudioInterrupt {
 
@@ -9259,8 +9270,9 @@ declare namespace audio {
      * Audio stream usage type.
      * @type { StreamUsage }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioRendererOptions#rendererInfo
      */
     streamUsage: StreamUsage;
 
@@ -9268,8 +9280,9 @@ declare namespace audio {
      * Type of the media interrupted.
      * @type { ContentType }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioRendererOptions#rendererInfo
      */
     contentType: ContentType;
 
@@ -9278,8 +9291,9 @@ declare namespace audio {
      * The value true means that audio playback can be paused when it is interrupted, and false means the opposite.
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptEvent#hintType
      */
     pauseWhenDucked: boolean;
   }
