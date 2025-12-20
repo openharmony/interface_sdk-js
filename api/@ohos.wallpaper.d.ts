@@ -35,8 +35,7 @@ declare namespace wallpaper {
    *
    * @typedef RgbaColor
    * @syscap SystemCapability.MiscServices.Wallpaper
-   * @since 7 dynamic
-   * @since 23 static
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   interface RgbaColor {
@@ -45,8 +44,7 @@ declare namespace wallpaper {
      *
      * @type { long }
      * @syscap SystemCapability.MiscServices.Wallpaper
-     * @since 7 dynamic
-     * @since 23 static
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     red: long;
@@ -55,8 +53,7 @@ declare namespace wallpaper {
      *
      * @type { long }
      * @syscap SystemCapability.MiscServices.Wallpaper
-     * @since 7 dynamic
-     * @since 23 static
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     green: long;
@@ -65,8 +62,7 @@ declare namespace wallpaper {
      *
      * @type { long }
      * @syscap SystemCapability.MiscServices.Wallpaper
-     * @since 7 dynamic
-     * @since 23 static
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     blue: long;
@@ -75,8 +71,7 @@ declare namespace wallpaper {
      *
      * @type { long }
      * @syscap SystemCapability.MiscServices.Wallpaper
-     * @since 7 dynamic
-     * @since 23 static
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     alpha: long;
@@ -300,8 +295,8 @@ declare namespace wallpaper {
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
-   * @since 9 dynamic
-   * @since 23 static
+   * @since 9 dynamiconly
+   * @deprecated since 23
    */
   function getColorsSync(wallpaperType: WallpaperType): Array<RgbaColor>;
 
