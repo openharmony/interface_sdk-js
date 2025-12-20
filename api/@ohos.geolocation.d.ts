@@ -536,7 +536,7 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Gnss
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.geoLocationManager/geoLocationManager.CachedGnssLocationsRequest#reportingPeriodSec
+     * @useinstead ohos.geoLocationManager/geoLocationManager.CachedGnssLocationsRequest#wakeUpCacheQueueFull
      */
     wakeUpCacheQueueFull: boolean;
   }
@@ -1399,7 +1399,7 @@ declare namespace geolocation {
    * @syscap SystemCapability.Location.Location.Core
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.geoLocationManager/geoLocationManager#LocationCommand
+   * @useinstead ohos.geoLocationManager/geoLocationManager.LocationCommand
    */
   export interface LocationCommand {
     /**
