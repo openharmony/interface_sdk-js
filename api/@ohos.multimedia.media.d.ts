@@ -1144,9 +1144,25 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
-     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 20 dynamic
+     */
+    /**
+     * It will decode the given video resource. Then fetch a picture
+     * at @timeUs according the given @options and @param .
+     * @param { number } timeUs - The time expected to fetch picture from the video resource.
+     * The unit is microsecond(us).
+     * @param { AVImageQueryOptions } options - The time options about the relationship
+     * between the given timeUs and a key frame, see @AVImageQueryOptions .
+     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams .
+     * @returns { Promise<image.PixelMap> } A Promise instance used to return the pixel map
+     * when fetchFrameByTime completed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 23 dynamic
      */
     fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>;
 
