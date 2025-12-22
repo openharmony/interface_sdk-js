@@ -4989,5 +4989,26 @@ declare namespace util {
      */
     static register<T>(obj: AutoFinalizer<T>, heldValue: T): void;
   }
+  /**
+   * To provide developers with maintenance and testing capabilities for the ArkTS virtual machine.
+   *
+   * @interface ArkTSVM
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 23 dynamiconly
+   */
+  interface ArkTSVM {
+    /**
+    * To turn on or off the multi-thread detection switch. If enabled is true, turn on the switch,
+    * If enable is false, turn off the switch.
+    * 
+    * @param { boolean } enabled - The boolean flag to indicate whether to turn on or off
+    * multi-thread detection switch.
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @since 23 dynamiconly
+    */
+    setMultithreadingDetectionEnabled(enabled: boolean):void;
+  }
 }
 export default util;
