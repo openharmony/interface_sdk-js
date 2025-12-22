@@ -280,7 +280,7 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 1700007 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @stagemodeonly
+   * @stagemodelonly
    * @since 23 dynamic&static
    */
   function subscribeReminderState(callback: Callback<Array<ReminderState>>): Promise<void>;
@@ -289,12 +289,12 @@ declare namespace reminderAgentManager {
    * UnSubscribe Reminder State. If the parameter is not set, cancel all callbacks.
    * 
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
-   * @param { Callback<Array<ReminderState>> } callback - Indicates the callback.
+   * @param { Callback<Array<ReminderState>> } [callback] - Indicates the callback.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 1700007 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @stagemodeonly
+   * @stagemodelonly
    * @since 23 dynamic&static
    */
   function unsubscribeReminderState(callback?: Callback<Array<ReminderState>>): Promise<void>;
@@ -1128,7 +1128,7 @@ declare namespace reminderAgentManager {
    * 
    * @interface ReminderState
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @stagemodeonly
+   * @stagemodelonly
    * @since 23 dynamic&static
    */
   interface ReminderState {
@@ -1137,7 +1137,7 @@ declare namespace reminderAgentManager {
      * 
      * @type { int }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
     reminderId: int;
@@ -1147,7 +1147,7 @@ declare namespace reminderAgentManager {
      * 
      * @type { ActionButtonType }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
     buttonType: ActionButtonType;
@@ -1155,11 +1155,11 @@ declare namespace reminderAgentManager {
     /**
      * To ensure that the application can receive the callback, this message will be sent twice.
      * false: The first time when the user clicks on the button.
-     * true: The second time when the application registers a new callback.
+     * true: The second time when the application registers a callback.
      * 
      * @type { boolean }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
     isMessageResent: boolean;
