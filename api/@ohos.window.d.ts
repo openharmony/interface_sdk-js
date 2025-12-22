@@ -7702,7 +7702,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     on(type: 'windowSizeChange', callback: Callback<Size>): void;
 
@@ -7748,7 +7747,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     off(type: 'windowSizeChange', callback?: Callback<Size>): void;
 
@@ -9021,7 +9019,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 23 static
      */
     on(type: 'windowStatusChange', callback: Callback<WindowStatusType>): void;
 
@@ -9072,7 +9069,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 23 static
      */
     off(type: 'windowStatusChange', callback?: Callback<WindowStatusType>): void;
 
@@ -12322,7 +12318,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     on(type: 'windowRectChange', callback: Callback<RectChangeOptions>): void;
 
@@ -12352,7 +12347,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     off(type: 'windowRectChange', callback?: Callback<RectChangeOptions>): void;
 
