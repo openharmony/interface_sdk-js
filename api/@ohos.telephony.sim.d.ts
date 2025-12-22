@@ -867,10 +867,10 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<IccAccountInfo> } callback - Indicates the callback for
-   * getting a {@code IccAccountInfo} object. The ICCID and phone number will be null
-   * if has no ohos.permission.GET_TELEPHONY_STATE.
+   *     getting a {@code IccAccountInfo} object. The ICCID and phone number will be null
+   *     if the permission ohos.permission.GET_TELEPHONY_STATE is not granted.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -884,6 +884,26 @@ declare namespace sim {
    * @since 10 dynamic
    * @since 23 static
    */
+  /**
+   * Get account information of SIM card.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { int } slotId - Indicates the card slot index number,
+   *     ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { AsyncCallback<IccAccountInfo> } callback - Indicates the callback for
+   *     getting a {@code IccAccountInfo} object. The ICCID and phone number will be null
+   *     if the permission ohos.permission.GET_TELEPHONY_STATE is not granted.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Service connection failed.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 23 dynamic&static
+   */
   function getSimAccountInfo(slotId: int, callback: AsyncCallback<IccAccountInfo>): void;
 
   /**
@@ -891,9 +911,9 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<IccAccountInfo> } Returns a {@code IccAccountInfo} object. The ICCID and phone number
-   * will be null if has no ohos.permission.GET_TELEPHONY_STATE.
+   *     will be null if has no ohos.permission.GET_TELEPHONY_STATE.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -906,6 +926,25 @@ declare namespace sim {
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
+   */
+  /**
+   * Get account information of SIM card.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { int } slotId - Indicates the card slot index number,
+   *     ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns { Promise<IccAccountInfo> } Returns a {@code IccAccountInfo} object. The ICCID and phone number
+   *     will be null if has no ohos.permission.GET_TELEPHONY_STATE.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Service connection failed.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 23 dynamic&static
    */
   function getSimAccountInfo(slotId: int): Promise<IccAccountInfo>;
 
@@ -2772,7 +2811,7 @@ declare namespace sim {
      * @since 8 dynamic
      * @since 23 static
      */
-    FDN_LOCK = 2,
+    FDN_LOCK = 2
   }
 
   /**
@@ -2942,7 +2981,7 @@ declare namespace sim {
      * @since 6 dynamic
      * @since 23 static
      */
-    SIM_STATE_LOADED = 5,
+    SIM_STATE_LOADED = 5
   }
 
   /**
@@ -2973,7 +3012,7 @@ declare namespace sim {
      * @since 8 dynamic
      * @since 23 static
      */
-    LOCK_ON = 1,
+    LOCK_ON = 1
   }
 
   /**
@@ -3004,7 +3043,7 @@ declare namespace sim {
      * @since 8 dynamic
      * @since 23 static
      */
-    FIXED_DIALING = 2,
+    FIXED_DIALING = 2
   }
 
   /**
@@ -3115,7 +3154,7 @@ declare namespace sim {
      * @since 8 dynamic
      * @since 23 static
      */
-    SIM_PUK_LOCK = 9,
+    SIM_PUK_LOCK = 9
   }
 
   /**
@@ -3128,6 +3167,7 @@ declare namespace sim {
    * @since 23 static
    */
   export enum OperatorConfigKey {
+
     /**
      * Indicates the voice mail number.
      *
@@ -3327,7 +3367,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_EMERGENCY_CALL_STRING_ARRAY = 'emergency_call_string_array',
+    KEY_EMERGENCY_CALL_STRING_ARRAY = 'emergency_call_string_array'
   }
 
   /**
@@ -3378,7 +3418,7 @@ declare namespace sim {
      * @since 11 dynamic
      * @since 23 static
      */
-    DSDS_MODE_V5_DSDA = 3,
+    DSDS_MODE_V5_DSDA = 3
   }
 
   /**
@@ -3399,7 +3439,7 @@ declare namespace sim {
      * @since 11 dynamic
      * @since 23 static
      */
-    CHINA_TELECOM_CARD = 'china_telecom_card',
+    CHINA_TELECOM_CARD = 'china_telecom_card'
   }
 
   /**
@@ -3414,7 +3454,7 @@ declare namespace sim {
   export enum AuthType {
     /**
      * Authentication type is EAP-SIM. See RFC 4186
-     * 
+     *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
@@ -3429,12 +3469,12 @@ declare namespace sim {
      * @since 14 dynamic
      * @since 23 static
      */
-    SIM_AUTH_EAP_AKA_TYPE = 129,
+    SIM_AUTH_EAP_AKA_TYPE = 129
   }
 
   /**
    * Defines the SIM card authentication response.
-   * 
+   *
    * @interface SimAuthenticationResponse
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
@@ -3452,7 +3492,7 @@ declare namespace sim {
      * @since 23 static
      */
     simStatusWord1: int;
-  
+
     /**
      * Status word 2 of the SIM card, which is returned by the SIM card after command execution.
      *
