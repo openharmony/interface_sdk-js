@@ -531,6 +531,28 @@ declare interface RichEditorTextStyle {
    * @since 18 dynamic
    */
   textBackgroundStyle?: TextBackgroundStyle;
+
+  /**
+   * The stroke width of the text.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  strokeWidth?: LengthMetrics;
+
+  /**
+   * The stroke color of the text.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  strokeColor?: ResourceColor;
 }
 
 
@@ -1272,6 +1294,28 @@ declare interface RichEditorTextStyleResult {
    * @since 18 dynamic
    */
   textBackgroundStyle?: TextBackgroundStyle;
+
+  /**
+   * Get the stroke width of the text with the unit 'vp'.
+   *
+   * @type { ?number } - the stroke width of the text or undefined
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  strokeWidth?: number;
+
+  /**
+   * Get the stroke color of the text.
+   *
+   * @type { ?ResourceColor } - the stroke color of the text or undefined
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  strokeColor?: ResourceColor;
 }
 
 /**

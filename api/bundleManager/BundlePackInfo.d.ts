@@ -25,7 +25,7 @@
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface BundlePackInfo {
   /**
@@ -36,7 +36,7 @@ export interface BundlePackInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly packages: Array<PackageConfig>;
 
@@ -48,7 +48,7 @@ export interface BundlePackInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly summary: PackageSummary;
 }
@@ -60,7 +60,7 @@ export interface BundlePackInfo {
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface PackageConfig {
   /**
@@ -71,7 +71,7 @@ export interface PackageConfig {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly deviceTypes: Array<string>;
 
@@ -83,7 +83,7 @@ export interface PackageConfig {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly name: string;
 
@@ -95,7 +95,7 @@ export interface PackageConfig {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly moduleType: string;
 
@@ -107,7 +107,7 @@ export interface PackageConfig {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly deliveryWithInstall: boolean;
 }
@@ -119,7 +119,7 @@ export interface PackageConfig {
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface PackageSummary {
   /**
@@ -130,7 +130,7 @@ export interface PackageSummary {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly app: BundleConfigInfo;
 
@@ -142,7 +142,7 @@ export interface PackageSummary {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly modules: Array<ModuleConfigInfo>;
 }
@@ -154,7 +154,7 @@ export interface PackageSummary {
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface BundleConfigInfo {
   /**
@@ -165,7 +165,7 @@ export interface BundleConfigInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly bundleName: string;
 
@@ -177,7 +177,7 @@ export interface BundleConfigInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly version: Version;
 }
@@ -189,7 +189,7 @@ export interface BundleConfigInfo {
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface ExtensionAbility {
   /**
@@ -200,7 +200,7 @@ export interface ExtensionAbility {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly name: string;
 
@@ -212,7 +212,7 @@ export interface ExtensionAbility {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly forms: Array<AbilityFormInfo>;
 }
@@ -224,7 +224,7 @@ export interface ExtensionAbility {
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface ModuleConfigInfo {
   /**
@@ -235,7 +235,7 @@ export interface ModuleConfigInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly mainAbility: string;
 
@@ -247,7 +247,7 @@ export interface ModuleConfigInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly apiVersion: ApiVersion;
 
@@ -259,7 +259,7 @@ export interface ModuleConfigInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly deviceTypes: Array<string>;
 
@@ -271,7 +271,7 @@ export interface ModuleConfigInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly distro: ModuleDistroInfo;
 
@@ -283,7 +283,7 @@ export interface ModuleConfigInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly abilities: Array<ModuleAbilityInfo>;
 
@@ -295,7 +295,7 @@ export interface ModuleConfigInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly extensionAbilities: Array<ExtensionAbility>;
 }
@@ -307,7 +307,7 @@ export interface ModuleConfigInfo {
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface ModuleDistroInfo {
   /**
@@ -318,7 +318,7 @@ export interface ModuleDistroInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly deliveryWithInstall: boolean;
 
@@ -330,7 +330,7 @@ export interface ModuleDistroInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly installationFree: boolean;
 
@@ -342,7 +342,7 @@ export interface ModuleDistroInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly moduleName: string;
 
@@ -354,7 +354,7 @@ export interface ModuleDistroInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly moduleType: string;
 }
@@ -366,7 +366,7 @@ export interface ModuleDistroInfo {
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface ModuleAbilityInfo {
   /**
@@ -377,7 +377,7 @@ export interface ModuleAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly name: string;
 
@@ -389,7 +389,7 @@ export interface ModuleAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly label: string;
 
@@ -401,7 +401,7 @@ export interface ModuleAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly exported: boolean;
 
@@ -413,7 +413,7 @@ export interface ModuleAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly forms: Array<AbilityFormInfo>;
 }
@@ -425,7 +425,7 @@ export interface ModuleAbilityInfo {
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface AbilityFormInfo {
   /**
@@ -436,7 +436,7 @@ export interface AbilityFormInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly name: string;
 
@@ -448,7 +448,7 @@ export interface AbilityFormInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly type: string;
 
@@ -460,7 +460,7 @@ export interface AbilityFormInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly updateEnabled: boolean;
 
@@ -472,7 +472,7 @@ export interface AbilityFormInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly scheduledUpdateTime: string;
 
@@ -484,7 +484,7 @@ export interface AbilityFormInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly updateDuration: int;
 
@@ -496,7 +496,7 @@ export interface AbilityFormInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly supportDimensions: Array<string>;
 
@@ -508,7 +508,7 @@ export interface AbilityFormInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly defaultDimension: string;
 }
@@ -520,7 +520,7 @@ export interface AbilityFormInfo {
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface Version {
   /**
@@ -531,7 +531,7 @@ export interface Version {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly minCompatibleVersionCode: int;
 
@@ -543,7 +543,7 @@ export interface Version {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly name: string;
 
@@ -555,7 +555,7 @@ export interface Version {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly code: int;
 }
@@ -567,7 +567,7 @@ export interface Version {
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface ApiVersion {
   /**
@@ -578,7 +578,7 @@ export interface ApiVersion {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly releaseType: string;
 
@@ -590,7 +590,7 @@ export interface ApiVersion {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly compatible: int;
 
@@ -602,7 +602,7 @@ export interface ApiVersion {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly target: int;
 }

@@ -41,7 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace colorSpaceManager {
   /**
@@ -64,7 +64,7 @@ declare namespace colorSpaceManager {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ColorSpace {
     /**
@@ -84,7 +84,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNKNOWN = 0,
 
@@ -105,7 +105,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ADOBE_RGB_1998 = 1,
 
@@ -126,7 +126,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DCI_P3 = 2,
 
@@ -147,7 +147,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DISPLAY_P3 = 3,
 
@@ -168,7 +168,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SRGB = 4,
 
@@ -186,7 +186,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BT709 = 6,
 
@@ -204,7 +204,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BT601_EBU = 7,
 
@@ -222,7 +222,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BT601_SMPTE_C = 8,
 
@@ -240,7 +240,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BT2020_HLG = 9,
 
@@ -258,7 +258,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BT2020_PQ = 10,
 
@@ -274,7 +274,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     P3_HLG = 11,
 
@@ -290,7 +290,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     P3_PQ = 12,
 
@@ -306,7 +306,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ADOBE_RGB_1998_LIMIT = 13,
 
@@ -322,7 +322,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DISPLAY_P3_LIMIT = 14,
 
@@ -338,7 +338,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SRGB_LIMIT = 15,
 
@@ -354,7 +354,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BT709_LIMIT = 16,
 
@@ -370,7 +370,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BT601_EBU_LIMIT = 17,
 
@@ -386,7 +386,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BT601_SMPTE_C_LIMIT = 18,
 
@@ -402,7 +402,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BT2020_HLG_LIMIT = 19,
 
@@ -418,7 +418,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BT2020_PQ_LIMIT = 20,
 
@@ -434,7 +434,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     P3_HLG_LIMIT = 21,
 
@@ -450,7 +450,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     P3_PQ_LIMIT = 22,
 
@@ -466,7 +466,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LINEAR_P3 = 23,
 
@@ -482,7 +482,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LINEAR_SRGB = 24,
 
@@ -498,7 +498,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LINEAR_BT709 = LINEAR_SRGB,
 
@@ -514,7 +514,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LINEAR_BT2020 = 25,
 
@@ -530,7 +530,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DISPLAY_SRGB = SRGB,
 
@@ -546,7 +546,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DISPLAY_P3_SRGB = DISPLAY_P3,
 
@@ -562,7 +562,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DISPLAY_P3_HLG = P3_HLG,
 
@@ -578,7 +578,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DISPLAY_P3_PQ = P3_PQ,
 
@@ -586,7 +586,7 @@ declare namespace colorSpaceManager {
      * PRIMARIES_BT2020 | TRANSFUNC_LOG
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     H_LOG = 26,
 
@@ -594,7 +594,7 @@ declare namespace colorSpaceManager {
      * PRIMARIES_BT2020 | TRANSFUNC_SRGB | RANGE_FULL
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DISPLAY_BT2020_SRGB = 27,
 
@@ -615,7 +615,7 @@ declare namespace colorSpaceManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CUSTOM = 5,
   }
@@ -634,7 +634,7 @@ declare namespace colorSpaceManager {
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ColorSpacePrimaries {
     /**
@@ -649,7 +649,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     redX: double;
 
@@ -665,7 +665,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     redY: double;
 
@@ -681,7 +681,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     greenX: double;
 
@@ -697,7 +697,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     greenY: double;
 
@@ -713,7 +713,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     blueX: double;
 
@@ -729,7 +729,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     blueY: double;
 
@@ -745,7 +745,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     whitePointX: double;
 
@@ -761,7 +761,7 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     whitePointY: double;
   }
@@ -778,7 +778,7 @@ declare namespace colorSpaceManager {
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ColorSpaceManager {
     /**
@@ -795,7 +795,6 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 11 dynamic
-     * @since 22 static
      */
     /**
      * Get the name of color space type.
@@ -822,7 +821,6 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 11 dynamic
-     * @since 22 static
      */
     /**
      * Get white point(x, y) of color space.
@@ -849,7 +847,6 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 11 dynamic
-     * @since 22 static
      */
     /**
      * Get gamma value of color space.
@@ -881,7 +878,7 @@ declare namespace colorSpaceManager {
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function create(colorSpaceName: ColorSpace): ColorSpaceManager;
 
@@ -909,7 +906,7 @@ declare namespace colorSpaceManager {
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function create(primaries: ColorSpacePrimaries, gamma: double): ColorSpaceManager;
 }

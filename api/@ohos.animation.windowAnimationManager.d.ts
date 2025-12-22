@@ -27,7 +27,7 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi Hide this for inner system use.
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace windowAnimationManager {
   /**
@@ -37,7 +37,7 @@ declare namespace windowAnimationManager {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setController(controller: WindowAnimationController): void;
 
@@ -49,7 +49,7 @@ declare namespace windowAnimationManager {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function minimizeWindowWithAnimation(windowTarget: WindowAnimationTarget,
     callback: AsyncCallback<WindowAnimationFinishedCallback>): void;
@@ -62,7 +62,7 @@ declare namespace windowAnimationManager {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function minimizeWindowWithAnimation(windowTarget: WindowAnimationTarget): Promise<WindowAnimationFinishedCallback>;
 
@@ -73,7 +73,7 @@ declare namespace windowAnimationManager {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface RRect {
     /**
@@ -82,7 +82,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     left: double;
 
@@ -92,7 +92,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     top: double;
 
@@ -102,7 +102,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     width: double;
 
@@ -112,7 +112,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     height: double;
 
@@ -122,7 +122,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     radius: double;
   }
@@ -134,7 +134,7 @@ declare namespace windowAnimationManager {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface WindowAnimationTarget {
     /**
@@ -144,7 +144,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly bundleName: string;
 
@@ -155,7 +155,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly abilityName: string;
 
@@ -166,7 +166,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly windowBounds: RRect;
 
@@ -177,7 +177,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly missionId: int;
   }
@@ -189,7 +189,7 @@ declare namespace windowAnimationManager {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface WindowAnimationFinishedCallback {
     /**
@@ -198,7 +198,7 @@ declare namespace windowAnimationManager {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onAnimationFinish(): void;
   }
@@ -287,7 +287,7 @@ declare namespace windowAnimationManager {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface WindowAnimationController {
     /**

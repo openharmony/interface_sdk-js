@@ -30,7 +30,7 @@ import ExtensionContext from './application/ExtensionContext';
  * @systemapi
  * @StageModelOnly
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class StaticSubscriberExtensionContext extends ExtensionContext {
   /**
@@ -62,7 +62,7 @@ declare class StaticSubscriberExtensionContext extends ExtensionContext {
    * @systemapi
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -95,7 +95,7 @@ declare class StaticSubscriberExtensionContext extends ExtensionContext {
    * @systemapi
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want): Promise<void>;
 }

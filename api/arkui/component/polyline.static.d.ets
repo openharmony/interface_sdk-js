@@ -25,7 +25,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @interface PolylineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface PolylineOptions {
     /**
@@ -33,7 +33,7 @@ export declare interface PolylineOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     width?: string | double;
     /**
@@ -41,7 +41,7 @@ export declare interface PolylineOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     height?: string | double;
 }
@@ -51,7 +51,7 @@ export declare interface PolylineOptions {
  * @extends CommonShapeMethod
  * @interface PolylineAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface PolylineAttribute extends CommonShapeMethod {
     /**
@@ -60,7 +60,7 @@ export declare interface PolylineAttribute extends CommonShapeMethod {
      * @param { Array<ShapePoint> | undefined } value
      * @returns { PolylineAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default points(value: Array<ShapePoint> | undefined): this;
     /**
@@ -69,7 +69,7 @@ export declare interface PolylineAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<PolylineAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { PolylineAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<PolylineAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -81,7 +81,7 @@ export declare interface PolylineAttribute extends CommonShapeMethod {
  * @param { CustomBuilder } [content_]
  * @returns { PolylineAttribute } The attribute of the Polyline.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @ComponentBuilder
 export declare function Polyline(

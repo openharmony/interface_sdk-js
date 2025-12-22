@@ -27,7 +27,7 @@ import type rpc from './@ohos.rpc';
  * @namespace deviceManager
  * @syscap SystemCapability.Driver.ExternalDevice
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace deviceManager {
   /**
@@ -40,7 +40,7 @@ declare namespace deviceManager {
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception or busType parameter error.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryDevices(busType?: int): Array<Readonly<Device>>;
 
@@ -172,7 +172,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryDeviceInfo(deviceId?: long): Array<Readonly<DeviceInfo>>;
 
@@ -189,7 +189,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryDriverInfo(driverUid?: string): Array<Readonly<DriverInfo>>;
 
@@ -206,7 +206,7 @@ declare namespace deviceManager {
 * @throws { BusinessError } 26300002 - The driver service does not allow any client to bind.
 * @syscap SystemCapability.Driver.ExternalDevice
 * @since 19 dynamic
-* @since 22 static
+* @since 23 static
 */
   function bindDriverWithDeviceId(deviceId: long, onDisconnect: AsyncCallback<long>): Promise<RemoteDeviceDriver>;
 
@@ -221,7 +221,7 @@ declare namespace deviceManager {
 * @throws { BusinessError } 26300003 - There is no binding relationship.
 * @syscap SystemCapability.Driver.ExternalDevice
 * @since 19 dynamic
-* @since 22 static
+* @since 23 static
 */
   function unbindDriverWithDeviceId(deviceId: long): Promise<int>;
 
@@ -231,7 +231,7 @@ declare namespace deviceManager {
    * @enum { int }
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum BusType {
     /**
@@ -239,7 +239,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     USB = 1,
   }
@@ -250,7 +250,7 @@ declare namespace deviceManager {
    * @typedef Device
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Device {
     /**
@@ -259,7 +259,7 @@ declare namespace deviceManager {
      * @type { BusType }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     busType: BusType;
 
@@ -269,7 +269,7 @@ declare namespace deviceManager {
      * @type { long }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceId: long;
 
@@ -279,7 +279,7 @@ declare namespace deviceManager {
      * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     description: string;
   }
@@ -291,7 +291,7 @@ declare namespace deviceManager {
    * @extends Device
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface USBDevice extends Device {
     /**
@@ -300,7 +300,7 @@ declare namespace deviceManager {
      * @type { int }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     vendorId: int;
 
@@ -310,7 +310,7 @@ declare namespace deviceManager {
      * @type { int }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     productId: int;
   }
@@ -321,7 +321,7 @@ declare namespace deviceManager {
    * @typedef RemoteDeviceDriver
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface RemoteDeviceDriver {
     /**
@@ -330,7 +330,7 @@ declare namespace deviceManager {
      * @type { long }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceId: long;
 
@@ -340,7 +340,7 @@ declare namespace deviceManager {
      * @type { rpc.IRemoteObject }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     remote: rpc.IRemoteObject;
   }
@@ -352,7 +352,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface USBInterfaceDesc {
     /**
@@ -362,7 +362,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bInterfaceNumber: int;
 
@@ -373,7 +373,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bClass: int;
 
@@ -384,7 +384,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bSubClass: int;
 
@@ -395,7 +395,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bProtocol: int;
   }
@@ -408,7 +408,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DeviceInfo {
     /**
@@ -418,7 +418,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceId: long;
 
@@ -429,7 +429,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isDriverMatched: boolean;
 
@@ -440,7 +440,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     driverUid?: string;
   }
@@ -453,7 +453,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface USBDeviceInfo extends DeviceInfo {
     /**
@@ -463,7 +463,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     vendorId: int;
 
@@ -474,7 +474,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     productId: int;
 
@@ -485,7 +485,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     interfaceDescList: Array<Readonly<USBInterfaceDesc>>;
   }
@@ -497,7 +497,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DriverInfo {
     /**
@@ -507,7 +507,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     busType: BusType;
 
@@ -518,7 +518,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     driverUid: string;
 
@@ -529,7 +529,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     driverName: string;
 
@@ -540,7 +540,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     driverVersion: string;
 
@@ -551,7 +551,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     driverSize: string;
 
@@ -562,7 +562,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     description: string;
   }
@@ -575,7 +575,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface USBDriverInfo extends DriverInfo {
     /**
@@ -585,7 +585,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     productIdList: Array<int>;
 
@@ -596,7 +596,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     vendorIdList: Array<int>;
   }

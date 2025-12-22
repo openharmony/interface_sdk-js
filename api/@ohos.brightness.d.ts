@@ -27,7 +27,7 @@ import { BusinessError } from './@ohos.base';
  * @syscap SystemCapability.PowerManager.DisplayPowerManager
  * @systemapi
  * @since 7 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace brightness {
   /**
@@ -42,7 +42,7 @@ declare namespace brightness {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setValue(value: int): void;
 
@@ -62,7 +62,7 @@ declare namespace brightness {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setValue(value: int, continuous: boolean): void;
 }

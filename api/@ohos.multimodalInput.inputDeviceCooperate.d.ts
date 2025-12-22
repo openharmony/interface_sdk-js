@@ -18,79 +18,87 @@
  * @kit InputKit
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback } from "./@ohos.base";
 
 /**
- * The inputDeviceCooperate module implements screen hopping for two or more networked devices to share the keyboard and mouse for collaborative operations.
- * 
+ * Events for input devices
+ *
  * @namespace inputDeviceCooperate
  * @syscap SystemCapability.MultimodalInput.Input.Cooperator
  * @since 9 dynamiconly
+ * @deprecated since 23
+ * @useinstead  ohos.cooperate/cooperate
  */
-
-
 declare namespace inputDeviceCooperate {
   /**
-   * Enumerates screen hopping event.
-   * 
+   * Enumerates mouse traversal events.
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use.
    * @since 9 dynamiconly
+   * @deprecated since 23
+   * @useinstead ohos.cooperate/cooperate.CooperateState
    */
   enum EventMsg {
     /**
-     * Screen hopping starts.
-     * 
+     * Mouse traversal message: mouse traversal is enabled.
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
      * @since 9 dynamiconly
-    */
+     * @deprecated since 23
+     * @useinstead ohos.cooperate/cooperate.CooperateState#COOPERATE_ACTIVATE
+     */
     MSG_COOPERATE_INFO_START = 200,
 
     /**
-     * Screen hopping succeeds.
+     * Mouse traversal message: mouse traversal is successful.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
      * @since 9 dynamiconly
-    */
+     * @deprecated since 23
+     * @useinstead ohos.cooperate/cooperate.CooperateState#COOPERATE_ACTIVATE_SUCCESS
+     */
     MSG_COOPERATE_INFO_SUCCESS = 201,
 
     /**
-     * Screen hopping fails.
-     * 
+     * Mouse traversal message: mouse traversal fails.
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
      * @since 9 dynamiconly
-    */
+     * @deprecated since 23
+     * @useinstead ohos.cooperate/cooperate.CooperateState#COOPERATE_ACTIVATE_FAILURE
+     */
     MSG_COOPERATE_INFO_FAIL = 202,
 
     /**
-     * Screen hopping is enabled.
+     * Mouse traversal status: mouse traversal is enabled.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
      * @since 9 dynamiconly
-    */
+     * @deprecated since 23
+     * @useinstead ohos.cooperate/cooperate.CooperateState#COOPERATE_PREPARE
+     */
     MSG_COOPERATE_STATE_ON = 500,
 
     /**
-     * Screen hopping is disabled.
+     * Mouse traversal status: mouse traversal is disabled.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
      * @since 9 dynamiconly
-    */
-    MSG_COOPERATE_STATE_OFF = 501,
+     * @deprecated since 23
+     * @useinstead ohos.cooperate/cooperate.CooperateState#COOPERATE_UNPREPARE
+     */
+    MSG_COOPERATE_STATE_OFF = 501
   }
 
   /**
-   * Specifies whether to enable screen hopping.
-   * This API uses an asynchronous callback to return the result.
-   * 
-   * @param { boolean } enable Whether to enable screen hopping.
-   * @param { AsyncCallback<void> } callback Callback used to return the result.
+   * Enable or disable the mouse traversal.
+   *
+   * @param { boolean } enable Whether to enable mouse traversal.
+   * @param { AsyncCallback<void> } callback Asynchronous callback function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
@@ -98,26 +106,26 @@ declare namespace inputDeviceCooperate {
    * @since 9
    */
   /**
-   * Specifies whether to enable screen hopping.
-   * This API uses an asynchronous callback to return the result.
-   * 
-   * @param { boolean } enable Whether to enable screen hopping.
-   * @param { AsyncCallback<void> } callback Callback used to return the result.
+   * Enable or disable the mouse traversal.
+   *
+   * @param { boolean } enable Whether to enable mouse traversal.
+   * @param { AsyncCallback<void> } callback Asynchronous callback function.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 12 dynamiconly
+   * @deprecated since 23
+   * @useinstead ohos.cooperate/cooperate#prepareCooperate
    */
   function enable(enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Specifies whether to enable screen hopping.
-   * This API uses a promise to return the result.
-   * 
-   * @param enable Whether to enable screen hopping.
-   * @returns { Promise<void> } Promise used to return the result.
+   * Enable or disable the mouse traversal.
+   *
+   * @param enable Whether to enable mouse traversal.
+   * @returns { Promise<void> } Promise returned by this function
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
@@ -125,27 +133,27 @@ declare namespace inputDeviceCooperate {
    * @since 9
    */
   /**
-   * Specifies whether to enable screen hopping.
-   * This API uses a promise to return the result.
-   * 
-   * @param enable Whether to enable screen hopping.
-   * @returns { Promise<void> } Promise used to return the result.
+   * Enable or disable the mouse traversal.
+   *
+   * @param enable Whether to enable mouse traversal.
+   * @returns { Promise<void> } Promise returned by this function
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 12 dynamiconly
+   * @deprecated since 23
+   * @useinstead ohos.cooperate/cooperate#prepareCooperate
    */
   function enable(enable: boolean): Promise<void>;
 
   /**
-   * Starts screen hopping.
-   * This API uses an asynchronous callback to return the result.
-   * 
-   * @param { string } sinkDeviceDescriptor Descriptor of the target device for screen hopping.
-   * @param { number } srcInputDeviceId ID of the target device for screen hopping.
-   * @param { AsyncCallback<void> } callback Callback used to return the result.
+   * Starts mouse traversal.
+   *
+   * @param { string } sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
+   * @param { number } srcInputDeviceId Identifier of the peripheral device for mouse traversal.
+   * @param { AsyncCallback<void> } callback Asynchronous callback function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 4400001 - Incorrect descriptor for the target device.
@@ -155,12 +163,11 @@ declare namespace inputDeviceCooperate {
    * @since 9
    */
   /**
-   * Starts screen hopping.
-   * This API uses an asynchronous callback to return the result.
-   * 
-   * @param { string } sinkDeviceDescriptor Descriptor of the target device for screen hopping.
-   * @param { number } srcInputDeviceId ID of the target device for screen hopping.
-   * @param { AsyncCallback<void> } callback Callback used to return the result.
+   * Starts mouse traversal.
+   *
+   * @param { string } sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
+   * @param { number } srcInputDeviceId Identifier of the peripheral device for mouse traversal.
+   * @param { AsyncCallback<void> } callback Asynchronous callback function.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -169,47 +176,48 @@ declare namespace inputDeviceCooperate {
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 12 dynamiconly
+   * @deprecated since 23
+   * @useinstead ohos.cooperate/cooperate#activateCooperate
    */
   function start(sinkDeviceDescriptor: string, srcInputDeviceId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts screen hopping.
-   * This API uses a promise to return the result.
-   * 
-   * @param { string } sinkDeviceDescriptor Descriptor of the target device for screen hopping.
-   * @param { number } srcInputDeviceId ID of the target device for screen hopping.
-   * @returns { Promise<void> } Promise used to return the result.
+   * Starts mouse traversal.
+   *
+   * @param { string } sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
+   * @param { number } srcInputDeviceId Identifier of the peripheral device for mouse traversal.
+   * @returns { Promise<void> } Promise returned by this function
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 4400001 - Incorrect descriptor for the target device.
    * @throws { BusinessError } 4400002 - Screen hop failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
-   * @systemapi hide for inner use 
+   * @systemapi hide for inner use
    * @since 9
-  */
+   */
   /**
-   * Starts screen hopping.
-   * This API uses a promise to return the result.
-   * 
-   * @param { string } sinkDeviceDescriptor Descriptor of the target device for screen hopping.
-   * @param { number } srcInputDeviceId ID of the target device for screen hopping.
-   * @returns { Promise<void> } Promise used to return the result.
+   * Starts mouse traversal.
+   *
+   * @param { string } sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
+   * @param { number } srcInputDeviceId Identifier of the peripheral device for mouse traversal.
+   * @returns { Promise<void> } Promise returned by this function
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 4400001 - Incorrect descriptor for the target device.
    * @throws { BusinessError } 4400002 - Screen hop failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
-   * @systemapi hide for inner use 
+   * @systemapi hide for inner use
    * @since 12 dynamiconly
-  */
+   * @deprecated since 23
+   * @useinstead ohos.cooperate/cooperate#activateCooperate
+   */
   function start(sinkDeviceDescriptor: string, srcInputDeviceId: number): Promise<void>;
 
   /**
-   * Stops screen hopping.
-   * This API uses an asynchronous callback to return the result.
-   * 
-   * @param { AsyncCallback<void> } callback Callback used to return the result.
+   * Stops mouse traversal.
+   *
+   * @param { AsyncCallback<void> } callback Asynchronous callback function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
@@ -217,46 +225,46 @@ declare namespace inputDeviceCooperate {
    * @since 9
    */
   /**
-   * Stops screen hopping.
-   * This API uses an asynchronous callback to return the result.
-   * 
-   * @param { AsyncCallback<void> } callback Callback used to return the result.
+   * Stops mouse traversal.
+   *
+   * @param { AsyncCallback<void> } callback Asynchronous callback function.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 12 dynamiconly
+   * @deprecated since 23
+   * @useinstead ohos.cooperate/cooperate#deactivateCooperate
    */
   function stop(callback: AsyncCallback<void>): void;
 
   /**
-   * Stops screen hopping. 
-   * This API uses a promise to return the result.
-   * 
-   * @returns { Promise<void> } Promise used to return the result.
+   * Stops mouse traversal.
+   *
+   * @returns { Promise<void> } Promise returned by this function
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 9
    */
   /**
-   * Stops screen hopping. 
-   * This API uses a promise to return the result.
-   * 
-   * @returns { Promise<void> } Promise used to return the result.
+   * Stops mouse traversal.
+   *
+   * @returns { Promise<void> } Promise returned by this function
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 12 dynamiconly
+   * @deprecated since 23
+   * @useinstead ohos.cooperate/cooperate#deactivateCooperate
    */
   function stop(): Promise<void>;
 
   /**
-   * Checks whether screen hopping is enabled.
-   * This API uses an asynchronous callback to return the result.
-   * 
-   * @param {string} deviceDescriptor Descriptor of the target device for screen hopping.
-   * @param {AsyncCallback<{ state: boolean }>} callback Callback used to return the result.
+   * Obtains the status of the mouse traversal switch.
+   *
+   * @param {string} deviceDescriptor Descriptor of the target network for mouse traversal.
+   * @param {AsyncCallback<{ state: boolean }>} callback Asynchronous callback used to receive the status of the mouse traversal switch.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
@@ -264,27 +272,25 @@ declare namespace inputDeviceCooperate {
    * @since 9
    */
   /**
-   * Checks whether screen hopping is enabled.
-   * This API uses an asynchronous callback to return the result.
-   * 
-   * @param {string} deviceDescriptor Descriptor of the target device for screen hopping.
-   * @param {AsyncCallback<{ state: boolean }>} callback Callback used to return the result.
+   * Obtains the status of the mouse traversal switch.
+   *
+   * @param {string} deviceDescriptor Descriptor of the target network for mouse traversal.
+   * @param {AsyncCallback<{ state: boolean }>} callback Asynchronous callback used to receive the status of the mouse traversal switch.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 12 dynamiconly
+   * @deprecated since 23
+   * @useinstead ohos.cooperate/cooperate#getCooperateSwitchState
    */
   function getState(deviceDescriptor: string, callback: AsyncCallback<{ state: boolean }>): void;
 
   /**
-   * Checks whether screen hopping is enabled.
-   * This API uses a promise to return the result.
-   * 
-   * @param deviceDescriptor Descriptor of the target device for screen hopping.
-   * @returns { Promise<{ state: boolean }> } Promise used to return the result. 
-   * The value true indicates that screen hopping is enabled, and the false indicates the opposite.
+   * Obtains the status of the mouse traversal switch.
+   *
+   * @param deviceDescriptor Descriptor of the target network for mouse traversal.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
@@ -292,10 +298,9 @@ declare namespace inputDeviceCooperate {
    * @since 9
    */
   /**
-   * Checks whether screen hopping is enabled.
-   * This API uses a promise to return the result.
-   * 
-   * @param deviceDescriptor Descriptor of the target device for screen hopping.
+   * Obtains the status of the mouse traversal switch.
+   *
+   * @param { string } deviceDescriptor Descriptor of the target network for mouse traversal.
    * @returns { Promise<{ state: boolean }> } Promise used to return the result. 
    * The value true indicates that screen hopping is enabled, and the false indicates the opposite.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -304,14 +309,17 @@ declare namespace inputDeviceCooperate {
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 12 dynamiconly
+   * @deprecated since 23
+   * @useinstead ohos.cooperate/cooperate#getCooperateSwitchState
    */
   function getState(deviceDescriptor: string): Promise<{ state: boolean }>;
 
   /**
-   * Enables listening for screen hopping status change events.
-   * 
-   * @param { 'cooperation' } type Event type. The value is cooperation.
-   * @param { AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }> } callback Callback used to return the result.
+   * Enables listening for mouse traversal events.
+   *
+   * @param { 'cooperation' } type Registration type.
+   * @param { AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }> } callback Asynchronous callback used to receive mouse traversal events.
+   * @returns Callback for the input device event.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
@@ -319,25 +327,26 @@ declare namespace inputDeviceCooperate {
    * @since 9
    */
   /**
-   * Enables listening for screen hopping status change events.
-   * 
-   * @param { 'cooperation' } type Event type. The value is cooperation.
-   * @param { AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }> } callback Callback used to return the result.
+   * Enables listening for mouse traversal events.
+   *
+   * @param { 'cooperation' } type Registration type.
+   * @param { AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }> } callback Asynchronous callback used to receive mouse traversal events.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 12 dynamiconly
+   * @deprecated since 23
+   * @useinstead ohos.cooperate/cooperate#on
    */
   function on(type: 'cooperation', callback: AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }>): void;
 
   /**
-   * Disables listening for screen hopping status change events.
-   * 
-   * @param { 'cooperation' } type Event type. The value is cooperation.
-   * @param { AsyncCallback<void> } callback Callback to be unregistered. 
-   * If this parameter is not specified, all callbacks registered by the current application will be unregistered.
+   * Disables listening for mouse traversal events.
+   *
+   * @param { 'cooperation' } type Registration type.
+   * @param { AsyncCallback<void> } callback Asynchronous callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
@@ -345,20 +354,20 @@ declare namespace inputDeviceCooperate {
    * @since 9
    */
   /**
-   * Disables listening for screen hopping status change events.
-   * 
-   * @param { 'cooperation' } type Event type. The value is cooperation.
-   * @param { AsyncCallback<void> } callback Callback to be unregistered. 
-   * If this parameter is not specified, all callbacks registered by the current application will be unregistered.
+   * Disables listening for mouse traversal events.
+   *
+   * @param { 'cooperation' } type Registration type.
+   * @param { AsyncCallback<void> } callback Asynchronous callback used to return the result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 12 dynamiconly
+   * @deprecated since 23
+   * @useinstead ohos.cooperate/cooperate#off
    */
   function off(type: 'cooperation', callback?: AsyncCallback<void>): void;
-
 }
 
 export default inputDeviceCooperate;

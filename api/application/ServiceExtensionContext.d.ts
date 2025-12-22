@@ -36,7 +36,7 @@ import Want from '../@ohos.app.ability.Want';
  * @systemapi
  * @stagemodelonly
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class ServiceExtensionContext extends ExtensionContext {
   /**
@@ -173,7 +173,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -309,7 +309,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -451,13 +451,14 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * Service extension uses this method to start a specific ability by implicit want. If the caller application is in foreground,
-   * you can use this method to start ability; If the caller application is in the background,
+   * Service extension uses this method to start a specific ability by implicit want.
+   * If the caller application is in foreground,you can use this method to start ability;
+   * If the caller application is in the background,
    * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
    * If the target ability is visible, you can start the target ability; If the target ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
@@ -469,15 +470,15 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -487,7 +488,41 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   */
+  /**
+   * Service extension uses this method to start a specific ability by implicit want.
+   * If the caller application is in foreground,you can use this method to start ability;
+   * If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   *
+   * @param { string } link - Indicates the ability to start.
+   * @param { OpenLinkOptions } [options] - Indicates the open link options.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000136 - The UIAbility is prohibited from launching itself via App Linking.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
    */
   openLink(link: string, options?: OpenLinkOptions): Promise<void>;
 
@@ -601,7 +636,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityAsCaller(want: Want, callback: AsyncCallback<void>): void;
 
@@ -712,7 +747,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityAsCaller(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -829,7 +864,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityAsCaller(want: Want, options?: StartOptions): Promise<void>;
 
@@ -951,7 +986,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
@@ -1100,7 +1135,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityWithAccount(want: Want, accountId: int, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -1225,7 +1260,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityWithAccount(want: Want, accountId: int, options?: StartOptions): Promise<void>;
 
@@ -1309,7 +1344,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -1393,7 +1428,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -1483,7 +1518,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
@@ -1573,7 +1608,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
@@ -1622,7 +1657,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stopServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -1671,7 +1706,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stopServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -1725,7 +1760,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stopServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
@@ -1779,7 +1814,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stopServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
@@ -1813,7 +1848,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   terminateSelf(callback: AsyncCallback<void>): void;
 
@@ -1843,7 +1878,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   terminateSelf(): Promise<void>;
 
@@ -1898,7 +1933,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
@@ -1959,7 +1994,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   connectServiceExtensionAbilityWithAccount(want: Want, accountId: int, options: ConnectOptions): long;
 
@@ -1976,7 +2011,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
@@ -1993,7 +2028,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   disconnectServiceExtensionAbility(connection: long): Promise<void>;
 
@@ -2046,7 +2081,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityByCall(want: Want): Promise<Caller>;
 
@@ -2082,7 +2117,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbilityByCallWithAccount(want: Want, accountId: int): Promise<Caller>;
 
@@ -2182,7 +2217,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startRecentAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -2281,7 +2316,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startRecentAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -2384,7 +2419,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -2428,7 +2463,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
 
@@ -2472,7 +2507,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   requestModalUIExtension(pickerWant: Want): Promise<void>;
 
@@ -2496,7 +2531,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */  
   preStartMission(bundleName: string, moduleName: string, abilityName: string, startTime: string): Promise<void>;
 
@@ -2528,7 +2563,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startUIServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -2554,7 +2589,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<void>;
 
@@ -2595,7 +2630,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startUIAbilities(wantList: Array<Want>): Promise<void>;
 }

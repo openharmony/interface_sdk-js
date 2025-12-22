@@ -47,7 +47,7 @@ import { RecordData } from './@ohos.base';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default class Want {
   /**
@@ -72,7 +72,7 @@ export default class Want {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   bundleName?: string;
 
@@ -103,7 +103,7 @@ export default class Want {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   abilityName?: string;
 
@@ -125,7 +125,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   deviceId?: string;
 
@@ -146,7 +146,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   uri?: string;
 
@@ -178,7 +178,7 @@ export default class Want {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type?: string;
 
@@ -198,7 +198,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   flags?: int;
 
@@ -218,7 +218,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   action?: string;
 
@@ -312,7 +312,7 @@ export default class Want {
    * 
    * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @since 22 static
+   * @since 23 static
    */
   parameters?: Record<string, RecordData>;
 
@@ -331,7 +331,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   entities?: Array<string>;
 
@@ -362,7 +362,7 @@ export default class Want {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   moduleName?: string;
 
@@ -376,7 +376,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly fds?: Record<string, int>;
 }

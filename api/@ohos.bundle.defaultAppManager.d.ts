@@ -28,7 +28,7 @@ import { ElementName } from './bundleManager/ElementName';
  * @namespace defaultAppManager
  * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace defaultAppManager {
   /**
@@ -37,7 +37,7 @@ declare namespace defaultAppManager {
    * @enum { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ApplicationType {
     /**
@@ -45,7 +45,7 @@ declare namespace defaultAppManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BROWSER = 'Web Browser',
     /**
@@ -53,7 +53,7 @@ declare namespace defaultAppManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IMAGE = 'Image Gallery',
     /**
@@ -61,7 +61,7 @@ declare namespace defaultAppManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     AUDIO = 'Audio Player',
     /**
@@ -69,7 +69,7 @@ declare namespace defaultAppManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO = 'Video Player',
     /**
@@ -77,7 +77,7 @@ declare namespace defaultAppManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PDF = 'PDF Viewer',
     /**
@@ -85,7 +85,7 @@ declare namespace defaultAppManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WORD = 'Word Viewer',
     /**
@@ -93,7 +93,7 @@ declare namespace defaultAppManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EXCEL = 'Excel Viewer',
     /**
@@ -101,7 +101,7 @@ declare namespace defaultAppManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PPT = 'PPT Viewer',
     /**
@@ -109,7 +109,7 @@ declare namespace defaultAppManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EMAIL = 'Email'
   }
@@ -123,7 +123,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isDefaultApplication(type: string, callback: AsyncCallback<boolean>): void;
 
@@ -136,7 +136,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isDefaultApplication(type: string): Promise<boolean>;
 
@@ -149,7 +149,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isDefaultApplicationSync(type: string): boolean;
 
@@ -170,7 +170,7 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDefaultApplication(type: string, userId: int, callback: AsyncCallback<BundleInfo>): void;
 
@@ -189,7 +189,7 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDefaultApplication(type: string, callback: AsyncCallback<BundleInfo>): void;
 
@@ -210,7 +210,7 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDefaultApplication(type: string, userId?: int): Promise<BundleInfo>;
 
@@ -231,7 +231,7 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDefaultApplicationSync(type: string, userId?: int): BundleInfo;
 
@@ -253,7 +253,7 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setDefaultApplication(type: string,
     elementName: ElementName, userId: int, callback: AsyncCallback<void>): void;
@@ -274,7 +274,7 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setDefaultApplication(type: string, elementName: ElementName, callback: AsyncCallback<void>): void;
 
@@ -296,7 +296,7 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setDefaultApplication(type: string, elementName: ElementName, userId?: int): Promise<void>;
 
@@ -317,7 +317,7 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setDefaultApplicationSync(type: string, elementName: ElementName, userId?: int): void;
 
@@ -337,7 +337,7 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function resetDefaultApplication(type: string, userId: int, callback: AsyncCallback<void>): void;
 
@@ -355,7 +355,7 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function resetDefaultApplication(type: string, callback: AsyncCallback<void>): void;
 
@@ -375,7 +375,7 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function resetDefaultApplication(type: string, userId?: int): Promise<void>;
 
@@ -394,7 +394,7 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function resetDefaultApplicationSync(type: string, userId?: int): void;
 

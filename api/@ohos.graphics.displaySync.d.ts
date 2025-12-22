@@ -29,7 +29,7 @@ import { ExpectedFrameRateRange } from './arkui/component/common';
  * @namespace displaySync
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace displaySync {
   /**
@@ -37,7 +37,7 @@ declare namespace displaySync {
    * @interface IntervalInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface IntervalInfo {
     /**
@@ -45,7 +45,7 @@ declare namespace displaySync {
      * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     timestamp: long;
 
@@ -54,7 +54,7 @@ declare namespace displaySync {
      * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     targetTimestamp: long;
   }
@@ -65,7 +65,7 @@ declare namespace displaySync {
    * @interface DisplaySync
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DisplaySync {
     /**
@@ -80,7 +80,7 @@ declare namespace displaySync {
      * or check ExpectedFrameRateRange if valid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange) : void;
 
@@ -99,7 +99,7 @@ declare namespace displaySync {
      * This callback is triggered when DisplaySync dispatching.
      * @param { Callback<IntervalInfo> } callback - The callback function to be called when DisplaySync dispatching.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     onFrame(callback: Callback<IntervalInfo>): void;
 
@@ -120,7 +120,7 @@ declare namespace displaySync {
      * @param { Callback<IntervalInfo> } [callback] - The callback function to remove.
      *     If not provided, all callbacks for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     offFrame(callback?: Callback<IntervalInfo>): void;
 
@@ -129,7 +129,7 @@ declare namespace displaySync {
      * the callback function be enabled.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     start(): void;
 
@@ -138,7 +138,7 @@ declare namespace displaySync {
      * the callback function be disabled.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     stop(): void;
   }
@@ -148,7 +148,7 @@ declare namespace displaySync {
    * @returns { DisplaySync } DisplaySync
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function create(): DisplaySync;
 }

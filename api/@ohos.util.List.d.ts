@@ -46,7 +46,7 @@ import { RecordData } from '@ohos.base';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class List<T> {
   /**
@@ -72,7 +72,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   constructor();
   /**
@@ -108,7 +108,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get length(): int;
 
@@ -141,7 +141,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   add(element: T): boolean;
   /**
@@ -188,7 +188,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   insert(element: T, index: int): void;
   /**
@@ -221,8 +221,9 @@ declare class List<T> {
   /**
    * Obtains the element at the specified position in this container.
    *
-   * @param { number } index - Position index of the target element.
+   * @param { int } index - Position index of the target element.
    * @returns { T } the T type
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -231,21 +232,9 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
-  get(index: number): T;
-
-  /**
-   * Returns the element at the specified position in this list,
-   * or returns undefined if this list is empty
-   *
-   * @param { int } index - specified position
-   * @returns { T | undefined} the element at the specified index, or undefined if the index is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  get(index: int): T | undefined;
+  get(index: int): T;
 
   /**
    * Check if list contains the specified element
@@ -276,7 +265,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   has(element: T): boolean;
   /**
@@ -310,7 +299,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getIndexOf(element: T): int;
   /**
@@ -371,7 +360,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   removeByIndex(index: int): T | undefined;
 
@@ -408,7 +397,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   remove(element: T): boolean;
   /**
@@ -442,7 +431,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getLastIndexOf(element: T): int;
   /**
@@ -468,11 +457,13 @@ declare class List<T> {
    * Obtains the first element in this container.
    *
    * @returns { T } the T type ,returns undefined if list is empty
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 22 static
    */
   getFirst(): T;
   /**
@@ -498,35 +489,15 @@ declare class List<T> {
    * Obtains the last element in this container.
    *
    * @returns { T } the T type ,returns undefined if list is empty
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   getLast(): T;
-
-  /**
-   * Obtains the first element in this container.
-   *
-   * @returns { T | undefined } the T type, returns undefined if list is empty
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  getFirst(): T | undefined;
-
-  /**
-   * Obtains the last element in this container.
-   *
-   * @returns { T | undefined } the T type, returns undefined if list is empty
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  getLast(): T | undefined;
 
   /**
    * Replaces the element at the specified position in this List with the specified element
@@ -560,7 +531,7 @@ declare class List<T> {
   /**
    * Replaces an element at the specified position in this container with a given element.
    *
-   * @param { number } index - Position index of the target element.
+   * @param { int } index - Position index of the target element.
    * @param { T } element - Element to be used for replacement.
    * @returns { T } the T type
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
@@ -572,22 +543,9 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
-  set(index: number, element: T): T;
-  /**
-   * Replaces an element at the specified position in this container with a given element.
-   *
-   * @param { int } index - Position index of the target element.
-   * @param { T } element - Element to be used for replacement.
-   * @returns { T | undefined } the T type, returns undefined if linkedList is empty
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= ${length - 1}.
-   * Received value is: ${index}
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  set(index: int, element: T): T | undefined;
+  set(index: int, element: T): T;
   /**
    * Compares the specified object with this list for equality.if the object are the same as this list
    * return true, otherwise return false.
@@ -632,7 +590,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   equal(obj: RecordData): boolean;
   
@@ -692,7 +650,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   forEach(callbackfn: ListForEachCb<T>): void;
 
@@ -757,7 +715,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   sort(comparator: ListComparatorFn<T>): void;
   /**
@@ -785,7 +743,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clear(): void;
   /**
@@ -833,7 +791,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getSubList(fromIndex: int, toIndex: int): List<T>;
   /**
@@ -891,7 +849,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   replaceAllElements(callbackfn: ListReplaceCb<T>): void;
 
@@ -921,7 +879,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   convertToArray(): Array<T>;
   /**
@@ -950,7 +908,7 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isEmpty(): boolean;
 
@@ -964,7 +922,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   [index: int]: T;
 
@@ -1004,7 +962,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   $_iterator(): IterableIterator<T>;
 
@@ -1019,7 +977,8 @@ declare class List<T> {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic&static
+ * @since 22 dynamic
+ * @since 23 static
  */
 export type ListComparatorFn<T> = (firstValue: T, secondValue: T) => double;
 /**
@@ -1032,7 +991,7 @@ export type ListComparatorFn<T> = (firstValue: T, secondValue: T) => double;
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type ListForEachCb<T> = (value: T, index: int, list: List<T>) => void
 
@@ -1046,7 +1005,7 @@ export type ListForEachCb<T> = (value: T, index: int, list: List<T>) => void
  * @returns { T } - The new value of current element
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type ListReplaceCb<T> = (value: T, index: int, list: List<T>) => T
 

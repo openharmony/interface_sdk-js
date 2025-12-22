@@ -33,7 +33,7 @@ import { RecordData } from '../@ohos.base';
  * @typedef NotificationActionButton
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface NotificationActionButton {
   /**
@@ -42,7 +42,7 @@ export interface NotificationActionButton {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   title: string;
 
@@ -52,7 +52,7 @@ export interface NotificationActionButton {
    * @type { WantAgent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   wantAgent: WantAgent;
 
@@ -70,7 +70,7 @@ export interface NotificationActionButton {
    *
    * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 static
+   * @since 23 static
    */
   extras?: Record<string, RecordData>;
 
@@ -80,7 +80,7 @@ export interface NotificationActionButton {
    * @type { ?NotificationUserInput }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   userInput?: NotificationUserInput;
 }

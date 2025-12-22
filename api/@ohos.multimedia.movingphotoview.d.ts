@@ -293,7 +293,8 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     setPlaybackStrategy(strategy: media.PlaybackStrategy): MovingPhotoViewAttribute;
 }
@@ -414,7 +415,8 @@ export class MovingPhotoViewController {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     notifyMovingPhotoTransition(): void;
 }

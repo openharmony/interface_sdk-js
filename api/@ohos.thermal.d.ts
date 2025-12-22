@@ -29,7 +29,7 @@ import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
  * @namespace thermal
  * @syscap SystemCapability.PowerManager.ThermalManager
  * @since 8 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace thermal {
   /**
@@ -38,7 +38,7 @@ declare namespace thermal {
    * @enum {int}
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ThermalLevel {
     /**
@@ -46,7 +46,7 @@ declare namespace thermal {
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COOL = 0,
     /**
@@ -54,7 +54,7 @@ declare namespace thermal {
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORMAL = 1,
     /**
@@ -62,7 +62,7 @@ declare namespace thermal {
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WARM = 2,
     /**
@@ -71,7 +71,7 @@ declare namespace thermal {
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HOT = 3,
     /**
@@ -80,7 +80,7 @@ declare namespace thermal {
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OVERHEATED = 4,
     /**
@@ -89,7 +89,7 @@ declare namespace thermal {
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WARNING = 5,
     /**
@@ -98,7 +98,7 @@ declare namespace thermal {
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EMERGENCY = 6,
     /**
@@ -107,7 +107,7 @@ declare namespace thermal {
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ESCAPE = 7
   }
@@ -131,7 +131,7 @@ declare namespace thermal {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function registerThermalLevelCallback(callback: Callback<ThermalLevel>): void;
 
@@ -153,7 +153,7 @@ declare namespace thermal {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function unregisterThermalLevelCallback(callback?: Callback<void>): void;
 
@@ -174,7 +174,7 @@ declare namespace thermal {
    * @returns { ThermalLevel } The thermal level.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getLevel(): ThermalLevel;
 }

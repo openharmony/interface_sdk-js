@@ -19,6 +19,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+import Context from './application/Context';
 
 /**
  * Providers methods for interacting with continue feature.

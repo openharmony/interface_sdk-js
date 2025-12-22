@@ -30,7 +30,7 @@ import { AttributeModifier } from "./common";
  * @extends CommonMethod
  * @interface QRCodeAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare interface QRCodeAttribute extends CommonMethod {
@@ -40,7 +40,7 @@ export declare interface QRCodeAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { QRCodeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default color(value: ResourceColor | undefined): this;
     /**
@@ -49,7 +49,7 @@ export declare interface QRCodeAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { QRCodeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default backgroundColor(value: ResourceColor | undefined): this;
     /**
@@ -57,7 +57,7 @@ export declare interface QRCodeAttribute extends CommonMethod {
      * @param { double | Resource | undefined } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
      * @returns { QRCodeAttribute } the attribute of the QR code
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default contentOpacity(value: double | Resource | undefined): this;
     /**
@@ -66,7 +66,7 @@ export declare interface QRCodeAttribute extends CommonMethod {
      * @param { AttributeModifier<QRCodeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { QRCodeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<QRCodeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -77,7 +77,7 @@ export declare interface QRCodeAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_]
  * @returns { QRCodeAttribute } The attribute of the QRCode.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder

@@ -26,7 +26,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
  * @systemapi
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace hardwareManager {
   /**
@@ -35,7 +35,7 @@ declare namespace hardwareManager {
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum DistributedHardwareType {
     /**
@@ -43,7 +43,7 @@ declare namespace hardwareManager {
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ALL = 0,
     /**
@@ -51,7 +51,7 @@ declare namespace hardwareManager {
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CAMERA = 1,
     /**
@@ -59,7 +59,7 @@ declare namespace hardwareManager {
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN = 8,
     /**
@@ -67,7 +67,7 @@ declare namespace hardwareManager {
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MODEM_MIC = 256,
     /**
@@ -75,7 +75,7 @@ declare namespace hardwareManager {
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MODEM_SPEAKER = 512,
     /**
@@ -83,7 +83,7 @@ declare namespace hardwareManager {
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     MIC = 1024,
     /**
@@ -91,7 +91,7 @@ declare namespace hardwareManager {
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SPEAKER = 2048
   }
@@ -109,7 +109,7 @@ declare namespace hardwareManager {
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CODE_DISTRIBUTED_HARDWARE_NOT_STARTED = 24200101,
 
@@ -118,7 +118,7 @@ declare namespace hardwareManager {
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERR_CODE_DEVICE_NOT_CONNECTED = 24200102
   }
@@ -129,7 +129,7 @@ declare namespace hardwareManager {
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface HardwareDescriptor {
     /**
@@ -139,7 +139,7 @@ declare namespace hardwareManager {
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     type: DistributedHardwareType;
 
@@ -150,7 +150,7 @@ declare namespace hardwareManager {
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     srcNetworkId?: string;
   }
@@ -168,7 +168,7 @@ declare namespace hardwareManager {
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function pauseDistributedHardware(description: HardwareDescriptor): Promise<void>;
 
@@ -185,7 +185,7 @@ declare namespace hardwareManager {
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function resumeDistributedHardware(description: HardwareDescriptor): Promise<void>;
 
@@ -202,7 +202,7 @@ declare namespace hardwareManager {
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function stopDistributedHardware(description: HardwareDescriptor): Promise<void>;
 }

@@ -41,7 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace ConfigurationConstant {
   /**
@@ -67,7 +67,7 @@ declare namespace ConfigurationConstant {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ColorMode {
     /**
@@ -90,7 +90,7 @@ declare namespace ConfigurationConstant {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COLOR_MODE_NOT_SET = -1,
 
@@ -114,7 +114,7 @@ declare namespace ConfigurationConstant {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COLOR_MODE_DARK = 0,
 
@@ -138,7 +138,7 @@ declare namespace ConfigurationConstant {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COLOR_MODE_LIGHT = 1
   }
@@ -166,7 +166,7 @@ declare namespace ConfigurationConstant {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum Direction {
     /**
@@ -189,7 +189,7 @@ declare namespace ConfigurationConstant {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DIRECTION_NOT_SET = -1,
 
@@ -213,7 +213,7 @@ declare namespace ConfigurationConstant {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DIRECTION_VERTICAL = 0,
 
@@ -237,7 +237,7 @@ declare namespace ConfigurationConstant {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DIRECTION_HORIZONTAL = 1
   }
@@ -265,7 +265,7 @@ declare namespace ConfigurationConstant {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ScreenDensity {
     /**
@@ -288,7 +288,7 @@ declare namespace ConfigurationConstant {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_DENSITY_NOT_SET = 0,
 
@@ -312,7 +312,7 @@ declare namespace ConfigurationConstant {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_DENSITY_SDPI = 120,
 
@@ -336,7 +336,7 @@ declare namespace ConfigurationConstant {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_DENSITY_MDPI = 160,
 
@@ -360,7 +360,7 @@ declare namespace ConfigurationConstant {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_DENSITY_LDPI = 240,
 
@@ -384,7 +384,7 @@ declare namespace ConfigurationConstant {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_DENSITY_XLDPI = 320,
 
@@ -408,7 +408,7 @@ declare namespace ConfigurationConstant {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_DENSITY_XXLDPI = 480,
 
@@ -432,7 +432,7 @@ declare namespace ConfigurationConstant {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_DENSITY_XXXLDPI = 640
   }

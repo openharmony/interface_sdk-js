@@ -3040,7 +3040,8 @@ declare namespace inputMethodEngine {
      *     Possible causes: Panel's flag is FLG_FIXED.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     setShadow(radius: double, color: string, offsetX: double, offsetY: double): void;
 
@@ -3056,7 +3057,8 @@ declare namespace inputMethodEngine {
      *     Note: Values with fully transparent alpha channel (#00xxxxxx) are not supported.
      * @returns { Promise<void> } the promise returned by the function.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     setSystemPanelButtonColor(fillColor: string | undefined, backgroundColor: string | undefined): Promise<void>;
 
@@ -3698,13 +3700,13 @@ declare namespace inputMethodEngine {
    * @param { string } msgId - the identifier of the message.
    * @param { ArrayBuffer } [msgParam] - the parameter of the custom message.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   type OnMessageCallback = (msgId: string, msgParam?: ArrayBuffer) => void;
 
   /**
    * <p>Custom message handler.</p>
-   * <p>Implement this interface to respond to custem messages.</p>
+   * <p>Implement this interface to respond to custom messages.</p>
    * 
    * @interface MessageHandler
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3714,22 +3716,38 @@ declare namespace inputMethodEngine {
   interface MessageHandler {
     /**
      * This method is called when a custom message is received.
-     * 
+     *
      * @type { OnMessageCallback }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 15 dynamic
      * @since 23 static
      */
     onMessage: OnMessageCallback;
     /**
      * This method is called when a new message handler is set.
-     * 
+     *
      * @type { Callback<void> }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 15 dynamic
      * @since 23 static
      */
     onTerminated: Callback<void>;
+
+    /**
+     * This method is called when a custom message is received.
+     *
+     * @param { string } msgId - the identifier of the message.
+     * @param { ArrayBuffer } [msgParam] - the parameter of the custom message.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15 dynamic
+     */
+    onMessage(msgId: string, msgParam?: ArrayBuffer): void;
+
+    /**
+     * This method is called when a new message handler is set.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15 dynamic
+     */
+    onTerminated(): void;
   }
 
   /**

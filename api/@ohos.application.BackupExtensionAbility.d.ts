@@ -29,7 +29,7 @@ import type BackupExtensionContext from './@ohos.file.BackupExtensionContext';
  * @syscap SystemCapability.FileManagement.StorageService.Backup
  * @StageModelOnly
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface BundleVersion {
   /**
@@ -39,7 +39,7 @@ export interface BundleVersion {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   code: number;
 
@@ -50,7 +50,7 @@ export interface BundleVersion {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   name: string;
 }
@@ -61,7 +61,7 @@ export interface BundleVersion {
  * @syscap SystemCapability.FileManagement.StorageService.Backup
  * @StageModelOnly
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class BackupExtensionAbility {
   /**
@@ -89,7 +89,7 @@ declare class BackupExtensionAbility {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onBackup(): void;
 
@@ -115,7 +115,7 @@ declare class BackupExtensionAbility {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onRestore(bundleVersion: BundleVersion): void;
 
@@ -166,7 +166,7 @@ declare class BackupExtensionAbility {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onRelease(scenario: int): Promise<void>;
 
@@ -180,7 +180,7 @@ declare class BackupExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getBackupCompatibilityInfo(extInfo: string) : Promise<string>;
 
@@ -194,7 +194,7 @@ declare class BackupExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getRestoreCompatibilityInfo(extInfo: string) : Promise<string>;
 }

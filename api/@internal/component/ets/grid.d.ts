@@ -992,6 +992,23 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   layoutDirection(value: GridDirection): GridAttribute;
 
   /**
+   * Sets whether empty branches are supported in lazy loading.
+   *
+   * @param { boolean | undefined } supported - Indicates whether empty branches are supported in lazy loading.
+   *     <br>Default value: false, passing undefined will restore the default value.
+   *     <br>If set to false, LazyForEach or Repeat with virtualScroll does not allow empty branches.
+   *     <br>If set to true, an empty branch of LazyForEach or Repeat with virtualScroll is treated as a node of
+   *     zero size.
+   * @returns { GridAttribute } the attribute of the Gird.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  supportEmptyBranchInLazyLoading(supported: boolean | undefined): GridAttribute;
+
+  /**
    * Set weather to enable grid drag-and-drop animation.
    *
    * @param { boolean } value - Whether to enable drag-and-drop animation.
@@ -1033,7 +1050,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 8 dynamic
    */
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
@@ -1043,7 +1060,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
@@ -1056,7 +1073,20 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @atomicservice
    * @since 11 dynamic
    */
-  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => (() => any) | void): GridAttribute;
+  /**
+   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+   * (To be triggered, press and hold for 170 milliseconds (ms))
+   * Anonymous Object Rectification.
+   *
+   * @param { function } event - callback function, triggered when a grid item starts to be dragged.
+   * @returns { GridAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onItemDragStart(event: OnItemDragStartCallback): GridAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
@@ -1313,6 +1343,19 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @since 20 dynamic
    */
   syncLoad(enable: boolean): GridAttribute;
+
+  /**
+   * Sets the edit mode options.
+   *
+   * @param { EditModeOptions } [options] - edit mode options.
+   *     <br>Default value: <em>{ enableGatherSelectedItemsAnimation: false }</em>
+   * @returns { GridAttribute } The attribute of the grid.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  editModeOptions(options?: EditModeOptions): GridAttribute;
 
   /**
    * Called When sliding the grid.

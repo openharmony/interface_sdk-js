@@ -35,12 +35,12 @@ export interface PatternOptions {
   /**
    * The default selected pattern, The defaultSelected will default to 0 if left blank
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
    * @since 23 static
    */
-  defaultSelected?: number;
+  defaultSelected?: int;
   /**
    * the patterns of input method.
    *
@@ -58,7 +58,7 @@ export interface PatternOptions {
    * @since 11 dynamic
    * @since 23 static
    */
-  action: (index: number) => void;
+  action: (index: int) => void;
 }
 
 /**

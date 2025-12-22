@@ -27,7 +27,7 @@ import window from './@ohos.window';
  * @typedef {function} OnAbilityWillCreateFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since 22 static
+ * @since 23 static
  */
 type OnAbilityWillCreateFn = (ability: UIAbility) => void;
 
@@ -38,7 +38,7 @@ type OnAbilityWillCreateFn = (ability: UIAbility) => void;
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @param { window.WindowStage } windowStage - window stage to create
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since 22 static
+ * @since 23 static
  */
 type OnWindowStageWillCreateFn = (ability: UIAbility, windowStage: window.WindowStage) => void;
 
@@ -48,7 +48,7 @@ type OnWindowStageWillCreateFn = (ability: UIAbility, windowStage: window.Window
  * @typedef {function} OnWillNewWantFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since 22 static
+ * @since 23 static
  */
 type OnWillNewWantFn = (ability: UIAbility) => void;
 
@@ -58,7 +58,7 @@ type OnWillNewWantFn = (ability: UIAbility) => void;
  * @typedef {function} OnNewWantFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since 22 static
+ * @since 23 static
  */
 type OnNewWantFn = (ability: UIAbility) => void;
 
@@ -69,7 +69,7 @@ type OnNewWantFn = (ability: UIAbility) => void;
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @param { window.WindowStage } windowStage - window stage to create
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since 22 static
+ * @since 23 static
  */
 type OnWindowStageWillDestroyFn = (ability: UIAbility, windowStage: window.WindowStage) => void;
 
@@ -79,7 +79,7 @@ type OnWindowStageWillDestroyFn = (ability: UIAbility, windowStage: window.Windo
  * @typedef {function} OnAbilityWillDestroyFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since 22 static
+ * @since 23 static
  */
 type OnAbilityWillDestroyFn = (ability: UIAbility) => void;
 
@@ -89,7 +89,7 @@ type OnAbilityWillDestroyFn = (ability: UIAbility) => void;
  * @typedef {function} OnAbilityWillForegroundFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since 22 static
+ * @since 23 static
  */
 type OnAbilityWillForegroundFn = (ability: UIAbility) => void;
 
@@ -99,7 +99,7 @@ type OnAbilityWillForegroundFn = (ability: UIAbility) => void;
  * @typedef {function} OnAbilityWillBackgroundFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since 22 static
+ * @since 23 static
  */
 type OnAbilityWillBackgroundFn = (ability: UIAbility) => void;
 
@@ -109,7 +109,7 @@ type OnAbilityWillBackgroundFn = (ability: UIAbility) => void;
  * @typedef {function} OnAbilityWillContinueFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since 22 static
+ * @since 23 static
  */
 type OnAbilityWillContinueFn = (ability: UIAbility) => void;
 
@@ -120,7 +120,7 @@ type OnAbilityWillContinueFn = (ability: UIAbility) => void;
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @param { window.WindowStage } windowStage - window stage to create
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since 22 static
+ * @since 23 static
  */
 type OnWindowStageWillRestoreFn = (ability: UIAbility, windowStage: window.WindowStage) => void;
 
@@ -131,7 +131,7 @@ type OnWindowStageWillRestoreFn = (ability: UIAbility, windowStage: window.Windo
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @param { window.WindowStage } windowStage - window stage to create
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since 22 static
+ * @since 23 static
  */
 type OnWindowStageRestoreFn = (ability: UIAbility, windowStage: window.WindowStage) => void;
 
@@ -141,7 +141,7 @@ type OnWindowStageRestoreFn = (ability: UIAbility, windowStage: window.WindowSta
  * @typedef {function} OnAbilityWillSaveStateFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since 22 static
+ * @since 23 static
  */
 type OnAbilityWillSaveStateFn = (ability: UIAbility) => void;
 
@@ -151,7 +151,7 @@ type OnAbilityWillSaveStateFn = (ability: UIAbility) => void;
  * @typedef {function} OnAbilitySaveStateFn
  * @param { UIAbility } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since 22 static
+ * @since 23 static
  */
 type OnAbilitySaveStateFn = (ability: UIAbility) => void;
 
@@ -178,7 +178,7 @@ type OnAbilitySaveStateFn = (ability: UIAbility) => void;
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class AbilityLifecycleCallback {
   /**
@@ -207,7 +207,7 @@ declare class AbilityLifecycleCallback {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onAbilityCreate(ability: UIAbility): void;
 
@@ -228,7 +228,7 @@ declare class AbilityLifecycleCallback {
    * @type { ?OnAbilityWillCreateFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onAbilityWillCreate?: OnAbilityWillCreateFn;
 
@@ -261,7 +261,7 @@ declare class AbilityLifecycleCallback {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -283,7 +283,7 @@ declare class AbilityLifecycleCallback {
    * @type { ?OnWindowStageWillCreateFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onWindowStageWillCreate?: OnWindowStageWillCreateFn;
 
@@ -304,7 +304,7 @@ declare class AbilityLifecycleCallback {
    * @type { ?OnWillNewWantFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onWillNewWant?: OnWillNewWantFn;
 
@@ -325,7 +325,7 @@ declare class AbilityLifecycleCallback {
    * @type { ?OnNewWantFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onNewWant?: OnNewWantFn;
 
@@ -347,7 +347,7 @@ declare class AbilityLifecycleCallback {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onWindowStageActive(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -369,7 +369,7 @@ declare class AbilityLifecycleCallback {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onWindowStageInactive(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -402,7 +402,7 @@ declare class AbilityLifecycleCallback {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -424,7 +424,7 @@ declare class AbilityLifecycleCallback {
    * @type { ?OnWindowStageWillDestroyFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onWindowStageWillDestroy?: OnWindowStageWillDestroyFn;
 
@@ -454,7 +454,7 @@ declare class AbilityLifecycleCallback {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onAbilityDestroy(ability: UIAbility): void;
 
@@ -475,7 +475,7 @@ declare class AbilityLifecycleCallback {
    * @type { ?OnAbilityWillDestroyFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onAbilityWillDestroy?: OnAbilityWillDestroyFn;
 
@@ -505,7 +505,7 @@ declare class AbilityLifecycleCallback {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onAbilityForeground(ability: UIAbility): void;
 
@@ -526,7 +526,7 @@ declare class AbilityLifecycleCallback {
    * @type { ?OnAbilityWillForegroundFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onAbilityWillForeground?: OnAbilityWillForegroundFn;
 
@@ -556,7 +556,7 @@ declare class AbilityLifecycleCallback {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onAbilityBackground(ability: UIAbility): void;
 
@@ -577,7 +577,7 @@ declare class AbilityLifecycleCallback {
    * @type { ?OnAbilityWillBackgroundFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onAbilityWillBackground?: OnAbilityWillBackgroundFn;
 
@@ -629,7 +629,7 @@ declare class AbilityLifecycleCallback {
    * @type { ?OnWindowStageWillRestoreFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onWindowStageWillRestore?: OnWindowStageWillRestoreFn;
 
@@ -651,7 +651,7 @@ declare class AbilityLifecycleCallback {
    * @type { ?OnWindowStageRestoreFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onWindowStageRestore?: OnWindowStageRestoreFn;
 
@@ -672,7 +672,7 @@ declare class AbilityLifecycleCallback {
    * @type { ?OnAbilityWillSaveStateFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onAbilityWillSaveState?: OnAbilityWillSaveStateFn;
 
@@ -693,7 +693,7 @@ declare class AbilityLifecycleCallback {
    * @type { ?OnAbilitySaveStateFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onAbilitySaveState?: OnAbilitySaveStateFn;
 }

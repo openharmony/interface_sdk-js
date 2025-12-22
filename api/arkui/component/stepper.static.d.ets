@@ -27,7 +27,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @interface StepperOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface StepperOptions {
   /**
@@ -35,7 +35,7 @@ export interface StepperOptions {
    *
    * @type { ?(int | Bindable<int>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   index?: int | Bindable<int>;
 }
@@ -45,7 +45,7 @@ export interface StepperOptions {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface StepperAttribute extends CommonMethod {
   /**
@@ -54,7 +54,7 @@ export declare interface StepperAttribute extends CommonMethod {
    * @param { function | undefined } callback
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   default onFinish(callback: (() => void) | undefined): this;
 
@@ -64,7 +64,7 @@ export declare interface StepperAttribute extends CommonMethod {
    * @param { function | undefined } callback
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   default onSkip(callback: (() => void) | undefined): this;
 
@@ -74,7 +74,7 @@ export declare interface StepperAttribute extends CommonMethod {
    * @param { function | undefined } callback
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   default onChange(callback: ((prevIndex: int, index: int) => void) | undefined): this;
 
@@ -84,7 +84,7 @@ export declare interface StepperAttribute extends CommonMethod {
    * @param { function | undefined } callback
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   default onNext(callback: ((index: int, pendingIndex: int) => void) | undefined): this;
 
@@ -94,7 +94,7 @@ export declare interface StepperAttribute extends CommonMethod {
    * @param { function | undefined } callback
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   default onPrevious(callback: ((index: int, pendingIndex: int) => void) | undefined): this;
 
@@ -105,7 +105,7 @@ export declare interface StepperAttribute extends CommonMethod {
    *     The attribute modifier of stepper.
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   default attributeModifier(modifier: AttributeModifier<StepperAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -117,7 +117,7 @@ export declare interface StepperAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { StepperAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @ComponentBuilder
 export declare function Stepper(

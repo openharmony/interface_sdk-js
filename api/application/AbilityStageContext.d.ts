@@ -48,7 +48,7 @@ import Context from './Context';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class AbilityStageContext extends Context {
   /**
@@ -78,7 +78,7 @@ declare class AbilityStageContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   currentHapModuleInfo: HapModuleInfo;
 
@@ -109,7 +109,7 @@ declare class AbilityStageContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   config: Configuration;
 }

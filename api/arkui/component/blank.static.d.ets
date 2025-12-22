@@ -26,7 +26,7 @@ import { AttributeModifier, CommonMethod } from './common';
  * @extends CommonMethod
  * @interface BlankAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare interface BlankAttribute extends CommonMethod {
@@ -37,7 +37,7 @@ export declare interface BlankAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { BlankAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default color(value: ResourceColor | undefined): this;
     /**
@@ -46,7 +46,7 @@ export declare interface BlankAttribute extends CommonMethod {
      * @param { AttributeModifier<BlankAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { BlankAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<BlankAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -58,7 +58,7 @@ export declare interface BlankAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { BlankAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder

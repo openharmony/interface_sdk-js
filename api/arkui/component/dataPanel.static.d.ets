@@ -28,21 +28,21 @@ import { AttributeModifier } from "./common";
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum DataPanelType {
     /**
      * Line Type
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     Line,
     /**
      * Line Rainbow
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     Circle
 }
@@ -50,21 +50,21 @@ export declare enum DataPanelType {
  * ColorStop type
  * @typedef { object } ColorStop
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ColorStop {
     /**
      * Color property.
      * @type { ResourceColor | undefined } color - the color value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     color: ResourceColor | undefined;
     /**
      * Offset property.
      * @type { Length | undefined } offset - the color offset.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     offset: Length | undefined;
 }
@@ -72,7 +72,7 @@ export declare interface ColorStop {
  * LinearGradient class
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class LinearGradient {
     /**
@@ -80,7 +80,7 @@ export declare class LinearGradient {
      *
      * @param { ColorStop[] } colorStops - the LinearGradient constructor parameter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     constructor(colorStops: ColorStop[]);
 }
@@ -90,7 +90,7 @@ export declare class LinearGradient {
  * @extends MultiShadowOptions
  * @interface DataPanelShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface DataPanelShadowOptions extends MultiShadowOptions {
     /**
@@ -99,7 +99,7 @@ export declare interface DataPanelShadowOptions extends MultiShadowOptions {
      * @type { ?Array<ResourceColor | LinearGradient> }
      * @default Consistent with valueColors
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     colors?: Array<ResourceColor | LinearGradient>;
 }
@@ -108,7 +108,7 @@ export declare interface DataPanelShadowOptions extends MultiShadowOptions {
  *
  * @interface DataPanelOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface DataPanelOptions {
     /**
@@ -116,7 +116,7 @@ export declare interface DataPanelOptions {
      *
      * @type { double[] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     values: double[];
     /**
@@ -124,7 +124,7 @@ export declare interface DataPanelOptions {
      *
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     max?: double;
     /**
@@ -132,7 +132,7 @@ export declare interface DataPanelOptions {
      *
      * @type { ?DataPanelType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     type?: DataPanelType;
 }
@@ -142,7 +142,7 @@ export declare interface DataPanelOptions {
  * @extends CommonConfiguration<DataPanelConfiguration>
  * @interface DataPanelConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelConfiguration> {
     /**
@@ -150,7 +150,7 @@ export declare interface DataPanelConfiguration extends CommonConfiguration<Data
      *
      * @type { double[] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     values: double[];
     /**
@@ -158,7 +158,7 @@ export declare interface DataPanelConfiguration extends CommonConfiguration<Data
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     maxValue: double;
 }
@@ -168,7 +168,7 @@ export declare interface DataPanelConfiguration extends CommonConfiguration<Data
  * @extends CommonMethod
  * @interface ButtonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare interface DataPanelAttribute extends CommonMethod {
@@ -178,7 +178,7 @@ export declare interface DataPanelAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default closeEffect(value: boolean | undefined): this;
     /**
@@ -187,7 +187,7 @@ export declare interface DataPanelAttribute extends CommonMethod {
      * @param { Array<ResourceColor | LinearGradient> | undefined } value - the value colors of the data ratio chart.
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default valueColors(value: Array<ResourceColor | LinearGradient> | undefined): this;
     /**
@@ -196,7 +196,7 @@ export declare interface DataPanelAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value - track background color of the data ratio chart.
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default trackBackgroundColor(value: ResourceColor | undefined): this;
     /**
@@ -205,7 +205,7 @@ export declare interface DataPanelAttribute extends CommonMethod {
      * @param { Length | undefined } value - the stroke width of the data ratio chart.
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default strokeWidth(value: Length | undefined): this;
     /**
@@ -214,7 +214,7 @@ export declare interface DataPanelAttribute extends CommonMethod {
      * @param { DataPanelShadowOptions | undefined | null } value - the track shadow width of the data ratio chart.
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default trackShadow(value: DataPanelShadowOptions | undefined | null): this;
     /**
@@ -223,7 +223,7 @@ export declare interface DataPanelAttribute extends CommonMethod {
      * @param { ContentModifier<DataPanelConfiguration> | undefined } modifier - The content modifier of data panel.
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default contentModifier(modifier: ContentModifier<DataPanelConfiguration> | undefined): this;
     /**
@@ -232,7 +232,7 @@ export declare interface DataPanelAttribute extends CommonMethod {
      * @param { AttributeModifier<DataPanelAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { BadgeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<DataPanelAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -243,7 +243,7 @@ export declare interface DataPanelAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_]
  * @returns { DataPanelAttribute } The attribute of the DataPanel.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
