@@ -486,6 +486,23 @@ export interface FingerInfo {
      */
     id: int;
     /**
+     * X position of the click point relative to the global display coordinate.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    globalDisplayX?: double;
+
+    /**
+     * Y position of the click point relative to the global display coordinate.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    globalDisplayY?: double;
+    /**
      * X coordinate of the touch point relative to the left edge of the device screen.
      *
      * @type { double }
