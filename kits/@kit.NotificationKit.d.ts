@@ -29,3 +29,10 @@ export {
   ActionResult, Notification, ShowNotificationOptions, notificationManager, notificationSubscribe,
   notificationExtensionSubscription, NotificationSubscriberExtensionAbility, NotificationSubscriberExtensionContext
 };
+
+/*** if arkts static */
+import notificationManager from '@ohos.notificationManager';
+import notificationSubscribe from '@ohos.notificationSubscribe';
+
+export { notificationManager, notificationSubscribe };
+/*** endif */
