@@ -192,6 +192,13 @@ export { NavigationModifier } from './arkui/NavigationModifier';
 export { RefreshModifier } from './arkui/RefreshModifier';
 
 /**
+ * Export RichEditorModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export { RichEditorModifier } from './arkui/RichEditorModifier';
+
+/**
  * Export RefreshModifier, which is used to update attributes to native side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 23 static
