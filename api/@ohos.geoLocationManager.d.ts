@@ -2712,7 +2712,8 @@ declare namespace geoLocationManager {
    *
    * @typedef CellInfo
    * @syscap SystemCapability.Location.Location.Core
-   * @crossplatform
+   * @systemapi
+   * @FaAndStageModel
    * @since 23 dynamic&static
    */
   export interface CellInfo {
@@ -2721,7 +2722,8 @@ declare namespace geoLocationManager {
      *
      * @type { long }
      * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
+     * @systemapi
+     * @FaAndStageModel
      * @since 23 dynamic&static
      */
     timeSinceBoot: long;
@@ -2731,7 +2733,8 @@ declare namespace geoLocationManager {
      *
      * @type { long }
      * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
+     * @systemapi
+     * @FaAndStageModel
      * @since 23 dynamic&static
      */
     cellId: long;
@@ -2741,7 +2744,8 @@ declare namespace geoLocationManager {
      *
      * @type { int }
      * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
+     * @systemapi
+     * @FaAndStageModel
      * @since 23 dynamic&static
      */
     lac: int;
@@ -2751,7 +2755,8 @@ declare namespace geoLocationManager {
      *
      * @type { int }
      * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
+     * @systemapi
+     * @FaAndStageModel
      * @since 23 dynamic&static
      */
     mcc: int;
@@ -2761,7 +2766,8 @@ declare namespace geoLocationManager {
      *
      * @type { int }
      * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
+     * @systemapi
+     * @FaAndStageModel
      * @since 23 dynamic&static
      */
     mnc: int;
@@ -2771,7 +2777,8 @@ declare namespace geoLocationManager {
      *
      * @type { int }
      * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
+     * @systemapi
+     * @FaAndStageModel
      * @since 23 dynamic&static
      */
     rat: int;
@@ -2780,8 +2787,9 @@ declare namespace geoLocationManager {
      * Indicates signal intensity.
      *
      * @type { int }
-     * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
+     * @syscap SystemCapability.Location.Location.Core、
+     * @systemapi
+     * @FaAndStageModel
      * @since 23 dynamic&static
      */
     signalIntensity: int;
@@ -2791,7 +2799,8 @@ declare namespace geoLocationManager {
      *
      * @type { int }
      * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
+     * @systemapi
+     * @FaAndStageModel
      * @since 23 dynamic&static
      */
     arfcn: int;
@@ -2801,7 +2810,8 @@ declare namespace geoLocationManager {
      *
      * @type { int }
      * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
+     * @systemapi
+     * @FaAndStageModel
      * @since 23 dynamic&static
      */
     pci: int;
@@ -2811,7 +2821,8 @@ declare namespace geoLocationManager {
      *
      * @type { ?Map<string, string> }
      * @syscap SystemCapability.Location.Location.Core
-     * @crossplatform
+     * @systemapi
+     * @FaAndStageModel
      * @since 23 dynamic&static
      */
     additionsMap?: Map<string, string>;
@@ -4752,6 +4763,7 @@ declare namespace geoLocationManager {
      * @type { ?int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
+     * @FaAndStageModel
      * @since 23 dynamic&static
      */
     slotId?: int;
@@ -4760,9 +4772,10 @@ declare namespace geoLocationManager {
      * Indicates absolute radio frequency channel number (ARFCN).
      * Query cell Information by Specified ARFCN.
      *
-     * @type  {?Array<int> }
+     * @type  { ?int[] }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
+     * @FaAndStageModel
      * @since 23 dynamic&static
      */
     arfcn?: Array<int>;
@@ -4770,9 +4783,10 @@ declare namespace geoLocationManager {
     /**
      * Indicates PLMN number of the SIM card.
      *
-     * @type  {?Array<int> }
+     * @type  { ?int[] }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
+     * @FaAndStageModel
      * @since 23 dynamic&static
      */
     plmnId?: Array<int>;
@@ -4810,11 +4824,23 @@ declare namespace geoLocationManager {
     bluetoothData?: BluetoothScanInfo;
 
     /**
+     * Indicates the card slot index number.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    slotId?: int;
+
+    /**
      * Camped cell information.
      *
      * @type { ?CellInfo }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
+     * @FaAndStageModel
      * @since 23 dynamic&static
      */
     campedCellInfo?: CellInfo;
@@ -4822,12 +4848,13 @@ declare namespace geoLocationManager {
     /**
      * Neighboring cell information.
      *
-     * @type { ?Array<CellInfo> }
+     * @type { ?CellInfo[] }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
+     * @FaAndStageModel
      * @since 23 dynamic&static
      */
-    neighboringCellInfo?: Array<CellInfo>;
+    neighboringCellInfo?: Array<CellInfo>[];
   }
 
   /**
