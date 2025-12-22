@@ -150,6 +150,16 @@ declare namespace fileUri {
      * @since 23 static
      */
     isRemoteUri(): boolean;
+
+    /**
+     * Converts this URI into an encoded string.
+     *
+     * @returns { string } URI in a serialized string.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly   
+     * @since 23 static
+     */
+    toString(): string;
   }
   
   /**
