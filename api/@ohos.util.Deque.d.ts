@@ -219,26 +219,17 @@ declare class Deque<T> {
    * Obtains the header element of a deque.
    *
    * @returns { T } the T type
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   getFirst(): T;
 
   /**
-   * Obtains the header element of a deque.
-   *
-   * @returns { T | undefined } the first element of the deque if it exists, otherwise returns undefined.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 23 static
-   */
-  getFirst(): T | undefined;
-
-  /**
    * Obtains the end element of a deque.
    *
    * @returns { T } the T type
@@ -259,26 +250,17 @@ declare class Deque<T> {
    * Obtains the end element of a deque.
    *
    * @returns { T } the T type
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   getLast(): T;
 
   /**
-   * Obtains the end element of a deque.
-   *
-   * @returns { T | undefined } the last element of the deque if it exists, otherwise returns undefined.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 23 static
-   */
-  getLast(): T | undefined;
-
-  /**
    * Obtains the header element of a deque and delete the element.
    *
    * @returns { T } the T type
@@ -299,26 +281,17 @@ declare class Deque<T> {
    * Obtains the header element of a deque and delete the element.
    *
    * @returns { T } the T type
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The popFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   popFirst(): T;
 
   /**
-   * Obtains the header element of a deque and delete the element.
-   *
-   * @returns { T | undefined } the deleted element of the deque if it exists, otherwise returns undefined.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 23 static
-   */
-  popFirst(): T | undefined;
-
-  /**
    * Obtains the end element of a deque and delete the element.
    *
    * @returns { T } the T type
@@ -339,24 +312,15 @@ declare class Deque<T> {
    * Obtains the end element of a deque and delete the element.
    *
    * @returns { T } the T type
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The popLast method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  popLast(): T;
-
-  /**
-   * Obtains the end element of a deque and delete the element.
-   *
-   * @returns { T | undefined } the deleted element of the deque if it exists, otherwise returns undefined.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
    * @since 23 static
    */
-  popLast(): T | undefined;
+  popLast(): T;
 
   /**
    * Executes a provided function once for each value in the deque object.

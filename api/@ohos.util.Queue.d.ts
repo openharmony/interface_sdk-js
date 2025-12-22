@@ -166,24 +166,15 @@ declare class Queue<T> {
    * Obtains the header element of a queue.
    *
    * @returns { T } the T type
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  getFirst(): T;
-
-  /**
-   * Obtains the header element of a queue.
-   *
-   * @returns { T | undefined } the first element of the queue if it exists, otherwise returns undefined.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
    * @since 23 static
    */
-  getFirst(): T | undefined;
+  getFirst(): T;
 
   /**
    * Retrieves and removes the head of this queue
@@ -206,24 +197,15 @@ declare class Queue<T> {
    * Retrieves and removes the head of this queue
    *
    * @returns { T } the T type
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The pop method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  pop(): T;
-
-  /**
-   * Retrieves and removes the head of this queue
-   *
-   * @returns { T | undefined } the deleted element of the deque if it exists, otherwise returns undefined.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
    * @since 23 static
    */
-  pop(): T | undefined;
+  pop(): T;
 
   /**
    * Executes a provided function once for each value in the queue object.
