@@ -3393,6 +3393,18 @@ declare namespace media {
     getPlaybackPosition() : int;
 
     /**
+     * Get the PresentationTime value at current playback position.
+     * This API can be used in the playing, paused, or completed state.
+     * @returns { long } returns the time of current playback position - microseconds(us)
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getCurrentPresentationTimestamp() : long;
+
+    /**
      * Enable or disable super-resolution dynamically. This API can be called when the AVPlayer is in the
      * initialized, prepared, playing, paused, completed, or stopped state.
      * Must enable super-resolution feature in {@link PlaybackStrategy} before calling {@link #prepare}.
