@@ -42,6 +42,7 @@ import {
   ChipSuffixSymbolGlyphOptions
 } from '@ohos.arkui.advanced.Chip';
 import { NavPushPathHelper } from '@ohos.atomicservice.NavPushPathHelper';
+import { AtomicServiceMenuBar } from '@ohos.atomicservice.AtomicServiceMenuBar';
 import {
   IconOptions, LabelOptions as ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle,
   ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup, SuffixImageIconOptions,
@@ -246,7 +247,7 @@ export {
   AtomicServiceSearch, InputFilterParams, SearchButtonParams, MenuAlignParams, SearchParams, SelectParams, OperationParams,
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOptions, App, AppResponse, AtomicServiceBar,
   AtomicServiceNavigation, NavDestinationBuilder, MixMode, GradientAlpha, BackgroundTheme, TitleBarType, SideBarOptions, TitleOptions, GradientBackground,
-  NavPushPathHelper,
+  NavPushPathHelper, AtomicServiceMenuBar,
   BackRouterOptions, BuilderNode, ReactiveBuilderNode, Button, ButtonOptions, CallbackParam,
   ArcButton, ArcButtonOptions, ArcButtonProgressConfig, ArcButtonPosition, ArcButtonStyleMode,
   ArcButtonStatus,
