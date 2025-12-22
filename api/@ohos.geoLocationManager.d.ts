@@ -2708,33 +2708,113 @@ declare namespace geoLocationManager {
   }
 
   /**
-   * Indicates absolute radio frequency channel number (ARFCN) information.
+   * Cell information.
    *
-   * @typedef ArfcnInfo
+   * @typedef CellInfo
    * @syscap SystemCapability.Location.Location.Core
    * @crossplatform
    * @since 23 dynamic&static
    */
-  export interface ArfcnInfo {
+  export interface CellInfo {
     /**
-     * GNSS cache location report period.
+     * Indicates timestamp since boot.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    timeSinceBoot: long;
+
+    /**
+     * Indicates ID of cell.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    cellId: long;
+
+    /**
+     * Indicates location area code(LAC).
      *
      * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @since 23 dynamic&static
      */
-    reportingPeriodSec: int;
+    lac: int;
 
     /**
-     * Indicates whether to wake up the listener when the GNSS cache location queue is full.
+     * Indicates moble country code (MCC).
      *
-     * @type { boolean }
+     * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @crossplatform
      * @since 23 dynamic&static
      */
-    wakeUpCacheQueueFull: boolean;
+    mcc: int;
+
+    /**
+     * Indicates mobile nerwork code(MNC).
+     *
+     * @type { int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    mnc: int;
+
+    /**
+     * Indicates radio acess technology(RAT).
+     *
+     * @type { int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    rat: int;
+
+    /**
+     * Indicates signal intensity.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    signalIntensity: int;
+
+    /**
+     * Indicates absolute radio frequency channel number(ARFCN).
+     *
+     * @type { int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    arfcn: int;
+
+    /**
+     * Indicates physical cell identifier (PCI).
+     *
+     * @type { int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    pci: int;
+
+    /**
+     * Indicates additional information map.
+     *
+     * @type { ?Map<string, string> }
+     * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    additionsMap?: Map<string, string>;
   }
 
   /**
@@ -4680,12 +4760,22 @@ declare namespace geoLocationManager {
      * Indicates absolute radio frequency channel number (ARFCN).
      * Query cell Information by Specified ARFCN.
      *
-     * @type  {?ArfcnInfo }
+     * @type  {?Array<int> }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 23 dynamic&static
      */
-    arfcn?: ArfcnInfo;
+    arfcn?: Array<int>;
+
+    /**
+     * Indicates PLMN number of the SIM card.
+     *
+     * @type  {?Array<int> }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    plmnId?: Array<int>;
   }
 
   /**
@@ -4718,6 +4808,26 @@ declare namespace geoLocationManager {
      * @since 23 static
      */
     bluetoothData?: BluetoothScanInfo;
+
+    /**
+     * Camped cell information.
+     *
+     * @type { ?CellInfo }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    campedCellInfo?: CellInfo;
+
+    /**
+     * Neighboring cell information.
+     *
+     * @type { ?Array<CellInfo> }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    neighboringCellInfo?: Array<CellInfo>;
   }
 
   /**
