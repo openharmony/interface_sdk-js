@@ -2708,6 +2708,36 @@ declare namespace geoLocationManager {
   }
 
   /**
+   * Indicates absolute radio frequency channel number (ARFCN) information.
+   *
+   * @typedef ArfcnInfo
+   * @syscap SystemCapability.Location.Location.Core
+   * @crossplatform
+   * @since 23 dynamic&static
+   */
+  export interface ArfcnInfo {
+    /**
+     * GNSS cache location report period.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    reportingPeriodSec: int;
+
+    /**
+     * Indicates whether to wake up the listener when the GNSS cache location queue is full.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Location.Location.Core
+     * @crossplatform
+     * @since 23 dynamic&static
+     */
+    wakeUpCacheQueueFull: boolean;
+  }
+
+  /**
    * Configuring parameters in GNSS geofence requests.
    *
    * @typedef GnssGeofenceRequest
@@ -4635,6 +4665,27 @@ declare namespace geoLocationManager {
      * @since 23 static
      */
     scanTimeout?: int;
+
+    /**
+     * Indicates SIM card slot number.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    slotId?: int;
+
+    /**
+     * Indicates absolute radio frequency channel number (ARFCN).
+     * Query cell Information by Specified ARFCN.
+     *
+     * @type  {?ArfcnInfo }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    arfcn?: ArfcnInfo;
   }
 
   /**
@@ -6591,7 +6642,16 @@ declare namespace geoLocationManager {
      * @since 10 dynamic
      * @since 23 static
      */
-    BLUETOOTH
+    BLUETOOTH = 2,
+
+    /**
+     * Obtains cellular cell information for locating.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    CELLULAR = 3
   }
 
   /**
