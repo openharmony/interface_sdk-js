@@ -645,9 +645,11 @@ export declare class MutableBinding<T> {
    * @atomicservice
    * @since 20 dynamic
    */
+
   get value(): T;
   /**
    * Set function that can set the new value.
+   * @param { T } newValue - set the value with newValue.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
