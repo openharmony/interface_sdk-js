@@ -167,7 +167,7 @@ declare namespace huksExternalCrypto {
    * @throws { BusinessError } 12000014 - memory is insufficient.
    * @throws { BusinessError } 12000018 - the input parameter is invalid.
    * @throws { BusinessError } 12000019 - the provider is already registered.
-   * @throws { BusinessError } 12000020 - an error occured in the dependent module.
+   * @throws { BusinessError } 12000020 - an error occurred in the dependent module.
    * @throws { BusinessError } 12000025 - the number of providers exceeds the limit.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
@@ -188,7 +188,7 @@ declare namespace huksExternalCrypto {
    * @throws { BusinessError } 12000011 - the provider is not found.
    * @throws { BusinessError } 12000014 - memory is insufficient.
    * @throws { BusinessError } 12000018 - the input parameter is invalid.
-   * @throws { BusinessError } 12000020 - an error occured in the dependent module.
+   * @throws { BusinessError } 12000020 - an error occurred in the dependent module.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
