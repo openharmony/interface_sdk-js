@@ -5364,7 +5364,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *     Otherwise, an exception will be thrown.
    * @throws { BusinessError } 7600104 - Failed to get the data from Surface.
    * @throws { BusinessError } 7600201 - Unsupported operation, e.g. on cross-platform.
-   * @throws { BusinessError } 7600206 - Invalid parameter.
+   * @throws { BusinessError } 7600206 - Invalid parameter
    * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
