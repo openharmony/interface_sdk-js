@@ -7068,16 +7068,6 @@ declare namespace webview {
      * @since 22 dynamic
      */
     setSoftKeyboardBehaviorMode(mode: WebSoftKeyboardBehaviorMode): void;
-
-    /**
-     * Sets whether to switch web scrollbar mode.
-     *
-     * @param { ScrollbarMode } scrollbarMode - web scrollbar mode, default OVERLAY_LAYOUT_SCROLLBAR.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 23 dynamic
-     */
-    static setScrollbarMode(scrollbarMode: ScrollbarMode): void;
   }
 
   /**
@@ -10266,30 +10256,6 @@ declare namespace webview {
      * @since 21 dynamic
      */
     STRICT = 1
-  }
-
-  /**
-   * Enum type supplied to {@link setScrollbarMode} for indicating the web component scrollbar mode.
-   * @enum { number }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 23 dynamic
-   */
-  enum ScrollbarMode {
-    /**
-     * The normal scrollbar mode, A scrollbar suspended above the content,
-     * appearing when scrolling and automatically hiding when stationary.
-     * Draw using layout viewport, which can be dragged and dropped.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 23 dynamic
-     */
-    OVERLAY_LAYOUT_SCROLLBAR = 0,
-
-    /**
-     * The Resident scrollbar mode, Always display a fixed position scrollbar in the content area.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 23 dynamic
-     */
-    FORCE_DISPLAY_SCROLLBAR = 1
   }
 }
 
