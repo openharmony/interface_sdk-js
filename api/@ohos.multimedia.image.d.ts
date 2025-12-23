@@ -5342,8 +5342,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *     if false, the PixelMap will not be transformed.
    * @returns { Promise<PixelMap> } A Promise of PixelMap instance if the operation is successful.
    *     Otherwise, an exception will be thrown.
-   * @throws { BusinessError } 7600206 - Invalid parameter.
    * @throws { BusinessError } 7600104 - Failed to get the data from Surface.
+   * @throws { BusinessError } 7600201 - Unsupported operation, e.g. on cross-platform.
+   * @throws { BusinessError } 7600206 - Invalid parameter.
    * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
@@ -5361,8 +5362,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *     if false, the PixelMap will not be transformed.
    * @returns { PixelMap } A PixelMap instance if the operation is successful.
    *     Otherwise, an exception will be thrown.
-   * @throws { BusinessError } 7600206 - Invalid parameter.
    * @throws { BusinessError } 7600104 - Failed to get the data from Surface.
+   * @throws { BusinessError } 7600201 - Unsupported operation, e.g. on cross-platform.
+   * @throws { BusinessError } 7600206 - Invalid parameter.
    * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
