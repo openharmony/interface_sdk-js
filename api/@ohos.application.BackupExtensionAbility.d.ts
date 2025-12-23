@@ -34,7 +34,7 @@ export interface BundleVersion {
    *
    * @type { long }
    * @syscap SystemCapability.FileManagement.StorageService.Backup
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */

@@ -27,7 +27,7 @@ import ExtensionContext from './application/ExtensionContext';
  *
  * @extends ExtensionContext
  * @syscap SystemCapability.FileManagement.StorageService.Backup
- * @StageModelOnly
+ * @stagemodelonly
  * @since 12 dynamic
  * @since 23 static
  */
