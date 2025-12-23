@@ -2713,7 +2713,7 @@ declare namespace geoLocationManager {
    * @typedef CellInfo
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodeonly
    * @since 23 dynamic&static
    */
   export interface CellInfo {
@@ -2723,7 +2723,7 @@ declare namespace geoLocationManager {
      * @type { long }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodeonly
      * @since 23 dynamic&static
      */
     timeSinceBoot: long;
@@ -2734,7 +2734,7 @@ declare namespace geoLocationManager {
      * @type { long }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodeonly
      * @since 23 dynamic&static
      */
     cellId: long;
@@ -2745,7 +2745,7 @@ declare namespace geoLocationManager {
      * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodeonly
      * @since 23 dynamic&static
      */
     lac: int;
@@ -2756,7 +2756,7 @@ declare namespace geoLocationManager {
      * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodeonly
      * @since 23 dynamic&static
      */
     mcc: int;
@@ -2767,7 +2767,7 @@ declare namespace geoLocationManager {
      * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodeonly
      * @since 23 dynamic&static
      */
     mnc: int;
@@ -2778,7 +2778,7 @@ declare namespace geoLocationManager {
      * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodeonly
      * @since 23 dynamic&static
      */
     rat: int;
@@ -2789,7 +2789,7 @@ declare namespace geoLocationManager {
      * @type { int }
      * @syscap SystemCapability.Location.Location.Core、
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodeonly
      * @since 23 dynamic&static
      */
     signalIntensity: int;
@@ -2800,7 +2800,7 @@ declare namespace geoLocationManager {
      * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodeonly
      * @since 23 dynamic&static
      */
     arfcn: int;
@@ -2811,7 +2811,7 @@ declare namespace geoLocationManager {
      * @type { int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodeonly
      * @since 23 dynamic&static
      */
     pci: int;
@@ -2822,7 +2822,7 @@ declare namespace geoLocationManager {
      * @type { ?Map<string, string> }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodeonly
      * @since 23 dynamic&static
      */
     additionsMap?: Map<string, string>;
@@ -4763,7 +4763,7 @@ declare namespace geoLocationManager {
      * @type { ?int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodeonly
      * @since 23 dynamic&static
      */
     slotId?: int;
@@ -4775,7 +4775,7 @@ declare namespace geoLocationManager {
      * @type  { ?int[] }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodeonly
      * @since 23 dynamic&static
      */
     arfcn?: Array<int>;
@@ -4786,7 +4786,7 @@ declare namespace geoLocationManager {
      * @type  { ?int[] }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodeonly
      * @since 23 dynamic&static
      */
     plmnId?: Array<int>;
@@ -4829,7 +4829,7 @@ declare namespace geoLocationManager {
      * @type { ?int }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodeonly
      * @since 23 dynamic&static
      */
     slotId?: int;
@@ -4840,7 +4840,7 @@ declare namespace geoLocationManager {
      * @type { ?CellInfo }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodeonly
      * @since 23 dynamic&static
      */
     campedCellInfo?: CellInfo;
@@ -4851,7 +4851,7 @@ declare namespace geoLocationManager {
      * @type { ?CellInfo[] }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodeonly
      * @since 23 dynamic&static
      */
     neighboringCellInfo?: Array<CellInfo>[];
@@ -5203,6 +5203,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 19 dynamic
+   * @since 23 static
    */
   export interface PoiInfo {
     /**
@@ -5222,6 +5223,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
+     * @since 23 static
      */
     timestamp: number;
   }
@@ -6594,6 +6596,7 @@ declare namespace geoLocationManager {
    * @typedef LocationCommand
    * @syscap SystemCapability.Location.Location.Core
    * @since 9 dynamic
+   * @since 23 static
    */
   export interface LocationCommand {
     /**
@@ -6602,6 +6605,7 @@ declare namespace geoLocationManager {
      * @type { LocationRequestScenario }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     scenario: LocationRequestScenario;
 
@@ -6611,6 +6615,7 @@ declare namespace geoLocationManager {
      * @type { string }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     command: string;
   }
