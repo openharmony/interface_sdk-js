@@ -7511,6 +7511,7 @@ interface PreviewParams {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
@@ -7550,6 +7551,7 @@ interface PreviewParams {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
@@ -7569,6 +7571,7 @@ interface PreviewParams {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
@@ -7588,6 +7591,7 @@ interface PreviewParams {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
@@ -7607,6 +7611,7 @@ interface PreviewParams {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 11 dynamic
