@@ -11657,6 +11657,19 @@ declare namespace media {
      * @since 23 static
      */
     enableBFrame?: boolean;
+
+    /**
+     * Set the fill mode for screen capture when a privacy window exists.
+     *
+     * @type { ?int } Indicates the value of the security shield mode:
+     *     If set to 0, it means that when there is a privacy window, the output screen image is completely  black.
+     *     If set to 1, it means that when there is a privacy window, only the privacy window area of the output
+     *     screen becomes black, and other values returns an error.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    privacyMaskMode?: int;
   }
 
   /**
