@@ -170,7 +170,7 @@ declare namespace insightIntent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic
+   * @since 20 dynamiconly
    */
   interface IntentEntity {
     /**
@@ -180,7 +180,7 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 20 dynamic
+     * @since 20 dynamiconly
      */
     entityId: string;
   }
@@ -192,7 +192,7 @@ declare namespace insightIntent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic
+   * @since 20 dynamiconly
    */
   interface IntentResult<T> {
     /**
@@ -202,7 +202,7 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 20 dynamic
+     * @since 20 dynamiconly
      */
     code: number;
 
@@ -213,7 +213,7 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 20 dynamic
+     * @since 20 dynamiconly
      */
     result?: T;
   }
