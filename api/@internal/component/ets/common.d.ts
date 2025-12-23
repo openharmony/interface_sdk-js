@@ -24822,7 +24822,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   excludeFromRenderGroup(exclude: boolean | undefined): T;
 
