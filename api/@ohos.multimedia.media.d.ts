@@ -3804,6 +3804,14 @@ declare namespace media {
     setPlaybackRate(rate: double): void;
 
     /**
+     * Get the current player playback rate
+     * @returns { Promise<double> } the current player playback rate.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 23 dynamic&static
+     */
+    getPlaybackRate(): Promise<double>;
+
+    /**
      * select a specified bitrate to playback, only valid for HLS protocol network stream. By default, the
      * player will select the appropriate bitrate according to the network connection speed. The
      * available bitrate list reported by {@link #on('availableBitrates')}. Set it to select
