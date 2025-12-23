@@ -5650,6 +5650,28 @@ declare namespace photoAccessHelper {
      */
     createAsset(photoType: PhotoType, extension: string, options?: CreateOptions): Promise<string>;
     /**
+     * Creates an image or video asset with the specified file type, file name extension, and title.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { PhotoType } photoType - Type of the file to create, which can be IMAGE or VIDEO.
+     * @param { string } extension - File name extension, for example, 'jpg'.
+     * @param { string } [title] - The title of an image or video asset.
+     * @returns { Promise<string> } Returns the uri of the newly created asset
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1. The extension format is unsupported
+     *     2. Title contains unsupported  character, such as . .. \ / : * ? " ' ` < > | { } [ ]
+     *     3. The title is an empty string
+     *     4. The total length of title and extension is more than 255
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    createPhotoAsset(photoType: PhotoType, extension: string, title?: string): Promise<string>;
+    /**
      * Creates an album. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -9531,7 +9553,19 @@ declare namespace photoAccessHelper {
    * @since 11 dynamic
    * @since 23 static
    */
-  interface MediaChangeRequest {}
+  interface MediaChangeRequest {
+    /**
+     * A readonly member for type checking.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    readonly comment: string
+  }
 
   /**
    * Defines the class of media asset change request.
@@ -9543,6 +9577,18 @@ declare namespace photoAccessHelper {
    * @since 23 static
    */
   class MediaAssetChangeRequest implements MediaChangeRequest {
+    /**
+     * A readonly member for type checking.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    readonly comment: string;
+
     /**
      * Constructor used to initialize an asset change request.
      *
@@ -10159,6 +10205,18 @@ declare namespace photoAccessHelper {
    */
   class MediaAssetsChangeRequest implements MediaChangeRequest {
     /**
+     * A readonly member for type checking.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly comment: string;
+
+    /**
      * Constructor.
      *
      * @param { Array<PhotoAsset> } assets - Assets to change.
@@ -10244,6 +10302,17 @@ declare namespace photoAccessHelper {
    * @since 23 static
    */
   class MediaAlbumChangeRequest implements MediaChangeRequest {
+    /**
+     * A readonly member for type checking.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly comment: string;
+
     /**
      * The constructor to create a MediaAlbumChangeRequest instance.
      *
