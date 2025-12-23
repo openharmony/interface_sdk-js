@@ -864,7 +864,7 @@ declare namespace avSession {
   /**
    * Defines the callback type including two parameters.
    *
-   * @typedef { function } TwoParamCallbackTwoParamCallback<T, G>
+   * @typedef { function } TwoParamCallback<T, G>
    * @param { T } data1
    * @param { G } data2
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1845,17 +1845,20 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @stagemodelonly
+     * @since 10 dynamic
      */
+    dispatchSessionEvent(event: string, args: {[key: string]: Object}, callback: AsyncCallback<void>): void;
+
     /**
      * Dispatch the session event of this session.
      * @param { string } event - Session event name to dispatch
      * @param { Record<string, Object> } args - The parameters of session event
-     * @param { AsyncCallback<void>} callback - The asyncCallback triggered when the command is executed successfully
+     * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 20 dynamic
+     * @stagemodelonly
      * @since 23 static
      */
     dispatchSessionEvent(event: string, args: Record<string, Object>, callback: AsyncCallback<void>): void;
@@ -1882,9 +1885,12 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
+    dispatchSessionEvent(event: string, args: {[key: string]: Object}): Promise<void>;
+
     /**
      * Dispatch the session event of this session.
      * @param { string } event - Session event name to dispatch
@@ -1894,7 +1900,6 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 20 dynamic
      * @since 23 static
      */
     dispatchSessionEvent(event: string, args: Record<string, Object>): Promise<void>;
@@ -1988,8 +1993,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @stagemodelonly
+     * @since 10 dynamic
      */
+    setExtras(extras: {[key: string]: Object}, callback: AsyncCallback<void>): void;
+
     /**
      * Set the custom media packets for this session.
      * @param { Record<string, Object> } extras - The custom media packets
@@ -1997,7 +2005,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 20 dynamic
+     * @stagemodelonly
      * @since 23 static
      */
     setExtras(extras: Record<string, Object>, callback: AsyncCallback<void>): void;
@@ -2022,9 +2030,12 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
+    setExtras(extras: {[key: string]: Object}): Promise<void>;
+
     /**
      * Set the custom media packets for this session.
      * @param { Record<string, Object> } extras - The custom media packets
@@ -2033,7 +2044,6 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 20 dynamic
      * @since 23 static
      */
     setExtras(extras: Record<string, Object>): Promise<void>;
@@ -3520,21 +3530,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    /**
-     * Register session custom command change callback
-     * @param { 'commonCommand' } type - Registration Type 'commonCommand'
-     * @param { function } callback - Used to handle event when the common command is received
-     *     The callback provide the command name and command args
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600102 - The session does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    on(type: 'commonCommand', callback: (command: string, args: Record<string, Object>) => void): void;
+    on(type: 'commonCommand', callback: (command: string, args: {[key: string]: Object}) => void): void;
 
     /**
      * Register session custom command change callback
@@ -3569,21 +3569,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    /**
-     * Unregister session custom command change callback
-     * @param { 'commonCommand' } type - Registration Type 'commonCommand'
-     * @param { function } callback - Used to cancel a specific listener
-     *     The callback provide the command name and command args
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600102 - The session does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    off(type: 'commonCommand', callback?: (command: string, args: Record<string, Object>) => void): void;
+    off(type: 'commonCommand', callback?: (command: string, args: {[key: string]: Object}) => void): void;
 
     /**
      * Unregister session custom command change callback
@@ -4554,7 +4544,7 @@ declare namespace avSession {
     /**
      * Register playback state changed callback
      * @param { 'playbackStateChange' } type
-     * @param { Array<string> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
+     * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
      * @param { function } callback - The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -4566,17 +4556,18 @@ declare namespace avSession {
     /**
      * Register playback state changed callback
      * @param { 'playbackStateChange' } type
-     * @param { Array<string> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
+     * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
      * @param { function } callback - The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
-    on(type: 'playbackStateChange', filter: Array<string> | 'all', callback: (state: AVPlaybackState) => void): void;
+    on(type: 'playbackStateChange', filter: Array<keyof AVPlaybackState> | 'all', callback: (state: AVPlaybackState) => void): void;
 
     /**
      * Register playback state changed callback 
@@ -4990,19 +4981,10 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 11
+     * @stagemodelonly
+     * @since 11 dynamic
      */
-    /**
-     * Register the valid commands of the casted session changed callback
-     * @param { 'validCommandChange' } type - 'validCommandChange'
-     * @param { Callback<Array<AVCastControlCommandType>> } callback - The callback used to handle the changes.
-     * The callback function provides an array of AVCastControlCommandType.
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 20 dynamic
-     */
-    on(type: 'validCommandChange', callback: Callback<Array<AVCastControlCommandType>>): void;
+    on(type: 'validCommandChange', callback: Callback<Array<AVCastControlCommandType>>);
 
     /**
      * Register the valid commands of the casted session changed callback
@@ -5025,19 +5007,10 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 11
+     * @stagemodelonly
+     * @since 11 dynamic
      */
-    /**
-     * Unregister the valid commands of the casted session changed callback
-     * @param { 'validCommandChange' } type - 'validCommandChange'
-     * @param { Callback<Array<AVCastControlCommandType>> } callback - The callback used to handle the changes.
-     * The callback function provides an array of AVCastControlCommandType.
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 20 dynamic
-     */
-    off(type: 'validCommandChange', callback?: Callback<Array<AVCastControlCommandType>>): void;
+    off(type: 'validCommandChange', callback?: Callback<Array<AVCastControlCommandType>>);
 
     /**
      * Unregister the valid commands of the casted session changed callback
@@ -5677,6 +5650,7 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 21 dynamic
+     * @since 23 static
      */
     resetCommunicationDevice(): Promise<void>;
 
@@ -6607,13 +6581,15 @@ declare namespace avSession {
      * Any additional attributes that can be represented as key-value pairs
      * @type { ?object }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @stagemodelonly
+     * @since 10 dynamic
      */
+    extras?: {[key: string]: Object};
+
     /**
      * Any additional attributes that can be represented as key-value pairs
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 20 dynamic
      * @since 23 static
      */
     extras?: Record<string, Object>;
@@ -7158,15 +7134,17 @@ declare namespace avSession {
      * Current custom media packets
      * @type { ?object }
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
+    extras?: {[key: string]: Object};
+
     /**
      * Current custom media packets
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 20 dynamic
      * @since 23 static
      */
     extras?: Record<string, Object>;
@@ -8916,8 +8894,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600106 - The session is not activated.
      * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @stagemodelonly
+     * @since 10 dynamic
      */
+    sendCommonCommand(command: string, args: {[key: string]: Object}, callback: AsyncCallback<void>): void;
+
     /**
      * Send common commands to this session
      * @param { string } command - The command name to be sent.
@@ -8930,7 +8911,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600106 - The session is not activated.
      * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 20 dynamic
+     * @stagemodelonly
      * @since 23 static
      */
     sendCommonCommand(command: string, args: Record<string, Object>, callback: AsyncCallback<void>): void;
@@ -8965,9 +8946,12 @@ declare namespace avSession {
      * @throws { BusinessError } 6600106 - The session is not activated.
      * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
+    sendCommonCommand(command: string, args: {[key: string]: Object}): Promise<void>;
+
     /**
      * Send common commands to this session
      * @param { string } command - The command name to be sent.
@@ -8981,10 +8965,10 @@ declare namespace avSession {
      * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 20 dynamic
      * @since 23 static
      */
     sendCommonCommand(command: string, args: Record<string, Object>): Promise<void>;
+
 
     /**
      * Get custom media packets provided by the corresponding session
@@ -8997,8 +8981,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600105 - Invalid session command.
      * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @stagemodelonly
+     * @since 10 dynamic
      */
+    getExtras(callback: AsyncCallback<{[key: string]: Object}>): void;
+
     /**
      * Get custom media packets provided by the corresponding session
      * @param { AsyncCallback<Record<string, Object>> } callback - The triggered asyncCallback when (getExtras).
@@ -9008,7 +8995,6 @@ declare namespace avSession {
      * @throws { BusinessError } 6600105 - Invalid session command.
      * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 20 dynamic
      * @since 23 static
      */
     getExtras(callback: AsyncCallback<Record<string, Object>>): void;
@@ -9037,9 +9023,12 @@ declare namespace avSession {
      * @throws { BusinessError } 6600105 - Invalid session command.
      * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
+    getExtras(): Promise<{[key: string]: Object}>;
+
     /**
      * Get custom media packets provided by the corresponding session
      * @returns { Promise<Record<string, Object>> } the parameters of extras
@@ -9050,7 +9039,6 @@ declare namespace avSession {
      * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 20 dynamic
      * @since 23 static
      */
     getExtras(): Promise<Record<string, Object>>;
@@ -9232,23 +9220,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    /**
-     * Register metadata changed callback
-     * @param { 'metadataChange' } type
-     * @param { Array<string> | 'all' } filter - The properties of {@link AVMetadata} that you cared about
-     * @param { function } callback - The callback used to handle metadata changed event.
-     *     The callback function provides the {@link AVMetadata} parameter.
-     *     It only contains the properties set in the filter.
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    on(type: 'metadataChange', filter: Array<string> | 'all', callback: (data: AVMetadata) => void): void;
+    on(type: 'metadataChange', filter: Array<keyof AVMetadata> | 'all', callback: (data: AVMetadata) => void);
 
     /**
      * Register metadata changed callback
@@ -9299,22 +9275,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    /**
-     * Unregister metadata changed callback
-     * @param { 'metadataChange' } type
-     * @param { function } callback - The callback used to handle metadata changed event.
-     * The callback function provides the {@link AVMetadata} parameter.
-     * It only contains the properties set in the filter.
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    off(type: 'metadataChange', callback?: (data: AVMetadata) => void): void;
+    off(type: 'metadataChange', callback?: (data: AVMetadata) => void);
 
     /**
      * Unregister metadata changed callback
@@ -9354,23 +9319,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    /**
-     * Register playback state changed callback
-     * @param { 'playbackStateChange' } type
-     * @param { Array<string> | 'all' } filter - The properties of {@link AVPlaybackState}
-     *     that you cared about
-     * @param { function } callback - The callback used to handle playback state changed event.
-     *     The callback function provides the {@link AVPlaybackState} parameter.
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    on(type: 'playbackStateChange', filter: Array<string> | 'all', callback: (state: AVPlaybackState) => void): void;
+    on(type: 'playbackStateChange', filter: Array<keyof AVPlaybackState> | 'all', callback: (state: AVPlaybackState) => void);
 
     /**
      * Register playback state changed callback
@@ -9418,21 +9371,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    /**
-     * Unregister playback state changed callback
-     * @param { 'playbackStateChange' } type
-     * @param { function } callback - The callback used to handle playback state changed event.
-     * The callback function provides the {@link AVPlaybackState} parameter.
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    off(type: 'playbackStateChange', callback?: (state: AVPlaybackState) => void): void;
+    off(type: 'playbackStateChange', callback?: (state: AVPlaybackState) => void);
 
     /**
      * Unregister playback state changed callback
@@ -9462,7 +9405,7 @@ declare namespace avSession {
     /**
      * Register call metadata changed callback
      * @param { 'callMetadataChange' } type - 'callMetadataChange'
-     * @param { Array<string> | 'all' } filter - The properties of {@link CallMetadata} that you cared about
+     * @param { Array<keyof CallMetadata> | 'all' } filter - The properties of {@link CallMetadata} that you cared about
      * @param { Callback<CallMetadata> } callback - The callback used to handle call metadata changed event.
      * The callback function provides the {@link CallMetadata} parameter.
      * It only contains the properties set in the filter.
@@ -9471,10 +9414,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      */
-    on(type: 'callMetadataChange', filter: Array<string> | 'all', callback: Callback<CallMetadata>): void;
+    on(type: 'callMetadataChange', filter: Array<keyof CallMetadata> | 'all', callback: Callback<CallMetadata>): void;
 
     /**
      * Register call metadata changed callback
@@ -9558,7 +9502,7 @@ declare namespace avSession {
     /**
      * Register call state changed callback
      * @param { 'callStateChange' } type - 'callStateChange'
-     * @param { Array<string> | 'all' } filter - The properties of {@link AVCallState} that you cared about
+     * @param { Array<keyof AVCallState> | 'all' } filter - The properties of {@link AVCallState} that you cared about
      * @param { Callback<AVCallState> } callback - The callback used to handle call state changed event.
      *     The callback function provides the {@link AVCallState} parameter.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -9566,10 +9510,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 20 dynamic
+     * @since 12 dynamic
      */
-    on(type: 'callStateChange', filter: Array<string> | 'all', callback: Callback<AVCallState>): void;
+    on(type: 'callStateChange', filter: Array<keyof AVCallState> | 'all', callback: Callback<AVCallState>): void;
 
     /**
      * Register call state changed callback
@@ -9652,20 +9597,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    /**
-     * Register current session destroyed callback
-     * @param { 'sessionDestroy' } type
-     * @param { function } callback - The callback used to handle current session destroyed event.
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    on(type: 'sessionDestroy', callback: () => void): void;
+    on(type: 'sessionDestroy', callback: () => void);
 
     /**
      * Register current session destroyed callback
@@ -9697,20 +9633,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    /**
-     * Unregister current session destroyed callback
-     * @param { 'sessionDestroy' } type - 'sessionDestroy'
-     * @param { function } callback - The callback used to handle current session destroyed event.
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    off(type: 'sessionDestroy', callback?: () => void): void;
+    off(type: 'sessionDestroy', callback?: () => void);
 
     /**
      * Unregister current session destroyed callback
@@ -9744,21 +9671,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    /**
-     * Register the active state of this session changed callback
-     * @param { 'activeStateChange' } type - 'activeStateChange'
-     * @param { function } callback - The callback used to handle the active state of this session changed event.
-     * The callback function provides the changed session state.
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    on(type: 'activeStateChange', callback: (isActive: boolean) => void): void;
+    on(type: 'activeStateChange', callback: (isActive: boolean) => void);
 
     /**
      * Register the active state of this session changed callback
@@ -9793,21 +9710,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    /**
-     * Unregister the active state of this session changed callback
-     * @param { 'activeStateChange' } type - 'activeStateChange'
-     * @param { function } callback - The callback used to handle the active state of this session changed event.
-     *     The callback function provides the changed session state.
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    off(type: 'activeStateChange', callback?: (isActive: boolean) => void): void;
+    off(type: 'activeStateChange', callback?: (isActive: boolean) => void);
 
     /**
      * Unregister the active state of this session changed callback
@@ -9842,21 +9749,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    /**
-     * Register the valid commands of the session changed callback
-     * @param { 'validCommandChange' } type - 'validCommandChange'
-     * @param { function } callback - The callback used to handle the changes.
-     * The callback function provides an array of AVControlCommandType.
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    on(type: 'validCommandChange', callback: (commands: Array<AVControlCommandType>) => void): void;
+    on(type: 'validCommandChange', callback: (commands: Array<AVControlCommandType>) => void);
 
     /**
      * Register the valid commands of the session changed callback
@@ -9891,21 +9788,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    /**
-     * Unregister the valid commands of the session changed callback
-     * @param { 'validCommandChange' } type - 'validCommandChange'
-     * @param { function } callback - The callback used to handle the changes.
-     * The callback function provides an array of AVControlCommandType.
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    off(type: 'validCommandChange', callback?: (commands: Array<AVControlCommandType>) => void): void;
+    off(type: 'validCommandChange', callback?: (commands: Array<AVControlCommandType>) => void);
 
     /**
      * Unregister the valid commands of the session changed callback
@@ -10018,21 +9905,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    /**
-     * Register session event callback
-     * @param { 'sessionEvent' } type - 'sessionEvent'
-     * @param { function } callback - The callback used to handle session event changed event.
-     *     The callback function provides the event string and key-value pair parameters.
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    on(type: 'sessionEvent', callback: (sessionEvent: string, args: Record<String, Object>) => void): void;
+    on(type: 'sessionEvent', callback: (sessionEvent: string, args: {[key: string]: Object}) => void): void;
 
     /**
      * Register session event callback
@@ -10067,21 +9944,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    /**
-     * Unregister session event callback
-     * @param { 'sessionEvent' } type - 'sessionEvent'
-     * @param { function } callback - Used to cancel a specific listener
-     *     The callback function provides the event string and key-value pair parameters.
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    off(type: 'sessionEvent', callback?: (sessionEvent: string, args: Record<String, Object>) => void): void;
+    off(type: 'sessionEvent', callback?: (sessionEvent: string, args: {[key: string]: Object}) => void): void;
 
     /**
      * Unregister session event callback
@@ -10269,21 +10136,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    /**
-     * Register the custom media packets change callback
-     * @param { 'extrasChange' } type - Registration Type 'extrasChange'
-     * @param { function } callback - Used to handle custom media packets changed.
-     *     The callback provides the new media packets.
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    on(type: 'extrasChange', callback: (extras: Record<string, Object>) => void): void;
+    on(type: 'extrasChange', callback: (extras: {[key: string]: Object}) => void): void;
 
     /**
      * Register the custom media packets change callback
@@ -10318,21 +10175,11 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    /**
-     * Unregister the custom media packets change callback
-     * @param { 'extrasChange' } type - Registration Type 'extrasChange'
-     * @param { function } callback - Used to handle custom media packets changed.
-     *     The callback provides the new media packets.
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600103 - The session controller does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    off(type: 'extrasChange', callback?: (extras: Record<string, Object>) => void): void;
+    off(type: 'extrasChange', callback?: (extras: {[key: string]: Object}) => void): void;
 
     /**
      * Unregister the custom media packets change callback
