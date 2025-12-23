@@ -28,7 +28,7 @@ import {
 /*** endif */
 
 /**
- * Declare UserAuthIcon, use for user authentication.
+ * Declare UserAuthIcon, used for user authentication.
  *
  * @syscap SystemCapability.UserIAM.UserAuth.Core
  * @atomicservice
