@@ -227,7 +227,7 @@ declare namespace display {
    * @param { 'add' | 'remove' | 'change' } type the event of display change
    * @param { Callback<long> } callback the display id of changed
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7
    */
@@ -237,7 +237,7 @@ declare namespace display {
    * @param { 'add' | 'remove' | 'change' } type the event of display change
    * @param { Callback<long> } callback the display id of changed
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12
@@ -248,7 +248,7 @@ declare namespace display {
    * @param { 'add' | 'remove' | 'change' } type the event of display change
    * @param { Callback<long> } callback the display id of changed
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
