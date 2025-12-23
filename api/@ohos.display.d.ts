@@ -816,7 +816,7 @@ declare namespace display {
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
@@ -827,7 +827,7 @@ declare namespace display {
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -839,7 +839,7 @@ declare namespace display {
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } [callback] Callback used to return the current fold display mode
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
