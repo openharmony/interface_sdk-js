@@ -666,10 +666,10 @@ declare namespace display {
   function onCaptureStatusChange(callback: Callback<boolean>): void;
 
   /**
-   * Unregister the callback for device capture, casting, or recording status changes.
+   * Unregister the callback for device capture status changes.
    *
-   * @param { 'captureStatusChange' } type the event of capture, casting, or recording status changes.
-   * @param { Callback<boolean> } callback Callback used to return the device capture, casting, or recording status .
+   * @param { 'captureStatusChange' } type the event of capture status changes.
+   * @param { Callback<boolean> } callback Callback used to return the device capture status.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
