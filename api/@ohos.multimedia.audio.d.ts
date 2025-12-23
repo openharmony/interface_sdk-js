@@ -6053,6 +6053,16 @@ declare namespace audio {
      * @since 23 dynamic&static
      */
     enableMuteSuggestionWhenMixWithOthers(enable: boolean): void;
+
+    /**
+     * Returns if there is any other application playing audio in media usage.
+     * The short sound effect will not be considered in.
+     * @returns { boolean } {@code true} if there is other application playing audio in media usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isOtherMediaPlaying(): boolean;
   }
 
   /**
