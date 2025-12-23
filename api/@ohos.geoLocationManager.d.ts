@@ -4770,7 +4770,7 @@ declare namespace geoLocationManager {
 
     /**
      * Indicates absolute radio frequency channel number (ARFCN).
-     * Querying cell Information by Specified ARFCN.
+     * Querying Cell Information by Specified ARFCN.
      *
      * @type { ?int[] }
      * @syscap SystemCapability.Location.Location.Core
@@ -4835,7 +4835,7 @@ declare namespace geoLocationManager {
     slotId?: int;
 
     /**
-     * Indicates Camped cell information.
+     * Indicates camped cell information.
      *
      * @type { ?CellInfo }
      * @syscap SystemCapability.Location.Location.Core
