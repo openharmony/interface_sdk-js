@@ -3609,6 +3609,16 @@ export declare class UIContext {
    * @since 23 static
    */
   recycleInvisibleImageMemory(enabled: boolean): void;
+
+  /**
+   * Set custom keyboard continue feature.
+   *
+   * @param { CustomKeyboardContinueFeature } feature - The custom keyboard continue feature.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  setCustomKeyboardContinueFeature(feature: CustomKeyboardContinueFeature): void;
 }
 
 /**
@@ -3759,4 +3769,33 @@ export declare class ContentCoverController {
    * @since 23 static
    */
   close(): void;
+}
+
+/**
+ * Enum of CustomKeyboardContinueFeature
+ * 
+ * @enum { int } CustomKeyboardContinueFeature
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+ export const enum CustomKeyboardContinueFeature {
+
+  /**
+   * Enable custom keyboard continuation.
+   * 
+   * @syscap SystemCapability. ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  ENABLED = 0,
+
+  /**
+   * Disable custom keyboard continuation.
+   * 
+   * @syscap SystemCapability. ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  DISABLED = 1
 }
