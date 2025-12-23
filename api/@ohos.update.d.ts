@@ -1025,7 +1025,7 @@ declare namespace update {
      * @type { ?OtaMode }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 22 dynamic
+     * @since 20 dynamic
      * @since 23 static
      */
     otaMode?: OtaMode;
@@ -1643,7 +1643,7 @@ declare namespace update {
    * @param { EventInfo } eventInfo - Event information.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 22 dynamic
+   * @since 23 dynamic
    * @since 23 static
    */
   export type UpgradeTaskCallback = (eventInfo: EventInfo) => void;
@@ -1789,7 +1789,7 @@ declare namespace update {
    * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 22 dynamic
+   * @since 20 dynamic
    * @since 23 static
    */
   export enum OtaMode {
@@ -1798,7 +1798,7 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 22 dynamic
+     * @since 20 dynamic
      * @since 23 static
      */
     REGULAR_OTA = 0,
@@ -1808,7 +1808,7 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 22 dynamic
+     * @since 20 dynamic
      * @since 23 static
      */
     STREAM_OTA = 1,
@@ -1818,7 +1818,7 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 22 dynamic
+     * @since 20 dynamic
      * @since 23 static
      */
     AB_REGULAR_OTA = 2,
@@ -1828,7 +1828,7 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 22 dynamic
+     * @since 20 dynamic
      * @since 23 static
      */
     AB_STREAM_OTA = 3
