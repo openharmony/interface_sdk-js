@@ -253,7 +253,6 @@ declare namespace display {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   function on(type: 'add' | 'remove' | 'change', callback: Callback<long>): void;
 
@@ -319,7 +318,6 @@ declare namespace display {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   function off(type: 'add' | 'remove' | 'change', callback?: Callback<long>): void;
 
@@ -367,7 +365,6 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 23 static
    */
   function on(type: 'privateModeChange', callback: Callback<boolean>): void;
 
@@ -393,7 +390,6 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 23 static
    */
   function off(type: 'privateModeChange', callback?: Callback<boolean>): void;
 
@@ -504,7 +500,6 @@ declare namespace display {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   function on(type: 'foldStatusChange', callback: Callback<FoldStatus>): void;
 
@@ -554,7 +549,6 @@ declare namespace display {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   function off(type: 'foldStatusChange', callback?: Callback<FoldStatus>): void;
 
@@ -594,7 +588,6 @@ declare namespace display {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   function on(type: 'foldAngleChange', callback: Callback<Array<double>>): void;
 
@@ -633,7 +626,6 @@ declare namespace display {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   function off(type: 'foldAngleChange', callback?: Callback<Array<double>>): void;
 
@@ -660,7 +652,6 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 23 static
    */
   function on(type: 'captureStatusChange', callback: Callback<boolean>): void;
 
@@ -685,7 +676,6 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 23 static
    */
   function off(type: 'captureStatusChange', callback?: Callback<boolean>): void;
 
@@ -806,7 +796,6 @@ declare namespace display {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   function on(type: 'foldDisplayModeChange', callback: Callback<FoldDisplayMode>): void;
 
@@ -856,7 +845,6 @@ declare namespace display {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   function off(type: 'foldDisplayModeChange', callback?: Callback<FoldDisplayMode>): void;
 
@@ -2840,7 +2828,6 @@ declare namespace display {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     on(type: 'availableAreaChange', callback: Callback<Rect>): void;
 
@@ -2867,7 +2854,6 @@ declare namespace display {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     off(type: 'availableAreaChange', callback?: Callback<Rect>): void;
 
