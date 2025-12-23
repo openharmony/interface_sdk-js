@@ -40,6 +40,11 @@ import { NotificationSlot as _NotificationSlot } from './notification/notificati
 import { NotificationSorting as _NotificationSorting } from './notification/notificationSorting';
 import { NotificationTemplate as _NotificationTemplate } from './notification/notificationTemplate';
 import { NotificationUserInput as _NotificationUserInput } from './notification/notificationUserInput';
+import { TriggerType as _TriggerType } from './notification/notificationRequest';
+import { Trigger as _Trigger } from './notification/notificationRequest';
+import { Geofence as _Geofence } from './notification/notificationRequest';
+import { CoordinateSystemType as _CoordinateSystemType } from './notification/notificationRequest';
+import { MonitorEvent as _MonitorEvent } from './notification/notificationRequest';
 
 /*** if arkts dynamic */
 import { AsyncCallback } from './@ohos.base';
@@ -6486,6 +6491,56 @@ declare namespace notificationManager {
    * @since 23 static
    */
   export type NotificationIconButton = _NotificationIconButton;
+
+  /**
+   * Describes a live view notification of a trigger condition type.
+   *
+   * @typedef { _TriggerType } TriggerType
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export type TriggerType = _TriggerType;
+
+  /**
+   * Describes a live view notification of a trigger condition instance.
+   *
+   * @typedef { _Trigger } Trigger
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export type Trigger = _Trigger;
+
+  /**
+   * Describes a geofence.
+   *
+   * @typedef { _Geofence } Geofence
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export type Geofence = _Geofence;
+
+  /**
+   * Describes the coordinate of the geofence.
+   *
+   * @typedef { _CoordinateSystemType } CoordinateSystemType
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export type CoordinateSystemType = _CoordinateSystemType;
+
+  /**
+   * Describes the monitor event type of the geofence.
+   *
+   * @typedef { _MonitorEvent } MonitorEvent
+   * @syscap SystemCapability.Notification.Notification
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export type MonitorEvent = _MonitorEvent;
 }
 
 export default notificationManager;
