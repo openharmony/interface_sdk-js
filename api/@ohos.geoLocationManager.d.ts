@@ -2708,6 +2708,127 @@ declare namespace geoLocationManager {
   }
 
   /**
+   * Cell information.
+   *
+   * @typedef CellInfo
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export interface CellInfo {
+    /**
+     * Indicates timestamp since boot.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    timeSinceBoot: long;
+
+    /**
+     * Indicates ID of cell.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    cellId: long;
+
+    /**
+     * Indicates location area code (LAC).
+     *
+     * @type { int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    lac: int;
+
+    /**
+     * Indicates mobile country code (MCC).
+     *
+     * @type { int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    mcc: int;
+
+    /**
+     * Indicates mobile network code (MNC).
+     *
+     * @type { int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    mnc: int;
+
+    /**
+     * Indicates radio access technology (RAT).
+     *
+     * @type { int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    rat: int;
+
+    /**
+     * Indicates signal intensity.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    signalIntensity: int;
+
+    /**
+     * Indicates absolute radio frequency channel number (ARFCN).
+     *
+     * @type { int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    arfcn: int;
+
+    /**
+     * Indicates physical cell identifier (PCI).
+     *
+     * @type { int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    pci: int;
+
+    /**
+     * Indicates additional information map.
+     *
+     * @type { ?Map<string, string> }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    additionsMap?: Map<string, string>;
+  }
+
+  /**
    * Configuring parameters in GNSS geofence requests.
    *
    * @typedef GnssGeofenceRequest
@@ -4635,6 +4756,40 @@ declare namespace geoLocationManager {
      * @since 23 static
      */
     scanTimeout?: int;
+
+    /**
+     * Indicates SIM card slot number.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    slotId?: int;
+
+    /**
+     * Indicates absolute radio frequency channel number (ARFCN).
+     * Querying Cell Information by Specified ARFCN.
+     *
+     * @type { ?int[] }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    arfcn?: int[];
+
+    /**
+     * Indicates PLMN number of the SIM card.
+     *
+     * @type { ?int[] }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    plmnId?: int[];
   }
 
   /**
@@ -4667,6 +4822,39 @@ declare namespace geoLocationManager {
      * @since 23 static
      */
     bluetoothData?: BluetoothScanInfo;
+
+    /**
+     * Indicates the card slot index number.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    slotId?: int;
+
+    /**
+     * Indicates camped cell information.
+     *
+     * @type { ?CellInfo }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    campedCellInfo?: CellInfo;
+
+    /**
+     * Indicates neighboring cell information.
+     *
+     * @type { ?CellInfo[] }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    neighboringCellInfo?: CellInfo[];
   }
 
   /**
@@ -5015,6 +5203,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 19 dynamic
+   * @since 23 static
    */
   export interface PoiInfo {
     /**
@@ -5034,6 +5223,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
+     * @since 23 static
      */
     timestamp: number;
   }
@@ -6406,6 +6596,7 @@ declare namespace geoLocationManager {
    * @typedef LocationCommand
    * @syscap SystemCapability.Location.Location.Core
    * @since 9 dynamic
+   * @since 23 static
    */
   export interface LocationCommand {
     /**
@@ -6414,6 +6605,7 @@ declare namespace geoLocationManager {
      * @type { LocationRequestScenario }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     scenario: LocationRequestScenario;
 
@@ -6423,6 +6615,7 @@ declare namespace geoLocationManager {
      * @type { string }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     command: string;
   }
@@ -6591,7 +6784,16 @@ declare namespace geoLocationManager {
      * @since 10 dynamic
      * @since 23 static
      */
-    BLUETOOTH
+    BLUETOOTH = 2,
+
+    /**
+     * Obtaining cellular cell information for locating.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    CELLULAR = 3
   }
 
   /**
