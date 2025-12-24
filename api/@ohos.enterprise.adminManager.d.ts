@@ -397,9 +397,9 @@ declare namespace adminManager {
    * @stagemodelonly
    * @since 12
    */
-  /**
+   /**
    * Disables a current administrator ability.
-   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission，
+   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission,
    *     ohos.permission.START_PROVISIONING_MESSAGE or the shell uid can call this method.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN or ohos.permission.START_PROVISIONING_MESSAGE
