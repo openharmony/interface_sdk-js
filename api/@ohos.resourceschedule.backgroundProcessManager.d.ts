@@ -58,9 +58,10 @@ declare namespace backgroundProcessManager {
     /**
      * Describes the status of the power saving mode.
      *
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 20 dynamic
+     * @since 23 static
      */
     export enum PowerSaveMode {
         /**
@@ -69,6 +70,7 @@ declare namespace backgroundProcessManager {
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
          * @since 20 dynamic
+         * @since 23 static
          */
         EFFICIENCY_MODE = 1,
 
@@ -77,6 +79,7 @@ declare namespace backgroundProcessManager {
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
          * @since 20 dynamic
+         * @since 23 static
          */
         DEFAULT_MODE = 2,
     }
@@ -110,7 +113,7 @@ declare namespace backgroundProcessManager {
      * <br> system scheduling reasons.
      *
      * @permission ohos.permission.BACKGROUND_MANAGER_POWER_SAVE_MODE
-     * @param { number } pid - Indicates the pid of the power saving mode to be set.
+     * @param { int } pid - Indicates the pid of the power saving mode to be set.
      * @param { PowerSaveMode } powerSaveMode - Indicates the power saving mode that needs to be set.
      * <br> For details, please refer to PowerSaveModeStatus.
      * @returns { Promise<void> } The promise returned by the function.
@@ -123,14 +126,15 @@ declare namespace backgroundProcessManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 20 dynamic
+     * @since 23 static
      */
-    function setPowerSaveMode(pid: number, powerSaveMode: PowerSaveMode): Promise<void>;
+    function setPowerSaveMode(pid: int, powerSaveMode: PowerSaveMode): Promise<void>;
 
     /**
      * Check if the process is in power saving mode.
      *
      * @permission ohos.permission.BACKGROUND_MANAGER_POWER_SAVE_MODE
-     * @param { number } pid - Indicates the process to be checked is the pid of the power saving mode.
+     * @param { int } pid - Indicates the process to be checked is the pid of the power saving mode.
      * @returns { Promise<boolean> } The promise returns whether it is in power saving mode.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
@@ -138,8 +142,9 @@ declare namespace backgroundProcessManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 20 dynamic
+     * @since 23 static
      */
-    function isPowerSaveMode(pid: number): Promise<boolean>;
+    function isPowerSaveMode(pid: int): Promise<boolean>;
 
     /**
      * Get the power saving mode of the process.
