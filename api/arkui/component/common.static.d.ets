@@ -2822,6 +2822,21 @@ export declare interface DragItemInfo {
      */
     extraInfo?: string;
 }
+
+/**
+ * Define animation functions for immediate distribution.
+ * This interface depends on the UI context and cannot be used when the UI context is unclear. It is recommended to use
+ * {@link ohos.arkui.UIContext.UIContext#animateToImmediately} to explicitly specify the UI context.
+ *
+ * @param { AnimateParam } value - Set animation effect parameters.
+ * @param { VoidCallback } processor - Specify the closure function that displays dynamic effects,
+ *     and the system will automatically insert transition animations for state changes caused by the closure function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare function animateToImmediately(value: AnimateParam, processor: VoidCallback): void;
+
 /**
  * Defines the namespace of focus controller.
  *
