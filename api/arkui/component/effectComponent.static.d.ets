@@ -95,12 +95,13 @@ export declare interface EffectComponentAttribute extends CommonMethod {
      *
      * @param { boolean } enable
      * @returns { EffectComponentAttribute }
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A nonsystem application calls a system API.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
-    alwaysSnapshot(enable: boolean): this;
+    default alwaysSnapshot(enable: boolean): this;
     /**
      * Set the attribute modifier for EffectComponent.
      *
@@ -108,40 +109,27 @@ export declare interface EffectComponentAttribute extends CommonMethod {
      * @returns { EffectComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
-    attributeModifier(modifier: AttributeModifier<EffectComponentAttribute>
+    default attributeModifier(modifier: AttributeModifier<EffectComponentAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
  * Defines EffectComponent Component
  *
- * @param { CustomBuilder } [content_] - EffectComponent
+ * @param { EffectComponentOptions } [options] - The options to create an EffectComponent.
+ * @param { CustomBuilder } [content_] - Subcomponents of EffectComponent
  * @returns { EffectComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 23 static
- */
-@ComponentBuilder
-export declare function EffectComponent(
-
-    content_?: CustomBuilder,
-): EffectComponentAttribute
-
-/**
- * Defines EffectComponent Component
- *
- * @param { EffectComponentOptions } options - The options to create an EffectComponent.
- * @param { CustomBuilder } [content_] - EffectComponent
- * @returns{EffectComponentAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function EffectComponent(
-    options:EffectComponentOptions,
-    content_ ?:CustomBuilder,
-): EffectComponentAttribute
+    options?: EffectComponentOptions,
+    content_?: CustomBuilder,
+): EffectComponentAttribute;
