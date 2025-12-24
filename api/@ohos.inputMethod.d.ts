@@ -463,7 +463,6 @@ declare namespace inputMethod {
      * @param { function } callback - the callback of 'imeChange'
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 23 static
      */
     on(
       type: 'imeChange',
@@ -478,7 +477,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'imeChange', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 23 static
      */
     off(
       type: 'imeChange',
@@ -494,7 +492,6 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'imeShow', callback: (info: Array<InputWindowInfo>) => void): void;
 
@@ -507,7 +504,6 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'imeShow', callback?: (info: Array<InputWindowInfo>) => void): void;
 
@@ -520,7 +516,6 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'imeHide', callback: (info: Array<InputWindowInfo>) => void): void;
 
@@ -533,7 +528,6 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'imeHide', callback?: (info: Array<InputWindowInfo>) => void): void;
 
@@ -1381,7 +1375,6 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'selectByRange', callback: Callback<Range>): void;
 
@@ -1393,7 +1386,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'selectByRange', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'selectByRange', callback?: Callback<Range>): void;
 
@@ -1409,7 +1401,6 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'selectByMovement', callback: Callback<Movement>): void;
 
@@ -1421,7 +1412,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'selectByMovement', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'selectByMovement', callback?: Callback<Movement>): void;
 
@@ -1436,7 +1426,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'insertText', callback: (text: string) => void): void;
 
@@ -1448,7 +1437,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'insertText', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'insertText', callback?: (text: string) => void): void;
 
@@ -1465,7 +1453,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'deleteLeft', callback: (length: int) => void): void;
 
@@ -1477,7 +1464,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'deleteLeft', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'deleteLeft', callback?: (length: int) => void): void;
 
@@ -1494,7 +1480,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'deleteRight', callback: (length: int) => void): void;
 
@@ -1506,7 +1491,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'deleteRight', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'deleteRight', callback?: (length: int) => void): void;
 
@@ -1521,7 +1505,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'sendKeyboardStatus', callback: (keyboardStatus: KeyboardStatus) => void): void;
 
@@ -1533,7 +1516,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'sendKeyboardStatus', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'sendKeyboardStatus', callback?: (keyboardStatus: KeyboardStatus) => void): void;
 
@@ -1549,7 +1531,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'sendFunctionKey', callback: (functionKey: FunctionKey) => void): void;
 
@@ -1561,7 +1542,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'sendFunctionKey', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'sendFunctionKey', callback?: (functionKey: FunctionKey) => void): void;
 
@@ -1577,7 +1557,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'moveCursor', callback: (direction: Direction) => void): void;
 
@@ -1589,7 +1568,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'moveCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'moveCursor', callback?: (direction: Direction) => void): void;
 
@@ -1604,7 +1582,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'handleExtendAction', callback: (action: ExtendAction) => void): void;
 
@@ -1616,7 +1593,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'handleExtendAction', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'handleExtendAction', callback?: (action: ExtendAction) => void): void;
 
@@ -1631,7 +1607,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'getLeftTextOfCursor', callback: (length: int) => string): void;
 
@@ -1643,7 +1618,6 @@ declare namespace inputMethod {
      *     when subscriber unsubscribes all callback functions of event 'getLeftTextOfCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'getLeftTextOfCursor', callback?: (length: int) => string): void;
 
@@ -1658,7 +1632,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'getRightTextOfCursor', callback: (length: int) => string): void;
 
@@ -1670,7 +1643,6 @@ declare namespace inputMethod {
      *     when subscriber unsubscribes all callback functions of event 'getRightTextOfCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'getRightTextOfCursor', callback?: (length: int) => string): void;
 
@@ -1685,7 +1657,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'getTextIndexAtCursor', callback: () => int): void;
 
@@ -1697,7 +1668,6 @@ declare namespace inputMethod {
      *     when subscriber unsubscribes all callback functions of event 'getTextIndexAtCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'getTextIndexAtCursor', callback?: () => int): void;
 
