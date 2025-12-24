@@ -21,10 +21,7 @@
 /*** if arkts static */
 import { ResourceStr } from '@ohos.arkui.component';
 /*** endif */
-/*** if arkts dynamic */
-import { Effect } from './SceneResources';
-/*** endif */
-import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource } from './SceneResources';
+import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource, Effect } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes';
 import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3, Vec4 } from './SceneTypes';
 
@@ -255,14 +252,16 @@ export interface CameraParameters {
  * @interface EffectParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 21 dynamic
+ * @since 23 static
  */
 export interface EffectParameters {
   /**
-   * Id of the effects to create.
+   * Id of the effect to create.
    * 
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
+   * @since 23 static
    */
   effectId: string;
 }
@@ -362,9 +361,10 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * Create an effect.
    * 
    * @param { EffectParameters } params - the params of creating an effect.
-   * @returns { Promise<Effect> } promise and effect.
+   * @returns { Promise<Effect> } promise an effect.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
+   * @since 23 static
    */
   createEffect(params: EffectParameters): Promise<Effect>;
 }
