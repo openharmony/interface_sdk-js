@@ -416,15 +416,16 @@ declare namespace adminManager {
    */
   /**
    * Disables a current administrator ability.
-   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission，
-   *     ohos.permission.START_PROVISIONING_MESSAGE or ohos.permission.ENTERPRISE_DEACTIVATE_DEVICE_ADMIN
+   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission,
+   *     ohos.permission.START_PROVISIONING_MESSAGE, ohos.permission.ENTERPRISE_DEACTIVATE_DEVICE_ADMIN
    *     or the shell uid can call this method.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN or ohos.permission.START_PROVISIONING_MESSAGE
    *     or ohos.permission.ENTERPRISE_DEACTIVATE_DEVICE_ADMIN
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
+   *     The admin must have the corresponding permission.
+   * @param { number } [userId] - userId indicates the user ID or do not pass user ID,
+   *     default value is the current user ID.
    * @returns { Promise<void> } the promise returned by the disableAdmin.
    * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
    * @throws { BusinessError } 201 - Permission verification failed.
