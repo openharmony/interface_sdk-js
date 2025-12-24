@@ -185,6 +185,19 @@ export class UIInspector {
    * @since 11 dynamic
    */
   createComponentObserver(id: string): inspector.ComponentObserver;
+
+  /**
+   * Sets the component after layout or draw criteria and returns the corresponding listening handle.
+   * 
+   * @param { string | number } id - component id or uniqueId of the component.
+   * @returns { inspector.ComponentObserver } create listener for observer component event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  createComponentObserver(id: string | number): inspector.ComponentObserver;
 }
 
 /**

@@ -91,6 +91,28 @@ declare namespace inspector {
          * @since 23 static
          */
         offDrawChildren(callback?: VoidCallback): void;
+
+        /**
+         * Registers a callback with the corresponding query condition by using the handle.
+         * This callback is triggered when the child of component layout complete.
+         * 
+         * @param { VoidCallback } callback - callback of the listened event.
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @since 23 static
+         */
+        onLayoutChildren(callback: VoidCallback): void;
+
+        /**
+         * Deregisters a callback with the corresponding query condition by using the handle.
+         * This callback is not triggered when the child of component layout complete.
+         * 
+         * @param { VoidCallback } [callback] - callback of the listened event.
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @since 23 static
+         */
+        offLayoutChildren(callback?: VoidCallback): void;
     }
     
     /**
