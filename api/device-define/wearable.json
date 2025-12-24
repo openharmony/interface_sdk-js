@@ -193,6 +193,7 @@
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.Multimedia.Media.Core",
     "SystemCapability.Security.CertificateManager",
-    "SystemCapability.MiscServices.Pasteboard"
+    "SystemCapability.MiscServices.Pasteboard",
+    "SystemCapability.FileManagement.PhotoAccessHelper.Core"
   ]
 }
