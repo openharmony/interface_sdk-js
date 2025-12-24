@@ -288,6 +288,17 @@ declare namespace display {
   function onChange(callback: Callback<long>): void;
 
   /**
+   * Register the callback for changes of display specified attributes.
+   *
+   * @param { Array<string> } displayAttributeOption - the display attribute requring callback
+   *     <br>display attribute
+   * @param { Callback<long> } callback - the display id of changed
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 23 dynamic&static
+   */
+  function onChangeWithAttribute(displayAttributeOption: Array<string>, callback: Callback<long>): void;
+
+  /**
    * Unregister the callback for display changes.
    *
    * @param { 'add' | 'remove' | 'change' } type the event of display change event
