@@ -722,20 +722,15 @@ declare class UIAbility extends Ability {
    * @since 11
    */
   /**
-   * Called to save data during the UIAbility migration preparation process.
-   * 
-   * <p>**NOTE**:
-   * <br>Since API version 12, UIAbility.onContinue supports the return value in the form of
-   * Promise<AbilityConstant.OnContinueResult>.
-   * </p>
+   * Called back when an ability prepares to continue.
    *
-   * @param { Record<string, Object> } wantParam - want parameter.
-   * @returns { AbilityConstant.OnContinueResult | Promise<AbilityConstant.OnContinueResult> } Continuation result or
-   * Promise used to return the continuation result.
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
+   * @returns { AbilityConstant.OnContinueResult | Promise<AbilityConstant.OnContinueResult> } Return the result of onContinue, support promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   onContinue(wantParam: Record<string, Object>):
     AbilityConstant.OnContinueResult | Promise<AbilityConstant.OnContinueResult>;
