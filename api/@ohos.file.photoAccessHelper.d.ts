@@ -3263,7 +3263,7 @@ declare namespace photoAccessHelper {
      * Virtual path of the album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 22 dynamic
+     * @since 23 dynamic
      * @since 23 static
      */
     ALBUM_LPATH = 'lpath',
@@ -4259,7 +4259,7 @@ declare namespace photoAccessHelper {
      * Album created by app.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 22 dynamic
+     * @since 23 dynamic
      * @since 23 static
      */
     SOURCE = 2048,
@@ -4407,7 +4407,7 @@ declare namespace photoAccessHelper {
      * Source album
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 22 dynamic
+     * @since 23 dynamic
      * @since 23 static
      */
     SOURCE_GENERIC = 2049,
@@ -4705,7 +4705,7 @@ declare namespace photoAccessHelper {
      * @type { ?string }
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 22 dynamic
+     * @since 23 dynamic
      * @since 23 static
      */
     readonly lpath?: string;
