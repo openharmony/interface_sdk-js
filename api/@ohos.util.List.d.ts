@@ -454,16 +454,17 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains the first element in this container.
+   * Returns the first element (the item at index 0) of this list.
+   * or returns undefined if list is empty
    *
    * @returns { T } the T type ,returns undefined if list is empty
-   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getFirst(): T;
   /**
