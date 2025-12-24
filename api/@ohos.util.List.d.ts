@@ -658,13 +658,13 @@ declare class List<T> {
    * Sorts this list according to the order induced by the specified comparator
    *
    * @param { function } comparator - comparator
-   * comparator (required) A function that accepts up to two arguments.
-   * Specifies the sort order. Must be a function,return number type,If it returns firstValue
-   * minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
-   * minus firstValue, it returns an list sorted in descending order;
+   *     comparator (required) A function that accepts up to two arguments.
+   *     Specifies the sort order. Must be a function,return number type,If it returns firstValue
+   *     minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
+   *     minus firstValue, it returns an list sorted in descending order;
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -673,25 +673,29 @@ declare class List<T> {
    * Sorts this list according to the order induced by the specified comparator
    *
    * @param { function } comparator - comparator
-   * comparator (required) A function that accepts up to two arguments.
-   * Specifies the sort order. Must be a function,return number type,If it returns firstValue
-   * minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
-   * minus firstValue, it returns an list sorted in descending order;
+   *     comparator (required) A function that accepts up to two arguments.
+   *     Specifies the sort order. Must be a function,return number type,If it returns firstValue
+   *     minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
+   *     minus firstValue, it returns an list sorted in descending order;
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
    */
   /**
-   * Sorts elements in this container.
+   * Sorts this list according to the order induced by the specified comparator
    *
-   * @param { function } comparator - Callback invoked for sorting.
+   * @param { function } comparator - comparator
+   *     comparator (required) A function that accepts up to two arguments.
+   *     Specifies the sort order. Must be a function,return number type,If it returns firstValue
+   *     minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
+   *     minus firstValue, it returns an list sorted in descending order;
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -703,19 +707,18 @@ declare class List<T> {
    *
    * Anonymous Object Rectification
    * @param { ListComparatorFn<T> } comparator - comparator
-   * comparator (required) A function that accepts up to two arguments.
-   * Specifies the sort order. Must be a function,return number type,If it returns firstValue
-   * minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
-   * minus firstValue, it returns an list sorted in descending order;
+   *     comparator (required) A function that accepts up to two arguments.
+   *     Specifies the sort order. Must be a function,return number type,If it returns firstValue
+   *     minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
+   *     minus firstValue, it returns an list sorted in descending order;
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   sort(comparator: ListComparatorFn<T>): void;
   /**
@@ -977,8 +980,7 @@ declare class List<T> {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic
- * @since 23 static
+ * @since 23 dynamic&static
  */
 export type ListComparatorFn<T> = (firstValue: T, secondValue: T) => double;
 /**
