@@ -13526,6 +13526,18 @@ declare namespace camera {
      */
     getPreviewRotation(displayRotation: int): ImageRotation;
 
+    /**
+     * Gets the preview rotation angle.
+     *
+     * @returns { ImageRotation } The preview rotation angle.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getPreviewRotation(): ImageRotation;
+
      /**
       * Sets the preview rotation angle.
       *
@@ -15630,6 +15642,18 @@ declare namespace camera {
     getPhotoRotation(deviceDegree: int): ImageRotation;
 
     /**
+     * Gets the photo rotation angle.
+     *
+     * @returns { ImageRotation } The photo rotation angle.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getPhotoRotation(): ImageRotation;
+
+    /**
      * Confirm if offline processing is supported.
      *
      * @returns { boolean } TRUE if the type of offline is supported.
@@ -16210,6 +16234,18 @@ declare namespace camera {
      * @since 23 static
      */
     getVideoRotation(deviceDegree: int): ImageRotation;
+
+    /**
+     * Gets the video rotation angle.
+     *
+     * @returns { ImageRotation } The video rotation angle.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getVideoRotation(): ImageRotation;
 
     /**
      * Confirm if auto deferred video enhancement is supported in the specific device.
