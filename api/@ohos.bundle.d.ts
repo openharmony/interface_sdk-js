@@ -588,7 +588,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7 dynamic
    * @deprecated since 9
-   * .
    */
   function getAbilityInfo(bundleName: string, abilityName: string): Promise<AbilityInfo>;
 
