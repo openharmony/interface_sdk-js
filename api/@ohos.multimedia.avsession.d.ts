@@ -123,7 +123,15 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9 dynamic
-   * @since 23 static
+   */
+  /**
+   * Get all avsession descriptors which can be shown on system entrance.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES or ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
+   * @returns { Promise<Array<Readonly<AVSessionDescriptor>>> } Promise for an array of AVSessionDescriptors
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @since 23 dynamic&static
    */
   function getAllSessionDescriptors(): Promise<Array<Readonly<AVSessionDescriptor>>>;
 
@@ -247,7 +255,18 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9 dynamic
-   * @since 23 static
+   */
+  /**
+   * Create an avsession controller
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES or ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
+   * @param { string } sessionId - Specifies the sessionId to create the controller.
+   * If provided 'default', the system will create a default controller, Used to control the system default session
+   * @returns { Promise<AVSessionController> } Promise for AVSessionController
+   * @throws { BusinessError } 201 - Permission denied
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600102 - The session does not exist.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @since 23 dynamic&static
    */
   function createController(sessionId: string): Promise<AVSessionController>;
 
@@ -515,13 +534,14 @@ declare namespace avSession {
 
   /**
    * Register session create callback
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
    * @param { Callback<AVSessionDescriptor> } callback - Used to handle ('sessionCreate' command)
-   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
-   * @since 23 static
+   * @since 23 dynamic&static
    */
+
   function onSessionCreate(callback: Callback<AVSessionDescriptor>): void;
 
   /**
@@ -540,13 +560,14 @@ declare namespace avSession {
 
   /**
    * Register session destroy callback
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
    * @param { Callback<AVSessionDescriptor> } callback - Used to handle ('sessionDestroy' command)
-   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
-   * @since 23 static
+   * @since 23 dynamic&static
    */
+
   function onSessionDestroy(callback: Callback<AVSessionDescriptor>): void;
 
   /**
@@ -565,13 +586,14 @@ declare namespace avSession {
 
   /**
    * Register top session changed callback
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
    * @param { Callback<AVSessionDescriptor> } callback - Used to handle ('topSessionChange' command)
-   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
-   * @since 23 static
+   * @since 23 dynamic&static
    */
+
   function onTopSessionChange(callback: Callback<AVSessionDescriptor>): void;
 
   /**
@@ -590,13 +612,14 @@ declare namespace avSession {
 
   /**
    * Unregister session create callback
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
    * @param { Callback<AVSessionDescriptor> } [callback] - Used to unregister listener for ('sessionCreate') command
-   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
-   * @since 23 static
+   * @since 23 dynamic&static
    */
+
   function offSessionCreate(callback?: Callback<AVSessionDescriptor>): void;
 
   /**
@@ -641,13 +664,14 @@ declare namespace avSession {
 
   /**
    * Unregister session destroy callback
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
    * @param { Callback<AVSessionDescriptor> } [callback] - Used to unregister listener for ('sessionDestroy') command
-   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
-   * @since 23 static
+   * @since 23 dynamic&static
    */
+
   function offSessionDestroy(callback?: Callback<AVSessionDescriptor>): void;
 
   /**
@@ -666,13 +690,14 @@ declare namespace avSession {
 
   /**
    * Unregister top session changed callback
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
    * @param { Callback<AVSessionDescriptor> } [callback] - Used to unregister listener for ('topSessionChange') command
-   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
-   * @since 23 static
+   * @since 23 dynamic&static
    */
+
   function offTopSessionChange(callback?: Callback<AVSessionDescriptor>): void;
 
   /**
