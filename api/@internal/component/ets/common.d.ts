@@ -20166,7 +20166,7 @@ declare interface FadingEdgeOptions {
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 /**
  * Define nested scroll options
@@ -20175,7 +20175,7 @@ declare interface FadingEdgeOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic
+ * @since 23 dynamic
  */
 declare interface NestedScrollOptions {
   /**
