@@ -34,7 +34,13 @@ import type { SystemSoundPlayer as _SystemSoundPlayer } from './multimedia/Syste
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
  * @since 10 dynamic
- * @since 23 static
+ */
+/**
+ * Provides system sound and ringtone player interfaces.
+ *
+ * @namespace systemSoundManager
+ * @syscap SystemCapability.Multimedia.SystemSound.Core
+ * @since 23 dynamic&static
  */
 declare namespace systemSoundManager {
 
