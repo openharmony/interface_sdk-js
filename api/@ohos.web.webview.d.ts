@@ -4475,7 +4475,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Gets the default user agent.
@@ -4485,7 +4485,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getUserAgent(): string;
 
@@ -6161,7 +6161,7 @@ declare namespace webview {
      *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Set web scheme handler for specific scheme. This is only used for related web component.
@@ -6174,7 +6174,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     setWebSchemeHandler(scheme: string, handler: WebSchemeHandler): void;
 
@@ -6184,7 +6184,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Clear all web scheme handlers for related web component.
@@ -6193,7 +6193,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     clearWebSchemeHandler(): void;
 
@@ -8197,7 +8197,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Defines the Web resource request used for scheme handler.
@@ -8205,7 +8205,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   class WebSchemeHandlerRequest {
     /**
@@ -8214,7 +8214,7 @@ declare namespace webview {
      * @returns { Array<WebHeader> } Return the request headers.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Gets request headers.
@@ -8223,7 +8223,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getHeader(): Array<WebHeader>;
     /**
@@ -8232,7 +8232,7 @@ declare namespace webview {
      * @returns { string } Return the request URL.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Gets the request URL.
@@ -8241,7 +8241,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getRequestUrl(): string;
     /**
@@ -8250,7 +8250,7 @@ declare namespace webview {
      * @returns { string } Return the request method.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Get request method.
@@ -8259,7 +8259,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getRequestMethod(): string;
     /**
@@ -8277,7 +8277,7 @@ declare namespace webview {
      * @returns { boolean } Whether request is main frame.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Check whether the request is for getting the main frame.
@@ -8286,7 +8286,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     isMainFrame(): boolean;
     /**
@@ -8295,7 +8295,7 @@ declare namespace webview {
      * @returns { boolean } Whether request has user gesture.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Check whether the request is associated with gesture.
@@ -8304,7 +8304,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     hasGesture(): boolean;
     /**
@@ -8339,7 +8339,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Defines the Web resource response used for scheme handler.
@@ -8347,7 +8347,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   class WebSchemeHandlerResponse {
     /**
@@ -8355,7 +8355,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Constructor.
@@ -8363,7 +8363,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     constructor();
     /**
@@ -8373,7 +8373,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Set the resolved URL after redirects or changed as a result of HSTS.
@@ -8383,7 +8383,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     setUrl(url: string): void;
     /**
@@ -8392,7 +8392,7 @@ declare namespace webview {
      * @returns { string } Return response url for redirects.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Get the resolved URL after redirects or changed as a result of HSTS.
@@ -8401,7 +8401,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getUrl(): string;
     /**
@@ -8411,7 +8411,7 @@ declare namespace webview {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Set net error code.
@@ -8421,7 +8421,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     setNetErrorCode(code: WebNetErrorList): void;
     /**
@@ -8430,7 +8430,7 @@ declare namespace webview {
      * @returns { WebNetErrorList } Return response error code.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Get net error code.
@@ -8439,7 +8439,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getNetErrorCode(): WebNetErrorList;
     /**
@@ -8449,7 +8449,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Set http status code.
@@ -8459,7 +8459,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     setStatus(code: number): void;
     /**
@@ -8468,7 +8468,7 @@ declare namespace webview {
      * @returns { number } Return http status code.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Get http status code.
@@ -8477,7 +8477,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getStatus(): number;
     /**
@@ -8487,7 +8487,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Set status text.
@@ -8497,7 +8497,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     setStatusText(text: string): void;
     /**
@@ -8506,7 +8506,7 @@ declare namespace webview {
      * @returns { string } Return http status text.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Get status text.
@@ -8515,7 +8515,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getStatusText(): string;
     /**
@@ -8525,7 +8525,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Set mime type.
@@ -8535,7 +8535,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     setMimeType(type: string): void;
     /**
@@ -8544,7 +8544,7 @@ declare namespace webview {
      * @returns { string } Return mime type of response.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Get mime type.
@@ -8553,7 +8553,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getMimeType(): string;
     /**
@@ -8563,7 +8563,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Set the response encoding.
@@ -8573,7 +8573,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     setEncoding(encoding: string): void;
     /**
@@ -8582,7 +8582,7 @@ declare namespace webview {
      * @returns { string } Return encoding of response.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Get the response encoding.
@@ -8591,7 +8591,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getEncoding(): string;
     /**
@@ -8604,7 +8604,7 @@ declare namespace webview {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Set response hander value by name.
@@ -8617,7 +8617,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     setHeaderByName(name: string, value: string, overwrite: boolean): void;
     /**
@@ -8627,7 +8627,7 @@ declare namespace webview {
      * @returns { string } Return header value by name.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Get the header value by name from the response.
@@ -8637,7 +8637,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     getHeaderByName(name: string): string
   }
@@ -8648,7 +8648,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Used to intercept url requests. Response headers and body can be sent through
@@ -8657,7 +8657,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   class WebResourceHandler {
     /**
@@ -8668,7 +8668,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Pass response headers to intercepted requests.
@@ -8679,7 +8679,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     didReceiveResponse(response: WebSchemeHandlerResponse): void;
     /**
@@ -8690,7 +8690,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Pass response body data to intercepted requests.
@@ -8701,7 +8701,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     didReceiveResponseBody(data: ArrayBuffer): void;
     /**
@@ -8710,7 +8710,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Notify that this request should be finished and there is no more data available.
@@ -8719,7 +8719,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     didFinish(): void;
     /**
@@ -8730,7 +8730,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Notify that this request should be failed.
@@ -8741,7 +8741,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     didFail(code: WebNetErrorList): void;
     /**
@@ -8749,13 +8749,13 @@ declare namespace webview {
      *
      * @param { WebNetErrorList } code - Set response error code to intercept.
      * @param { boolean } completeIfNoResponse - If completeIfNoResponse is true, when DidFailWithError is called, if
-     *                                           DidReceiveResponse has not been called, a response is automatically
-     *                                           constructed and the current request is terminated.
+     *     DidReceiveResponse has not been called, a response is automatically
+     *     constructed and the current request is terminated.
      * @throws { BusinessError } 17100101 - The errorCode is either ARKWEB_NET_OK or outside the range of error codes
-     *                                      in WebNetErrorList.
+     *     in WebNetErrorList.
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic
      */
     /**
      * Notify that this request should be failed.
@@ -8769,7 +8769,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     didFail(code: WebNetErrorList, completeIfNoResponse: boolean): void;
   }
@@ -8779,7 +8779,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * This class is used to intercept requests for a specified scheme.
@@ -8787,7 +8787,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
   class WebSchemeHandler {
     /**
@@ -8799,7 +8799,7 @@ declare namespace webview {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Callback for handling the request.
@@ -8811,7 +8811,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     onRequestStart(
       callback: (request: WebSchemeHandlerRequest, handler: WebResourceHandler) => boolean): void;
@@ -8823,7 +8823,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Callback when the request is completed.
@@ -8833,7 +8833,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 23 dynamic
      */
     onRequestStop(callback: Callback<WebSchemeHandlerRequest>): void;
   }
