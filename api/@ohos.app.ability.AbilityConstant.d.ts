@@ -186,6 +186,28 @@ declare namespace AbilityConstant {
      * @since 23 static
      */
     lastExitDetailInfo?: LastExitDetailInfo;
+
+    /**
+     * Indicates the UTC timestamp of component launch, in milliseconds.
+     *
+     * @type { ?long }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    launchUTCTime?: long;
+
+    /**
+     * Indicates the system uptime (time since last system boot) when the component launched, in milliseconds.
+     *
+     * @type { ?long }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    launchUptime?: long;
   }
 
   /**
