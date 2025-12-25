@@ -278,8 +278,8 @@ declare namespace uiExtension {
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
-     * <br> 1. The window is not created or destroyed.
-     * <br> 2. Internal task error.
+     *     1. The window is not created or destroyed.
+     *     2. Internal task error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 22 dynamic
