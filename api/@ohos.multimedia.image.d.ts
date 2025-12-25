@@ -5042,7 +5042,7 @@ declare namespace image {
    */
   interface ImageReceiverOptions {
     /**
-     * Image size, with both the witdh and height greater than 0.
+     * Image size, with both the width and height greater than 0.
      *
      * @type { ?Size }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
@@ -5064,7 +5064,7 @@ declare namespace image {
   }
 
   /**
-   * Describes image buffer data.
+   * Describes the image buffer data.
    *
    * @typedef ImageBufferData
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -5085,8 +5085,9 @@ declare namespace image {
 
     /**
      * Pixel stride of each component.
-     * @readonly
+     * 
      * @type { int[] }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -5095,8 +5096,9 @@ declare namespace image {
 
     /**
      * Image data buffer.
-     * @readonly
+     * 
      * @type { ArrayBuffer }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -5863,9 +5865,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Creates an ImageReceiver instance.
    *
-   * @param { ImageReceiverOptions } [options] The parameters for ImageReceiver creation.
-   * @returns { ImageReceiver | undefined } Returns the ImageReceiver instance if the operation is successful;
-   *     returns undefined otherwise.
+   * @param { ImageReceiverOptions } [options] Initialization options for the ImageReceiver.
+   * @returns { ImageReceiver | undefined } ImageReceiver instance created. If the operation fails, undefined is
+   *     returned.
    * @throws { BusinessError } 7900201 - Invalid parameter.
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
    * @stagemodelonly
@@ -10361,9 +10363,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     release(): Promise<void>;
 
     /**
-     * Get image buffer data.
+     * Obtains the image buffer data.
      *
-     * @returns { ImageBufferData | null } Return the instance if the operation is successful; returns null otherwise.
+     * @returns { ImageBufferData | null } Image data obtained. If the operation fails, null is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10371,17 +10373,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getBufferData(): ImageBufferData | null;
 
     /**
-     * Get HDR metadata for speficied HDR metadata key.
+     * Obtains HDR metadata.
      * 
-     * @param { HdrMetadataKey } key The key for HDR metadata query.
-     * @returns { HdrMetadataValue } Return the HDR metadata for the key.
+     * @param { HdrMetadataKey } key Key of the HDR metadata.
+     * @returns { HdrMetadataValue | null } HDR metadata obtained. If no HDR metadata exists, null is returned.
      * @throws { BusinessError } 7600206 - Invalid parameter.
      * @throws { BusinessError } 7600302 - Memory copy failed.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
      */
-    getMetadata(key: HdrMetadataKey): HdrMetadataValue;
+    getMetadata(key: HdrMetadataKey): HdrMetadataValue | null;
   }
 
   /**
