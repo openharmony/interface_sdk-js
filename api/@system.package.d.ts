@@ -88,7 +88,6 @@ export interface CheckPackageHasInstalledOptions {
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 3 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager/bundleManager
  */
 export default class Package {
   /**

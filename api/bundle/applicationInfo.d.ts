@@ -28,7 +28,7 @@ import { CustomizeData } from './customizeData';
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager/bundleManager.ApplicationInfo
+ * @useinstead ohos.bundle.bundleManager.ApplicationInfo
  */
 export interface ApplicationInfo {
   /**
