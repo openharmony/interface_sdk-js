@@ -26,9 +26,7 @@ import window from './@ohos.window';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 /*** endif */
 
-/*** if arkts dynamic */
 import { InputMethodExtraConfig } from './@ohos.inputMethod.ExtraConfig';
-/*** endif */
 /**
  * Input method engine
  *
@@ -3014,7 +3012,7 @@ declare namespace inputMethodEngine {
      * When the display undergoes orientation changes, or is folded or unfolded, it is necessary to
      * reinvoke this interface to get the latest values.</p>
      * 
-     * @param { number } displayId - specify which display's system panel insets.
+     * @param { long } displayId - specify which display's system panel insets.
      * @returns { Promise<SystemPanelInsets> } the promise returned by the function.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag. Possible causes:
@@ -3022,8 +3020,9 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800022 - invalid displayId.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 21 dynamic
+     * @since 23 static
      */
-    getSystemPanelCurrentInsets(displayId: number): Promise<SystemPanelInsets>;
+    getSystemPanelCurrentInsets(displayId: long): Promise<SystemPanelInsets>;
 
     /**
      * Set current panel's shadow.
@@ -3147,35 +3146,39 @@ declare namespace inputMethodEngine {
    * @interface SystemPanelInsets.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 21 dynamic
+   * @since 23 static
    */
   interface SystemPanelInsets {
     /**
      * Distance on the left.
      *
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 21 dynamic
+     * @since 23 static
      */
-    readonly left: number;
+    readonly left: int;
     /**
      * Distance on the right.
      *
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 21 dynamic
+     * @since 23 static
      */
-    readonly right: number;
+    readonly right: int;
     /**
      * Distance on the bottom.
      *
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 21 dynamic
+     * @since 23 static
      */
-    readonly bottom: number;
+    readonly bottom: int;
   }
 
   /**
@@ -3324,6 +3327,7 @@ declare namespace inputMethodEngine {
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 22 dynamic
+     * @since 23 static
      */
     readonly extraConfig?: InputMethodExtraConfig;
   }

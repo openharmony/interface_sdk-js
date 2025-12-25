@@ -21,11 +21,12 @@
 /**
  * Indicates the possible data types of the custom setting value.
  *
- * @typedef { number | string | boolean }
+ * @typedef { int | string | boolean }
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 22 dynamic
+ * @since 23 static
  */
-export type CustomValueType = number | string | boolean;
+export type CustomValueType = int | string | boolean;
 
 /**
  * The extra config of edit box.
@@ -33,6 +34,7 @@ export type CustomValueType = number | string | boolean;
  * @typedef InputMethodExtraConfig
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 22 dynamic
+ * @since 23 static
  */
 export interface InputMethodExtraConfig {
     /**
@@ -41,6 +43,7 @@ export interface InputMethodExtraConfig {
      * @type { Record<string, CustomValueType> }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 22 dynamic
+     * @since 23 static
      */
     customSettings: Record<string, CustomValueType>;
 }
