@@ -1990,6 +1990,7 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     BEARER_BLUETOOTH = 2,
  
