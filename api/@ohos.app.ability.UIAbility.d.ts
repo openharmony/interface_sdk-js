@@ -30,29 +30,92 @@ import { RecordData } from './@ohos.base';
 
 /**
  * The prototype of the listener function interface registered by the Caller.
+ * Called when the stub on the target UIAbility is disconnected.
+ *
+ * @typedef OnReleaseCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @stagemodelonly
+ * @since 9 dynamic
+ */
+export interface OnReleaseCallback {
+  /**
+   * Defines the callback of OnRelease.
+   *
+   * @param { string } msg - The notification event string listened to by the OnRelease.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 9 dynamic
+   */
+  (msg: string): void;
+}
+
+/**
+ * The prototype of the listener function interface registered by the Caller.
  * Defines the callback of OnRelease.
+ * Called when the stub on the target UIAbility is disconnected.
  *
  * @typedef { function } OnReleaseCallback
  * @param { string } msg - The notification event string listened to by the OnRelease.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 9 dynamic
  * @since 23 static
  */
 export type OnReleaseCallback = (msg: string) => void;
 
 /**
  * The prototype of the listener function interface registered by the Caller.
+ * Called when the remote UIAbility state changes in the collaboration scenario.
+ *
+ * @typedef OnRemoteStateChangeCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @stagemodelonly
+ * @since 10 dynamic
+ */
+export interface OnRemoteStateChangeCallback {
+  /**
+   * Defines the callback of OnRemoteStateChange.
+   *
+   * @param { string } msg - The notification event string listened to by the OnRemoteStateChange.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 10 dynamic
+   */
+  (msg: string): void;
+}
+
+/**
+ * The prototype of the listener function interface registered by the Caller.
  * Defines the callback of OnRemoteStateChange.
+ * Called when the remote UIAbility state changes in the collaboration scenario.
  *
  * @typedef { function } OnRemoteStateChangeCallback
  * @param { string } msg - The notification event string listened to by the OnRemoteStateChange.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 10 dynamic
  * @since 23 static
  */
 export type OnRemoteStateChangeCallback = (msg: string) => void;
+
+/**
+ * The prototype of the message listener function interface registered by the Callee.
+ *
+ * @typedef CalleeCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @stagemodelonly
+ * @since 9 dynamic
+ */
+export interface CalleeCallback {
+  /**
+   * Defines the callback of Callee.
+   *
+   * @param { rpc.MessageSequence } indata - Notification indata to the callee.
+   * @returns { rpc.Parcelable } Returns the callee's notification result indata.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 9 dynamic
+   */
+  (indata: rpc.MessageSequence): rpc.Parcelable;
+}
 
 /**
  * The prototype of the message listener function interface registered by the Callee.
@@ -63,7 +126,6 @@ export type OnRemoteStateChangeCallback = (msg: string) => void;
  * @returns { rpc.Parcelable } Returns the callee's notification result indata.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 9 dynamic
  * @since 23 static
  */
 export type CalleeCallback = (indata: rpc.MessageSequence) => rpc.Parcelable;
