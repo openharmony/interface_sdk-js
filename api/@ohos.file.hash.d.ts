@@ -44,7 +44,7 @@ import stream from './@ohos.util.stream';
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace hash {
   /**
@@ -82,7 +82,7 @@ declare namespace hash {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function hash(path: string, algorithm: string): Promise<string>;
 
@@ -121,7 +121,7 @@ declare namespace hash {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function hash(path: string, algorithm: string, callback: AsyncCallback<string>): void;
 
@@ -139,7 +139,7 @@ declare namespace hash {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class HashStream extends stream.Transform {
     /**
@@ -160,7 +160,7 @@ declare namespace hash {
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @crossplatform
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     digest(): string;
 
@@ -182,7 +182,7 @@ declare namespace hash {
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @crossplatform
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     update(data: ArrayBuffer): void;
   }
@@ -209,7 +209,7 @@ declare namespace hash {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createHash(algorithm: string): HashStream;
 }

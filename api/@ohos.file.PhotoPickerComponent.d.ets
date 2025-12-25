@@ -157,7 +157,8 @@ export declare struct PhotoPickerComponent {
    * @type { ?MovingPhotoBadgeStateChangedCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   onMovingPhotoBadgeStateChanged?: MovingPhotoBadgeStateChangedCallback;
 
@@ -171,6 +172,28 @@ export declare struct PhotoPickerComponent {
    */
   @ObjectLink
   pickerController: PickerController;
+
+  /**
+   * Callback when the grid stops scrolling at the starting position
+   *
+   * @type { ?ScrollStopAtStartCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  onScrollStopAtStart?: ScrollStopAtStartCallback;
+
+  /**
+   * Callback when the grid stops scrolling at the ending position
+   *
+   * @type { ?ScrollStopAtEndCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  onScrollStopAtEnd?: ScrollStopAtEndCallback;
 
   /**
    * Build function of PhotoPickerComponent
@@ -233,7 +256,8 @@ export type videoPlayStateChangedCallback = (state: VideoPlayerState) => void;
  * @param { photoAccessHelper.MovingPhotoBadgeStateType } state
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
- * @since 22 dynamic&static
+ * @since 22 dynamic
+ * @since 23 static
  */
 export type MovingPhotoBadgeStateChangedCallback =
   (uri: string, state: photoAccessHelper.MovingPhotoBadgeStateType) => void;
@@ -349,13 +373,30 @@ export declare class PickerController {
     configs?: Array<photoAccessHelper.PhotoCreationConfig>, saveMode?: SaveMode): void;
 
   /**
+   * Save the photo assets of uris.
+   *
+   * @param { Array<string> } trustedUris - Uris need to be saved
+   * @param { Array<photoAccessHelper.CreationSetting> } [settings] - Photo asset creation settings
+   * @param { SaveMode } [saveMode] - Mode of save
+   * @returns { Promise<Array<string>> } - Returns the media library file uri list to application
+   *     which has been authorized
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  saveTrustedPhotoAssetsEx(trustedUris: Array<string>,settings?: Array<photoAccessHelper.CreationSetting>,
+    saveMode?: SaveMode): Promise<Array<string>>;
+
+  /**
    * Update options of the PhotoPicker component.
    *
    * @param { UpdatablePickerConfigs } updateConfig - Subset of PickerOptions
    * @returns { Promise<void> } Promise<void>
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   updatePickerOptions(updateConfig: UpdatablePickerConfigs): Promise<void>;
 }
@@ -591,6 +632,17 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 23 dynamic&static
    */
    isSlidingSupported?: boolean;
+
+  /**
+   * Grid edge slide effect.
+   *
+   * @type { ?EdgeEffect  }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+   edgeEffect?: EdgeEffect;
 }
 
 /**
@@ -598,7 +650,8 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
- * @since 22 dynamic&static
+ * @since 22 dynamic
+ * @since 23 static
  */
 export declare class UpdatablePickerConfigs {
 
@@ -608,7 +661,8 @@ export declare class UpdatablePickerConfigs {
    * @type { ?photoAccessHelper.PhotoViewMIMETypes }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   mimeType?: photoAccessHelper.PhotoViewMIMETypes;
 
@@ -618,7 +672,8 @@ export declare class UpdatablePickerConfigs {
    * @type { ?photoAccessHelper.MimeTypeFilter }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   mimeTypeFilter?: photoAccessHelper.MimeTypeFilter;
 
@@ -628,7 +683,8 @@ export declare class UpdatablePickerConfigs {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   maxSelectNumber?: number;
 
@@ -638,7 +694,8 @@ export declare class UpdatablePickerConfigs {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   maxPhotoSelectNumber?: number;
 
@@ -648,7 +705,8 @@ export declare class UpdatablePickerConfigs {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   maxVideoSelectNumber?: number;
 
@@ -658,7 +716,8 @@ export declare class UpdatablePickerConfigs {
    * @type { ?SelectMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   selectMode?: SelectMode;
 
@@ -668,7 +727,8 @@ export declare class UpdatablePickerConfigs {
    * @type { ?photoAccessHelper.SingleSelectionMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   singleSelectionMode?: photoAccessHelper.SingleSelectionMode;
 
@@ -678,7 +738,8 @@ export declare class UpdatablePickerConfigs {
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   isRepeatSelectSupported?: boolean;
 
@@ -688,7 +749,8 @@ export declare class UpdatablePickerConfigs {
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   preselectedUris?: Array<string>;
 
@@ -698,7 +760,8 @@ export declare class UpdatablePickerConfigs {
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   checkBoxColor?: string;
 
@@ -708,7 +771,8 @@ export declare class UpdatablePickerConfigs {
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   checkboxTextColor?: string;
 
@@ -718,7 +782,8 @@ export declare class UpdatablePickerConfigs {
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   backgroundColor?: string;
 
@@ -728,7 +793,8 @@ export declare class UpdatablePickerConfigs {
    * @type { ?PickerColorMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   photoBrowserBackgroundColorMode?: PickerColorMode;
 
@@ -738,7 +804,8 @@ export declare class UpdatablePickerConfigs {
    * @type { ?PickerColorMode  }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
    uiComponentColorMode?: PickerColorMode;
 
@@ -752,6 +819,17 @@ export declare class UpdatablePickerConfigs {
    * @since 23 dynamic&static
    */
    isSlidingSupported?: boolean;
+
+  /**
+   * Grid edge slide effect.
+   *
+   * @type { ?EdgeEffect  }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+   edgeEffect?: EdgeEffect;
 }
 
 /**
@@ -859,7 +937,8 @@ export declare class BaseItemInfo {
    * @type { ?photoAccessHelper.MovingPhotoBadgeStateType }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   movingPhotoBadgeState?: photoAccessHelper.MovingPhotoBadgeStateType;
 
@@ -869,7 +948,8 @@ export declare class BaseItemInfo {
    * @type { ?photoAccessHelper.VideoMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   videoMode?: photoAccessHelper.VideoMode;
 }
@@ -1513,3 +1593,24 @@ export declare enum ItemDisplayRatio {
    */
   ORIGINAL_SIZE_RATIO = 1
 }
+/**
+  * The callback of onScrollStopAtStart event
+  *
+  * @typedef { function } ScrollStopAtStartCallback
+  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+  * @stagemodelonly
+  * @atomicservice
+  * @since 23 dynamic&static
+  */
+export type ScrollStopAtStartCallback = () => void;
+
+/**
+  * The callback of onScrollStopAtEnd event
+  *
+  * @typedef { function } ScrollStopAtEndCallback
+  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+  * @stagemodelonly
+  * @atomicservice
+  * @since 23 dynamic&static
+  */
+export type ScrollStopAtEndCallback = () => void;

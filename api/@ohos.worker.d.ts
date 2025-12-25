@@ -1213,6 +1213,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * @syscap SystemCapability.Utils.Lang
    * @since 9 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.worker.ThreadWorkerGlobalScope.postMessage
    */
   postMessage(messageObject: Object, transfer: ArrayBuffer[]): void;
 }

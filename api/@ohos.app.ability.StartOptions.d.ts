@@ -39,7 +39,7 @@ import window from './@ohos.window';
  * @stagemodelonly
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class StartOptions {
   /**
@@ -52,7 +52,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   windowMode?: int;
 
@@ -72,7 +72,7 @@ declare class StartOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   displayId?: long;
 
@@ -83,7 +83,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   withAnimation?: boolean;
 
@@ -94,7 +94,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   windowLeft?: int;
 
@@ -105,7 +105,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   windowTop?: int;
 
@@ -116,7 +116,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   windowWidth?: int;
 
@@ -127,7 +127,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   windowHeight?: int;
 
@@ -139,7 +139,7 @@ declare class StartOptions {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   windowFocused?: boolean;
 
@@ -152,7 +152,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   processMode?: contextConstant.ProcessMode;
 
@@ -165,7 +165,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startupVisibility?: contextConstant.StartupVisibility;
 
@@ -176,7 +176,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startWindowIcon?: image.PixelMap;
 
@@ -187,7 +187,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startWindowBackgroundColor?: string;
 
@@ -198,7 +198,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   supportWindowModes?: Array<bundleManager.SupportWindowMode>;
 
@@ -209,7 +209,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 17 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   minWindowWidth?: int;
 
@@ -220,7 +220,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 17 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   minWindowHeight?: int;
 
@@ -231,7 +231,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 17 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   maxWindowWidth?: int;
 
@@ -242,7 +242,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 17 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   maxWindowHeight?: int;
 
@@ -254,7 +254,7 @@ declare class StartOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   completionHandler?: CompletionHandler;
 
@@ -265,7 +265,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   hideStartWindow?: boolean;
 

@@ -41,7 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class TreeSet<T> {
   /**
@@ -99,7 +99,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   constructor(comparator?: TreeSetComparator<T>);
 
@@ -136,7 +136,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get length(): int;
 
@@ -166,7 +166,7 @@ declare class TreeSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isEmpty(): boolean;
   /**
@@ -198,7 +198,7 @@ declare class TreeSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   has(value: T): boolean;
   /**
@@ -242,7 +242,7 @@ declare class TreeSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   add(value: T): boolean;
   /**
@@ -274,7 +274,7 @@ declare class TreeSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   remove(value: T): boolean;
   /**
@@ -300,7 +300,7 @@ declare class TreeSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   clear(): void;
   /**
@@ -324,11 +324,13 @@ declare class TreeSet<T> {
    * Gets the first elements in a set
    *
    * @returns { T } value or undefined
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The getFirstValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   getFirstValue(): T;
   /**
@@ -352,11 +354,13 @@ declare class TreeSet<T> {
    * Gets the last elements in a set
    *
    * @returns { T } value or undefined
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The getLastValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   getLastValue(): T;
   /**
@@ -472,11 +476,13 @@ declare class TreeSet<T> {
    * Return and delete the first element, returns undefined if tree set is empty
    *
    * @returns { T } first value or undefined
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The popFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   popFirst(): T;
   /**
@@ -500,35 +506,15 @@ declare class TreeSet<T> {
    * Return and delete the last element, returns undefined if tree set is empty
    *
    * @returns { T } last value or undefined
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The popLast method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   popLast(): T;
-
-  /**
-   * Gets the first elements in a set
-   *
-   * @returns { T | undefined } the value of the first element if exists, undefined otherwise
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  getFirstValue(): T | undefined;
-
-  /**
-   * Gets the last elements in a set
-   *
-   * @returns { T | undefined } the value of the last element if exists, undefined otherwise
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  getLastValue(): T | undefined;
 
   /**
    * Returns the greatest element smaller than or equal to the specified key
@@ -536,10 +522,11 @@ declare class TreeSet<T> {
    *
    * @param { T } key - key key Objective of comparison
    * @returns { T | undefined } the lower value of the given key's element if exists, undefined otherwise
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   getLowerValue(key: T): T | undefined;
 
@@ -549,34 +536,13 @@ declare class TreeSet<T> {
    *
    * @param { T } key - key key Objective of comparison
    * @returns { T | undefined } the higher value of the given key's element if exists, undefined otherwise
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   getHigherValue(key: T): T | undefined;
-
-  /**
-   * Return and delete the first element, returns undefined if tree set is empty
-   *
-   * @returns { T | undefined} the value of the first element in the TreeSet if exists, undefined otherwise
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  popFirst(): T | undefined;
-
-  /**
-   * Return and delete the last element, returns undefined if tree set is empty
-   *
-   * @returns { T | undefined } the value of the last element in the TreeSet if exists, undefined otherwise
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  popLast(): T | undefined;
 
   /**
    * Executes a provided function once for each value in the Set object.
@@ -638,7 +604,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   forEach(callbackFn: TreeSetForEachCb<T>): void;
 
@@ -668,7 +634,7 @@ declare class TreeSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   values(): IterableIterator<T>;
   /**
@@ -697,7 +663,7 @@ declare class TreeSet<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   entries(): IterableIterator<[T, T]>;
   /**
@@ -736,7 +702,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   $_iterator(): IterableIterator<T>;
 
@@ -752,7 +718,7 @@ declare class TreeSet<T> {
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type TreeSetForEachCb<T> = (value: T, key: T, set: TreeSet<T>) => void
 
@@ -765,7 +731,7 @@ export type TreeSetForEachCb<T> = (value: T, key: T, set: TreeSet<T>) => void
  * @returns { double } - Comparison results
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type TreeSetComparator<T> = (firstValue: T, secondValue: T) => double
 

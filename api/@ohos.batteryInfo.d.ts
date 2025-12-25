@@ -381,6 +381,13 @@ declare namespace batteryInfo {
    */
   export enum BatteryCapacityLevel {
     /**
+     * The battery is in unknown capacity level.
+     *
+     * @syscap SystemCapability.PowerManager.BatteryManager.Core
+     * @since 23 dynamic
+     */
+    LEVEL_NONE,
+    /**
      * The battery is in full capacity level.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core

@@ -41,7 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class Stack<T> {
   /**
@@ -67,7 +67,7 @@ declare class Stack<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   constructor();
   /**
@@ -103,7 +103,7 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get length(): int;
 
@@ -133,7 +133,7 @@ declare class Stack<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isEmpty(): boolean;
   /**
@@ -160,27 +160,17 @@ declare class Stack<T> {
    * Return undefined if this stack is empty
    *
    * @returns { T } the top value or undefined
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The peek method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   peek(): T;
 
   /**
-   * Looks at the object at the top of this stack without removing it from the stack
-   * Return undefined if this stack is empty
-   *
-   * @returns { T | undefined } the top value, or undefined if container is empty
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  peek(): T | undefined;
-
-  /**
    * Removes the object at the top of this stack and returns that object as the value of this function
    * an exception if the stack is empty
    *
@@ -204,27 +194,17 @@ declare class Stack<T> {
    * an exception if the stack is empty
    *
    * @returns { T } Stack top value or undefined
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The pop method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   pop(): T;
 
   /**
-   * Removes the object at the top of this stack and returns that object as the value of this function
-   * an exception if the stack is empty
-   *
-   * @returns { T | undefined } Stack top value, or undefined if container is empty
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  pop(): T | undefined;
-
-  /**
    * Pushes an item onto the top of this stack
    *
    * @param { T } item - item item to be appended to this Stack
@@ -253,7 +233,7 @@ declare class Stack<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   push(item: T): T;
   /**
@@ -285,7 +265,7 @@ declare class Stack<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   locate(element: T): int;
   /**
@@ -348,7 +328,7 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   forEach(callbackfn: StackForEachCb<T>): void;
 
@@ -388,7 +368,7 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   $_iterator(): IterableIterator<T>;
 
@@ -404,7 +384,7 @@ declare class Stack<T> {
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type StackForEachCb<T> = (value: T, index: int, stack: Stack<T>) => void
 

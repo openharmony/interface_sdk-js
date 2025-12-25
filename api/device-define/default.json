@@ -22,7 +22,6 @@
     "SystemCapability.Notification.NotificationSettings",
     "SystemCapability.Notification.Emitter",
     "SystemCapability.Communication.IPC.Core",
-    "SystemCapability.Communication.SoftBus.Core",
     "SystemCapability.Communication.NetManager.Core",
     "SystemCapability.Communication.NetManager.Ethernet",
     "SystemCapability.Communication.NetManager.NetSharing",

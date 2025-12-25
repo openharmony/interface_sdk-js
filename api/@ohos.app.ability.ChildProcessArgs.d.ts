@@ -25,7 +25,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface ChildProcessArgs {
   /**
@@ -36,7 +36,7 @@ export interface ChildProcessArgs {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   entryParams?: string;
 
@@ -47,7 +47,7 @@ export interface ChildProcessArgs {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   fds?: Record<string, int>;
 }

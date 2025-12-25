@@ -28,7 +28,7 @@ import type certificateManager from '@ohos.security.certManager';
  * @syscap SystemCapability.Security.CertificateManagerDialog
  * @stagemodelonly
  * @since 13 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace certificateManagerDialog {
   /**
@@ -38,7 +38,7 @@ declare namespace certificateManagerDialog {
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum CertificateDialogErrorCode {
     /**
@@ -47,7 +47,7 @@ declare namespace certificateManagerDialog {
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERROR_GENERIC = 29700001,
 
@@ -57,7 +57,7 @@ declare namespace certificateManagerDialog {
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERROR_OPERATION_CANCELED = 29700002,
 
@@ -67,7 +67,7 @@ declare namespace certificateManagerDialog {
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERROR_OPERATION_FAILED = 29700003,
 
@@ -77,7 +77,7 @@ declare namespace certificateManagerDialog {
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERROR_DEVICE_NOT_SUPPORTED = 29700004,
 
@@ -87,7 +87,7 @@ declare namespace certificateManagerDialog {
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERROR_NOT_COMPLY_SECURITY_POLICY = 29700005,
 
@@ -97,7 +97,8 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     ERROR_PARAMETER_VALIDATION_FAILED = 29700006,
 
@@ -106,7 +107,8 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     ERROR_NO_AVAILABLE_CERTIFICATE = 29700007
   }
@@ -118,7 +120,7 @@ declare namespace certificateManagerDialog {
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum CertificateDialogPageType {
     /**
@@ -127,7 +129,7 @@ declare namespace certificateManagerDialog {
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PAGE_MAIN = 1,
 
@@ -137,7 +139,7 @@ declare namespace certificateManagerDialog {
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PAGE_CA_CERTIFICATE = 2,
 
@@ -147,7 +149,7 @@ declare namespace certificateManagerDialog {
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PAGE_CREDENTIAL = 3,
 
@@ -157,7 +159,7 @@ declare namespace certificateManagerDialog {
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PAGE_INSTALL_CERTIFICATE = 4,
   }
@@ -177,7 +179,7 @@ declare namespace certificateManagerDialog {
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function openCertificateManagerDialog(context: common.Context, pageType: CertificateDialogPageType): Promise<void>;
 
@@ -188,7 +190,7 @@ declare namespace certificateManagerDialog {
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum CertificateType {
     /**
@@ -197,7 +199,7 @@ declare namespace certificateManagerDialog {
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CA_CERT = 1,
 
@@ -206,7 +208,8 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CREDENTIAL_USER = 2, 
 
@@ -215,7 +218,8 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */    
     CREDENTIAL_APP = 3, 
 
@@ -224,7 +228,8 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     CREDENTIAL_UKEY = 4,
 
@@ -246,7 +251,7 @@ declare namespace certificateManagerDialog {
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum CertificateScope {
     /**
@@ -256,7 +261,7 @@ declare namespace certificateManagerDialog {
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NOT_SPECIFIED = 0,
 
@@ -266,7 +271,7 @@ declare namespace certificateManagerDialog {
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CURRENT_USER = 1,
 
@@ -276,7 +281,7 @@ declare namespace certificateManagerDialog {
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GLOBAL_USER = 2
   }
@@ -323,7 +328,7 @@ declare namespace certificateManagerDialog {
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise<string>;
 
@@ -345,7 +350,7 @@ declare namespace certificateManagerDialog {
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function openAuthorizeDialog(context: common.Context): Promise<string>;
 
@@ -367,7 +372,7 @@ declare namespace certificateManagerDialog {
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function openCertificateDetailDialog(context: common.Context,cert: Uint8Array, property: CertificateDialogProperty): Promise<void>;
 
@@ -391,7 +396,7 @@ declare namespace certificateManagerDialog {
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function openUninstallCertificateDialog(context: common.Context, certType: CertificateType, certUri: string): Promise<void>;
 
@@ -402,7 +407,7 @@ declare namespace certificateManagerDialog {
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface CertificateDialogProperty {
 
@@ -413,7 +418,7 @@ declare namespace certificateManagerDialog {
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     showInstallButton: boolean;
   }
@@ -438,7 +443,8 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 29700007 - No available certificate for authorization.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest): Promise<CertReference>;
 
@@ -448,7 +454,8 @@ declare namespace certificateManagerDialog {
    * @typedef AuthorizeRequest
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface AuthorizeRequest {
     /**
@@ -457,7 +464,8 @@ declare namespace certificateManagerDialog {
      * @type { Array<CertificateType> }
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     certTypes: Array<CertificateType>;
 
@@ -468,7 +476,8 @@ declare namespace certificateManagerDialog {
      * @type { ?certificateManager.CertificatePurpose }
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     certPurpose?: certificateManager.CertificatePurpose;
   }
@@ -479,7 +488,8 @@ declare namespace certificateManagerDialog {
    * @typedef CertReference
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface CertReference {
     /**
@@ -488,7 +498,8 @@ declare namespace certificateManagerDialog {
      * @type { CertificateType }
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */    
       certType: CertificateType;
 
@@ -498,7 +509,8 @@ declare namespace certificateManagerDialog {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */   
       keyUri: string;
   }
@@ -523,7 +535,8 @@ declare namespace certificateManagerDialog {
    *     does not exist, the USB key status is abnormal.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function openUkeyAuthDialog(context: common.Context, ukeyAuthRequest: UkeyAuthRequest): Promise<void>;
 
@@ -533,7 +546,8 @@ declare namespace certificateManagerDialog {
    * @typedef UkeyAuthRequest
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface UkeyAuthRequest {
     /**
@@ -542,7 +556,8 @@ declare namespace certificateManagerDialog {
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */  
       keyUri: string;
   }

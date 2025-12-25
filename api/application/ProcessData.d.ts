@@ -23,7 +23,7 @@
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 14 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class ProcessData {
   /**
@@ -32,7 +32,7 @@ declare class ProcessData {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   bundleName: string;
 
@@ -42,7 +42,7 @@ declare class ProcessData {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   pid: int;
 
@@ -52,7 +52,7 @@ declare class ProcessData {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   uid: int;
 
@@ -62,7 +62,7 @@ declare class ProcessData {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   state: int;
 
@@ -72,7 +72,7 @@ declare class ProcessData {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isContinuousTask: boolean;
 
@@ -82,7 +82,7 @@ declare class ProcessData {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isKeepAlive: boolean;
 }

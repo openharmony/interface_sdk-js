@@ -31,7 +31,7 @@ import { EmbeddedType } from './enums'
  * @extends CommonMethod
  * @typedef EmbeddedComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface EmbeddedComponentAttribute extends CommonMethod {
   /**
@@ -40,7 +40,7 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @param { Callback<TerminationInfo> | undefined } callback
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   onTerminated(callback: Callback<TerminationInfo> | undefined): this;
   
@@ -50,7 +50,7 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @param { ErrorCallback<BusinessError> | undefined } callback
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   onError(callback: ErrorCallback<BusinessError> | undefined): this;
 
@@ -60,7 +60,7 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @param { AttributeModifier<EmbeddedComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   attributeModifier(modifier: AttributeModifier<EmbeddedComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 
@@ -75,7 +75,7 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
  * @returns { EmbeddedComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 @ComponentBuilder
 export declare function EmbeddedComponent(

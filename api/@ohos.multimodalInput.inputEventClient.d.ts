@@ -27,7 +27,7 @@ import { TouchEvent } from './@ohos.multimodalInput.touchEvent';
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
  * @systemapi hide for inner use
  * @since 8 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace inputEventClient {
   /**
@@ -37,7 +37,7 @@ declare namespace inputEventClient {
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface KeyEvent {
     /**
@@ -47,7 +47,7 @@ declare namespace inputEventClient {
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isPressed: boolean;
 
@@ -57,7 +57,7 @@ declare namespace inputEventClient {
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     keyCode: int;
 
@@ -67,7 +67,7 @@ declare namespace inputEventClient {
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     keyDownDuration: int;
 
@@ -78,7 +78,7 @@ declare namespace inputEventClient {
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isIntercepted: boolean;
   }
@@ -90,7 +90,7 @@ declare namespace inputEventClient {
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface MouseEventData {
     /**
@@ -100,7 +100,7 @@ declare namespace inputEventClient {
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     mouseEvent: MouseEvent;
     
@@ -111,7 +111,7 @@ declare namespace inputEventClient {
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     useGlobalCoordinate? : boolean;
   }
@@ -123,7 +123,7 @@ declare namespace inputEventClient {
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface TouchEventData {
     /**
@@ -133,7 +133,7 @@ declare namespace inputEventClient {
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     touchEvent: TouchEvent;
 
@@ -144,7 +144,7 @@ declare namespace inputEventClient {
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     useGlobalCoordinate?: boolean;
   }
@@ -156,7 +156,7 @@ declare namespace inputEventClient {
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface KeyEventData {
     /**
@@ -166,7 +166,7 @@ declare namespace inputEventClient {
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     keyEvent: KeyEvent;
   }
@@ -177,7 +177,7 @@ declare namespace inputEventClient {
    * @interface KeyEventInfo
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   interface KeyEventInfo {
     /**
@@ -186,7 +186,7 @@ declare namespace inputEventClient {
      * @type { KeyEvent }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     KeyEvent: KeyEvent;
   }
@@ -214,7 +214,7 @@ declare namespace inputEventClient {
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function injectKeyEvent(keyEvent: KeyEventData): void;
 
@@ -252,7 +252,7 @@ declare namespace inputEventClient {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
-   * @since 22 dynamic&static
+   * @since 23 dynamic&static
    */
   function injectEvent(keyEvent: KeyEventInfo): void;
 
@@ -279,7 +279,7 @@ declare namespace inputEventClient {
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function injectMouseEvent(mouseEvent: MouseEventData): void;
 
@@ -306,7 +306,7 @@ declare namespace inputEventClient {
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function injectTouchEvent(touchEvent: TouchEventData): void;
 
@@ -322,7 +322,7 @@ declare namespace inputEventClient {
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
    function permitInjection(result: boolean): void;
 }

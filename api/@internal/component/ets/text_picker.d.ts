@@ -845,7 +845,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { function } callback
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
    */
   onAccept(callback: (value: string, index: number) => void): TextPickerAttribute;
@@ -856,7 +856,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { function } callback
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
    */
   onCancel(callback: () => void): TextPickerAttribute;
@@ -1753,6 +1753,16 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @atomicservice
    * @since 20 dynamic
    */
+  /**
+   * Background style of selected items.
+   *
+   * @type { ?PickerBackgroundStyle }
+   * @default { color: $r('sys.color.comp_background_tertiary'), borderRadius: $r('sys.float.corner_radius_level12') }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   selectedBackgroundStyle?: PickerBackgroundStyle;
 }
 
@@ -2099,6 +2109,16 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20 dynamic
+   */
+  /**
+   * Background style of selected items.
+   *
+   * @type { ?PickerBackgroundStyle }
+   * @default { color: $r('sys.color.comp_background_tertiary'), borderRadius: $r('sys.float.corner_radius_level12') }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   selectedBackgroundStyle?: PickerBackgroundStyle;
 }

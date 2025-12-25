@@ -35,7 +35,7 @@ import type constant from './@ohos.bluetooth.constant';
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @crossplatform
  * @since 13 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace baseProfile {
   /**
@@ -52,7 +52,7 @@ declare namespace baseProfile {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type ProfileConnectionState = constant.ProfileConnectionState;
 
@@ -63,7 +63,7 @@ declare namespace baseProfile {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ConnectionStrategy {
     /**
@@ -72,7 +72,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONNECTION_STRATEGY_UNSUPPORTED = 0,
     /**
@@ -81,7 +81,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONNECTION_STRATEGY_ALLOWED = 1,
     /**
@@ -90,7 +90,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONNECTION_STRATEGY_FORBIDDEN = 2
   }
@@ -109,7 +109,7 @@ declare namespace baseProfile {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum DisconnectCause {
     /**
@@ -124,7 +124,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     USER_DISCONNECT = 0,
     /**
@@ -132,7 +132,7 @@ declare namespace baseProfile {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONNECT_FROM_KEYBOARD = 1,
     /**
@@ -140,7 +140,7 @@ declare namespace baseProfile {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONNECT_FROM_MOUSE = 2,
     /**
@@ -148,7 +148,7 @@ declare namespace baseProfile {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONNECT_FROM_CAR = 3,
     /**
@@ -156,7 +156,7 @@ declare namespace baseProfile {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TOO_MANY_CONNECTED_DEVICES = 4,
     /**
@@ -164,7 +164,7 @@ declare namespace baseProfile {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CONNECT_FAIL_INTERNAL = 5
   }
@@ -183,7 +183,7 @@ declare namespace baseProfile {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface StateChangeParam {
     /**
@@ -200,7 +200,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceId: string;
 
@@ -218,7 +218,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     state: ProfileConnectionState;
 
@@ -236,7 +236,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cause: DisconnectCause;
   }
@@ -255,7 +255,7 @@ declare namespace baseProfile {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface BaseProfile {
     /**
@@ -277,7 +277,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setConnectionStrategy(deviceId: string, strategy: ConnectionStrategy): Promise<void>;
 
@@ -300,7 +300,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setConnectionStrategy(deviceId: string, strategy: ConnectionStrategy, callback: AsyncCallback<void>): void;
 
@@ -322,7 +322,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getConnectionStrategy(deviceId: string, callback: AsyncCallback<ConnectionStrategy>): void;
 
@@ -344,7 +344,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getConnectionStrategy(deviceId: string): Promise<ConnectionStrategy>;
 
@@ -376,7 +376,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getConnectedDevices(): Array<string>;
 
@@ -414,7 +414,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getConnectionState(deviceId: string): ProfileConnectionState;
 
@@ -456,7 +456,7 @@ declare namespace baseProfile {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 22 static
+     * @since 23 static
      */
     onConnectionStateChange(callback: Callback<StateChangeParam>): void;
 
@@ -498,7 +498,7 @@ declare namespace baseProfile {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 22 static
+     * @since 23 static
      */
     offConnectionStateChange(callback?: Callback<StateChangeParam>): void;
   }

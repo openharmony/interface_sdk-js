@@ -853,13 +853,45 @@ declare const Env: EnvDecorator;
  */
 declare enum SystemProperties {
  /**
-  * System environmental breakpoin key that is used to obtain the width and height breakpoint value of the window.
+  * System environmental breakpoint key that is used to obtain the width and height breakpoint value of the window.
   * 
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 22 dynamic
   */
-  BREAK_POINT = 'system.arkui.breakpoint'
+  BREAK_POINT = 'system.arkui.breakpoint',
+  /**
+   * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in vp.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  WINDOW_AVOID_AREA = 'system.window.avoidarea',
+  /**
+   * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in px.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  WINDOW_AVOID_AREA_PX = 'system.window.avoidarea.px',
+  /**
+   * System environmental windowsize key that is used to obtain the size of the window, measured in vp.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  WINDOW_SIZE = 'system.window.size',
+  /**
+   * System environmental windowsize key that is used to obtain the size of the window, measured in px.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  WINDOW_SIZE_PX = 'system.window.size.px',
 };
 
 /**
@@ -7916,18 +7948,16 @@ declare interface DragItemInfo {
 declare function animateTo(value: AnimateParam, event: () => void): void;
 
 /**
- * Implements immediate delivery of an explicit animation through a **UIContext** object. 
- * When multiple property animations are loaded at once, you can call this API to immediately 
- * execute the transition animation for state changes caused by the specified closure function.
+ * Define animation functions for immediate distribution.
+ * This interface depends on the UI context and cannot be used when the UI context is unclear. It is recommended to use
+ * {@link ohos.arkui.UIContext.UIContext#animateToImmediately} to explicitly specify the UI context.
  *
  * @param { AnimateParam } value - Set animation effect parameters.
  * @param { function } event - Specify the closure function that displays dynamic effects,
  *     and the system will automatically insert transition animations for state changes caused by the closure function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12 dynamiconly
- * @deprecated since 22
- * @useinstead ohos.arkui.UIContext.UIContext#animateToImmediately
+ * @since 12 dynamic
  */
 declare function animateToImmediately(value: AnimateParam, event: () => void): void;
 
@@ -13236,15 +13266,6 @@ declare type DataLoadParams = import('../api/@ohos.data.unifiedDataChannel').def
  */
 declare enum DragResult {
   /**
-   * If the drag is not finished and the result is not set by receiver, return DragResult.UNKNOWN.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  UNKNOWN = -1,
-  /**
    * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15642,6 +15663,24 @@ declare interface SheetOptions extends BindOptions {
    * @since 20 dynamic
    */
   enableFloatingDragBar?: boolean;
+
+  /**
+    * Define strategy for drawing rounded corners.
+    * NOTE
+    * 1. **RenderStrategy.FAST**: The current component and its child components will be drawn directly
+    * onto the canvas with rounded corners applied.
+    * 2. **RenderStrategy.OFFSCREEN**: The current component and its child components will first be rendered onto
+    * an off-screen canvas, then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
+    *
+    * @type { ?RenderStrategy }
+    * @default RenderStrategy.FAST
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 22 dynamic
+    */
+  radiusRenderStrategy?: RenderStrategy;
 
   /**
    * Defines transition type when preferType is SheetType.CONTENT_COVER.
@@ -20127,7 +20166,7 @@ declare interface FadingEdgeOptions {
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 /**
  * Define nested scroll options
@@ -20136,7 +20175,7 @@ declare interface FadingEdgeOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic
+ * @since 23 dynamic
  */
 declare interface NestedScrollOptions {
   /**
@@ -24611,6 +24650,21 @@ declare class CommonMethod<T> {
   useEffect(value: boolean): T;
 
   /**
+   * Specify whether the current component participates in the fusion effect of the ancestor component UnionEffectContainer
+   *
+   * @param { boolean | undefined } value - Whether the component participates in the fusion effect of
+   *     the ancestor component **UnionEffectContainer**.<br>The value **true** means that the component participates
+   *     in the fusion effect of the ancestor component **UnionEffectContainer**, and **false** means the opposite.
+   *     <br>Default value: **false**. Undefined means to default value.
+   * @returns { T } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  useUnionEffect(value: boolean | undefined): T;
+
+  /**
    * Applies a background blur effect to the component. You can customize the blur radius and grayscale parameters.
    *
    * @param { number } value - Background blur effect to apply to the component.
@@ -24757,7 +24811,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   excludeFromRenderGroup(exclude: boolean | undefined): T;
 
@@ -31084,117 +31138,6 @@ declare class BaseCustomComponent extends CommonAttribute {
   aboutToRecycle?(): void;
 
   /**
-   * The aboutToInit function is executed when a custom component initialization is about to be completed.
-   * Developers can modify non-state variable data at this stage.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  aboutToInit?():void;
-
-  /**
-   * The aboutToExpand function is executed after a new instance of the custom component is created, before
-   * its build() function is executed. Developers can modify state variables at this stage.
-   * Its functionality is similar to aboutToAppear, but because aboutToExpand is triggered under
-   * the constraints of the custom component state machine, the aboutToExpand
-   * interface is added for compatibility considerations.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  aboutToExpand?(): void;
-
-  /**
-   * The aboutToDelete function executes before a custom component is destroyed. It is not allowed to
-   * change state variables within the `aboutToDelete` function, especially since
-   * modifying @Link variables may lead to unstable application behavior.
-   * Its functionality is similar to aboutToDisappear, but because aboutToDelete is triggered under
-   * the constraints of the custom component state machine, the aboutToDelete interface
-   * is added for compatibility considerations.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  aboutToDelete?(): void;
-
-  /**
-   * The aboutToAttach function is executed when a custom component is attached to the main tree.
-   * Developers can implement functions that do not affect the actual UI, such as event data reporting at this stage.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  aboutToAttach?(): void;
-
-  /**
-   * The aboutToDetach function executes when a custom component is detached from the main tree.
-   * Developers can implement functions that do not affect the actual UI, such as initialization of non-state
-   * variable data at this stage.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  aboutToDetach?(): void;
-
-  /**
-   * Callback function invoked from the native side function 'CustomNodeBase::SetRecycleFunction'
-   * when the component is about to be recycled.
-   * It first calls the `aboutToReclaim` function in the application, and performs the necessary actions
-   * defined in the application before recycling.
-   * Then, it freezes the component to avoid performing UI updates when its in recycle pool
-   * Finally recursively traverses all subcomponents, calling `aboutToReclaim` on each subcomponent
-   * that is about to be recycled, preparing them for recycling as well.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  aboutToReclaim?(): void;
-
-  /**
-   * Invoked when a reusable custom component is re-added to the node tree
-   * from the reuse cache to receive construction parameters of the component. When param is not undefined, it is the
-   * callback for reusing the V1 component. when param is undefined, it is the callback for reusing the V2 component.
-   *
-   * @param { Record<string, Object | undefined |null> } [params] - Custom component init params.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  aboutToRecover?(params?: Record<string, Object | undefined | null>): void;
-
-  /**
-   * The getLifecycle function get the lifecycle instance of the class CustomComponent.
-   *
-   * @returns { CustomComponentLifecycle } The lifecyle that the custom component belongs to.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  getLifecycle(): CustomComponentLifecycle;
-
-  /**
    * The onWillApplyTheme function is a custom hook to get active theme object from the context
    *
    * @param { Theme } theme - Custom theme init params.
@@ -32596,6 +32539,21 @@ declare type OnWillScrollCallback =
 declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
 
 /**
+ * Defines the callback type used in onItemDragStart.
+ *
+ * @typedef { function } OnItemDragStartCallback
+ * @param { ItemDragInfo } event - Information about the dragged item.
+ * @param { number } itemIndex - The index number of the dragged item.
+ * @returns { CustomBuilder }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: number) => CustomBuilder;
+
+/**
  * On scroll callback using in scrollable onWillStopDragging.
  *
  * @typedef { function } OnWillStopDraggingCallback
@@ -32895,6 +32853,28 @@ declare class ChildrenMainSize {
    * @since 12 dynamic
    */
   update(index: number, childSize: number): void;
+}
+
+/**
+ * Define edit mode options.
+ *
+ * @interface EditModeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare interface EditModeOptions {
+  /**
+   * Define whether to gather selected items in grid or list when item is long pressed for context menu or drag.
+   *
+   * @type { ?boolean } - The default value is false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  enableGatherSelectedItemsAnimation?: boolean;
 }
 
 /**

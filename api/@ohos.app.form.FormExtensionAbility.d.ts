@@ -33,7 +33,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @syscap SystemCapability.Ability.Form
  * @systemapi
  * @stagemodelonly
- * @since 22 static
+ * @since 23 static
  */
 type OnShareFormFn = (formId: string) => Record<string, Object>;
 
@@ -46,7 +46,7 @@ type OnShareFormFn = (formId: string) => Record<string, Object>;
  * @syscap SystemCapability.Ability.Form
  * @systemapi
  * @stagemodelonly
- * @since 22 static
+ * @since 23 static
  */
 type OnAcquireFormDataFn = (formId: string) => Record<string, Object>;
 
@@ -63,7 +63,7 @@ type OnAcquireFormDataFn = (formId: string) => Record<string, Object>;
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 type OnAcquireFormStateFn = (want: Want) => formInfo.FormState;
 
@@ -74,7 +74,7 @@ type OnAcquireFormStateFn = (want: Want) => formInfo.FormState;
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 type OnStopFn = () => void;
 
@@ -92,7 +92,7 @@ type OnStopFn = () => void;
  * @stagemodelonly
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class FormExtensionAbility {
   /**
@@ -111,7 +111,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   context: FormExtensionContext;
 
@@ -139,7 +139,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onAddForm(want: Want): formBindingData.FormBindingData;
 
@@ -159,7 +159,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onCastToNormalForm(formId: string): void;
 
@@ -189,7 +189,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onUpdateForm(formId: string, wantParams?: Record<string, Object>): void;
 
@@ -223,7 +223,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onChangeFormVisibility(newStatus: Record<string, int>): void;
 
@@ -251,7 +251,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onFormEvent(formId: string, message: string): void;
 
@@ -273,7 +273,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onRemoveForm(formId: string): void;
 
@@ -293,7 +293,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
@@ -355,7 +355,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onShareForm?: OnShareFormFn;
 
@@ -388,7 +388,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onAcquireFormData?: OnAcquireFormDataFn;
 
@@ -401,7 +401,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   onAcquireFormState?: OnAcquireFormStateFn;
 
@@ -422,7 +422,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   onStop?: OnStopFn;
 
@@ -436,7 +436,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onFormLocationChanged(formId: string, newFormLocation: formInfo.FormLocation): void;
 

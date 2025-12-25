@@ -570,7 +570,7 @@ declare class Scroller {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @throws { BusinessError } 100004 - Controller not bound to a component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -649,6 +649,18 @@ declare class Scroller {
    * @since 11 dynamic
    */
   currentOffset() : OffsetResult;
+
+  /**
+   * Obtains the current scrolling offset.
+   *
+   * @returns { OffsetResult | undefined } Returns the current scrolling offset.
+   *     If the scroller not bound to a component, the return value is void.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  offset() : OffsetResult | undefined;
 
   /**
    * Called when sliding to the specified index.
@@ -775,7 +787,7 @@ declare class Scroller {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @throws { BusinessError } 100004 - Controller not bound to a component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -796,7 +808,7 @@ declare class Scroller {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @throws { BusinessError } 100004 - Controller not bound to a component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -818,7 +830,7 @@ declare class Scroller {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100004 - The controller not bound to component.
+   * @throws { BusinessError } 100004 - Controller not bound to a component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

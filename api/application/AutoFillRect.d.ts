@@ -26,7 +26,7 @@
  * @systemapi
  * @stagemodelonly
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default interface AutoFillRect {
   /**
@@ -37,7 +37,7 @@ export default interface AutoFillRect {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   left: double;
 
@@ -49,7 +49,7 @@ export default interface AutoFillRect {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   top: double;
 
@@ -61,7 +61,7 @@ export default interface AutoFillRect {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   width: double;
 
@@ -73,7 +73,7 @@ export default interface AutoFillRect {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   height: double;
 }

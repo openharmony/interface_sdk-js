@@ -26,7 +26,7 @@ import userAuth from '@ohos.userIAM.userAuth';
  * @namespace userAccessCtrl
  * @syscap SystemCapability.UserIAM.UserAuth.Core
  * @since 18 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace userAccessCtrl {
   /**
@@ -48,7 +48,7 @@ declare namespace userAccessCtrl {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function verifyAuthToken(authToken: Uint8Array, allowableDuration: int): Promise<AuthToken>;
 
@@ -59,7 +59,7 @@ declare namespace userAccessCtrl {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AuthToken {
     /**
@@ -69,7 +69,7 @@ declare namespace userAccessCtrl {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     challenge: Uint8Array;
 
@@ -80,7 +80,7 @@ declare namespace userAccessCtrl {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     authTrustLevel: userAuth.AuthTrustLevel;
 
@@ -91,7 +91,7 @@ declare namespace userAccessCtrl {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     authType: userAuth.UserAuthType;
 
@@ -102,7 +102,7 @@ declare namespace userAccessCtrl {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     tokenType: AuthTokenType;
 
@@ -113,7 +113,7 @@ declare namespace userAccessCtrl {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     userId: int;
 
@@ -124,7 +124,7 @@ declare namespace userAccessCtrl {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     timeInterval: bigint;
 
@@ -135,7 +135,7 @@ declare namespace userAccessCtrl {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     secureUid?: bigint;
 
@@ -146,7 +146,7 @@ declare namespace userAccessCtrl {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enrolledId?: bigint;
 
@@ -157,7 +157,7 @@ declare namespace userAccessCtrl {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     credentialId?: bigint;
   }
@@ -169,7 +169,7 @@ declare namespace userAccessCtrl {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AuthTokenType {
     /**
@@ -178,7 +178,7 @@ declare namespace userAccessCtrl {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TOKEN_TYPE_LOCAL_AUTH = 0,
 
@@ -188,7 +188,7 @@ declare namespace userAccessCtrl {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TOKEN_TYPE_LOCAL_RESIGN = 1,
 
@@ -198,7 +198,7 @@ declare namespace userAccessCtrl {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TOKEN_TYPE_COAUTH = 2
   }

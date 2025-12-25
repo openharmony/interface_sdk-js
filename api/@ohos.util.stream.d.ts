@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,8 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
- /**
+
+/**
  * @file
  * @kit ArkTS
  */
@@ -38,7 +38,7 @@ import buffer from '@ohos.buffer';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace stream {
   /**
@@ -49,7 +49,7 @@ declare namespace stream {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ReadableOptions {
     /**
@@ -67,7 +67,7 @@ declare namespace stream {
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
-    * @since 22 static
+    * @since 23 static
     */
     encoding?: string;
   }
@@ -79,7 +79,7 @@ declare namespace stream {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class Writable {
     /**
@@ -89,7 +89,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor();
 
@@ -115,7 +115,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): boolean;
 
@@ -135,7 +135,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writable;
 
@@ -152,7 +152,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setDefaultEncoding(encoding?: string): boolean;
 
@@ -164,7 +164,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cork(): boolean;
 
@@ -176,7 +176,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uncork(): boolean;
 
@@ -204,7 +204,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     on(event: string, callback: Function): void;
 
@@ -231,7 +231,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     off(event: string, callback?: Function): void;
 
@@ -247,7 +247,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doInitialize(callback: Function): void;
 
@@ -266,7 +266,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void;
 
@@ -284,7 +284,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doWritev(chunks: string[] | Uint8Array[], callback: Function): void;
 
@@ -296,7 +296,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableObjectMode(): boolean;
 
@@ -308,7 +308,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableHighWatermark(): int;
 
@@ -320,7 +320,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writable(): boolean;
 
@@ -332,7 +332,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableLength(): int;
 
@@ -344,7 +344,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableCorked(): int;
 
@@ -356,7 +356,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableEnded(): boolean;
 
@@ -368,7 +368,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableFinished(): boolean;
   }
@@ -380,7 +380,7 @@ declare namespace stream {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
    class Readable {
     /**
@@ -390,9 +390,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor();
+
     /**
      * The Readable constructor.
      *
@@ -405,9 +406,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(options: ReadableOptions);
+
     /**
      * Reads a buffer of a specified size from the buffer. If the available buffer is sufficient, the result
      * of the specified size is returned. Otherwise, if Readable has ended, all remaining buffers are returned.
@@ -440,7 +442,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     read(size?: int): buffer.Buffer | string | null;
 
@@ -452,9 +454,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     resume(): Readable;
+
     /**
      * Toggle Readable to Suspend Mode.
      *
@@ -463,9 +466,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pause(): Readable;
+  
     /**
      * Sets the encoding format of the input binary data.Default: utf8.
      *
@@ -478,9 +482,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setEncoding(encoding?: string): boolean;
+
     /**
      * Query whether it is in pause state.
      *
@@ -489,9 +494,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isPaused(): boolean;
+
     /**
      * Concatenated a Writable to a Readable and switches the Readable to stream mode.
      *
@@ -506,9 +512,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     pipe(destination: Writable, options?: Object): Writable;
+
     /**
      * Disconnect Writable from Readable.
      *
@@ -522,9 +529,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     unpipe(destination?: Writable): Readable;
+
     /**
      * Registering Event Messages.
      *
@@ -548,7 +556,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     on(event: string, callback: Function): void;
 
@@ -575,7 +583,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     off(event: string, callback?: Function): void;
 
@@ -592,7 +600,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doInitialize(callback: Function): void;
 
@@ -610,7 +618,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doRead(size: int): void;
 
@@ -621,7 +629,7 @@ declare namespace stream {
      * @param {  Uint8Array | string | null } chunk - Binary data to be stored in the buffer.
      * @param { string } [encoding] - Binary data encoding type.
      * @returns { boolean } If true is returned, the data in the buffer reaches the highWaterMark. Otherwise, the
-     * data in the buffer does not reach the highWaterMark.
+     *     data in the buffer does not reach the highWaterMark.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -634,14 +642,14 @@ declare namespace stream {
      * Adds the generated data to the buffer. The return value indicates whether the data in the buffer has not
      * reached the highWaterMark (similar to Writable.write). If the chunk is null, all data has been generated.
      *
-     * @param { Uint8Array | string | undefined | null } chunk - Binary data to be stored in the buffer.
+     * @param {  Uint8Array | string | undefined | null } chunk - Binary data to be stored in the buffer.
      * @param { string } [encoding] - Binary data encoding type.
      * @returns { boolean } If true is returned, the data in the buffer reaches the highWaterMark. Otherwise, the
      *     data in the buffer does not reach the highWaterMark.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 23 dynamic&static
      */
     push(chunk: Uint8Array | string | undefined | null, encoding?: string): boolean;
 
@@ -653,9 +661,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get readableObjectMode(): boolean;
+
     /**
      * Is true if it is safe to call readable.read(), which means
      * the stream has not been destroyed or emitted 'error' or 'end'.
@@ -665,9 +674,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get readable(): boolean;
+
     /**
      * Returns the value of highWatermark passed when creating this Readable.
      *
@@ -676,9 +686,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get readableHighWatermark(): int;
+
     /**
      * This property reflects the current state of the readable stream null/true/false.
      *
@@ -687,9 +698,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get readableFlowing(): boolean | null;
+
     /**
      * Size of the data that can be read, in bytes or objects.
      *
@@ -698,9 +710,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get readableLength(): int;
+
     /**
      * Getter for the property encoding of a given Readable stream. The encoding property can be set using the
      * readable.setEncoding() method.
@@ -710,9 +723,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get readableEncoding(): string | null;
+
     /**
      * Whether all data has been generated.
      *
@@ -721,10 +735,11 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get readableEnded(): boolean;
   }
+
   /**
    * Duplex streams are streams that implement both the Readable streams and Writable streams interfaces.
    *
@@ -733,19 +748,20 @@ declare namespace stream {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class Duplex extends Readable {
     /**
-    * The Duplex constructor.
+     * The Duplex constructor.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor();
+
     /**
      * writes a chunk to Writable and invokes callback when the chunk is flushed. The return value indicates
      * whether the internal buffer of the Writable reaches the hightWaterMark. If true is returned, the buffer
@@ -768,7 +784,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): boolean;
 
@@ -788,10 +804,9 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writable;
-
 
     /**
      * Set the default encoding mode.
@@ -806,9 +821,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setDefaultEncoding(encoding?: string): boolean;
+
     /**
      * After the call, all Write operations will be forced to write to the buffer instead of being flushed.
      *
@@ -817,9 +833,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cork(): boolean;
+
     /**
      * After calling, flush all buffers.
      *
@@ -828,9 +845,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     uncork(): boolean;
+
     /**
      * Implemented by subclass inheritance. The implementation logic of flushing chunks in the buffer must not be
      * directly called. The call is controlled by Writable.write.
@@ -846,7 +864,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void;
 
@@ -864,7 +882,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doWritev(chunks: string[] | Uint8Array[], callback: Function): void;
 
@@ -876,9 +894,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableObjectMode(): boolean;
+
     /**
      * Value of highWatermark.
      *
@@ -887,9 +906,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableHighWatermark(): int;
+
     /**
      * Is true if it is safe to call writable.write(), which means the stream has not been destroyed, error or end.
      *
@@ -898,9 +918,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writable(): boolean;
+
     /**
      * Size of data that can be flushed, in bytes or objects.
      *
@@ -909,9 +930,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableLength(): int;
+
     /**
      * Number of times writable.uncork() needs to be called in order to fully uncork the stream.
      *
@@ -920,9 +942,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableCorked(): int;
+
     /**
      * Whether Writable.end has been called.
      *
@@ -931,9 +954,10 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableEnded(): boolean;
+
     /**
      * Whether Writable.end has been called and all buffers have been flushed.
      *
@@ -942,7 +966,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get writableFinished(): boolean;
   }
@@ -956,7 +980,7 @@ declare namespace stream {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class Transform extends Duplex {
     /**
@@ -966,7 +990,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor();
 
@@ -986,7 +1010,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doTransform(chunk: string, encoding: string, callback: Function): void;
 
@@ -1003,7 +1027,7 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     doFlush(callback: Function): void;
   }

@@ -74,7 +74,7 @@ import SelectionExtensionAbility from '@ohos.selectionInput.SelectionExtensionAb
 import { PanelInfo, PanelType } from '@ohos.selectionInput.SelectionPanel';
 import selectionManager from '@ohos.selectionInput.selectionManager';
 import SelectionExtensionContext from '@ohos.selectionInput.SelectionExtensionContext';
-import { Available } from '@ohos.annotation';
+import { Available, SuppressWarnings, SuppressWarningsType } from '@ohos.annotation';
 export {
   AsyncCallback, Battery, BatteryResponse, Brightness, BrightnessModeResponse,
   BrightnessResponse, BusinessError, Callback, Device, DeviceResponse,
@@ -87,7 +87,7 @@ export {
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
   systemTimer, thermal, update, usb, usbManager, serialManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, systemLoad, intelligentVoice, selectionManager, SelectionExtensionAbility,
-  PanelInfo, PanelType, SelectionExtensionContext, Available
+  PanelInfo, PanelType, SelectionExtensionContext, Available, SuppressWarnings, SuppressWarningsType
 };
 
 /*** if arkts static */
@@ -95,6 +95,8 @@ import configPolicy from '@ohos.configPolicy';
 import customConfig from '@ohos.customization.customConfig';
 import { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData } from '@ohos.base';
 import zlib from '@ohos.zlib';
+import commonEventManager from '@ohos.commonEventManager';
+import emitter from '@ohos.events.emitter';
 import systemDateTime from '@ohos.systemDateTime';
 import systemTimer from '@ohos.systemTimer';
 import systemLoad from '@ohos.resourceschedule.systemload';
@@ -102,6 +104,6 @@ import request from '@ohos.request';
 
 export {
   zlib, configPolicy, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, customConfig, systemDateTime,
-  systemTimer, systemLoad, request
+  systemTimer, systemLoad, request, commonEventManager, emitter
 };
 /*** endif */

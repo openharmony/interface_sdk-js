@@ -45,7 +45,7 @@ import type socket from './@ohos.net.socket';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace connection {
   /**
@@ -126,7 +126,7 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createNetConnection(netSpecifier?: NetSpecifier, timeout?: int): NetConnection;
 
@@ -154,7 +154,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDefaultNet(callback: AsyncCallback<NetHandle>): void;
 
@@ -181,7 +181,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDefaultNet(): Promise<NetHandle>;
 
@@ -208,7 +208,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDefaultNetSync(): NetHandle;
 
@@ -223,7 +223,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllNets(callback: AsyncCallback<Array<NetHandle>>): void;
 
@@ -237,7 +237,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllNets(): Promise<Array<NetHandle>>;
 
@@ -251,7 +251,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllNetsSync(): Array<NetHandle>;
 
@@ -268,7 +268,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getConnectionProperties(netHandle: NetHandle, callback: AsyncCallback<ConnectionProperties>): void;
 
@@ -285,7 +285,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getConnectionProperties(netHandle: NetHandle): Promise<ConnectionProperties>;
 
@@ -302,7 +302,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getConnectionPropertiesSync(netHandle: NetHandle): ConnectionProperties;
 
@@ -334,7 +334,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getNetCapabilities(netHandle: NetHandle, callback: AsyncCallback<NetCapabilities>): void;
 
@@ -366,7 +366,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getNetCapabilities(netHandle: NetHandle): Promise<NetCapabilities>;
 
@@ -398,7 +398,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getNetCapabilitiesSync(netHandle: NetHandle): NetCapabilities;
 
@@ -525,7 +525,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function hasDefaultNet(callback: AsyncCallback<boolean>): void;
 
@@ -550,7 +550,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function hasDefaultNet(): Promise<boolean>;
 
@@ -563,7 +563,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function hasDefaultNetSync(): boolean;
 
@@ -580,7 +580,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableAirplaneMode(callback: AsyncCallback<void>): void;
 
@@ -596,7 +596,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableAirplaneMode(): Promise<void>;
 
@@ -613,7 +613,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function disableAirplaneMode(callback: AsyncCallback<void>): void;
 
@@ -629,7 +629,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function disableAirplaneMode(): Promise<void>;
 
@@ -722,6 +722,23 @@ declare namespace connection {
    * @since 8 dynamic
    */
   function getAddressesByName(host: string): Promise<Array<NetAddress>>;
+ 
+/**
+   * Resolves a host name to obtain all IP addresses with specified query option.
+   *
+   * @permission ohos.permission.INTERNET
+   * @param { string } host - Indicates the host name or the domain.
+   * @param { QueryOptions } [option] - Indicates the query option.
+   * @returns { Promise<Array<NetAddress>> } - The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getAddressesByNameWithOptions(host: string, option?: QueryOptions): Promise<Array<NetAddress>>;
 
   /**
    * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
@@ -769,7 +786,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setAppNet(netHandle: NetHandle, callback: AsyncCallback<void>): void;
 
@@ -803,7 +820,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDefaultHttpProxy(callback: AsyncCallback<HttpProxy>): void;
 
@@ -820,7 +837,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDefaultHttpProxy(): Promise<HttpProxy>;
 
@@ -834,7 +851,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getGlobalHttpProxy(callback: AsyncCallback<HttpProxy>): void;
 
@@ -847,7 +864,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getGlobalHttpProxy(): Promise<HttpProxy>;
 
@@ -858,7 +875,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100001 - Invalid http proxy.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setAppHttpProxy(httpProxy: HttpProxy): void;
 
@@ -876,7 +893,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setGlobalHttpProxy(httpProxy: HttpProxy, callback: AsyncCallback<void>): void;
 
@@ -894,7 +911,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setGlobalHttpProxy(httpProxy: HttpProxy): Promise<void>;
 
@@ -1138,7 +1155,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function factoryReset(): Promise<void>;
 
@@ -1150,7 +1167,8 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function getIpNeighTable(): Promise<Array<NetIpMacInfo>>;
 
@@ -1174,7 +1192,7 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface NetConnection {
     /**
@@ -1200,7 +1218,7 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
 
@@ -1243,7 +1261,7 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     on(type: 'netCapabilitiesChange', callback: Callback<NetCapabilityInfo>): void;
 
@@ -1260,7 +1278,7 @@ declare namespace connection {
      * @param { Callback<NetConnectionPropertyInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     on(type: 'netConnectionPropertiesChange', callback: Callback<NetConnectionPropertyInfo>): void;
 
@@ -1357,7 +1375,7 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     register(callback: AsyncCallback<void>): void;
 
@@ -1408,7 +1426,7 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     unregister(callback: AsyncCallback<void>): void;
   }
@@ -1425,7 +1443,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface NetSpecifier {
     /**
@@ -1440,7 +1458,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     netCapabilities: NetCapabilities;
 
@@ -1456,9 +1474,52 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bearerPrivateIdentifier?: string;
+  }
+
+  /**
+   * Defines options of DNS query.
+   * @interface QueryOptions
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 23 dynamic&static
+   */
+  export interface QueryOptions {
+    /**
+     * Specify family type of DNS query.
+     * @type {?FamilyType}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 23 dynamic&static
+     */
+    family?: FamilyType;
+  }
+
+  /**
+   * Defines the address family type.
+   * @enum {int}
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 23 dynamic&static
+   */
+  export enum FamilyType {
+    /**
+     * Indicates that no ip type is specified, all address types can be use.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 23 dynamic&static
+     */
+    FAMILY_TYPE_ALL = 0,
+    /**
+     * Indicates that the family type is ipv4.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 23 dynamic&static
+     */
+    FAMILY_TYPE_IPV4 = 1,
+    /**
+     * Indicates that the family type is ipv6.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 23 dynamic&static
+     */
+    FAMILY_TYPE_IPV6 = 2,
   }
 
   /**
@@ -1475,7 +1536,7 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface NetCapabilityInfo {
     /**
@@ -1492,7 +1553,7 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     netHandle: NetHandle;
 
@@ -1510,7 +1571,7 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     netCap: NetCapabilities;
   }
@@ -1535,7 +1596,7 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface NetHandle {
     /**
@@ -1558,7 +1619,7 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     netId: int;
 
@@ -1649,6 +1710,23 @@ declare namespace connection {
      * @since 15 dynamic
      */
     getAddressesByName(host: string): Promise<Array<NetAddress>>;
+    
+	/**
+     * Resolves a host name to obtain all IP addresses based on the specified NetHandle with specified query option.
+     *
+     * @permission ohos.permission.INTERNET
+     * @param { string } host - Indicates the host name or the domain.
+     * @param { QueryOptions } [option] - Indicates the query option.
+     * @returns { Promise<Array<NetAddress>> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2100001 - Invalid parameter value.
+     * @throws { BusinessError } 2100002 - Failed to connect to the service.
+     * @throws { BusinessError } 2100003 - System internal error.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getAddressesByNameWithOptions(host: string, option?: QueryOptions): Promise<Array<NetAddress>>;
 
     /**
      * Resolves a host name to obtain the first IP address based on the specified NetHandle.
@@ -1701,7 +1779,7 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface NetCapabilities {
     /**
@@ -1709,7 +1787,7 @@ declare namespace connection {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     linkUpBandwidthKbps?: int;
 
@@ -1718,7 +1796,7 @@ declare namespace connection {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     linkDownBandwidthKbps?: int;
 
@@ -1734,7 +1812,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     networkCap?: Array<NetCap>;
 
@@ -1758,7 +1836,7 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bearerTypes: Array<NetBearType>;
   }
@@ -1768,7 +1846,7 @@ declare namespace connection {
    * @interface NetConnectionPropertyInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface NetConnectionPropertyInfo {
     /**
@@ -1776,7 +1854,7 @@ declare namespace connection {
      * @type { NetHandle }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     netHandle: NetHandle;
     /**
@@ -1784,7 +1862,7 @@ declare namespace connection {
      * @type { ConnectionProperties }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     connectionProperties: ConnectionProperties;
   }
@@ -1794,7 +1872,7 @@ declare namespace connection {
    * @interface NetBlockStatusInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface NetBlockStatusInfo {
     /**
@@ -1802,7 +1880,7 @@ declare namespace connection {
      * @type { NetHandle }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     netHandle: NetHandle;
     /**
@@ -1810,7 +1888,7 @@ declare namespace connection {
      * @type { boolean }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     blocked: boolean;
   }
@@ -1827,7 +1905,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum NetCap {
     /**
@@ -1840,7 +1918,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NET_CAPABILITY_MMS = 0,
 
@@ -1854,7 +1932,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NET_CAPABILITY_NOT_METERED = 11,
 
@@ -1868,7 +1946,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NET_CAPABILITY_INTERNET = 12,
 
@@ -1882,7 +1960,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NET_CAPABILITY_NOT_VPN = 15,
 
@@ -1896,7 +1974,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NET_CAPABILITY_VALIDATED = 16,
     /**
@@ -1904,7 +1982,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NET_CAPABILITY_PORTAL = 17,
 
@@ -1913,7 +1991,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NET_CAPABILITY_CHECKING_CONNECTIVITY = 31
   }
@@ -1938,7 +2016,7 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum NetBearType {
     /**
@@ -1958,7 +2036,7 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BEARER_CELLULAR = 0,
 
@@ -1979,7 +2057,7 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BEARER_WIFI = 1,
 
@@ -1989,6 +2067,7 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     BEARER_BLUETOOTH = 2,
  
@@ -2002,7 +2081,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BEARER_ETHERNET = 3,
 
@@ -2010,7 +2089,7 @@ declare namespace connection {
      * Indicates that the network is based on a VPN network.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BEARER_VPN = 4,
   }
@@ -2045,7 +2124,7 @@ declare namespace connection {
    * @interface ConnectionProperties
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface ConnectionProperties {
     /**
@@ -2053,7 +2132,7 @@ declare namespace connection {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     interfaceName: string;
     /**
@@ -2061,7 +2140,7 @@ declare namespace connection {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     domains: string;
     /**
@@ -2069,7 +2148,7 @@ declare namespace connection {
      * @type {Array<LinkAddress>}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     linkAddresses: Array<LinkAddress>;
 
@@ -2078,7 +2157,7 @@ declare namespace connection {
      * @type {Array<NetAddress>}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     dnses: Array<NetAddress>;
 
@@ -2087,7 +2166,7 @@ declare namespace connection {
      * @type {Array<RouteInfo>}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     routes: Array<RouteInfo>;
 
@@ -2096,7 +2175,7 @@ declare namespace connection {
      * @type {int}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     mtu: int;
   }
@@ -2106,7 +2185,7 @@ declare namespace connection {
    * @interface RouteInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface RouteInfo {
     /**
@@ -2121,7 +2200,7 @@ declare namespace connection {
      * Network card name.
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 22 static
+     * @since 23 static
      */
     iface: string;    
 
@@ -2130,7 +2209,7 @@ declare namespace connection {
      * @type {LinkAddress}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     destination: LinkAddress;
 
@@ -2139,7 +2218,7 @@ declare namespace connection {
      * @type {NetAddress}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     gateway: NetAddress;
 
@@ -2148,7 +2227,7 @@ declare namespace connection {
      * @type {boolean}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     hasGateway: boolean;
 
@@ -2157,7 +2236,7 @@ declare namespace connection {
      * @type {boolean}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isDefaultRoute: boolean;
 
@@ -2175,7 +2254,7 @@ declare namespace connection {
    * @interface LinkAddress
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface LinkAddress {
     /**
@@ -2183,7 +2262,7 @@ declare namespace connection {
      * @type {NetAddress}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     address: NetAddress;
     /**
@@ -2191,7 +2270,7 @@ declare namespace connection {
      * @type {int}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     prefixLength: int;
   }
@@ -2208,7 +2287,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface NetAddress {
     /**
@@ -2223,7 +2302,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     address: string;
 
@@ -2239,7 +2318,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     family?: int; 
 
@@ -2255,7 +2334,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     port?: int; 
   }
@@ -2272,7 +2351,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface HttpProxy {
     /**
@@ -2287,7 +2366,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     host: string;
 
@@ -2303,7 +2382,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     port: int;
 
@@ -2312,7 +2391,7 @@ declare namespace connection {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     username?: string;
 
@@ -2321,7 +2400,7 @@ declare namespace connection {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     password?: string;
 
@@ -2337,7 +2416,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     exclusionList: Array<string>;
   }
@@ -2346,14 +2425,16 @@ declare namespace connection {
    * The correspondence information between IP and MAC address.
    * @interface NetIpMacInfo
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   export interface NetIpMacInfo {
     /**
      * Link address of the network.
      * @type {NetAddress}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     ipAddress: NetAddress;
 
@@ -2361,7 +2442,8 @@ declare namespace connection {
      * Mac address of the network.
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     macAddress: string;
 
@@ -2369,7 +2451,8 @@ declare namespace connection {
      * Interface name of the network.
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     iface: string;
   }

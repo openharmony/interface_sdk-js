@@ -45,7 +45,7 @@ import { RecordData } from '../@ohos.base';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface CommonEventPublishData {
   /**
@@ -62,7 +62,7 @@ export interface CommonEventPublishData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   bundleName?: string;
 
@@ -82,7 +82,7 @@ export interface CommonEventPublishData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   code?: int;
 
@@ -109,7 +109,7 @@ export interface CommonEventPublishData {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   data?: string;
 
@@ -127,7 +127,7 @@ export interface CommonEventPublishData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   subscriberPermissions?: Array<string>;
 
@@ -138,7 +138,7 @@ export interface CommonEventPublishData {
    * @default false
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isOrdered?: boolean;
 
@@ -150,7 +150,7 @@ export interface CommonEventPublishData {
    * @default false
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   isSticky?: boolean;
 
@@ -176,7 +176,7 @@ export interface CommonEventPublishData {
    *
    * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 22 static
+   * @since 23 static
    */
   parameters?: Record<string, RecordData>;
 }

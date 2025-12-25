@@ -2239,6 +2239,36 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   scrollSnapAnimationSpeed(speed: ScrollSnapAnimationSpeed): ListAttribute;
 
   /**
+   * Sets the edit mode options.
+   *
+   * @param { EditModeOptions } [options] - edit mode options.
+   *     <br>Default value: <em>{ enableGatherSelectedItemsAnimation: false }</em>
+   * @returns { ListAttribute } The attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  editModeOptions(options?: EditModeOptions): ListAttribute;
+
+  /**
+   * Sets whether empty branches are supported in lazy loading.
+   *
+   * @param { boolean | undefined } supported - Indicates whether empty branches are supported in lazy loading.
+   *     <br>Default value: false, passing undefined will restore the default value.
+   *     <br>If set to false, LazyForEach or Repeat with virtualScroll does not allow empty branches.
+   *     <br>If set to true, an empty branch of LazyForEach or Repeat with virtualScroll is treated as a node of
+   *     zero size.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  supportEmptyBranchInLazyLoading(supported: boolean | undefined): ListAttribute;
+
+  /**
    * Called when the offset and status callback of the slide are set.
    *
    * @param { function } event
@@ -2533,7 +2563,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 8 dynamic
    */
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
@@ -2543,7 +2573,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Triggered when a list item starts to be dragged.
@@ -2555,7 +2585,19 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @atomicservice
    * @since 11 dynamic
    */
-  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => ((() => any) | void)): ListAttribute;
+  /**
+   * Triggered when a list item starts to be dragged.
+   * Anonymous Object Rectification.
+   *
+   * @param { function } event - callback function, triggered when a list item starts to be dragged.
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onItemDragStart(event: OnItemDragStartCallback): ListAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.

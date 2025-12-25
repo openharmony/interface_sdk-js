@@ -29,7 +29,7 @@ import BaseContext from './application/BaseContext';
  * @namespace distributedKVStore
  * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace distributedKVStore {
   /**
@@ -39,7 +39,7 @@ declare namespace distributedKVStore {
    * @interface KVManagerConfig
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface KVManagerConfig {
     /**
@@ -48,7 +48,7 @@ declare namespace distributedKVStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bundleName: string;
 
@@ -66,7 +66,7 @@ declare namespace distributedKVStore {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * if swap the area, you should close all the KV store and use the new BaseContext to create the KVManager
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     context: BaseContext;
   }
@@ -141,19 +141,86 @@ declare namespace distributedKVStore {
   }
 
   /**
+   * KVStore constants
+   *
+   * @enum { int }
+   * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+   * @stagemodelonly
+   * @since 23 static
+   */
+  enum Constants {
+    /**
+     * Max batch operation size is 128.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    MAX_BATCH_SIZE = 128,
+
+    /**
+     * Max store id length is 128.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    MAX_STORE_ID_LENGTH = 128,
+
+    /**
+     * Max device coordinate key length is 896.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    MAX_KEY_LENGTH_DEVICE = 896,
+
+    /**
+     * Max key length is 1024.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    MAX_KEY_LENGTH = 1024,
+
+    /**
+     * Max query length is 512000.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    MAX_QUERY_LENGTH = 512000,
+
+    /**
+     * Max value length is 4194303.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    MAX_VALUE_LENGTH = 4194303,
+  }
+
+  /**
    * Indicates the {@code ValueType}.
    * <p>{@code ValueType} is obtained based on the value.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9 dynamic
+   * @since 23 static
    */
   enum ValueType {
     /**
      * Indicates that the value type is string.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
      * @since 9 dynamic
+     * @since 23 static
      */
     STRING,
 
@@ -161,6 +228,7 @@ declare namespace distributedKVStore {
      * Indicates that the value type is int.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
      * @since 9 dynamic
      */
     INTEGER,
@@ -169,6 +237,7 @@ declare namespace distributedKVStore {
      * Indicates that the value type is float.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
      * @since 9 dynamic
      */
     FLOAT,
@@ -177,7 +246,9 @@ declare namespace distributedKVStore {
      * Indicates that the value type is byte array.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
      * @since 9 dynamic
+     * @since 23 static
      */
     BYTE_ARRAY,
 
@@ -185,7 +256,9 @@ declare namespace distributedKVStore {
      * Indicates that the value type is boolean.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
      * @since 9 dynamic
+     * @since 23 static
      */
     BOOLEAN,
 
@@ -193,9 +266,20 @@ declare namespace distributedKVStore {
      * Indicates that the value type is double.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
      * @since 9 dynamic
+     * @since 23 static
      */
-    DOUBLE
+    DOUBLE,
+
+    /**
+     * Indicates that the value type is long.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @stagemodelonly
+     * @since 23 static
+     */
+    LONG
   }
 
   /**
@@ -204,6 +288,7 @@ declare namespace distributedKVStore {
    * @interface Value
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9 dynamic
+   * @since 23 static
    */
   interface Value {
     /**
@@ -212,6 +297,7 @@ declare namespace distributedKVStore {
      * @type { ValueType }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      * @see ValueType
      */
     type: ValueType;
@@ -219,11 +305,12 @@ declare namespace distributedKVStore {
     /**
      * Indicates the value
      *
-     * @type { Uint8Array | string | number | boolean }
+     * @type { Uint8Array | string | long | double | boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    value: Uint8Array | string | number | boolean;
+    value: Uint8Array | string | long | double | boolean;
   }
 
   /**
@@ -232,6 +319,7 @@ declare namespace distributedKVStore {
    * @interface Entry
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9 dynamic
+   * @since 23 static
    */
   interface Entry {
     /**
@@ -240,6 +328,7 @@ declare namespace distributedKVStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     key: string;
 
@@ -249,6 +338,7 @@ declare namespace distributedKVStore {
      * @type { Value }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     value: Value;
   }
@@ -262,6 +352,7 @@ declare namespace distributedKVStore {
    * @interface ChangeNotification
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9 dynamic
+   * @since 23 static
    */
   interface ChangeNotification {
     /**
@@ -270,6 +361,7 @@ declare namespace distributedKVStore {
      * @type { Entry[] }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     insertEntries: Entry[];
 
@@ -279,6 +371,7 @@ declare namespace distributedKVStore {
      * @type { Entry[] }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     updateEntries: Entry[];
 
@@ -288,6 +381,7 @@ declare namespace distributedKVStore {
      * @type { Entry[] }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     deleteEntries: Entry[];
 
@@ -297,6 +391,7 @@ declare namespace distributedKVStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     deviceId: string;
   }
@@ -304,9 +399,10 @@ declare namespace distributedKVStore {
   /**
    * Indicates the database synchronization mode.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9 dynamic
+   * @since 23 static
    */
   enum SyncMode {
     /**
@@ -314,6 +410,7 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     PULL_ONLY,
 
@@ -322,6 +419,7 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     PUSH_ONLY,
 
@@ -330,6 +428,7 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     PUSH_PULL
   }
@@ -337,9 +436,10 @@ declare namespace distributedKVStore {
   /**
    * Describes the subscription type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9 dynamic
+   * @since 23 static
    */
   enum SubscribeType {
     /**
@@ -347,6 +447,7 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     SUBSCRIBE_TYPE_LOCAL,
 
@@ -355,6 +456,7 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     SUBSCRIBE_TYPE_REMOTE,
 
@@ -363,6 +465,7 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     SUBSCRIBE_TYPE_ALL
   }
@@ -370,10 +473,10 @@ declare namespace distributedKVStore {
   /**
    * Describes the KVStore type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum KVStoreType {
     /**
@@ -381,7 +484,7 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEVICE_COLLABORATION,
 
@@ -390,7 +493,7 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SINGLE_VERSION
   }
@@ -398,10 +501,10 @@ declare namespace distributedKVStore {
   /**
    * Describes the KVStore security level.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum SecurityLevel {
     /**
@@ -410,7 +513,7 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     S1,
 
@@ -420,7 +523,7 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     S2,
 
@@ -430,7 +533,7 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     S3,
 
@@ -440,7 +543,7 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     S4
   }
@@ -451,7 +554,7 @@ declare namespace distributedKVStore {
    * @interface Options
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Options {
     /**
@@ -460,7 +563,7 @@ declare namespace distributedKVStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     createIfMissing?: boolean;
 
@@ -470,7 +573,7 @@ declare namespace distributedKVStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     encrypt?: boolean;
 
@@ -480,7 +583,7 @@ declare namespace distributedKVStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     backup?: boolean;
 
@@ -491,7 +594,7 @@ declare namespace distributedKVStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     autoSync?: boolean;
 
@@ -501,7 +604,7 @@ declare namespace distributedKVStore {
      * @type { ?KVStoreType }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     kvStoreType?: KVStoreType;
 
@@ -511,7 +614,7 @@ declare namespace distributedKVStore {
      * @type { SecurityLevel }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     securityLevel: SecurityLevel;
 
@@ -521,7 +624,7 @@ declare namespace distributedKVStore {
      * @type { ?Schema }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     schema?: Schema;
   }
@@ -532,7 +635,7 @@ declare namespace distributedKVStore {
    *
    * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class Schema {
     /**
@@ -540,45 +643,93 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor();
 
     /**
-     * Indicates the root json object.
+     * Get the root json object.
      *
-     * @type { FieldNode }
+     * @returns { FieldNode } returns the root json object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly
      * @since 9 dynamic
+     * @since 23 static
      */
-    root: FieldNode;
+    get root(): FieldNode;
 
     /**
-     * Indicates the string array of json.
+     * Set the root json object.
      *
-     * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly
      * @since 9 dynamic
+     * @since 23 static
      */
-    indexes: Array<string>;
+    set root(root: FieldNode);
 
     /**
-     * Indicates the mode of schema.
+     * Get the string array of json.
      *
-     * @type { number }
+     * @returns { Array<string> } returns the string array of json.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly
      * @since 9 dynamic
+     * @since 23 static
      */
-    mode: number;
+    get indexes(): Array<string>;
 
     /**
-     * Indicates the skip size of schema.
+     * Set the string array of json.
      *
-     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly
      * @since 9 dynamic
+     * @since 23 static
      */
-    skip: number;
+    set indexes(indexes: Array<string>);
+
+    /**
+     * Get the mode of schema.
+     *
+     * @returns { int } returns the mode of schema.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    get mode(): int;
+
+    /**
+     * Set the mode of schema.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    set mode(mode: int);
+
+    /**
+     * Get the skip size of schema.
+     *
+     * @returns { int } returns the skip size of schema.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    get skip(): int;
+
+    /**
+     * Set the skip size of schema.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    set skip(skip: int);
   }
 
   /**
@@ -589,6 +740,7 @@ declare namespace distributedKVStore {
    *
    * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
    * @since 9 dynamic
+   * @since 23 static
    */
   class FieldNode {
     /**
@@ -600,6 +752,7 @@ declare namespace distributedKVStore {
      * <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9 dynamic
+     * @since 23 static
      */
     constructor(name: string);
 
@@ -614,11 +767,13 @@ declare namespace distributedKVStore {
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9 dynamic
+     * @since 23 static
      */
     appendChild(child: FieldNode): boolean;
 
     /**
      * Indicates the default value of field node.
+     *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9 dynamic
@@ -626,22 +781,65 @@ declare namespace distributedKVStore {
     default: string;
 
     /**
-     * Indicates the nullable of database field.
+     * Get the default value of field node.
      *
-     * @type { boolean }
+     * @returns { string } returns the default value of field node.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9 dynamic
+     * @stagemodelonly
+     * @since 23 static
      */
-    nullable: boolean;
+    get defaultValue(): string;
 
     /**
-     * Indicates the type of value.
+     * Set the default value of field node.
      *
-     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9 dynamic
+     * @stagemodelonly
+     * @since 23 static
      */
-    type: number;
+    set defaultValue(defaultValue: string);
+
+    /**
+     * Get the nullable of database field.
+     *
+     * @returns { boolean } returns the nullable of database field.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    get nullable(): boolean;
+
+    /**
+     * Set the nullable of database field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    set nullable(isnullable: boolean);
+
+    /**
+     * Get the type of value.
+     *
+     * @returns { int } returns the type of value.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    get type(): int;
+
+    /**
+     * Set the type of value.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @stagemodelonly
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    set type(type: int);
   }
 
   /**
@@ -653,25 +851,28 @@ declare namespace distributedKVStore {
    * @interface KVStoreResultSet
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9 dynamic
+   * @since 23 static
    */
   interface KVStoreResultSet {
     /**
      * Obtains the number of lines in a result set.
      *
-     * @returns { number } Returns the number of lines.
+     * @returns { int } Returns the number of lines.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    getCount(): number;
+    getCount(): int;
 
     /**
      * Obtains the current read position in a result set.
      *
-     * @returns { number } Returns the current read position. The read position starts with 0.
+     * @returns { int } Returns the current read position. The read position starts with 0.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    getPosition(): number;
+    getPosition(): int;
 
     /**
      * Moves the read position to the first line.
@@ -680,6 +881,7 @@ declare namespace distributedKVStore {
      * @returns { boolean } Returns true if the operation succeeds; return false otherwise.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     moveToFirst(): boolean;
 
@@ -690,6 +892,7 @@ declare namespace distributedKVStore {
      * @returns { boolean } Returns true if the operation succeeds; return false otherwise.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     moveToLast(): boolean;
 
@@ -700,6 +903,7 @@ declare namespace distributedKVStore {
      * @returns { boolean } Returns true if the operation succeeds; return false otherwise.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     moveToNext(): boolean;
 
@@ -710,13 +914,14 @@ declare namespace distributedKVStore {
      * @returns { boolean } Returns true if the operation succeeds; return false otherwise.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     moveToPrevious(): boolean;
 
     /**
      * Moves the read position by a relative offset to the current position.
      *
-     * @param { number } offset - Indicates the relative offset to the current position. A negative offset indicates
+     * @param { int } offset - Indicates the relative offset to the current position. A negative offset indicates
      * moving backwards, and a positive offset indicates moving forwards. For example, if the current position is entry
      * 1 and this offset is 2, the destination position will be entry 3; if the current position is entry 3 and this
      * offset is -2, the destination position will be entry 1. The valid final position after moving forwards starts
@@ -726,20 +931,22 @@ declare namespace distributedKVStore {
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    move(offset: number): boolean;
+    move(offset: int): boolean;
 
     /**
      * Moves the read position from 0 to an absolute position.
      *
-     * @param { number } position - Indicates the absolute position.
+     * @param { int } position - Indicates the absolute position.
      * @returns { boolean } Returns true if the operation succeeds; return false otherwise.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    moveToPosition(position: number): boolean;
+    moveToPosition(position: int): boolean;
 
     /**
      * Checks whether the read position is the first line.
@@ -747,6 +954,7 @@ declare namespace distributedKVStore {
      * @returns { boolean } Returns true if the read position is the first line; returns false otherwise.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     isFirst(): boolean;
 
@@ -756,6 +964,7 @@ declare namespace distributedKVStore {
      * @returns { boolean } Returns true if the read position is the last line; returns false otherwise.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     isLast(): boolean;
 
@@ -765,6 +974,7 @@ declare namespace distributedKVStore {
      * @returns { boolean } Returns true if the read position is before the first line; returns false otherwise.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     isBeforeFirst(): boolean;
 
@@ -774,6 +984,7 @@ declare namespace distributedKVStore {
      * @returns { boolean } Returns true if the read position is after the last line; returns false otherwise.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     isAfterLast(): boolean;
 
@@ -783,6 +994,7 @@ declare namespace distributedKVStore {
      * @returns { Entry } Returns a key-value pair.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     getEntry(): Entry;
   }
@@ -795,6 +1007,7 @@ declare namespace distributedKVStore {
    *
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9 dynamic
+   * @since 23 static
    */
   class Query {
     /**
@@ -802,6 +1015,7 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     constructor();
 
@@ -811,6 +1025,7 @@ declare namespace distributedKVStore {
      * @returns { Query } Returns the reset {@code Query} object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     reset(): Query;
 
@@ -819,90 +1034,96 @@ declare namespace distributedKVStore {
      * specified long value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { number | string | boolean } value - Indicates the value to be compared.
+     * @param { long | double | string | boolean } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    equalTo(field: string, value: number | string | boolean): Query;
+    equalTo(field: string, value: long | double | string | boolean): Query;
 
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is not equal to the
      * specified int value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { number | string | boolean } value - Indicates the value to be compared.
+     * @param { long | double | string | boolean } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    notEqualTo(field: string, value: number | string | boolean): Query;
+    notEqualTo(field: string, value: long | double | string | boolean): Query;
 
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is greater than or
      * equal to the specified int value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { number | string | boolean } value - Indicates the value to be compared.
+     * @param { long | double | string | boolean } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    greaterThan(field: string, value: number | string | boolean): Query;
+    greaterThan(field: string, value: long | double | string | boolean): Query;
 
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is less than the
      * specified int value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { number | string } value - Indicates the value to be compared.
+     * @param { long | double | string } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    lessThan(field: string, value: number | string): Query;
+    lessThan(field: string, value: long | double | string): Query;
 
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is greater than or
      * equal to the specified int value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { number | string } value - Indicates the value to be compared.
+     * @param { long | double | string } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    greaterThanOrEqualTo(field: string, value: number | string): Query;
+    greaterThanOrEqualTo(field: string, value: long | double | string): Query;
 
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is less than or
      * equal to the specified int value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { number | string } value - Indicates the value to be compared.
+     * @param { long | double | string } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    lessThanOrEqualTo(field: string, value: number | string): Query;
+    lessThanOrEqualTo(field: string, value: long | double | string): Query;
 
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is null.
@@ -914,6 +1135,7 @@ declare namespace distributedKVStore {
      * <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     isNull(field: string): Query;
 
@@ -922,15 +1144,16 @@ declare namespace distributedKVStore {
      * int value list.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { number[] } valueList - Indicates the int value list.
+     * @param { long[] | double[] } valueList - Indicates the int value list.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    inNumber(field: string, valueList: number[]): Query;
+    inNumber(field: string, valueList: long[] | double[]): Query;
 
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is within the specified
@@ -944,6 +1167,7 @@ declare namespace distributedKVStore {
      * <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     inString(field: string, valueList: string[]): Query;
 
@@ -952,15 +1176,16 @@ declare namespace distributedKVStore {
      * specified int value list.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
-     * @param { number[] } valueList - Indicates the int value list.
+     * @param { long[] | double[] } valueList - Indicates the int value list.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    notInNumber(field: string, valueList: number[]): Query;
+    notInNumber(field: string, valueList: long[] | double[]): Query;
 
     /**
      * Constructs a {@code Query} object to query entries with the specified field whose value is not within the
@@ -974,6 +1199,7 @@ declare namespace distributedKVStore {
      * <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     notInString(field: string, valueList: string[]): Query;
 
@@ -989,6 +1215,7 @@ declare namespace distributedKVStore {
      * <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     like(field: string, value: string): Query;
 
@@ -1004,6 +1231,7 @@ declare namespace distributedKVStore {
      * <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     unlike(field: string, value: string): Query;
 
@@ -1014,6 +1242,7 @@ declare namespace distributedKVStore {
      * @returns { Query } Returns the {@coed Query} object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     and(): Query;
 
@@ -1024,6 +1253,7 @@ declare namespace distributedKVStore {
      * @returns { Query } Returns the {@coed Query} object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     or(): Query;
 
@@ -1037,6 +1267,7 @@ declare namespace distributedKVStore {
      * <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     orderByAsc(field: string): Query;
 
@@ -1050,15 +1281,16 @@ declare namespace distributedKVStore {
      * <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     orderByDesc(field: string): Query;
 
     /**
      * Constructs a {@code Query} object to specify the number of results and the start position.
      *
-     * @param { number } total - Maximum number of results to query. The value must be a non-negative integer.
+     * @param { int } total - Maximum number of results to query. The value must be a non-negative integer.
      * If the input value is less than 0, the number of results is not limited.
-     * @param { number } offset - Start position of the query result. By default,
+     * @param { int } offset - Start position of the query result. By default,
      * the start position is the beginning of the result set. If **offset** is a negative number,
      * the start position is the beginning of the result set. If **offset** exceeds the end of the result set,
      * the query result is empty.
@@ -1067,8 +1299,9 @@ declare namespace distributedKVStore {
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    limit(total: number, offset: number): Query;
+    limit(total: int, offset: int): Query;
 
     /**
      * Creates a {@code Query} condition with a specified field that is not null.
@@ -1079,6 +1312,7 @@ declare namespace distributedKVStore {
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     isNotNull(field: string): Query;
 
@@ -1090,6 +1324,7 @@ declare namespace distributedKVStore {
      * @returns { Query } Returns the {@coed Query} object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     beginGroup(): Query;
 
@@ -1101,6 +1336,7 @@ declare namespace distributedKVStore {
      * @returns { Query } Returns the {@coed Query} object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     endGroup(): Query;
 
@@ -1113,6 +1349,7 @@ declare namespace distributedKVStore {
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     prefixKey(prefix: string): Query;
 
@@ -1125,6 +1362,7 @@ declare namespace distributedKVStore {
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     setSuggestIndex(index: string): Query;
 
@@ -1138,6 +1376,7 @@ declare namespace distributedKVStore {
      * <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     deviceId(deviceId: string): Query;
 
@@ -1149,6 +1388,7 @@ declare namespace distributedKVStore {
      * @returns { string } String representing this {@code Query}.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     getSqlLike(): string;
   }
@@ -1165,17 +1405,16 @@ declare namespace distributedKVStore {
    * @interface SingleKVStore
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SingleKVStore {
     /**
      * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
-     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local
-     * database.
+     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local database.
      *
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
-     * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
+     * @param { Uint8Array | string | long | double | boolean } value - Indicates the value to be inserted.
      * @param { AsyncCallback<void> } callback - the callback of put.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -1192,7 +1431,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
-     * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
+     * @param { Uint8Array | string | long | double | boolean } value - Indicates the value to be inserted.
      * @param { AsyncCallback<void> } callback - the callback of put.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -1202,9 +1441,9 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    put(key: string, value: Uint8Array | string | number | boolean, callback: AsyncCallback<void>): void;
+    put(key: string, value: Uint8Array | string | long | double | boolean, callback: AsyncCallback<void>): void;
 
     /**
      * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
@@ -1213,7 +1452,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
-     * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
+     * @param { Uint8Array | string | long | double | boolean } value - Indicates the value to be inserted.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -1230,7 +1469,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
-     * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
+     * @param { Uint8Array | string | long | double | boolean } value - Indicates the value to be inserted.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -1240,9 +1479,9 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    put(key: string, value: Uint8Array | string | number | boolean): Promise<void>;
+    put(key: string, value: Uint8Array | string | long | double | boolean): Promise<void>;
 
     /**
      * Inserts key-value pairs into the {@code SingleKVStore} database in batches.
@@ -1268,6 +1507,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     putBatch(entries: Entry[], callback: AsyncCallback<void>): void;
 
@@ -1295,6 +1535,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     putBatch(entries: Entry[]): Promise<void>;
 
@@ -1369,6 +1610,40 @@ declare namespace distributedKVStore {
     putBatch(value: Array<ValuesBucket>): Promise<void>;
 
     /**
+     * Writes values of ValuesBucket type into the {@code SingleKVStore} database.
+     *
+     * @param { Array<ValuesBucket> } value - Indicates the ValuesBucket array to be inserted.
+     * @param { AsyncCallback<void> } callback - the callback of putBatch.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    putValuesBuckets(value: Array<ValuesBucket>, callback: AsyncCallback<void>): void;
+
+    /**
+     * Writes values of ValuesBucket type into the {@code SingleKVStore} database.
+     *
+     * @param { Array<ValuesBucket> } value - Indicates the ValuesBucket array to be inserted.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    putValuesBuckets(value: Array<ValuesBucket>): Promise<void>;
+
+    /**
      * Deletes the key-value pair based on a specified key.
      *
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
@@ -1396,6 +1671,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     delete(key: string, callback: AsyncCallback<void>): void;
 
@@ -1427,6 +1703,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     delete(key: string): Promise<void>;
 
@@ -1462,6 +1739,7 @@ declare namespace distributedKVStore {
      * @systemapi
      * @StageModelOnly
      * @since 10 dynamic
+     * @since 23 static
      */
     delete(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>): void;
 
@@ -1497,6 +1775,7 @@ declare namespace distributedKVStore {
      * @systemapi
      * @StageModelOnly
      * @since 10 dynamic
+     * @since 23 static
      */
     delete(predicates: dataSharePredicates.DataSharePredicates): Promise<void>;
 
@@ -1526,6 +1805,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     deleteBatch(keys: string[], callback: AsyncCallback<void>): void;
 
@@ -1555,6 +1835,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     deleteBatch(keys: string[]): Promise<void>;
 
@@ -1571,6 +1852,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9 dynamic
+     * @since 23 static
      */
     removeDeviceData(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -1587,6 +1869,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9 dynamic
+     * @since 23 static
      */
     removeDeviceData(deviceId: string): Promise<void>;
 
@@ -1594,8 +1877,8 @@ declare namespace distributedKVStore {
      * Obtains the value of a specified key.
      *
      * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback -
-     * {Uint8Array|string|boolean|number}: the returned value specified by the key.
+     * @param { AsyncCallback<boolean | string | long | double | Uint8Array> } callback -
+     * {Uint8Array|string|boolean|long|double}: the returned value specified by the key.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
@@ -1604,16 +1887,16 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    get(key: string, callback: AsyncCallback<boolean | string | number | Uint8Array>): void;
+    get(key: string, callback: AsyncCallback<boolean | string | long | double | Uint8Array>): void;
 
     /**
      * Obtains the value of a specified key.
      *
      * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @returns { Promise<boolean | string | number | Uint8Array> }
-     * {Uint8Array|string|boolean|number}: the returned value specified by the key.
+     * @returns { Promise<boolean | string | long | double | Uint8Array> }
+     * {Uint8Array|string|boolean|long|double}: the returned value specified by the key.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
@@ -1622,9 +1905,9 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    get(key: string): Promise<boolean | string | number | Uint8Array>;
+    get(key: string): Promise<boolean | string | long | double | Uint8Array>;
 
     /**
      * Obtains all key-value pairs that match a specified key prefix.
@@ -1638,6 +1921,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(keyPrefix: string, callback: AsyncCallback<Entry[]>): void;
 
@@ -1653,6 +1937,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(keyPrefix: string): Promise<Entry[]>;
 
@@ -1668,6 +1953,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(query: Query, callback: AsyncCallback<Entry[]>): void;
 
@@ -1683,6 +1969,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(query: Query): Promise<Entry[]>;
 
@@ -1722,6 +2009,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(keyPrefix: string, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -1761,6 +2049,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(keyPrefix: string): Promise<KVStoreResultSet>;
 
@@ -1790,6 +2079,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(query: Query, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -1819,6 +2109,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(query: Query): Promise<KVStoreResultSet>;
 
@@ -1856,6 +2147,7 @@ declare namespace distributedKVStore {
      * @systemapi
      * @StageModelOnly
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -1893,6 +2185,7 @@ declare namespace distributedKVStore {
      * @systemapi
      * @StageModelOnly
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(predicates: dataSharePredicates.DataSharePredicates): Promise<KVStoreResultSet>;
 
@@ -1905,6 +2198,7 @@ declare namespace distributedKVStore {
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     closeResultSet(resultSet: KVStoreResultSet, callback: AsyncCallback<void>): void;
 
@@ -1917,6 +2211,7 @@ declare namespace distributedKVStore {
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     closeResultSet(resultSet: KVStoreResultSet): Promise<void>;
 
@@ -1924,7 +2219,7 @@ declare namespace distributedKVStore {
      * Obtains the number of results matching the specified {@code Query} object.
      *
      * @param { Query } query - Indicates the {@code Query} object.
-     * @param { AsyncCallback<number> } callback - {number}: the number of results matching the
+     * @param { AsyncCallback<int> } callback - {int}: the number of results matching the
      * specified {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
@@ -1933,14 +2228,15 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    getResultSize(query: Query, callback: AsyncCallback<number>): void;
+    getResultSize(query: Query, callback: AsyncCallback<int>): void;
 
     /**
      * Obtains the number of results matching the specified {@code Query} object.
      *
      * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Promise<number> } {number}: the number of results matching the specified
+     * @returns { Promise<int> } {int}: the number of results matching the specified
      * {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
@@ -1949,8 +2245,9 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    getResultSize(query: Query): Promise<number>;
+    getResultSize(query: Query): Promise<int>;
 
     /**
      * Backs up a database in the specified filename.
@@ -1963,7 +2260,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     backup(file: string, callback: AsyncCallback<void>): void;
 
@@ -1978,7 +2275,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     backup(file: string): Promise<void>;
 
@@ -1993,6 +2290,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     restore(file: string, callback: AsyncCallback<void>): void;
 
@@ -2007,6 +2305,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     restore(file: string): Promise<void>;
 
@@ -2015,29 +2314,31 @@ declare namespace distributedKVStore {
      *
      * @param { Array<string> } files - Indicates the backup filenames to be deleted, It can not be empty and
      * The length must be less than {@code MAX_KEY_LENGTH}.
-     * @param { AsyncCallback<Array<[string, number]>> } callback - {Array<[string, number]>}:
+     * @param { AsyncCallback<Array<[string, int]>> } callback - {Array<[string, int]>}:
      * the list of backup file and it's corresponding delete result which 0 means delete success
      * and otherwise failed.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    deleteBackup(files: Array<string>, callback: AsyncCallback<Array<[string, number]>>): void;
+    deleteBackup(files: Array<string>, callback: AsyncCallback<Array<[string, int]>>): void;
 
     /**
      * Delete database backup files based on the specified filenames.
      *
      * @param { Array<string> } files - Indicates the backup filenames to be deleted, It can not be empty and
      * The length must be less than {@code MAX_KEY_LENGTH}.
-     * @returns { Promise<Array<[string, number]>> } {Array<[string, number]>}: the list of backup
+     * @returns { Promise<Array<[string, int]>> } {Array<[string, int]>}: the list of backup
      * file and it's corresponding delete result which 0 means delete success and otherwise failed.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    deleteBackup(files: Array<string>): Promise<Array<[string, number]>>;
+    deleteBackup(files: Array<string>): Promise<Array<[string, int]>>;
 
     /**
      * Starts a transaction operation in the {@code SingleKVStore} database.
@@ -2057,6 +2358,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     startTransaction(callback: AsyncCallback<void>): void;
 
@@ -2078,6 +2380,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     startTransaction(): Promise<void>;
 
@@ -2088,6 +2391,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     commit(callback: AsyncCallback<void>): void;
 
@@ -2098,6 +2402,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     commit(): Promise<void>;
 
@@ -2108,6 +2413,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     rollback(callback: AsyncCallback<void>): void;
 
@@ -2118,6 +2424,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     rollback(): Promise<void>;
 
@@ -2131,6 +2438,7 @@ declare namespace distributedKVStore {
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     enableSync(enabled: boolean, callback: AsyncCallback<void>): void;
 
@@ -2144,6 +2452,7 @@ declare namespace distributedKVStore {
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     enableSync(enabled: boolean): Promise<void>;
 
@@ -2159,6 +2468,7 @@ declare namespace distributedKVStore {
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     setSyncRange(localLabels: string[], remoteSupportLabels: string[], callback: AsyncCallback<void>): void;
 
@@ -2174,34 +2484,37 @@ declare namespace distributedKVStore {
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     setSyncRange(localLabels: string[], remoteSupportLabels: string[]): Promise<void>;
 
     /**
      * Sets the default delay allowed for database synchronization
      *
-     * @param { number } defaultAllowedDelayMs - Indicates the default delay allowed for the
+     * @param { int } defaultAllowedDelayMs - Indicates the default delay allowed for the
      * database synchronization, in milliseconds.
      * @param { AsyncCallback<void> } callback - the callback of setSyncParam.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    setSyncParam(defaultAllowedDelayMs: number, callback: AsyncCallback<void>): void;
+    setSyncParam(defaultAllowedDelayMs: int, callback: AsyncCallback<void>): void;
 
     /**
      * Sets the default delay allowed for database synchronization
      *
-     * @param { number } defaultAllowedDelayMs - Indicates the default delay allowed for the
+     * @param { int } defaultAllowedDelayMs - Indicates the default delay allowed for the
      * database synchronization, in milliseconds.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    setSyncParam(defaultAllowedDelayMs: number): Promise<void>;
+    setSyncParam(defaultAllowedDelayMs: int): Promise<void>;
 
     /**
      * Synchronize the database to the specified devices with the specified delay allowed.
@@ -2210,15 +2523,16 @@ declare namespace distributedKVStore {
      * @param { string[] } deviceIds - Indicates the list of devices to which to synchronize the database.
      * @param { SyncMode } mode - Indicates the synchronization mode. The value can be {@code PUSH},
      * {@code PULL}, or {@code PUSH_PULL}.
-     * @param { number } delayMs - Indicates the delay allowed for the synchronization, in milliseconds.
+     * @param { int } delayMs - Indicates the delay allowed for the synchronization, in milliseconds.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void;
+    sync(deviceIds: string[], mode: SyncMode, delayMs?: int): void;
 
     /**
      * Synchronize the database to the specified devices with the specified delay allowed.
@@ -2228,15 +2542,16 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @param { SyncMode } mode - Indicates the synchronization mode. The value can be {@code PUSH},
      * {@code PULL}, or {@code PUSH_PULL}.
-     * @param { number } delayMs - Indicates the delay allowed for the synchronization, in milliseconds.
+     * @param { int } delayMs - Indicates the delay allowed for the synchronization, in milliseconds.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    sync(deviceIds: string[], query: Query, mode: SyncMode, delayMs?: number): void;
+    sync(deviceIds: string[], query: Query, mode: SyncMode, delayMs?: int): void;
 
     /**
      * Register a callback to the database and when data in the distributed database has changed,
@@ -2271,11 +2586,24 @@ declare namespace distributedKVStore {
     on(event: 'dataChange', type: SubscribeType, listener: Callback<ChangeNotification>): void;
 
     /**
+     * Register a callback to the database and when data in the distributed database has changed,
+     * the callback will be invoked.
+     *
+     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@code SubscribeType}.
+     * @param { Callback<ChangeNotification> } listener - {ChangeNotification}: the {@code ChangeNotification}
+     *     object indicates the data change events in the distributed database.
+     * @throws { BusinessError } 15100001 - Over max limits.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 23 static
+     */
+    onDataChange(type: SubscribeType, listener: Callback<ChangeNotification>): void;
+
+    /**
      * Register a databases synchronization callback to the database.
      * <p> Sync result is returned through asynchronous callback.
      *
-     * @param { 'syncComplete' } event - Subscribed event name, fixed as 'syncComplete', indicates the synchronization
-     * completion event.
+     * @param { 'syncComplete' } event - Subscribed event name, fixed as 'syncComplete', indicates the synchronization completion event.
      * @param { Callback<Array<[string, number]>> } syncCallback - {Array<[string, number]>}: the
      * deviceId and it's corresponding synchronization result which 0 means synchronization success
      * and otherwise failed.
@@ -2285,6 +2613,18 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      */
     on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
+
+    /**
+     * Register a databases synchronization callback to the database.
+     * <p> Sync result is returned through asynchronous callback.
+     *
+     * @param { Callback<Array<[string, int]>> } syncCallback - {Array<[string, int]>}: the
+     *     deviceId and it's corresponding synchronization result which 0 means synchronization success
+     *     and otherwise failed.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 23 static
+     */
+    onSyncComplete(syncCallback: Callback<Array<[string, int]>>): void;
 
     /**
      * Unsubscribe from the SingleKVStore database based on the specified subscribeType and listener.
@@ -2302,10 +2642,20 @@ declare namespace distributedKVStore {
     off(event: 'dataChange', listener?: Callback<ChangeNotification>): void;
 
     /**
+     * Unsubscribe from the SingleKVStore database based on the specified subscribeType and listener.
+     *
+     * @param { Callback<ChangeNotification> } [listener] - {ChangeNotification}: the {@code ChangeNotification}
+     *     object indicates the data change events in the distributed database.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 23 static
+     */
+    offDataChange(listener?: Callback<ChangeNotification>): void;
+
+    /**
      * Unregister the database synchronization callback.
      *
-     * @param { 'syncComplete' } event - The unsubscribe event name, fixed as 'syncComplete', indicates the
-     * synchronization completion event.
+     * @param { 'syncComplete' } event - The unsubscribe event name, fixed as 'syncComplete', indicates the synchronization completion event.
      * @param { Callback<Array<[string, number]>> } syncCallback - {Array<[string, number]>}: the
      * deviceId and it's corresponding synchronization result which 0 means synchronization success
      * and otherwise failed.
@@ -2317,6 +2667,17 @@ declare namespace distributedKVStore {
     off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;
 
     /**
+     * Unregister the database synchronization callback.
+     *
+     * @param { Callback<Array<[string, int]>> } [syncCallback] - {Array<[string, int]>}: the
+     *     deviceId and it's corresponding synchronization result which 0 means synchronization success
+     *     and otherwise failed.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 23 static
+     */
+    offSyncComplete(syncCallback?: Callback<Array<[string, int]>>): void;
+
+    /**
      * Get the security level of the database.
      *
      * @param { AsyncCallback<SecurityLevel> } callback - {SecurityLevel}: the {@code SecurityLevel}
@@ -2324,6 +2685,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     getSecurityLevel(callback: AsyncCallback<SecurityLevel>): void;
 
@@ -2335,6 +2697,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     getSecurityLevel(): Promise<SecurityLevel>;
   }
@@ -2353,15 +2716,15 @@ declare namespace distributedKVStore {
    * @typedef DeviceKVStore
    * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DeviceKVStore extends SingleKVStore {
     /**
      * Obtains the value matching the local device ID and specified key.
      *
      * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback -
-     * {Uint8Array|string|boolean|number}: the returned value specified by the local device ID and specified key.
+     * @param { AsyncCallback<boolean | string | long | double | Uint8Array> } callback -
+     * {Uint8Array|string|boolean|long|double}: the returned value specified by the local device ID and specified key.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
@@ -2370,16 +2733,16 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    get(key: string, callback: AsyncCallback<boolean | string | number | Uint8Array>): void;
+    get(key: string, callback: AsyncCallback<boolean | string | long | double | Uint8Array>): void;
 
     /**
      * Obtains the value matching the local device ID and specified key.
      *
      * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @returns { Promise<boolean | string | number | Uint8Array> }
-     * {Uint8Array|string|boolean|number}: the returned value specified by the local device ID and specified key.
+     * @returns { Promise<boolean | string | long | double | Uint8Array> }
+     * {Uint8Array|string|boolean|long|double}: the returned value specified by the local device ID and specified key.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
@@ -2388,18 +2751,17 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    get(key: string): Promise<boolean | string | number | Uint8Array>;
+    get(key: string): Promise<boolean | string | long | double | Uint8Array>;
 
     /**
      * Obtains the value matching a specified device ID and key.
      *
      * @param { string } deviceId - Indicates the device to be queried.
-     * @param { string } key - Indicates the key of the value to be queried. The length must be less than
-     * {@code MAX_KEY_LENGTH}.
-     * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback -
-     * {boolean | string | number | Uint8Array}: the returned value specified by the deviceId and key.
+     * @param { string } key - Indicates the key of the value to be queried. The length must be less than {@code MAX_KEY_LENGTH}.
+     * @param { AsyncCallback<boolean | string | long | double | Uint8Array> } callback -
+     * {boolean | string | long | double | Uint8Array}: the returned value specified by the deviceId and key.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
@@ -2408,9 +2770,9 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    get(deviceId: string, key: string, callback: AsyncCallback<boolean | string | number | Uint8Array>): void;
+    get(deviceId: string, key: string, callback: AsyncCallback<boolean | string | long | double | Uint8Array>): void;
 
     /**
      * Obtains the value matching a specified device ID and key.
@@ -2418,8 +2780,8 @@ declare namespace distributedKVStore {
      * @param { string } deviceId - Indicates the device to be queried.
      * @param { string } key - Indicates the key of the value to be queried. The length must be less than
      * {@code MAX_KEY_LENGTH}.
-     * @returns { Promise<boolean | string | number | Uint8Array> }
-     * {Uint8Array|string|boolean|number}: the returned value specified by the deviceId and key.
+     * @returns { Promise<boolean | string | long | double | Uint8Array> }
+     * {Uint8Array|string|boolean|long|double}: the returned value specified by the deviceId and key.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.
@@ -2428,9 +2790,9 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    get(deviceId: string, key: string): Promise<boolean | string | number | Uint8Array>;
+    get(deviceId: string, key: string): Promise<boolean | string | long | double | Uint8Array>;
 
     /**
      * Obtains all key-value pairs that match the local device ID and specified key prefix.
@@ -2444,6 +2806,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(keyPrefix: string, callback: AsyncCallback<Entry[]>): void;
 
@@ -2459,6 +2822,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(keyPrefix: string): Promise<Entry[]>;
 
@@ -2475,6 +2839,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(deviceId: string, keyPrefix: string, callback: AsyncCallback<Entry[]>): void;
 
@@ -2491,6 +2856,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(deviceId: string, keyPrefix: string): Promise<Entry[]>;
 
@@ -2506,6 +2872,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(query: Query, callback: AsyncCallback<Entry[]>): void;
 
@@ -2521,6 +2888,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(query: Query): Promise<Entry[]>;
 
@@ -2537,6 +2905,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(deviceId: string, query: Query, callback: AsyncCallback<Entry[]>): void;
 
@@ -2553,6 +2922,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(deviceId: string, query: Query): Promise<Entry[]>;
 
@@ -2592,6 +2962,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(keyPrefix: string, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -2631,6 +3002,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(keyPrefix: string): Promise<KVStoreResultSet>;
 
@@ -2676,6 +3048,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(deviceId: string, keyPrefix: string, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -2721,6 +3094,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(deviceId: string, keyPrefix: string): Promise<KVStoreResultSet>;
 
@@ -2750,6 +3124,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(query: Query, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -2779,6 +3154,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(query: Query): Promise<KVStoreResultSet>;
 
@@ -2812,6 +3188,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(deviceId: string, query: Query, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -2845,6 +3222,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(deviceId: string, query: Query): Promise<KVStoreResultSet>;
 
@@ -2882,6 +3260,7 @@ declare namespace distributedKVStore {
      * @systemapi
      * @StageModelOnly
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -2919,6 +3298,7 @@ declare namespace distributedKVStore {
      * @systemapi
      * @StageModelOnly
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(predicates: dataSharePredicates.DataSharePredicates): Promise<KVStoreResultSet>;
 
@@ -2958,6 +3338,7 @@ declare namespace distributedKVStore {
      * @systemapi
      * @StageModelOnly
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(
       deviceId: string,
@@ -3001,6 +3382,7 @@ declare namespace distributedKVStore {
      * @systemapi
      * @StageModelOnly
      * @since 10 dynamic
+     * @since 23 static
      */
     getResultSet(deviceId: string, predicates: dataSharePredicates.DataSharePredicates): Promise<KVStoreResultSet>;
 
@@ -3008,7 +3390,7 @@ declare namespace distributedKVStore {
      * Obtains the number of results matching the local device ID and specified {@code Query} object.
      *
      * @param { Query } query - Indicates the {@code Query} object.
-     * @param { AsyncCallback<number> } callback - {number}: the number of results matching the
+     * @param { AsyncCallback<int> } callback - {int}: the number of results matching the
      * local device ID and specified {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
@@ -3017,14 +3399,15 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    getResultSize(query: Query, callback: AsyncCallback<number>): void;
+    getResultSize(query: Query, callback: AsyncCallback<int>): void;
 
     /**
      * Obtains the number of results matching the local device ID and specified {@code Query} object.
      *
      * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Promise<number> } {number}: the number of results matching the local device ID and specified
+     * @returns { Promise<int> } {int}: the number of results matching the local device ID and specified
      * {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
@@ -3033,15 +3416,16 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
-    getResultSize(query: Query): Promise<number>;
+    getResultSize(query: Query): Promise<int>;
 
     /**
      * Obtains the number of results matching a specified device ID and {@code Query} object.
      *
      * @param { string } deviceId - Indicates the ID of the device to which the results belong.
      * @param { Query } query - Indicates the {@code Query} object.
-     * @param { AsyncCallback<number> } callback - {number}: the number of results matching the
+     * @param { AsyncCallback<int> } callback - {int}: the number of results matching the
      * specified deviceId and {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
@@ -3050,15 +3434,16 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9 dynamic
+     * @since 23 static
      */
-    getResultSize(deviceId: string, query: Query, callback: AsyncCallback<number>): void;
+    getResultSize(deviceId: string, query: Query, callback: AsyncCallback<int>): void;
 
     /**
      * Obtains the number of results matching a specified device ID and {@code Query} object.
      *
      * @param { string } deviceId - Indicates the ID of the device to which the results belong.
      * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Promise<number> } {number}: the number of results matching the specified
+     * @returns { Promise<int> } {int}: the number of results matching the specified
      * deviceId and {@code Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
@@ -3067,8 +3452,9 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9 dynamic
+     * @since 23 static
      */
-    getResultSize(deviceId: string, query: Query): Promise<number>;
+    getResultSize(deviceId: string, query: Query): Promise<int>;
   }
 
   /**
@@ -3084,7 +3470,7 @@ declare namespace distributedKVStore {
    * <br>3.Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createKVManager(config: KVManagerConfig): KVManager;
 
@@ -3095,7 +3481,7 @@ declare namespace distributedKVStore {
    * @interface KVManager
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface KVManager {
     /**
@@ -3114,7 +3500,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getKVStore<T>(storeId: string, options: Options, callback: AsyncCallback<T>): void;
 
@@ -3134,7 +3520,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getKVStore<T>(storeId: string, options: Options): Promise<T>;
 
@@ -3155,6 +3541,7 @@ declare namespace distributedKVStore {
      * <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     closeKVStore(appId: string, storeId: string, callback: AsyncCallback<void>): void;
 
@@ -3175,6 +3562,7 @@ declare namespace distributedKVStore {
      * <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     closeKVStore(appId: string, storeId: string): Promise<void>;
 
@@ -3194,6 +3582,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     deleteKVStore(appId: string, storeId: string, callback: AsyncCallback<void>): void;
 
@@ -3213,6 +3602,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     deleteKVStore(appId: string, storeId: string): Promise<void>;
 
@@ -3227,6 +3617,7 @@ declare namespace distributedKVStore {
      * <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     getAllKVStoreId(appId: string, callback: AsyncCallback<string[]>): void;
 
@@ -3241,6 +3632,7 @@ declare namespace distributedKVStore {
      * <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9 dynamic
+     * @since 23 static
      */
     getAllKVStoreId(appId: string): Promise<string[]>;
 
@@ -3261,6 +3653,17 @@ declare namespace distributedKVStore {
     on(event: 'distributedDataServiceDie', deathCallback: Callback<void>): void;
 
     /**
+     * Register a death callback to get notification when the data manager service is terminated.
+     * <p>If the data manager service is terminated,you need to re-subscribe to data change notifications and synchronization
+     * completion notifications, and calling the sync method will return a failure.
+     *
+     * @param { Callback<void> } deathCallback - callback to be invoked when the data manager service is terminated.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 23 static
+     */
+    onDistributedDataServiceDie(deathCallback: Callback<void>): void;
+
+    /**
      * Unregister the death callback. Not notification will be received when the data manager service is terminated.
      * <p>The unregistered death callback must be a registered death callback of the database. If no death callback
      * parameter is passed, all database death callbacks will be unregistered.
@@ -3276,6 +3679,17 @@ declare namespace distributedKVStore {
      * @since 9 dynamic
      */
     off(event: 'distributedDataServiceDie', deathCallback?: Callback<void>): void;
+
+	  /**
+     * Unregister the death callback. Not notification will be received when the data manager service is terminated.
+     * <p>The unregistered death callback must be a registered death callback of the database. If no death callback parameter
+     * is passed, all database death callbacks will be unregistered.
+     *
+     * @param { Callback<void> } [deathCallback] - the data manager service is terminated callback which has been registered.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 23 static
+     */
+    offDistributedDataServiceDie(deathCallback?: Callback<void>): void;
   }
 }
 

@@ -873,7 +873,8 @@ declare namespace policy {
   * @returns { Promise<void> } The promise returned by the function.
   * @syscap SystemCapability.Communication.NetManager.Core
   * @stagemodelonly
-  * @since 22 dynamic&static
+  * @since 22 dynamic
+  * @since 23 static
   */
   function showAppNetPolicySettings(context: Context): Promise<void>;
 

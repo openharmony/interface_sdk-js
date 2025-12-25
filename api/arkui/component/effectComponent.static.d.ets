@@ -28,15 +28,16 @@ import { CustomBuilder } from '@ohos.arkui.component';
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
-declare enum EffectLayer {
+export declare enum EffectLayer {
   /**
    * No layer.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   NONE = 0,
 
@@ -45,7 +46,7 @@ declare enum EffectLayer {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   CHARGE_MOTION = 1,
 
@@ -54,7 +55,7 @@ declare enum EffectLayer {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   CHARGE_TEXT = 2
 }
@@ -65,16 +66,17 @@ declare enum EffectLayer {
  * @interface EffectComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
-declare interface EffectComponentOptions {
+export declare interface EffectComponentOptions {
 
   /** Use this to determine the component layer 1evel. Default value is none.
    *
    * @type { ?EffectLayer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   effectLayer?: EffectLayer;
 }
@@ -85,7 +87,7 @@ declare interface EffectComponentOptions {
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 export declare interface EffectComponentAttribute extends CommonMethod {
     /**
@@ -93,12 +95,13 @@ export declare interface EffectComponentAttribute extends CommonMethod {
      *
      * @param { boolean } enable
      * @returns { EffectComponentAttribute }
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A nonsystem application calls a system API.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    alwaysSnapshot(enable: boolean): this;
+    default alwaysSnapshot(enable: boolean): this;
     /**
      * Set the attribute modifier for EffectComponent.
      *
@@ -106,40 +109,27 @@ export declare interface EffectComponentAttribute extends CommonMethod {
      * @returns { EffectComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    attributeModifier(modifier: AttributeModifier<EffectComponentAttribute>
+    default attributeModifier(modifier: AttributeModifier<EffectComponentAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
  * Defines EffectComponent Component
  *
- * @param { CustomBuilder } [content_] - EffectComponent
+ * @param { EffectComponentOptions } [options] - The options to create an EffectComponent.
+ * @param { CustomBuilder } [content_] - Subcomponents of EffectComponent
  * @returns { EffectComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
- */
-@ComponentBuilder
-export declare function EffectComponent(
-
-    content_?: CustomBuilder,
-): EffectComponentAttribute
-
-/**
- * Defines EffectComponent Component
- *
- * @param { EffectComponentOptions } options - The options to create an EffectComponent.
- * @param { CustomBuilder } [content_] - EffectComponent
- * @returns{EffectComponentAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function EffectComponent(
-    options:EffectComponentOptions,
-    content_ ?:CustomBuilder,
-): EffectComponentAttribute
+    options?: EffectComponentOptions,
+    content_?: CustomBuilder,
+): EffectComponentAttribute;

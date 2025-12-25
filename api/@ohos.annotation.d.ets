@@ -43,3 +43,55 @@ export @interface Available {
    */
   minApiVersion: string = '';
 }
+
+/**
+ * Indicate the supported suppress warnings type.
+ * 
+ * @enum { string } SuppressWarningsType
+ * @syscap SystemCapability.Base
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23
+ */
+export const enum SuppressWarningsType {
+  /**
+   * Support for suppressing generated compatibility warnings.
+   * 
+   * @syscap SystemCapability.Base
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23
+   */
+  COMPATIBILITY = 'compatibility';
+}
+
+/**
+ * SuppressWarnings is an Annotation and it supports class function varible type interface namespace etc
+ * Apply this annotation at the source code location, then call the corresponding source code (e.g., class). 
+ * During compilation, you can suppress compatibility alarms or deprecated interface alarms by adding rules.
+ * 
+ * @syscap SystemCapability.Base
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23
+ */
+export @interface SuppressWarnings {
+  /**
+   * Indicate the suppress warning type rules.
+   * 
+   * @type { Array<SuppressWarningsType> }
+   * @syscap SystemCapability.Base
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23
+   */
+  rules: Array<SuppressWarningsType>;
+}

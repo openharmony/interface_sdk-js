@@ -18,7 +18,8 @@
  * @kit BasicServicesKit
  */
 
-import { BusinessError, Callback } from './@ohos.base';
+import { BusinessError } from './@ohos.base';
+import { Callback } from './@ohos.base';
 
 /**
  * Cache download capability provider.
@@ -243,73 +244,73 @@ declare namespace cacheDownload {
         /**
          * Time taken from startup to DNS resolution completion, in milliseconds.
          *
-         * @type { long }
+         * @type { double }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
          */
-        readonly dnsTime: long;
+        readonly dnsTime: double;
         /**
          * Time taken from startup to TCP connection completion, in milliseconds.
          *
-         * @type { long }
+         * @type { double }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
          */
-        readonly connectTime: long;
+        readonly connectTime: double;
         /**
          * Time taken from startup to TLS connection completion, in milliseconds.
          *
-         * @type { long }
+         * @type { double }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
          */
-        readonly tlsTime: long;
+        readonly tlsTime: double;
         /**
          * Time taken from startup to start sending the first byte, in milliseconds.
          *
-         * @type { long }
+         * @type { double }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
          */
-        readonly firstSendTime: long;
+        readonly firstSendTime: double;
         /**
          * Time taken from startup to receiving the first byte, in milliseconds.
          *
-         * @type { long }
+         * @type { double }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
          */
-        readonly firstReceiveTime: long;
+        readonly firstReceiveTime: double;
         /**
          * Time taken from startup to the completion of the request, in milliseconds.
          *
-         * @type { long }
+         * @type { double }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
          */
-        readonly totalTime: long;
+        readonly totalTime: double;
         /**
          * Time taken from startup to completion of all redirection steps, in milliseconds.
          *
-         * @type { long }
+         * @type { double }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
          */
-        readonly redirectTime: long;
+        readonly redirectTime: double;
     }
 
     /**

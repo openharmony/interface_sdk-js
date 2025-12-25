@@ -45,7 +45,7 @@ import { PacMap as _PacMap } from './ability/dataAbilityHelper';
  * @namespace ability
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace ability {
   /**
@@ -72,7 +72,7 @@ declare namespace ability {
    * @typedef { _PacMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type PacMap = _PacMap;
 

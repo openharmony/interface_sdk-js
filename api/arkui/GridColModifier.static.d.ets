@@ -26,6 +26,6 @@ import { GridColAttribute } from '@ohos.arkui.component';
  *
  * @implements GridColAttribute, AttributeModifier<GridColAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
 */
 export declare class GridColModifier implements GridColAttribute, AttributeModifier<GridColAttribute> {}

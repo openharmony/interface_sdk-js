@@ -33,7 +33,7 @@ import { RecordData } from './@ohos.base';
  * @StageModelOnly
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class InsightIntentExecutor {
   /**
@@ -44,7 +44,7 @@ declare class InsightIntentExecutor {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   context: InsightIntentContext;
 
@@ -73,7 +73,7 @@ declare class InsightIntentExecutor {
    *     insight intent execution, support promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, RecordData>, pageLoader: window.WindowStage):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
@@ -101,7 +101,7 @@ declare class InsightIntentExecutor {
    *     insight intent execution, support promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onExecuteInUIAbilityBackgroundMode(name: string, param: Record<string, RecordData>):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
@@ -130,7 +130,7 @@ declare class InsightIntentExecutor {
    *     insight intent execution, support promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onExecuteInUIExtensionAbility(name: string, param: Record<string, RecordData>, pageLoader: UIExtensionContentSession):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
@@ -157,7 +157,7 @@ declare class InsightIntentExecutor {
    *     insight intent execution, support promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   onExecuteInServiceExtensionAbility(name: string, param: Record<string, RecordData>):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;

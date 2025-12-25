@@ -35,7 +35,7 @@ import uri from './@ohos.uri';
  * @syscap SystemCapability.FileManagement.AppFileService
  * @atomicservice
  * @since 15 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace fileUri {
   /**
@@ -52,7 +52,7 @@ declare namespace fileUri {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @atomicservice
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class FileUri extends uri.URI {
     /**
@@ -77,7 +77,7 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(uriOrPath: string);
 
@@ -103,7 +103,7 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get name(): string;
 
@@ -127,7 +127,7 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getFullDirectoryUri(): string;
 
@@ -147,9 +147,19 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isRemoteUri(): boolean;
+
+    /**
+     * Converts this URI into an encoded string.
+     *
+     * @returns { string } URI in a serialized string.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly   
+     * @since 23 static
+     */
+    toString(): string;
   }
   
   /**
@@ -172,7 +182,7 @@ declare namespace fileUri {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @atomicservice
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getUriFromPath(path: string): string;
 }

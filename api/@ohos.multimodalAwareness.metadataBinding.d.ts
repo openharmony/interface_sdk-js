@@ -27,7 +27,7 @@ import type { Callback } from './@ohos.base';
  * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
  * @atomicservice
  * @since 18 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace metadataBinding {
   /**
@@ -41,7 +41,7 @@ declare namespace metadataBinding {
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function encodeImage(srcImage: image.PixelMap, metadata: string): Promise<image.PixelMap>;
 
@@ -55,7 +55,7 @@ declare namespace metadataBinding {
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
    function decodeImage(encodedImage: image.PixelMap): Promise<string>;
 
@@ -68,7 +68,7 @@ declare namespace metadataBinding {
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function notifyMetadataBindingEvent(bundleName: string): Promise<string>;
 
@@ -79,7 +79,7 @@ declare namespace metadataBinding {
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function submitMetadata(metadata: string): void;
 
@@ -94,7 +94,7 @@ declare namespace metadataBinding {
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function on(type: 'operationSubmitMetadata', bundleName: string, callback: Callback<int>): void;
  
@@ -108,7 +108,7 @@ declare namespace metadataBinding {
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function off(type: 'operationSubmitMetadata', bundleName: string, callback?: Callback<int>): void;
 }

@@ -28,7 +28,7 @@
  * @stagemodelonly
  * @atomicservice
  * @since 21 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export type OnRequestSuccessFn = (name: string) => void;
 
@@ -45,7 +45,7 @@ export type OnRequestSuccessFn = (name: string) => void;
  * @stagemodelonly
  * @atomicservice
  * @since 21 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export type OnRequestFailureFn = (name: string, failureCode: AbilityStartFailureCode, failureMessage: string) => void;
 
@@ -56,7 +56,7 @@ export type OnRequestFailureFn = (name: string, failureCode: AbilityStartFailure
  * @stagemodelonly
  * @atomicservice
  * @since 21 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export class CompletionHandlerForAbilityStartCallback {
   /**
@@ -67,7 +67,7 @@ export class CompletionHandlerForAbilityStartCallback {
    * @stagemodelonly
    * @atomicservice
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onRequestSuccess?: OnRequestSuccessFn;
 
@@ -79,7 +79,7 @@ export class CompletionHandlerForAbilityStartCallback {
    * @stagemodelonly
    * @atomicservice
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onRequestFailure?: OnRequestFailureFn;
 }
@@ -92,7 +92,7 @@ export class CompletionHandlerForAbilityStartCallback {
  * @stagemodelonly
  * @atomicservice
  * @since 21 dynamic
- * @since 22 static
+ * @since 23 static
 */
 export enum AbilityStartFailureCode {
   /**
@@ -102,7 +102,7 @@ export enum AbilityStartFailureCode {
    * @stagemodelonly
    * @atomicservice
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   FAILURE_CODE_SYSTEM_MALFUNCTION = 0,
 
@@ -113,7 +113,7 @@ export enum AbilityStartFailureCode {
    * @stagemodelonly
    * @atomicservice
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   FAILURE_CODE_USER_CANCEL = 1,
 }

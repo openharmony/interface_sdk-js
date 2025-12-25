@@ -26,7 +26,8 @@ import { NotificationExtensionContent } from './NotificationExtensionContent';
  *
  * @typedef NotificationInfo
  * @syscap SystemCapability.Notification.Notification
- * @since 22 dynamic&static
+ * @since 22 dynamic
+ * @since 23 static
  */
 export interface NotificationInfo {
   /**
@@ -35,7 +36,8 @@ export interface NotificationInfo {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   readonly hashCode: string;
 
@@ -45,7 +47,8 @@ export interface NotificationInfo {
    * @type { notificationManager.SlotType }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   readonly notificationSlotType: notificationManager.SlotType;
 
@@ -55,7 +58,8 @@ export interface NotificationInfo {
    * @type { NotificationExtensionContent }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   readonly content: NotificationExtensionContent;
   
@@ -65,7 +69,8 @@ export interface NotificationInfo {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   readonly bundleName: string;
 
@@ -75,7 +80,8 @@ export interface NotificationInfo {
    * @type { ?string }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   readonly appName?: string;
 
@@ -85,7 +91,8 @@ export interface NotificationInfo {
    * @type { ?long }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   readonly deliveryTime?: long;
 
@@ -95,7 +102,8 @@ export interface NotificationInfo {
    * @type { ?string }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   readonly groupName?: string;
 
@@ -105,7 +113,8 @@ export interface NotificationInfo {
    * @type { int }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   readonly appIndex: int;
 }
