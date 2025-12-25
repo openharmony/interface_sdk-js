@@ -3353,6 +3353,38 @@ function writeSync(
 ): long;
 
 /**
+ * Connect Distributed File System.
+ *
+ * @permission ohos.permission.DISTRIBUTED_DATASYNC
+ * @param { string } networkId - The networkId of device.
+ * @param { DfsListeners } listeners - The listeners of Distributed File System.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 201 - Permission denied.
+ * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
+ * <br>2.Incorrect parameter types.
+ * @throws { BusinessError } 13900045 - Connection failed.
+ * @throws { BusinessError } 13900046 - Software caused connection abort.
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 23 static
+ */
+function connectDfs(networkId: string, listeners: DfsListeners): Promise<void>;
+
+/**
+ * Disconnect Distributed File System.
+ *
+ * @permission ohos.permission.DISTRIBUTED_DATASYNC
+ * @param { string } networkId - The networkId of device.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 201 - Permission denied.
+ * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
+ * <br>2.Incorrect parameter types.
+ * @throws { BusinessError } 13600004 - Unmount failed.
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 23 static
+ */
+function disconnectDfs(networkId: string): Promise<void>;
+
+/**
  * Sets an extended attribute of a file or directory.
  *
  * @param { string } path - Application sandbox path of the directory.
@@ -5416,6 +5448,37 @@ export interface WriteStreamOptions {
    * @since 23 static
    */
   start?: long;
+}
+
+/**
+ * DfsListener Callback function.
+ *
+ * @typedef {function} DfsListenerCallback.
+ * @param { string } networkId - The networkId of device.
+ * @param { int } status - The status code of Distributed File System.
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 23 static
+ */
+type DfsListenerCallback = (networkId: string, status: int) => void;
+
+/**
+ * The listeners of Distributed File System.
+ *
+ * @typedef DfsListeners
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 23 static
+ */
+export interface DfsListeners {
+  /**
+   * The Listener of Distributed File System status
+   *
+   * @type { DfsListenerCallback }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onStatus: DfsListenerCallback;
 }
 
 /**
