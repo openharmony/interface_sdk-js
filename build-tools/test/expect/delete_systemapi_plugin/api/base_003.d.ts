@@ -1,28 +1,42 @@
+/*
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 /**
  * @since 20
- * @systemapi
+ * 
  */
 export namespace TestModuleB {
   /**
    * @since 20
-   * @systemapi
+   * 
    */
   import { TestResult, OperationStatus } from './base_002';
 
   /**
    * @since 20
-   * @systemapi
+   * 
    */
   export class ResponseHandler {
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     private responses: TestResult<any>[] = [];
 
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     public addResponse<T>(result: TestResult<T>): void {
       this.responses.push(result);
@@ -54,12 +68,12 @@ export namespace TestModuleB {
 
   /**
    * @since 20
-   * @systemapi
+   * 
    */
   export class UnusedImportDemo {
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     private unusedField: string = "This class imports types but doesn't use them";
 
@@ -74,7 +88,7 @@ export namespace TestModuleB {
 
     /**
      * @since 20
-     * @systemapi
+     *
      */
     public anotherMethod(): number {
       return 42;
@@ -83,7 +97,7 @@ export namespace TestModuleB {
 
   /**
    * @since 20
-   * @systemapi
+   * 
    */
   export type LocalTypeOnly = {
     id: string;
@@ -95,16 +109,16 @@ export namespace TestModuleB {
    * @since 20
    * @systemapi
    */
-  // import { NonExistentType } from './NonExistentModule';
+  // import { NonExistentType } from './base_002';
 
   /**
    * @since 20
-   * @systemapi
+   * 
    */
   export class ErrorSimulator {
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     public simulateImportError(): void {
       try {
@@ -131,32 +145,32 @@ export namespace TestModuleB {
 
   /**
    * @since 20
-   * @systemapi
+   * 
    */
   export enum ResponseCode {
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     OK = 200,
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     CREATED = 201,
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     BAD_REQUEST = 400,
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     UNAUTHORIZED = 401,
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     NOT_FOUND = 404,
     /**
@@ -168,27 +182,27 @@ export namespace TestModuleB {
 
   /**
    * @since 20
-   * @systemapi
+   * 
    */
   export interface ProcessingOptions {
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     maxRetries: number;
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     timeout: number;
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     fallbackEnabled: boolean;
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     logging: {
       level: 'debug' | 'info' | 'warn' | 'error';

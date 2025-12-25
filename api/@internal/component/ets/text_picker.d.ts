@@ -1753,6 +1753,16 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @atomicservice
    * @since 20 dynamic
    */
+  /**
+   * Background style of selected items.
+   *
+   * @type { ?PickerBackgroundStyle }
+   * @default { color: $r('sys.color.comp_background_tertiary'), borderRadius: $r('sys.float.corner_radius_level12') }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   selectedBackgroundStyle?: PickerBackgroundStyle;
 }
 
@@ -2099,6 +2109,16 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20 dynamic
+   */
+  /**
+   * Background style of selected items.
+   *
+   * @type { ?PickerBackgroundStyle }
+   * @default { color: $r('sys.color.comp_background_tertiary'), borderRadius: $r('sys.float.corner_radius_level12') }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   selectedBackgroundStyle?: PickerBackgroundStyle;
 }

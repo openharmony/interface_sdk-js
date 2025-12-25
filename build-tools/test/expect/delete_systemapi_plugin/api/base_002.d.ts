@@ -1,11 +1,25 @@
+/*
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 /**
  * @since 20
- * @systemapi
+ *
  */
 export namespace TestModuleA {
   /**
    * @since 20
-   * @systemapi
+   * 
    */
   export interface TestResult<T> {
     success: boolean;
@@ -16,17 +30,17 @@ export namespace TestModuleA {
 
   /**
    * @since 20
-   * @systemapi
+   * 
    */
   export enum OperationStatus {
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     PENDING = "pending",
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     RUNNING = "running",
     /**
@@ -36,19 +50,19 @@ export namespace TestModuleA {
     COMPLETED = "completed",
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     FAILED = "failed",
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     CANCELLED = "cancelled"
   }
 
   /**
    * @since 20
-   * @systemapi
+   *
    */
   export type ValidationRule = {
     field: string;
@@ -61,18 +75,18 @@ export namespace TestModuleA {
 
   /**
    * @since 20
-   * @systemapi
+   *
    */
   export class DataProcessor {
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     private data: any[] = [];
 
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     constructor(initialData: any[] = []) {
       this.data = initialData;
@@ -93,7 +107,7 @@ export namespace TestModuleA {
 
     /**
      * @since 20
-     * @systemapi
+     * 
      */
     public getStatus(): OperationStatus {
       return this.data.length > 0 ? OperationStatus.COMPLETED : OperationStatus.PENDING;
@@ -109,17 +123,6 @@ export namespace TestModuleA {
     transformed: string;
     validated: boolean;
   };
-
-  /**
-   * @since 20
-   * @systemapi
-   */
-  export const DEFAULT_CONFIG = {
-    timeout: 5000,
-    retries: 3,
-    debug: false,
-    logLevel: "info" as const
-  } as const;
 
   /**
    * @since 20

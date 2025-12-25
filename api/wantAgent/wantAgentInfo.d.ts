@@ -226,8 +226,7 @@ export interface WantAgentInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 22 dynamic
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   userId?: int;
 }

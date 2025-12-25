@@ -585,8 +585,7 @@ export interface Camera extends Node {
 
   /**
    * get the view matrix of this camera
-   *
-   * @returns { Mat4x4 } the view matrix of this camera
+   * @returns { Mat4x4 } -- the view matrix of this camera
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
@@ -594,8 +593,7 @@ export interface Camera extends Node {
 
   /**
    * get the projection matrix of this camera
-   *
-   * @returns { Mat4x4 } the projection matrix of this camera
+   * @returns { Mat4x4 } -- the projection matrix of this camera
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */

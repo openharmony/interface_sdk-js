@@ -7948,18 +7948,16 @@ declare interface DragItemInfo {
 declare function animateTo(value: AnimateParam, event: () => void): void;
 
 /**
- * Implements immediate delivery of an explicit animation through a **UIContext** object. 
- * When multiple property animations are loaded at once, you can call this API to immediately 
- * execute the transition animation for state changes caused by the specified closure function.
+ * Define animation functions for immediate distribution.
+ * This interface depends on the UI context and cannot be used when the UI context is unclear. It is recommended to use
+ * {@link ohos.arkui.UIContext.UIContext#animateToImmediately} to explicitly specify the UI context.
  *
  * @param { AnimateParam } value - Set animation effect parameters.
  * @param { function } event - Specify the closure function that displays dynamic effects,
  *     and the system will automatically insert transition animations for state changes caused by the closure function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12 dynamiconly
- * @deprecated since 22
- * @useinstead ohos.arkui.UIContext.UIContext#animateToImmediately
+ * @since 12 dynamic
  */
 declare function animateToImmediately(value: AnimateParam, event: () => void): void;
 
@@ -13267,15 +13265,6 @@ declare type DataLoadParams = import('../api/@ohos.data.unifiedDataChannel').def
  * @since 14 dynamic
  */
 declare enum DragResult {
-  /**
-   * If the drag is not finished and the result is not set by receiver, return DragResult.UNKNOWN.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  UNKNOWN = -1,
   /**
    * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
    *
