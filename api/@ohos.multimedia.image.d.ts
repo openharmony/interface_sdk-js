@@ -11693,14 +11693,30 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12 dynamic
-     * @since 23 static
      */
     getImageProperties(key: Array<PropertyKey>): Promise<Record<PropertyKey, string|null>>;
+
+    /**
+     * Obtains the value of properties in an image. This method uses a promise to return the property values in array
+     * of records.
+     *
+     * @param { Array<PropertyKey> } key - Name of the properties whose value is to be obtained.
+     * @returns { Promise<Record<string, string|null>> } Array of Records instance used to return the
+     *     property values. If the operation fails, the null is returned.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     *     2. Decoding process exception. 3. Insufficient memory.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 23 static
+     */
+    getImageProperties(key: Array<PropertyKey>): Promise<Record<string, string|null>>;
 
     /**
      * Obtains the value of a property in the image.
@@ -11833,9 +11849,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12 dynamic
-     * @since 23 static
      */
     modifyImageProperties(records: Record<PropertyKey, string|null>): Promise<void>;
+
+    /**
+     * Modify the value of properties in an image with the specified keys.
+     *
+     * @param { Record<string, string|null> } records - Array of the property Records whose values are to
+     *     be modified.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
+     *     error message is returned.
+     * @throws { BusinessError } 62980123 - The image does not support EXIF decoding.
+     * @throws { BusinessError } 62980135 - The EXIF value is invalid.
+     * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 23 static
+     */
+    modifyImageProperties(records: Record<string, string|null>): Promise<void>;
 
     /**
      * Modify the value of properties in an image with the specified keys. The method is more efficient than
