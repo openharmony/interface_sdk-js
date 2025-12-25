@@ -219,7 +219,7 @@ declare class Deque<T> {
    * Obtains the header element of a deque.
    *
    * @returns { T } the T type
-   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -250,7 +250,7 @@ declare class Deque<T> {
    * Obtains the end element of a deque.
    *
    * @returns { T } the T type
-   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -281,7 +281,7 @@ declare class Deque<T> {
    * Obtains the header element of a deque and delete the element.
    *
    * @returns { T } the T type
-   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The popFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -312,7 +312,7 @@ declare class Deque<T> {
    * Obtains the end element of a deque and delete the element.
    *
    * @returns { T } the T type
-   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The popLast method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform

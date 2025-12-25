@@ -166,7 +166,7 @@ declare class Queue<T> {
    * Obtains the header element of a queue.
    *
    * @returns { T } the T type
-   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -197,7 +197,7 @@ declare class Queue<T> {
    * Retrieves and removes the head of this queue
    *
    * @returns { T } the T type
-   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The pop method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
