@@ -246,7 +246,8 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     createSubWindowWithOptions(name: string, subWindowConfig: window.SubWindowOptions,
         followCreatorLifecycle: boolean): Promise<window.Window>;
