@@ -1866,11 +1866,18 @@ declare namespace uniformTypeDescriptor {
     /**
      * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
      *
-     * @returns { string } Type ID of the uniform data type.
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 22 dynamic
-     * @since 23 static
+     */
+    /**
+     * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
+     *
+     * @returns { string } Type ID of the uniform data type.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 23 dynamic&static
      */
     get typeId(): string;
 
@@ -1894,11 +1901,18 @@ declare namespace uniformTypeDescriptor {
     /**
      * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
      *
-     * @param { string } value - Type ID of the uniform data type.
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 22 dynamic
-     * @since 23 static
+     */
+    /**
+     * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
+     *
+     * @param { string } value - Type ID of the uniform data type.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 23 dynamic&static
      */
     set typeId(value: string);
 
@@ -1922,11 +1936,18 @@ declare namespace uniformTypeDescriptor {
     /**
      * Uniform data type IDs that the uniform data type belongs to.
      *
-     * @returns { Array<string> } Uniform data type IDs
+     * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 22 dynamic
-     * @since 23 static
+     */
+        /**
+     * Uniform data type IDs that the uniform data type belongs to.
+     *
+     * @returns { Array<string> } Uniform data type IDs
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 23 dynamic&static
      */
     get belongingToTypes(): Array<string>;
 
@@ -1950,11 +1971,18 @@ declare namespace uniformTypeDescriptor {
     /**
      * Uniform data type IDs that the uniform data type belongs to.
      *
-     * @param { Array<string> } value - Uniform data type IDs
+     * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 22 dynamic
-     * @since 23 static
+     */
+    /**
+     * Uniform data type IDs that the uniform data type belongs to.
+     *
+     * @param { Array<string> } value - Uniform data type IDs
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 23 dynamic&static
      */
     set belongingToTypes(value: Array<string>);
 
@@ -1978,11 +2006,18 @@ declare namespace uniformTypeDescriptor {
     /**
      * A textual description for the uniform data type.
      *
-     * @returns { string } A textual description
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 22 dynamic
-     * @since 23 static
+     */
+    /**
+     * A textual description for the uniform data type.
+     *
+     * @returns { string } A textual description
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 23 dynamic&static
      */
     get description(): string;
 
@@ -2006,11 +2041,18 @@ declare namespace uniformTypeDescriptor {
     /**
      * A textual description for the uniform data type.
      *
-     * @param { string } value - A textual description
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 22 dynamic
-     * @since 23 static
+     */
+    /**
+     * A textual description for the uniform data type.
+     *
+     * @param { string } value - A textual description
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 23 dynamic&static
      */
     set description(value: string);
 
@@ -2034,11 +2076,18 @@ declare namespace uniformTypeDescriptor {
     /**
      * Reference URL for the uniform data type, which describes the detail information of the type.
      *
-     * @returns { string } Reference URL
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 22 dynamic
-     * @since 23 static
+     */
+    /**
+     * Reference URL for the uniform data type, which describes the detail information of the type.
+     *
+     * @returns { string } Reference URL
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 23 dynamic&static
      */
     get referenceURL(): string;
 
@@ -2062,11 +2111,18 @@ declare namespace uniformTypeDescriptor {
     /**
      * Reference URL for the uniform data type, which describes the detail information of the type.
      *
-     * @param { string } value - Reference URL
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 22 dynamic
-     * @since 23 static
+     */
+    /**
+     * Reference URL for the uniform data type, which describes the detail information of the type.
+     *
+     * @param { string } value - Reference URL
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 23 dynamic&static
      */
     set referenceURL(value: string);
 
@@ -2090,11 +2146,18 @@ declare namespace uniformTypeDescriptor {
     /**
      * Default icon file path for the uniform data type.
      *
-     * @returns { string } Default icon file path
+     * @type { string } Default icon file path
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 22 dynamic
-     * @since 23 static
+     */
+    /**
+     * Default icon file path for the uniform data type.
+     *
+     * @returns { string } Default icon file path
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 23 dynamic&static
      */
     get iconFile(): string;
 
@@ -2118,11 +2181,18 @@ declare namespace uniformTypeDescriptor {
     /**
      * Default icon file path for the uniform data type.
      *
-     * @param { string } value - Default icon file path
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 22 dynamic
-     * @since 23 static
+     */
+    /**
+     * Default icon file path for the uniform data type.
+     *
+     * @param { string } value - Default icon file path
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 23 dynamic&static
      */
     set iconFile(value: string);
 
@@ -2146,11 +2216,18 @@ declare namespace uniformTypeDescriptor {
     /**
      * File name extensions for the uniform data type.
      *
-     * @returns { Array<string> } File name extensions
+     * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 22 dynamic
-     * @since 23 static
+     */
+    /**
+     * File name extensions for the uniform data type.
+     *
+     * @returns { Array<string> } File name extensions
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 23 dynamic&static
      */
     get filenameExtensions(): Array<string>;
 
@@ -2174,11 +2251,18 @@ declare namespace uniformTypeDescriptor {
     /**
      * File name extensions for the uniform data type.
      *
-     * @param { Array<string> } value - File name extensions
+     * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 22 dynamic
-     * @since 23 static
+     */
+    /**
+     * File name extensions for the uniform data type.
+     *
+     * @param { Array<string> } value - File name extensions
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 23 dynamic&static
      */
     set filenameExtensions(value: Array<string>);
 
@@ -2202,11 +2286,18 @@ declare namespace uniformTypeDescriptor {
     /**
      * MIMETypes of the uniform data type.
      *
-     * @returns { Array<string> } MIMETypes
+     * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 22 dynamic
-     * @since 23 static
+     */
+    /**
+     * MIMETypes of the uniform data type.
+     *
+     * @returns { Array<string> } MIMETypes
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 23 dynamic&static
      */
     get mimeTypes(): Array<string>;
 
@@ -2230,11 +2321,18 @@ declare namespace uniformTypeDescriptor {
     /**
      * MIMETypes of the uniform data type.
      *
-     * @param { Array<string> } value - MIMETypes
+     * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 22 dynamic
-     * @since 23 static
+     */
+    /**
+     * MIMETypes of the uniform data type.
+     *
+     * @param { Array<string> } value - MIMETypes
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 23 dynamic&static
      */
     set mimeTypes(value: Array<string>);
 
