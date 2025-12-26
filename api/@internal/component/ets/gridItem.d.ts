@@ -130,9 +130,11 @@ declare interface GridItemOptions {
  *
  * @interface GridItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 interface GridItemInterface {
   /**
@@ -156,6 +158,7 @@ interface GridItemInterface {
    * @param { GridItemOptions } value - Defines the grid item options.
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -177,9 +180,11 @@ interface GridItemInterface {
 /**
  * @extends CommonMethod<GridItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
   /**
@@ -205,6 +210,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { number } value
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -234,6 +240,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { number } value
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -263,6 +270,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { number } value
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -292,6 +300,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { number } value
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -304,6 +313,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { boolean } value
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 9
    */
@@ -332,6 +342,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { boolean } value
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -384,6 +395,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @param { function } event
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -408,9 +420,11 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
  * Defines GridItem Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare const GridItem: GridItemInterface
 
@@ -431,8 +445,10 @@ declare const GridItem: GridItemInterface
  * Defines GridItem Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare const GridItemInstance: GridItemAttribute;

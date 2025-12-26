@@ -3720,6 +3720,7 @@ declare interface AccessibilityActionOptions {
  *
  * @interface ScrollBarMargin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 20 dynamic
  */
@@ -3729,6 +3730,7 @@ declare interface ScrollBarMargin {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -3739,6 +3741,7 @@ declare interface ScrollBarMargin {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -3782,6 +3785,7 @@ declare interface ItemFillPolicy {
  * Define cache count information.
  * @interface CacheCountInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
@@ -3791,6 +3795,7 @@ declare interface CacheCountInfo {
  * 
  * @type { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
@@ -3800,6 +3805,7 @@ minCount: number;
  * 
  * @type { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
