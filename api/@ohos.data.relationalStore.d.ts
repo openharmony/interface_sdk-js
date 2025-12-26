@@ -7709,7 +7709,7 @@ declare namespace relationalStore {
      * Executes a SQL statement that contains specified parameters and returns a value of ValueType.
      *
      * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { number } txId - Indicates the transaction ID which is obtained by beginTrans or 0.
+     * @param { long } txId - Indicates the transaction ID which is obtained by beginTrans or 0.
      * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement.
      * The values are strings.
      * @returns { Promise<ValueType> } The promise returned by the function.
@@ -7737,9 +7737,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @since 12 dynamic
+     * @since 23 static
      */
-    execute(sql: string, txId: number, args?: Array<ValueType>): Promise<ValueType>;
+    execute(sql: string, txId: long, args?: Array<ValueType>): Promise<ValueType>;
 
     /**
      * Executes a SQL statement that contains specified parameters and returns a value of ValueType with sync interface.
