@@ -3086,8 +3086,7 @@ declare namespace util {
   }
 
   /**
-   * Decodes a Base64 encoded String or input u8 array into a newly-allocated
-   * u8 array using the Base64 encoding scheme.
+   * Decodes a string or Uint8Array containing Base64 data into a newly allocated Uint8Array.
    *
    * @syscap SystemCapability.Utils.Lang
    * @since 8 dynamiconly
@@ -3130,7 +3129,7 @@ declare namespace util {
     encodeToStringSync(src: Uint8Array): string;
 
     /**
-     * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
+     * Decodes a Base64-encoded string or Uint8Array into a newly allocated Uint8Array.
      *
      * @param { Uint8Array | string } src - A Uint8Array value or value A string value
      * @returns { Uint8Array } Return the decoded Uint8Array.
