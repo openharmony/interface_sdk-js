@@ -67,6 +67,7 @@ export * from './arkui/component/gridCol';
 export * from './arkui/component/gridRow';
 export * from './arkui/component/gridItem';
 export * from './arkui/component/hyperlink';
+export * from './arkui/component/if';
 export * from './arkui/component/inspector';
 export * from './arkui/component/image';
 export * from './arkui/component/imageAnimator';
