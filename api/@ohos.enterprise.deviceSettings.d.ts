@@ -143,6 +143,25 @@ declare namespace deviceSettings {
   }
 
   /**
+   * The item of settings.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  enum SettingsItem {
+      /**
+       * device name.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 23
+       */
+      DEVICE_NAME = 0
+  }
+
+  /**
    * User certificate data.
    *
    * @typedef CertBlob
@@ -502,6 +521,46 @@ declare namespace deviceSettings {
    * @since 20
    */
   function setUnlockWallpaper(admin: Want, fd: number): Promise<void>;
+
+  /**
+   * Sets the device settings value for account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { SettingsItem } item - item indicates the settings item that need to be set.
+   * @param { number } accountId - accountId indicates the account ID to be queried.
+   * <br>Value range:[0, ∞)
+   * @param { string } value - device settings policy.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function setValueForAccount(admin: Want, item: SettingsItem, accountId: number, value: string): void;
+  /**
+   * Gets the device settings value for account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { SettingsItem } item - item indicates the device properties that need to be get.
+   * @param { number } accountId - accountId indicates the account ID to be queried.
+   * <br>Value range:[0, ∞)
+   * @returns { string } device settings policy.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function getValueForAccount(admin: Want, item: SettingsItem, accountId: number): string;
 }
 
 export default deviceSettings;
