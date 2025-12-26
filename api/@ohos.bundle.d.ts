@@ -573,7 +573,7 @@ declare namespace bundle {
    * @param { string } abilityName - Indicates the ability name.
    * @param { AsyncCallback<AbilityInfo> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getAbilityInfo(bundleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
@@ -586,7 +586,7 @@ declare namespace bundle {
    * @param { string } abilityName - Indicates the ability name.
    * @returns { Promise<AbilityInfo> } Returns the AbilityInfo object for the current ability.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getAbilityInfo(bundleName: string, abilityName: string): Promise<AbilityInfo>;
@@ -601,7 +601,7 @@ declare namespace bundle {
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<ApplicationInfo> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getApplicationInfo(bundleName: string,
@@ -616,7 +616,7 @@ declare namespace bundle {
    *                                 in the ApplicationInfo object that will be returned.
    * @param { AsyncCallback<ApplicationInfo> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getApplicationInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<ApplicationInfo>): void;
@@ -631,7 +631,7 @@ declare namespace bundle {
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<ApplicationInfo> } Returns the ApplicationInfo object.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<ApplicationInfo>;
@@ -693,7 +693,7 @@ declare namespace bundle {
    * @param { number } userId - Indicates the user ID.
    * @param { AsyncCallback<Array<BundleInfo>> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getAllBundleInfo(bundleFlag: BundleFlag, userId: number, callback: AsyncCallback<Array<BundleInfo>>): void;
@@ -706,7 +706,7 @@ declare namespace bundle {
    *                                    in the BundleInfo that will be returned.
    * @param { AsyncCallback<Array<BundleInfo>> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getAllBundleInfo(bundleFlag: BundleFlag, callback: AsyncCallback<Array<BundleInfo>>): void;
@@ -720,7 +720,7 @@ declare namespace bundle {
    * @param { number } userId - Indicates the user ID.
    * @returns { Promise<Array<BundleInfo>> } Returns a list of BundleInfo objects.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getAllBundleInfo(bundleFlag: BundleFlag, userId?: number): Promise<Array<BundleInfo>>;
@@ -1051,7 +1051,7 @@ declare namespace bundle {
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { AsyncCallback<boolean> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   function isApplicationEnabled(bundleName: string, callback: AsyncCallback<boolean>): void;
@@ -1062,7 +1062,7 @@ declare namespace bundle {
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @returns { Promise<boolean> } Returns true if the application is enabled; returns false otherwise.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   function isApplicationEnabled(bundleName: string): Promise<boolean>;
