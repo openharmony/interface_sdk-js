@@ -18,6 +18,8 @@
  * @kit MechanicKit
  */
 
+/*** if arkts dynamic&static */
 import mechanicManager from '@ohos.distributedHardware.mechanicManager';
 
 export { mechanicManager };
+/*** endif */
