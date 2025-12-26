@@ -1189,6 +1189,7 @@ declare namespace text {
      * @since 23 static
      */
     END,
+
     /**
      * Places the ellipsis in the text header. It is valid for any value of maxLines in ParagraphStyle.
      * @syscap SystemCapability.Graphics.Drawing
