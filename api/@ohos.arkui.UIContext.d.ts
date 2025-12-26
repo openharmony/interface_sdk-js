@@ -2529,7 +2529,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   onSwiperContentUpdate(callback: Callback<SwiperContentInfo>): void;
 
@@ -2541,7 +2541,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   offSwiperContentUpdate(callback?: Callback<SwiperContentInfo>): void;
 
@@ -2554,7 +2554,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   onSwiperContentUpdate(config: observer.ObserverOptions, callback: Callback<SwiperContentInfo>): void;
 
@@ -2567,7 +2567,7 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   offSwiperContentUpdate(config: observer.ObserverOptions, callback?: Callback<SwiperContentInfo>): void;
 
@@ -2654,7 +2654,7 @@ export class UIObserver {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 23 dynamic
+ * @since 22 dynamic
  */
 export interface SwiperContentInfo {
   /**
@@ -2664,7 +2664,7 @@ export interface SwiperContentInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   id: string;
 
@@ -2675,7 +2675,7 @@ export interface SwiperContentInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   uniqueId: number;
 
@@ -2686,7 +2686,7 @@ export interface SwiperContentInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   swiperItemInfos: Array<SwiperItemInfo>;
 }
@@ -2698,7 +2698,7 @@ export interface SwiperContentInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 23 dynamic
+ * @since 22 dynamic
  */
 export interface SwiperItemInfo {
   /**
@@ -2708,7 +2708,7 @@ export interface SwiperItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   uniqueId: number;
 
@@ -2719,7 +2719,7 @@ export interface SwiperItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 22 dynamic
    */
   index: number;
 }  
