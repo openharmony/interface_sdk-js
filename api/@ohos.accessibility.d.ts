@@ -1016,15 +1016,6 @@ declare namespace accessibility {
    * @typedef {'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
-   * @since 22 dynamic
-   */
-  /**
-   * The type of the Ability app.
-   *
-   * { 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all' }
-   * @typedef {'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all'}
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
    * @form
    * @atomicservice
    * @since 23 dynamic&static
@@ -1050,18 +1041,6 @@ declare namespace accessibility {
    * @typedef {'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' | 'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' | 'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' | 'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12 dynamic
-   */
-  /**
-   * The action that the ability can execute.
-   * value range: { 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
-   * 'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' |
-   * 'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' |
-   * 'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common' }
-   *
-   * @typedef {'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' | 'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' | 'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' | 'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common'}
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
-   * @since 22 dynamic
    */
   /**
    * The action that the ability can execute.
@@ -1127,20 +1106,6 @@ declare namespace accessibility {
    * 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
    * 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
    * 'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' |
-   * 'announceForAccessibilityNotInterrupt' | 'scrolling' }
-   *
-   * @typedef {'accessibilityFocus' | 'accessibilityFocusClear' | 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' | 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' | 'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' | 'announceForAccessibilityNotInterrupt' | 'scrolling'}
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
-   * @since 22 dynamic
-   */
-  /**
-   * The type of the accessibility event.
-   * windowsChange/windowContentChange/windowStateChange/announcement/notificationChange/textTraversedAtMove
-   * value range: { 'accessibilityFocus' | 'accessibilityFocusClear' |
-   * 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
-   * 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
-   * 'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' |
    * 'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive' }
    *
    * @typedef {'accessibilityFocus' | 'accessibilityFocusClear' | 'click' | 'longClick' |
@@ -1193,14 +1158,6 @@ declare namespace accessibility {
    * @typedef {'enable' | 'disable' | 'install'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
-   * @since 22 dynamic
-   */
-  /**
-   * The type of the ability state.
-   *
-   * @typedef {'enable' | 'disable' | 'install'}
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
    * @form
    * @atomicservice
    * @since 23 dynamic&static
@@ -1219,20 +1176,6 @@ declare namespace accessibility {
    * @typedef {'retrieve' | 'touchGuide' | 'keyEventObserver' | 'zoom' | 'gesture'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7 dynamic
-   */
-   /**
-   * The ability that accessibility subsystem support.
-   * touchExplorer: Describes the capability to talkback.
-   * magnification: Describes the capability to request to control the display magnification.
-   * gesturesSimulation: Describes the capability to request to simulate the gesture.
-   * windowContent: Describes the capability to search for the content of the active window.
-   * filterKeyEvents: Describes the capability to request to filter key events.
-   * fingerprintGesture: Describes the capability to request to fingerprint gesture.
-   *
-   * @typedef {'retrieve' | 'touchGuide' | 'keyEventObserver' | 'zoom' | 'gesture'}
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
-   * @since 22 dynamic
    */
   /**
    * The ability that accessibility subsystem support.
@@ -1371,15 +1314,6 @@ declare namespace accessibility {
    * @returns { boolean } Returns true if the touch browser is enabled; returns false otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  /**
-   * Checks touch browser ability (which is used by talkback) is enabled.
-   *
-   * @returns { boolean } Returns true if the touch browser is enabled; returns false otherwise.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @crossplatform
    * @form
    * @atomicservice
    * @since 23 dynamic&static
@@ -1391,13 +1325,6 @@ declare namespace accessibility {
    * @returns { boolean } Returns true if the screen reader is enabled; return false otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @since 18 dynamic
-   */
-  /**
-   * Checks screen reader ability (which is used by talkback) is enabled.
-   * @returns { boolean } Returns true if the screen reader is enabled; return false otherwise.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @crossplatform
-   * @since 22 dynamic
    */
   /**
    * Checks screen reader ability (which is used by talkback) is enabled.
@@ -1465,20 +1392,6 @@ declare namespace accessibility {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
-   * @since 22 dynamic
-   */
-  /**
-   * Queries the list of accessibility abilities.
-   *
-   * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
-   * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
-   * @returns { Promise<Array<AccessibilityAbilityInfo>> } Returns the list of abilityInfos.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
    * @form
    * @atomicservice
    * @since 23 dynamic&static
@@ -1513,20 +1426,6 @@ declare namespace accessibility {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
-   * @since 22 dynamic
-   */
-  /**
-   * Queries the list of accessibility abilities.
-   *
-   * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
-   * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
-   * @param { AsyncCallback<Array<AccessibilityAbilityInfo>> } callback
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
    * @form
    * @atomicservice
    * @since 23 dynamic&static
@@ -1545,16 +1444,6 @@ declare namespace accessibility {
    * @returns { Array<AccessibilityAbilityInfo> } Returns the list of abilityInfos.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12 dynamic
-   */
-  /**
-   * Queries the list of accessibility abilities.
-   *
-   * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
-   * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
-   * @returns { Array<AccessibilityAbilityInfo> } Returns the list of abilityInfos.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
-   * @since 22 dynamic
    */
   /**
    * Queries the list of accessibility abilities.
@@ -1620,19 +1509,6 @@ declare namespace accessibility {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
-   * @since 22 dynamic
-   */
-  /**
-   * Send accessibility event.
-   *
-   * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
-   * @param { AsyncCallback<void> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
    * @form
    * @atomicservice
    * @since 23 dynamic&static
@@ -1662,19 +1538,6 @@ declare namespace accessibility {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
-   * @since 22 dynamic
-   */
-  /**
-   * Send accessibility event.
-   *
-   * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
-   * @returns { Promise<void> } Returns {@code true} if success ; returns {@code false} otherwise.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
    * @form
    * @atomicservice
    * @since 23 dynamic&static
@@ -1683,16 +1546,9 @@ declare namespace accessibility {
 
   /**
    * Gets touch mode type.
-   * @returns { string } Returns touch mode type, include 'singleTouchMode', 'doubleTouchMode', and 'none'.
+   * @returns { string } Returns touch mode type, include 'singleTouchMode', 'doubleTouchMode' and 'none'.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20 dynamic
-   */
-  /**
-   * Gets touch mode type.
-   * @returns { string } Returns touch mode type, include 'singleTouchMode', 'doubleTouchMode', and 'none'.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
-   * @since 22 dynamic
    */
   /**
    * Gets touch mode type.
@@ -1782,19 +1638,6 @@ declare namespace accessibility {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @crossplatform
-   * @since 22 dynamic
-   */
-  /**
-   * Register the observe of the touchGuide state changed.
-   *
-   * @param { 'touchGuideStateChange' } type state event type.
-   * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @crossplatform
    * @form
    * @atomicservice
    * @since 23 dynamic
@@ -1816,25 +1659,13 @@ declare namespace accessibility {
   /**
    * Register the observe of the screen reader state changed.
    * @param { 'screenReaderStateChange' } type state event type.
-   * @param { Callback<boolean> } callback callback Asynchronous callback interface.
+   * @param { Callback<boolean> } callback Asynchronous callback interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 18 dynamic
-   */
-  /**
-   * Register the observe of the screen reader state changed.
-   * @param { 'screenReaderStateChange' } type state event type.
-   * @param { Callback<boolean> } callback callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types;
-   * 3. Parameter verification failed.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
-   * @since 22 dynamic
    */
   /**
    * Register the observe of the screen reader state changed.
@@ -1867,10 +1698,7 @@ declare namespace accessibility {
    * Register the observe of the touch mode changed.
    * @param { 'touchModeChange' } type touch mode change.
    * @param { Callback<string> } callback callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types;
-   * 3. Parameter verification failed.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20 dynamic
    */
@@ -1878,22 +1706,7 @@ declare namespace accessibility {
    * Register the observe of the touch mode changed.
    * @param { 'touchModeChange' } type touch mode change.
    * @param { Callback<string> } callback callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types;
-   * 3. Parameter verification failed.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
-   * @since 22 dynamic
-   */
-  /**
-   * Register the observe of the touch mode changed.
-   * @param { 'touchModeChange' } type touch mode change.
-   * @param { Callback<string> } callback callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * 3.Parameter verification failed.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @form
@@ -1971,26 +1784,13 @@ declare namespace accessibility {
    * Unregister the observe of the touchGuide state changed.
    *
    * @param { 'touchGuideStateChange' } type state event type
-   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @param { Callback<boolean> } [callback] Asynchronous callback interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7 dynamic
-   */
-  /**
-   * Unregister the observe of the touchGuide state changed.
-   *
-   * @param { 'touchGuideStateChange' } type state event type
-   * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
-   * @since 22 dynamic
    */
   /**
    * Unregister the observe of the touchGuide state changed.
@@ -2023,25 +1823,13 @@ declare namespace accessibility {
   /**
    * Unregister the observe of the screen reader state changed.
    * @param { 'screenReaderStateChange' } type state event type
-   * @param { Callback<boolean> } callback callback Asynchronous callback interface.
+   * @param { Callback<boolean> } [callback] callback Asynchronous callback interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 18 dynamic
-   */
-  /**
-   * Unregister the observe of the screen reader state changed.
-   * @param { 'screenReaderStateChange' } type state event type
-   * @param { Callback<boolean> } callback callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types;
-   * 3. Parameter verification failed.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
-   * @since 22 dynamic
    */
   /**
    * Unregister the observe of the screen reader state changed.
@@ -2073,34 +1861,16 @@ declare namespace accessibility {
   /**
    * Unregister the observe of the touch mode changed.
    * @param { 'touchModeChange' } type touch mode change.
-   * @param { Callback<string> } callback callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types;
-   * 3. Parameter verification failed.
+   * @param { Callback<string> } [callback] callback Asynchronous callback interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20 dynamic
    */
   /**
    * Unregister the observe of the touch mode changed.
    * @param { 'touchModeChange' } type touch mode change.
-   * @param { Callback<string> } callback callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types;
-   * 3. Parameter verification failed.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
-   * @since 22 dynamic
-   */
-  /**
-   * Unregister the observe of the touch mode changed.
-   * @param { 'touchModeChange' } type touch mode change.
    * @param { Callback<string> } [callback] callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * 3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @form
@@ -2560,14 +2330,6 @@ declare namespace accessibility {
    * @typedef AccessibilityAbilityInfo
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
-   * @since 22 dynamic
-   */
-  /**
-   * Indicates the info of accessibility.
-   *
-   * @typedef AccessibilityAbilityInfo
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
    * @form
    * @atomicservice
    * @since 23 dynamic&static
@@ -2579,14 +2341,6 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     */
-    /**
-     * The ability id.
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @crossplatform
-     * @since 22 dynamic
      */
     /**
      * The ability id.
@@ -2613,14 +2367,6 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * The ability name.
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @crossplatform
      * @form
      * @atomicservice
      * @since 23 dynamic&static
@@ -2640,14 +2386,6 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * The bundle name of the ability.
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @crossplatform
      * @form
      * @atomicservice
      * @since 23 dynamic&static
@@ -2659,14 +2397,6 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 9 dynamic
-     */
-    /**
-     * The target bundle name for the observation.
-     * @type { Array<string> }
-     * @readonly
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @crossplatform
-     * @since 22 dynamic
      */
     /**
      * The target bundle name for the observation.
@@ -2693,14 +2423,6 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * The type of the ability.
-     * @type { Array<AbilityType> }
-     * @readonly
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @crossplatform
      * @form
      * @atomicservice
      * @since 23 dynamic&static
@@ -2713,14 +2435,6 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     */
-    /**
-     * The capabilities of the ability.
-     * @type { Array<Capability> }
-     * @readonly
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @crossplatform
-     * @since 22 dynamic
      */
     /**
      * The capabilities of the ability.
@@ -2747,14 +2461,6 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * The description of the ability.
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @crossplatform
      * @form
      * @atomicservice
      * @since 23 dynamic&static
@@ -2767,14 +2473,6 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     */
-    /**
-     * The events which the accessibility ability wants to observe.
-     * @type { Array<EventType> }
-     * @readonly
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @crossplatform
-     * @since 22 dynamic
      */
     /**
      * The events which the accessibility ability wants to observe.
@@ -2836,13 +2534,6 @@ declare namespace accessibility {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
-   * @since 22 dynamic
-   */
-  /**
-   * Indicates the info of events.
-   *
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
    * @form
    * @atomicservice
    * @since 23 dynamic&static
@@ -2854,14 +2545,6 @@ declare namespace accessibility {
      * @param { Object } jsonObject - Character string in JSON format required for creating an object.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     */
-    /**
-     * A constructor used to create a EventInfo object.
-     *
-     * @param { Object } jsonObject - Character string in JSON format required for creating an object.
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @crossplatform
-     * @since 22 dynamic
      */
     /**
      * A constructor used to create a EventInfo object.
@@ -2892,16 +2575,6 @@ declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 11 dynamic
      */
-   /**
-     * A constructor used to create a EventInfo object.
-     *
-     * @param { EventType } type - The type of the accessibility event.
-     * @param { string } bundleName - The name of the bundle.
-     * @param { Action } triggerAction - The action that the ability can execute.
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @crossplatform
-     * @since 22 dynamic
-     */
     /**
      * A constructor used to create a EventInfo object.
      *
@@ -2920,13 +2593,6 @@ declare namespace accessibility {
      * @type { EventType }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     */
-    /**
-     * The type of an accessibility event.
-     * @type { EventType }
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @crossplatform
-     * @since 22 dynamic
      */
     /**
      * The type of an accessibility event.
@@ -2960,13 +2626,6 @@ declare namespace accessibility {
      * @type { string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     */
-    /**
-     * The bundle name of the target application.
-     * @type { string }
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @crossplatform
-     * @since 22 dynamic
      */
     /**
      * The bundle name of the target application.
@@ -3032,13 +2691,6 @@ declare namespace accessibility {
      * @type { Action }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     */
-    /**
-     * The action that triggers the accessibility event, for example, clicking or focusing a view.
-     * @type { Action }
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @crossplatform
-     * @since 22 dynamic
      */
     /**
      * The action that triggers the accessibility event, for example, clicking or focusing a view.
@@ -3190,13 +2842,6 @@ declare namespace accessibility {
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * The content of announce accessibility text.
-     * @type { ?string }
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @crossplatform
      * @form
      * @atomicservice
      * @since 23 dynamic&static
@@ -3224,13 +2869,6 @@ declare namespace accessibility {
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 12 dynamic
-     */
-    /**
-     * The customized element id.
-     * @type { ?string }
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @crossplatform
-     * @since 22 dynamic
      */
     /**
      * The customized element id.
