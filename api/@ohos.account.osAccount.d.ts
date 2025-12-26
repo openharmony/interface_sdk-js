@@ -2315,6 +2315,32 @@ declare namespace osAccount {
     offSwitched(callback?: Callback<OsAccountSwitchEventData>): void;
 
     /**
+     * Subscribes to the constraint change events of the current OS account.
+     *
+     * @param { string[] } constraints - Indicates the target constraints.
+     * @param { Callback<ConstraintChangeInfo> } callback - Callback for receiving constraint change information.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - One or more constraints are invalid.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    onConstraintChanged(constraints: string[], callback: Callback<ConstraintChangeInfo>): void;
+
+    /**
+     * Unsubscribes to the constraint change events of the current OS account.
+     *
+     * @param { Callback<ConstraintChangeInfo> } [callback] - Callback for receiving constraint change information.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    offConstraintChanged(callback?: Callback<ConstraintChangeInfo>): void;
+
+    /**
      * Check whether current process belongs to the main account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
@@ -2641,6 +2667,36 @@ declare namespace osAccount {
      * @since 23 dynamic&static
      */
     displayId?: long;
+  }
+
+  /**
+   * Defines the constraint change information.
+   *
+   * @interface ConstraintChangeInfo
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface ConstraintChangeInfo {
+    /**
+     * Indicates the constraint value.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    constraint: string;
+
+    /**
+     * Indicates whether the constraint is enabled.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    isEnabled: boolean;
   }
 
   /**
