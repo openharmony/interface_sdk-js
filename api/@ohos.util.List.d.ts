@@ -487,10 +487,11 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains the last element in this container.
+   * Returns the Last element (the item at index length-1) of this list.
+   * or returns undefined if list is empty
    *
    * @returns { T } the T type ,returns undefined if list is empty
-   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform

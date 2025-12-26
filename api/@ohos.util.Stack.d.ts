@@ -160,7 +160,7 @@ declare class Stack<T> {
    * Return undefined if this stack is empty
    *
    * @returns { T } the top value or undefined
-   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The peek method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -194,7 +194,7 @@ declare class Stack<T> {
    * an exception if the stack is empty
    *
    * @returns { T } Stack top value or undefined
-   * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The pop method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
