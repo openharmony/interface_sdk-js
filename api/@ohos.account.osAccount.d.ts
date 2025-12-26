@@ -2976,8 +2976,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getPropertyByCredentialId(credentialId: Uint8Array, keys: Array<GetPropertyType>): Promise<ExecutorProperty>;
 
@@ -4973,8 +4972,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300020 - Device hardware abnormal.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getAuthInfo(callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
 
@@ -5009,8 +5007,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300020 - Device hardware abnormal.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getAuthInfo(authType: AuthType, callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
 
@@ -5044,8 +5041,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300020 - Device hardware abnormal.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getAuthInfo(authType: AuthType): Promise<Array<EnrolledCredInfo>>;
 
@@ -5081,8 +5077,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300020 - Device hardware abnormal.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getAuthInfo(options?: GetAuthInfoOptions): Promise<Array<EnrolledCredInfo>>;
 
@@ -5123,8 +5118,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300106 - The authentication type is not supported.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getEnrolledId(authType: AuthType, accountId?: int): Promise<Uint8Array>;
 
