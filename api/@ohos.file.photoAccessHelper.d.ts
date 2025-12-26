@@ -4925,6 +4925,22 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     NOTIFY_CHANGE_YUV_READY = 3,
+    /**
+     * Media assets added to analysis album.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    NOTIFY_CHANGE_ADD_ANALYSIS = 4,
+    /**
+     * Media assets removed from analysis album.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    NOTIFY_CHANGE_REMOVE_ANALYSIS = 5
   }
 
   /**
@@ -6732,6 +6748,42 @@ declare namespace photoAccessHelper {
     off(type: 'trashedPhotoChange', callback?: Callback<PhotoAssetChangeInfos>): void;
 
     /**
+     * Subscribes to changes of analysis photos and videos.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
+     * @param { Callback<PhotoAssetChangeInfos> } callback Callback used to notify the application of the changes.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes:
+     *     The same callback is registered repeatedly.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onAnalysisPhotoChange(callback: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
+     * Unsubscribes from changes of analysis photos and videos.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
+     * @param { Callback<PhotoAssetChangeInfos> } [callback] Callback used for unsubscription.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes:
+     *     The same callback is unregistered repeatedly.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offAnalysisPhotoChange(callback?: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
      * Register the callback of album changes.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -6898,6 +6950,42 @@ declare namespace photoAccessHelper {
     * @since 23 dynamic&static
     */
     offSinglePhotoChange(asset?: PhotoAsset, callback?: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
+     * Subscribes to changes of the analysis album.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Callback<AlbumChangeInfos> } callback Callback used to notify the application of the changes.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes:
+     *     The same callback is registered repeatedly.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onAnalysisAlbumChange(callback: Callback<AlbumChangeInfos>): void;
+
+    /**
+     * Unsubscribes from changes in the analysis album.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Callback<AlbumChangeInfos> } [callback] Callback used for unsubscription.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes:
+     *     The same callback is unregistered repeatedly.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offAnalysisAlbumChange(callback?: Callback<AlbumChangeInfos>): void;
 
     /**
      * Get the PhotoPickerComponent default album name.
@@ -7583,6 +7671,17 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic
      */
     size?: number;
+
+    /**
+     * The analysis album change info.
+     *
+     * @type { ?(AlbumChangeInfo[] | null) } The analysis album change info.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    albumChangeInfos?: AlbumChangeInfo[] | null;
   }
 
   /**
