@@ -563,8 +563,22 @@ export class Router {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @deprecated since 23
+   * @useinstead ohos.arkui.UIContext.Router#getStackSize
    */
   getLength(): string;
+
+  /**
+   * Obtains the number of pages in the current stack.
+   *
+   * @returns { number } Number of pages in the stack. The maximum value is 32.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  getStackSize(): number;
 
   /**
    * Obtains information about the current page state.
