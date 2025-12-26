@@ -27,6 +27,7 @@ import Want from './@ohos.app.ability.Want';
  * @syscap SystemCapability.SelectionInput.Selection
  * @systemapi
  * @since 20 dynamic
+ * @since 23 static
  */
 export default class SelectionExtensionContext extends ExtensionContext {
 
@@ -61,6 +62,7 @@ export default class SelectionExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   startAbility(want: Want): Promise<void>;
 }
