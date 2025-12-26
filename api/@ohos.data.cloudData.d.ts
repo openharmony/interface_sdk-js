@@ -883,7 +883,7 @@ declare namespace cloudData {
   /**
    * Enumerates the types of cloud sync via the network.
    *
-   * @enum { int }
+   * @enum { long }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 12 dynamic
    * @since 23 static
