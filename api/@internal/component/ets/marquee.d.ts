@@ -285,6 +285,21 @@ interface MarqueeOptions {
    * @since 18 dynamic
    */
   src: string;
+
+  /**
+   * The spacing between two rounds of marquee.
+   *
+   * Default value is marquee width.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  spacing?: LengthMetrics;
 }
 
 /**
