@@ -203,6 +203,68 @@ declare namespace backup {
   interface File extends FileMeta, FileData, FileManifestData {}
 
   /**
+   * Parameters required to perform garbage collection (GC).
+   *
+   * @interface FileSystemRequestConfig
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface FileSystemRequestConfig {
+    /**
+     * Specifies the trigger type for garbage collection (0-default Device GC).
+     *
+     * @type { int }
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    triggerType: int;
+
+    /**
+     * Defines the target size (in MBytes) for garbage collection.
+     *
+     * @type { int }
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    writeSize: int;
+
+    /**
+     * Sets the maximum wait time (in seconds) for GC operation.
+     *
+     * @type { int }
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    waitTime: int;
+  }
+
+  /**
+   * Requests filesystem garbage collection with specified configuration.
+   *
+   * @permission ohos.permission.BACKUP
+   * @param { FileSystemRequestConfig } config - Configuration parameters for garbage collection.
+   *     <br>triggerType: 0. writeSize: 0 - 2097152(MB). waitTime: 0-300(s).
+   * @returns { Promise<int> } The errcode of garbage collection.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed,
+   *     application which is not a system application uses system API.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function fileSystemServiceRequest(config: FileSystemRequestConfig): Promise<int>;
+
+  /**
    * Obtain the backupVersion.
    *
    * @permission ohos.permission.BACKUP
