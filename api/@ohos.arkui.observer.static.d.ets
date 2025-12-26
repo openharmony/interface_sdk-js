@@ -205,14 +205,14 @@ declare namespace uiObserver {
      */
     export enum TabContentState {
         /**
-         * When the TabContent hidden.
+         * When the TabContent is shown.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 23 static
          */
         ON_SHOW = 0,
         /**
-         * When the TabContent hidden.
+         * When the TabContent is hidden.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 23 static
