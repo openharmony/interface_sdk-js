@@ -4080,8 +4080,8 @@ declare namespace photoAccessHelper {
     /**
      * Obtains the objects in the fetch result in segments.
      *
-     * @param { number } index - Index of the asset to obtain.
-     * @param { number } offset - Offset of the asset to obtain.
+     * @param { int } index - Index of the asset to obtain.
+     * @param { int } offset - Offset of the asset to obtain.
      * @returns { Promise<T[]> } Returns the objects in segments
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
@@ -4098,9 +4098,9 @@ declare namespace photoAccessHelper {
      * @param { int } index - Index of the asset to obtain.
      * @param { int } offset - Offset of the asset to obtain.
      * @returns { Promise<T[]> } Returns the objects in segments
-     * @throws {BusinessError } 23800151 - The scenariio parameter verification fails.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
      *     <br>Possible causes: index or offset validity check failed.
-     * @throws {BusinessError } 23800301 - Internal syystem error. You are advised to retry and check the logs.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
      *     <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 23 dynamic&static
@@ -4227,10 +4227,10 @@ declare namespace photoAccessHelper {
     /**
      * Obtains the objects in the fetch result by index set.
      *
-     * @param { int[] } indexSet - Index set of the assetis to obtain.
+     * @param { int[] } indexSet - Index set of the assets to obtain.
      * @returns { Promise<T[]> } Returns the objects.
      * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
-     *     1.The indexSet is null,undefined or empty.
+     *     1.The indexSet is null, undefined or empty.
      *     2.The indexSet length is bigger than 500.
      *     3.The max value of indexSet is equal or bigger than the fetch result length.
      *     4.The min value of indexSet is less than 0.
