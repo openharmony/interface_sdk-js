@@ -7718,6 +7718,26 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
+   * Describes compose parameters.
+   *
+   * @typedef HdrComposeOptions
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface HdrComposeOptions {
+    /**
+     * Pixel format used for composite image, RGBA_1010102\YCBCR_P010\YCRCB_P010 are supported.
+     *
+     * @type { ?PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    desiredPixelFormat?: PixelMapFormat;
+  }
+
+  /**
    * Picture instance. It is composed of a main pixelmap, auxiliary pictures and metadata. The main pixelmap contains 
    * the main visual content; auxiliary pictures store additional information related to the main pixelmap;
    * and metadata stores other information associated with the image.
@@ -7768,6 +7788,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     getHdrComposedPixelmap(): Promise<PixelMap | undefined>;
+
+    /**
+     * Obtains the hdr pixel map. This method uses a promise to return the PixelMap object.
+     *
+     * @param { HdrComposeOptions } [options] - The compose options.
+     * @returns { Promise<PixelMap | undefined> } A Promise instance used to return the PixelMap object.
+     * @throws { BusinessError } 7600201 - Unsupported operation.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getHdrComposedPixelmapWithOptions(options?: HdrComposeOptions): Promise<PixelMap | undefined>;
 
     /**
      * Obtains the gain map pixel map.
