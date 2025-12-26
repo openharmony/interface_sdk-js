@@ -34,7 +34,7 @@ import { BundleInstaller } from './bundle/bundleInstaller';
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager
+ * @useinstead ohos.bundle.bundleManager/bundleManager
  */
 declare namespace bundle {
   /**
@@ -44,78 +44,86 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager.BundleFlag
+   * @useinstead ohos.bundle.bundleManager/bundleManager.BundleFlag
    */
   enum BundleFlag {
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.BundleFlag#GET_BUNDLE_INFO_DEFAULT
      */
     GET_BUNDLE_DEFAULT = 0x00000000,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.BundleFlag#GET_BUNDLE_INFO_WITH_ABILITY
      */
     GET_BUNDLE_WITH_ABILITIES = 0x00000001,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityFlag#GET_ABILITY_INFO_WITH_PERMISSION
      */
     GET_ABILITY_INFO_WITH_PERMISSION = 0x00000002,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityFlag#GET_ABILITY_INFO_WITH_APPLICATION
      */
     GET_ABILITY_INFO_WITH_APPLICATION = 0x00000004,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     GET_APPLICATION_INFO_WITH_PERMISSION = 0x00000008,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.BundleFlag#GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION
      */
     GET_BUNDLE_WITH_REQUESTED_PERMISSION = 0x00000010,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     GET_ALL_APPLICATION_INFO = 0xFFFF0000,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityFlag#GET_ABILITY_INFO_WITH_METADATA
      */
     GET_ABILITY_INFO_WITH_METADATA = 0x00000020,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     GET_APPLICATION_INFO_WITH_METADATA = 0x00000040,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityFlag#GET_ABILITY_INFO_ONLY_SYSTEM_APP
      */
     GET_ABILITY_INFO_SYSTEMAPP_ONLY = 0x00000080,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityFlag#GET_ABILITY_INFO_WITH_DISABLE
      */
     GET_ABILITY_INFO_WITH_DISABLE = 0x00000100,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     GET_APPLICATION_INFO_WITH_DISABLE = 0x00000200
@@ -126,26 +134,30 @@ declare namespace bundle {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant.ColorMode
    */
   export enum ColorMode {
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant.ColorMode#COLOR_MODE_NOT_SET
      */
     AUTO_MODE = -1,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant.ColorMode#COLOR_MODE_DARK
      */
     DARK_MODE = 0,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant.ColorMode#COLOR_MODE_LIGHT
      */
     LIGHT_MODE = 1
   }
@@ -157,19 +169,21 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager.PermissionGrantState
+   * @useinstead ohos.bundle.bundleManager/bundleManager.PermissionGrantState
    */
   export enum GrantStatus {
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.PermissionGrantState#PERMISSION_DENIED
      */
     PERMISSION_DENIED = -1,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.PermissionGrantState#PERMISSION_GRANTED
      */
     PERMISSION_GRANTED = 0
   }
@@ -181,14 +195,14 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager.AbilityType
+   * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityType
    */
   export enum AbilityType {
     /**
      * Indicates an unknown ability type
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     UNKNOWN,
@@ -197,8 +211,9 @@ declare namespace bundle {
      * Indicates that the ability has a UI
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityType#PAGE
      */
     PAGE,
 
@@ -206,8 +221,9 @@ declare namespace bundle {
      * Indicates that the ability does not have a UI
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityType#SERVICE
      */
     SERVICE,
 
@@ -215,8 +231,9 @@ declare namespace bundle {
      * Indicates that the ability is used to provide data access services
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityType#DATA
      */
     DATA
   }
@@ -226,19 +243,19 @@ declare namespace bundle {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   export enum AbilitySubType {
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     UNSPECIFIED = 0,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     CA = 1
@@ -251,15 +268,16 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager.DisplayOrientation
+   * @useinstead ohos.bundle.bundleManager/bundleManager.DisplayOrientation
    */
   export enum DisplayOrientation {
     /**
      * Indicates that the system automatically determines the display orientation
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.DisplayOrientation#UNSPECIFIED
      */
     UNSPECIFIED,
 
@@ -267,8 +285,9 @@ declare namespace bundle {
      * Indicates the landscape orientation
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.DisplayOrientation#LANDSCAPE
      */
     LANDSCAPE,
 
@@ -276,8 +295,9 @@ declare namespace bundle {
      * Indicates the portrait orientation
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.DisplayOrientation#PORTRAIT
      */
     PORTRAIT,
 
@@ -285,8 +305,9 @@ declare namespace bundle {
      * Indicates the page ability orientation is the same as that of the nearest ability in the stack
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.DisplayOrientation#FOLLOW_RECENT
      */
     FOLLOW_RECENT
   }
@@ -298,15 +319,16 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager.LaunchType
+   * @useinstead ohos.bundle.bundleManager/bundleManager.LaunchType
    */
   export enum LaunchMode {
     /**
      * Indicates that the ability has only one instance
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.LaunchType#SINGLETON
      */
     SINGLETON = 0,
 
@@ -314,8 +336,9 @@ declare namespace bundle {
      * Indicates that the ability can have multiple instances
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.LaunchType#MULTITON
      */
     STANDARD = 1
   }
@@ -325,7 +348,7 @@ declare namespace bundle {
    *
    * @typedef BundleOptions
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   export interface BundleOptions {
@@ -334,7 +357,7 @@ declare namespace bundle {
      *
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     userId?: number;
@@ -345,127 +368,127 @@ declare namespace bundle {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   export enum InstallErrorCode {
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     SUCCESS = 0,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_FAILURE = 1,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_FAILURE_ABORTED = 2,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_FAILURE_INVALID = 3,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_FAILURE_CONFLICT = 4,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_FAILURE_STORAGE = 5,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_FAILURE_INCOMPATIBLE = 6,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_UNINSTALL_FAILURE = 7,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_UNINSTALL_FAILURE_BLOCKED = 8,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_UNINSTALL_FAILURE_ABORTED = 9,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_UNINSTALL_FAILURE_CONFLICT = 10,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_FAILURE_DOWNLOAD_TIMEOUT = 0x0B,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_FAILURE_DOWNLOAD_FAILED = 0x0C,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     STATUS_RECOVER_FAILURE_INVALID = 0x0D,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_ABILITY_NOT_FOUND = 0x40,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_BMS_SERVICE_ERROR = 0x41,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     STATUS_FAILED_NO_SPACE_LEFT = 0x42,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     STATUS_GRANT_REQUEST_PERMISSIONS_FAILED = 0x43,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_PERMISSION_DENIED = 0x44,
     /**
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     STATUS_UNINSTALL_PERMISSION_DENIED = 0x45
@@ -480,8 +503,9 @@ declare namespace bundle {
    * @param { BundleOptions } options Indicates the bundle options object.
    * @param { AsyncCallback<BundleInfo> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager#getBundleInfo
    */
   function getBundleInfo(bundleName: string,
     bundleFlags: number, options: BundleOptions, callback: AsyncCallback<BundleInfo>): void;
@@ -494,8 +518,9 @@ declare namespace bundle {
    * @param { number } bundleFlags - Indicates the application bundle flags to be queried.
    * @param { AsyncCallback<BundleInfo> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager#getBundleInfo
    */
   function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
@@ -508,8 +533,9 @@ declare namespace bundle {
    * @param { BundleOptions } options Indicates the bundle options object.
    * @returns { Promise<BundleInfo> } Returns the BundleInfo object.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager#getBundleInfo
    */
   function getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions): Promise<BundleInfo>;
 
@@ -621,7 +647,7 @@ declare namespace bundle {
    * @param { number } userId - Indicates the user ID.
    * @param { AsyncCallback<Array<AbilityInfo>> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function queryAbilityByWant(want: Want,
@@ -637,7 +663,7 @@ declare namespace bundle {
    *                                 will be returned.
    * @param { AsyncCallback<Array<AbilityInfo>> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function queryAbilityByWant(want: Want, bundleFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
@@ -653,7 +679,7 @@ declare namespace bundle {
    * @param { number } userId - Indicates the user ID.
    * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function queryAbilityByWant(want: Want, bundleFlags: number, userId?: number): Promise<Array<AbilityInfo>>;
@@ -708,7 +734,7 @@ declare namespace bundle {
    * @param { number } userId - Indicates the user ID.
    * @param { AsyncCallback<Array<ApplicationInfo>> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getAllApplicationInfo(bundleFlags: number,
@@ -722,7 +748,7 @@ declare namespace bundle {
    *                                 in the ApplicationInfo objects that will be returned.
    * @param { AsyncCallback<Array<ApplicationInfo>> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getAllApplicationInfo(bundleFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
@@ -736,7 +762,7 @@ declare namespace bundle {
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<Array<ApplicationInfo>> } Returns a list of ApplicationInfo objects.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getAllApplicationInfo(bundleFlags: number, userId?: number): Promise<Array<ApplicationInfo>>;
@@ -747,8 +773,9 @@ declare namespace bundle {
    * @param { number } uid - Indicates the UID of an application.
    * @param { AsyncCallback<string> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager#getBundleNameByUid
    */
   function getNameForUid(uid: number, callback: AsyncCallback<string>): void;
 
@@ -758,8 +785,9 @@ declare namespace bundle {
    * @param { number } uid - Indicates the UID of an application.
    * @returns { Promise<string> } Returns the bundle name.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager#getBundleNameByUid
    */
   function getNameForUid(uid: number): Promise<string>;
 
@@ -772,7 +800,7 @@ declare namespace bundle {
    *                                 BundleInfo object to be returned.
    * @param { AsyncCallback<BundleInfo> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
@@ -786,7 +814,7 @@ declare namespace bundle {
    *                                 BundleInfo object to be returned.
    * @returns { Promise<BundleInfo> } - Returns the BundleInfo object.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number): Promise<BundleInfo>;
@@ -801,7 +829,7 @@ declare namespace bundle {
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { AsyncCallback<Want> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getLaunchWantForBundle(bundleName: string, callback: AsyncCallback<Want>): void;
@@ -816,7 +844,7 @@ declare namespace bundle {
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @returns { Promise<Want> } Returns the Want for starting the application's main ability if any.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getLaunchWantForBundle(bundleName: string): Promise<Want>;
@@ -949,7 +977,7 @@ declare namespace bundle {
    * @param { string } abilityName - Indicates the ability name.
    * @param { AsyncCallback<string> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   function getAbilityLabel(bundleName: string, abilityName: string, callback: AsyncCallback<string>): void;
@@ -962,7 +990,7 @@ declare namespace bundle {
    * @param { string } abilityName - Indicates the ability name.
    * @returns { Promise<string> } Returns the label representing the label of the specified ability.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   function getAbilityLabel(bundleName: string, abilityName: string): Promise<string>;
@@ -1001,7 +1029,7 @@ declare namespace bundle {
    * @param { AbilityInfo } info - Indicates information about the ability to check.
    * @param { AsyncCallback<boolean> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   function isAbilityEnabled(info: AbilityInfo, callback: AsyncCallback<boolean>): void;
@@ -1012,7 +1040,7 @@ declare namespace bundle {
    * @param { AbilityInfo } info - Indicates information about the ability to check.
    * @returns { Promise<boolean> } Returns true if the ability is enabled; returns false otherwise.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   function isAbilityEnabled(info: AbilityInfo): Promise<boolean>;
