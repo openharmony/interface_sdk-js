@@ -501,6 +501,7 @@ declare namespace vibrator {
      * @type { boolean }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 19 dynamic
+     * @since 23 static
      */
     /**
      * Indicates whether the effect is supported, true means supported, false means not supported.
@@ -2090,38 +2091,63 @@ declare namespace vibrator {
   function off(type: 'vibratorStateChange', callback?: Callback<VibratorStatusEvent>): void;
 
   /**
+   * Register a callback function to be called when a vibrator plugin or unplug event occurs.
+   *
+   * @param { Callback<VibratorStatusEvent> } callback - The callback function to be executed when
+   * <br> the event is triggered.
+   * @throws { BusinessError } 14600101 - Device operation failed.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 23 static
+   */
+  function onVibratorStateChange(callback: Callback<VibratorStatusEvent>): void;
+
+  /**
+   * Unregister a callback function for vibrator plugin or unplug events.
+   *
+   * @param { Callback<VibratorStatusEvent> } [callback] - The callback function to be removed from the event listener.
+   * @throws { BusinessError } 14600101 - Device operation failed.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 23 static
+   */
+  function offVibratorStateChange(callback?: Callback<VibratorStatusEvent>): void;
+
+  /**
    * Indicates information about vibrator online or offline events.
    *
    * @interface
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 19 dynamic
+   * @since 23 static
    */
   interface VibratorStatusEvent {
     /**
      * The timestamp of the reported event.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 19 dynamic
+     * @since 23 static
      */
-    timestamp: number;
+    timestamp: long;
 
     /**
      * Unique identifier for the device that contains one or multiple vibrators.
      * 
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 19 dynamic
+     * @since 23 static
      */
-    deviceId: number;
+    deviceId: int;
 
     /**
      * Indicate the number of vibrators on the device.
      * 
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 19 dynamic
+     * @since 23 static
      */
-    vibratorCount: number;
+    vibratorCount: int;
 
     /**
      * Indicates the device's online and offline status, true indicates online, false indicates offline.
@@ -2129,6 +2155,7 @@ declare namespace vibrator {
      * @type { boolean }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 19 dynamic
+     * @since 23 static
      */
     isVibratorOnline: boolean;
   }
