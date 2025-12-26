@@ -30,7 +30,7 @@ import certificateManager from '@ohos.security.certManager'
   * @stagemodelonly
   * @since 22
   */
- export enum HuksCryptoExtensionResultCode { 
+ export const enum HuksCryptoExtensionResultCode { 
     /**
      * An error occurred in the crypto extension. Possible causes:
      * 1. The input parameter is invalid.
