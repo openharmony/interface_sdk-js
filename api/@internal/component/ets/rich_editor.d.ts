@@ -535,13 +535,14 @@ declare interface RichEditorTextStyle {
   /**
    * The stroke width of the text.
    *
-   * @type { ?LengthMetrics }
+   * @type { ?(LengthMetrics | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
    */
-  strokeWidth?: LengthMetrics;
+  strokeWidth?: LengthMetrics | number;
 
   /**
    * The stroke color of the text.
