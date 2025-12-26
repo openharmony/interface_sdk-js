@@ -21,7 +21,7 @@
 /*** if arkts dynamic&static */
 import {
   ActionType, FourFingersSwipe, Pinch, Rotate, ThreeFingersSwipe, ThreeFingersTap, SwipeInward,
-  TouchGestureEvent
+  TouchGestureEvent, FingerprintEvent
 } from '@ohos.multimodalInput.gestureEvent';
 import inputConsumer from '@ohos.multimodalInput.inputConsumer';
 import inputDevice from '@ohos.multimodalInput.inputDevice';
@@ -48,7 +48,7 @@ export {
   Key, KeyAction, KeyCode, KeyEvent, MouseAction, MouseEvent, MouseToolType, Pinch, Rotate,
   SourceType, ThreeFingersSwipe, ThreeFingersTap, ToolType, Touch, TouchEvent, inputConsumer,
   inputDevice, pointer, SwipeInward, inputEventClient, inputMonitor, shortKey, infraredEmitter,
-  TouchGestureEvent
+  TouchGestureEvent, FingerprintEvent
 };
 /*** endif */
 
@@ -59,6 +59,6 @@ export {
   Key, KeyAction, KeyCode, KeyEvent, MouseAction, MouseEvent, MouseToolType, Pinch, Rotate,
   SourceType, ThreeFingersSwipe, ThreeFingersTap, ToolType, Touch, TouchEvent, inputConsumer,
   inputDevice, pointer, SwipeInward, inputEventClient, inputMonitor, shortKey, infraredEmitter,
-  inputDeviceCooperate, TouchGestureEvent
+  inputDeviceCooperate, TouchGestureEvent, FingerprintEvent
 };
 /*** endif */
