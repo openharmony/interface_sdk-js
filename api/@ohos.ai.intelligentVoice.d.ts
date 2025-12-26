@@ -1119,8 +1119,7 @@ declare namespace intelligentVoice {
      * @throws { BusinessError } 22700107 - System error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     enrollForResult(isLast: boolean, callback: AsyncCallback<EnrollCallbackInfo>): void;
     /**
@@ -1146,8 +1145,7 @@ declare namespace intelligentVoice {
      * @throws { BusinessError } 22700107 - System error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     enrollForResult(isLast: boolean): Promise<EnrollCallbackInfo>;
     /**
@@ -1564,8 +1562,7 @@ declare namespace intelligentVoice {
      * @throws { BusinessError } 22700107 - System error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     startCapturer(channels: int): Promise<void>;
     /**
