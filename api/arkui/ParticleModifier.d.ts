@@ -19,24 +19,23 @@
  */
 
 /**
- * Defines Panel Modifier
+ * Defines Particle Modifier
  *
  * @extends ParticleAttribute
  * @implements AttributeModifier<ParticleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
-*/
+ * @since 12 dynamic
+ */
 /**
- * Defines Panel Modifier
+ * Defines Particle Modifier
  * 
  * @extends ParticleAttribute
  * @implements AttributeModifier<ParticleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20 dynamic
- * @noninterop
+ * @since 23 dynamic
  */
 export declare class ParticleModifier extends ParticleAttribute implements AttributeModifier<ParticleAttribute> {
 
