@@ -492,7 +492,7 @@ declare namespace util {
   }
 
   /**
-   * Defines the decode with stream related options parameters.
+   * Defines options for streaming decoding to string output.
    *
    * @interface DecodeToStringOptions
    * @syscap SystemCapability.Utils.Lang
