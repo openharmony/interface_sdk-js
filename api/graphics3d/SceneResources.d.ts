@@ -941,7 +941,7 @@ export interface Mesh extends SceneResource {
 }
 
 /**
- * The mesh data desription resource for the geometry node
+ * The mesh data description resource for the geometry node
  * 
  * 
  * @extends SceneResource
