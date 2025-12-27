@@ -638,5 +638,76 @@ declare namespace onScreen {
    */
   function trigger(capability: OnscreenAwarenessCap, 
                    options?: OnscreenAwarenessOptions): Promise<OnscreenAwarenessInfo>;
+
+  /**
+   * Interface indicates whether reading information from the current screen is permitted.
+   *
+   * @interface ReadingScreenPermissionStatus
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  export interface ReadingScreenPermissionStatus {  
+    /**
+     * Indicates whether the screen is readable.
+     *
+     * @type { int }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readingState: int;
+    /**
+     * Reasons for the screen being unreadable.
+     * If the screen cannot be read, the corresponding status code will be returned.
+     *
+     * @type { ?int}
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readingCode?: int;
+  }
+  
+  /**
+   * Register screen-reading permission listener.
+   *
+   * @permission ohos.permission.GET_SCREEN_CONTENT
+   * @param { Callback<ReadingScreenPermissionStatus> } callback - Indicates the callback
+   *     <br> for obtaining corresponding capability data.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
+   *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 34000001 - Service exception.
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function onReadingScreenPermissionListener(callback: Callback<ReadingScreenPermissionStatus>): void;
+
+  /**
+   * Unregister screen-read permission listener.
+   *
+   * @permission ohos.permission.GET_SCREEN_CONTENT
+   * @param { Callback<ReadingScreenPermissionStatus> } [callback] - Indicates the callback
+   *     <br> for obtaining corresponding capability data.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
+   *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
+   * @throws { BusinessError } 202 - Permission check failed. A nonsystem application uses the system API.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 34000001 - Service exception.
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function offReadingScreenPermissionListener(callback?: Callback<ReadingScreenPermissionStatus>): void;
 }
 export default onScreen;
