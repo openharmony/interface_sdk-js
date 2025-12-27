@@ -3385,6 +3385,38 @@ function connectDfs(networkId: string, listeners: DfsListeners): Promise<void>;
 function disconnectDfs(networkId: string): Promise<void>;
 
 /**
+ * DfsListener Callback function.
+ *
+ * @typedef {function} DfsListenerCallback.
+ * @param { string } networkId - The networkId of device.
+ * @param { int } status - The status code of Distributed File System.
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 23 static
+ */
+type DfsListenerCallback = (networkId: string, status: int) => void;
+
+/**
+ * The listeners of Distributed File System.
+ *
+ * @typedef DfsListeners
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @stagemodelonly
+ * @since 23 static
+ */
+export interface DfsListeners {
+  /**
+   * The Listener of Distributed File System status
+   *
+   * @type { DfsListenerCallback }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onStatus: DfsListenerCallback;
+}
+
+/**
  * Sets an extended attribute of a file or directory.
  *
  * @param { string } path - Application sandbox path of the directory.
@@ -5448,37 +5480,6 @@ export interface WriteStreamOptions {
    * @since 23 static
    */
   start?: long;
-}
-
-/**
- * DfsListener Callback function.
- *
- * @typedef {function} DfsListenerCallback.
- * @param { string } networkId - The networkId of device.
- * @param { int } status - The status code of Distributed File System.
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @stagemodelonly
- * @since 23 static
- */
-type DfsListenerCallback = (networkId: string, status: int) => void;
-
-/**
- * The listeners of Distributed File System.
- *
- * @typedef DfsListeners
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 23 static
- */
-export interface DfsListeners {
-  /**
-   * The Listener of Distributed File System status
-   *
-   * @type { DfsListenerCallback }
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @stagemodelonly
-   * @since 23 static
-   */
-  onStatus: DfsListenerCallback;
 }
 
 /**
