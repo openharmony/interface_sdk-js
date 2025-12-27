@@ -636,7 +636,7 @@ declare namespace unifiedDataChannel {
     getValue(): ValueType;
 
     /**
-     * Obtains all the data types in the data record.This API can be called using the UnifiedRecord object to query all
+     * Obtains all the data types in the data record. This API can be called using the UnifiedRecord object to query all
      * data types in the record, including the data types added using the addEntry function.
      *
      * @returns { Array<string> } Return the types of unified record.
@@ -2384,7 +2384,6 @@ declare namespace unifiedDataChannel {
      * @since 23 dynamic&static
      */
     get appLabelId(): string;
-
 
     /**
      * Indicates the id of app label
