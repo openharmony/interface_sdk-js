@@ -48,19 +48,19 @@ declare namespace zlib {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   export enum ErrorCode {
     /**
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     ERROR_CODE_OK = 0,
     /**
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     ERROR_CODE_ERRNO = -1
