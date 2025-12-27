@@ -38,8 +38,9 @@ export declare class NavigatorModifier extends NavigatorAttribute implements Att
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    * @deprecated since 20
+   * @useinstead NavigationAttribute#applyNormalAttribute
    */
   applyNormalAttribute?(instance: NavigatorAttribute): void;
 }
