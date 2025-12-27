@@ -4124,8 +4124,8 @@ declare namespace photoAccessHelper {
     /**
      * Obtains the objects in the fetch result in segments.
      *
-     * @param { number } index - Index of the asset to obtain.
-     * @param { number } offset - Offset of the asset to obtain.
+     * @param { int } index - Index of the asset to obtain.
+     * @param { int } offset - Offset of the asset to obtain.
      * @returns { Promise<T[]> } Returns the objects in segments
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
@@ -4135,9 +4135,21 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 23 static
      */
-    getRangeObjects(index: number, offset: number): Promise<T[]>
+    /**
+     * Obtains the objects in the fetch result in segments.
+     *
+     * @param { int } index - Index of the asset to obtain.
+     * @param { int } offset - Offset of the asset to obtain.
+     * @returns { Promise<T[]> } Returns the objects in segments
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     *     <br>Possible causes: index or offset validity check failed.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 23 dynamic&static
+     */
+    getRangeObjects(index: int, offset: int): Promise<T[]>;
     /**
      * Obtains all the file assets in the result set. This API uses an asynchronous callback to return the result.
      *
@@ -4243,6 +4255,47 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     close(): void;
+
+    /**
+     * Whether an object is in the fetch result.
+     *
+     * @param { T } object - The object to be found.
+     * @returns { Promise<boolean> } Returns whether the object is in the fetch result
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    contains(object: T): Promise<boolean>;
+
+    /**
+     * Obtains the objects in the fetch result by index set.
+     *
+     * @param { int[] } indexSet - Index set of the assets to obtain.
+     * @returns { Promise<T[]> } Returns the objects.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1.The indexSet is null, undefined or empty.
+     *     2.The indexSet length is bigger than 500.
+     *     3.The max value of indexSet is equal or bigger than the fetch result length.
+     *     4.The min value of indexSet is less than 0.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getObjectsByIndexSet(indexSet: int[]): Promise<T[]>;
+
+    /**
+     * Gets an object index in the fetch result, returns-1 when object is not in the fetch result.
+     *
+     * @param { T } object - Whose index to get.
+     * @returns { Promise<int> } Returns the object index in the fetch result.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getIndex(object: T): Promise<int>;
   }
 
   /**
