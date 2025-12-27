@@ -1577,21 +1577,24 @@ declare enum MouseButton {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
+ * @FaAndStageModel
+ * @since 8 dynamic
  */
 /**
  * Function Called by Mouse
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
- * @since 10
+ * @since 10 dynamic
  */
 /**
  * Function Called by Mouse
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1601,98 +1604,111 @@ declare enum MouseAction {
    * Triggered when the mouse is pressed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @FaAndStageModel
+   * @since 8 dynamic
    */
   /**
    * Triggered when the mouse is pressed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Triggered when the mouse is pressed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  Press = 1,
+  Press,
 
   /**
    * Triggered when the mouse is released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @FaAndStageModel
+   * @since 8 dynamic
    */
   /**
    * Triggered when the mouse is released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Triggered when the mouse is released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  Release = 2,
+  Release,
 
   /**
    * Triggered when the mouse is Moved.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @FaAndStageModel
+   * @since 8 dynamic
    */
   /**
    * Triggered when the mouse is Moved.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Triggered when the mouse is Moved.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  Move = 3,
+  Move,
 
   /**
    * Triggered when the mouse is Hovered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @FaAndStageModel
+   * @since 8 dynamic
    */
   /**
    * Triggered when the mouse is Hovered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Triggered when the mouse is Hovered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  Hover = 4,
+  Hover,
 
   /**
    * Triggered when mouse enters the window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -1703,6 +1719,7 @@ declare enum MouseAction {
    * Triggered when mouse leaves the window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -1713,6 +1730,7 @@ declare enum MouseAction {
    * Triggered when the mouse event is canceled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
