@@ -170,6 +170,20 @@ export declare class ArcButtonProgressConfig {
    */
   @Trace
   public color?: ResourceColor;
+ 
+  /**
+   * Constructor of the ArcButtonProgressConfig.
+   *
+   * @param { double } value - sets the value of progress.
+   *     <br>Value range:[0, total]
+   *     <br>When setting a value less than 0, it is set to 0; when setting a value greater than total, it is set to total.
+   * @param { double } [total] - sets the total of progress.
+   * @param { ResourceColor } [color] - sets the foreground color of progress.
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @stagemodelonly
+   * @since 23 static
+   */
+  constructor(value: double, total?: double, color?: ResourceColor);
 }
 
 /**
