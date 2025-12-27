@@ -12147,6 +12147,21 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 dynamic&static
      */
     writeImageMetadata(imageMetadata: ImageMetadata): Promise<void>;
+
+    /**
+     * Check whether JPEG image is progressive. This method uses a promise to return the boolean.
+     *
+     * @returns { Promise<boolean> } A Promise instance used to return true if the ImageSource refers to
+     *     a progressive JPEG, false otherwise. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 7700101 - Bad source.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @systemapi
+     * @stagemodelonly
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    isJpegProgressive(): Promise<boolean>;
   }
 
   /**
