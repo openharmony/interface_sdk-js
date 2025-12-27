@@ -2927,6 +2927,15 @@ declare namespace geoLocationManager {
      * @since 23 dynamic&static
      */
     loiterTimeMs?: int;
+
+    /**
+     * Indicates the name of FenceExtensionAbility.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 23 dynamic&static
+     */
+    fenceExtensionAbilityName?: string;
   }
 
   /**
