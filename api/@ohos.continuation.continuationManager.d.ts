@@ -891,14 +891,14 @@ declare namespace continuationManager {
   }
 
   /**
-   * Indicates the description of additional parameters for continuation.
+   * Indicates the description of additional parameters for continuation mode.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    */
   /**
-   * Indicates the description of additional parameters for continuation.
+   * Indicates the description of additional parameters for continuation mode.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
