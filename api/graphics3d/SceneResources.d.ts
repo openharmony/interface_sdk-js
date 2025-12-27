@@ -119,6 +119,7 @@ export enum SceneResourceType {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
+   * @since 23 static
    */
   EFFECT = 9
 }
@@ -1269,6 +1270,7 @@ export interface Image extends SceneResource {
  * @interface Effect
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 21 dynamic
+ * @since 23 static
  */
 export interface Effect extends SceneResource {
   /**
@@ -1277,6 +1279,7 @@ export interface Effect extends SceneResource {
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
+   * @since 23 static
    */
   enabled: boolean;
 
@@ -1288,6 +1291,30 @@ export interface Effect extends SceneResource {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
+   * @since 23 static
    */
   readonly effectId: string;
+
+  /**
+   * Get the value of a specific effect property.
+   *
+   * @param { string } propertyName - the name of specific property
+   * @returns { Object | null | undefined } effect property value, return null if the "get" operation failed.
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  getPropertyValue(propertyName: string): Object | null | undefined;
+
+  /**
+   * Set the value of a specific effect property
+   *
+   * @param { string } propertyName - the name of specific property
+   * @param { Object | undefined } value - property value to be set
+   * @returns { boolean } return false if the "set" operation is failed
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  setPropertyValue(propertyName: string, value: Object | undefined): boolean;
 }
