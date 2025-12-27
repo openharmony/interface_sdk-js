@@ -964,6 +964,17 @@ export declare namespace typeNode {
   export function createColumnNode(context: UIContext): Column;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { ColumnAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getColumnAttribute(node: FrameNode): ColumnAttribute | undefined;
+
+  /**
    * Define the Row type of FrameNode.
    *
    * @extends TypedFrameNode<RowAttribute>
@@ -1002,6 +1013,17 @@ export declare namespace typeNode {
   export function createRowNode(context: UIContext): Row;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { RowAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getRowAttribute(node: FrameNode): RowAttribute | undefined;
+
+  /**
    * Define the Stack type of FrameNode.
    *
    * @extends TypedFrameNode<StackAttribute>
@@ -1038,6 +1060,17 @@ export declare namespace typeNode {
    * @since 23 static
    */
   export function createStackNode(context: UIContext): Stack;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { StackAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getStackAttribute(node: FrameNode): StackAttribute | undefined;
 
   /**
    * Define the GridRow type of FrameNode.
@@ -1154,6 +1187,17 @@ export declare namespace typeNode {
   export function createFlexNode(context: UIContext): Flex;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { FlexAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getFlexAttribute(node: FrameNode): FlexAttribute | undefined;
+
+  /**
    * Define the RelativeContainer type of FrameNode.
    *
    * @extends TypedFrameNode<RelativeContainerAttribute>
@@ -1189,6 +1233,17 @@ export declare namespace typeNode {
    * @since 23 static
    */
   export function createRelativeContainerNode(context: UIContext): RelativeContainer;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { RelativeContainerAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getRelativeContainerAttribute(node: FrameNode): RelativeContainerAttribute | undefined;
 
   /**
    * Define the Divider type of FrameNode.
