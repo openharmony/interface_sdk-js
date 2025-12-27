@@ -4172,13 +4172,13 @@ declare namespace avSession {
   'seek' | 'setVolume' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'toggleMute';
 
   /**
-   * The definition of command to be sent to the session
+   * The definition of cast command to be sent to the session
    * @interface AVCastControlCommand
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @since 10
    */
   /**
-   * The definition of command to be sent to the session
+   * The definition of cast command to be sent to the session
    * @interface AVCastControlCommand
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
