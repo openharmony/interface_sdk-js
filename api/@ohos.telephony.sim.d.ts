@@ -882,7 +882,6 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
-   * @since 23 static
    */
   /**
    * Get account information of SIM card.
@@ -925,7 +924,6 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
-   * @since 23 static
    */
   /**
    * Get account information of SIM card.
