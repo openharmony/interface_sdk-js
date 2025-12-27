@@ -4050,7 +4050,17 @@ declare namespace camera {
      * @since 12 dynamic
      * @since 23 static
      */
-    SPOT = 2
+    SPOT = 2,
+ 
+    /**
+     * Center highlight weighted metering mode: Focuses in on highlight area near the center of the screen.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    CENTER_HIGHLIGHT_WEIGHTED = 3
   }
 
   /**
