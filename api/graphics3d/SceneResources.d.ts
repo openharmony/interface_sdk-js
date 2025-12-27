@@ -898,7 +898,7 @@ export interface Morpher {
 }
 
 /**
- * Mesh resource.
+ * The mesh instance owned by the mesh node
  *
  * @extends SceneResource
  * @interface Mesh
@@ -941,7 +941,7 @@ export interface Mesh extends SceneResource {
 }
 
 /**
- * Mesh resource.
+ * The mesh data desription resource for the geometry node
  * 
  * 
  * @extends SceneResource
