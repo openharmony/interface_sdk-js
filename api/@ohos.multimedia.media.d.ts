@@ -2510,10 +2510,10 @@ declare namespace media {
    */
   interface AVMetricsEvent {
     /**
-     * Absolute timestamp when the event occurred.
+     * Type of the metrics event.
      * @type { AVMetricsEventType }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
     event: AVMetricsEventType;
@@ -2535,10 +2535,10 @@ declare namespace media {
     playbackPosition: int;
 
     /**
-     * The detail informations of the event.
+     * The detailed information of the event.
      * @type {Record<string, Object>}
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
     details: Record<string, Object>;
@@ -5448,7 +5448,7 @@ declare namespace media {
   }
 
   /**
-   * Provides the container definition for media description key-value pairs.
+   * Provides the container definition for playback metrics key-value pairs.
    *
    * @typedef { Record<PlaybackMetricsKey, Object> }
    * @syscap SystemCapability.Multimedia.Media.Core
