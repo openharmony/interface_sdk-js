@@ -324,7 +324,7 @@ declare namespace unifiedDataChannel {
     getRecords(): Array<UnifiedRecord>;
 
     /**
-     * Checks whether this UnifiedData object contains the specified data type, including the data types added by using	
+     * Checks whether this UnifiedData object contains the specified data type, including the data types added by using
      * the addEntry function.
      * For file types, if the type set of UnifiedData contains general.jpeg, true is returned when the hasType API is
      * called to check whether the general.image type is included, because the general.jpeg type belongs to the
@@ -338,7 +338,7 @@ declare namespace unifiedDataChannel {
      * @since 12
      */
     /**
-     * Checks whether this UnifiedData object contains the specified data type, including the data types added by using	
+     * Checks whether this UnifiedData object contains the specified data type, including the data types added by using
      * the addEntry function.
      * For file types, if the type set of UnifiedData contains general.jpeg, true is returned when the hasType API is
      * called to check whether the general.image type is included, because the general.jpeg type belongs to the
@@ -380,30 +380,7 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 12 dynamic
      */
-    /**
-     * UnifiedData properties.
-     * @returns { UnifiedDataProperties } Properties of all data records in a unified data.
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 23 dynamic&static
-     */
-    get properties(): UnifiedDataProperties;
-
-    /**
-     * UnifiedData properties.
-     * @type { UnifiedDataProperties }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    /**
-     * UnifiedData properties.
-     * @param { UnifiedDataProperties } Properties of all data records in a unified data.
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 23 dynamic&static
-     */
-    set properties(value: UnifiedDataProperties);
+    properties: UnifiedDataProperties;
   }
 
   /**
@@ -551,7 +528,7 @@ declare namespace unifiedDataChannel {
    * @since 11
    */
   /**
-   * An abstract definition of the data content supported by the UDMF. A UnifiedRecord object contains one or more data	
+   * An abstract definition of the data content supported by the UDMF. A UnifiedRecord object contains one or more data
    * records, for example, a text record, an image record, or an HTML record. Since API version 15, different styles of
    * the same content can be added to a UnifiedRecord object. Data users can obtain the corresponding styles as
    * required.
@@ -659,7 +636,7 @@ declare namespace unifiedDataChannel {
     getValue(): ValueType;
 
     /**
-     * Obtains all the data types in the data record.This API can be called using the UnifiedRecord object to query all	
+     * Obtains all the data types in the data record.This API can be called using the UnifiedRecord object to query all
      * data types in the record, including the data types added using the addEntry function.
      *
      * @returns { Array<string> } Return the types of unified record.
@@ -671,7 +648,7 @@ declare namespace unifiedDataChannel {
     getTypes(): Array<string>;
 
     /**
-     * Adds data of a specified data type and content to the current data record. You can use this API to add different	
+     * Adds data of a specified data type and content to the current data record. You can use this API to add different
      * data types and contents to the same data.
      *
      * @param { string } type - type of entry.
@@ -3280,7 +3257,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the callback function for deferred and non-blocking data loading.
      * This handler is optional. If it is provided, it will take precedence over
-     *    the synchronous DataLoadHandler (i.e., DataLoadHandler will be ignored).
+     *    the synchronous DataLoadHandler. (i.e., DataLoadHandler will be ignored).
      * 
      * @type { ?DelayedDataLoadHandler }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -3539,18 +3516,18 @@ declare namespace unifiedDataChannel {
    */
    function setAppShareOptions(intention: Intention, shareOptions: ShareOptions): void;
 
-   /**	
-    * Remove app sharing options.	
-    *	
-    * @param { Intention } intention - Describe the sharing channel that UDMF support.	
-    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application	
-    * uses system API.	
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;	
-    *                                                                   2. Incorrect parameter types.	
-    * @syscap SystemCapability.DistributedDataManager.UDMF.Core	
-    * @systemapi	
-    * @StageModelOnly	
-    * @since 12	
+   /**
+    * Remove app sharing options.
+    *
+    * @param { Intention } intention - Describe the sharing channel that UDMF support.
+    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+    * uses system API.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+    *                                                                   2. Incorrect parameter types.
+    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+    * @systemapi
+    * @StageModelOnly
+    * @since 12
     */
   /**
    * Remove app sharing options.
@@ -3571,9 +3548,9 @@ declare namespace unifiedDataChannel {
    function removeAppShareOptions(intention: Intention): void;
 
   /**
-   * Converts the provided data into a multi-style data structure, which is useful when the original data uses multiple	
-   * records to represent different styles of the same data. This API is used only when the following rules are met:	
-   * 1.The number of records in data is greater than	
+   * Converts the provided data into a multi-style data structure, which is useful when the original data uses multiple
+   * records to represent different styles of the same data. This API is used only when the following rules are met:
+   * 1.The number of records in data is greater than
    * 2.The value of unifiedData.properties.tag is records_to_entries_data_format.
    *
    * @param { UnifiedData } data - {@link UnifiedData} Data represents the data that needs to be converted.
