@@ -15678,7 +15678,7 @@ declare interface SheetOptions extends BindOptions {
     * @stagemodelonly
     * @crossplatform
     * @atomicservice
-    * @since 22 dynamic
+    * @since 23 dynamic
     */
   radiusRenderStrategy?: RenderStrategy;
 

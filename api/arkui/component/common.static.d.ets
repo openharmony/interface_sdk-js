@@ -11742,6 +11742,20 @@ export declare interface CommonShapeMethod extends CommonMethod {
      * @since 23 static
      */
     default strokeDashArray(value: Array<Length> | undefined): this;
+    /**
+    * Set whether the component enables the ability to invert colors.
+    * This interface needs to be set as the first attribute of the component.
+    *
+    * @param { boolean } value - value indicates whether the component enables the ability to invert colors.
+    *     <br>If set to true, the component will use the inverse color capability.
+    *     If set to false, the component and its child components will not use the inverse color capability
+    *     and will not be affected by the settings of the parent or ancestor components. The default value is true.
+    * @returns { this }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    */
+    default allowForceDark(value: boolean): this;
 }
 /**
  * Defines the direction of pixel rounding at the component level.
