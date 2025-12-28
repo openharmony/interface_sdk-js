@@ -592,16 +592,6 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   uiComponentColorMode?: PickerColorMode;
 
   /**
-   * Support to set a serial number to distinguish different picker components. Default value is -1.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 21 dynamic
-   */
-  pickerIndex?: number;
-
-  /**
    * Support to set offset between first grid item and the top of grid
    *
    * @type { ?int  }
@@ -1024,36 +1014,6 @@ export declare class UpdatablePickerConfigs {
    * @since 23 static
    */
   mimeTypeFilter?: photoAccessHelper.MimeTypeFilter;
-
-  /**
-   * Maximum number of assets for a single selection.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic&static
-   */
-  maxSelectNumber?: number;
-
-  /**
-   * Maximum number of photos for a single selection.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic&static
-   */
-  maxPhotoSelectNumber?: number;
-
-  /**
-   * Maximum number of videos for a single selection.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic&static
-   */
-  maxVideoSelectNumber?: number;
 
   /**
    * Maximum number of assets for a single selection.
