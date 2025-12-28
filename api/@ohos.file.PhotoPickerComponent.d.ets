@@ -372,8 +372,7 @@ export declare class PickerController {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   saveTrustedPhotoAssetsEx(trustedUris: Array<string>,settings?: Array<photoAccessHelper.CreationSetting>,
     saveMode?: SaveMode): Promise<Array<string>>;
@@ -727,13 +726,13 @@ export declare class BaseItemInfo {
   /**
    * Size. if the itemType is CAMERA, it will be null
    *
-   * @type { ?long }
+   * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12 dynamic
    * @since 23 static
    */
-  size?: long;
+  size?: int;
 
   /**
    * Duration. if the itemType is CAMERA, it will be null; if photos, return -1
@@ -1160,15 +1159,16 @@ export declare class UpdatablePickerConfigs {
   edgeEffect?: EdgeEffect;
 
   /**
-   * Live photo playback mode. Supports up to two modes.
+   * Only display album contents corresponding to the specified applications.
+   * Use the bundle name to identity the applications.
    *
-   * @type { ?Array<photoAccessHelper.LivePhotoMode> }
+   * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
    * @since 23 dynamic&static
    */
-  livePhotoModes?: Array<photoAccessHelper.LivePhotoMode>;
+  livePhotoModes?: Array<string>;
 }
 
 /**
