@@ -8008,7 +8008,17 @@ declare namespace camera {
      * @since 19 dynamic
      * @since 23 static
      */
-    PRECONFIG_HIGH_QUALITY = 3
+    PRECONFIG_HIGH_QUALITY = 3,
+
+    /**
+     * high quality photo session with BT2020 for preconfig.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    PRECONFIG_HIGH_QUALITY_PHOTOSESSION_BT2020 = 4
   }
 
   /**
