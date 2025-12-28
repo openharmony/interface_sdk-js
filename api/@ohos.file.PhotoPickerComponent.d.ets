@@ -965,16 +965,6 @@ export declare class PreselectedInfo {
   /**
    * PreselectablePickerIndex. Serial number of the picker component that will automatically select this media file.
    *
-   * @type { ?number }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 21 dynamic
-   */
-  preselectablePickerIndex?: number;
-
-  /**
-   * PreselectablePickerIndex. Serial number of the picker component that will automatically select this media file.
-   *
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
