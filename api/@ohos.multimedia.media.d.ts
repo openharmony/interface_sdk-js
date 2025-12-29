@@ -5412,11 +5412,13 @@ declare namespace media {
     TOTAL_PLAYING_TIME = 'total_playback_time',
 
     /**
-     * Cumulative times of Media resource loading.
+     * Cumulative times of media resource loading.
+     *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    DOWNLOAD_REQUESTS_COUNT = 'loading_count',
+    DOWNLOAD_REQUESTS_COUNT = 'loading_requests_count',
 
     /**
      * The total time spent loading the media resource.
@@ -5427,10 +5429,12 @@ declare namespace media {
 
     /**
      * Size of loaded media resources.
+     *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    TOTAL_DOWNLOAD_SIZE = 'total_loading_Bytes',
+    TOTAL_DOWNLOAD_SIZE = 'total_loading_bytes',
 
     /**
      * Cumulative stalling count.
