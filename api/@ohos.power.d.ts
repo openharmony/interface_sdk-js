@@ -437,6 +437,7 @@ declare namespace power {
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 21 dynamic
+   * @since 23 static
    */
   function setPowerKeyFilteringStrategy(strategy: PowerKeyFilteringStrategy): void;
 
@@ -446,6 +447,7 @@ declare namespace power {
    * @enum { int }
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 21 dynamic
+   * @since 23 static
    */
   export enum PowerKeyFilteringStrategy {
     /**
@@ -455,6 +457,7 @@ declare namespace power {
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 21 dynamic
+     * @since 23 static
      */
     DISABLE_LONG_PRESS_FILTERING = 0,
     /**
@@ -463,6 +466,7 @@ declare namespace power {
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 21 dynamic
+     * @since 23 static
      */
     LONG_PRESS_FILTERING_ONCE = 1
   }
