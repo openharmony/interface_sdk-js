@@ -2357,13 +2357,15 @@ declare namespace relationalStore {
     readonly resultSet: LiteResultSet;
   }
   /**
-   * Manages relational database configurations.
+   * Defines the predicates for a Relational Database.
+   * This class determines whether the conditional expression for the Relational Database is true or false.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
   /**
-   * Manages relational database configurations.
+   * Defines the predicates for a Relational Database.
+   * This class determines whether the conditional expression for the Relational Database is true or false.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
