@@ -2479,7 +2479,7 @@ declare enum AccessibilityRoleType {
   */
   BUTTON = 5,
   /**
-  * button component type
+  * back button component type
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @form
