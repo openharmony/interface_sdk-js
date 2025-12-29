@@ -1160,7 +1160,7 @@ export declare class UpdatablePickerConfigs {
   edgeEffect?: EdgeEffect;
 
   /**
-   * Only display album contents corresponding to the applications.
+   * Only display album contents corresponding to the specified applications.
    * Use the bundle name to identify the applications.
    *
    * @type { ?Array<string> }
