@@ -1871,7 +1871,7 @@ declare namespace appManager {
   export type ProcessInformation = _ProcessInformation;
 
   /**
-   * The class of a process information.
+   * The class of a process data.
    *
    * @typedef { _ProcessData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1880,7 +1880,7 @@ declare namespace appManager {
   export type ProcessData = _ProcessData.default;
 
   /**
-   * The application state data.
+   * The class of a process data.
    *
    * @typedef { _ProcessData }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
