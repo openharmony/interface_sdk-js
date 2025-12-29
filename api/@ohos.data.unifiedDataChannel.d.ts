@@ -1012,6 +1012,15 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
+     * @since 14 dynamic
+     */
+    /**
+     * Indicates the url of a link
+     *
+     * @returns { string } the url of a link
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
      * @since 23 dynamic&static
      */
     get url(): string;
@@ -1029,6 +1038,15 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the url of a link
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14 dynamic
      */
     /**
      * Indicates the url of a link
@@ -2398,7 +2416,7 @@ declare namespace unifiedDataChannel {
      * @since 11 dynamic
      */
     /**
-     * Indicates the id of app label
+     * Indicates the id of app.
      * This field can be sourced from BMS or customized as needed.
      *
      * @returns { string } the id of app label
@@ -3278,9 +3296,9 @@ declare namespace unifiedDataChannel {
 
     /**
      * Indicates the callback function for deferred and non-blocking data loading.
-     * This handler is optional. If it is provided, it will take precedence over
-     *    the synchronous DataLoadHandler. (i.e., DataLoadHandler will be ignored).
-     * 
+     * This handler is optional. If it is provided, it will take precedence over 
+     *     the synchronous DataLoadHandler (i.e., DataLoadHandler will be ignored).
+     *
      * @type { ?DelayedDataLoadHandler }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
