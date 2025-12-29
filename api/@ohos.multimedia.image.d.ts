@@ -5033,6 +5033,80 @@ declare namespace image {
   }
 
   /**
+   * Describes the initialization options for ImageReceiver.
+   *
+   * @typedef ImageReceiverOptions
+   * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface ImageReceiverOptions {
+    /**
+     * Image size, with both the width and height greater than 0.
+     *
+     * @type { ?Size }
+     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    size?: Size;
+
+    /**
+     * Maximum number of images that can be accessed simultaneously. The value must be a positive integer less than
+     * or equal to 64.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    capacity?: int;
+  }
+
+  /**
+   * Describes the image buffer data.
+   *
+   * @typedef ImageBufferData
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface ImageBufferData {
+    /**
+     * Row stride of each component.
+     *
+     * @type { int[] }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly rowStride: int[];
+
+    /**
+     * Pixel stride of each component.
+     * 
+     * @type { int[] }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly pixelStride: int[];
+
+    /**
+     * Image data buffer.
+     * 
+     * @type { ArrayBuffer }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly byteBuffer: ArrayBuffer;
+  }
+
+  /**
    * Defines the hdr metadata value.
    *
    * @typedef {HdrMetadataType | HdrStaticMetadata | ArrayBuffer | HdrGainmapMetadata} HdrMetadataValue
@@ -5830,6 +5904,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @since 23 static
    */
   function createImageReceiver(size: Size, format: ImageFormat, capacity: int): ImageReceiver | undefined;
+
+  /**
+   * Creates an ImageReceiver instance.
+   *
+   * @param { ImageReceiverOptions } [options] Initialization options for the ImageReceiver.
+   * @returns { ImageReceiver | undefined } ImageReceiver instance created. If the operation fails, undefined is
+   *     returned.
+   * @throws { BusinessError } 7900201 - Invalid parameter.
+   * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function createImageReceiver(options?: ImageReceiverOptions): ImageReceiver | undefined;
 
   /**
    * Creates an ImageCreator instance.
@@ -12664,6 +12751,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly timestamp: long;
 
     /**
+     * Color space of the image.
+     *
+     * @type { colorSpaceManager.ColorSpace }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly colorSpace: colorSpaceManager.ColorSpace;
+
+    /**
      * Get component buffer from image and uses a callback to return the result.
      *
      * @param { ComponentType } componentType The component type of image.
@@ -12704,6 +12802,29 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     release(): Promise<void>;
+
+    /**
+     * Obtains the image buffer data.
+     *
+     * @returns { ImageBufferData | null } Image data obtained. If the operation fails, null is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getBufferData(): ImageBufferData | null;
+
+    /**
+     * Obtains HDR metadata.
+     * 
+     * @param { HdrMetadataKey } key Key of the HDR metadata.
+     * @returns { HdrMetadataValue | null } HDR metadata obtained. If no HDR metadata exists, null is returned.
+     * @throws { BusinessError } 7600206 - Invalid parameter.
+     * @throws { BusinessError } 7600302 - Memory copy failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getMetadata(key: HdrMetadataKey): HdrMetadataValue | null;
   }
 
   /**
