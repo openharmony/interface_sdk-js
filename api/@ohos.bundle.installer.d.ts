@@ -241,11 +241,13 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -286,11 +288,13 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -332,11 +336,13 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -379,13 +385,16 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      * To install a lower version application, you must have the permission ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE or
-     *     (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE)
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
+     *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE)
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE' or ('ohos.permission.INSTALL_BUNDLE' and 'ohos.permission.INSTALL_ALLOW_DOWNGRADE').
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'
+     *     or ('ohos.permission.INSTALL_BUNDLE' and 'ohos.permission.INSTALL_ALLOW_DOWNGRADE').
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -573,10 +582,12 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
@@ -616,10 +627,12 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
@@ -660,10 +673,12 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
@@ -705,12 +720,15 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      * To install a lower version application, you must have the permission ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE or
-     *     (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE)
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
+     *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE)
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { AsyncCallback<void> } callback - The callback of installing HAPs result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE' or ('ohos.permission.INSTALL_BUNDLE' and 'ohos.permission.INSTALL_ALLOW_DOWNGRADE').
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'
+     *     or ('ohos.permission.INSTALL_BUNDLE' and 'ohos.permission.INSTALL_ALLOW_DOWNGRADE').
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
@@ -751,7 +769,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the hap of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -786,7 +804,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -826,7 +844,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -868,7 +886,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -909,11 +927,13 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -954,11 +974,13 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -1000,11 +1022,13 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -1047,13 +1071,16 @@ declare namespace installer {
      * To install an internal beta application, you must have the permission ohos.permission.INSTALL_INTERNALTESTING_BUNDLE.
      * To install a lower version application, you must have the permission ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE or
-     *     (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE)
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
+     *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE)
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
-     * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE' or ('ohos.permission.INSTALL_BUNDLE' and 'ohos.permission.INSTALL_ALLOW_DOWNGRADE').
+     *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
+     *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'
+     *     or ('ohos.permission.INSTALL_BUNDLE' and 'ohos.permission.INSTALL_ALLOW_DOWNGRADE').
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of specifiedDistributionType is greater than 128; 5. The size of additionalInfo is greater than 3000.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
