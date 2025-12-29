@@ -2690,7 +2690,7 @@ declare namespace unifiedDataChannel {
      * @returns { Uint8Array } the raw data
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
-     * @since 23 dynamicstatic
+     * @since 23 dynamic&static
      */
     get rawData(): Uint8Array;
 
