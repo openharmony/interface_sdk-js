@@ -1158,6 +1158,18 @@ export declare class UpdatablePickerConfigs {
    * @since 23 dynamic&static
    */
   edgeEffect?: EdgeEffect;
+
+  /**
+   * Only display album contents corresponding to the applications.
+   * Use the bundle name to identify the applications.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  appAlbumFilters?: Array<string>;
 }
 
 /**
