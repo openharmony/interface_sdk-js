@@ -1127,8 +1127,9 @@ interface SwiperInterface {
  *
  * @interface IndicatorStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8 dynamic
+ * @since 8 dynamiconly
  * @deprecated since 10
+ * @useinstead DotIndicator
  */
 declare interface IndicatorStyle {
   /**
@@ -1136,8 +1137,9 @@ declare interface IndicatorStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead DotIndicator#left
    */
   left?: Length;
 
@@ -1146,8 +1148,9 @@ declare interface IndicatorStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead DotIndicator#top
    */
   top?: Length;
 
@@ -1156,8 +1159,9 @@ declare interface IndicatorStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead DotIndicator#right
    */
   right?: Length;
 
@@ -1166,8 +1170,9 @@ declare interface IndicatorStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead DotIndicator#bottom
    */
   bottom?: Length;
 
@@ -1176,8 +1181,9 @@ declare interface IndicatorStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead DotIndicator
    */
   size?: Length;
 
@@ -1186,8 +1192,9 @@ declare interface IndicatorStyle {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead DotIndicator#mask
    */
   mask?: boolean;
 
@@ -1196,8 +1203,9 @@ declare interface IndicatorStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead DotIndicator#color
    */
   color?: ResourceColor;
 
@@ -1206,8 +1214,9 @@ declare interface IndicatorStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead DotIndicator#selectColor
    */
   selectedColor?: ResourceColor;
 }
@@ -2097,8 +2106,9 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @param { IndicatorStyle } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 10
+   * @useinstead indicator
    */
   indicatorStyle(value?: IndicatorStyle): SwiperAttribute;
 
