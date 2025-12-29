@@ -5615,10 +5615,10 @@ declare namespace media {
    */
   interface MediaSource {
     /**
-     * Set whether to enable offline cache during video playback,
-     * @param { boolean } enable - The default value is false,
-     *    If set to true, the downloaded video will be automatically cached to the user's cache space during streaming,
-     *    and the cached data in the cache space will be used first during playback.
+     * set whether to enable offline cache during video playback,
+     * @param { boolean } enable - The default value is false,  
+     *     If set to true, the downloaded video will be automatically cached to the user's cache space during streaming,
+     *     and the cached data in the cache space will be used first during playback. 
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 23 dynamic&static
      */
