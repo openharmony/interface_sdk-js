@@ -221,8 +221,9 @@ declare class List<T> {
   /**
    * Obtains the element at the specified position in this container.
    *
-   * @param { number } index - Position index of the target element.
+   * @param { int } index - Position index of the target element.
    * @returns { T } the T type
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -231,21 +232,9 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  get(index: number): T;
-
-  /**
-   * Returns the element at the specified position in this list,
-   * or returns undefined if this list is empty
-   *
-   * @param { int } index - specified position
-   * @returns { T | undefined} the element at the specified index, or undefined if the index is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
    * @since 23 static
    */
-  get(index: int): T | undefined;
+  get(index: int): T;
 
   /**
    * Check if list contains the specified element
@@ -465,14 +454,17 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains the first element in this container.
+   * Returns the first element (the item at index 0) of this list.
+   * or returns undefined if list is empty
    *
    * @returns { T } the T type ,returns undefined if list is empty
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   getFirst(): T;
   /**
@@ -495,38 +487,19 @@ declare class List<T> {
    * @since 10
    */
   /**
-   * Obtains the last element in this container.
+   * Returns the Last element (the item at index length-1) of this list.
+   * or returns undefined if list is empty
    *
    * @returns { T } the T type ,returns undefined if list is empty
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   getLast(): T;
-
-  /**
-   * Obtains the first element in this container.
-   *
-   * @returns { T | undefined } the T type, returns undefined if list is empty
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 23 static
-   */
-  getFirst(): T | undefined;
-
-  /**
-   * Obtains the last element in this container.
-   *
-   * @returns { T | undefined } the T type, returns undefined if list is empty
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 23 static
-   */
-  getLast(): T | undefined;
 
   /**
    * Replaces the element at the specified position in this List with the specified element
@@ -560,7 +533,7 @@ declare class List<T> {
   /**
    * Replaces an element at the specified position in this container with a given element.
    *
-   * @param { number } index - Position index of the target element.
+   * @param { int } index - Position index of the target element.
    * @param { T } element - Element to be used for replacement.
    * @returns { T } the T type
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
@@ -572,22 +545,9 @@ declare class List<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  set(index: number, element: T): T;
-  /**
-   * Replaces an element at the specified position in this container with a given element.
-   *
-   * @param { int } index - Position index of the target element.
-   * @param { T } element - Element to be used for replacement.
-   * @returns { T | undefined } the T type, returns undefined if linkedList is empty
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= ${length - 1}.
-   * Received value is: ${index}
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
    * @since 23 static
    */
-  set(index: int, element: T): T | undefined;
+  set(index: int, element: T): T;
   /**
    * Compares the specified object with this list for equality.if the object are the same as this list
    * return true, otherwise return false.
@@ -700,13 +660,13 @@ declare class List<T> {
    * Sorts this list according to the order induced by the specified comparator
    *
    * @param { function } comparator - comparator
-   * comparator (required) A function that accepts up to two arguments.
-   * Specifies the sort order. Must be a function,return number type,If it returns firstValue
-   * minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
-   * minus firstValue, it returns an list sorted in descending order;
+   *     comparator (required) A function that accepts up to two arguments.
+   *     Specifies the sort order. Must be a function,return number type,If it returns firstValue
+   *     minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
+   *     minus firstValue, it returns an list sorted in descending order;
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -715,25 +675,29 @@ declare class List<T> {
    * Sorts this list according to the order induced by the specified comparator
    *
    * @param { function } comparator - comparator
-   * comparator (required) A function that accepts up to two arguments.
-   * Specifies the sort order. Must be a function,return number type,If it returns firstValue
-   * minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
-   * minus firstValue, it returns an list sorted in descending order;
+   *     comparator (required) A function that accepts up to two arguments.
+   *     Specifies the sort order. Must be a function,return number type,If it returns firstValue
+   *     minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
+   *     minus firstValue, it returns an list sorted in descending order;
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
    */
   /**
-   * Sorts elements in this container.
+   * Sorts this list according to the order induced by the specified comparator
    *
-   * @param { function } comparator - Callback invoked for sorting.
+   * @param { function } comparator - comparator
+   *     comparator (required) A function that accepts up to two arguments.
+   *     Specifies the sort order. Must be a function,return number type,If it returns firstValue
+   *     minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
+   *     minus firstValue, it returns an list sorted in descending order;
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -745,19 +709,18 @@ declare class List<T> {
    *
    * Anonymous Object Rectification
    * @param { ListComparatorFn<T> } comparator - comparator
-   * comparator (required) A function that accepts up to two arguments.
-   * Specifies the sort order. Must be a function,return number type,If it returns firstValue
-   * minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
-   * minus firstValue, it returns an list sorted in descending order;
+   *     comparator (required) A function that accepts up to two arguments.
+   *     Specifies the sort order. Must be a function,return number type,If it returns firstValue
+   *     minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
+   *     minus firstValue, it returns an list sorted in descending order;
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   sort(comparator: ListComparatorFn<T>): void;
   /**
@@ -1019,8 +982,7 @@ declare class List<T> {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 22 dynamic
- * @since 23 static
+ * @since 23 dynamic&static
  */
 export type ListComparatorFn<T> = (firstValue: T, secondValue: T) => double;
 /**

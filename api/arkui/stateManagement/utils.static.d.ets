@@ -18,8 +18,7 @@
  * @kit ArkUI
  */
 
-import { MonitorValueCallback, MonitorCallback, IMonitorDecoratedVariable } from './decorator';
-import { ExtendableComponent } from '../component/extendableComponent';
+import { MonitorValueCallback, MonitorCallback, IMonitorDecoratedVariable, IVariableOwner } from './decorator';
 
 /**
  * UIUtils is a state management tool class for operating the observed data.
@@ -195,14 +194,15 @@ export declare interface MonitorOptions {
   isSynchronous?: boolean;
 
   /**
-   * Usered to handle component freezing.
+   * Used to handle component freezing.
    * If not set, component freezing won't affect the monitor.
    *
-   * @type { ?ExtendableComponent } owner - custom component
+   * @type { ?IVariableOwner } owner - custom component
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  owner?: ExtendableComponent;
+  owner?: IVariableOwner;
 
   /**
    * Override path for each valueCallback element.

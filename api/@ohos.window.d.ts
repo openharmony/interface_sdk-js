@@ -7702,7 +7702,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     on(type: 'windowSizeChange', callback: Callback<Size>): void;
 
@@ -7748,7 +7747,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     off(type: 'windowSizeChange', callback?: Callback<Size>): void;
 
@@ -9021,7 +9019,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 23 static
      */
     on(type: 'windowStatusChange', callback: Callback<WindowStatusType>): void;
 
@@ -9072,7 +9069,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 23 static
      */
     off(type: 'windowStatusChange', callback?: Callback<WindowStatusType>): void;
 
@@ -11713,6 +11709,37 @@ declare namespace window {
     restore(): Promise<void>;
 
     /**
+     * Restore the main window of a float window to foreground.
+     * This interface can only be used by a float window after it has been clicked once.
+     * The interface cannot be invoked when the main window is in PAUSED lifecycle or is in background during recent.
+     * 
+     * Device Behavior Differences:This function can be normally invoked on phone, tablet, and 2-in-1 devices.
+     *     On other devices, error code 801 will be returned.
+     *
+     * @param { Record<string, Object> } [wantParameters] - Want parameters.
+     *     Custom want parameter delivered when restoring the main window.
+     *     Want parameters are used for UIAbility onNewWant.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     1. The window is not created or destroyed.
+     *     2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     *     1. The window is not float window.
+     *     2. The window is not at foreground or has never been clicked.
+     *     3. The window cannot find main window.
+     * @throws { BusinessError } 1300007 - Restore parent main window failed.
+     *     1. The main window is in PAUSED lifecycle state.
+     *     2. The main window is in background during recent.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    restoreMainWindow(wantParameters?: Record<string, Object>): Promise<void>;
+
+    /**
      * Set the visibility of the window decor.
      *
      * @param { boolean } - Enable the decor visible if true, otherwise means the opposite.
@@ -12322,7 +12349,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     on(type: 'windowRectChange', callback: Callback<RectChangeOptions>): void;
 
@@ -12352,7 +12378,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 23 static
      */
     off(type: 'windowRectChange', callback?: Callback<RectChangeOptions>): void;
 

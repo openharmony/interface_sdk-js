@@ -2822,6 +2822,21 @@ export declare interface DragItemInfo {
      */
     extraInfo?: string;
 }
+
+/**
+ * Define animation functions for immediate distribution.
+ * This interface depends on the UI context and cannot be used when the UI context is unclear. It is recommended to use
+ * {@link ohos.arkui.UIContext.UIContext#animateToImmediately} to explicitly specify the UI context.
+ *
+ * @param { AnimateParam } value - Set animation effect parameters.
+ * @param { VoidCallback } processor - Specify the closure function that displays dynamic effects,
+ *     and the system will automatically insert transition animations for state changes caused by the closure function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare function animateToImmediately(value: AnimateParam, processor: VoidCallback): void;
+
 /**
  * Defines the namespace of focus controller.
  *
@@ -4864,6 +4879,19 @@ export type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureRecog
  */
 export type TransitionFinishCallback = (transitionIn: boolean) => void;
 /**
+ * Defines the callback type used in onTouchTestDone.
+ * When the user touch down, the system performs hit test process to collect all gesture recognizers
+ * based on the press location, when the collection is completed, and before gesture begin to be recognizing,
+ * the callback is triggered, you can get all recognizer's information from this callback.
+ *
+ * @typedef { function } TouchTestDoneCallback
+ * @param { BaseGestureEvent } event - the event information, basicly is the touch down information
+ * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export type TouchTestDoneCallback = (event: BaseGestureEvent, recognizers: Array<GestureRecognizer>) => void;
+/**
  * Defines the PixelMap type object for ui component.
  *
  * @typedef { image.PixelMap } PixelMap
@@ -6088,6 +6116,21 @@ export declare interface SheetOptions extends BindOptions {
      * @since 23 static
      */
     modalTransition?: ModalTransition;
+    /**
+    * Define strategy for drawing rounded corners.
+    * NOTE
+    * 1. **RenderStrategy.FAST**: The current component and its child components will be drawn directly
+    * onto the canvas with rounded corners applied.
+    * 2. **RenderStrategy.OFFSCREEN**: The current component and its child components will first be rendered onto
+    * an off-screen canvas, then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
+    *
+    * @type { ?RenderStrategy }
+    * @default RenderStrategy.FAST
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    */
+    radiusRenderStrategy?: RenderStrategy;
     /**
      * Mask color of the sheet.
      *
@@ -8259,6 +8302,20 @@ export declare interface ContextMenuOptions {
      * @since 23 static
      */
     minKeyboardAvoidDistance?: LengthMetrics;
+    /**
+     * Set system-styled materials for menu. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of menu.
+     *
+     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+     * their computing power.
+     *
+     * @type { ?SystemUiMaterial }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    systemMaterial?: SystemUiMaterial;
 }
 /**
  * Defines the menu options.
@@ -10214,6 +10271,21 @@ export declare interface CommonMethod {
      */
     default useEffect(value: boolean | undefined): this;
     /**
+     * Specify whether the current component participates in the fusion effect of the ancestor component
+     * UnionEffectContainer
+     *
+     * @param { boolean | undefined } value - Whether the component participates in the fusion effect of
+     *     the ancestor component **UnionEffectContainer**.<br>The value **true** means that the component participates
+     *     in the fusion effect of the ancestor component **UnionEffectContainer**, and **false** means the opposite.
+     *     <br>Default value: **false**. Undefined means to default value.
+     * @returns { this } return the component attribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default useUnionEffect(value: boolean | undefined): this;
+    /**
      * Adds the background blur effect for the current component. The input parameter is the blur radius.
      * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
      *
@@ -11425,6 +11497,19 @@ export declare interface CommonMethod {
      */
     default accessibilityFocusDrawLevel(drawLevel: FocusDrawLevel | undefined): this;
     /**
+     * Register one callback which will be executed when all gesture recognizers are collected done, this happens
+     * when user touchs down, the system do hit test process and collect gesture recognizers base on the touch
+     * position, after this, before handling any move events, the component can use this interface to know which
+     * gesture recognizers will participate in the recognition and competing with each other.
+     *
+     * @param { TouchTestDoneCallback | undefined } callback - A callback instance used when all gesture recognizers
+     *     are collected.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default onTouchTestDone(callback: TouchTestDoneCallback | undefined): this;
+    /**
      * Set system-styled materials for the component. Different materials have different effects, which can influence
      * the backgroundColor, border, shadow, and other visual attributes of the component.
      *
@@ -11671,6 +11756,20 @@ export declare interface CommonShapeMethod extends CommonMethod {
      * @since 23 static
      */
     default strokeDashArray(value: Array<Length> | undefined): this;
+    /**
+    * Set whether the component enables the ability to invert colors.
+    * This interface needs to be set as the first attribute of the component.
+    *
+    * @param { boolean } value - value indicates whether the component enables the ability to invert colors.
+    *     <br>If set to true, the component will use the inverse color capability.
+    *     If set to false, the component and its child components will not use the inverse color capability
+    *     and will not be affected by the settings of the parent or ancestor components. The default value is true.
+    * @returns { this }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 23 static
+    */
+    default allowForceDark(value: boolean): this;
 }
 /**
  * Defines the direction of pixel rounding at the component level.
@@ -12311,9 +12410,10 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      *     for the <em>WaterFlow</em> component
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    scrollBar(barState: BarState | undefined): this;
+    default scrollBar(barState: BarState | undefined): this;
     /**
      * Sets the scrollbar color.
      *
@@ -12323,21 +12423,23 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      *     format, for example, <em>'#ffffff'</em>.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    scrollBarColor(color: Color | int | string | undefined): this;
+    default scrollBarColor(color: Color | int | string | undefined): this;
     /**
      * Sets the scrollbar width.
      *
-     * @param { number | string | undefined } value  - Scrollbar width.<br>Default value: <em>4</em>
+     * @param { double | string | undefined } value - Scrollbar width.<br>Default value: <em>4</em>
      *     <br>Unit: vp
      *     <br>If this parameter is set to a value less than or equal to 0, the default value is used.
      *     The value <em>0</em> means not to show the scrollbar.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    scrollBarWidth(value: double | string | undefined): this;
+    default scrollBarWidth(value: double | string | undefined): this;
     /**
      * Sets the effect used when the scroll boundary is reached.
      *
@@ -12354,9 +12456,10 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      *     for the <em>Scroll</em> component
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    edgeEffect(edgeEffect: EdgeEffect | undefined, options?: EdgeEffectOptions): this;
+    default edgeEffect(edgeEffect: EdgeEffect | undefined, options?: EdgeEffectOptions): this;
     /**
      * Called when setting whether to enable fading Edge effect.
      *
@@ -12364,74 +12467,82 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @param { FadingEdgeOptions } [options] - The options of fadingEdge.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    fadingEdge(enabled: boolean | undefined, options?: FadingEdgeOptions): this;
+    default fadingEdge(enabled: boolean | undefined, options?: FadingEdgeOptions): this;
     /**
      * Sets the nested scrolling options.
      *
      * @param { NestedScrollOptions | undefined } value - Nested scrolling options.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    nestedScroll(value: NestedScrollOptions | undefined): this;
+    default nestedScroll(value: NestedScrollOptions | undefined): this;
     /**
      * Sets whether to support scroll gestures.
      *
      * @param { boolean | undefined } value - Whether to support scroll gestures.<br>Default value: <em>true</em>
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    enableScrollInteraction(value: boolean | undefined): this;
+    default enableScrollInteraction(value: boolean | undefined): this;
     /**
      * Sets the friction coefficient.
      *
      * @param { double | Resource | undefined } value - Friction coefficient.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    friction(value: double | Resource | undefined): this;
+    default friction(value: double | Resource | undefined): this;
     /**
      * Triggered when the scrollable component reaches the start position.
      *
-     * @param { (() => void) | undefined } event - Callback function, triggered when the scrollable reaches
+     * @param { function | undefined } event - Callback function, triggered when the scrollable reaches
      *     the start position.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    onReachStart(event: (() => void) | undefined): this;
+    default onReachStart(event: (() => void) | undefined): this;
     /**
      * Triggered when the scrollable component reaches the end position.
      *
-     * @param { (() => void) | undefined } event - Callback function, triggered when the scrollable reaches the end position.
+     * @param { function | undefined } event - Callback function, triggered when the scrollable reaches the end position.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    onReachEnd(event: (() => void) | undefined): this;
+    default onReachEnd(event: (() => void) | undefined): this;
     /**
      * Triggered when the scrollable component starts scrolling initiated by the user's finger dragging the
      * component or its scrollbar.
      *
-     * @param { (() => void) | undefined } event - Callback function, triggered when the scrollable starts scrolling.
+     * @param { function | undefined } event - Callback function, triggered when the scrollable starts scrolling.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    onScrollStart(event: (() => void) | undefined): this;
+    default onScrollStart(event: (() => void) | undefined): this;
     /**
      * Triggered when scrolling stops after the user's finger leaves the screen.
      *
-     * @param { (() => void) | undefined } event - Callback function, triggered when the scrollable stops scrolling.
+     * @param { function | undefined } event - Callback function, triggered when the scrollable stops scrolling.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    onScrollStop(event: (() => void) | undefined): this;
+    default onScrollStop(event: (() => void) | undefined): this;
     /**
      * Sets the maximum initial velocity at the start of the fling animation that occurs after gesture-driven scrolling ends.
      *
@@ -12441,37 +12552,41 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      *     <br>Value range: (0, +∞). If this parameter is set to a value less than or equal to 0, the default value is used.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    flingSpeedLimit(speedLimit: double | undefined): this;
+    default flingSpeedLimit(speedLimit: double | undefined): this;
     /**
      * Sets the content clipping area for this scrollable component.
      *
      * @param { ContentClipMode | RectShape | undefined } clip - A value from enum ContentClipMode or a customized clip rect.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    clipContent(clip: ContentClipMode | RectShape | undefined): this;
+    default clipContent(clip: ContentClipMode | RectShape | undefined): this;
     /**
      * Set the sensitivity of rotating crown.
      *
      * @param { CrownSensitivity | undefined } sensitivity - The sensitivity of rotating crown, default value is { MEDIUM }.
      * @returns { this } The component instance.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
+    default digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
     /**
      * Sets whether to enable the back-to-top feature for a scrollable component when the status bar is touched.
      *
-     * @param { boolean | undefined } backToTop - Whether to enable the back-to-top feature for a scrollable
+     * @param { boolean | undefined } backToTop - Whether to enable the backtotop feature for a scrollable
      *     component when the status bar is touched. <br>Default value: <em>false</em>
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    backToTop(backToTop: boolean | undefined): this;
+    default backToTop(backToTop: boolean | undefined): this;
 }
 /**
  * The actual offset by which the scrollable scrolls.

@@ -49,7 +49,7 @@ declare namespace collections {
      * Gets the element number of the BitVector. This is a number one higher than the highest index in the bit vector.
      * It can be changed by resize().
      *
-     * @readonly
+     * @returns { int } The int type, returns The length of BitVector
      * @syscap SystemCapability.Utils.Lang
      * @since 23 static
      */

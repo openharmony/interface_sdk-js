@@ -299,6 +299,15 @@ export declare class Scroller {
      */
     currentOffset(): OffsetResult | undefined;
     /**
+     * Obtains the current scrolling offset.
+     *
+     * @returns { OffsetResult | undefined } Returns the current scrolling offset.
+     *     If the scroller not bound to a component, the return value is void.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    offset(): OffsetResult | undefined;
+    /**
      * Scroll to the specified index.
      *
      * @param { int } value - Index to jump to.

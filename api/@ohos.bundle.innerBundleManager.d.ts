@@ -187,8 +187,9 @@ declare namespace innerBundleManager {
  * @typedef { _BundleStatusCallback }
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
- * @since 8 dynamic
+ * @since 8 dynamiconly
  * @deprecated since 9
+ * @useinstead ohos.bundle.bundleMonitor/bundleMonitor.BundleChangedInfo
  */
 export type BundleStatusCallback = _BundleStatusCallback;
 

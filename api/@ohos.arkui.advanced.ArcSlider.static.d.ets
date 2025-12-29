@@ -19,8 +19,8 @@
  * @kit ArkUI
  */
 
-import { Component, Builder, TouchEvent, CrownSensitivity } from '@ohos.arkui.component';
-import { ObservedV2, Trace } from '@ohos.arkui.stateManagement';
+import { ComponentV2, Builder, TouchEvent, CrownSensitivity } from '@ohos.arkui.component';
+import { ObservedV2, Trace, Param } from '@ohos.arkui.stateManagement';
 
 /**
  * Construct parameter types for ArcSliderValueOptions.
@@ -528,7 +528,7 @@ export declare class ArcSliderOptions {
  * @since 23 static
  * @noninterop
  */
-@Component
+@ComponentV2
 export declare struct ArcSlider {
   /**
    * The options of a ArcSlider component.
@@ -537,6 +537,7 @@ export declare struct ArcSlider {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Param
   options: ArcSliderOptions;
   /**
    * The method to build component.

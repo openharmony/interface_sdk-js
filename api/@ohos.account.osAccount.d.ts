@@ -1896,7 +1896,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid serialNumber.
-     * @throws { BusinessError } 12300003 - The account indicated by serialNumber dose not exist.
+     * @throws { BusinessError } 12300003 - The account indicated by serialNumber does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
      * @since 23 static
@@ -1912,7 +1912,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid serialNumber.
-     * @throws { BusinessError } 12300003 - The account indicated by serialNumber dose not exist.
+     * @throws { BusinessError } 12300003 - The account indicated by serialNumber does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
      * @since 23 static
@@ -2315,6 +2315,32 @@ declare namespace osAccount {
     offSwitched(callback?: Callback<OsAccountSwitchEventData>): void;
 
     /**
+     * Subscribes to the constraint change events of the current OS account.
+     *
+     * @param { string[] } constraints - Indicates the target constraints.
+     * @param { Callback<ConstraintChangeInfo> } callback - Callback for receiving constraint change information.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - One or more constraints are invalid.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    onConstraintChanged(constraints: string[], callback: Callback<ConstraintChangeInfo>): void;
+
+    /**
+     * Unsubscribes to the constraint change events of the current OS account.
+     *
+     * @param { Callback<ConstraintChangeInfo> } [callback] - Callback for receiving constraint change information.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    offConstraintChanged(callback?: Callback<ConstraintChangeInfo>): void;
+
+    /**
      * Check whether current process belongs to the main account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
@@ -2641,6 +2667,36 @@ declare namespace osAccount {
      * @since 23 dynamic&static
      */
     displayId?: long;
+  }
+
+  /**
+   * Defines the constraint change information.
+   *
+   * @interface ConstraintChangeInfo
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface ConstraintChangeInfo {
+    /**
+     * Indicates the constraint value.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    constraint: string;
+
+    /**
+     * Indicates whether the constraint is enabled.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    isEnabled: boolean;
   }
 
   /**
@@ -2976,8 +3032,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getPropertyByCredentialId(credentialId: Uint8Array, keys: Array<GetPropertyType>): Promise<ExecutorProperty>;
 
@@ -4973,8 +5028,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300020 - Device hardware abnormal.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getAuthInfo(callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
 
@@ -5009,8 +5063,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300020 - Device hardware abnormal.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getAuthInfo(authType: AuthType, callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
 
@@ -5044,8 +5097,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300020 - Device hardware abnormal.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getAuthInfo(authType: AuthType): Promise<Array<EnrolledCredInfo>>;
 
@@ -5081,8 +5133,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300020 - Device hardware abnormal.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getAuthInfo(options?: GetAuthInfoOptions): Promise<Array<EnrolledCredInfo>>;
 
@@ -5123,8 +5174,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300106 - The authentication type is not supported.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     getEnrolledId(authType: AuthType, accountId?: int): Promise<Uint8Array>;
 

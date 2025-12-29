@@ -25,6 +25,7 @@ import type { RingtonePlayer as _RingtonePlayer } from './multimedia/ringtonePla
 import type { RingtoneOptions as _RingtoneOptions } from './multimedia/ringtonePlayer';
 import type { SystemTonePlayer as _SystemTonePlayer } from './multimedia/systemTonePlayer';
 import type { SystemToneOptions as _SystemToneOptions } from './multimedia/systemTonePlayer';
+import type { SystemSoundPlayer as _SystemSoundPlayer } from './multimedia/SystemSoundPlayer';
 
 /**
  * Provides ringtone player interfaces.
@@ -33,7 +34,13 @@ import type { SystemToneOptions as _SystemToneOptions } from './multimedia/syste
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
  * @since 10 dynamic
- * @since 23 static
+ */
+/**
+ * Provides system sound and ringtone player interfaces.
+ *
+ * @namespace systemSoundManager
+ * @syscap SystemCapability.Multimedia.SystemSound.Core
+ * @since 23 dynamic&static
  */
 declare namespace systemSoundManager {
 
@@ -257,6 +264,43 @@ declare namespace systemSoundManager {
      * @since 23 static
      */
     VIDEO = 1,
+  }
+
+   /**
+   * Enum for system sound type.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum SystemSoundType{
+    /**
+     * The sound indicates image capture.
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    PHOTO_SHUTTER = 0,
+
+    /**
+     * The sound indicates the beginning of video recording.
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    VIDEO_RECORDING_BEGIN = 1,
+
+    /**
+     * The sound indicates the end of video recording.
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    VIDEO_RECORDING_END = 2,
   }
 
   /**
@@ -1372,6 +1416,19 @@ declare namespace systemSoundManager {
   }
 
   /**
+   * Creates a SystemSoundPlayer instance. This function uses a promise to return the result.
+   * This player can be used to play some system sounds for media or camera actions.
+   *
+   * @returns { Promise<SystemSoundPlayer | null> } Promise used to return the result.
+   *     If the operation is successful, a SystemSoundPlayer instance is returned.
+   *     Otherwise, null is returned. The instance is used for loading and playback.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @since 23 dynamic&static
+   */
+  function createSystemSoundPlayer(): Promise<SystemSoundPlayer | null>;
+
+  /**
    * Ringtone player object.
    * @typedef { _RingtonePlayer } RingtonePlayer
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -1410,6 +1467,14 @@ declare namespace systemSoundManager {
    * @since 23 static
    */
   type SystemToneOptions = _SystemToneOptions;
+
+  /**
+   * System sound player object.
+   * @typedef { _SystemSoundPlayer } SystemSoundPlayer
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @since 23 dynamic&static
+   */
+  type SystemSoundPlayer = _SystemSoundPlayer;
 }
 
 export default systemSoundManager;

@@ -217,8 +217,9 @@ declare class LinkedList<T> {
   /**
    * Obtains an element at the specified position in this container.
    *
-   * @param { number } index - Position index of the target element.
+   * @param { int } index - Position index of the target element.
    * @returns { T } the T type
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -227,20 +228,9 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  get(index: number): T;
-
-  /**
-   * Obtains an element at the specified position in this container.
-   *
-   * @param { int } index - specified position
-   * @returns { T | undefined} the element at the specified index, or undefined if the index is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
    * @since 23 static
    */
-  get(index: int): T | undefined;
+  get(index: int): T;
 
   /**
    * Inserts the specified element at the beginning of this LinkedList.
@@ -483,6 +473,7 @@ declare class LinkedList<T> {
    * out of bounds (greater than or equal to length or less than 0), throw an exception
    * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= ${length}.
    * Received value is: ${index}
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -664,29 +655,21 @@ declare class LinkedList<T> {
    * @since 10
    */
   /**
-   * Obtains the first element in this container.
+   * Returns the first element (the item at index 0) of this linkedlist.
+   * or returns undefined if linkedlist is empty
    *
    * @returns { T } the T type ,returns undefined if linkedList is empty
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   getFirst(): T;
 
   /**
-   * Obtains the first element in this container.
-   *
-   * @returns { T | undefined } the T type, returns undefined if linkedList is empty
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 23 static
-   */
-  getFirst(): T | undefined;
-
-  /**
    * Returns the Last element (the item at index length-1) of this linkedlist.
    * or returns undefined if linkedlist is empty
    *
@@ -706,29 +689,21 @@ declare class LinkedList<T> {
    * @since 10
    */
   /**
-   * Obtains the last element in this container.
-   *
+   * Returns the Last element (the item at index length-1) of this linkedlist.
+   * or returns undefined if linkedlist is empty
+   * 
    * @returns { T } the T type ,returns undefined if linkedList is empty
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   getLast(): T;
 
   /**
-   * Obtains the last element in this container.
-   *
-   * @returns { T | undefined } the T type, returns undefined if linkedList is empty
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 23 static
-   */
-  getLast(): T | undefined;
-
-  /**
    * Replaces the element at the specified position in this Vector with the specified element
    *
    * @param { number } index - index index index to find
@@ -760,13 +735,14 @@ declare class LinkedList<T> {
    * @since 10
    */
   /**
-   * Replaces an element at the specified position in this container with a given element.
+   * Replaces the element at the specified position in this Vector with the specified element
    *
-   * @param { number } index - Position index of the target element.
-   * @param { T } element - Element to be used for replacement.
+   * @param { int } index - index index index to find
+   * @param { T } element - element element replaced element
    * @returns { T } the T type ,returns undefined if linkedList is empty
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
@@ -775,25 +751,9 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  set(index: number, element: T): T;
-
-  /**
-   * Replaces an element at the specified position in this container with a given element.
-   *
-   * @param { int } index - Position index of the target element.
-   * @param { T } element - Element to be used for replacement.
-   * @returns { T | undefined } the T type ,returns undefined if linkedList is empty
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types;
-   * 3.Parameter verification failed.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
    * @since 23 static
    */
-  set(index: int, element: T): T | undefined;
+  set(index: int, element: T): T;
 
   /**
    * Replaces each element of this linkedlist with the result of applying the operator to that element.

@@ -660,9 +660,10 @@ declare namespace audio {
 
   /**
    * Enumerates audio loopback equalizer preset.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 21 dynamic
+   * @since 23 static
    */
   enum AudioLoopbackEqualizerPreset {
     /**
@@ -1269,8 +1270,9 @@ declare namespace audio {
     /**
      * Bluetooth device using the SCO link.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.DeviceType#BLUETOOTH_SCO
      */
     BLUETOOTH_SCO = 7,
   }
@@ -1307,10 +1309,11 @@ declare namespace audio {
 
   /**
    * Enumerates the device select strategy.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @systemapi
    * @since 21 dynamic
+   * @since 23 static
    */
   enum AudioDevcieSelectStrategy {
     /**
@@ -2250,6 +2253,20 @@ declare namespace audio {
      * @since 23 static
      */
     STREAM_USAGE_VOICE_CALL_ASSISTANT = 21,
+    /**
+     * Announcement usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    STREAM_USAGE_ANNOUNCEMENT = 22,
+    /**
+     * Emergency usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    STREAM_USAGE_EMERGENCY = 23,
   }
 
   /**
@@ -2998,24 +3015,27 @@ declare namespace audio {
    * Enumerates interrupt action types.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Renderer
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.multimedia.audio.InterruptType
    */
   enum InterruptActionType {
 
     /**
      * Focus gain event.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptType#INTERRUPT_TYPE_BEGIN
      */
     TYPE_ACTIVATED = 0,
 
     /**
      * Audio interruption event.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptType#INTERRUPT_TYPE_END
      */
     TYPE_INTERRUPT = 1
   }
@@ -5469,6 +5489,28 @@ declare namespace audio {
      * @since 23 static
      */
     AUDIO_SESSION_STATE_CHANGE_HINT_UNDUCK = 5,
+
+    /**
+     * Suggests to mute the playback because there is another application begin to play nonmixable
+     * audio, application can decide whether to mute.
+     * If interrupt strategy is duck, {@link #AUDIO_SESSION_STATE_CHANGE_HINT_DUCK} will replace mute suggestion event,
+     * but application can still decide to mute when receive hint duck.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_MUTE_SUGGESTION = 6,
+
+    /**
+     * Suggest to unmute the playback because another application's nonmixable audio ends,
+     * application can decide whether to mute.
+     * If interrupt strategy is unduck, {@link #AUDIO_SESSION_STATE_CHANGE_HINT_UNDUCK} will replace unmute
+     * suggestion event, but application can still decide to unmute when receive hint unduck.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE_SUGGESTION = 7,
   }
 
   /**
@@ -6003,6 +6045,38 @@ declare namespace audio {
      * @since 21 dynamic
      */
     off(type: 'currentInputDeviceChanged', callback?: Callback<CurrentInputDeviceChangedEvent>): void;
+
+    /**
+     * Enables mute suggestion callback function when using {@link #CONCURRENCY_MIX_WITH_OTHERS} mode.
+     * Usually when using mix mode, application won't receive state change event when there is another audio playing
+     * simultaneously. But in some scenarios, like game or radio, the application may intend to mute its audio to
+     * achieve better user experience.
+     * If enabled, the mute and unmute suggestion hint will be sent by {@link #AudioSessionStateChangedEvent}
+     * when subscribes to audioSessionStateChanged event. Mute suggestion means there is another application
+     * starting non-mixable audio.
+     * This function only supports audio session with {@link #AudioSessionScene} set and activated with
+     * {@link #CONCURRENCY_MIX_WITH_OTHERS} mode. And it takes effect only once during activation, so application
+     * need to enable it every time before activation.
+     * @param { boolean } enable - {@code true} to enable mute suggestion while registering session state
+     *     change event callback.
+     * @throws { BusinessError } 6800103 - Function is called without setting {@link #AudioSessionScene} or
+     *     called before audio session activation.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, system internal error.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    enableMuteSuggestionWhenMixWithOthers(enable: boolean): void;
+
+    /**
+     * Returns if there is any other application playing audio in media usage.
+     * The short sound effect will not be considered in.
+     * @returns { boolean } {@code true} if there is other application playing audio in media usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    isOtherMediaPlaying(): boolean;
   }
 
   /**
@@ -6319,7 +6393,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12 dynamic
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:streamVolumeChange
      */
@@ -6334,7 +6408,7 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 12 dynamic
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:streamVolumeChange
      */
@@ -9168,8 +9242,9 @@ declare namespace audio {
      * The value TYPE_ACTIVATED means the focus gain event, and TYPE_INTERRUPT means the audio interruption event.
      * @type { InterruptActionType }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptEvent#eventType
      */
     actionType: InterruptActionType;
 
@@ -9177,8 +9252,9 @@ declare namespace audio {
      * Type of the audio interruption event.
      * @type { ?InterruptType }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptEvent#eventType
      */
     type?: InterruptType;
 
@@ -9186,8 +9262,9 @@ declare namespace audio {
      * Hint for the audio interruption event.
      * @type { ?InterruptHint }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptEvent#hintType
      */
     hint?: InterruptHint;
 
@@ -9196,8 +9273,9 @@ declare namespace audio {
      * and false means that the focus fails to be gained or released.
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptEvent#hintType
      */
     activated?: boolean;
   }
@@ -9206,8 +9284,9 @@ declare namespace audio {
    * Describes input parameters of audio listening events.
    * @typedef AudioInterrupt
    * @syscap SystemCapability.Multimedia.Audio.Renderer
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.multimedia.audio.AudioRendererOptions
    */
   interface AudioInterrupt {
 
@@ -9215,8 +9294,9 @@ declare namespace audio {
      * Audio stream usage type.
      * @type { StreamUsage }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioRendererOptions#rendererInfo
      */
     streamUsage: StreamUsage;
 
@@ -9224,8 +9304,9 @@ declare namespace audio {
      * Type of the media interrupted.
      * @type { ContentType }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioRendererOptions#rendererInfo
      */
     contentType: ContentType;
 
@@ -9234,8 +9315,9 @@ declare namespace audio {
      * The value true means that audio playback can be paused when it is interrupted, and false means the opposite.
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.InterruptEvent#hintType
      */
     pauseWhenDucked: boolean;
   }

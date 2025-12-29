@@ -1107,6 +1107,16 @@ declare namespace socket {
      * @since 10 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Obtains the file descriptor of the UDPSocket.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<int> } The promise returns the file descriptor of the UDP socket.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 23 dynamic&static
+     */
+    getSocketFd(): Promise<int>;
   }
 
   /**
@@ -1397,6 +1407,18 @@ declare namespace socket {
      * @since 12 dynamic
      */
     getLoopbackMode(): Promise<boolean>;
+
+    /**
+     * Obtains the file descriptor of the MulticastSocket.
+     *
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<int> } The promise returns the file descriptor of the Multicast socket.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getSocketFd(): Promise<int>;
   }
 
   /**
@@ -1926,6 +1948,14 @@ declare namespace socket {
      * @since 12 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Obtains the file descriptor of the LocalSocketConnection.
+     * @returns { Promise<int> } The promise returns the file descriptor of the local socket connection.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 23 dynamic&static
+     */
+    getSocketFd(): Promise<int>;
   }
 
   /**
@@ -2121,6 +2151,14 @@ declare namespace socket {
      * @since 12 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Obtains the file descriptor of the LocalSocketServer.
+     * @returns { Promise<int> } The promise returns the file descriptor of the local socket server.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 23 dynamic&static
+     */
+    getSocketFd(): Promise<int>;
   }
 
   /**
@@ -4146,6 +4184,16 @@ declare namespace socket {
      * @since 10 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Obtains the file descriptor of the TCPSocketConnection.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<int> } The promise returns the file descriptor of the TCP socket connection.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 23 dynamic&static
+     */
+    getSocketFd(): Promise<int>;
   }
 
   /**
@@ -4307,6 +4355,16 @@ declare namespace socket {
      * @since 10 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Obtains the file descriptor of the TCPSocketServer.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<int> } The promise returns the file descriptor of the TCP socket server.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 23 dynamic&static
+     */
+    getSocketFd(): Promise<int>;
   }
 
   /**
@@ -4605,6 +4663,16 @@ declare namespace socket {
      * @since 10 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Obtains the file descriptor of the TLSSocketConnection.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<int> } The promise returns the file descriptor of the TLS socket connection.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 23 dynamic&static
+     */
+    getSocketFd(): Promise<int>;
   }
 
   /**
@@ -4844,6 +4912,16 @@ declare namespace socket {
      * @since 10 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Obtains the file descriptor of the TLSSocketServer.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<int> } The promise returns the file descriptor of the TLS socket server.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 23 dynamic&static
+     */
+    getSocketFd(): Promise<int>;
   }
 }
 

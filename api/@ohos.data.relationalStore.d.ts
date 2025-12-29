@@ -306,7 +306,7 @@ declare namespace relationalStore {
   type RowData = Array<ValueType>;
 
   /**
-   * Indicates mutiple rows of data with an array.
+   * Indicates multiple rows of data with an array.
    *
    * @typedef { Array<RowData> } RowsData
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -2357,13 +2357,15 @@ declare namespace relationalStore {
     readonly resultSet: LiteResultSet;
   }
   /**
-   * Manages relational database configurations.
+   * Defines the predicates for a Relational Database.
+   * This class determines whether the conditional expression for the Relational Database is true or false.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
   /**
-   * Manages relational database configurations.
+   * Defines the predicates for a Relational Database.
+   * This class determines whether the conditional expression for the Relational Database is true or false.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
@@ -5515,6 +5517,12 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
+     * 
+     * Write 32766 parameters per batch using the {@link ConflictResolution.ON_CONFLICT_REPLACE} policy.
+     * The product of the number of inserted data records and the size of the union of all fields in the inserted data
+     * equals the number of parameters. This API returns immediately upon a failure during the process.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -5529,6 +5537,12 @@ declare namespace relationalStore {
      */
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
+     * 
+     * Write 32766 parameters per batch using the {@link ConflictResolution.ON_CONFLICT_REPLACE} policy.
+     * The product of the number of inserted data records and the size of the union of all fields in the inserted data
+     * equals the number of parameters. This API returns immediately upon a failure during the process.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -5545,6 +5559,12 @@ declare namespace relationalStore {
      */
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
+     * 
+     * Write 32766 parameters per batch using the {@link ConflictResolution.ON_CONFLICT_REPLACE} policy.
+     * The product of the number of inserted data records and the size of the union of all fields in the inserted data
+     * equals the number of parameters. This API returns immediately upon a failure during the process.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket}
@@ -5583,6 +5603,12 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
+     * 
+     * Write 32766 parameters per batch using the {@link ConflictResolution.ON_CONFLICT_REPLACE} policy.
+     * The product of the number of inserted data records and the size of the union of all fields in the inserted data
+     * equals the number of parameters. This API returns immediately upon a failure during the process.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -5597,7 +5623,13 @@ declare namespace relationalStore {
      */
     /**
      * Inserts a batch of data into the target table.
-     *
+     * 
+     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
+     * 
+     * Write 32766 parameters per batch using the {@link ConflictResolution.ON_CONFLICT_REPLACE} policy.
+     * The product of the number of inserted data records and the size of the union of all fields in the inserted data
+     * equals the number of parameters. This API returns immediately upon a failure during the process.
+     * 
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
      * Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
@@ -5613,6 +5645,12 @@ declare namespace relationalStore {
      */
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
+     * 
+     * Write 32766 parameters per batch using the {@link ConflictResolution.ON_CONFLICT_REPLACE} policy.
+     * The product of the number of inserted data records and the size of the union of all fields in the inserted data
+     * equals the number of parameters. This API returns immediately upon a failure during the process.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -5650,6 +5688,12 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * The data insertion fails if the API returns an error, or if it returns -1 without throwing an error.
+     * 
+     * Write 32766 parameters per batch using the {@link ConflictResolution.ON_CONFLICT_REPLACE} policy.
+     * The product of the number of inserted data records and the size of the union of all fields in the inserted data
+     * equals the number of parameters. This API returns immediately upon a failure during the process.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -5686,6 +5730,12 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
+     * the error code 14800000 is returned. The product of the number of inserted data records and the size of the union
+     * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
+     * a maximum of 3276 data records can be inserted (3276 * 10 = 32760). Ensure that your application complies with
+     * this constraint when calling this API to avoid errors caused by excessive parameters.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -5724,6 +5774,12 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
+     * the error code 14800000 is returned. The product of the number of inserted data records and the size of the union
+     * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
+     * a maximum of 3276 data records can be inserted (3276 * 10 = 32760). Ensure that your application complies with
+     * this constraint when calling this API to avoid errors caused by excessive parameters.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -7655,7 +7711,7 @@ declare namespace relationalStore {
      * Executes a SQL statement that contains specified parameters and returns a value of ValueType.
      *
      * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { number } txId - Indicates the transaction ID which is obtained by beginTrans or 0.
+     * @param { long } txId - Indicates the transaction ID which is obtained by beginTrans or 0.
      * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement.
      * The values are strings.
      * @returns { Promise<ValueType> } The promise returned by the function.
@@ -7683,9 +7739,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @since 12 dynamic
+     * @since 23 static
      */
-    execute(sql: string, txId: number, args?: Array<ValueType>): Promise<ValueType>;
+    execute(sql: string, txId: long, args?: Array<ValueType>): Promise<ValueType>;
 
     /**
      * Executes a SQL statement that contains specified parameters and returns a value of ValueType with sync interface.
@@ -9701,12 +9759,17 @@ declare namespace relationalStore {
     /**
      * Inserts a batch of data into the target table and return a resultSet of changed fields.
      *
+     * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
+     * the error code 14800001 is returned. The product of the number of inserted data records and the size of the union
+     * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
+     * a maximum of 3276 data records can be inserted (3276 * 10 = 32760). Ensure that your application complies with
+     * this constraint when calling this API to avoid errors caused by excessive parameters.
+     *
      * @param { string } table - Indicates the target table.
-     * @param { Array<ValuesBucket> } values -
-     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @param { config } config - Indicate the information that needs to be returned.
-     * @param { ConflictResolution } [conflict] -
-     *     Indicates the {@link ConflictResolution} to insert data into the table.
+     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
+     * @param { ConflictResolution } [conflict] - Indicates the {@link ConflictResolution} to insert data into the table.
+     *     The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_NONE}.
      * @returns { Promise<Result> } The {@link Result} result of the inserted field includes the number of modified
      *     rows and the result set of changed data.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
@@ -9714,7 +9777,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
      * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
@@ -9734,20 +9796,24 @@ declare namespace relationalStore {
     /**
      * Inserts a batch of data into the target table and return a resultSet of changed fields.
      *
+     * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
+     * the error code 14800001 is returned. The product of the number of inserted data records and the size of the union
+     * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
+     * a maximum of 3276 data records can be inserted (3276 * 10 = 32760). Ensure that your application complies with
+     * this constraint when calling this API to avoid errors caused by excessive parameters.
+     *
      * @param { string } table - Indicates the target table.
-     * @param { Array<ValuesBucket> } values -
-     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @param { config } config - Indicate the information that needs to be returned.
-     * @param { ConflictResolution } [conflict] -
-     *     Indicates the {@link ConflictResolution} to insert data into the table.
+     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
+     * @param { ConflictResolution } [conflict] - Indicates the {@link ConflictResolution} to insert data into the table.
+     *     The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_NONE}.
      * @returns { Result } The {@link Result} result of the inserted field includes the number of modified
      *     rows and the result set of changed data.
-     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of    valid range.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
      * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
@@ -9772,7 +9838,7 @@ declare namespace relationalStore {
      *     The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
      * @param { ConflictResolution } [conflict] -
      *     Indicates the {@link ConflictResolution} to update data into the table.
      * @returns { Promise<Result> } The {@link Result} result of the updated field includes the number of modified
@@ -9782,7 +9848,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
      * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
@@ -9807,7 +9872,7 @@ declare namespace relationalStore {
      *     The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
      * @param { ConflictResolution } [conflict] -
      *     Indicates the {@link ConflictResolution} to update data into the table.
      * @returns { Result } The {@link Result} result of the updated field includes the number of modified
@@ -9817,7 +9882,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
      * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
@@ -9840,7 +9904,7 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates -
      *     The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
      * @returns { Promise<Result> } The {@link Result} result of the deleted field includes the number of modified
      *     rows and the result set of changed data.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of    valid range.
@@ -9848,7 +9912,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
      * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
@@ -9870,7 +9933,7 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates -
      *     The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
      * @returns { Result } The {@link Result} result of the deleted field includes the number of modified
      *     rows and the result set of changed data.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
@@ -9878,7 +9941,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
      * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
@@ -10038,6 +10100,10 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * Write 32766 parameters per batch using the {@link ConflictResolution.ON_CONFLICT_REPLACE} policy.
+     * The product of the number of inserted data records and the size of the union of all fields in the inserted data
+     * equals the number of parameters. This API returns immediately upon a failure during the process.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -10070,6 +10136,10 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * Write 32766 parameters per batch using the {@link ConflictResolution.ON_CONFLICT_REPLACE} policy.
+     * The product of the number of inserted data records and the size of the union of all fields in the inserted data
+     * equals the number of parameters. This API returns immediately upon a failure during the process.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -10101,6 +10171,12 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
+     * the error code 14800000 is returned. The product of the number of inserted data records and the size of the union
+     * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
+     * a maximum of 3276 data records can be inserted (3276 * 10 = 32760). Ensure that your application complies with
+     * this constraint when calling this API to avoid errors caused by excessive parameters.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -10137,6 +10213,12 @@ declare namespace relationalStore {
 
     /**
      * Inserts a batch of data into the target table.
+     * 
+     * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
+     * the error code 14800000 is returned. The product of the number of inserted data records and the size of the union
+     * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
+     * a maximum of 3276 data records can be inserted (3276 * 10 = 32760). Ensure that your application complies with
+     * this constraint when calling this API to avoid errors caused by excessive parameters.
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
@@ -10563,12 +10645,17 @@ declare namespace relationalStore {
     /**
      * Inserts a batch of data into the target table and return a resultSet of changed fields.
      *
+     * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
+     * the error code 14800001 is returned. The product of the number of inserted data records and the size of the union
+     * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
+     * a maximum of 3276 data records can be inserted (3276 * 10 = 32760). Ensure that your application complies with
+     * this constraint when calling this API to avoid errors caused by excessive parameters.
+     *
      * @param { string } table - Indicates the target table.
-     * @param { Array<ValuesBucket> } values -
-     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @param { config } config - Indicate the information that needs to be returned.
-     * @param { ConflictResolution } [conflict] -
-     *     Indicates the {@link ConflictResolution} to insert data into the table.
+     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
+     * @param { ConflictResolution } [conflict] - Indicates the {@link ConflictResolution} to insert data into the table.
+     *     The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_NONE}.
      * @returns { Promise<Result> } The {@link Result} result of the inserted field includes the number of modified
      *     rows and the result set of changed data.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
@@ -10576,10 +10663,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800029 - SQLite: The database is full.
      * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
@@ -10596,12 +10681,17 @@ declare namespace relationalStore {
     /**
      * Inserts a batch of data into the target table and return a resultSet of changed fields.
      *
+     * A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
+     * the error code 14800001 is returned. The product of the number of inserted data records and the size of the union
+     * of all fields in the inserted data equals the number of parameters. For example, if the size of the union is 10,
+     * a maximum of 3276 data records can be inserted (3276 * 10 = 32760). Ensure that your application complies with
+     * this constraint when calling this API to avoid errors caused by excessive parameters.
+     *
      * @param { string } table - Indicates the target table.
-     * @param { Array<ValuesBucket> } values -
-     *     Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @param { config } config - Indicate the information that needs to be returned.
-     * @param { ConflictResolution } [conflict] -
-     *     Indicates the {@link ConflictResolution} to insert data into the table.
+     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
+     * @param { ConflictResolution } [conflict] - Indicates the {@link ConflictResolution} to insert data into the table.
+     *     The default conflict resolution policy is {@link ConflictResolution.ON_CONFLICT_NONE}.
      * @returns { Result } The {@link Result} result of the inserted field includes the number of modified
      *     rows and the result set of changed data.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of    valid range.
@@ -10609,10 +10699,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800029 - SQLite: The database is full.
      * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
@@ -10634,7 +10722,7 @@ declare namespace relationalStore {
      *     The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
      * @param { ConflictResolution } [conflict] -
      *     Indicates the {@link ConflictResolution} to update data into the table.
      * @returns { Promise<Result> } The {@link Result} result of the updated field includes the number of modified
@@ -10644,10 +10732,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800029 - SQLite: The database is full.
      * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
@@ -10669,7 +10755,7 @@ declare namespace relationalStore {
      *     The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates -
      *     Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
      * @param { ConflictResolution } [conflict] -
      *     Indicates the {@link ConflictResolution} to update data into the table.
      * @returns { Result } The {@link Result} result of the updated field includes the number of modified
@@ -10679,10 +10765,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800029 - SQLite: The database is full.
      * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
@@ -10702,7 +10786,7 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates -
      *     The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
      * @returns { Promise<Result> } The {@link Result} result of the deleted field includes the number of modified
      *     rows and the result set of changed data.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of    valid range.
@@ -10710,10 +10794,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800029 - SQLite: The database is full.
      * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
@@ -10732,7 +10814,7 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates -
      *     The specified delete condition by the instance object of {@link RdbPredicates}.
-     * @param { config } config - Indicate the information that needs to be returned.
+     * @param { ReturningConfig } config - Indicate the information that needs to be returned.
      * @returns { Result } The {@link Result} result of the deleted field includes the number of modified
      *     rows and the result set of changed data.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
@@ -10740,10 +10822,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      *     Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800029 - SQLite: The database is full.
      * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.

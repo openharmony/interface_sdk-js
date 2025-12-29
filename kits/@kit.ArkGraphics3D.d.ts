@@ -18,7 +18,6 @@
  * @kit ArkGraphics3D
  */
 
-/*** if arkts dynamic */
 import { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings,
   Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
   GeometryType, GeometryDefinition, PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry,
@@ -42,30 +41,3 @@ export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
   RenderingPipelineType, CameraParameters, EffectParameters, Effect, VignetteSettings, ColorFringeSettings, UnlitShadowAlphaMaterial,
   OcclusionMaterial, Mat4x4 };
-/*** endif */
-
-/*** if arkts static */
-import { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings,
-  Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
-  GeometryType, GeometryDefinition, PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry,
-  CylinderGeometry, SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
-  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, MeshResource,
-  LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight, Camera,
-  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
-  RaycastResult, RaycastParameters, CullMode, PolygonMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
-  UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
-  RenderingPipelineType, CameraParameters, VignetteSettings, ColorFringeSettings, UnlitShadowAlphaMaterial,
-  OcclusionMaterial, Mat4x4 } from '@ohos.graphics.scene';
-
-export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings,
-  Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
-  GeometryType, GeometryDefinition, PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry,
-  CylinderGeometry, SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
-  SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, MeshResource,
-  LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight, Camera,
-  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
-  RaycastResult, RaycastParameters, CullMode, PolygonMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
-  UnlitMaterial, Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
-  RenderingPipelineType, CameraParameters, VignetteSettings, ColorFringeSettings, UnlitShadowAlphaMaterial,
-  OcclusionMaterial, Mat4x4 };
-/*** endif */

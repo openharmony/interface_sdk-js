@@ -27,6 +27,7 @@ import type SelectionExtensionContext from './@ohos.selectionInput.SelectionExte
  * @syscap SystemCapability.SelectionInput.Selection
  * @systemapi
  * @since 20 dynamic
+ * @since 23 static
  */
 
 export default class SelectionExtensionAbility {
@@ -36,6 +37,7 @@ export default class SelectionExtensionAbility {
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   context: SelectionExtensionContext;
 
@@ -46,6 +48,7 @@ export default class SelectionExtensionAbility {
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   onConnect(want: Want): rpc.RemoteObject;
 
@@ -54,6 +57,7 @@ export default class SelectionExtensionAbility {
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
    * @since 20 dynamic
+   * @since 23 static
    */
   onDisconnect(): void;
 }

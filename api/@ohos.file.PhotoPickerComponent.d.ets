@@ -373,6 +373,22 @@ export declare class PickerController {
     configs?: Array<photoAccessHelper.PhotoCreationConfig>, saveMode?: SaveMode): void;
 
   /**
+   * Save the photo assets of uris.
+   *
+   * @param { Array<string> } trustedUris - Uris need to be saved
+   * @param { Array<photoAccessHelper.CreationSetting> } [settings] - Photo asset creation settings
+   * @param { SaveMode } [saveMode] - Mode of save
+   * @returns { Promise<Array<string>> } - Returns the media library file uri list to application
+   *     which has been authorized
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  saveTrustedPhotoAssetsEx(trustedUris: Array<string>,settings?: Array<photoAccessHelper.CreationSetting>,
+    saveMode?: SaveMode): Promise<Array<string>>;
+
+  /**
    * Update options of the PhotoPicker component.
    *
    * @param { UpdatablePickerConfigs } updateConfig - Subset of PickerOptions

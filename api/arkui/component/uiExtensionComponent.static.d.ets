@@ -23,6 +23,7 @@ import { CommonMethod, TerminationInfo } from './common';
 import { ComponentContent } from '../ComponentContent';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
+import { VoidCallback } from './units';
 
 /**
  * Defines RecordData.
@@ -289,13 +290,13 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
     onTerminated(callback: Callback<TerminationInfo> | undefined): this;
     /**
      * Callback called when the UIExtensionAbility draw the first frame.
-     * @param { Callback<void> | undefined } callback
+     * @param { VoidCallback | undefined } callback
      * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 23 static
      */
-    onDrawReady(callback: Callback<void> | undefined): this;
+    onDrawReady(callback: VoidCallback | undefined): this;
 
     /**
      * Set the attribute modifier of UIExtensionComponent Component.
