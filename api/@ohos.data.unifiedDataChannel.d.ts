@@ -380,7 +380,7 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 12 dynamic
      */
-    /**	
+    /**
      * UnifiedData properties.
      * @returns { UnifiedDataProperties } Properties of all data records in a unified data.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
