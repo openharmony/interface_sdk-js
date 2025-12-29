@@ -1913,7 +1913,7 @@ declare namespace unifiedDataChannel {
      * @since 23 static
      */
     get details(): Record<string, int | long | double | string | Uint8Array> | undefined;
-  
+
     /**
      * Indicates the details of system defined data
      *
@@ -2375,7 +2375,7 @@ declare namespace unifiedDataChannel {
      * @since 11 dynamic
      */
     /**
-     * Indicates the id of app.
+     * Indicates the id of app label
      * This field can be sourced from BMS or customized as needed.
      *
      * @returns { string } the id of app label
@@ -3513,21 +3513,21 @@ declare namespace unifiedDataChannel {
    * @since 14 dynamic
    * @since 23 static
    */
-   function setAppShareOptions(intention: Intention, shareOptions: ShareOptions): void;
+  function setAppShareOptions(intention: Intention, shareOptions: ShareOptions): void;
 
-   /**
-    * Remove app sharing options.
-    *
-    * @param { Intention } intention - Describe the sharing channel that UDMF support.
-    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-    * uses system API.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-    *                                                                   2. Incorrect parameter types.
-    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-    * @systemapi
-    * @StageModelOnly
-    * @since 12
-    */
+  /**
+   * Remove app sharing options.
+   *
+   * @param { Intention } intention - Describe the sharing channel that UDMF support.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+   * uses system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                                                   2. Incorrect parameter types.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
   /**
    * Remove app sharing options.
    *
@@ -3544,7 +3544,7 @@ declare namespace unifiedDataChannel {
    * @since 14 dynamic
    * @since 23 static
    */
-   function removeAppShareOptions(intention: Intention): void;
+  function removeAppShareOptions(intention: Intention): void;
 
   /**
    * Converts the provided data into a multi-style data structure, which is useful when the original data uses multiple
@@ -3561,7 +3561,7 @@ declare namespace unifiedDataChannel {
    * @since 17 dynamic
    * @since 23 static
    */
-   function convertRecordsToEntries(data: UnifiedData): void;
+  function convertRecordsToEntries(data: UnifiedData): void;
 }
 
 export default unifiedDataChannel;

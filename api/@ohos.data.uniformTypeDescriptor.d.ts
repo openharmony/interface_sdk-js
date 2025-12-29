@@ -1941,7 +1941,7 @@ declare namespace uniformTypeDescriptor {
      * @crossplatform
      * @since 22 dynamic
      */
-        /**
+    /**
      * Uniform data type IDs that the uniform data type belongs to.
      *
      * @returns { Array<string> } Uniform data type IDs
