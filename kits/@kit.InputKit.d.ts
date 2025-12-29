@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,7 +20,8 @@
 
 /*** if arkts dynamic&static */
 import {
-  ActionType, FourFingersSwipe, Pinch, Rotate, ThreeFingersSwipe, ThreeFingersTap, SwipeInward
+  ActionType, FourFingersSwipe, Pinch, Rotate, ThreeFingersSwipe, ThreeFingersTap, SwipeInward,
+  TouchGestureEvent, FingerprintEvent
 } from '@ohos.multimodalInput.gestureEvent';
 import inputConsumer from '@ohos.multimodalInput.inputConsumer';
 import inputDevice from '@ohos.multimodalInput.inputDevice';
@@ -46,7 +47,8 @@ export {
   Action, ActionType, Axis, AxisValue, Button, FourFingersSwipe, InputEvent, IntentionCode,
   Key, KeyAction, KeyCode, KeyEvent, MouseAction, MouseEvent, MouseToolType, Pinch, Rotate,
   SourceType, ThreeFingersSwipe, ThreeFingersTap, ToolType, Touch, TouchEvent, inputConsumer,
-  inputDevice, pointer, SwipeInward, inputEventClient, inputMonitor, shortKey, infraredEmitter
+  inputDevice, pointer, SwipeInward, inputEventClient, inputMonitor, shortKey, infraredEmitter,
+  TouchGestureEvent, FingerprintEvent
 };
 /*** endif */
 
@@ -57,6 +59,6 @@ export {
   Key, KeyAction, KeyCode, KeyEvent, MouseAction, MouseEvent, MouseToolType, Pinch, Rotate,
   SourceType, ThreeFingersSwipe, ThreeFingersTap, ToolType, Touch, TouchEvent, inputConsumer,
   inputDevice, pointer, SwipeInward, inputEventClient, inputMonitor, shortKey, infraredEmitter,
-  inputDeviceCooperate
+  inputDeviceCooperate, TouchGestureEvent, FingerprintEvent
 };
 /*** endif */

@@ -694,7 +694,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.util.decodeWithStream
+     * @useinstead ohos.util.decodeToString
      */
     decode(input: Uint8Array, options?: { stream?: false }): string;
 
@@ -4988,6 +4988,29 @@ declare namespace util {
      * @since 22 dynamic
      */
     static register<T>(obj: AutoFinalizer<T>, heldValue: T): void;
+  }
+  /**
+   * To provide developers with maintenance and testing capabilities for the ArkTS virtual machine.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @since 23 dynamiconly
+   */
+  class ArkTSVM {
+    /**
+    * To turn on or off the multi-thread detection switch. If enabled is true, turn on the switch,
+    * If enable is false, turn off the switch.
+    * 
+    * @param { boolean } enabled - The boolean flag to indicate whether to turn on or off
+    *                              multi-thread detection switch.
+    * @static
+    * @syscap SystemCapability.Utils.Lang
+    * @stagemodelonly
+    * @crossplatform
+    * @since 23 dynamiconly
+    */
+    static setMultithreadingDetectionEnabled(enabled: boolean):void;
   }
 }
 export default util;

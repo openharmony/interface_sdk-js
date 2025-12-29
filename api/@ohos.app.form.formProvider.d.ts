@@ -400,8 +400,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 18 dynamic
-   * @since 23 static
+   * @since 18 dynamiconly
    * @deprecated since 20
    * @useinstead getPublishedRunningFormInfoById
    */
@@ -417,8 +416,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 18 dynamic
-   * @since 23 static
+   * @since 18 dynamiconly
    * @deprecated since 20
    * @useinstead getPublishedRunningFormInfos
    */

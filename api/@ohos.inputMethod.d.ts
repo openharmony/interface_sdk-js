@@ -19,6 +19,7 @@
  */
 import type { Callback, AsyncCallback } from './@ohos.base';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
+import { UIContext } from "./@ohos.arkui.UIContext";
 /*** if arkts dynamic */
 import type { ElementName } from './bundleManager/ElementName';
 import type { PanelInfo } from './@ohos.inputMethod.Panel';
@@ -463,7 +464,6 @@ declare namespace inputMethod {
      * @param { function } callback - the callback of 'imeChange'
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 23 static
      */
     on(
       type: 'imeChange',
@@ -478,7 +478,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'imeChange', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9 dynamic
-     * @since 23 static
      */
     off(
       type: 'imeChange',
@@ -494,7 +493,6 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'imeShow', callback: (info: Array<InputWindowInfo>) => void): void;
 
@@ -507,7 +505,6 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'imeShow', callback?: (info: Array<InputWindowInfo>) => void): void;
 
@@ -520,7 +517,6 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'imeHide', callback: (info: Array<InputWindowInfo>) => void): void;
 
@@ -533,7 +529,6 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'imeHide', callback?: (info: Array<InputWindowInfo>) => void): void;
 
@@ -555,6 +550,24 @@ declare namespace inputMethod {
      * @since 23 static
      */
     isPanelShown(panelInfo: PanelInfo): boolean;
+
+    /**
+     * Query whether the panel with specified information is shown on the target display.
+     *
+     * @param { PanelInfo } panelInfo - the information of panel which is queried.
+     * @param { long } displayId - the id of the target display.
+     * @returns { boolean }
+     *     If true, the panel being queried is shown.
+     *     If false, the panel being queried is hidden.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    isPanelShown(panelInfo: PanelInfo, displayId: long): boolean;
 
     /**
      * List subtype of the specified input method.
@@ -932,6 +945,23 @@ declare namespace inputMethod {
      * @since 23 static
      */
     attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason): Promise<void>;
+    /**
+     * Attach application to the input method service with UI context.
+     *
+     * @param { UIContext } uiContext - indicates the ui context where the attachment will be performed.
+     * @param { TextConfig } textConfig - indicates the config of the textInput.
+     * @param { AttachOptions } [attachOptions] - indicates the attach options.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    attachWithUIContext(uiContext: UIContext, textConfig: TextConfig, attachOptions?: AttachOptions): Promise<void>;
 
     /**
      * Discard the typing text
@@ -1302,6 +1332,26 @@ declare namespace inputMethod {
     showSoftKeyboard(): Promise<void>;
 
     /**
+     * Show the soft keyboard on the specific display.
+     *
+     * @permission ohos.permission.CONNECT_IME_ABILITY
+     * @param { long } displayId - the id of the target display.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    showSoftKeyboard(displayId: long): Promise<void>;
+
+    /**
      * Hide soft keyboard.
      * This API can be called only by system applications.
      *
@@ -1336,6 +1386,26 @@ declare namespace inputMethod {
      * @since 23 static
      */
     hideSoftKeyboard(): Promise<void>;
+
+    /**
+     * Hide the soft keyboard on the specific display.
+     *
+     * @permission ohos.permission.CONNECT_IME_ABILITY
+     * @param { long } displayId - the id of the target display.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    hideSoftKeyboard(displayId: long): Promise<void>;
 
     /**
      * Send message to input method.
@@ -1381,7 +1451,6 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'selectByRange', callback: Callback<Range>): void;
 
@@ -1393,7 +1462,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'selectByRange', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'selectByRange', callback?: Callback<Range>): void;
 
@@ -1409,7 +1477,6 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'selectByMovement', callback: Callback<Movement>): void;
 
@@ -1421,7 +1488,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'selectByMovement', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'selectByMovement', callback?: Callback<Movement>): void;
 
@@ -1436,7 +1502,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'insertText', callback: (text: string) => void): void;
 
@@ -1448,7 +1513,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'insertText', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'insertText', callback?: (text: string) => void): void;
 
@@ -1465,7 +1529,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'deleteLeft', callback: (length: int) => void): void;
 
@@ -1477,7 +1540,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'deleteLeft', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'deleteLeft', callback?: (length: int) => void): void;
 
@@ -1494,7 +1556,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'deleteRight', callback: (length: int) => void): void;
 
@@ -1506,7 +1567,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'deleteRight', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'deleteRight', callback?: (length: int) => void): void;
 
@@ -1521,7 +1581,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'sendKeyboardStatus', callback: (keyboardStatus: KeyboardStatus) => void): void;
 
@@ -1533,7 +1592,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'sendKeyboardStatus', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'sendKeyboardStatus', callback?: (keyboardStatus: KeyboardStatus) => void): void;
 
@@ -1549,7 +1607,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'sendFunctionKey', callback: (functionKey: FunctionKey) => void): void;
 
@@ -1561,7 +1618,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'sendFunctionKey', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'sendFunctionKey', callback?: (functionKey: FunctionKey) => void): void;
 
@@ -1577,7 +1633,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'moveCursor', callback: (direction: Direction) => void): void;
 
@@ -1589,7 +1644,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'moveCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'moveCursor', callback?: (direction: Direction) => void): void;
 
@@ -1604,7 +1658,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'handleExtendAction', callback: (action: ExtendAction) => void): void;
 
@@ -1616,7 +1669,6 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'handleExtendAction', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'handleExtendAction', callback?: (action: ExtendAction) => void): void;
 
@@ -1631,7 +1683,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'getLeftTextOfCursor', callback: (length: int) => string): void;
 
@@ -1643,7 +1694,6 @@ declare namespace inputMethod {
      *     when subscriber unsubscribes all callback functions of event 'getLeftTextOfCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'getLeftTextOfCursor', callback?: (length: int) => string): void;
 
@@ -1658,7 +1708,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'getRightTextOfCursor', callback: (length: int) => string): void;
 
@@ -1670,7 +1719,6 @@ declare namespace inputMethod {
      *     when subscriber unsubscribes all callback functions of event 'getRightTextOfCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'getRightTextOfCursor', callback?: (length: int) => string): void;
 
@@ -1685,7 +1733,6 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     on(type: 'getTextIndexAtCursor', callback: () => int): void;
 
@@ -1697,7 +1744,6 @@ declare namespace inputMethod {
      *     when subscriber unsubscribes all callback functions of event 'getTextIndexAtCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
-     * @since 23 static
      */
     off(type: 'getTextIndexAtCursor', callback?: () => int): void;
 
@@ -2817,6 +2863,16 @@ declare namespace inputMethod {
      * @since 23 static
      */
     height: long;
+
+    /**
+     * Indicates the id of the display where the input window is shown.
+     *
+     * @type { ?long }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    displayId?: long;
   }
 
   /**
@@ -3042,6 +3098,36 @@ declare namespace inputMethod {
      * @since 22 dynamic
      */
     SERVICE_ABNORMAL
+  }
+  /**
+   * Attach options.
+   *
+   * @interface AttachOptions
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  export interface AttachOptions {
+    /**
+     * Whether to show the keyboard when attaching.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    showKeyboard?: boolean;
+    /**
+     * The reason for request keyboard.
+     *
+     * @type { ?RequestKeyboardReason }
+     * @default RequestKeyboardReason.NONE
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 23 dynamic
+     */
+    requestKeyboardReason?: RequestKeyboardReason;
   }
 }
 

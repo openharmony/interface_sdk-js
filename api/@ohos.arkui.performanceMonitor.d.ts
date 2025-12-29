@@ -38,6 +38,7 @@
  * @namespace performanceMonitor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @FaAndStageModel
  * @since 10 dynamic
  */
 declare namespace performanceMonitor {
@@ -47,13 +48,15 @@ declare namespace performanceMonitor {
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-     * @since 10 dynamic
+   * @FaAndStageModel
+   * @since 10 dynamic
    */
   export enum ActionType {
     /**
      * The user presses the finger on the screen.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @FaAndStageModel
      * @since 10 dynamic
      */
     LAST_DOWN = 0,
@@ -62,6 +65,7 @@ declare namespace performanceMonitor {
      * The user lifts up the finger from the screen.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @FaAndStageModel
      * @since 10 dynamic
      */
     LAST_UP = 1,
@@ -70,6 +74,7 @@ declare namespace performanceMonitor {
      * The user first moves the finger after pressing down the screen.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @FaAndStageModel
      * @since 10 dynamic
      */
     FIRST_MOVE = 2
@@ -81,6 +86,7 @@ declare namespace performanceMonitor {
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 12 dynamic
    */
   export enum SourceType {
@@ -88,6 +94,7 @@ declare namespace performanceMonitor {
      * The user touches the screen to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      */
     PERF_TOUCH_EVENT = 0,
@@ -96,6 +103,7 @@ declare namespace performanceMonitor {
      * TThe user uses the mouse to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      */
     PERF_MOUSE_EVENT = 1,
@@ -104,6 +112,7 @@ declare namespace performanceMonitor {
      * The user uses the touchpad to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      */
     PERF_TOUCHPAD_EVENT = 2,
@@ -112,6 +121,7 @@ declare namespace performanceMonitor {
      * The user uses the joystick to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      */
     PERF_JOYSTICK_EVENT = 3,
@@ -120,32 +130,35 @@ declare namespace performanceMonitor {
      * The user uses the keyboard to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @FaAndStageModel
      * @since 12 dynamic
      */
     PERF_KEY_EVENT = 4
   }
 
-  /**
-   * Begin monitoring an application scene.
-   *
-   * @param { string } scene Indicates the scene name.
-   * @param { ActionType } startInputType Indicates the scene input event type.
-   * @param { string } note Indicates the app expected info delivered.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10 dynamic
-   */
-  function begin(scene: string, startInputType: ActionType, note?: string): void;   
-
-  /**
-   * End monitoring an application scene.
-   *
-   * @param { string } scene Indicates the scene name. It must be the same with the {@code scene} of start.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10 dynamic
-   */
-  function end(scene: string): void;
+    /**
+     * Begin monitoring an application scene.
+     *
+     * @param { string } scene - Indicates the scene name.
+     * @param { ActionType } startInputType - Indicates the scene input event type.
+     * @param { string } note - Indicates the app expected info delivered.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @FaAndStageModel
+     * @since 10 dynamic
+     */
+    function begin(scene: string, startInputType: ActionType, note?: string): void;
+  
+    /**
+     * End monitoring an application scene.
+     *
+     * @param { string } scene - Indicates the scene name. It must be the same with the {@code scene} of start.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @FaAndStageModel
+     * @since 10 dynamic
+     */
+    function end(scene: string): void;
   
   /**
    * recordInputEventTime monitoring an application scene.
@@ -156,6 +169,7 @@ declare namespace performanceMonitor {
    * @throws { BusinessError } 202 - not system application. 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 12 dynamic
    */
   function recordInputEventTime(type: ActionType, sourceType: SourceType, time: number): void;  

@@ -41,6 +41,8 @@ import xml from '@ohos.xml';
 import collections from '@arkts.collections';
 import stream from '@ohos.util.stream';
 import Decimal from '@arkts.math.Decimal';
+import { ArrayListComparatorFn } from '@ohos.util.ArrayList';
+import { ListComparatorFn } from '@ohos.util.List';
 /*** endif */
 
 /* 1.1 独有部分 */
@@ -62,14 +64,36 @@ export {
   EventTarget, HashMap, HashSet, LightWeightMap, LightWeightSet, LinkedList, List, MessageEvent,
   MessageEvents, PlainArray, PostMessageOptions, Queue, Stack, ThreadWorkerGlobalScope, TreeMap,
   TreeSet, Vector, WorkerEventListener, WorkerEventTarget, WorkerOptions, ThreadWorkerPriority, buffer, process, taskpool,
-  uri, url, util, worker, xml, JSON, lang, ArkTSUtils, collections, stream, Decimal, fastbuffer
+  uri, url, util, worker, xml, JSON, lang, ArkTSUtils, collections, stream, Decimal, fastbuffer,
+  ArrayListComparatorFn, ListComparatorFn
 };
 
 /* 1.2 独有部分 */
 /*** if arkts static */
 import transfer from '@ohos.transfer';
+import { ArrayListForEachCb } from '@ohos.util.ArrayList';
+import { ArrayListReplaceCb } from '@ohos.util.ArrayList';
+import { DequeForEachCb } from '@ohos.util.Deque';
+import { HashMapCbFn } from '@ohos.util.HashMap';
+import { HashSetCbFn } from '@ohos.util.HashSet';
+import { LightWeightMapCbFn } from '@ohos.util.LightWeightMap';
+import { LightWeightSetForEachCb } from '@ohos.util.LightWeightSet';
+import { LinkedListForEachCb } from '@ohos.util.LinkedList';
+import { ListForEachCb } from '@ohos.util.List';
+import { ListReplaceCb } from '@ohos.util.List';
+import { PlainArrayForEachCb } from '@ohos.util.PlainArray';
+import { QueueForEachCb } from '@ohos.util.Queue';
+import { StackForEachCb } from '@ohos.util.Stack';
+import { TreeMapForEachCb } from '@ohos.util.TreeMap';
+import { TreeMapComparator } from '@ohos.util.TreeMap';
+import { TreeSetForEachCb } from '@ohos.util.TreeSet';
+import { TreeSetComparator } from '@ohos.util.TreeSet';
 export {
   ArrayList, Deque, HashMap, HashSet, LightWeightMap, LightWeightSet, LinkedList, List,
-  PlainArray, Queue, Stack, TreeMap, TreeSet, buffer, uri, url, util, stream, xml, transfer, collections, Decimal
+  PlainArray, Queue, Stack, TreeMap, TreeSet, buffer, uri, url, util, stream, xml, transfer,
+  collections, Decimal, ArrayListComparatorFn, ArrayListForEachCb, ArrayListReplaceCb,
+  DequeForEachCb, HashMapCbFn, HashSetCbFn, LightWeightMapCbFn, LightWeightSetForEachCb,
+  LinkedListForEachCb, ListComparatorFn, ListForEachCb, ListReplaceCb, PlainArrayForEachCb,
+  QueueForEachCb, StackForEachCb, TreeMapForEachCb, TreeMapComparator, TreeSetForEachCb, TreeSetComparator
 };
 /*** endif */

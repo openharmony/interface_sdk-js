@@ -2024,7 +2024,7 @@ declare namespace installer {
    * @typedef VerifyCodeParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    * @deprecated since 11
    */
   export interface VerifyCodeParam {
@@ -2034,7 +2034,7 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      * @deprecated since 11
      */
     moduleName: string;
@@ -2045,7 +2045,7 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      * @deprecated since 11
      */
     signatureFilePath: string;
@@ -2221,7 +2221,7 @@ declare namespace installer {
      * @type { ?Array<VerifyCodeParam> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
      * @deprecated since 11
      */
     verifyCodeParams?: Array<VerifyCodeParam>;

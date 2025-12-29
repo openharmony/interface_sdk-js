@@ -115,12 +115,22 @@ export declare class UIInspector {
   /**
    * Sets the component after layout or draw criteria and returns the corresponding listening handle
    * @param { string } id - component id.
-   * @returns { inspector.ComponentObserver | undefined } create listener for observer component event.
-   *     If unable to obtain current ui context, the function will return undefined.
+   * @returns { inspector.ComponentObserver } create listener for observer component event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  createComponentObserver(id: string): inspector.ComponentObserver | undefined;
+  createComponentObserver(id: string): inspector.ComponentObserver;
+  /**
+   * Sets the component after layout or draw criteria and returns the corresponding listening handle.
+   *
+   * @param { string | int } id - component id or uniqueId of the component.
+   * @returns { inspector.ComponentObserver } create listener for observer component event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  createComponentObserver(id: string | int): inspector.ComponentObserver;
 }
 
 /**
@@ -309,6 +319,16 @@ export declare class Router {
    * @since 23 static
    */
   getLength(): string;
+
+  /**
+   * Obtains the number of pages in the current stack.
+   *
+   * @returns { int } Number of pages in the stack. The maximum value is 32.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  getStackSize(): int;
 
   /**
    * Obtains information about the current page state.
@@ -3609,6 +3629,16 @@ export declare class UIContext {
    * @since 23 static
    */
   recycleInvisibleImageMemory(enabled: boolean): void;
+
+  /**
+   * Set custom keyboard continue feature.
+   *
+   * @param { CustomKeyboardContinueFeature } feature - The custom keyboard continue feature.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  setCustomKeyboardContinueFeature(feature: CustomKeyboardContinueFeature): void;
 }
 
 /**
@@ -3759,4 +3789,33 @@ export declare class ContentCoverController {
    * @since 23 static
    */
   close(): void;
+}
+
+/**
+ * Enum of CustomKeyboardContinueFeature
+ * 
+ * @enum { int } CustomKeyboardContinueFeature
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+ export const enum CustomKeyboardContinueFeature {
+
+  /**
+   * Enable custom keyboard continuation.
+   * 
+   * @syscap SystemCapability. ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  ENABLED = 0,
+
+  /**
+   * Disable custom keyboard continuation.
+   * 
+   * @syscap SystemCapability. ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  DISABLED = 1
 }

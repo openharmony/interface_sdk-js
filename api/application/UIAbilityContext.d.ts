@@ -18,8 +18,8 @@
  * @kit AbilityKit
  */
 
-/*** if arkts dynamic */
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
+/*** if arkts dynamic */
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 /*** endif */
@@ -3903,6 +3903,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
+   * @since 23 static
    */
   setMissionContinueState(state: AbilityConstant.ContinueState, callback: AsyncCallback<void>): void;
 
@@ -3930,6 +3931,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
+   * @since 23 static
    */
   setMissionContinueState(state: AbilityConstant.ContinueState): Promise<void>;
 

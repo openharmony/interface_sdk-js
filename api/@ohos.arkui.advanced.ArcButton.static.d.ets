@@ -21,9 +21,9 @@
 
 import { LengthMetrics, ColorMetrics } from '@ohos.arkui.node';
 import { ResourceStr, BlurStyle, FontStyle, Resource, LocalizedMargin, TouchEvent,
-  ClickEvent, Component, Builder, ResourceColor } from '@ohos.arkui.component';
+  ClickEvent, ComponentV2, Builder, ResourceColor } from '@ohos.arkui.component';
 import { Callback } from '@ohos.base';
-import { Require } from '@ohos.arkui.stateManagement';
+import { Require, Param, ObservedV2, Trace } from '@ohos.arkui.stateManagement';
 
 /**
  * Describes the Position of arc button.
@@ -133,6 +133,7 @@ export declare enum ArcButtonStatus {
  * @stagemodelonly
  * @since 23 static
  */
+@ObservedV2
 export declare class ArcButtonProgressConfig {
   /**
    * Sets the value of Progress.
@@ -144,6 +145,7 @@ export declare class ArcButtonProgressConfig {
    * @stagemodelonly
    * @since 23 static
    */
+  @Trace
   public value: double;
   /**
    * Sets the total of Progress.
@@ -156,6 +158,7 @@ export declare class ArcButtonProgressConfig {
    * @stagemodelonly
    * @since 23 static
    */
+  @Trace
   public total?: double;
   /**
    * Sets the foreground color of Progress.
@@ -165,7 +168,22 @@ export declare class ArcButtonProgressConfig {
    * @stagemodelonly
    * @since 23 static
    */
+  @Trace
   public color?: ResourceColor;
+ 
+  /**
+   * Constructor of the ArcButtonProgressConfig.
+   *
+   * @param { double } value - sets the value of progress.
+   *     <br>Value range:[0, total]
+   *     <br>When setting a value less than 0, it is set to 0; when setting a value greater than total, it is set to total.
+   * @param { double } [total] - sets the total of progress.
+   * @param { ResourceColor } [color] - sets the foreground color of progress.
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @stagemodelonly
+   * @since 23 static
+   */
+  constructor(value: double, total?: double, color?: ResourceColor);
 }
 
 /**
@@ -337,6 +355,7 @@ export declare interface CommonArcButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 23 static
  */
+@ObservedV2
 export declare class ArcButtonOptions {
   /**
    * Describes the position of button on screen.
@@ -345,6 +364,7 @@ export declare class ArcButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Trace
   public position: ArcButtonPosition;
   /**
    * Describes the controller for scrollable container.
@@ -353,6 +373,7 @@ export declare class ArcButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Trace
   public styleMode: ArcButtonStyleMode;
   /**
    * Describes the arc button status.
@@ -361,6 +382,7 @@ export declare class ArcButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Trace
   public status: ArcButtonStatus;
   /**
    * Describes the arc button displays text.
@@ -369,6 +391,7 @@ export declare class ArcButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Trace
   public label: ResourceStr;
   /**
    * Describe the blurred background style of the arc-shaped button.
@@ -377,6 +400,7 @@ export declare class ArcButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Trace
   public backgroundBlurStyle: BlurStyle;
   /**
    * Describes the arc button background color.
@@ -385,6 +409,7 @@ export declare class ArcButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Trace
   public backgroundColor: ColorMetrics;
   /**
    * Describes the arc button shadow color.
@@ -393,6 +418,7 @@ export declare class ArcButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Trace
   public shadowColor: ColorMetrics;
   /**
    * Describes the arc button shadow switch.
@@ -401,6 +427,7 @@ export declare class ArcButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Trace
   public shadowEnabled: boolean;
   /**
    * Describes the arc button text size.
@@ -409,6 +436,7 @@ export declare class ArcButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Trace
   public fontSize: LengthMetrics;
   /**
    * Describes the arc button text color.
@@ -417,6 +445,7 @@ export declare class ArcButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Trace
   public fontColor: ColorMetrics;
   /**
    * Describes the arc button pressed text color.
@@ -425,6 +454,7 @@ export declare class ArcButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Trace
   public pressedFontColor: ColorMetrics;
   /**
    * Describes the arc button text style.
@@ -433,14 +463,16 @@ export declare class ArcButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Trace
   public fontStyle: FontStyle;
   /**
    * Describes the arc button text family.
    *
-   * @type { (string | Resource) }
+   * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Trace
   public fontFamily: string | Resource;
   /**
    * Describes the arc button text margin.
@@ -449,6 +481,7 @@ export declare class ArcButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Trace
   public fontMargin: LocalizedMargin;
 
   /**
@@ -461,6 +494,7 @@ export declare class ArcButtonOptions {
    * @stagemodelonly
    * @since 23 static
    */
+  @Trace
   public progressConfig?: ArcButtonProgressConfig;
 
   /**
@@ -470,6 +504,7 @@ export declare class ArcButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Trace
   public onTouch?: Callback<TouchEvent>;
 
   /**
@@ -479,6 +514,7 @@ export declare class ArcButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
    */
+  @Trace
   public onClick?: Callback<ClickEvent>;
 
   /**
@@ -497,7 +533,7 @@ export declare class ArcButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 23 static
  */
-@Component
+@ComponentV2
 export declare struct ArcButton {
   /**
    * Describes the arc button options.
@@ -508,6 +544,7 @@ export declare struct ArcButton {
    * @since 23 static
    */
   @Require
+  @Param
   readonly options: ArcButtonOptions;
   /**
    * The method to build component.

@@ -36,7 +36,7 @@ declare namespace screenLock {
    * @param { AsyncCallback<boolean> } callback - the callback of isScreenLocked.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    * @deprecated since 9
    * @reserved ["liteWearable"]
    */
@@ -48,7 +48,7 @@ declare namespace screenLock {
    * @returns { Promise<boolean> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    * @deprecated since 9
    * @reserved ["liteWearable"]
    */
@@ -72,7 +72,7 @@ declare namespace screenLock {
    * @param { AsyncCallback<boolean> } callback - the callback of isSecureMode.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    * @deprecated since 9
    * @reserved ["liteWearable"]
    */
@@ -84,7 +84,7 @@ declare namespace screenLock {
    * @returns { Promise<boolean> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    * @deprecated since 9
    * @reserved ["liteWearable"]
    */

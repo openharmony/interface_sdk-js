@@ -24,6 +24,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead list/StickyStyle
@@ -33,6 +34,7 @@ declare enum Sticky {
    * No sticky.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 9
    */
@@ -42,6 +44,7 @@ declare enum Sticky {
    * Normal mode
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 9
    */
@@ -51,6 +54,7 @@ declare enum Sticky {
    * Set opacity.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 9
    */
@@ -62,6 +66,7 @@ declare enum Sticky {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7 dynamiconly
  * @deprecated since 9
  */
@@ -70,6 +75,7 @@ declare enum EditMode {
    * Unrestricted operations.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 9
    */
@@ -79,6 +85,7 @@ declare enum EditMode {
    * Deletable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 9
    */
@@ -88,6 +95,7 @@ declare enum EditMode {
    * Movable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 9
    */
@@ -114,6 +122,7 @@ declare enum EditMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -136,6 +145,7 @@ declare enum SwipeEdgeEffect {
    * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -159,6 +169,7 @@ declare enum SwipeEdgeEffect {
    * Sliding to the edge has no effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -194,6 +205,7 @@ declare enum SwipeActionState {
    * Collapsed type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -209,6 +221,7 @@ declare enum SwipeActionState {
    * EXPANDED type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -224,6 +237,7 @@ declare enum SwipeActionState {
    * Action type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -464,6 +478,7 @@ declare interface SwipeActionItem {
  *
  * @interface SwipeActionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -492,6 +507,7 @@ declare interface SwipeActionOptions {
    *
    * @type { ?(CustomBuilder | SwipeActionItem) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -521,6 +537,7 @@ declare interface SwipeActionOptions {
    *
    * @type { ?(CustomBuilder | SwipeActionItem) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -547,6 +564,7 @@ declare interface SwipeActionOptions {
    *
    * @type { ?SwipeEdgeEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -688,10 +706,12 @@ declare interface ListItemOptions {
  *
  * @interface ListItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 interface ListItemInterface {
   /**
@@ -731,6 +751,7 @@ interface ListItemInterface {
    * @param { string } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -760,10 +781,12 @@ interface ListItemInterface {
 /**
  * @extends CommonMethod<ListItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
@@ -772,6 +795,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @param { Sticky } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead list/List#sticky
@@ -784,6 +808,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @param { boolean | EditMode } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 9
    */
@@ -822,6 +847,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @param { boolean } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -877,6 +903,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @param { SwipeActionOptions } value - items defines in the SwipeActionOption.
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -916,6 +943,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @param { function } event
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -949,10 +977,12 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
  * Defines ListItem Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare const ListItemInstance: ListItemAttribute;
 
@@ -981,10 +1011,12 @@ declare const ListItemInstance: ListItemAttribute;
  * Defines ListItem Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare const ListItem: ListItemInterface;
 

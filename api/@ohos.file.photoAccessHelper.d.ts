@@ -3263,7 +3263,7 @@ declare namespace photoAccessHelper {
      * Virtual path of the album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 22 dynamic
+     * @since 23 dynamic
      * @since 23 static
      */
     ALBUM_LPATH = 'lpath',
@@ -3524,6 +3524,50 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     subtype?: PhotoSubtype;
+  }
+
+  /**
+   * Setting to create photo asset
+   *
+   * @interface CreationSetting
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  interface CreationSetting {  
+    /**
+     * Title of the asset
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    title?: string;
+
+    /**
+     * Extension of the asset
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    fileNameExtension: string;
+
+    /**
+     * Specify photo type of the asset to create, include image or video
+     *
+     * @type { PhotoType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    photoType: PhotoType;
   }
 
   /**
@@ -4080,8 +4124,8 @@ declare namespace photoAccessHelper {
     /**
      * Obtains the objects in the fetch result in segments.
      *
-     * @param { number } index - Index of the asset to obtain.
-     * @param { number } offset - Offset of the asset to obtain.
+     * @param { int } index - Index of the asset to obtain.
+     * @param { int } offset - Offset of the asset to obtain.
      * @returns { Promise<T[]> } Returns the objects in segments
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
@@ -4091,9 +4135,21 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 23 static
      */
-    getRangeObjects(index: number, offset: number): Promise<T[]>
+    /**
+     * Obtains the objects in the fetch result in segments.
+     *
+     * @param { int } index - Index of the asset to obtain.
+     * @param { int } offset - Offset of the asset to obtain.
+     * @returns { Promise<T[]> } Returns the objects in segments
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     *     <br>Possible causes: index or offset validity check failed.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 23 dynamic&static
+     */
+    getRangeObjects(index: int, offset: int): Promise<T[]>;
     /**
      * Obtains all the file assets in the result set. This API uses an asynchronous callback to return the result.
      *
@@ -4199,6 +4255,47 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     close(): void;
+
+    /**
+     * Whether an object is in the fetch result.
+     *
+     * @param { T } object - The object to be found.
+     * @returns { Promise<boolean> } Returns whether the object is in the fetch result
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    contains(object: T): Promise<boolean>;
+
+    /**
+     * Obtains the objects in the fetch result by index set.
+     *
+     * @param { int[] } indexSet - Index set of the assets to obtain.
+     * @returns { Promise<T[]> } Returns the objects.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1.The indexSet is null, undefined or empty.
+     *     2.The indexSet length is bigger than 500.
+     *     3.The max value of indexSet is equal or bigger than the fetch result length.
+     *     4.The min value of indexSet is less than 0.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getObjectsByIndexSet(indexSet: int[]): Promise<T[]>;
+
+    /**
+     * Gets an object index in the fetch result, returns-1 when object is not in the fetch result.
+     *
+     * @param { T } object - Whose index to get.
+     * @returns { Promise<int> } Returns the object index in the fetch result.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getIndex(object: T): Promise<int>;
   }
 
   /**
@@ -4259,7 +4356,7 @@ declare namespace photoAccessHelper {
      * Album created by app.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 22 dynamic
+     * @since 23 dynamic
      * @since 23 static
      */
     SOURCE = 2048,
@@ -4407,7 +4504,7 @@ declare namespace photoAccessHelper {
      * Source album
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 22 dynamic
+     * @since 23 dynamic
      * @since 23 static
      */
     SOURCE_GENERIC = 2049,
@@ -4705,7 +4802,7 @@ declare namespace photoAccessHelper {
      * @type { ?string }
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 22 dynamic
+     * @since 23 dynamic
      * @since 23 static
      */
     readonly lpath?: string;
@@ -4881,6 +4978,22 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     NOTIFY_CHANGE_YUV_READY = 3,
+    /**
+     * Media assets added to analysis album.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    NOTIFY_CHANGE_ADD_ANALYSIS = 4,
+    /**
+     * Media assets removed from analysis album.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    NOTIFY_CHANGE_REMOVE_ANALYSIS = 5
   }
 
   /**
@@ -5650,6 +5763,28 @@ declare namespace photoAccessHelper {
      */
     createAsset(photoType: PhotoType, extension: string, options?: CreateOptions): Promise<string>;
     /**
+     * Creates an image or video asset with the specified file type, file name extension, and title.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { PhotoType } photoType - Type of the file to create, which can be IMAGE or VIDEO.
+     * @param { string } extension - File name extension, for example, 'jpg'.
+     * @param { string } [title] - The title of an image or video asset.
+     * @returns { Promise<string> } Returns the uri of the newly created asset
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1. The extension format is unsupported
+     *     2. Title contains unsupported  character, such as . .. \ / : * ? " ' ` < > | { } [ ]
+     *     3. The title is an empty string
+     *     4. The total length of title and extension is more than 255
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    createPhotoAsset(photoType: PhotoType, extension: string, title?: string): Promise<string>;
+    /**
      * Creates an album. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -6057,6 +6192,20 @@ declare namespace photoAccessHelper {
      */
     showAssetsCreationDialog(srcFileUris: Array<string>, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
     /**
+     * Create a save dialog to save photos
+     *
+     * @param { Array<string> } srcFileUris - List of the file uris to be saved
+     * @param { Array<CreationSetting> } creationSettings - List of the photo asset creation settings
+     * @param { boolean } isImageFullyDisplayed - Supports displaying the image without cropping in the window
+     * @returns { Promise<Array<string>> } - Returns the media library file uri list to application which has been authorized
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    showAssetsCreationDialogEx(srcFileUris: Array<string>, creationSettings: Array<CreationSetting>, isImageFullyDisplayed: boolean): Promise<Array<string>>;
+    /**
      * Create assets and grant save permission to the app which called the save dialog.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -6090,6 +6239,19 @@ declare namespace photoAccessHelper {
      * @since 12 dynamic
      */
     createAssetWithShortTermPermission(photoCreationConfig: PhotoCreationConfig): Promise<string>;
+    /**
+     * Create asset and grant short term permission to the application.
+     *
+     * @permission ohos.permission.SHORT_TERM_WRITE_IMAGEVIDEO
+     * @param { CreationSetting } creationSetting - photo asset creation settings
+     * @returns { Promise<string> } - Returns the media library file uri to application which has been authorized
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    createAssetWithShortTermPermissionEx(creationSetting: CreationSetting): Promise<string>;
     /**
      * Creates assets with a temporary permission. This API uses a promise to return the result.
      *
@@ -6661,6 +6823,42 @@ declare namespace photoAccessHelper {
     off(type: 'trashedPhotoChange', callback?: Callback<PhotoAssetChangeInfos>): void;
 
     /**
+     * Subscribes to changes of analysis photos and videos.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
+     * @param { Callback<PhotoAssetChangeInfos> } callback Callback used to notify the application of the changes.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes:
+     *     The same callback is registered repeatedly.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onAnalysisPhotoChange(callback: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
+     * Unsubscribes from changes of analysis photos and videos.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
+     * @param { Callback<PhotoAssetChangeInfos> } [callback] Callback used for unsubscription.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes:
+     *     The same callback is unregistered repeatedly.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offAnalysisPhotoChange(callback?: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
      * Register the callback of album changes.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -6827,6 +7025,42 @@ declare namespace photoAccessHelper {
     * @since 23 dynamic&static
     */
     offSinglePhotoChange(asset?: PhotoAsset, callback?: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
+     * Subscribes to changes of the analysis album.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Callback<AlbumChangeInfos> } callback Callback used to notify the application of the changes.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes:
+     *     The same callback is registered repeatedly.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    onAnalysisAlbumChange(callback: Callback<AlbumChangeInfos>): void;
+
+    /**
+     * Unsubscribes from changes in the analysis album.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Callback<AlbumChangeInfos> } [callback] Callback used for unsubscription.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes:
+     *     The same callback is unregistered repeatedly.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    offAnalysisAlbumChange(callback?: Callback<AlbumChangeInfos>): void;
 
     /**
      * Get the PhotoPickerComponent default album name.
@@ -7512,6 +7746,17 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic
      */
     size?: number;
+
+    /**
+     * The analysis album change info.
+     *
+     * @type { ?(AlbumChangeInfo[] | null) } The analysis album change info.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    albumChangeInfos?: AlbumChangeInfo[] | null;
   }
 
   /**
@@ -9531,7 +9776,19 @@ declare namespace photoAccessHelper {
    * @since 11 dynamic
    * @since 23 static
    */
-  interface MediaChangeRequest {}
+  interface MediaChangeRequest {
+    /**
+     * A readonly member for type checking.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    readonly comment: string
+  }
 
   /**
    * Defines the class of media asset change request.
@@ -9543,6 +9800,18 @@ declare namespace photoAccessHelper {
    * @since 23 static
    */
   class MediaAssetChangeRequest implements MediaChangeRequest {
+    /**
+     * A readonly member for type checking.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    readonly comment: string;
+
     /**
      * Constructor used to initialize an asset change request.
      *
@@ -10159,6 +10428,18 @@ declare namespace photoAccessHelper {
    */
   class MediaAssetsChangeRequest implements MediaChangeRequest {
     /**
+     * A readonly member for type checking.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly comment: string;
+
+    /**
      * Constructor.
      *
      * @param { Array<PhotoAsset> } assets - Assets to change.
@@ -10244,6 +10525,17 @@ declare namespace photoAccessHelper {
    * @since 23 static
    */
   class MediaAlbumChangeRequest implements MediaChangeRequest {
+    /**
+     * A readonly member for type checking.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    readonly comment: string;
+
     /**
      * The constructor to create a MediaAlbumChangeRequest instance.
      *

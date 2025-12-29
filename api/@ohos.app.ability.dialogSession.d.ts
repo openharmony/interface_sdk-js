@@ -168,6 +168,28 @@ declare namespace dialogSession {
       * @since 23 static
       */
     multiAppMode: MultiAppMode;
+
+    /**
+     * Indicates the application source code path.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    codePath?: string;
+
+    /**
+     * Indicates sources to install the app.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    installSource?: string;
   }
 
   /**

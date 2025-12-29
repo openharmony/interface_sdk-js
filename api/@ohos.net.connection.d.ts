@@ -722,6 +722,23 @@ declare namespace connection {
    * @since 8 dynamic
    */
   function getAddressesByName(host: string): Promise<Array<NetAddress>>;
+ 
+/**
+   * Resolves a host name to obtain all IP addresses with specified query option.
+   *
+   * @permission ohos.permission.INTERNET
+   * @param { string } host - Indicates the host name or the domain.
+   * @param { QueryOptions } [option] - Indicates the query option.
+   * @returns { Promise<Array<NetAddress>> } - The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function getAddressesByNameWithOptions(host: string, option?: QueryOptions): Promise<Array<NetAddress>>;
 
   /**
    * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
@@ -1463,6 +1480,49 @@ declare namespace connection {
   }
 
   /**
+   * Defines options of DNS query.
+   * @interface QueryOptions
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 23 dynamic&static
+   */
+  export interface QueryOptions {
+    /**
+     * Specify family type of DNS query.
+     * @type {?FamilyType}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 23 dynamic&static
+     */
+    family?: FamilyType;
+  }
+
+  /**
+   * Defines the address family type.
+   * @enum {int}
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 23 dynamic&static
+   */
+  export enum FamilyType {
+    /**
+     * Indicates that no ip type is specified, all address types can be use.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 23 dynamic&static
+     */
+    FAMILY_TYPE_ALL = 0,
+    /**
+     * Indicates that the family type is ipv4.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 23 dynamic&static
+     */
+    FAMILY_TYPE_IPV4 = 1,
+    /**
+     * Indicates that the family type is ipv6.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 23 dynamic&static
+     */
+    FAMILY_TYPE_IPV6 = 2,
+  }
+
+  /**
    * Receive information about changes in network capabilities.
    * @interface NetCapabilityInfo
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -1650,6 +1710,23 @@ declare namespace connection {
      * @since 15 dynamic
      */
     getAddressesByName(host: string): Promise<Array<NetAddress>>;
+    
+	/**
+     * Resolves a host name to obtain all IP addresses based on the specified NetHandle with specified query option.
+     *
+     * @permission ohos.permission.INTERNET
+     * @param { string } host - Indicates the host name or the domain.
+     * @param { QueryOptions } [option] - Indicates the query option.
+     * @returns { Promise<Array<NetAddress>> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2100001 - Invalid parameter value.
+     * @throws { BusinessError } 2100002 - Failed to connect to the service.
+     * @throws { BusinessError } 2100003 - System internal error.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    getAddressesByNameWithOptions(host: string, option?: QueryOptions): Promise<Array<NetAddress>>;
 
     /**
      * Resolves a host name to obtain the first IP address based on the specified NetHandle.
@@ -1990,6 +2067,7 @@ declare namespace connection {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     BEARER_BLUETOOTH = 2,
  

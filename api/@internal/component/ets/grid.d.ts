@@ -140,9 +140,11 @@ declare interface GridLayoutOptions {
  *
  * @interface GridInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 interface GridInterface {
   /**
@@ -170,6 +172,7 @@ interface GridInterface {
    * @param { GridLayoutOptions } layoutOptions - The options to help grid layout
    * @returns { GridAttribute } The attribute of the grid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -197,6 +200,7 @@ interface GridInterface {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -219,6 +223,7 @@ declare enum GridDirection {
    * The row direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -242,6 +247,7 @@ declare enum GridDirection {
    * The column direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -265,6 +271,7 @@ declare enum GridDirection {
    * The row reverse direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -288,6 +295,7 @@ declare enum GridDirection {
    * The column reverse direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -464,9 +472,11 @@ declare type OnGridScrollIndexCallback = (first: number, last: number) => void;
  *
  * @extends ScrollableCommonMethod<GridAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
@@ -492,6 +502,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { string } value
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -533,6 +544,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { string } value
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1111,6 +1123,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1140,6 +1153,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1169,6 +1183,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1201,6 +1216,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1529,9 +1545,11 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
  * It is recommended to use LazyForEach or Repeat to generate child components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
+ * @noninterop
  */
 declare const Grid: GridInterface;
 
@@ -1552,8 +1570,10 @@ declare const Grid: GridInterface;
  * Defines Grid Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare const GridInstance: GridAttribute;
