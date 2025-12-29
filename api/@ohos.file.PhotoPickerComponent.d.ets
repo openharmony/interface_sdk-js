@@ -728,6 +728,7 @@ export declare class BaseItemInfo {
    *
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    * @since 23 static
@@ -1157,18 +1158,6 @@ export declare class UpdatablePickerConfigs {
    * @since 23 dynamic&static
    */
   edgeEffect?: EdgeEffect;
-
-  /**
-   * Only display album contents corresponding to the specified applications.
-   * Use the bundle name to identity the applications.
-   *
-   * @type { ?Array<string> }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic&static
-   */
-  livePhotoModes?: Array<string>;
 }
 
 /**
