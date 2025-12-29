@@ -39,7 +39,8 @@ import {
 import infraredEmitter from '@ohos.multimodalInput.infraredEmitter';
 import inputEventClient from '@ohos.multimodalInput.inputEventClient';
 import inputMonitor from '@ohos.multimodalInput.inputMonitor';
-import { shortKey, FingerprintEvent } from '@ohos.multimodalInput.shortKey';
+import shortKey from '@ohos.multimodalInput.shortKey';
+import { FingerprintEvent } from '@ohos.multimodalInput.shortKey';
 /*** endif */
 
 /*** if arkts static */
