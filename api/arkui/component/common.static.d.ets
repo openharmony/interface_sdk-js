@@ -8302,6 +8302,20 @@ export declare interface ContextMenuOptions {
      * @since 23 static
      */
     minKeyboardAvoidDistance?: LengthMetrics;
+    /**
+     * Set system-styled materials for menu. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of menu.
+     *
+     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+     * their computing power.
+     *
+     * @type { ?SystemUiMaterial }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    systemMaterial?: SystemUiMaterial;
 }
 /**
  * Defines the menu options.
