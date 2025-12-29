@@ -591,8 +591,7 @@ declare namespace sms {
    * @throws { BusinessError } 8700999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 22 dynamic
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   function setCBConfigList(configs: CBConfigListConfigs): Promise<void>;
 
@@ -2527,8 +2526,7 @@ declare namespace sms {
    * @interface CBConfigListConfigs
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 22 dynamic
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   export interface CBConfigListConfigs {
     /**
@@ -2537,8 +2535,7 @@ declare namespace sms {
      * @type { int }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     slotId: int;
 
@@ -2548,8 +2545,7 @@ declare namespace sms {
      * @type { int[] }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     messageIds: int[];
 
@@ -2559,8 +2555,7 @@ declare namespace sms {
      * @type { RanType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     ranType: RanType;
   }
