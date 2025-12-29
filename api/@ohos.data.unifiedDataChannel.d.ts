@@ -3296,7 +3296,7 @@ declare namespace unifiedDataChannel {
 
     /**
      * Indicates the callback function for deferred and non-blocking data loading.
-     * This handler is optional. If it is provided, it will take precedence over 
+     * This handler is optional. If it is provided, it will take precedence over
      *     the synchronous DataLoadHandler (i.e., DataLoadHandler will be ignored).
      *
      * @type { ?DelayedDataLoadHandler }
