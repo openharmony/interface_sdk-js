@@ -21,7 +21,7 @@
 /*** if arkts dynamic&static */
 import {
   ActionType, FourFingersSwipe, Pinch, Rotate, ThreeFingersSwipe, ThreeFingersTap, SwipeInward,
-  TouchGestureEvent, FingerprintEvent
+  TouchGestureEvent
 } from '@ohos.multimodalInput.gestureEvent';
 import inputConsumer from '@ohos.multimodalInput.inputConsumer';
 import inputDevice from '@ohos.multimodalInput.inputDevice';
@@ -39,7 +39,7 @@ import {
 import infraredEmitter from '@ohos.multimodalInput.infraredEmitter';
 import inputEventClient from '@ohos.multimodalInput.inputEventClient';
 import inputMonitor from '@ohos.multimodalInput.inputMonitor';
-import shortKey from '@ohos.multimodalInput.shortKey';
+import { shortKey, FingerprintEvent } from '@ohos.multimodalInput.shortKey';
 /*** endif */
 
 /*** if arkts static */
