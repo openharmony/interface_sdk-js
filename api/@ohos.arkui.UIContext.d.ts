@@ -1693,6 +1693,7 @@ export interface OverlayManagerOptions {
  * then call the APIs using the obtained instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1933,6 +1934,7 @@ export class UIObserver {
    * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
    * @param { Callback<observer.DensityInfo> } callback - The callback function to be called when the screen density is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1946,6 +1948,7 @@ export class UIObserver {
    * @param { Callback<observer.DensityInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
    *                                                        will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1958,6 +1961,7 @@ export class UIObserver {
    * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
    * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1971,6 +1975,7 @@ export class UIObserver {
      * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
      *                                                        will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -1983,6 +1988,7 @@ export class UIObserver {
    * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
    * @param { Callback<void> } callback - The callback function to be called when the layout is done.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1996,6 +2002,7 @@ export class UIObserver {
    * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
    *                                                        will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2449,6 +2456,7 @@ export class UIObserver {
    *     {@link WindowSizeLayoutBreakpointInfo} object containing the current width and height
    *     breakpoint classifications.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 22 dynamic
    */
@@ -2463,6 +2471,7 @@ export class UIObserver {
    * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - The specific callback function to remove.
    *     If not provided, all callbacks for the given event type and context will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 22 dynamic
    */
@@ -4056,6 +4065,7 @@ export class ComponentSnapshot {
  * Enum of strategy of resolved UIContext.
  * @enum { number } strategy of resolved UIContext.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -4064,6 +4074,7 @@ export const enum ResolveStrategy {
   /**
    * Get UIContext of calling scope.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -4073,6 +4084,7 @@ export const enum ResolveStrategy {
   /**
    * Get UIContext of last focused instance.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -4082,6 +4094,7 @@ export const enum ResolveStrategy {
   /**
    * Get UIContext with maximum instanceId.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -4091,6 +4104,7 @@ export const enum ResolveStrategy {
   /**
    * Get UIContext of unique UI instance.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -4100,6 +4114,7 @@ export const enum ResolveStrategy {
   /**
    * Get UIContext of last foregrounded instance.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -4109,6 +4124,7 @@ export const enum ResolveStrategy {
   /**
    * Get UIContext of undefined calling scope.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -4122,6 +4138,7 @@ export const enum ResolveStrategy {
  * obtain this UIContext.
  * @extends UIContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -4131,6 +4148,7 @@ export class ResolvedUIContext extends UIContext {
    * Resolving strategy of the UIContext.
    * @type { ResolveStrategy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -4149,6 +4167,7 @@ export class ResolvedUIContext extends UIContext {
  * class UIContext
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -4157,6 +4176,7 @@ export class UIContext {
   /**
    * UIContext constructor
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -4169,6 +4189,7 @@ export class UIContext {
    *     or undefined if no context can be determined from the call stack.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -4180,6 +4201,7 @@ export class UIContext {
    * @returns { UIContext | undefined } - The UIContext of the last focused UI instance or undefined if no one exists.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -4188,9 +4210,11 @@ export class UIContext {
 
   /**
    * Gets the UIContext of the last foregrounded UI instance if one exists.
-   * @returns { UIContext | undefined } - The UIContext of the last foregrounded UI instance or undefined if no one exists.
+   * @returns { UIContext | undefined } - The UIContext of the last foregrounded UI instance or undefined if no one
+   * exists
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -4203,6 +4227,7 @@ export class UIContext {
    *     returns an empty array if no contexts are available.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -4223,6 +4248,7 @@ export class UIContext {
    * @returns { ResolvedUIContext } - ResolvedUIContext instance
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -4234,6 +4260,7 @@ export class UIContext {
    *
    * @returns { boolean } Returns true if the UIConetxt object is available.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -4395,6 +4422,7 @@ export class UIContext {
    *
    * @returns { UIObserver } The UI observer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4656,6 +4684,7 @@ export class UIContext {
    *
    * @param { function } callback - The function called through UIContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -4830,6 +4859,7 @@ export class UIContext {
    * @param { string } id - The id of FrameNode.
    * @returns { FrameNode | null } The instance of FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4842,6 +4872,7 @@ export class UIContext {
    * @param { string } id - The id of FrameNode.
    * @returns { FrameNode | null } The instance of FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -4861,6 +4892,7 @@ export class UIContext {
    * @param { number } id - The uniqueId of the FrameNode.
    * @returns { FrameNode | null } - The FrameNode with the target uniqueId, or null if the frameNode is not existed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -5088,6 +5120,7 @@ export class UIContext {
    *
    * @returns { string | undefined } The name of current window, or undefined if the window doesn't exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -5103,6 +5136,7 @@ export class UIContext {
    *
    * @returns { number | undefined } - Window id. If the current UIContext is unavailable, return undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 23 dynamic
    */
@@ -5111,7 +5145,7 @@ export class UIContext {
   /**
    * Get the width breakpoint of current window.
    *
-   * @returns { WidthBreakpoint } The width breakpoint of current window.
+   * @returns { WidthBreakpoint } - The width breakpoint of current window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 13 dynamic
@@ -5119,29 +5153,31 @@ export class UIContext {
   /**
    * Get the width breakpoint of current window.
    *
-   * @returns { WidthBreakpoint } The width breakpoint of current window.
+   * @returns { WidthBreakpoint } - The width breakpoint of current window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
   getWindowWidthBreakpoint(): WidthBreakpoint;
-  
+
   /**
    * Get the height breakpoint of current window.
    *
-   * @returns { HeightBreakpoint } The height breakpoint of current window.
+   * @returns { HeightBreakpoint } - The height breakpoint of current window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice 
+   * @atomicservice
    * @since 13 dynamic
    */
   /**
    * Get the height breakpoint of current window.
    *
-   * @returns { HeightBreakpoint } The height breakpoint of current window.
+   * @returns { HeightBreakpoint } - The height breakpoint of current window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
-   * @atomicservice 
+   * @atomicservice
    * @since 22 dynamic
    */
   getWindowHeightBreakpoint(): HeightBreakpoint;
@@ -5225,6 +5261,7 @@ export class UIContext {
    *
    * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5236,6 +5273,7 @@ export class UIContext {
    * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
    * @param { number } delayTime - The delay time in milliseconds,
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5374,6 +5412,7 @@ export class UIContext {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 18 dynamic
    */
   freezeUINode(id: string, isFrozen: boolean): void;
@@ -5386,6 +5425,7 @@ export class UIContext {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 18 dynamic
    */
   freezeUINode(uniqueId: number, isFrozen: boolean): void;
@@ -5424,6 +5464,7 @@ export class UIContext {
    * @throws { BusinessError } 100001 - Internal error.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 17 dynamic
    */
@@ -5434,6 +5475,7 @@ export class UIContext {
    *
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 17 dynamic
    */
