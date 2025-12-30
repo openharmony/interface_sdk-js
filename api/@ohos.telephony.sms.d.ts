@@ -832,8 +832,9 @@ declare namespace sms {
    *
    * @permission ohos.permission.SEND_MESSAGES
    * @param { int } slotId - Indicates the ID of the slot holding the SIM card for sending SMS messages.
-   * The value {@code 0} indicates card slot 1, and the value {@code 1} indicates card slot 2.
+   *     The value {@code 0} indicates card slot 1, and the value {@code 1} indicates card slot 2.
    * @param { string } destAddr - Indicates the destination address of the sending SMS.
+   *     <br>Value range:[0,+∞)
    * @returns { Promise<SmsShortCodeType> } Returns the SMS short code type of the sending destination address.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
