@@ -8808,11 +8808,12 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Media file video duration filtering configuration.
+   * Media file type and size combined filtering configuration.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
     class PhotoViewMimeTypeFileSizeFilter {
       /**
