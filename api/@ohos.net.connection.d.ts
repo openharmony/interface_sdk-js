@@ -1173,6 +1173,36 @@ declare namespace connection {
   function getIpNeighTable(): Promise<Array<NetIpMacInfo>>;
 
   /**
+   * Convert a string from Unicode to ASCII Compatible Encoding (ACE), as defined by the ToASCII operation of RFC 3490.
+   *
+   * @param { string } host - Indicates the domain name of the Unicode type.
+   * @param { ConversionProcess } [flag] - Indicates process flag, can be 0 or any logical OR of possible flags.
+   *  can be ALLOW_UNASSIGNED | USE_STD3_ASCII_RULES to set all flag.
+   * @returns { string } - Return the converted string.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 23 dynamic&static
+   */
+  function getDnsAscii(host: string, flag?: ConversionProcess): string;
+
+  /**
+   * Convert a string from ASCII Compatible Encoding (ACE) to Unicode, as defined by the ToUnicode operation of RFC 3490.
+   *
+   * @param { string } host - Indicates the domain name of the ASCII type.
+   * @param { ConversionProcess } [flag] - Indicates process flag, can be 0 or any logical OR of possible flags.
+   *  can be ALLOW_UNASSIGNED | USE_STD3_ASCII_RULES to set all flag.
+   * @returns { string } - Return the converted string.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 23 dynamic&static
+   */
+  function getDnsUnicode(host: string, flag?: ConversionProcess): string;
+
+  /**
    * Represents the network connection handle.
    * @interface NetConnection
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -2117,6 +2147,33 @@ declare namespace connection {
      * @since 20 dynamic
      */
     PROXY_MODE_AUTO = 1
+  }
+
+  /**
+   * Defines the flag of conversion operations.
+   * @enum {number}
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 23 dynamic&static
+   */
+  export enum ConversionProcess {
+    /**
+     * Indicates that no flag are configured.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 23 dynamic&static
+     */
+    NO_CONFIGURATION = 0,
+    /**
+     * Indicates that the conversion allow unassigned code points.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 23 dynamic&static
+     */
+    ALLOW_UNASSIGNED = 1,
+    /**
+     * Indicates that the conversion turn on the check against STD-3 ASCII rules.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 23 dynamic&static
+     */
+    USE_STD3_ASCII_RULES = 2,
   }
 
   /**

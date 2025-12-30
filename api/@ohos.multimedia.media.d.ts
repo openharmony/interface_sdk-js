@@ -2510,10 +2510,10 @@ declare namespace media {
    */
   interface AVMetricsEvent {
     /**
-     * Absolute timestamp when the event occurred.
+     * Type of the metrics event.
      * @type { AVMetricsEventType }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
     event: AVMetricsEventType;
@@ -2535,10 +2535,10 @@ declare namespace media {
     playbackPosition: int;
 
     /**
-     * The detail informations of the event.
+     * The detailed information of the event.
      * @type {Record<string, Object>}
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
     details: Record<string, Object>;
@@ -5448,7 +5448,7 @@ declare namespace media {
   }
 
   /**
-   * Provides the container definition for media description key-value pairs.
+   * Provides the container definition for playback metrics key-value pairs.
    *
    * @typedef { Record<PlaybackMetricsKey, Object> }
    * @syscap SystemCapability.Multimedia.Media.Core
@@ -6024,6 +6024,15 @@ declare namespace media {
    * @since 23 static
    */
   interface MediaSource {
+    /**
+     * set whether to enable offline cache during video playback,
+     * @param { boolean } enable - The default value is false,  
+     *     If set to true, the downloaded video will be automatically cached to the user's cache space during streaming,
+     *     and the cached data in the cache space will be used first during playback. 
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 23 dynamic&static
+     */
+    enableOfflineCache(enable: boolean): void;
     /**
      * Set Media Mime Type to help player handle extended Media source.
      * @param { AVMimeTypes } mimeType - for MediaSource define. see @ AVMimeTypes.

@@ -4050,7 +4050,17 @@ declare namespace camera {
      * @since 12 dynamic
      * @since 23 static
      */
-    SPOT = 2
+    SPOT = 2,
+ 
+    /**
+     * Center highlight weighted metering mode: Focuses in on highlight area near the center of the screen.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    CENTER_HIGHLIGHT_WEIGHTED = 3
   }
 
   /**
@@ -8008,7 +8018,17 @@ declare namespace camera {
      * @since 19 dynamic
      * @since 23 static
      */
-    PRECONFIG_HIGH_QUALITY = 3
+    PRECONFIG_HIGH_QUALITY = 3,
+
+    /**
+     * high quality photo session with BT2020 for preconfig.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    PRECONFIG_HIGH_QUALITY_PHOTOSESSION_BT2020 = 4
   }
 
   /**
@@ -13526,6 +13546,18 @@ declare namespace camera {
      */
     getPreviewRotation(displayRotation: int): ImageRotation;
 
+    /**
+     * Gets the preview rotation angle.
+     *
+     * @returns { ImageRotation } The preview rotation angle.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getPreviewRotation(): ImageRotation;
+
      /**
       * Sets the preview rotation angle.
       *
@@ -15630,6 +15662,18 @@ declare namespace camera {
     getPhotoRotation(deviceDegree: int): ImageRotation;
 
     /**
+     * Gets the photo rotation angle.
+     *
+     * @returns { ImageRotation } The photo rotation angle.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getPhotoRotation(): ImageRotation;
+
+    /**
      * Confirm if offline processing is supported.
      *
      * @returns { boolean } TRUE if the type of offline is supported.
@@ -16210,6 +16254,18 @@ declare namespace camera {
      * @since 23 static
      */
     getVideoRotation(deviceDegree: int): ImageRotation;
+
+    /**
+     * Gets the video rotation angle.
+     *
+     * @returns { ImageRotation } The video rotation angle.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    getVideoRotation(): ImageRotation;
 
     /**
      * Confirm if auto deferred video enhancement is supported in the specific device.

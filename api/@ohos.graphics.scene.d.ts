@@ -47,19 +47,12 @@ export { Mat4x4, CylinderGeometry } from './graphics3d/SceneTypes';
  * Export scene resources
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- */
-export { Effect } from './graphics3d/SceneResources';
-
-/**
- * Export scene resources
- * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12 dynamic
  * @since 23 static
  */
 export { SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
   SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, CullMode, Blend,
   RenderSort, MaterialProperty, MetallicRoughnessMaterial, MeshResource, Morpher,
-  Sampler, SamplerFilter, SamplerAddressMode } from './graphics3d/SceneResources';
+  Sampler, SamplerFilter, SamplerAddressMode, Effect } from './graphics3d/SceneResources';
 
 /**
  * Export scene resources
@@ -89,13 +82,7 @@ export { LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotL
  * Export scene
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- */
-export { EffectParameters } from './graphics3d/Scene';
-/**
- * Export scene
- * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12 dynamic
  * @since 23 static
  */
 export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RaycastResult, RaycastParameters,
-  RenderParameters, RenderResourceFactory, SceneComponent, RenderContext, CameraParameters } from './graphics3d/Scene';
+  RenderParameters, RenderResourceFactory, SceneComponent, RenderContext, CameraParameters, EffectParameters } from './graphics3d/Scene';

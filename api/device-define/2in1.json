@@ -180,7 +180,6 @@
     "SystemCapability.DistributedHardware.DeviceManager",
     "SystemCapability.DistributedHardware.DistributedHardwareFWK",
     "SystemCapability.Developtools.Syscap",
-    "SystemCapability.Ability.AbilityTools.AbilityAssistant",
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
     "SystemCapability.Ability.AbilityRuntime.Mission",
     "SystemCapability.Ability.AbilityRuntime.AbilityCore",
@@ -217,6 +216,12 @@
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.Global.I18n",
     "SystemCapability.Test.PerfTest",
-    "SystemCapability.ArkUI.ArkUI.Lite"
+    "SystemCapability.ArkUI.ArkUI.Lite",
+	"SystemCapability.Driver.ExternalDevice",
+	"SystemCapability.Driver.DDK.Extension",
+	"SystemCapability.Driver.HID.Extension",
+	"SystemCapability.Driver.SCSI.Extension",
+	"SystemCapability.Driver.USB.Extension",
+	"SystemCapability.Driver.UsbSerial.Extension"
   ]
 }

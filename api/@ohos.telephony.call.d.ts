@@ -640,7 +640,7 @@ declare namespace call {
   /**
    * Hang up the foreground call.
    *
-   * @permission ohos.permission.ANSWER_CALL
+   * @permission ohos.permission.ANSWER_CALL or ohos.permission.SET_TELEPHONY_STATE
    * @param { int } callId - Indicates the identifier of the call to hangup.
    * @param { AsyncCallback<void> } callback - The callback of hangUpCall.
    * @throws { BusinessError } 201 - Permission denied.
@@ -661,7 +661,7 @@ declare namespace call {
   /**
    * Hang up the foreground call.
    *
-   * @permission ohos.permission.ANSWER_CALL
+   * @permission ohos.permission.ANSWER_CALL or ohos.permission.SET_TELEPHONY_STATE
    * @param { int } callId - Indicates the identifier of the call to hangup.
    * @returns { Promise<void> } The promise returned by the hangUpCall.
    * @throws { BusinessError } 201 - Permission denied.
@@ -682,7 +682,7 @@ declare namespace call {
   /**
    * Hang up the foreground call without callId.
    *
-   * @permission ohos.permission.ANSWER_CALL
+   * @permission ohos.permission.ANSWER_CALL or ohos.permission.SET_TELEPHONY_STATE
    * @param { AsyncCallback<void> } callback - The callback of hangUpCall.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1179,9 +1179,11 @@ declare namespace call {
   /**
    * Start DTMF(Dual Tone Multi Frequency).
    *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } callId - Indicates the identifier of the call.
    * @param { string } character - Indicates the characters sent.
    * @param { AsyncCallback<void> } callback - The callback of startDTMF.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameters types;
@@ -1199,9 +1201,11 @@ declare namespace call {
   /**
    * Start DTMF(Dual Tone Multi Frequency).
    *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } callId - Indicates the identifier of the call.
    * @param { string } character - Indicates the characters sent.
    * @returns { Promise<void> } The promise returned by the startDTMF.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameters types;
@@ -1219,8 +1223,10 @@ declare namespace call {
   /**
    * Stop DTMF(Dual Tone Multi Frequency).
    *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } callId - Indicates the identifier of the call.
    * @param { AsyncCallback<void> } callback - The callback of stopDTMF.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameters types;
@@ -1238,8 +1244,10 @@ declare namespace call {
   /**
    * Stop DTMF(Dual Tone Multi Frequency).
    *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } callId - Indicates the identifier of the call.
    * @returns { Promise<void> } The promise returned by the stopDTMF.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameters types;
@@ -1742,8 +1750,10 @@ declare namespace call {
   /**
    * Split conference call.
    *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } callId - Indicates the identifier of the call.
    * @param { AsyncCallback<void> } callback - The callback of separateConference.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameters types;
@@ -1762,8 +1772,10 @@ declare namespace call {
   /**
    * Split conference call.
    *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } callId - Indicates the identifier of the call.
    * @returns { Promise<void> } The promise returned by the separateConference.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameters types;
@@ -2243,9 +2255,11 @@ declare namespace call {
   /**
    * Update Ims call mode.
    *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } callId - Indicates the identifier of the call.
    * @param { ImsCallMode } mode - Indicates the mode of the ims call.
    * @param { AsyncCallback<void> } callback - The callback of updateImsCallMode.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameters types;
@@ -2263,9 +2277,11 @@ declare namespace call {
   /**
    * Update Ims call mode.
    *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } callId - Indicates the identifier of the call.
    * @param { ImsCallMode } mode - Indicates the mode of the ims call.
    * @returns { Promise<void> } The promise returned by the updateImsCallMode.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    * 2. Incorrect parameters types;

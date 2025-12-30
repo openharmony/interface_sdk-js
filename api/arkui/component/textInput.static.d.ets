@@ -1774,9 +1774,10 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { AttributeModifier<TextInputAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
      * @returns { TextInputAttribute } the attribute of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    attributeModifier(modifier: AttributeModifier<TextInputAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default attributeModifier(modifier: AttributeModifier<TextInputAttribute> | AttributeModifier<CommonMethod> | undefined): this;
     
     /**
      * Whether to compress punctuation at the beginning of line.

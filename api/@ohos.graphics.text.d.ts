@@ -5581,6 +5581,16 @@ declare namespace text {
   function getFontDescriptorsFromPath(path: string | Resource): Promise<Array<FontDescriptor>>;
 
   /**
+   * Checks whether the font format specified by the path is supported.
+   * @param { string | Resource } fontURL - The font source, which can be a local file path or a Resource object.
+   * @returns { boolean } A boolean value indicating whether the font is supported.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  function isFontSupported(fontURL: string | Resource): boolean;
+
+  /**
    * Obtain font Unicode set based on the provided font file path or resource.
    * @param { string | Resource } path - Path or resource of the font file.
    *     The value must be **file://**absolute path of the font file or **rawfile/**directory or file name.

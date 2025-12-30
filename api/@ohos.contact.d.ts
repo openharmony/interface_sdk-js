@@ -1435,7 +1435,7 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.deleteContact#deleteContact
+   * @useinstead contact.isMyCard#isMyCard
    */
   function isMyCard(id: number, callback: AsyncCallback<boolean>): void;
 

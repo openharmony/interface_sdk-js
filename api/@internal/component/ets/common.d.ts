@@ -15678,7 +15678,7 @@ declare interface SheetOptions extends BindOptions {
     * @stagemodelonly
     * @crossplatform
     * @atomicservice
-    * @since 22 dynamic
+    * @since 23 dynamic
     */
   radiusRenderStrategy?: RenderStrategy;
 
@@ -19578,6 +19578,21 @@ declare interface ContextMenuOptions {
    * @since 23 dynamic
    */
   minKeyboardAvoidDistance?: LengthMetrics;
+  /**
+   * Set system-styled materials for menu. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of menu.
+   *
+   * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+   * their computing power.
+   *
+   * @type { ?SystemUiMaterial }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  systemMaterial?: SystemUiMaterial;
 }
 
 /**
@@ -21153,6 +21168,7 @@ declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
  *
  * @typedef { T | undefined } Optional<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -21308,10 +21324,12 @@ declare interface BackgroundOptions {
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare class CommonMethod<T> {
   /**
@@ -21326,6 +21344,7 @@ declare class CommonMethod<T> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @form
    * @since 9 dynamic
    */
@@ -21655,12 +21674,13 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the constraint size of the component, which is used to limit the size range during component layout.
-   * Default value: **{minWidth: 0, maxWidth: Infinity, minHeight: 0, maxHeight: Infinity}**.
+   * constraint Size:
+   * minWidth: minimum Width, maxWidth: maximum Width, minHeight: minimum Height, maxHeight: maximum Height.
    *
    * @param { ConstraintSizeOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -21760,13 +21780,12 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the weight of the component during layout. A component with this attribute is allocated space
-   * along the main axis of its parent container (Row, Column, or Flex) based on its specified weight.
-   * Default value: **0**.
+   * Defines the weight of the component, according to which the remain part of main-axis is allocated self-adaptively
    *
    * @param { number | string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -23976,50 +23995,29 @@ declare class CommonMethod<T> {
   brightness(brightness: Optional<number>): T;
 
   /**
-   * Applies a contrast effect to the component.
+   * Adds a contrast effect to the current component. The input parameter is the contrast value.
+   * A larger contrast value indicates a sharper image. When the contrast value is 0, the image becomes gray. (%)
    *
-   * @param { number } value - Contrast of the component. The input parameter is a
-   * contrast value. If the value is **1**, the source image is displayed. If the
-   * value is greater than 1, a larger value indicates a higher contrast and a clearer
-   * image. If the value is less than 1, a smaller value indicates a lower contrast is.
-   * If the value is **0**, the image becomes all gray. The unit is percentage.
-   * <br>Default value: **1.0**.
-   * <br>Recommended value range: [0, 10).
-   * <br>**NOTE**
-   * <br>A value less than 0 evaluates to the value **0**.
+   * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Applies a contrast effect to the component.
+   * Adds a contrast effect to the current component. The input parameter is the contrast value.
+   * A larger contrast value indicates a sharper image. When the contrast value is 0, the image becomes gray. (%)
    *
-   * @param { number } value - Contrast of the component. The input parameter is a
-   * contrast value. If the value is **1**, the source image is displayed. If the
-   * value is greater than 1, a larger value indicates a higher contrast and a clearer
-   * image. If the value is less than 1, a smaller value indicates a lower contrast is.
-   * If the value is **0**, the image becomes all gray. The unit is percentage.
-   * <br>Default value: **1.0**.
-   * <br>Recommended value range: [0, 10).
-   * <br>**NOTE**
-   * <br>A value less than 0 evaluates to the value **0**.
+   * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Applies a contrast effect to the component.
+   * Adds a contrast effect to the current component. The input parameter is the contrast value.
+   * A larger contrast value indicates a sharper image. When the contrast value is 0, the image becomes gray. (%)
    *
-   * @param { number } value - Contrast of the component. The input parameter is a
-   * contrast value. If the value is **1**, the source image is displayed. If the
-   * value is greater than 1, a larger value indicates a higher contrast and a clearer
-   * image. If the value is less than 1, a smaller value indicates a lower contrast is.
-   * If the value is **0**, the image becomes all gray. The unit is percentage.
-   * <br>Default value: **1.0**.
-   * <br>Recommended value range: [0, 10).
-   * <br>**NOTE**
-   * <br>A value less than 0 evaluates to the value **0**.
+   * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -24027,19 +24025,13 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Applies a contrast effect to the component.
+   * Adds a contrast effect to the current component. The input parameter is the contrast value.
+   * A larger contrast value indicates a sharper image. When the contrast value is 0, the image becomes gray. (%)
    *
-   * @param { number } value - Contrast of the component. The input parameter is a
-   * contrast value. If the value is **1**, the source image is displayed. If the
-   * value is greater than 1, a larger value indicates a higher contrast and a clearer
-   * image. If the value is less than 1, a smaller value indicates a lower contrast is.
-   * If the value is **0**, the image becomes all gray. The unit is percentage.
-   * <br>Default value: **1.0**.
-   * <br>Recommended value range: [0, 10).
-   * <br>**NOTE**
-   * <br>A value less than 0 evaluates to the value **0**.
+   * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -25369,12 +25361,13 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the percentage of the parent container's remaining space that is allocated to the component.
-   * Default value: **0**.
+   * The percentage of the remaining space of the Flex container allocated to the component on which this property
+   * resides.
    *
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -25410,12 +25403,12 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the percentage of the parent container's shrink size that is allocated to the component.
-   * Default value: 0 when the parent container is Column or Row, 1 when the parent container is Flex.
+   * The proportion of the Flex container compression size assigned to the component on which this attribute resides.
    *
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -25546,12 +25539,13 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the display priority for the component in the layout container.
-   * <br>This parameter is only effective in Row, Column, and Flex (single-line) container components.
+   * Sets the current component and displays the priority in the layout container. This parameter is valid only in Row,
+   * Column, and Flex single-row layouts.
    *
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -25592,6 +25586,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -25677,12 +25672,12 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets how elements are laid out along the main axis of the container.
-   * Default value: **Direction.Auto**.
+   * Sets the sliding direction. The enumerated value supports logical AND (&) and logical OR (|).
    *
    * @param { Direction } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -25942,6 +25937,7 @@ declare class CommonMethod<T> {
    * @param { boolean } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -26061,16 +26057,12 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the aspect ratio of the component, which can be obtained using the following formula: width/height.
-   * <br>If only width and aspectRatio are set, the height is calculated using the following formula: width/aspectRatio.
-   * <br>If only height and aspectRatio are set, the width is calculated using the following formula: height x aspectRatio.
-   * <br>If width, height, and aspectRatio are all set, the explicitly set height is ignored, and the effective height is
-   * calculated using the following formula: width/aspectRatio.
-   * <br>This parameter takes effect only when a valid value greater than 0 is specified.
+   * Specifies the aspect ratio of the current component.
    *
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -27414,6 +27406,7 @@ declare class CommonMethod<T> {
    * @param { string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -33286,6 +33279,7 @@ declare interface KeyframeState {
  *
  * @typedef Callback<T, V = void>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -33297,6 +33291,7 @@ declare interface Callback<T, V = void> {
    * @param { T } data - the data will be used in the callback.
    * @returns { V } - Returns result of the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

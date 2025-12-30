@@ -956,8 +956,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 22 dynamic
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   function getMonthTrafficStats(simId: int): Promise<long>;
 }

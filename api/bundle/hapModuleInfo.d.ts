@@ -141,7 +141,7 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager/bundleManager.HapModuleInfo#moduleName
+   * @useinstead ohos.bundle.bundleManager/bundleManager.HapModuleInfo#name
    */
   readonly moduleName: string;
   /**
