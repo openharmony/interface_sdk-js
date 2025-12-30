@@ -40,9 +40,9 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 22
- * @useinstead SwiperInterface
+ * @useinstead Swiper#SwiperInterface
  */
 interface StepperInterface {
   /**
@@ -70,8 +70,9 @@ interface StepperInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead Swiper.SwiperAttribute#index
    */
   (value?: { index?: number }): StepperAttribute;
 }
@@ -98,8 +99,9 @@ interface StepperInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 22
+ * @useinstead Swiper#SwiperAttribute
  */
 declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
@@ -127,8 +129,9 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead Swiper.SwiperAttibute#onChange
    */
   onFinish(callback: () => void): StepperAttribute;
 
@@ -157,8 +160,9 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead Swiper.SwiperAttribute#onChange
    */
   onSkip(callback: () => void): StepperAttribute;
 
@@ -187,8 +191,9 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead Swiper.SwiperAttribite#onChange
    */
   onChange(callback: (prevIndex: number, index: number) => void): StepperAttribute;
 
@@ -217,8 +222,9 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead Swiper.SwiperAttribite#onChange
    */
   onNext(callback: (index: number, pendingIndex: number) => void): StepperAttribute;
 
@@ -247,8 +253,9 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 22
+   * @useinstead Swiper.SwiperAttribute#onChange
    */
   onPrevious(callback: (index: number, pendingIndex: number) => void): StepperAttribute;
 }
@@ -272,8 +279,9 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 22
+ * @useinstead Swiper
  */
 declare const Stepper: StepperInterface;
 
@@ -296,7 +304,8 @@ declare const Stepper: StepperInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @deprecated since 22
+ * @useinstead Swiper
  */
 declare const StepperInstance: StepperAttribute;
