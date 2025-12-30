@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -122,6 +122,18 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @since 12 dynamic
    */
+  /**
+   * Creates a TLSSocket object with a TCPSocket object.
+   * @param { TCPSocket } tcpSocket - Parameter for creating a TLSSocket object.
+   * @returns { TLSSocket } the TLSSocket of the constructTLSSocketInstance.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2300002 - System internal error.
+   * @throws { BusinessError } 2303601 - Invalid socket FD.
+   * @throws { BusinessError } 2303602 - Socket is not connected.
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 24 dynamic
+   */
   function constructTLSSocketInstance(tcpSocket: TCPSocket): TLSSocket;
 
   /**
@@ -130,6 +142,13 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @since 10 dynamic
    */
+  /**
+   * Creates a TCPSocketServer object.
+   * @returns { TCPSocketServer } the TCPSocketServer of the constructTCPSocketServerInstance.
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 24 dynamic
+   */
   function constructTCPSocketServerInstance(): TCPSocketServer;
 
   /**
@@ -137,6 +156,13 @@ declare namespace socket {
    * @returns { TLSSocketServer } the TLSSocketServer of the constructTLSSocketServerInstance.
    * @syscap SystemCapability.Communication.NetStack
    * @since 10 dynamic
+   */
+  /**
+   * Creates a TLSSocketServer object.
+   * @returns { TLSSocketServer } the TLSSocketServer of the constructTLSSocketServerInstance.
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 24 dynamic
    */
   function constructTLSSocketServerInstance(): TLSSocketServer;
 
@@ -782,6 +808,16 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
      */
+    /**
+     * Obtains the local address of a UDPSocket connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getLocalAddress(): Promise<NetAddress>;
 
     /**
@@ -1116,6 +1152,15 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 23 dynamic&static
      */
+    /**
+     * Obtains the file descriptor of the UDPSocket.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<int> } The promise returns the file descriptor of the UDP socket.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic&static
+     */
     getSocketFd(): Promise<int>;
   }
 
@@ -1418,6 +1463,17 @@ declare namespace socket {
      * @stagemodelonly
      * @since 23 dynamic&static
      */
+    /**
+     * Obtains the file descriptor of the MulticastSocket.
+     *
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<int> } The promise returns the file descriptor of the Multicast socket.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @crossplatform
+     * @since 24 dynamic&static
+     */
     getSocketFd(): Promise<int>;
   }
 
@@ -1601,6 +1657,16 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
+     */
+    /**
+     * Obtains the local address of a LocalSocket connection.
+     * @returns { Promise<string> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     getLocalAddress(): Promise<string>;
 
@@ -1833,6 +1899,16 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
      */
+    /**
+     * Obtains the local address of a LocalSocket client connection.
+     * @returns { Promise<string> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getLocalAddress(): Promise<string>;
 
     /**
@@ -1955,6 +2031,13 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 23 dynamic&static
      */
+    /**
+     * Obtains the file descriptor of the LocalSocketConnection.
+     * @returns { Promise<int> } The promise returns the file descriptor of the local socket connection.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic&static
+     */
     getSocketFd(): Promise<int>;
   }
 
@@ -2065,6 +2148,16 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
      */
+    /**
+     * Obtains the local address of the LocalSocketServer connection.
+     * @returns { Promise<string> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getLocalAddress(): Promise<string>;
 
     /**
@@ -2073,6 +2166,14 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 20 dynamic
+     */
+    /**
+     * Close the LocalSocketServer. Close the LocalSocketServer listening port.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     close(): Promise<void>;
 
@@ -2157,6 +2258,13 @@ declare namespace socket {
      * @returns { Promise<int> } The promise returns the file descriptor of the local socket server.
      * @syscap SystemCapability.Communication.NetStack
      * @since 23 dynamic&static
+     */
+    /**
+     * Obtains the file descriptor of the LocalSocketServer.
+     * @returns { Promise<int> } The promise returns the file descriptor of the local socket server.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic&static
      */
     getSocketFd(): Promise<int>;
   }
@@ -2655,6 +2763,13 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Obtains the file descriptor of the TCPSocket connection.
+     * @param { AsyncCallback<number> } callback - The callback returns the file descriptor of the TCPSocket connection.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getSocketFd(callback: AsyncCallback<number>): void;
 
     /**
@@ -2662,6 +2777,13 @@ declare namespace socket {
      * @returns { Promise<number> } The promise returns the file descriptor of the TCPSocket connection.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * Obtains the file descriptor of the TCPSocket connection.
+     * @returns { Promise<number> } The promise returns the file descriptor of the TCPSocket connection.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     getSocketFd(): Promise<number>;
 
@@ -2719,6 +2841,16 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
+     */
+    /**
+     * Obtains the local address of a TCPSocket connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     getLocalAddress(): Promise<NetAddress>;
 
@@ -3040,6 +3172,16 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
+     */
+    /**
+     * Obtains the local address of a TLSSocket connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     getLocalAddress(): Promise<NetAddress>;
 
@@ -3410,6 +3552,13 @@ declare namespace socket {
      * @returns { Promise<number> } The promise returns the file descriptor of the TLSSocket connection.
      * @syscap SystemCapability.Communication.NetStack
      * @since 16 dynamic
+     */
+    /**
+     * Obtains the file descriptor of the TLSSocket connection.
+     * @returns { Promise<number> } The promise returns the file descriptor of the TLSSocket connection.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     getSocketFd(): Promise<number>;
 
@@ -3868,6 +4017,13 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
      */
+    /**
+     * Used to set up bidirectional authentication. The default value is false.
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     isBidirectionalAuthentication?: boolean;
   }
 
@@ -3935,6 +4091,13 @@ declare namespace socket {
      * @type {?boolean}
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
+     */
+    /**
+     * Skip identity verification for remote servers. The default value is false.
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     skipRemoteValidation?: boolean;
 
@@ -4005,12 +4168,26 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @since 10 dynamic
    */
+  /**
+   * Defines the connection of the TCPSocket client and server.
+   * @interface TCPSocketConnection
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 24 dynamic
+   */
   export interface TCPSocketConnection {
     /**
      * The id of a client connects to the TCPSocketServer.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * The id of a client connects to the TCPSocketServer.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     clientId: number;
 
@@ -4025,6 +4202,18 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Sends data over a TCPSocketServer connection to client.
+     * @permission ohos.permission.INTERNET
+     * @param { TCPSendOptions } options - Parameters for sending data {@link TCPSendOptions}.
+     * @param { AsyncCallback<void> } callback - The callback of send.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     send(options: TCPSendOptions, callback: AsyncCallback<void>): void;
 
     /**
@@ -4038,6 +4227,18 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Sends data over a TCPSocketServer connection to client.
+     * @permission ohos.permission.INTERNET
+     * @param { TCPSendOptions } options - Parameters for sending data {@link TCPSendOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     send(options: TCPSendOptions): Promise<void>;
 
     /**
@@ -4050,6 +4251,17 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Closes a TCPSocket client connection.
+     * @permission ohos.permission.INTERNET
+     * @param { AsyncCallback<void> } callback - The callback of close.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     close(callback: AsyncCallback<void>): void;
 
     /**
@@ -4060,6 +4272,16 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * Closes a TCPSocket client connection.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     close(): Promise<void>;
 
@@ -4074,6 +4296,18 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Obtains the peer address of a TCPSocketServer connection.
+     * @permission ohos.permission.INTERNET
+     * @param { AsyncCallback<NetAddress> } callback - The callback of getRemoteAddress.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
 
     /**
@@ -4086,6 +4320,17 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Obtains the peer address of a TCPSocketServer connection.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getRemoteAddress(): Promise<NetAddress>;
 
     /**
@@ -4096,6 +4341,16 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
+     */
+    /**
+     * Obtains the local address of a TCPSocketServer connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     getLocalAddress(): Promise<NetAddress>;
 
@@ -4161,6 +4416,15 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Listens for close events of the TCPSocketConnection.
+     * @param { 'close' } type - Indicates Event name.
+     * @param { Callback<void> } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     on(type: 'close', callback: Callback<void>): void;
 
     /**
@@ -4170,6 +4434,15 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * Cancels listening for close events of the TCPSocketConnection.
+     * @param { 'close' } type - Indicates Event name.
+     * @param { Callback<void> } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     off(type: 'close', callback?: Callback<void>): void;
 
@@ -4201,6 +4474,15 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 23 dynamic&static
      */
+    /**
+     * Obtains the file descriptor of the TCPSocketConnection.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<int> } The promise returns the file descriptor of the TCP socket connection.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic&static
+     */
     getSocketFd(): Promise<int>;
   }
 
@@ -4209,6 +4491,13 @@ declare namespace socket {
    * @interface TCPSocketServer
    * @syscap SystemCapability.Communication.NetStack
    * @since 10 dynamic
+   */
+  /**
+   * Defines a TCPSocket server connection.
+   * @interface TCPSocketServer
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 24 dynamic
    */
   export interface TCPSocketServer {
     /**
@@ -4227,6 +4516,24 @@ declare namespace socket {
      * @throws { BusinessError } 2303199 - Cannot assign requested address.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
+     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
+     * for accept processing and uses poll multiplex to process client connections.</p>
+     * @permission ohos.permission.INTERNET
+     * @param { NetAddress } address - Network address information {@link NetAddress}.
+     * @param { AsyncCallback<void> } callback - The callback of listen.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303109 - Bad file number.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
+     * @throws { BusinessError } 2303198 - Address already in use.
+     * @throws { BusinessError } 2303199 - Cannot assign requested address.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     listen(address: NetAddress, callback: AsyncCallback<void>): void;
 
@@ -4247,6 +4554,24 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
+     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
+     * for accept processing and uses poll multiplex to process client connections.</p>
+     * @permission ohos.permission.INTERNET
+     * @param { NetAddress } address - Network address information {@link NetAddress}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303109 - Bad file number.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
+     * @throws { BusinessError } 2303198 - Address already in use.
+     * @throws { BusinessError } 2303199 - Cannot assign requested address.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     listen(address: NetAddress): Promise<void>;
 
     /**
@@ -4257,6 +4582,16 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 20 dynamic
+     */
+    /**
+     * Close the TCPSocketServer. Close the TCPSocketServer listening port.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     close(): Promise<void>;
 
@@ -4271,6 +4606,18 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Obtains the status of the TCPSocketServer connection.
+     * @permission ohos.permission.INTERNET
+     * @param { AsyncCallback<SocketStateBase> } callback - The callback of getState.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
     /**
@@ -4282,6 +4629,17 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * Obtains the status of the TCPSocketServer connection.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<SocketStateBase> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     getState(): Promise<SocketStateBase>;
 
@@ -4297,6 +4655,19 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Sets other attributes of the TCPSocketServer connection.
+     * @permission ohos.permission.INTERNET
+     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
+     * @param { AsyncCallback<void> } callback - The callback of setExtraOptions.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
 
     /**
@@ -4311,6 +4682,19 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Sets other attributes of the TCPSocketServer connection.
+     * @permission ohos.permission.INTERNET
+     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
     /**
@@ -4322,6 +4706,16 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
      */
+    /**
+     * Obtains the local address of a TCPSocketServer connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getLocalAddress(): Promise<NetAddress>;
 
     /**
@@ -4332,6 +4726,15 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Listens for connect events of the TCPSocketServer connection.
+     * @param { 'connect' } type - Indicates Event name.
+     * @param { Callback<TCPSocketConnection> } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     on(type: 'connect', callback: Callback<TCPSocketConnection>): void;
 
     /**
@@ -4341,6 +4744,15 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * Cancels listening for connect events of the TCPSocketServer connection.
+     * @param { 'connect' } type - Indicates Event name.
+     * @param { Callback<TCPSocketConnection> } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     off(type: 'connect', callback?: Callback<TCPSocketConnection>): void;
 
@@ -4372,6 +4784,15 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 23 dynamic&static
      */
+    /**
+     * Obtains the file descriptor of the TCPSocketServer.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<int> } The promise returns the file descriptor of the TCP socket server.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic&static
+     */
     getSocketFd(): Promise<int>;
   }
 
@@ -4381,12 +4802,26 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @since 10 dynamic
    */
+  /**
+   * Defines the connection of the TLSSocket client and server.
+   * @interface TLSSocketConnection
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 24 dynamic
+   */
   export interface TLSSocketConnection {
     /**
      * The id of a client connects to the TLSSocketServer.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * The id of a client connects to the TLSSocketServer.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     clientId: number;
 
@@ -4416,6 +4851,20 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
      */
+    /**
+     * Sends data over a TLSSocketServer connection to client.
+     * @param { string | ArrayBuffer } data - Parameters for sending data.
+     * @param { AsyncCallback<void> } callback - The callback of send.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     send(data: string | ArrayBuffer, callback: AsyncCallback<void>): void;
 
     /**
@@ -4444,6 +4893,20 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
      */
+    /**
+     * Sends data over a TLSSocketServer connection to client.
+     * @param { string | ArrayBuffer } data - Parameters for sending data.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     send(data: string | ArrayBuffer): Promise<void>;
 
     /**
@@ -4457,6 +4920,18 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Closes a TLSSocket client connection.
+     * @param { AsyncCallback<void> } callback - The callback of close.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     close(callback: AsyncCallback<void>): void;
 
     /**
@@ -4469,6 +4944,17 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Closes a TLSSocket client connection.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     close(): Promise<void>;
 
     /**
@@ -4480,6 +4966,16 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Obtains the peer address of a TLSSocketServer connection.
+     * @param { AsyncCallback<NetAddress> } callback - The callback of getRemoteAddress.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
 
     /**
@@ -4489,6 +4985,15 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * Obtains the peer address of a TLSSocketServer connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     getRemoteAddress(): Promise<NetAddress>;
 
@@ -4503,6 +5008,18 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
+     * an empty object will be returned. If the socket is destroyed, null is returned.</p>
+     * It only contains the peer's certificate.
+     * @param { AsyncCallback<X509CertRawData> } callback - The callback of getRemoteCertificate.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getRemoteCertificate(callback: AsyncCallback<X509CertRawData>): void;
 
     /**
@@ -4514,6 +5031,17 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
+     * an empty object will be returned. If the socket is destroyed, null is returned.</p>
+     * It only contains the peer's certificate.
+     * @returns { Promise<X509CertRawData> } The promise returned by the function.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     getRemoteCertificate(): Promise<X509CertRawData>;
 
@@ -4529,6 +5057,19 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Returns a list containing the negotiated cipher suite information.
+     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
+     * @param { AsyncCallback<Array<string>> } callback - The callback of getCipherSuite.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getCipherSuite(callback: AsyncCallback<Array<string>>): void;
 
     /**
@@ -4542,6 +5083,18 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Returns a list containing the negotiated cipher suite information.
+     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
+     * @returns { Promise<Array<string>> } The promise returned by the function.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getCipherSuite(): Promise<Array<string>>;
 
     /**
@@ -4554,6 +5107,17 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * <p>The list of signature algorithms shared between the server and the client,
+     * in descending order of priority.</p>
+     * @param { AsyncCallback<Array<string>> } callback - The callback of getSignatureAlgorithms.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getSignatureAlgorithms(callback: AsyncCallback<Array<string>>): void;
 
     /**
@@ -4565,6 +5129,16 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * <p>The list of signature algorithms shared between the server and the client,
+     * in descending order of priority.</p>
+     * @returns { Promise<Array<string>> } The promise returned by the function.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getSignatureAlgorithms(): Promise<Array<string>>;
 
     /**
@@ -4575,6 +5149,16 @@ declare namespace socket {
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
+     */
+    /**
+     * Obtains the local address of a TLSSocketServer connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     getLocalAddress(): Promise<NetAddress>;
 
@@ -4640,6 +5224,15 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Listens for close events of the TLSSocketConnection.
+     * @param { 'close' } type - Indicates Event name.
+     * @param { Callback<void> } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     on(type: 'close', callback: Callback<void>): void;
 
     /**
@@ -4649,6 +5242,15 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * Cancels listening for close events of the TLSSocketConnection.
+     * @param { 'close' } type - Indicates Event name.
+     * @param { Callback<void> } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     off(type: 'close', callback?: Callback<void>): void;
 
@@ -4679,6 +5281,15 @@ declare namespace socket {
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @since 23 dynamic&static
+     */
+    /**
+     * Obtains the file descriptor of the TLSSocketConnection.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<int> } The promise returns the file descriptor of the TLS socket connection.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic&static
      */
     getSocketFd(): Promise<int>;
   }
@@ -4715,6 +5326,13 @@ declare namespace socket {
    * @syscap SystemCapability.Communication.NetStack
    * @since 10 dynamic
    */
+  /**
+   * Defines a TLSSocketServer server connection.
+   * @interface TLSSocketServer
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 24 dynamic
+   */
   export interface TLSSocketServer {
     /**
      * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
@@ -4737,6 +5355,29 @@ declare namespace socket {
      * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
+     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
+     * for accept processing and uses poll multiplex to process client connections.</p>
+     * @permission ohos.permission.INTERNET
+     * @param { TLSConnectOptions } options - TLS connection options {@link TLSConnectOptions}.
+     * @param { AsyncCallback<void> } callback - The callback of listen.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303109 - Bad file number.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
+     * @throws { BusinessError } 2303198 - Address already in use.
+     * @throws { BusinessError } 2303199 - Cannot assign requested address.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     listen(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
 
@@ -4762,6 +5403,29 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
+     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
+     * for accept processing and uses poll multiplex to process client connections.</p>
+     * @permission ohos.permission.INTERNET
+     * @param { TLSConnectOptions } options - TLS connection options {@link TLSConnectOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303109 - Bad file number.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
+     * @throws { BusinessError } 2303198 - Address already in use.
+     * @throws { BusinessError } 2303199 - Cannot assign requested address.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     listen(options: TLSConnectOptions): Promise<void>;
 
     /**
@@ -4772,6 +5436,16 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 20 dynamic
+     */
+    /**
+     * Close the TLSSocketServer. Close the TLSSocketServer listening port.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     close(): Promise<void>;
 
@@ -4784,6 +5458,16 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Obtains the status of the TLSSocketServer connection.
+     * @param { AsyncCallback<SocketStateBase> } callback - The callback of getState.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
     /**
@@ -4793,6 +5477,15 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * Obtains the status of the TLSSocketServer connection.
+     * @returns { Promise<SocketStateBase> } The promise returned by the function.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     getState(): Promise<SocketStateBase>;
 
@@ -4806,6 +5499,17 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Sets other attributes of the TLSSocketServer connection.
+     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
+     * @param { AsyncCallback<void> } callback - The callback of setExtraOptions.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
 
     /**
@@ -4817,6 +5521,17 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * Sets other attributes of the TLSSocketServer connection.
+     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
@@ -4830,6 +5545,17 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Returns an object representing a local certificate.
+     * @param { AsyncCallback<X509CertRawData> } callback - The callback of getCertificate.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getCertificate(callback: AsyncCallback<X509CertRawData>): void;
 
     /**
@@ -4840,6 +5566,16 @@ declare namespace socket {
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * Returns an object representing a local certificate.
+     * @returns { Promise<X509CertRawData> } The promise returned by the function.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303504 - An error occurred when verifying the X.509 certificate.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     getCertificate(): Promise<X509CertRawData>;
 
@@ -4855,6 +5591,19 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
+     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
+     * Server sockets or disconnected client sockets will return a value of null.
+     * @param { AsyncCallback<string> } callback - The callback of getProtocol.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getProtocol(callback: AsyncCallback<string>): void;
 
     /**
@@ -4868,6 +5617,18 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
+     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
+     * Server sockets or disconnected client sockets will return a value of null.
+     * @returns { Promise<string> } The promise returned by the function.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getProtocol(): Promise<string>;
 
     /**
@@ -4879,6 +5640,16 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 12 dynamic
      */
+    /**
+     * Obtains the local address of the TLSSocketServer connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     getLocalAddress(): Promise<NetAddress>;
 
     /**
@@ -4888,6 +5659,15 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * Listens for connect events of the TLSSocketServer connection.
+     * @param { 'connect' } type - Indicates Event name.
+     * @param { Callback<TLSSocketConnection> } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     on(type: 'connect', callback: Callback<TLSSocketConnection>): void;
 
@@ -4899,6 +5679,15 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Cancels listening for connect events of the TLSSocketServer connection.
+     * @param { 'connect' } type - Indicates Event name.
+     * @param { Callback<TLSSocketConnection> } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     off(type: 'connect', callback?: Callback<TLSSocketConnection>): void;
 
     /**
@@ -4908,6 +5697,15 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
+     */
+    /**
+     * Listens for error events of the TLSSocketServer connection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -4919,6 +5717,15 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10 dynamic
      */
+    /**
+     * Cancels listening for error events of the TLSSocketServer connection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic
+     */
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
@@ -4928,6 +5735,15 @@ declare namespace socket {
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @since 23 dynamic&static
+     */
+    /**
+     * Obtains the file descriptor of the TLSSocketServer.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<int> } The promise returns the file descriptor of the TLS socket server.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 24 dynamic&static
      */
     getSocketFd(): Promise<int>;
   }
