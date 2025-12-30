@@ -3161,7 +3161,7 @@ declare interface BorderOptions {
 }
 
 /**
- * Defines the options of border.
+ * Defines the options of outline.
  *
  * @interface OutlineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3170,7 +3170,7 @@ declare interface BorderOptions {
  * @since 11
  */
 /**
- * Defines the options of border.
+ * Defines the options of outline.
  *
  * @interface OutlineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
