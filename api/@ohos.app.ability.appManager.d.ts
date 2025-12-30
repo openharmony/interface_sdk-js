@@ -381,6 +381,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 21 dynamic
+   * @since 23 static
    */
   export enum FilterBundleType {
     /**
@@ -389,6 +390,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     APP = 1 << 0,
 
@@ -398,6 +400,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     ATOMIC_SERVICE = 1 << 1
   }
@@ -409,6 +412,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 21 dynamic
+   * @since 23 static
    */
   export enum FilterAppStateType {
     /**
@@ -417,6 +421,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     CREATE = 1 << 0,
 
@@ -426,6 +431,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     FOREGROUND = 1 << 1,
 
@@ -435,6 +441,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     BACKGROUND = 1 << 2,
 
@@ -444,6 +451,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     DESTROY = 1 << 3
   }
@@ -455,6 +463,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 21 dynamic
+   * @since 23 static
    */
   export enum FilterProcessStateType {
     /**
@@ -463,6 +472,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     CREATE = 1 << 0,
 
@@ -472,6 +482,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     FOREGROUND = 1 << 1,
 
@@ -481,6 +492,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     BACKGROUND = 1 << 2,
 
@@ -490,6 +502,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     DESTROY = 1 << 3
   }
@@ -501,6 +514,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 21 dynamic
+   * @since 23 static
    */
   export enum FilterAbilityStateType {
     /**
@@ -509,6 +523,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     CREATE = 1 << 0,
 
@@ -518,6 +533,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     FOREGROUND = 1 << 1,
 
@@ -527,6 +543,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     BACKGROUND = 1 << 2,
 
@@ -536,6 +553,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     DESTROY = 1 << 3
   }
@@ -547,6 +565,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 21 dynamic
+   * @since 23 static
    */
   export enum FilterCallback {
     /**
@@ -555,6 +574,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     ON_FOREGROUND_APPLICATION_CHANGED = 1 << 0,
 
@@ -564,6 +584,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     ON_ABILITY_STATE_CHANGED = 1 << 1,
 
@@ -573,6 +594,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     ON_PROCESS_CREATED = 1 << 2,
 
@@ -582,6 +604,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     ON_PROCESS_DIED = 1 << 3,
 
@@ -591,6 +614,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     ON_PROCESS_STATE_CHANGED = 1 << 4,
 
@@ -600,6 +624,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     ON_APP_STARTED = 1 << 5,
 
@@ -609,6 +634,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     ON_APP_STOPPED = 1 << 6
   }
@@ -620,6 +646,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 21 dynamic
+   * @since 23 static
    */
   export interface AppStateFilter {
     /**
@@ -630,6 +657,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     bundleTypes?: int;
 
@@ -641,6 +669,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     appStateTypes?: int;
 
@@ -652,6 +681,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     processStateTypes?: int;
 
@@ -663,6 +693,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     abilityStateTypes?: int;
 
@@ -674,6 +705,7 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
     * @since 21 dynamic
+    * @since 23 static
     */
     callbacks?: int;
   }
@@ -755,6 +787,23 @@ declare namespace appManager {
    * @since 21 dynamic
    */
   function on(type: 'applicationState', observer: ApplicationStateObserver, filter: AppStateFilter): int;
+
+  /**
+   * Register application state observer with filter.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { ApplicationStateObserver } observer - The application state observer.
+   * @param { AppStateFilter } filter - Filter configuration for targeted monitoring.
+   * @returns { int } Returns the number code of the observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
+   *     2. The system service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 23 static
+   */
+  function onApplicationStateChange(observer: ApplicationStateObserver, filter: AppStateFilter): int;
 
   /**
    * Register app foreground or background state observer.
