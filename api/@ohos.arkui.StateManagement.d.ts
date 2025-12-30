@@ -1192,7 +1192,6 @@ export declare const ComponentReuse: MethodDecorator;
 export declare const ComponentRecycle: MethodDecorator;
 
 /**
- * Define ComponentDisappear PropertyDecorator.
  * The function decorated by the decorator is invoked before a custom component is destroyed. It is not
  * allowed to change state variables within the function, especially since modifying @Link variables may lead to
  * unstable application behavior.
