@@ -10375,14 +10375,14 @@ declare enum ShadowStyle {
   OUTER_DEFAULT_LG = 3,
 
   /**
-   * Floating medium shadow.
+   * Defines the small floating shadow style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Floating medium shadow.
+   * Defines the small floating shadow style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
