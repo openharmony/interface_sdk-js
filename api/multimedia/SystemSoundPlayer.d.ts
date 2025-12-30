@@ -18,7 +18,7 @@
  * @kit AudioKit
  */
 
-import type systemSoundManager from '../@ohos.multimedia.systemSoundManager'
+import type systemSoundManager from '../@ohos.multimedia.systemSoundManager';
 
 /**
  * Implements a system sound player that provides functions for loading, unloading, playing system sounds.
@@ -31,7 +31,7 @@ import type systemSoundManager from '../@ohos.multimedia.systemSoundManager'
  * @stagemodelonly
  * @since 23 dynamic&static
  */
-export interface SystemSoundPlayer{
+export interface SystemSoundPlayer {
   /**
    * Loads a system sound.
    *
