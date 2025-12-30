@@ -1198,7 +1198,7 @@ export declare interface BorderOptions {
 }
 
 /**
- * Defines the options of border.
+ * Defines the options of outline.
  *
  * @interface OutlineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
