@@ -3699,6 +3699,7 @@ export declare interface ShadowOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum ShadowStyle {
@@ -3706,6 +3707,7 @@ export declare enum ShadowStyle {
      * Defines the super small default shadow style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     OUTER_DEFAULT_XS = 0,
@@ -3718,16 +3720,18 @@ export declare enum ShadowStyle {
      */
     OUTER_DEFAULT_SM = 1,
     /**
-     * Medium shadow.
+     * Defines the medium default shadow style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     OUTER_DEFAULT_MD = 2,
     /**
-     * Large shadow.
+     * Defines the large default shadow style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     OUTER_DEFAULT_LG = 3,
@@ -3735,11 +3739,12 @@ export declare enum ShadowStyle {
      * Defines the small floating shadow style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     OUTER_FLOATING_SM = 4,
     /**
-     * Floating medium shadow.
+     * Defines the medium floating shadow style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
