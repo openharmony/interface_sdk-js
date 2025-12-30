@@ -4268,6 +4268,24 @@ export declare interface ClickEvent extends BaseEvent {
      * @since 23 static
      */
     preventDefault(): void;
+    /**
+     * X coordinate of the point relative to the global display.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    globalDisplayX?: double;
+    /**
+     * Y coordinate of the point relative to the global display.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    globalDisplayY?: double;
 }
 /**
  * The hover action triggers this method invocation.
@@ -4334,6 +4352,24 @@ export declare interface HoverEvent extends BaseEvent {
      * @since 23 static
      */
     stopPropagation(): void;
+    /**
+     * X coordinate of the point relative to the global display.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    globalDisplayX?: double;
+    /**
+     * Y coordinate of the point relative to the global display.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    globalDisplayY?: double;
 }
 /**
  * The mouse click action triggers this method invocation.
@@ -4442,6 +4478,25 @@ export declare interface MouseEvent extends BaseEvent {
      * @since 23 static
      */
     pressedButtons?: MouseButton[];
+    /**
+     * X coordinate of the point relative to the global display.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    globalDisplayX?: double;
+
+    /**
+     * Y coordinate of the point relative to the global display.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    globalDisplayY?: double;    
 }
 /**
  * The accessibility hover action triggers this method invocation.
@@ -4508,6 +4563,25 @@ export declare interface AccessibilityHoverEvent extends BaseEvent {
      * @since 23 static
      */
     windowY: double;
+    /**
+     * X coordinate of the point relative to the global display.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    globalDisplayX?: double;
+
+    /**
+     * Y coordinate of the point relative to the global display.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    globalDisplayY?: double;
 }
 /**
  * Type of the touch event.
@@ -4621,6 +4695,25 @@ export declare interface TouchObject {
      * @since 23 static
      */
     height?: double;
+    /**
+     * X coordinate of the point relative to the global display.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    globalDisplayX?: double;
+
+    /**
+     * Y coordinate of the point relative to the global display.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    globalDisplayY?: double;
 }
 /**
  * TouchObject getHistoricalPoints Function Parameters
@@ -4834,6 +4927,25 @@ export declare interface AxisEvent extends BaseEvent {
      * @since 23 static
      */
     hasAxis(axisType: AxisType): boolean;
+    /**
+     * X coordinate of the point relative to the global display.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    globalDisplayX?: double;
+
+    /**
+     * Y coordinate of the point relative to the global display.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    globalDisplayY?: double;
 }
 /**
  * Defines the callback type used in onSizeChange.
@@ -5482,6 +5594,25 @@ export declare interface DragEvent {
      * @since 23 static
      */
     enableInternalDropAnimation(configuration: string): void;
+    /**
+     * X coordinate of the point relative to the global display.
+     *
+     * @returns { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    getGlobalDisplayX(): double;
+
+    /**
+     * Y coordinate of the point relative to the global display.
+     *
+     * @returns { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    getGlobalDisplayY(): double;
 }
 /**
  * The event callback function for drag and drop common interfaces.
