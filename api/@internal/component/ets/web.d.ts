@@ -5144,8 +5144,9 @@ declare class WebController {
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#constructor
    */
   constructor();
 
