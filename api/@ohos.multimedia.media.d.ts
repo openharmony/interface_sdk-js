@@ -1188,18 +1188,18 @@ declare namespace media {
     /**
      * It will decode the given video resource, then fetch pictures at each time member of @timesUs array
      * according the given @options and @param. When one fetch is done, a callback is called with fetch result.
-     * Please note that, the callback order is not same as the time order in @timesUs aray.
+     * Please note that, the callback order is not same as the time order in @timesUs array.
      * @param { long[] } timesUs - The times array expected to fetch picture from the video resource.
-     *    The unit of time is microsecond(us). The max size of array is 4096.
+     *     The unit of time is microsecond(us). The max size of array is 4096.
      * @param { AVImageQueryOptions } queryOption - The time options about the relationship
-     *    between the given timeUs and a key frame, see @AVImageQueryOptions.
+     *     between the given timeUs and a key frame, see @AVImageQueryOptions.
      * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams.
-     * @param { OnFrameFetched } callback - The callback function when a fetch is done\failed\cancelled.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
-     * @throws { BusinessError } 5400104 - Time out.
+     * @param { OnFrameFetched } callback - the callback function when a fetch is done\failed\cancelled.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
+     * @throws { BusinessError } 5400104 - Fetch timeout, Returned by callback.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
-     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. e.g. The size of timesUs is larger than 4096.
      * @throws { BusinessError } 5411012 - Http cleartext not permitted.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
