@@ -1766,7 +1766,7 @@ declare namespace usbManager {
   }
 
   /**
-   * Represents control transfer parameters.
+   * Represents control transfer parameters (deprecated).
    *
    * @typedef USBControlParams
    * @syscap SystemCapability.USB.USBManager
