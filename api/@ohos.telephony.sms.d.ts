@@ -828,6 +828,28 @@ declare namespace sms {
   function getDefaultSmsSimId(): Promise<int>;
 
   /**
+   * Get the SMS short code type of the destination address.
+   *
+   * @permission ohos.permission.SEND_MESSAGES
+   * @param { int } slotId - Indicates the ID of the slot holding the SIM card for sending SMS messages.
+   * The value {@code 0} indicates card slot 1, and the value {@code 1} indicates card slot 2.
+   * @param { string } destAddr - Indicates the destination address of the sending SMS.
+   * @returns { Promise<SmsShortCodeType> } Returns the SMS short code type of the sending destination address.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - Do not have sim card.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  function getSmsShortCodeType(slotId: int, destAddr: string): Promise<SmsShortCodeType>;
+
+  /**
    * Defines the MMS message information.
    *
    * @interface MmsInformation
@@ -3278,7 +3300,47 @@ declare namespace sms {
      * @since 23 static
      */
     SMS_ENCODING_16BIT,
-  }
+
+  /**
+   * Enumerates SMS short code types.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  export enum SmsShortCodeType {
+    /**
+     * Indicates an unknown SMS short code type.
+     *
+     * @syscap SystemCapability.Telephony.SmsMms
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    SMS_SHORT_CODE_TYPE_UNKNOWN = -1,
+
+    /**
+     * Indicates a not premium SMS short code type.
+     *
+     * @syscap SystemCapability.Telephony.SmsMms
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    SMS_SHORT_CODE_TYPE_NOT_PREMIUM = 0,
+
+    /**
+     * Indicates a possible premium SMS short code type.
+     *
+     * @syscap SystemCapability.Telephony.SmsMms
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 23 dynamic&static
+     */
+    SMS_SHORT_CODE_TYPE_POSSIBLE_PREMIUM = 1
+}
 }
 
 export default sms;
