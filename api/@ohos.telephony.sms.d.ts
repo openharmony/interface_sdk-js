@@ -3300,6 +3300,7 @@ declare namespace sms {
      * @since 23 static
      */
     SMS_ENCODING_16BIT,
+  }
 
   /**
    * Enumerates SMS short code types.
@@ -3340,7 +3341,7 @@ declare namespace sms {
      * @since 23 dynamic&static
      */
     SMS_SHORT_CODE_TYPE_POSSIBLE_PREMIUM = 1
-}
+  }
 }
 
 export default sms;
