@@ -408,7 +408,7 @@ export declare class ListScroller extends Scroller {
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100004 - Controller not bound to component.
+     * @throws { BusinessError } 100004 - Controller not bound to a component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
@@ -431,7 +431,7 @@ export declare class ListScroller extends Scroller {
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100004 - Controller not bound to component.
+     * @throws { BusinessError } 100004 - Controller not bound to a component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
@@ -443,12 +443,12 @@ export declare class ListScroller extends Scroller {
      * <br>- A <em>ListScroller</em> must be bound to the <em>List</em> component.
      * </p>
      *
-     * @param { CloseSwipeActionOptions } options - Callback events for collapsing list items in the EXPANDED state.
+     * @param { CloseSwipeActionOptions } [options] - Callback events for collapsing list items in the EXPANDED state.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100004 - Controller not bound to component.
+     * @throws { BusinessError } 100004 - Controller not bound to a component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
@@ -469,7 +469,7 @@ export declare class ListScroller extends Scroller {
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100004 - The controller not bound to component.
+     * @throws { BusinessError } 100004 - Controller not bound to a component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
