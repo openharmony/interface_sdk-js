@@ -2959,7 +2959,22 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 23 static
+     */
+    /**
+     * Gets the property based on the specified request information.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { GetPropertyRequest } request - Indicates the request information, including authentication type, and property type list.
+     * @param { AsyncCallback<ExecutorProperty> } callback - Returns an executor property.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid request.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
      */
     getProperty(request: GetPropertyRequest, callback: AsyncCallback<ExecutorProperty>): void;
 
@@ -2995,7 +3010,22 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 23 static
+     */
+    /**
+     * Gets the property based on the specified request information.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { GetPropertyRequest } request - Indicates the request information, including authentication type, and property type list.
+     * @returns { Promise<ExecutorProperty> } Returns an executor property.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid request.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
      */
     getProperty(request: GetPropertyRequest): Promise<ExecutorProperty>;
 
@@ -4859,7 +4889,35 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 23 static
+     */
+    /**
+     * Adds a credential.
+     * <p>
+     * Add user credential information, pass in credential addition method and credential information
+     * (credential type, subclass, if adding user's non password credentials, pass in password authentication token),
+     * and get the result / acquireInfo callback.
+     *
+     * @permission ohos.permission.MANAGE_USER_IDM
+     * @param { CredentialInfo } credentialInfo - Indicates the credential information.
+     * @param { IIdmCallback } callback - Indicates the callback to get results and acquireInfo.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid credentialInfo, i.e. authType or authSubType.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted account.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @throws { BusinessError } 12300090 - Cross-device capability not supported.
+     * @throws { BusinessError } 12300091 - Cross-device communication failed.
+     * @throws { BusinessError } 12300101 - The token is invalid.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300111 - The operation timeout.
+     * @throws { BusinessError } 12300115 - The number of credentials reaches the upper limit.
+     * @throws { BusinessError } 12300116 - Credential complexity verification failed.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 23 dynamic&static
      */
     addCredential(credentialInfo: CredentialInfo, callback: IIdmCallback): void;
 
