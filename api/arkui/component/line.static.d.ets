@@ -100,13 +100,13 @@ export declare interface LineAttribute extends CommonShapeMethod {
  * Line is returned when the parameter is transferred.
  *
  * @param { LineOptions } [options] - The options to create a Line
- * @param { CustomBuilder } [content_]
  * @returns { LineAttribute } The attribute of the Line.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Line(
-    options?: LineOptions, 
-    content_?: CustomBuilder,
+    options?: LineOptions
 ): LineAttribute
