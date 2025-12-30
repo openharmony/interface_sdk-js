@@ -1158,6 +1158,17 @@ export declare class UpdatablePickerConfigs {
    * @since 23 dynamic&static
    */
   edgeEffect?: EdgeEffect;
+
+  /**
+   * Moving photo playback mode. Supports up to two modes.
+   *
+   * @type { ?Array<photoAccessHelper.AutoPlayScene> }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  autoPlayScenes?: Array<photoAccessHelper.AutoPlayScene>;
 }
 
 /**
