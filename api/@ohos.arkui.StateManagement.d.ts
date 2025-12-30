@@ -35,6 +35,7 @@ export declare type StorageDefaultCreator<T> = () => T;
 
 /**
  * Define class constructor with arbitrary parameters.
+ *
  * @interface TypeConstructorWithArgs<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -365,26 +366,26 @@ export declare class UIUtils {
    * Make non-observed data into V1 observed data.
    * Support JS object, interface, class (non-@Observed, non-ObservedV2).
    *
-   * @param { T } source input source object data.
+   * @param { T } source - input source object data.
    * @returns { T } V1 proxy object from the source object data.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19 dynamic
+   * @since 19 dynamiconly
    */
    static makeV1Observed<T extends object>(source: T): T;
 
   /**
    * Enables V2 compatibility on given viewmodel object or nested viewmodels, which are V1 observed object already.
    *
-   * @param {T} source - The object to be made V2-compatible.
-   * @returns {T} The processed object with V2 compatibility enabled.
+   * @param { T } source - The object to be made V2-compatible.
+   * @returns { T } The processed object with V2 compatibility enabled.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19 dynamic
+   * @since 19 dynamiconly
    */
    static enableV2Compatibility<T extends object>(source: T): T;
 
