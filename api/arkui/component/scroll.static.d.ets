@@ -302,7 +302,7 @@ export declare class Scroller {
      * Obtains the current scrolling offset.
      *
      * @returns { OffsetResult | undefined } Returns the current scrolling offset.
-     *     If the scroller not bound to a component, the return value is void.
+     *     If the scroller not bound to a component, the return value is undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
