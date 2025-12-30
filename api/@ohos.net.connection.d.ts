@@ -1203,6 +1203,85 @@ declare namespace connection {
   function getDnsUnicode(host: string, flag?: ConversionProcess): string;
 
   /**
+   * Create vlan interface by vlanId.
+   * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
+   *
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { string } ifName - interface name.
+   * @param { int } vlanId - vlan id.
+   * @returns { Promise<void> } - The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2100400 - The input network interface is incorrect.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
+   * @since 23 dynamic&static
+   */
+  function createVlanInterface(ifName: string, vlanId: int): Promise<void>;
+
+  /**
+   * Destroy vlan interface by vlanId.
+   * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
+   *
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { string } ifName - interface name.
+   * @param { int } vlanId - vlan id.
+   * @returns { Promise<void> } - The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2100400 - The input network interface is incorrect.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
+   * @since 23 dynamic&static
+   */
+  function destroyVlanInterface(ifName: string, vlanId: int): Promise<void>;
+
+  /**
+   * Add ip of vlan interface by vlanId.
+   * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
+   *
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { string } ifName - interface name.
+   * @param { int } vlanId - vlan id.
+   * @param { LinkAddress } address - vlan ip address.
+   * @returns { Promise<void> } - The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2100400 - The input network interface is incorrect.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
+   * @since 23 dynamic&static
+   */
+  function addVlanIp(ifName: string, vlanId: int, address: LinkAddress): Promise<void>;
+
+  /**
+   * Delete ip of vlan interface by vlanId.
+   * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
+   *
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { string } ifName - interface name.
+   * @param { int } vlanId - vlan id.
+   * @param { LinkAddress } address - vlan ip address.
+   * @returns { Promise<void> } - The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2100400 - The input network interface is incorrect.
+   * @throws { BusinessError } 2100401 - The input ip address not found.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
+   * @since 23 dynamic&static
+   */
+  function deleteVlanIp(ifName: string, vlanId: int, address: LinkAddress): Promise<void>;
+
+  /**
    * Represents the network connection handle.
    * @interface NetConnection
    * @syscap SystemCapability.Communication.NetManager.Core
