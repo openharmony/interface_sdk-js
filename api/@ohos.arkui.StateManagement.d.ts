@@ -1195,14 +1195,9 @@ export declare const ComponentReuse: MethodDecorator;
 export declare const ComponentRecycle: MethodDecorator;
 
 /**
- * Define ComponentDisappear PropertyDecorator.
- * The function decorated by the decorator is invoked from the native side function 'CustomNodeBase::SetRecycleFunction'
- * when the component is about to be recycled.
- * It first calls the function in the application, and performs the necessary actions
- * defined in the application before recycling.
- * Then, it freezes the component to avoid performing UI updates when its in recycle pool
- * Finally recursively traverses all subcomponents, calling the function on each subcomponent
- * that is about to be recycled, preparing them for recycling as well.
+ * The function decorated by the decorator is invoked before a custom component is destroyed. It is not
+ * allowed to change state variables within the function, especially since modifying @Link variables may lead to
+ * unstable application behavior.
  *
  * @type { MethodDecorator }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
