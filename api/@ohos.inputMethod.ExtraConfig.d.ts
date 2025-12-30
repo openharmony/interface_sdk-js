@@ -39,6 +39,7 @@ export type CustomValueType = int | string | boolean;
 export interface InputMethodExtraConfig {
     /**
      * Indicates extra customized settings.
+     * The size of all records can not exceed 32KB.
      *
      * @type { Record<string, CustomValueType> }
      * @syscap SystemCapability.MiscServices.InputMethodFramework

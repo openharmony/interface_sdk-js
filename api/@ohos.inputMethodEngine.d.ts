@@ -3012,7 +3012,7 @@ declare namespace inputMethodEngine {
      * When the display undergoes orientation changes, or is folded or unfolded, it is necessary to
      * reinvoke this interface to get the latest values.</p>
      * 
-     * @param { long } displayId - specify which display's system panel insets.
+     * @param { number } displayId - specify which display's system panel insets.
      * @returns { Promise<SystemPanelInsets> } the promise returned by the function.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag. Possible causes:
@@ -3020,9 +3020,26 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800022 - invalid displayId.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 21 dynamic
+     */
+    getSystemPanelCurrentInsets(displayId: number): Promise<SystemPanelInsets>;
+
+    /**
+     * Get the current insets of the system panel of a specified display.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED or FLG_FLOATING.</p>
+     * <p>This interface only supports obtaining the current insets values of a display.
+     * When the display undergoes orientation changes, or is folded or unfolded, it is necessary to
+     * reinvoke this interface to get the latest values.</p>
+     *
+     * @param { long } displayId - specify which display's system panel insets.
+     * @returns { Promise<SystemPanelInsets | null> } the promise returned by the function.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag. Possible causes:
+     *     1. Current panel's type is not SOFT_KEYBOARD.  2. Panel's flag is not FLG_FIXED or FLG_FLOATING.
+     * @throws { BusinessError } 12800022 - invalid displayId.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
-    getSystemPanelCurrentInsets(displayId: long): Promise<SystemPanelInsets>;
+    getSystemPanelCurrentInsets(displayId: long): Promise<SystemPanelInsets | null>;
 
     /**
      * Set current panel's shadow.
@@ -3143,7 +3160,7 @@ declare namespace inputMethodEngine {
    * <p>It is used to indicate the distance between the input method panel and the system panel.</p>
    * <p>The distance unit is px.</p>
    * 
-   * @interface SystemPanelInsets.
+   * @interface SystemPanelInsets
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 21 dynamic
    * @since 23 static
