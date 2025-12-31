@@ -7832,15 +7832,14 @@ declare namespace relationalStore {
     /**
      * Begins a transaction before executing the SQL statement.
      *
-     * @returns { Promise<number> } Returns the transaction ID.
-     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
+     * @returns { Promise<long> } Returns the transaction ID.
+     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
-     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -7856,9 +7855,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @since 12 dynamic
+     * @since 23 static
      */
-    beginTrans(): Promise<number>;
+    beginTrans(): Promise<long>;
 
     /**
      * Commit the the sql you have executed.
@@ -7907,16 +7908,15 @@ declare namespace relationalStore {
     /**
      * Commits the SQL statement executed.
      *
-     * @param { number } txId - Indicates the transaction ID which is obtained by beginTrans.
+     * @param { long } txId - Indicates the transaction ID which is obtained by beginTrans.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -7931,9 +7931,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @since 12 dynamic
+     * @since 23 static
      */
-    commit(txId : number): Promise<void>;
+    commit(txId : long): Promise<void>;
 
     /**
      * Roll back the sql you have already executed.
@@ -7982,16 +7984,14 @@ declare namespace relationalStore {
     /**
      * Rolls back the SQL statement executed.
      *
-     * @param { number } txId - Indicates the transaction ID which is obtained by beginTrans.
+     * @param { long } txId - Indicates the transaction ID which is obtained by beginTrans.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -8006,9 +8006,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @FaAndStageModel
      * @since 12 dynamic
+     * @since 23 static
      */
-    rollback(txId : number): Promise<void>;
+    rollback(txId : long): Promise<void>;
 
     /**
      * Backs up a database in a specified name.
