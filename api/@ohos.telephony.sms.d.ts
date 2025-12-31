@@ -585,10 +585,10 @@ declare namespace sms {
    * @returns { Promise<void> } The promise returned by the setCBConfigList.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 8700001 - Invalid parameter value.
-   * @throws { BusinessError } 8700002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8700003 - System internal error.
-   * @throws { BusinessError } 8700999 - Unknown error code.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
    * @since 23 dynamic&static
