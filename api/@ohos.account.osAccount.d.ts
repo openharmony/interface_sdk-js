@@ -2315,7 +2315,7 @@ declare namespace osAccount {
     offSwitched(callback?: Callback<OsAccountSwitchEventData>): void;
 
     /**
-     * Subscribes to the constraint change events of the current OS account.
+     * Subscribes to one or more constraint change events of the OS account to which the caller belongs.
      *
      * @param { string[] } constraints - Indicates the target constraints.
      * @param { Callback<ConstraintChangeInfo> } callback - Callback for receiving constraint change information.
@@ -2329,7 +2329,8 @@ declare namespace osAccount {
     onConstraintChanged(constraints: string[], callback: Callback<ConstraintChangeInfo>): void;
 
     /**
-     * Unsubscribes to the constraint change events of the current OS account.
+     * Cancel the constraint change subscription records associated with the specified callback.
+     * If no callback is specified, cancel all subscription records.
      *
      * @param { Callback<ConstraintChangeInfo> } [callback] - Callback for receiving constraint change information.
      * @throws { BusinessError } 202 - Not system application.
