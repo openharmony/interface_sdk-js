@@ -7857,8 +7857,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
-    beginTrans(): Promise<number>;
+    beginTrans(): Promise<long>;
 
     /**
      * Commit the the sql you have executed.
@@ -7932,8 +7933,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
-    commit(txId : number): Promise<void>;
+    commit(txId : long): Promise<void>;
 
     /**
      * Roll back the sql you have already executed.
@@ -8007,8 +8009,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
+     * @since 23 static
      */
-    rollback(txId : number): Promise<void>;
+    rollback(txId : long): Promise<void>;
 
     /**
      * Backs up a database in a specified name.
