@@ -32,8 +32,7 @@ import policy from '@ohos.net.policy';
 import socket from '@ohos.net.socket';
 import vpn from '@ohos.net.vpn';
 import vpnExtension from '@ohos.net.vpnExtension';
-import VpnExtensionAbility from '@ohos.app.ability.VpnExtensionAbility';
-import VpnExtensionContext from '@ohos.net.vpnExtension';
+import VpnExtensionAbility, { VpnExtensionContext } from '@ohos.app.ability.VpnExtensionAbility';
 import eap from '@ohos.net.eap';
 import netFirewall from '@ohos.net.netFirewall';
 
