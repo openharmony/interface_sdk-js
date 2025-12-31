@@ -5483,19 +5483,34 @@ export class UIContext {
 
   /**
    * Set the upper limit for the cache count of HSP resource management objects.
-   * <p>**NOTE**:
-   * <br>If the upper limit of the cache is set too high, there is a risk of excessive memory overhead. 
+   *
+   * If the upper limit of the cache is set too high, there is a risk of excessive memory overhead. 
    * It is recommended to configure it according to actual needs.
-   * </p>
    *
    * @param { number } count - The cache limit of resource manager for HSP, must be non-negative integers.
-   * @throws { BusinessError } 100101 - The parameter value cannot be less than 0.
+   * @throws { BusinessError } 100101 - The parameter is less than 0.
    * @throws { BusinessError } 100102 - The parameter value cannot be a floating-point number.
    * @throws { BusinessError } 100103 - The function cannot be called from a non-main thread.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 21 dynamic
+   */
+  /**
+   * Set the upper limit for the cache count of HSP resource management objects.
+   * 
+   * If the upper limit of the cache is set too high, there is a risk of excessive memory overhead. 
+   * It is recommended to configure it according to actual needs.
+   *
+   * @param { number } count - The cache limit of resource manager for HSP, must be non negative integers.
+   * @throws { BusinessError } 100101 - The parameter is less than 0.
+   * @throws { BusinessError } 100102 - The parameter value cannot be a floating point number.
+   * @throws { BusinessError } 100103 - The function cannot be called from a non main thread.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   static setResourceManagerCacheMaxCountForHSP(count: number): void;
 
