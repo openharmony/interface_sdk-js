@@ -9085,8 +9085,9 @@ declare enum XComponentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    * @deprecated since 12
+   * @useinstead Column
    */
   COMPONENT,
 
@@ -9125,8 +9126,9 @@ declare enum XComponentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    * @deprecated since 20
+   * @useinstead ContentSlot
    */
   NODE,
 }
