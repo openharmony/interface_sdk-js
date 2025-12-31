@@ -7832,7 +7832,7 @@ declare namespace relationalStore {
     /**
      * Begins a transaction before executing the SQL statement.
      *
-     * @returns { Promise<number> } Returns the transaction ID.
+     * @returns { Promise<long> } Returns the transaction ID.
      * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
@@ -7909,7 +7909,7 @@ declare namespace relationalStore {
     /**
      * Commits the SQL statement executed.
      *
-     * @param { number } txId - Indicates the transaction ID which is obtained by beginTrans.
+     * @param { long } txId - Indicates the transaction ID which is obtained by beginTrans.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -7986,7 +7986,7 @@ declare namespace relationalStore {
     /**
      * Rolls back the SQL statement executed.
      *
-     * @param { number } txId - Indicates the transaction ID which is obtained by beginTrans.
+     * @param { long } txId - Indicates the transaction ID which is obtained by beginTrans.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
