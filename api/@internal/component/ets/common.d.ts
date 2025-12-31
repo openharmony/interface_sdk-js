@@ -4774,7 +4774,7 @@ declare interface LinearGradientOptions {
 }
 
 /**
- * Defines the options of radial gradient.
+ * Defines the options of sweep gradient.
  *
  * @interface SweepGradientOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10380,14 +10380,14 @@ declare enum ShadowStyle {
   OUTER_DEFAULT_LG = 3,
 
   /**
-   * Floating medium shadow.
+   * Defines the small floating shadow style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Floating medium shadow.
+   * Defines the small floating shadow style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
