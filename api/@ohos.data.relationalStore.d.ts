@@ -1453,7 +1453,7 @@ declare namespace relationalStore {
     SYNC_MODE_PULL = 1,
 
     /**
-     * Indicates the data is pulled from remote device to local device.
+     * Indicates the data is synchronized from the more recently modified endpoint to the older one.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10 dynamic
