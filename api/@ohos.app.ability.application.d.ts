@@ -83,7 +83,7 @@ declare namespace application {
     TYPE_CREATE_WINDOW_STAGE = 3,
 
     /**
-     * Indicates that the preloading will be completed after the window stage creation is finished.
+     * Indicates that the preloading will be completed after the entryAbility create and go background.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
