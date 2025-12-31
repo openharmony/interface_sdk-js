@@ -20,6 +20,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
+import { ValueType } from './@ohos.data.ValuesBucket';
 import type image from './@ohos.multimedia.image';
 
 /**
