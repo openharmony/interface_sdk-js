@@ -1765,8 +1765,7 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     FORM_EDIT_PREVIEW = 4, 
   }
