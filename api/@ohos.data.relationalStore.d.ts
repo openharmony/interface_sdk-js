@@ -7911,7 +7911,7 @@ declare namespace relationalStore {
      * @param { long } txId - Indicates the transaction ID which is obtained by beginTrans.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types;
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
@@ -7986,8 +7986,7 @@ declare namespace relationalStore {
      *
      * @param { long } txId - Indicates the transaction ID which is obtained by beginTrans.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types;
+     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
