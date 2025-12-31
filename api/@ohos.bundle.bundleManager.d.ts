@@ -1985,7 +1985,7 @@ declare namespace bundleManager {
   }
 
   /**
-   * This enumeration value is used to identify various types of extension ability
+   * This enumeration value is used to identify the multi app mode type.
    *
    * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
