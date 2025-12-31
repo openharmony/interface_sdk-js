@@ -574,6 +574,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { Length } value - Spacing between columns.<br>Default value: <em>0</em> <br>Unit: vp
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -603,6 +604,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { Length } value - Spacing between rows. <br>Default value: <em>0</em> <br>Unit: vp
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -632,6 +634,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { number | string } value - Scrollbar width.<br>Default value: <em>4</em> <br>Unit: vp
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -661,6 +664,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { Color | number | string } value - Scrollbar color.<br>Default value: '#182431'
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -704,6 +708,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { BarState } value - Scrollbar state.<br>Default value: <em>BarState.Auto</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -763,6 +768,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * last is the index of the last item displayed in the grid.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -793,6 +799,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -837,6 +844,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { boolean } value - Whether to enable edit mode.<br>Default value: <em>false</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -872,6 +880,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * <br><em>true</em>: Multiselect is enabled.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -907,6 +916,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * <br>Values less than 0 are treated as <em>Infinity</em>.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -936,6 +946,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { number } value - The minimun number of rows or columns that can be displayed. <br>Default value: <em>1</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -968,6 +979,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * <br>Default value: the size of the first element.<br>Unit: vp
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -997,6 +1009,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @param { GridDirection } value - main axis layout direction of the grid.<br>Default value: <em>GridDirection.Row</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1021,7 +1034,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   supportEmptyBranchInLazyLoading(supported: boolean | undefined): GridAttribute;
 
   /**
-   * Set weather to enable grid drag-and-drop animation.
+   * Set whether to enable grid drag-and-drop animation.
    *
    * @param { boolean } value - Whether to enable drag-and-drop animation.
    * <br><em>false</em> (default): drag-and-drop animation is disabled.
@@ -1031,7 +1044,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @since 8
    */
   /**
-   * Set weather to enable grid drag-and-drop animation.
+   * Set whether to enable grid drag-and-drop animation.
    *
    * @param { boolean } value - Whether to enable drag-and-drop animation.
    * <br><em>false</em> (default): drag-and-drop animation is disabled.
@@ -1049,6 +1062,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * <br><em>true</em>:  drag-and-drop animation is enabled.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
