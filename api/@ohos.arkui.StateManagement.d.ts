@@ -197,23 +197,23 @@ export class ConnectOptionsCollections<T extends CollectionType<S>, S extends ob
    * defaultCreator is already defined in the base class but with more loose type
    * StorageDefaultCreator<T> | undefined. Furthermore T is more strictly defined here.
    *
-   * @type { StorageDefaultCreator<T> }
+   * @type { ?StorageDefaultCreator<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 23 dynamic
    */
-  defaultCreator: StorageDefaultCreator<T>;
+  defaultCreator?: StorageDefaultCreator<T>;
   /**
    * Defines the function to create collection item type
    *
-   * @type { StorageDefaultCreator<S> }
+   * @type { ?StorageDefaultCreator<S> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 23 dynamic
    */
-  defaultSubCreator: StorageDefaultCreator<S>;
+  defaultSubCreator?: StorageDefaultCreator<S>;
 }
 
 /**
