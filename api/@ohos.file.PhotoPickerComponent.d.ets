@@ -75,6 +75,18 @@ export declare struct PhotoPickerComponent {
   onItemClicked?: (itemInfo: ItemInfo, clickType: ClickType) => boolean;
 
   /**
+   * Callback when click item. Include click camera item and thumbnail item, will return itemInfo.
+   * Must be used in conjunction with the setData method.
+   *
+   * @type { ?onItemClickedNotifyCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  onItemClickedNotify?: ItemClickedNotifyCallback;
+
+  /**
    * Callback when enter photo browser, will return photoBrowserInfo
    *
    * @type { ?function }
@@ -1193,6 +1205,38 @@ export declare class BadgeConfig {
 }
 
 /**
+ * ClickResult
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic&static
+ */
+export declare class ClickResult {
+  /**
+   * Uri of the media file.
+   *
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  uri: string;
+
+  /**
+   * Indicates whether the media file is selected.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  isSelected: boolean;
+}
+
+/**
  * DataType represents the type of the data set to picker component
  *
  * @enum { int } DataType
@@ -1240,7 +1284,17 @@ export declare enum DataType {
    * @since 21 dynamic
    * @since 23 static
    */
-  SET_BADGE_CONFIGS = 4
+  SET_BADGE_CONFIGS = 4,
+
+  /**
+   * SET_ITEM_CLICK_RESULT. Set click result to picker component.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  SET_ITEM_CLICK_RESULT = 5
 }
 
 /**
@@ -1720,7 +1774,7 @@ export type videoPlayStateChangedCallback = (state: VideoPlayerState) => void;
  * @since 22 dynamic
  * @since 23 static
  */
-export type MovingPhotoBadgeStateChangedCallback = 
+export type MovingPhotoBadgeStateChangedCallback =
   (uri: string, state: photoAccessHelper.MovingPhotoBadgeStateType) => void;
 
 import { AsyncCallback } from '@ohos.base';
@@ -1746,3 +1800,16 @@ export type ScrollStopAtStartCallback = () => void;
  * @since 23 dynamic&static
  */
 export type ScrollStopAtEndCallback = () => void;
+
+/**
+ * The callback of onItemClickedNotify event
+ *
+ * @typedef { function } ItemClickedNotifyCallback
+ * @param { ItemInfo } itemInfo
+ * @param { ClickType } clickType
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 23 dynamic&static
+ */
+export type ItemClickedNotifyCallback = (itemInfo: ItemInfo, clickType: ClickType) => void;
