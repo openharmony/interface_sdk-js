@@ -9721,6 +9721,16 @@ export declare interface CommonMethod {
      */
     default compositingFilter(filter: Filter | undefined): this;
     /**
+     * Sets the visual effect of the material filter. The effects it contains are renderd at a level before the shadow.
+     *
+     * @param { Filter | undefined } filter - Filter effect parameters.
+     *     Undefined means to none material filter. 
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default materialFilter(filter: Filter | undefined): this;
+    /**
      * Applies a foreground blur style to the component.
      *
      * @param { BlurStyle | undefined } style - Settings of the foreground blur style.
