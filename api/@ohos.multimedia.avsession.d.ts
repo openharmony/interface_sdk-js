@@ -8200,9 +8200,17 @@ declare namespace avSession {
   /**
    * The extra info object.
    *
-   * @typedef { Record<string, Object> } ExtraInfo
+   * @typedef { object } ExtraInfo
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 18 dynamic
+   */
+  type ExtraInfo = {[key: string]: Object; }
+
+  /**
+   * The extra info object.
+   *
+   * @typedef { Record<string, Object> } ExtraInfo
+   * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 23 static
    */
   type ExtraInfo = Record<string, Object>;
