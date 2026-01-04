@@ -3293,7 +3293,7 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 23 dynamic&static
      */
-    SUSPICIOS = 2,
+    SUSPICIOUS = 2,
     /**
      * A risk photo with confirmed
      * 
