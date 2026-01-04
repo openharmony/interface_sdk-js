@@ -34,7 +34,7 @@ import {
 } from '@ohos.multimodalInput.mouseEvent';
 import pointer from '@ohos.multimodalInput.pointer';
 import {
-  Action as KeyAction, SourceType, ToolType, Touch, TouchEvent
+  Action as KeyAction, SourceType, ToolType, Touch, TouchEvent, FixedMode
 } from '@ohos.multimodalInput.touchEvent';
 import infraredEmitter from '@ohos.multimodalInput.infraredEmitter';
 import inputEventClient from '@ohos.multimodalInput.inputEventClient';
@@ -49,7 +49,7 @@ export {
   Key, KeyAction, KeyCode, KeyEvent, MouseAction, MouseEvent, MouseToolType, Pinch, Rotate,
   SourceType, ThreeFingersSwipe, ThreeFingersTap, ToolType, Touch, TouchEvent, inputConsumer,
   inputDevice, pointer, SwipeInward, inputEventClient, inputMonitor, shortKey, infraredEmitter,
-  TouchGestureEvent, FingerprintEvent
+  TouchGestureEvent, FingerprintEvent, FixedMode
 };
 /*** endif */
 
@@ -60,6 +60,6 @@ export {
   Key, KeyAction, KeyCode, KeyEvent, MouseAction, MouseEvent, MouseToolType, Pinch, Rotate,
   SourceType, ThreeFingersSwipe, ThreeFingersTap, ToolType, Touch, TouchEvent, inputConsumer,
   inputDevice, pointer, SwipeInward, inputEventClient, inputMonitor, shortKey, infraredEmitter,
-  inputDeviceCooperate, TouchGestureEvent, FingerprintEvent
+  inputDeviceCooperate, TouchGestureEvent, FingerprintEvent, FixedMode
 };
 /*** endif */
