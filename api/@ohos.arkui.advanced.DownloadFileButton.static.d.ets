@@ -29,7 +29,7 @@
  * @since 23 static
  */
 
-import { Dimension, FontStyle, FontWeight, Resource, ResourceColor, Component, State } from '@kit.ArkUI';
+import { Dimension, FontStyle, FontWeight, Resource, ResourceColor, Component, State } from '@ohos.arkui.component';
 
 export declare enum DownloadIconStyle {
   /**
