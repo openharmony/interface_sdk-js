@@ -3237,6 +3237,72 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     CHANGE_TIME = 'change_time',
+    /**
+     * Package name.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    PACKAGE_NAME = 'package_name',
+    /**
+     * Risk status of a photo.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    PHOTO_RISK_STATUS = 'photo_risk_status'
+  }
+
+  /**
+   * Enumeration of photo risk status
+   *
+   * @enum { int } PhotoRiskStatus
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum PhotoRiskStatus {
+    /**
+     * Unidentified type.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    UNIDENTIFIED = 0,
+    /**
+     * A photo without risk.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    APPROVED = 1,
+    /**
+     * A photo might be a risk photo.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SUSPICIOS = 2,
+    /**
+     * A risk photo with confirmed
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    REJECTED = 3
   }
 
   /**
