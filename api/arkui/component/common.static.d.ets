@@ -9721,7 +9721,7 @@ export declare interface CommonMethod {
      */
     default compositingFilter(filter: Filter | undefined): this;
     /**
-     * Sets the visual effect of the material filter. The effects it contains are renderd at a level before the shadow.
+     * Sets the visual effect of the material filter. The effects it contains are rendered at a level before the shadow.
      *
      * @param { Filter | undefined } filter - Filter effect parameters.
      *     Undefined means to none material filter. 
