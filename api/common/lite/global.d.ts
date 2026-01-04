@@ -125,3 +125,27 @@ export declare function canIUse(syscap: string): boolean;
  * @since 10 dynamiconly
  */
 export declare function getApp(): object;
+
+/**
+ * Sets a digital crown events listener for current page, only be supported on the devices supporting digital crown.
+ * Please be awared, the listener will be removed automaticlly if the current page is pushed back or
+ * replaced, so it's recommaned to call this function in the onShow lifecycle callback of the page.
+ * And only one listener can be set for current page, the system will use the listener passed in through the
+ * latest calling of this function.
+ * Do not use this function in app.js, the behavior is undefined.
+ *
+ * @param { Function } handler - Indicates the function to be called when the crown event trigger.
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
+ * @since 24 dynamiconly
+ */
+export declare function setMonitorForCrownEvents(handler: Function): void;
+
+/**
+ * Removes the digital crown events monitor function.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @famodelonly
+ * @since 24 dynamiconly
+ */
+export declare function clearMonitorForCrownEvents(): void;
