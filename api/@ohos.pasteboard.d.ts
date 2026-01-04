@@ -673,11 +673,12 @@ declare namespace pasteboard {
      */
     /**
      * Custom data in a record, string indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
+     * This parameter is read-only and does not support assignment operations.  
+     * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
      * @type { Record<string, ArrayBuffer> }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 20 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     data: Record<string, ArrayBuffer>;
 
