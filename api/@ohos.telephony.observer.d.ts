@@ -950,6 +950,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
+   * @since 23 static
    */
   function off(type: 'callStateChange', callback?: Callback<CallStateInfo>): void;
 
