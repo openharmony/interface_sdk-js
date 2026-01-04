@@ -1363,8 +1363,8 @@ export class FrameNode {
   /**
    * Get if the FrameNode is attached to the root node tree.
    *
-   * @returns { boolean } - Returns if the FrameNode is attached to the root node tree. True indicates it is attached
-   *     to the root node tree, while false indicates it is not.
+   * @returns { boolean } - Returns if the FrameNode is attached to the root node tree.
+   * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
