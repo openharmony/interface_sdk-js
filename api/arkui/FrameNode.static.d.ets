@@ -35,9 +35,9 @@ import { FlowItemAttribute } from '@ohos.arkui.component';
 import { GridAttribute, GridLayoutOptions } from '@ohos.arkui.component';
 import { GridItemAttribute, GridItemOptions } from '@ohos.arkui.component';
 import { Resource } from 'global.resource';
-import { TextAttribute, TextOptions } from '@ohos.arkui.component';
-import { TextInputAttribute, TextInputOptions } from '@ohos.arkui.component';
-import { TextAreaAttribute, TextAreaOptions } from '@ohos.arkui.component';
+import { TextAttribute, TextOptions, TextController } from '@ohos.arkui.component';
+import { TextInputAttribute, TextInputOptions, TextInputController } from '@ohos.arkui.component';
+import { TextAreaAttribute, TextAreaOptions, TextAreaController } from '@ohos.arkui.component';
 import { SearchAttribute, SearchOptions } from '@ohos.arkui.component';
 import { SymbolGlyphAttribute } from '@ohos.arkui.component';
 import { MarqueeAttribute, MarqueeOptions } from '@ohos.arkui.component';
@@ -1885,6 +1885,31 @@ export declare namespace typeNode {
   export function createTextNode(context: UIContext): Text;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { TextAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getTextAttribute(node: FrameNode): TextAttribute | undefined;
+  
+  /**
+   * Bind the controller of FrameNode which type is Text.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { TextController } controller - the controller which is bind to the target FrameNode.
+   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
+   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  export function bindTextController(node: FrameNode, controller: TextController): void;
+
+  /**
    * Define the Search type of FrameNode.
    *
    * @extends TypedFrameNode<SearchAttribute>
@@ -1961,6 +1986,31 @@ export declare namespace typeNode {
   export function createTextInputNode(context: UIContext): TextInput;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { TextInputAttribute | undefined } - Return the attribute instance of FrameNode, and
+   * return undefined if it does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getTextInputAttribute(node: FrameNode): TextInputAttribute | undefined;
+  
+  /**
+   * Bind the controller of FrameNode which type is TextInput.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { TextInputController } controller - the controller which is bind to the target FrameNode.
+   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
+   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  export function bindTextInputController(node: FrameNode, controller: TextInputController): void;
+
+  /**
    * Define the TextArea type of FrameNode.
    *
    * @extends TypedFrameNode<TextAreaAttribute>
@@ -1997,6 +2047,31 @@ export declare namespace typeNode {
    * @since 23 static
    */
   export function createTextAreaNode(context: UIContext): TextArea;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { TextAreaAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getTextAreaAttribute(node: FrameNode): TextAreaAttribute | undefined;
+  
+  /**
+   * Bind the controller of FrameNode which type is TextArea.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { TextAreaController } controller - the controller which is bind to the target FrameNode.
+   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
+   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  export function bindTextAreaController(node: FrameNode, controller: TextAreaController): void;
 
   /**
    * Define the SymbolGlyph type of FrameNode.

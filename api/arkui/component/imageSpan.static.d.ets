@@ -91,6 +91,16 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      */
     default alt(value: PixelMap | undefined): this;
     /**
+     * Set the range of SVG parsing capabilities supported through enable switch.
+     *
+     * @param { boolean | undefined } enable - Enable color filter support svg or not.
+     *     The default value is false. Passing `undefined` resets it to the default value.
+     * @returns { ImageSpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default supportSvg2(enable: boolean | undefined) : this;
+    /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<ImageSpanAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
