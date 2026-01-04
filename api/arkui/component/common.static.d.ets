@@ -51,6 +51,7 @@ import matrix4 from '../../@ohos.matrix4';
 import { AvoidanceMode } from './select';
 import uiMaterial from '../../@ohos.arkui.uiMaterial';
 import { OnScrollFrameBeginCallback } from "./scroll";
+import dragController from '../../@ohos.arkui.dragController';
 /**
  * Define the ratio of characters entered by the the percentage of InputCounterOptions.
  *
@@ -5099,6 +5100,24 @@ export type UniformDataType = uniformTypeDescriptor.UniformDataType;
  * @since 23 static
  */
 export type DataSyncOptions = unifiedDataChannel.GetDataParams;
+/**
+ * The type for SpringLoadingContext, see the detailed description in dragController.
+ *
+ * @typedef { dragController.SpringLoadingContext } SpringLoadingContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export type SpringLoadingContext = dragController.SpringLoadingContext;
+/**
+ * The type for DragSpringLoadingConfiguration, see the detailed description in dragController.
+ *
+ * @typedef { dragController.DragSpringLoadingConfiguration } DragSpringLoadingConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export type DragSpringLoadingConfiguration = dragController.DragSpringLoadingConfiguration;
 /**
  * Enum for Drag Result.
  *
@@ -10840,6 +10859,28 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default onDrop(eventCallback: OnDragEventCallback | undefined, dropOptions: DropOptions): this;
+    /**
+     * Enables the component as a drag-and-drop target with spring loading functionality.
+     *
+     * When a dragged object hovers over the target, it triggers a callback notification. Spring Loading is an enhanced
+     * feature for drag-and-drop operations, allowing users to automatically trigger view transitions during dragging
+     * by hovering (hover) without needing to use another hand.
+     * This feature is primarily designed to enhance the smoothness and efficiency of drag-and-drop operations. Below are
+     * some common scenarios suitable for supporting this feature:
+     *  - In a file manager, when dragging a file and hovering over a folder, the folder is automatically opened.
+     *  - On a desktop launcher, when dragging a file and hovering over an application icon, the application is
+     *  automatically opened.
+     *
+     * @param { Callback<SpringLoadingContext> | null | undefined } callback Registers the callback for spring loading response, or
+     *    sets it to null to disable the support for spring loading.
+     * @param { DragSpringLoadingConfiguration } [configuration] The initialized spring loading configuration which is
+     *    only used when the entire spring detecting.
+     * @returns { this } - return the component attribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default onDragSpringLoading(callback: Callback<SpringLoadingContext> | null | undefined, configuration?: DragSpringLoadingConfiguration): this;
     /**
      * This function is called when the drag event is end.
      *
