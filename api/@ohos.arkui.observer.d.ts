@@ -329,7 +329,7 @@ declare namespace uiObserver {
    */
   export enum TabContentState {
     /**
-     * When the TabContent hidden.
+     * When the TabContent is shown.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -339,7 +339,7 @@ declare namespace uiObserver {
     ON_SHOW = 0,
 
     /**
-     * When the TabContent hidden.
+     * When the TabContent is hidden.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
