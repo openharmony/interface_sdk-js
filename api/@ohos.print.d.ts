@@ -1408,7 +1408,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_BUSY = 5,
 
     /**
-     * Print job has been cancelled.
+     * Print job block by cancelled.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
      * @since 23 static
