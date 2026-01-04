@@ -1110,7 +1110,6 @@ declare namespace request {
    * @param { long } receivedSize - the length of downloaded data, in bytes.
    * @param { long } totalSize - the length of data expected to be downloaded, in bytes.
    * @syscap SystemCapability.MiscServices.Download
-   * @since 22 dynamic
    * @since 23 static
    */
   export type DownloadProgressCallback = (receivedSize: long, totalSize: long) => void;
@@ -1120,7 +1119,6 @@ declare namespace request {
    *
    * @typedef { function } DownloadCompleteCallback
    * @syscap SystemCapability.MiscServices.Download
-   * @since 22 dynamic
    * @since 23 static
    */
   export type DownloadCompleteCallback = () => void;
@@ -1130,7 +1128,6 @@ declare namespace request {
    *
    * @typedef { function } DownloadPauseCallback
    * @syscap SystemCapability.MiscServices.Download
-   * @since 22 dynamic
    * @since 23 static
    */
   export type DownloadPauseCallback = () => void;
@@ -1140,7 +1137,6 @@ declare namespace request {
    *
    * @typedef { function } DownloadRemoveCallback
    * @syscap SystemCapability.MiscServices.Download
-   * @since 22 dynamic
    * @since 23 static
    */
   export type DownloadRemoveCallback = () => void;
@@ -1151,7 +1147,6 @@ declare namespace request {
    * @typedef { function } DownloadFailCallback
    * @param { int } err - the error code for download task.
    * @syscap SystemCapability.MiscServices.Download
-   * @since 22 dynamic
    * @since 23 static
    */
   export type DownloadFailCallback = (err: int) => void;
@@ -2398,7 +2393,6 @@ declare namespace request {
    * @param { long } uploadedSize - the length of uploaded data, in bytes
    * @param { long } totalSize - the length of data expected to be uploaded, in bytes.
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 22 dynamic
    * @since 23 static
    */
   export type UploadProgressCallback = (uploadedSize: long, totalSize: long) => void;
@@ -2409,7 +2403,6 @@ declare namespace request {
    * @typedef { function } UploadHeaderReceiveCallback
    * @param { object } header - HTTP Response Header returned by the developer server.
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 22 dynamic
    * @since 23 static
    */
   export type UploadHeaderReceiveCallback = (header: object) => void;
@@ -2904,7 +2897,7 @@ declare namespace request {
      * @stagemodelonly
      * @since 23 static
      */
-    const VISIBILITY_PROGRESS:int = 2;
+    const VISIBILITY_PROGRESS: int = 2;
     /**
      * The action options.
      *
@@ -5219,7 +5212,6 @@ declare namespace request {
      * @typedef { function } ProgressCallback
      * @param { Progress } progress - callback function with a `Progress` argument.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 22 dynamic
      * @since 23 static
      */
     export type ProgressCallback = (progress: Progress) => void;
@@ -6146,7 +6138,7 @@ declare namespace request {
     /**
      * Creates a task for upload or download and enqueue it.
      * When an application enters the background, the frontend tasks associated
-     * with it will gradually be paused until the application returns to the foreground.
+     * with it will gradually be paused until the application returns to the foreground. 
      *
      * @permission ohos.permission.INTERNET
      * @param { BaseContext } context context of the caller.
@@ -6540,7 +6532,7 @@ declare namespace request {
 
     /**
      * Describes group configuration options for download tasks.
-     *
+     * 
      * @typedef GroupConfig
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 15 dynamic
@@ -6552,7 +6544,7 @@ declare namespace request {
        * If true, progress, completed, and failed notifications will be displayed.
        * If false, only completed or failed notifications will be displayed.
        * The default value is false.
-       *
+       * 
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15 dynamic
@@ -6561,7 +6553,7 @@ declare namespace request {
       gauge?: boolean;
       /**
        * Customizes the notification of the task group.
-       *
+       * 
        * @type { Notification }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15 dynamic
@@ -6573,7 +6565,7 @@ declare namespace request {
     /**
      * Creates a background download task notification group.
      * Creates a group based on GroupConfig and returns the group ID.
-     *
+     * 
      * @param { GroupConfig } config - config of the group.
      * @returns { Promise<string> } the gid of the group.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
@@ -6589,7 +6581,7 @@ declare namespace request {
      * Attaches multiple download task IDs to a specified group ID.
      * If any task ID does not meet the attachment conditions,
      * all tasks in the list will not be added to the group.
-     *
+     * 
      * @param { string } gid - the gid of the target group.
      * @param { string[] } tids - the tid list of tasks to be attached.
      * @returns { Promise<void> } the promise returned by the function.
@@ -6609,7 +6601,7 @@ declare namespace request {
     /**
      * Deletes the target group, no more new tasks can be added to this group.
      * If all tasks in this group end, completed or failed notifications will be displayed.
-     *
+     * 
      * @param { string } gid - the gid of the target group.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
