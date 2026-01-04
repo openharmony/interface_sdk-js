@@ -1132,6 +1132,16 @@ export declare class ImageAttachment {
      */
     readonly value: PixelMap;
     /**
+     * Get the resource value of the ImageAttachment.
+     *
+     * @type { ?string } - the resource value of the ImageAttachment or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    readonly resourceValue?: string;
+    /**
      * Get the imageSize of the StyledString.
      *
      * @type { ?SizeOptions } - the imageSize of the StyledString or undefined
