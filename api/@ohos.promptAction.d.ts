@@ -125,6 +125,7 @@ export class LevelOrder {
 /**
  * @namespace promptAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -144,6 +145,7 @@ declare namespace promptAction {
     /**
      * @typedef ShowToastOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -169,6 +171,7 @@ declare namespace promptAction {
          *
          * @type { string | Resource }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -200,6 +203,7 @@ declare namespace promptAction {
          *
          * @type { ?number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -225,6 +229,7 @@ declare namespace promptAction {
          *
          * @type { ?(string | number) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -402,6 +407,7 @@ declare namespace promptAction {
     /**
      * @typedef Button
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -427,6 +433,7 @@ declare namespace promptAction {
          *
          * @type { string | Resource }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -452,6 +459,7 @@ declare namespace promptAction {
          *
          * @type { string | Resource }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -482,6 +490,7 @@ declare namespace promptAction {
     /**
      * @typedef ShowDialogSuccessResponse
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -507,6 +516,7 @@ declare namespace promptAction {
          *
          * @type { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -527,6 +537,7 @@ declare namespace promptAction {
     /**
      * @typedef ShowDialogOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -552,6 +563,7 @@ declare namespace promptAction {
          *
          * @type { ?(string | Resource) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -577,6 +589,7 @@ declare namespace promptAction {
          *
          * @type { ?(string | Resource) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -609,6 +622,7 @@ declare namespace promptAction {
          *
          * @type { ?Array<Button> }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -1604,6 +1618,7 @@ declare namespace promptAction {
     /**
      * @typedef ActionMenuSuccessResponse
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -1629,6 +1644,7 @@ declare namespace promptAction {
          *
          * @type { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -1649,6 +1665,7 @@ declare namespace promptAction {
     /**
      * @typedef ActionMenuOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -1674,6 +1691,7 @@ declare namespace promptAction {
          *
          * @type { ?(string | Resource) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -1705,6 +1723,7 @@ declare namespace promptAction {
          *
          * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @FaAndStageModel
          * @crossplatform
          * @atomicservice
          * @since 11 dynamic
@@ -1863,6 +1882,7 @@ declare namespace promptAction {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamiconly
@@ -1940,6 +1960,7 @@ declare namespace promptAction {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamiconly
@@ -1985,6 +2006,7 @@ declare namespace promptAction {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamiconly
@@ -2092,6 +2114,7 @@ declare namespace promptAction {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamiconly
@@ -2137,6 +2160,7 @@ declare namespace promptAction {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - Internal error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 11 dynamiconly

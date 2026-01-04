@@ -23,6 +23,7 @@
  *
  * @interface ShowToastOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.promptAction/promptAction.ShowToastOptions
@@ -33,6 +34,7 @@ export interface ShowToastOptions {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.promptAction/promptAction.ShowToastOptions#message
@@ -46,6 +48,7 @@ export interface ShowToastOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.promptAction/promptAction.ShowToastOptions#duration
@@ -57,6 +60,7 @@ export interface ShowToastOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 5 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.promptAction/promptAction.ShowToastOptions#bottom
@@ -76,9 +80,9 @@ export interface ShowToastOptions {
  *
  * @interface Button
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @atomicservice
  * @since 11 dynamic
- * @since 23 static
  */
 export interface Button {
   /**
@@ -93,9 +97,9 @@ export interface Button {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   text: string;
 
@@ -111,9 +115,9 @@ export interface Button {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   color: string;
 }
@@ -196,9 +200,9 @@ export type PromptSextupleButtons = [Button, Button | undefined, Button | undefi
  *
  * @interface ShowDialogSuccessResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @atomicservice
  * @since 11 dynamic
- * @since 23 static
  */
 export interface ShowDialogSuccessResponse {
   /**
@@ -213,9 +217,9 @@ export interface ShowDialogSuccessResponse {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   index: number;
 }
@@ -232,9 +236,9 @@ export interface ShowDialogSuccessResponse {
  *
  * @interface ShowDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @atomicservice
  * @since 11 dynamic
- * @since 23 static
  */
 export interface ShowDialogOptions {
   /**
@@ -249,9 +253,9 @@ export interface ShowDialogOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   title?: string;
 
@@ -267,9 +271,9 @@ export interface ShowDialogOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   message?: string;
 
@@ -289,6 +293,7 @@ export interface ShowDialogOptions {
    *
    * @type { ?[Button, Button?, Button?] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamic
    */
@@ -318,9 +323,9 @@ export interface ShowDialogOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   success?: (data: ShowDialogSuccessResponse) => void;
 
@@ -354,9 +359,9 @@ export interface ShowDialogOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   complete?: (data: string) => void;
 }
@@ -373,9 +378,9 @@ export interface ShowDialogOptions {
  *
  * @interface ShowActionMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @atomicservice
  * @since 11 dynamic
- * @since 23 static
  */
 export interface ShowActionMenuOptions {
   /**
@@ -390,9 +395,9 @@ export interface ShowActionMenuOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   title?: string;
 
@@ -412,6 +417,7 @@ export interface ShowActionMenuOptions {
    *
    * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamic
    */
@@ -441,9 +447,9 @@ export interface ShowActionMenuOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   success?: (tapIndex: number, errMsg: string) => void;
 
@@ -459,9 +465,9 @@ export interface ShowActionMenuOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   fail?: (errMsg: string) => void;
 
@@ -477,9 +483,9 @@ export interface ShowActionMenuOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   complete?: () => void;
 }
@@ -494,9 +500,9 @@ export interface ShowActionMenuOptions {
  * Defines the prompt interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @atomicservice
  * @since 11 dynamic
- * @since 23 static
  */
 export default class Prompt {
   /**
@@ -511,6 +517,7 @@ export default class Prompt {
    *
    * @param { ShowToastOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamic
    */
@@ -528,9 +535,9 @@ export default class Prompt {
    *
    * @param { ShowDialogOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   static showDialog(options: ShowDialogOptions): void;
 
@@ -546,9 +553,9 @@ export default class Prompt {
    *
    * @param { ShowActionMenuOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @atomicservice
    * @since 11 dynamic
-   * @since 23 static
    */
   static showActionMenu(options: ShowActionMenuOptions): void;
 }
