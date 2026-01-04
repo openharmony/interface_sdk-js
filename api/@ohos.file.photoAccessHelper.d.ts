@@ -5594,6 +5594,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     showAssetsCreationDialog(srcFileUris: Array<string>, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
     /**
@@ -5628,6 +5629,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamic
+     * @since 23 static
      */
     createAssetWithShortTermPermission(photoCreationConfig: PhotoCreationConfig): Promise<string>;
     /**
@@ -5670,6 +5672,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 14 dynamic
+     * @since 23 static
      */
     requestPhotoUrisReadPermission(srcFileUris: Array<string>): Promise<Array<string>>;
     /**
@@ -6289,6 +6292,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20 dynamic
+     * @since 23 static
      */
     getPhotoPickerComponentDefaultAlbumName(): Promise<string>;
 
@@ -7196,6 +7200,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 19 dynamic
+   * @since 23 static
    */
   export enum FilterOperator {
     /**
@@ -7204,6 +7209,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 19 dynamic
+     * @since 23 static
      */
     EQUAL_TO = 0,
     /**
@@ -7212,6 +7218,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 19 dynamic
+     * @since 23 static
      */
     NOT_EQUAL_TO = 1,
     /**
@@ -7220,6 +7227,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 19 dynamic
+     * @since 23 static
      */
     MORE_THAN = 2,
     /**
@@ -7228,6 +7236,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 19 dynamic
+     * @since 23 static
      */
     LESS_THAN = 3,
     /**
@@ -7236,6 +7245,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 19 dynamic
+     * @since 23 static
      */
     MORE_THAN_OR_EQUAL_TO = 4,
     /**
@@ -7244,6 +7254,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 19 dynamic
+     * @since 23 static
      */
     LESS_THAN_OR_EQUAL_TO = 5,
     /**
@@ -7252,18 +7263,20 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 19 dynamic
+     * @since 23 static
      */
     BETWEEN = 6,
   }
 
-    /**
-     * Enumeration type of single selection mode
-     *
-     * @enum { number } SingleSelectionMode
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18 dynamic
-     */
+  /**
+   * Enumeration type of single selection mode
+   *
+   * @enum { int } SingleSelectionMode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 18 dynamic
+   * @since 23 static
+   */
   export enum SingleSelectionMode {
     /**
      * browser mode
@@ -7271,6 +7284,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 18 dynamic
+     * @since 23 static
      */
     BROWSER_MODE = 0,
     /**
@@ -7279,6 +7293,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 18 dynamic
+     * @since 23 static
      */
     SELECT_MODE = 1,
     /**
@@ -7287,6 +7302,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 18 dynamic
+     * @since 23 static
      */
     BROWSER_AND_SELECT_MODE = 2
   }
@@ -7325,6 +7341,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     MIMEType?: PhotoViewMIMETypes;
 
@@ -7351,6 +7368,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     maxSelectNumber?: int;
 
@@ -7370,6 +7388,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     isSearchSupported?: boolean;
 
@@ -7389,6 +7408,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     isPhotoTakingSupported?: boolean;
 
@@ -7408,6 +7428,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     recommendationOptions?: RecommendationOptions;
 
@@ -7427,6 +7448,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     preselectedUris?: Array<string>;
 
@@ -7437,6 +7459,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     isPreviewForSingleSelectionSupported?: boolean;
 
@@ -7447,6 +7470,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 18 dynamic
+     * @since 23 static
      */
     singleSelectionMode?: SingleSelectionMode;
 
@@ -7457,6 +7481,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 19 dynamic
+     * @since 23 static
      */
     mimeTypeFilter?: MimeTypeFilter;
 
@@ -7467,6 +7492,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 19 dynamic
+     * @since 23 static
      */
     fileSizeFilter?: FileSizeFilter;
 
@@ -7477,6 +7503,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 19 dynamic
+     * @since 23 static
      */
     videoDurationFilter?: VideoDurationFilter;
   }
@@ -7487,6 +7514,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 19 dynamic
+   * @since 23 static
    */
   class MimeTypeFilter {
     /**
@@ -7496,6 +7524,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 19 dynamic
+     * @since 23 static
      */
     mimeTypeArray: Array<string>;
   }
@@ -7506,38 +7535,40 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 19 dynamic
+   * @since 23 static
    */
-    class FileSizeFilter {
-      /**
-       * Specifing filter operator.
-       *
-       * @type { FilterOperator }
-       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-       * @atomicservice
-       * @since 19 dynamic
-       */
-      filterOperator: FilterOperator;
-
-      /**
-       * Specifing the size of files to be filtered.
-       *
-       * @type { number }
-       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-       * @atomicservice
-       * @since 19 dynamic
-       */
-      fileSize: number;
-
-      /**
-       * Specifing the upper limit of file size to be filtered.
-       *
-       * @type { ?number }
-       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-       * @atomicservice
-       * @since 19 dynamic
-       */
-      extraFileSize?: number;
-    }
+  class FileSizeFilter {
+    /**
+     * Specifing filter operator.
+     *
+     * @type { FilterOperator }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19 dynamic
+     * @since 23 static
+     */
+    filterOperator: FilterOperator;
+    /**
+     * Specifing the size of files to be filtered.
+     *
+     * @type { long }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19 dynamic
+     * @since 23 static
+     */
+    fileSize: long;
+    /**
+     * Specifing the upper limit of file size to be filtered.
+     *
+     * @type { ?long }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19 dynamic
+     * @since 23 static
+     */
+    extraFileSize?: long;
+  }
 
   /**
    * Media file video duration filtering configuration.
@@ -7545,37 +7576,39 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 19 dynamic
+   * @since 23 static
    */
   class VideoDurationFilter {
-      /**
-       * Specifing filter operator.
-       *
-       * @type { FilterOperator }
-       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-       * @atomicservice
-       * @since 19 dynamic
-       */
-      filterOperator: FilterOperator;
-
-      /**
-       * Specifing the video duration of files to be filtered.
-       *
-       * @type { number }
-       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-       * @atomicservice
-       * @since 19 dynamic
-       */
-      videoDuration: number;
-
-      /**
-       * Specifing the upper limit of video duration to be filtered.
-       *
-       * @type { ?number }
-       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-       * @atomicservice
-       * @since 19 dynamic
-       */
-      extraVideoDuration?: number;
+    /**
+     * Specifing filter operator.
+     *
+     * @type { FilterOperator }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19 dynamic
+     * @since 23 static
+     */
+    filterOperator: FilterOperator;
+    /**
+     * Specifing the video duration of files to be filtered.
+     *
+     * @type { int }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19 dynamic
+     * @since 23 static
+     */
+    videoDuration: int;
+    /**
+     * Specifing the upper limit of video duration to be filtered.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 19 dynamic
+     * @since 23 static
+     */
+    extraVideoDuration?: int;
   }
 
   /**
@@ -7609,6 +7642,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
+     * @since 23 static
      */
     isEditSupported?: boolean;
 
@@ -7619,6 +7653,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     isOriginalSupported?: boolean;
 
@@ -7629,6 +7664,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     subWindowName?: string;
 
@@ -7639,6 +7675,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamic
+     * @since 23 static
      */
     themeColor?: CustomColors;
 
@@ -7649,18 +7686,20 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 14 dynamic
+     * @since 23 static
      */
     completeButtonText?: CompleteButtonText;
 
     /**
      * user id
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 18 dynamic
+     * @since 23 static
      */
-    userId?: number;
+    userId?: int;
   }
 
   /**
@@ -7866,6 +7905,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     select(option?: PhotoSelectOptions): Promise<PhotoSelectResult>;
 
@@ -7904,6 +7944,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>): void;
 
@@ -7939,6 +7980,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     select(callback: AsyncCallback<PhotoSelectResult>): void;
   }
