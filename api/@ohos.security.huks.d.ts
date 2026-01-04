@@ -437,7 +437,7 @@ declare namespace huks {
    *     was generated.
    * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
    *     to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
-   *     default value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     default value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -462,8 +462,8 @@ declare namespace huks {
    *
    * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
    *     was generated.
-   * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
-   *     to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
+   * @param { HuksOptions } options - Options for deleting the key. For example, you can pass in HuksAuthStorageLevel to
+   *     specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
    *     default value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -484,8 +484,8 @@ declare namespace huks {
    *
    * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
    *     was generated.
-   * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
-   *     to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
+   * @param { HuksOptions } options - Options for deleting the key. For example, you can pass in HuksAuthStorageLevel to
+   *     specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
    *     default value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -507,9 +507,9 @@ declare namespace huks {
    *
    * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
    *     was generated.
-   * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
-   *     to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
-   *     default value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @param { HuksOptions } options - Options for deleting the key. For example, you can pass in HuksAuthStorageLevel to
+   *     specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the
+   *     default value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
@@ -1687,7 +1687,7 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key to check.
    * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
-   *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
    * If the key does not exist, error is the error code.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1735,7 +1735,7 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key to check.
    * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
-   *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @returns { Promise<boolean> } Promise used to return the result. If the key exists, then() performs subsequent
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
@@ -1783,7 +1783,7 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key to check.
    * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
-   *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
    * Otherwise, data is false.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1861,7 +1861,7 @@ declare namespace huks {
    * @param { string } keyAlias - Alias of the key to check.
    * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default 
-   *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   *     value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @returns { Promise<boolean> } Promise used to return the result. If the key exists, true is returned. If the key
    * does not exist, false is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
