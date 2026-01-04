@@ -39,7 +39,7 @@ declare enum SizeType {
   Auto,
 
   /**
-   * Select a value based on the device type.
+   * Extra Small width type device.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
