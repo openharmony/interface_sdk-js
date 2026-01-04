@@ -2401,7 +2401,7 @@ declare namespace sim {
 
   /**
    * Obtains the SIM card label.
-   * @param { number } slotId SIM card slot ID.
+   * @param { int } slotId SIM card slot ID.
    * @param { AsyncCallback<SimLabel> } callback Callback used to return the SIM card label.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -2411,11 +2411,11 @@ declare namespace sim {
    * @since 20 dynamic
    * @since 23 static
    */
-  function getSimLabel(slotId: number, callback: AsyncCallback<SimLabel>): void;
+  function getSimLabel(slotId: int, callback: AsyncCallback<SimLabel>): void;
 
   /**
    * Obtains the SIM card label.
-   * @param { number } slotId SIM card slot ID.
+   * @param { int } slotId SIM card slot ID.
    * @returns { Promise<SimLabel> } Promise used to return the SIM card label.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -2425,18 +2425,18 @@ declare namespace sim {
    * @since 20 dynamic
    * @since 23 static
    */
-  function getSimLabel(slotId: number): Promise<SimLabel>;
+  function getSimLabel(slotId: int): Promise<SimLabel>;
 
   /**
    * Obtains the SIM card label synchronously.
-   * @param { number } slotId SIM card slot ID, which ranges from 0 to the maximum number of slots supported
-   * by the device.
+   * @param { int } slotId SIM card slot ID, which ranges from 0 to the maximum number of slots supported
+   *     by the device.
    * @returns { SimLabel } SIM card label.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 20 dynamic
    * @since 23 static
    */
-  function getSimLabelSync(slotId: number): SimLabel;
+  function getSimLabelSync(slotId: int): SimLabel;
 
   /**
    * Indicates the SIM card type.
@@ -2672,7 +2672,7 @@ declare namespace sim {
     number: string;
 
     /**
-     * Indicates the call transfer number.
+     * Indicates the call transfer teleNumber.
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
@@ -3165,7 +3165,6 @@ declare namespace sim {
    * @since 23 static
    */
   export enum OperatorConfigKey {
-
     /**
      * Indicates the voice mail number.
      *
@@ -3174,7 +3173,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_VOICE_MAIL_NUMBER_STRING = 'voice_mail_number_string',
+    KEY_VOICE_MAIL_NUMBER_STRING = "voice_mail_number_string",
 
     /**
      * Indicates the status of ims switch.
@@ -3184,7 +3183,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_IMS_SWITCH_ON_BY_DEFAULT_BOOL = 'ims_switch_on_by_default_bool',
+    KEY_IMS_SWITCH_ON_BY_DEFAULT_BOOL = "ims_switch_on_by_default_bool",
 
     /**
      * Indicates whether the ims switch status is hidden.
@@ -3194,7 +3193,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_HIDE_IMS_SWITCH_BOOL = 'hide_ims_switch_bool',
+    KEY_HIDE_IMS_SWITCH_BOOL = "hide_ims_switch_bool",
 
     /**
      * Indicates whether volte mode is supported.
@@ -3204,7 +3203,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_VOLTE_SUPPORTED_BOOL = 'volte_supported_bool',
+    KEY_VOLTE_SUPPORTED_BOOL = "volte_supported_bool",
 
     /**
      * Indicates the list supported by nr mode.
@@ -3214,7 +3213,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_NR_MODE_SUPPORTED_LIST_INT_ARRAY = 'nr_mode_supported_list_int_array',
+    KEY_NR_MODE_SUPPORTED_LIST_INT_ARRAY = "nr_mode_supported_list_int_array",
 
     /**
      * Indicates whether VOLTE supports configuration.
@@ -3224,7 +3223,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_VOLTE_PROVISIONING_SUPPORTED_BOOL = 'volte_provisioning_supported_bool',
+    KEY_VOLTE_PROVISIONING_SUPPORTED_BOOL = "volte_provisioning_supported_bool",
 
     /**
      * Indicates whether SS service supports UT.
@@ -3234,7 +3233,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_SS_OVER_UT_SUPPORTED_BOOL = 'ss_over_ut_supported_bool',
+    KEY_SS_OVER_UT_SUPPORTED_BOOL = "ss_over_ut_supported_bool",
 
     /**
      * Indicates whether the IMS requires GBA.
@@ -3244,7 +3243,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_IMS_GBA_REQUIRED_BOOL = 'ims_gba_required_bool',
+    KEY_IMS_GBA_REQUIRED_BOOL = "ims_gba_required_bool",
 
     /**
      * Indicates whether UT configuration is supported.
@@ -3254,7 +3253,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_UT_PROVISIONING_SUPPORTED_BOOL = 'ut_provisioning_supported_bool',
+    KEY_UT_PROVISIONING_SUPPORTED_BOOL = "ut_provisioning_supported_bool",
 
     /**
      * Indicates the ims emergency preference.
@@ -3264,7 +3263,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_IMS_PREFER_FOR_EMERGENCY_BOOL = 'ims_prefer_for_emergency_bool',
+    KEY_IMS_PREFER_FOR_EMERGENCY_BOOL = "ims_prefer_for_emergency_bool",
 
     /**
      * Indicates call waiting service.
@@ -3274,7 +3273,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_CALL_WAITING_SERVICE_CLASS_INT = 'call_waiting_service_class_int',
+    KEY_CALL_WAITING_SERVICE_CLASS_INT = "call_waiting_service_class_int",
 
     /**
      * Indicates call forwarding visibility.
@@ -3284,7 +3283,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_CALL_TRANSFER_VISIBILITY_BOOL = 'call_transfer_visibility_bool',
+    KEY_CALL_TRANSFER_VISIBILITY_BOOL = "call_transfer_visibility_bool",
 
     /**
      * Indicates the list of ims call end reasons.
@@ -3294,8 +3293,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_IMS_CALL_DISCONNECT_REASON_INFO_MAPPING_STRING_ARRAY =
-    'ims_call_disconnect_reason_info_mapping_string_array',
+    KEY_IMS_CALL_DISCONNECT_REASON_INFO_MAPPING_STRING_ARRAY = "ims_call_disconnect_reason_info_mapping_string_array",
 
     /**
      * Indicates the forced Volte switch on state.
@@ -3305,7 +3303,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_FORCE_VOLTE_SWITCH_ON_BOOL = 'force_volte_switch_on_bool',
+    KEY_FORCE_VOLTE_SWITCH_ON_BOOL = "force_volte_switch_on_bool",
 
     /**
      * Indicates whether the operator name is displayed.
@@ -3315,7 +3313,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_ENABLE_OPERATOR_NAME_CUST_BOOL = 'enable_operator_name_cust_bool',
+    KEY_ENABLE_OPERATOR_NAME_CUST_BOOL = "enable_operator_name_cust_bool",
 
     /**
      * Indicates the name of the operator.
@@ -3325,7 +3323,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_OPERATOR_NAME_CUST_STRING = 'operator_name_cust_string',
+    KEY_OPERATOR_NAME_CUST_STRING = "operator_name_cust_string",
 
     /**
      * Indicates the spn display rule.
@@ -3335,7 +3333,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_SPN_DISPLAY_CONDITION_CUST_INT = 'spn_display_condition_cust_int',
+    KEY_SPN_DISPLAY_CONDITION_CUST_INT = "spn_display_condition_cust_int",
 
     /**
      * Indicates the PLMN name.
@@ -3345,7 +3343,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_PNN_CUST_STRING_ARRAY = 'pnn_cust_string_array',
+    KEY_PNN_CUST_STRING_ARRAY = "pnn_cust_string_array",
 
     /**
      * Indicates operator PLMN information.
@@ -3355,7 +3353,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_OPL_CUST_STRING_ARRAY = 'opl_cust_string_array',
+    KEY_OPL_CUST_STRING_ARRAY = "opl_cust_string_array",
 
     /**
      * Indicates the emergency call list.
@@ -3365,7 +3363,7 @@ declare namespace sim {
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_EMERGENCY_CALL_STRING_ARRAY = 'emergency_call_string_array'
+    KEY_EMERGENCY_CALL_STRING_ARRAY = "emergency_call_string_array"
   }
 
   /**
@@ -3448,7 +3446,7 @@ declare namespace sim {
    * @systemapi Hide this for inner system use.
    * @since 14 dynamic
    * @since 23 static
-  */
+   */
   export enum AuthType {
     /**
      * Authentication type is EAP-SIM. See RFC 4186
@@ -3513,6 +3511,27 @@ declare namespace sim {
      */
     response: string;
   }
+
+  /**
+   * Set the SIM card labelIndex.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { int } simId - Indicates the sim Id for card from sim account information.
+   *     <br>Value range:[1,500]
+   * @param { int } simLabelIndex - Indicates the simlabel index for card.
+   * @returns { Promise<void> } The promise returned by the setSimLabelIndex.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Service connection failed.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 23 dynamic&static
+   */
+  function setSimLabelIndex(simId: int, simLabelIndex: int): Promise<void>;
 }
 
 export default sim;
