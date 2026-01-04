@@ -619,7 +619,7 @@ declare class AppStorage {
    * @param { string } propName
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
    */
   static IsMutable(propName: string): boolean;
