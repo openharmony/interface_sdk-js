@@ -7125,6 +7125,22 @@ declare namespace window {
     getStatusBarProperty(): StatusBarProperty;
 
     /**
+     * get window state snapshot.
+     *
+     * @returns { promise<string> } promise used to return the window state snapshot.
+     * @throws { businesserror } 801 - capability not supported. failed to call the api due to limited device
+     *     capabilities. possible cause: the device does not support the api itself.
+     * @throws { businesserror } 1300002 - this window state is abnormal.
+     *     possible cause: the window is not created or destroyed;
+     * @throws { businesserror } 1300003 - this window manager service works abnormally.
+     *     possible cause: the internal services of the window are not started normally.
+     * @syscap systemcapability.window.sessionmanager
+     * @testapi
+     * @since 23
+     */
+    getWindowStateSnapshot(): Promise<string>;
+
+    /**
      * Set whether to disable the gesture back function.
      *
      * @param { boolean } enabled - If true then enable the gesture back function, false then disable the gesture back function.
