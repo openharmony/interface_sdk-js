@@ -37,7 +37,7 @@
 /**
  * Indicates possible value types
  *
- * @typedef { number | string | boolean }
+ * @typedef { long | double | string | boolean }
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @stagemodelonly
  * @crossplatform
@@ -45,7 +45,7 @@
  * @since 20 dynamic
  * @since 23 static
  */
-export type ValueType = number | string | boolean;
+export type ValueType = long | double | string | boolean;
 
 /**
  * Values in buckets are stored in key-value pairs
