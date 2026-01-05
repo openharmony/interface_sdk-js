@@ -7128,11 +7128,11 @@ declare namespace window {
      * Get window state snapshot.
      *
      * @returns { Promise<string> } Promise used to return the window state snapshot.
-     * @throws { Businesserror } 801 - Capability not supported. Failed to call the api due to limited device
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the api due to limited device
      *     capabilities. Possible cause: the device does not support the api itself.
-     * @throws { Businesserror } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: the window is not created or destroyed;
-     * @throws { Businesserror } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      *     Possible cause: the internal services of the window are not started normally.
      * @syscap SystemCapability.Window.SessionManager
      * @since 23 dynamic&static
