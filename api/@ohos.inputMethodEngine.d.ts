@@ -659,7 +659,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 23
-     * @useinstead inputMethodEngine.InputMethodAbility#on
+     * @useinstead InputMethodAbility#on
      */
     on(
       type: 'inputStart',
@@ -674,7 +674,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 23
-     * @useinstead inputMethodEngine.InputMethodAbility#off
+     * @useinstead InputMethodAbility#off
      */
     off(
       type: 'inputStart',
@@ -689,7 +689,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 23
-     * @useinstead inputMethodEngine.InputMethodAbility#on
+     * @useinstead InputMethodAbility#on
      */
     on(type: 'keyboardShow' | 'keyboardHide', callback: () => void): void;
 
@@ -701,7 +701,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 23
-     * @useinstead inputMethodEngine.InputMethodAbility#off
+     * @useinstead InputMethodAbility#off
      */
     off(type: 'keyboardShow' | 'keyboardHide', callback?: () => void): void;
   }
