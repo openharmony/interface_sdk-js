@@ -408,7 +408,34 @@ declare namespace ble {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
+   */
+  /**
+   * Starts BLE advertising.
+   * - If only {@link AdvertiseData#includeDeviceName} is set to true,
+   *   the local name will be carried in the broadcast packet.
+   * - If only {@link AdvertiseData#advertiseName} is set,
+   *   its value will be used as a custom name and carried in the broadcast packet.
+   * - If {@link AdvertiseData#includeDeviceName} is set to true and {@link AdvertiseData#advertiseName} is specified,
+   *   the {@link AdvertiseData#advertiseName} property will take effect.
+   * - To set {@link AdvertiseData#advertiseName},
+   *   ensure that ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME has been added.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+   *     ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME)
+   * @param { AdvertiseSetting } setting - Indicates the settings for BLE advertising.
+   * @param { AdvertiseData } advData - Indicates the advertising data.
+   * @param { AdvertiseData } advResponse - Indicates the scan response associated with the advertising data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900010 - The number of advertising resources reaches the upper limit.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @throws { BusinessError } 2902054 - The length of the advertising data exceeds the upper limit.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 23 dynamic&static
    */
   function startAdvertising(setting: AdvertiseSetting, advData: AdvertiseData, advResponse?: AdvertiseData): void;
 
@@ -7710,7 +7737,7 @@ declare namespace ble {
      */
     timestamp: long;
   }
-  
+
   /**
    * Describes the parameters of the Ble phy.
    *
