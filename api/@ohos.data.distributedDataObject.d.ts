@@ -746,6 +746,15 @@ declare namespace distributedDataObject {
      * @since 23 static
      */
     setAssets(assetsKey: string, uris: Array<string>): Promise<void>;
+
+    /**
+     * Get and set value of property.
+     *
+     * @param { string } key - property name.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 23 static
+     */
+    [key: string]: Object | null | undefined;
   }
 }
 
