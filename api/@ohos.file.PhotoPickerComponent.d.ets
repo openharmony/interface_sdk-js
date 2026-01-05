@@ -84,7 +84,7 @@ export declare struct PhotoPickerComponent {
    * @atomicservice
    * @since 23 dynamic&static
    */
-onItemClickedNotify?: ItemClickedNotifyCallback;
+  onItemClickedNotify?: ItemClickedNotifyCallback;
 
   /**
    * Callback when enter photo browser, will return photoBrowserInfo
