@@ -3872,7 +3872,7 @@ declare enum Alignment {
 }
 
 /**
- * Localized Alignment enumeration description.
+ * LocalizedAlignment enumeration description.
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
