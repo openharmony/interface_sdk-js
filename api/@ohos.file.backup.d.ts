@@ -908,7 +908,6 @@ declare namespace backup {
      * @returns { Promise<boolean> } Return clean result, true is success, false is fail.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 20 dynamic
@@ -1160,7 +1159,6 @@ declare namespace backup {
      * @returns { Promise<boolean> } Return clean result, true is success, false is fail.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 20 dynamic
@@ -1343,7 +1341,6 @@ declare namespace backup {
      * @returns { Promise<boolean> } Return clean result, true is success, false is fail.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 20 dynamic
