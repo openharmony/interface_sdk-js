@@ -3190,15 +3190,22 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      */
+    /**
+     * Subscribes to camera occlusion detection results.
+     *
+     * @param { 'cameraOcclusionDetection' } type - Event type.
+     * @param { AsyncCallback<CameraOcclusionDetectionResult> } callback - Callback used to get detection results.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic
+     */
     on(type: 'cameraOcclusionDetection', callback: AsyncCallback<CameraOcclusionDetectionResult>): void;
 
     /**
      * Subscribes to camera occlusion detection results.
      * 
      * @param { AsyncCallback<CameraOcclusionDetectionResult> } callback - Callback used to get detection results.
-     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
      * @since 23 static
      */
     onCameraOcclusionDetection(callback: AsyncCallback<CameraOcclusionDetectionResult>): void;
@@ -3213,15 +3220,22 @@ declare namespace camera {
      * @systemapi
      * @since 12 dynamic
      */
+    /**
+     * Unsubscribes from camera occlusion detection results.
+     *
+     * @param { 'cameraOcclusionDetection' } type - Event type.
+     * @param { AsyncCallback<CameraOcclusionDetectionResult> } callback - Callback used to get detection results.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic
+     */
     off(type: 'cameraOcclusionDetection', callback?: AsyncCallback<CameraOcclusionDetectionResult>): void;
 
     /**
      * Unsubscribes from camera occlusion detection results.
      * 
      * @param { AsyncCallback<CameraOcclusionDetectionResult> } [callback] - Callback used to get detection results.
-     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
      * @since 23 static
      */
     offCameraOcclusionDetection(callback?: AsyncCallback<CameraOcclusionDetectionResult>): void;
@@ -17405,7 +17419,14 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 23 static
+   */
+  /**
+   * Camera Occlusion Detection Result.
+   *
+   * @typedef CameraOcclusionDetectionResult
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 23 dynamic&static
    */
   interface CameraOcclusionDetectionResult {
     /**
@@ -17416,7 +17437,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 23 static
+     */
+    /**
+     * Check whether camera is occluded.
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     readonly isCameraOccluded: boolean;
 
@@ -17428,7 +17457,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 23 static
+     */
+    /**
+     * Check whether camera lens is dirty.
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 23 dynamic&static
      */
     readonly isCameraLensDirty: boolean;
   }
