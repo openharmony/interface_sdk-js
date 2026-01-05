@@ -243,6 +243,7 @@ import { HalfScreenLaunchComponent } from '@ohos.atomicservice.HalfScreenLaunchC
 import { GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, GestureListenerCallback } from '@ohos.arkui.UIContext';
 import { SwiperContentInfo, SwiperItemInfo } from '@ohos.arkui.UIContext';
 import imageGeneration from '@ohos.arkui.intelligence.imageGeneration';
+import uiMaterial from '@ohos.arkui.uiMaterial';
 export {
   AtomicServiceSearch, InputFilterParams, SearchButtonParams, MenuAlignParams, SearchParams, SelectParams, OperationParams,
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOptions, App, AppResponse, AtomicServiceBar,
@@ -321,5 +322,5 @@ export {
   HalfScreenLaunchComponent, ArcSliderPosition, ArcSwiper, ArcSwiperAttribute, ArcDotIndicator, ArcDirection, ArcSwiperController, TargetInfo, UIState,
   StepperModifier, TextMenuController, InputEventType, GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback,
   SwiperContentInfo, SwiperItemInfo, PickerModifier, imageGeneration, ResolvedUIContext, CustomComponentLifecycle, CustomComponentLifecycleObserver, CustomComponentLifecycleState, ComponentInit, ComponentAppear,
-  ComponentBuilt, ComponentAttach, ComponentDetach, ComponentReuse, ComponentRecycle, ComponentDisappear, CollectionType, ConnectOptionsCollections
+  ComponentBuilt, ComponentAttach, ComponentDetach, ComponentReuse, ComponentRecycle, ComponentDisappear, CollectionType, ConnectOptionsCollections, uiMaterial
 };
