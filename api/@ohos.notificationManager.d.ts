@@ -6496,6 +6496,7 @@ declare namespace notificationManager {
    *
    * @typedef { _NotificationIconButton } NotificationIconButton
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 23 dynamic&static
    */
   export type NotificationIconButton = _NotificationIconButton;
