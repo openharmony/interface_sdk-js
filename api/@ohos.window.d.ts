@@ -7125,18 +7125,18 @@ declare namespace window {
     getStatusBarProperty(): StatusBarProperty;
 
     /**
-     * get window state snapshot.
+     * Get window state snapshot.
      *
-     * @returns { promise<string> } promise used to return the window state snapshot.
-     * @throws { businesserror } 801 - capability not supported. failed to call the api due to limited device
-     *     capabilities. possible cause: the device does not support the api itself.
-     * @throws { businesserror } 1300002 - this window state is abnormal.
-     *     possible cause: the window is not created or destroyed;
-     * @throws { businesserror } 1300003 - this window manager service works abnormally.
-     *     possible cause: the internal services of the window are not started normally.
-     * @syscap systemcapability.window.sessionmanager
-     * @testapi
-     * @since 23
+     * @returns { Promise<string> } Promise used to return the window state snapshot.
+     * @throws { Businesserror } 801 - Capability not supported. Failed to call the api due to limited device
+     *     capabilities. Possible cause: the device does not support the api itself.
+     * @throws { Businesserror } 1300002 - This window state is abnormal.
+     *     Possible cause: the window is not created or destroyed;
+     * @throws { Businesserror } 1300003 - This window manager service works abnormally.
+     *     Possible cause: the internal services of the window are not started normally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 23 dynamic&static
+     * @test
      */
     getWindowStateSnapshot(): Promise<string>;
 
