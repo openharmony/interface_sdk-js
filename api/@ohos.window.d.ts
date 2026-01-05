@@ -13051,7 +13051,9 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
      *     not support this ability.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     *     Possible cause: Internal IPC error
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -13061,10 +13063,11 @@ declare namespace window {
     /**
      * Get whether the window supports event separation status.
      *
-     * @returns { boolean } - The value true means the window supports event separation, and false means the opposite.
+     * @returns { boolean }  The value true means the window supports event separation, and false means the opposite.
      * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
      *     not support this ability.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -13076,13 +13079,15 @@ declare namespace window {
      * Set whether the window receive drag event.
      *
      * @param { boolean } enabled - Whether the window receive drag event.
-     *     True - means default state, the window can receive drag event.
-     *     False - means the window can't receive drag event.
-     * @returns { Promise<void> } - Promise that returns no value.
+     *     True  means default state, the window can receive drag event.
+     *     False  means the window can not receive drag event.
+     * @returns { Promise<void> }  Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
      *     not support this ability.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     *     Possible cause: Internal IPC error
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -13092,10 +13097,11 @@ declare namespace window {
     /**
      * Get whether the window can receive drag event status.
      *
-     * @returns { boolean } - The value true means the window can receive drag event, and false means the opposite.
+     * @returns { boolean }  The value true means the window can receive drag event, and false means the opposite.
      * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
      *     not support this ability.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
