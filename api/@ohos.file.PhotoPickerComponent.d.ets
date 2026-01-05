@@ -75,16 +75,16 @@ export declare struct PhotoPickerComponent {
   onItemClicked?: (itemInfo: ItemInfo, clickType: ClickType) => boolean;
 
   /**
-   * Callback when click item. Include click camera item and thumbnail item, will return itemInfo.
-   * Must be used in conjunction with the setData method.
+   * Callback when click item. Includes camera items and thumbnail items. Returns itemInfo in the callback.
+   * Must be used in conjunction with the addData method.
    *
-   * @type { ?onItemClickedNotifyCallback }
+   * @type { ?ItemClickedNotifyCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
    * @since 23 dynamic&static
    */
-  onItemClickedNotify?: ItemClickedNotifyCallback;
+onItemClickedNotify?: ItemClickedNotifyCallback;
 
   /**
    * Callback when enter photo browser, will return photoBrowserInfo
