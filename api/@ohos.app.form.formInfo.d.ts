@@ -1760,14 +1760,6 @@ declare namespace formInfo {
      * @since 20 dynamic
      */
     FORM_SIZE_CHANGE = 3,
-    /**
-     * Indicates the launch reason of a form is show in form edit page.
-     *
-     * @syscap SystemCapability.Ability.Form
-     * @atomicservice
-     * @since 23 dynamic&static
-     */
-    FORM_EDIT_PREVIEW = 4, 
   }
 
   /**
