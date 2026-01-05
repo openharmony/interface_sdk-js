@@ -2678,7 +2678,7 @@ declare namespace request {
      * @param { 'complete' | 'fail' } type Indicates the upload session event type
      *        complete: upload task completed
      *         fail: upload task failed
-     * @param { Callback<Array<TaskState>> } [callback]
+     * @param { Callback<Array<TaskState>> } [callback] - The callback function for the upload complete or fail change event.
      * @syscap SystemCapability.MiscServices.Upload
      * @since 9
      */
@@ -2688,7 +2688,7 @@ declare namespace request {
      * @param { 'complete' | 'fail' } type Indicates the upload session event type
      *        complete: upload task completed
      *         fail: upload task failed
-     * @param { Callback<Array<TaskState>> } [callback]
+     * @param { Callback<Array<TaskState>> } [callback] - The callback function for the upload complete or fail change event.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 10
@@ -2699,8 +2699,8 @@ declare namespace request {
      * @param { 'complete' | 'fail' } type Indicates the upload session event type
      * <br>complete: upload task completed
      * <br>fail: upload task failed
-     * @param { Callback<Array<TaskState>> } [callback]
-     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
+     * @param { Callback<Array<TaskState>> } [callback] - The callback function for the upload complete or fail change event.
+     * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
