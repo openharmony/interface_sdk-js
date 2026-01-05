@@ -24,7 +24,8 @@
  * @namespace fileExtensionInfo
  * @syscap SystemCapability.FileManagement.UserFileService
  * @systemapi
- * @since 9 dynamic
+ * @since 9 dynamiconly
+ * @deprecated since 23
  */
 declare namespace fileExtensionInfo {
   /**
@@ -34,7 +35,8 @@ declare namespace fileExtensionInfo {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @stagemodelonly
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 23
    */
   enum DeviceType {
     /**
@@ -43,7 +45,8 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 23
      */
     DEVICE_LOCAL_DISK = 1,
 
@@ -53,7 +56,8 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 23
      */
     DEVICE_SHARED_DISK,
 
@@ -63,7 +67,8 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 23
      */
     DEVICE_SHARED_TERMINAL,
 
@@ -73,7 +78,8 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 23
      */
     DEVICE_NETWORK_NEIGHBORHOODS,
 
@@ -83,7 +89,8 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 23
      */
     DEVICE_EXTERNAL_MTP,
 
@@ -93,7 +100,8 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 23
      */
     DEVICE_EXTERNAL_USB,
 
@@ -103,7 +111,8 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 23
      */
     DEVICE_EXTERNAL_CLOUD
   }
@@ -115,7 +124,8 @@ declare namespace fileExtensionInfo {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @stagemodelonly
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 23
    */
   namespace DeviceFlag {
     /**
@@ -125,7 +135,8 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 23
      */
     const SUPPORTS_READ = 0b1;
 
@@ -136,7 +147,8 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 23
      */
     const SUPPORTS_WRITE = 0b10;
   }
@@ -148,7 +160,8 @@ declare namespace fileExtensionInfo {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @stagemodelonly
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 23
    */
   namespace DocumentFlag {
     /**
@@ -158,7 +171,8 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 23
      */
     const REPRESENTS_FILE = 0b1;
 
@@ -169,7 +183,8 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 23
      */
     const REPRESENTS_DIR = 0b10;
 
@@ -180,7 +195,8 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 23
      */
     const SUPPORTS_READ = 0b100;
 
@@ -191,7 +207,8 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 23
      */
     const SUPPORTS_WRITE = 0b1000;
   }
