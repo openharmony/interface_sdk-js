@@ -580,7 +580,7 @@ declare namespace pasteboard {
      * @since 7
      */
     /**
-     *Want in a record.
+     * Want in a record.
      * This parameter is read-only and does not support assignment operations. 
      * To assign a value, please use ohos.pasteboard.pasteboard#createData or ohos.pasteboard.pasteboard#addEntry.
      * @type { Want }
@@ -721,7 +721,7 @@ declare namespace pasteboard {
 
     /**
      * Adds data to the PasteDataRecord object.
-     * @param { string } type - indicates type of the value, its size  cannot exceed 1024 bytes.
+     * @param { string } type - indicates type of the value, its size cannot exceed 1024 bytes.
      * @param { ValueType } value - indicates the value of the data to add.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types;
@@ -747,7 +747,7 @@ declare namespace pasteboard {
 
     /**
      * Obtains data of the specified type.
-     * @param { string } type - indicates type of the data to obtain, its size  cannot exceed 1024 bytes.
+     * @param { string } type - indicates type of the data to obtain, its size cannot exceed 1024 bytes.
      * @returns { Promise<ValueType> } Promise used to return the data obtained.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types;
