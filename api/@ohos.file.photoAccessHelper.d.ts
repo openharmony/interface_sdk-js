@@ -13895,6 +13895,273 @@ declare namespace photoAccessHelper {
     DOWNLOAD_REFRESHED = 6,
   }
 
+  /**
+   * Enumerates related entity filed type.
+   *
+   * @enum { number } FieldType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum FieldType {  
+    /**
+     * Field Type None
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    NONE = 0,
+    /**
+     * Field Type Analysis People
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    ANALYSIS_PEOPLE = 1,
+    /**
+     * Field Type Analysis Label
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    ANALYSIS_LABEL = 2,
+    /**
+     * Field Type Analysis City
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    ANALYSIS_CITY = 3,
+    /**
+     * Field Type Year
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    YEAR = 4,
+    /**
+     * Field Type Month
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    MONTH = 5,
+    /**
+     * Field Type Day
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    DAY = 6,
+    /**
+     * Field Type Holiday
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    HOLIDAY = 7,
+    /**
+     * Field Type Media Type
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    MEDIA_TYPE = 8
+  }
+ 
+  /**
+   * Enumerates related entity Ranking Method
+   *
+   * @enum { number } RankingMethod
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  enum RankingMethod {  
+    /**
+     * Random Vote Ranking Method
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    RANDOM_VOTE = 0
+  }
+ 
+  /**
+   * Provides APIs for input Context Map.
+   *
+   * @interface ContextMap
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface ContextMap {  
+    /**
+     * Field Types
+     *
+     * @type { FieldType[] }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    topicField: FieldType[];
+  }
+ 
+  /**
+   * Provides APIs for input Options.
+   *
+   * @interface Options
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface Options {  
+ 
+    /**
+     * Ranking Method option
+     *
+     * @type { ?RankingMethod }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    rankingMethod?: RankingMethod;
+    /**
+     * Recommendation Count option
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    recommendationCount?: int;
+    /**
+     * Suggestion Fields option
+     *
+     * @type { ?FieldType[] }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    suggestionFields?: FieldType[];
+  }
+ 
+  /**
+   * Provides APIs for output Entity.
+   *
+   * @interface Entity
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface Entity {  
+    /**
+     * Indicates Entity Id.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    id: string;
+ 
+    /**
+     * Indicates Entity Name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    name: string;
+ 
+    /**
+     * Indicates Entity Name.
+     *
+     * @type { FieldType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    field: FieldType;
+ 
+    /**
+     * Indicates Entity Alias.
+     *
+     * @type { string[] }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    alias: string[];
+  }
+  
+  /**
+   * Knowledge Content class, used for geting related entity.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  class KnowledgeContent {  
+    /**
+     * Get Related Entities, Smart Label
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } topic - Searching topic string.
+     * @param { ContextMap } context - Context Map indicates topic filed.
+     * @param { Options } [option] - Options for getRelatedEntity.
+     * @returns { Promise<Entity[]> } Returns Array of Related Entities
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by nonsystem application
+     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    static getRelatedEntity (topic: string, context: ContextMap, option?: Options): Promise<Entity[]>;
+  }
+
 }
 
 export default photoAccessHelper;
