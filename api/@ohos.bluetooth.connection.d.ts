@@ -820,6 +820,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
+   * @since 23 static
    * @deprecated since 12
    */
   function setLocalName(name: string): void;
