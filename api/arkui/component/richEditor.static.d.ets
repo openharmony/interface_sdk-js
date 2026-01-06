@@ -876,7 +876,7 @@ export declare interface RichEditorImageSpanStyleResult {
     layoutStyle?: RichEditorLayoutStyle;
 }
 /**
- * Defines the image span.
+ * Defines the image span result.
  *
  * @interface RichEditorImageSpanResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full

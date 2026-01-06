@@ -1742,7 +1742,7 @@ declare interface RichEditorImageSpanStyleResult {
  * @since 10
  */
 /**
- * Defines the image span.
+ * Defines the image span result.
  *
  * @interface RichEditorImageSpanResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
