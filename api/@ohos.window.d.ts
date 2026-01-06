@@ -7125,7 +7125,7 @@ declare namespace window {
     getStatusBarProperty(): StatusBarProperty;
 
     /**
-     * Get window state snapshot.
+     * Get window state snapshot, including isPcMode information.
      *
      * @returns { Promise<string> } Promise used to return the window state snapshot.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the api due to limited device
