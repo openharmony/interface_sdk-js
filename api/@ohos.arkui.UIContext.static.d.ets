@@ -35,6 +35,7 @@ import image from './@ohos.multimedia.image';
 import type common from './@ohos.app.ability.common';
 import type pointer from './@ohos.multimodalInput.pointer';
 import { ComponentContent, FrameNode, Frame } from '@ohos.arkui.node';
+import { ComponentContentBase } from '../ComponentContent';
 import { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import { ClickEvent, ExpectedFrameRateRange, DragItemInfo, AnimateParam, KeyframeAnimateParam, KeyframeState,
   SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent,
@@ -3344,7 +3345,7 @@ export declare class UIContext {
   /**
    * Open the BindSheet.
    *
-   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
+   * @param { ComponentContentBase<T> } bindSheetContent - The content of BindSheet.
    * @param { SheetOptions } [sheetOptions] - The options of sheet.
    * @param { int } [targetId] - The uniqueId of the FrameNode to which BindSheet is attached.
    * @returns { Promise<void> } The promise returned by the function.
@@ -3360,12 +3361,12 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  openBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions?: SheetOptions, targetId?: int): Promise<void>;
+  openBindSheet<T extends Object>(bindSheetContent: ComponentContentBase<T>, sheetOptions?: SheetOptions, targetId?: int): Promise<void>;
 
   /**
    * Update the BindSheet with sheetOptions.
    *
-   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
+   * @param { ComponentContentBase<T> } bindSheetContent - The content of BindSheet.
    * @param { SheetOptions } sheetOptions - The update options of sheet.
    * @param { boolean } partialUpdate - If true, only the specified properties in the sheetOptions are updated,
    *                                    otherwise the rest of the properties are overwritten with the default values.
@@ -3380,12 +3381,12 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  updateBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
+  updateBindSheet<T extends Object>(bindSheetContent: ComponentContentBase<T>, sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
 
   /**
    * Close the BindSheet.
    *
-   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
+   * @param { ComponentContentBase<T> } bindSheetContent - The content of BindSheet.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -3396,7 +3397,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  closeBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>): Promise<void>;
+  closeBindSheet<T extends Object>(bindSheetContent: ComponentContentBase<T>): Promise<void>;
 
   /**
    * Post a frame callback to run on the next frame.
