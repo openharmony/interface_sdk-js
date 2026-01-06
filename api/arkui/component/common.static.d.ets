@@ -6451,11 +6451,11 @@ export declare interface SheetOptions extends BindOptions {
      * <br>The return value is in px.
      * <p>
      *
-     * @type { ?Callback<number> }
+     * @type { ?Callback<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    onHeightDidChange?: Callback<number>;
+    onHeightDidChange?: Callback<int>;
     /**
      * Determine the level sheet shows, whether sheet should be displayed within the page.
      *
