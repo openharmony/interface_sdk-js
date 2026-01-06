@@ -3345,7 +3345,7 @@ export declare class UIContext {
   /**
    * Open the BindSheet.
    *
-   * @param { ComponentContentBase<T> } bindSheetContent - The content of BindSheet.
+   * @param { ComponentContentBase } bindSheetContent - The content of BindSheet.
    * @param { SheetOptions } [sheetOptions] - The options of sheet.
    * @param { int } [targetId] - The uniqueId of the FrameNode to which BindSheet is attached.
    * @returns { Promise<void> } The promise returned by the function.
@@ -3361,12 +3361,12 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  openBindSheet<T extends Object>(bindSheetContent: ComponentContentBase<T>, sheetOptions?: SheetOptions, targetId?: int): Promise<void>;
+  openBindSheet(bindSheetContent: ComponentContentBase, sheetOptions?: SheetOptions, targetId?: int): Promise<void>;
 
   /**
    * Update the BindSheet with sheetOptions.
    *
-   * @param { ComponentContentBase<T> } bindSheetContent - The content of BindSheet.
+   * @param { ComponentContentBase } bindSheetContent - The content of BindSheet.
    * @param { SheetOptions } sheetOptions - The update options of sheet.
    * @param { boolean } partialUpdate - If true, only the specified properties in the sheetOptions are updated,
    *                                    otherwise the rest of the properties are overwritten with the default values.
@@ -3381,12 +3381,12 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  updateBindSheet<T extends Object>(bindSheetContent: ComponentContentBase<T>, sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
+  updateBindSheet(bindSheetContent: ComponentContentBase, sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
 
   /**
    * Close the BindSheet.
    *
-   * @param { ComponentContentBase<T> } bindSheetContent - The content of BindSheet.
+   * @param { ComponentContentBase } bindSheetContent - The content of BindSheet.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -3397,7 +3397,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  closeBindSheet<T extends Object>(bindSheetContent: ComponentContentBase<T>): Promise<void>;
+  closeBindSheet(bindSheetContent: ComponentContentBase): Promise<void>;
 
   /**
    * Post a frame callback to run on the next frame.
