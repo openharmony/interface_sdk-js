@@ -25,6 +25,7 @@ import type ExtensionContext from './application/ExtensionContext';
  * @extends ExtensionContext
  * @syscap SystemCapability.Notification.Notification
  * @stagemodelonly
- * @since 22 dynamic&static
+ * @since 22 dynamic
+ * @since 23 static
  */
 export default class NotificationSubscriberExtensionContext extends ExtensionContext {}

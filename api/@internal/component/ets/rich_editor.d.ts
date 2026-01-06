@@ -535,13 +535,14 @@ declare interface RichEditorTextStyle {
   /**
    * The stroke width of the text.
    *
-   * @type { ?LengthMetrics }
+   * @type { ?(LengthMetrics | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
    */
-  strokeWidth?: LengthMetrics;
+  strokeWidth?: LengthMetrics | number;
 
   /**
    * The stroke color of the text.
@@ -1741,7 +1742,7 @@ declare interface RichEditorImageSpanStyleResult {
  * @since 10
  */
 /**
- * Defines the image span.
+ * Defines the image span result.
  *
  * @interface RichEditorImageSpanResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full

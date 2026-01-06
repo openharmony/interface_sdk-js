@@ -36,7 +36,7 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
  * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
  * @systemapi hide for inner use
  * @since 7 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace inputMonitor {
   /**
@@ -49,7 +49,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type TouchEventReceiver = (touchEvent: TouchEvent) => boolean;
 
@@ -93,7 +93,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function onTouch(receiver: TouchEventReceiver): void;
 
@@ -137,7 +137,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function onMouse(receiver: Callback<MouseEvent>): void;
 
@@ -184,7 +184,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function onMouse(rect: display.Rect[], receiver: Callback<MouseEvent>): void;
 
@@ -230,7 +230,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function offTouch(receiver?: TouchEventReceiver): void;
 
@@ -276,7 +276,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function offMouse(receiver?: Callback<MouseEvent>): void;
 
@@ -307,7 +307,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function onPinch(receiver: Callback<Pinch>): void;
 
@@ -339,7 +339,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function offPinch(receiver?: Callback<Pinch>): void;
 
@@ -372,7 +372,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function onPinch(fingers: int, receiver: Callback<Pinch>): void;
 
@@ -406,7 +406,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function offPinch(fingers: int, receiver?: Callback<Pinch>): void;
 
@@ -439,7 +439,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function onRotate(fingers: int, receiver: Callback<Rotate>): void;
 
@@ -473,7 +473,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function offRotate(fingers: int, receiver?: Callback<Rotate>): void;
 
@@ -504,7 +504,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function onThreeFingersSwipe(receiver: Callback<ThreeFingersSwipe>): void;
 
@@ -536,7 +536,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function offThreeFingersSwipe(receiver?: Callback<ThreeFingersSwipe>): void;
 
@@ -567,7 +567,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function onFourFingersSwipe(receiver: Callback<FourFingersSwipe>): void;
 
@@ -599,7 +599,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function offFourFingersSwipe(receiver?: Callback<FourFingersSwipe>): void;
 
@@ -630,7 +630,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function onThreeFingersTap(receiver: Callback<ThreeFingersTap>): void;
 
@@ -662,7 +662,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function offThreeFingersTap(receiver?: Callback<ThreeFingersTap>): void;
 
@@ -693,7 +693,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function onFingerprint(receiver: Callback<FingerprintEvent>): void;
 
@@ -723,7 +723,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function offFingerprint(receiver?: Callback<FingerprintEvent>): void;
 
@@ -752,7 +752,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function onSwipeInward(receiver: Callback<SwipeInward>): void;
 
@@ -781,7 +781,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function offSwipeInward(receiver?: Callback<SwipeInward>): void;
 
@@ -818,7 +818,7 @@ declare namespace inputMonitor {
    *     3.Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function onTouchscreenSwipe(fingers: int, receiver: Callback<TouchGestureEvent>): void;
 
@@ -856,7 +856,7 @@ declare namespace inputMonitor {
    *     3.Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function offTouchscreenSwipe(fingers: int, receiver?: Callback<TouchGestureEvent>): void;
 
@@ -893,7 +893,7 @@ declare namespace inputMonitor {
    *     3.Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function onTouchscreenPinch(fingers: int, receiver: Callback<TouchGestureEvent>): void;
 
@@ -931,7 +931,7 @@ declare namespace inputMonitor {
    *     3.Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function offTouchscreenPinch(fingers: int, receiver?: Callback<TouchGestureEvent>): void;
 
@@ -967,7 +967,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 4100001 - Event listening not supported for the key.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function onKeyPressed(keys: Array<KeyCode>, receiver: Callback<KeyEvent>): void;
 
@@ -1000,7 +1000,7 @@ declare namespace inputMonitor {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 22 static
+   * @since 23 static
    */
   function offKeyPressed(receiver?: Callback<KeyEvent>): void;
 
@@ -1017,7 +1017,6 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 20 dynamic
-   * @since 22 static
    */
   /**
    * Queries the most recent touch events, with a maximum of 100 events supported.

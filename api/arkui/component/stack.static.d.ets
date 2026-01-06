@@ -24,7 +24,7 @@ import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
  *
  * @interface StackOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface StackOptions {
     /**
@@ -34,7 +34,7 @@ export declare interface StackOptions {
      * @type { ?Alignment }
      * @default Alignment.Center
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     alignContent?: Alignment;
 }
@@ -45,7 +45,7 @@ export declare interface StackOptions {
  * @extends CommonMethod
  * @interface StackAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare interface StackAttribute extends CommonMethod {
@@ -55,7 +55,7 @@ export declare interface StackAttribute extends CommonMethod {
      * @param { Alignment | undefined } value
      * @returns { StackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default alignContent(value: Alignment | undefined): this;
     /**
@@ -65,7 +65,7 @@ export declare interface StackAttribute extends CommonMethod {
     * @returns { StackAttribute } The attribute of the stack.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @systemapi
-    * @since 22 static
+    * @since 23 static
     */
     default pointLight(value: PointLightStyle | undefined): StackAttribute;
     /**
@@ -74,7 +74,7 @@ export declare interface StackAttribute extends CommonMethod {
      * @param { AttributeModifier<StackAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { StackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<StackAttribute> | AttributeModifier<CommonMethod>
         | undefined): this;
@@ -87,7 +87,7 @@ export declare interface StackAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { StackAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder

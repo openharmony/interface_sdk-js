@@ -44,7 +44,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class Queue<T> {
   /**
@@ -70,7 +70,7 @@ declare class Queue<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   constructor();
   /**
@@ -106,7 +106,7 @@ declare class Queue<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   get length(): int;
 
@@ -142,7 +142,7 @@ declare class Queue<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   add(element: T): boolean;
   /**
@@ -166,24 +166,15 @@ declare class Queue<T> {
    * Obtains the header element of a queue.
    *
    * @returns { T } the T type
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   getFirst(): T;
-
-  /**
-   * Obtains the header element of a queue.
-   *
-   * @returns { T | undefined } the first element of the queue if it exists, otherwise returns undefined.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  getFirst(): T | undefined;
 
   /**
    * Retrieves and removes the head of this queue
@@ -206,24 +197,15 @@ declare class Queue<T> {
    * Retrieves and removes the head of this queue
    *
    * @returns { T } the T type
+   * @throws { BusinessError } 10200010 - Container is empty.[staticonly]
    * @throws { BusinessError } 10200011 - The pop method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   pop(): T;
-
-  /**
-   * Retrieves and removes the head of this queue
-   *
-   * @returns { T | undefined } the deleted element of the deque if it exists, otherwise returns undefined.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 22 static
-   */
-  pop(): T | undefined;
 
   /**
    * Executes a provided function once for each value in the queue object.
@@ -285,7 +267,7 @@ declare class Queue<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   forEach(callbackfn: QueueForEachCb<T>): void;
 
@@ -325,7 +307,7 @@ declare class Queue<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   $_iterator(): IterableIterator<T>;
 
@@ -341,7 +323,7 @@ declare class Queue<T> {
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 22 static
+ * @since 23 static
  */
 export type QueueForEachCb<T> = (value: T, index: int, queue: Queue<T>) => void
 

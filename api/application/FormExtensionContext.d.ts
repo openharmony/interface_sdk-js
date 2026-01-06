@@ -41,7 +41,7 @@ import ExtensionContext from './ExtensionContext';
  * @stagemodelonly
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class FormExtensionContext extends ExtensionContext {
   /**
@@ -76,7 +76,7 @@ declare class FormExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -112,7 +112,7 @@ declare class FormExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   startAbility(want: Want): Promise<void>;
 
@@ -146,7 +146,7 @@ declare class FormExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
@@ -163,7 +163,7 @@ declare class FormExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
@@ -180,7 +180,7 @@ declare class FormExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   disconnectServiceExtensionAbility(connection: long): Promise<void>;
 }

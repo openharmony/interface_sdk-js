@@ -42,7 +42,7 @@ import { StyledString, TextStyle } from './arkui/component/styledString';
  * @form
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace i18n {
   /**
@@ -131,7 +131,7 @@ declare namespace i18n {
    * @form
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export class System {
     /**
@@ -176,7 +176,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getDisplayCountry(country: string, locale: string, sentenceCase?: boolean): string;
 
@@ -222,7 +222,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
 
@@ -240,7 +240,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains the list of system languages.
@@ -274,7 +274,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains the list of countries/regions supported for the specified language.
@@ -317,7 +317,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Checks whether a language is a suggested language in the specified region. It can be used for region-based
@@ -362,7 +362,7 @@ declare namespace i18n {
      * @form
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getSystemLanguage(): string;
 
@@ -379,7 +379,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static setSystemLanguage(language: string): void;
 
@@ -406,7 +406,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getSystemRegion(): string;
 
@@ -423,7 +423,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static setSystemRegion(region: string): void;
 
@@ -464,7 +464,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getSystemLocaleInstance(): Intl.Locale;
 
@@ -519,7 +519,7 @@ declare namespace i18n {
      * @form
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static is24HourClock(): boolean;
 
@@ -537,7 +537,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static set24HourClock(option: boolean): void;
 
@@ -557,7 +557,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static addPreferredLanguage(language: string, index?: int): void;
 
@@ -575,7 +575,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static removePreferredLanguage(index: int): void;
 
@@ -593,7 +593,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains the list of preferred languages.
@@ -620,7 +620,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains the first language in the preferred language list.
@@ -668,7 +668,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static setAppPreferredLanguage(language: string): void;
 
@@ -695,7 +695,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getAppPreferredLanguage(): string;
 
@@ -713,7 +713,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static setUsingLocalDigit(flag: boolean): void;
 
@@ -732,7 +732,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Checks whether use of local digits is enabled.
@@ -762,7 +762,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains the simplified representation of a language. For example, the simplified representation of "en-Latn-US"
@@ -796,7 +796,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static setTemperatureType(type: TemperatureType): void;
 
@@ -807,7 +807,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains the temperature unit of the system.
@@ -829,7 +829,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains the name of a temperature unit.
@@ -856,7 +856,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static setFirstDayOfWeek(type: WeekDay): void;
 
@@ -867,7 +867,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains the first day of a week in the system settings.
@@ -890,7 +890,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getSystemCollations(): Map<string, string>;
 
@@ -903,7 +903,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getUsingCollation(): string;
 
@@ -919,7 +919,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static setSystemCollation(identifier: string): void;
 
@@ -932,7 +932,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getSystemMeasurements(): Map<string, string>;
 
@@ -945,7 +945,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getUsingMeasurement(): string;
 
@@ -962,7 +962,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static setSystemMeasurement(identifier: string): void;
 
@@ -975,7 +975,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getUsingNumberingSystem(): string;
 
@@ -992,7 +992,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static setSystemNumberingSystem(identifier: string): void;
 
@@ -1006,7 +1006,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getSystemNumberingSystems(): Map<string, string>;
 
@@ -1019,7 +1019,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getSystemNumberPatterns(): Map<string, string>;
 
@@ -1036,7 +1036,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static setSystemNumberPattern(pattern: string): void;
 
@@ -1050,7 +1050,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getUsingNumberPattern(): string;
 
@@ -1063,7 +1063,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getSystemNumericalDatePatterns(): Map<string, string>;
 
@@ -1080,7 +1080,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static setSystemNumericalDatePattern(identifier : string): void;
 
@@ -1093,7 +1093,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getUsingNumericalDatePattern(): string;
   }
@@ -1105,7 +1105,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * Enumerates the first day of a week. The value ranges from Monday to Sunday.
@@ -1123,7 +1123,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Monday.
@@ -1141,7 +1141,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Tuesday.
@@ -1159,7 +1159,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Wednesday.
@@ -1177,7 +1177,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Thursday.
@@ -1195,7 +1195,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Friday.
@@ -1213,7 +1213,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Saturday.
@@ -1231,7 +1231,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Sunday.
@@ -1251,7 +1251,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * Enumerates temperature units.
@@ -1269,7 +1269,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Celesius.
@@ -1287,7 +1287,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Fahrenheit.
@@ -1305,7 +1305,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Kelvin.
@@ -1366,7 +1366,7 @@ declare namespace i18n {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export class I18NUtil {
     /**
@@ -1397,7 +1397,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Converts one measurement unit into another and formats the unit based on the specified locale and style.
@@ -1449,7 +1449,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getDateOrder(locale: string): string;
 
@@ -1478,7 +1478,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains the localized expression of the specified time in the specified locale.
@@ -1513,7 +1513,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getBestMatchLocale(locale: string, localeList: string[]): string;
 
@@ -1531,7 +1531,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Converts a language code from two letters to three letters. For example, the two-letter language code of Chinese
@@ -1565,7 +1565,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Converts a region code from two letters to three letters. For example, the two-letter region code of China is
@@ -1620,7 +1620,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Localizes a file path for the specified locale. For example, /data/out/tmp is changed to tmp/out/data/ after
@@ -1656,7 +1656,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * Defines the measurement unit information.
@@ -1681,7 +1681,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Name of the measurement unit, for example, "meter", "inch", or "cup".
@@ -1707,7 +1707,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Measurement system. The value can be "SI", "US", or "UK".
@@ -1744,7 +1744,7 @@ declare namespace i18n {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface PhoneNumberFormatOptions {
     /**
@@ -1780,7 +1780,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     type?: string;
   }
@@ -1805,7 +1805,7 @@ declare namespace i18n {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export class PhoneNumberFormat {
     /**
@@ -1835,7 +1835,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(country: string, options?: PhoneNumberFormatOptions);
 
@@ -1866,7 +1866,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isValidNumber(phoneNumber: string): boolean;
 
@@ -1896,7 +1896,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     format(phoneNumber: string): string;
 
@@ -1919,7 +1919,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getLocationName(phoneNumber: string, locale: string): string;
   }
@@ -1962,7 +1962,7 @@ declare namespace i18n {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export function getCalendar(locale: string, type?: string): Calendar;
 
@@ -1986,7 +1986,7 @@ declare namespace i18n {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export class Calendar {
     /**
@@ -2012,7 +2012,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setTime(date: Date): void;
 
@@ -2040,7 +2040,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setTime(time: double): void;
 
@@ -2082,7 +2082,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     set(year: int, month: int, date:int, hour?: int, minute?: int, second?: int): void;
 
@@ -2109,7 +2109,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setTimeZone(timezone: string): void;
 
@@ -2136,7 +2136,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getTimeZone(): string;
 
@@ -2163,7 +2163,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getFirstDayOfWeek(): int;
 
@@ -2190,7 +2190,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setFirstDayOfWeek(value: int): void;
 
@@ -2217,7 +2217,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMinimalDaysInFirstWeek(): int;
 
@@ -2244,7 +2244,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setMinimalDaysInFirstWeek(value: int): void;
 
@@ -2279,7 +2279,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get(field: string): int;
 
@@ -2300,7 +2300,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains calendar display name in the specified language.
@@ -2345,7 +2345,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isWeekend(date?: Date): boolean;
 
@@ -2375,7 +2375,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     add(field: string, amount: int): void;
 
@@ -2396,7 +2396,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getTimeInMillis(): long;
 
@@ -2425,7 +2425,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     compareDays(date: Date): int;
   }
@@ -2456,7 +2456,7 @@ declare namespace i18n {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export function isRTL(locale: string): boolean;
 
@@ -2479,7 +2479,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * Obtains a BreakIterator object. The BreakIterator object maintains an internal break iterator that can be used to
@@ -2508,7 +2508,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * The BreakIterator class is used for finding the location of break point in text.
@@ -2533,7 +2533,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains the position of the break iterator in the text.
@@ -2561,7 +2561,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Moves the break iterator to the first line break point, which is always at the beginning of the processed text.
@@ -2590,7 +2590,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Moves the break iterator to the last line break point, which is always the next position after the end of the
@@ -2623,7 +2623,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Moves the break iterator backward by the specified number of line break points.
@@ -2655,7 +2655,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Moves the break iterator foreward by one line break point.
@@ -2683,7 +2683,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Sets the text to be processed by the BreakIterator object.
@@ -2713,7 +2713,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Moves the line break iterator to the line break point after the specified position.
@@ -2742,7 +2742,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains the text processed by the BreakIterator object.
@@ -2777,7 +2777,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Checks whether the specified position is a line break point.
@@ -2814,7 +2814,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * Creates an IndexUtil object.
@@ -2843,7 +2843,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * Sequence text can be grouped under the specified area,
@@ -2869,7 +2869,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains the index list of the current locale.
@@ -2896,7 +2896,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Adds the index list of a new locale to the index list of the current locale to form a composite list.
@@ -2925,7 +2925,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains the index of the text object.
@@ -3087,7 +3087,7 @@ declare namespace i18n {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export class Unicode {
     /**
@@ -3118,7 +3118,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static isDigit(ch: string): boolean;
 
@@ -3150,7 +3150,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static isSpaceChar(ch: string): boolean;
 
@@ -3182,7 +3182,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static isWhitespace(ch: string): boolean;
 
@@ -3214,7 +3214,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static isRTL(ch: string): boolean;
 
@@ -3246,7 +3246,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static isIdeograph(ch: string): boolean;
 
@@ -3278,7 +3278,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static isLetter(ch: string): boolean;
 
@@ -3310,7 +3310,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static isLowerCase(ch: string): boolean;
 
@@ -3342,7 +3342,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static isUpperCase(ch: string): boolean;
 
@@ -3374,7 +3374,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getType(ch: string): string;
   }
@@ -3481,7 +3481,7 @@ declare namespace i18n {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export function getTimeZone(zoneID?: string): TimeZone;
 
@@ -3505,7 +3505,7 @@ declare namespace i18n {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export class TimeZone {
     /**
@@ -3531,7 +3531,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getID(): string;
 
@@ -3556,7 +3556,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains time zone display name in the specified language.
@@ -3597,7 +3597,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getRawOffset(): int;
 
@@ -3628,7 +3628,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getOffset(date?: double): int;
 
@@ -3655,7 +3655,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getAvailableIDs(): Array<string>;
 
@@ -3673,7 +3673,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getAvailableZoneCityIDs(): Array<string>;
 
@@ -3695,7 +3695,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getCityDisplayName(cityID: string, locale: string): string;
 
@@ -3715,7 +3715,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getTimezoneFromCity(cityID: string): TimeZone;
 
@@ -3745,7 +3745,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getTimezonesByLocation(longitude: double, latitude: double): Array<TimeZone>;
 
@@ -3756,7 +3756,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Get the zone rules object corresponds to the timezone objects.
@@ -3776,7 +3776,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * Provides the API for obtaining timezone offset changing rules information.
@@ -3795,7 +3795,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Get the next timezone offset transition after date.
@@ -3816,7 +3816,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * Provides the API for obtaining a timezone transition information.
@@ -3834,7 +3834,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains the timestamp of the change in the time zone offset.
@@ -3854,7 +3854,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Get the offset after time zone offset trasition.
@@ -3874,7 +3874,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Get the offset before time zone offset trasition.
@@ -3900,7 +3900,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * Provides the API for transliterate text from one format to another.
@@ -3925,7 +3925,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains a list of IDs supported by the Transliterator object.
@@ -3956,7 +3956,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Creates a Transliterator object based on the specified ID.
@@ -3986,7 +3986,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Converts the input text from the source format to the target format.
@@ -4015,7 +4015,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * Enumerates text normalization modes.
@@ -4039,7 +4039,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Normalization form C, characters are decomposed and then re-composed by canonical equivalence
@@ -4062,7 +4062,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Normalization form D, characters are decomposed by canonical equivalence
@@ -4085,7 +4085,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Normalization form KC, characters are decomposed by compatibility, then re-composed by canonical equivalence
@@ -4108,7 +4108,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Normalization form KD, characters are decomposed by compatibility
@@ -4133,7 +4133,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * Provides the API for text encoding normalization.
@@ -4163,7 +4163,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains a Normalizer object.
@@ -4198,7 +4198,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Normalizes input strings.
@@ -4222,7 +4222,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum SuggestionType {
     /**
@@ -4231,7 +4231,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SUGGESTION_TYPE_NONE = 0,
     /**
@@ -4240,7 +4240,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SUGGESTION_TYPE_RELATED = 1,
     /**
@@ -4249,7 +4249,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SUGGESTION_TYPE_SIM = 2,
   }
@@ -4261,7 +4261,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface SortOptions {
     /**
@@ -4272,7 +4272,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     locale?: string;
 
@@ -4285,7 +4285,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isUseLocalName?: boolean;
 
@@ -4298,7 +4298,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isSuggestedFirst?: boolean;
   }
@@ -4310,7 +4310,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface LocaleItem {
     /**
@@ -4320,7 +4320,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     id: string;
 
@@ -4331,7 +4331,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     suggestionType: SuggestionType;
 
@@ -4342,7 +4342,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     displayName: string;
 
@@ -4353,7 +4353,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     localName?: string;
   }
@@ -4365,7 +4365,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface TimeZoneCityItem {
     /**
@@ -4375,7 +4375,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     zoneId: string;
 
@@ -4386,7 +4386,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cityId: string;
 
@@ -4397,7 +4397,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cityDisplayName: string;
 
@@ -4408,7 +4408,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     offset: int;
 
@@ -4419,7 +4419,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     zoneDisplayName: string;
 
@@ -4430,7 +4430,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     rawOffset?: int;
   }
@@ -4441,7 +4441,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export class SystemLocaleManager {
     /**
@@ -4450,7 +4450,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor();
 
@@ -4479,7 +4479,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getLanguageInfoArray(languages: Array<string>, options?: SortOptions): Array<LocaleItem>;
 
@@ -4509,7 +4509,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getRegionInfoArray(regions: Array<string>, options?: SortOptions): Array<LocaleItem>;
 
@@ -4529,7 +4529,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     static getTimeZoneCityItemArray(): Array<TimeZoneCityItem>;
   }
@@ -4548,7 +4548,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * Represents the holiday information.
@@ -4574,7 +4574,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Holiday name.
@@ -4601,7 +4601,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Year of the holiday.
@@ -4628,7 +4628,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Month of the holiday.
@@ -4655,7 +4655,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Day of the holiday.
@@ -4682,7 +4682,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Local names of the holiday.
@@ -4710,7 +4710,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * Represents the name of a holiday in different languages.
@@ -4736,7 +4736,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Language, for example, "ar", "en", or "tr".
@@ -4763,7 +4763,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Local name of a holiday. For example, the Turkish name of Sacrifice Feast is Kurban Bayrami.
@@ -4789,7 +4789,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * Provide some functions to manage holidays in a country or region. Partly follows the RFC2445 standard.
@@ -4819,7 +4819,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Creates a HolidayManager object for parsing holiday data.
@@ -4856,7 +4856,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Determines whether the specified date is a holiday.
@@ -4895,7 +4895,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains the holiday information list of the specified year.
@@ -4927,7 +4927,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * Defines a list of entities.
@@ -4953,7 +4953,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Start position of the entity in the input string.
@@ -4980,7 +4980,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * End position of the entity the input string.
@@ -5008,7 +5008,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Entity type. The value can be "phone_number" or "date". "phone_number" indicates that the entity is a phone
@@ -5035,7 +5035,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   /**
    * Provide some functions to find named entity in text.
@@ -5067,7 +5067,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Creates an entityRecognizer object. This object is used to recognize entities in the text for the specified
@@ -5104,7 +5104,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     /**
      * Obtains entity information in the text object.
@@ -5154,7 +5154,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export function getSimpleDateTimeFormatByPattern(pattern: string, locale?: Intl.Locale): SimpleDateTimeFormat;
 
@@ -5189,7 +5189,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export function getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: Intl.Locale): SimpleDateTimeFormat;
 
@@ -5199,7 +5199,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export class SimpleDateTimeFormat {
     /**
@@ -5210,7 +5210,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     format(date: Date): string;
   }
@@ -5244,7 +5244,7 @@ declare namespace i18n {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export function getSimpleNumberFormatBySkeleton(skeleton: string, locale?: Intl.Locale): SimpleNumberFormat;
 
@@ -5254,7 +5254,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export class SimpleNumberFormat {
     /**
@@ -5265,7 +5265,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     format(value: double): string;
   }
@@ -5276,7 +5276,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export class StyledNumberFormat {
     /**
@@ -5301,7 +5301,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(numberFormat: Intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
 
@@ -5314,7 +5314,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     format(value: double): StyledString;
   }
@@ -5326,7 +5326,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface StyledNumberFormatOptions {
     /**
@@ -5336,7 +5336,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     integer?: TextStyle;
 
@@ -5347,7 +5347,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     decimal?: TextStyle;
 
@@ -5358,7 +5358,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     fraction?: TextStyle;
 
@@ -5369,7 +5369,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     unit?: TextStyle;
   }

@@ -24,7 +24,7 @@ import type common2D from './@ohos.graphics.common2D';
  * This module provides functionality for component coordinates and sizes.
  * @namespace componentUtils
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 declare namespace componentUtils {
     
@@ -33,7 +33,7 @@ declare namespace componentUtils {
     * Component information.
     * @typedef ComponentInfo
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 22 static
+    * @since 23 static
     */
     export interface ComponentInfo {
         
@@ -42,7 +42,7 @@ declare namespace componentUtils {
         * component size.
         * @type {Size}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         size: Size;
         
@@ -51,7 +51,7 @@ declare namespace componentUtils {
         * Obtain attribute information relative to the local.
         * @type {Offset}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         localOffset: Offset;
         
@@ -60,7 +60,7 @@ declare namespace componentUtils {
         * Obtain attribute information relative to the window.
         * @type {Offset}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         windowOffset: Offset;
         
@@ -69,7 +69,7 @@ declare namespace componentUtils {
         * Obtain attribute information relative to the screen.
         * @type {Offset}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         screenOffset: Offset;
         
@@ -78,7 +78,7 @@ declare namespace componentUtils {
         * Obtain attribute information for translation.
         * @type {TranslateResult}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         translate: TranslateResult;
         
@@ -87,7 +87,7 @@ declare namespace componentUtils {
         * Obtain attribute information for scale.
         * @type {ScaleResult}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         scale: ScaleResult;
         
@@ -96,7 +96,7 @@ declare namespace componentUtils {
         * Obtain attribute information for rotate.
         * @type {RotateResult}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         rotate: RotateResult;
         
@@ -105,7 +105,7 @@ declare namespace componentUtils {
         * Obtain attribute information of the transformation matrix.
         * @type {Matrix4Result}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         transform: Matrix4Result;
     }
@@ -115,7 +115,7 @@ declare namespace componentUtils {
     * Defines the size property.
     * @typedef Size
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 22 static
+    * @since 23 static
     */
     export interface Size {
         
@@ -124,7 +124,7 @@ declare namespace componentUtils {
         * Defines the width property.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         width: double;
         
@@ -133,7 +133,7 @@ declare namespace componentUtils {
         * Defines the height property.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         height: double;
     }
@@ -143,7 +143,7 @@ declare namespace componentUtils {
     * Defines the offset property.
     * @typedef Offset
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 22 static
+    * @since 23 static
     */
     export interface Offset {
         
@@ -152,7 +152,7 @@ declare namespace componentUtils {
         * Coordinate x of the Position.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         x: double;
         
@@ -161,7 +161,7 @@ declare namespace componentUtils {
         * Coordinate y of the Position.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         y: double;
     }
@@ -171,7 +171,7 @@ declare namespace componentUtils {
     * Translation Result
     * @typedef TranslateResult
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 22 static
+    * @since 23 static
     */
     export interface TranslateResult {
         
@@ -180,7 +180,7 @@ declare namespace componentUtils {
         * Indicates the translation distance of the x-axis, in vp.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         x: double;
         
@@ -189,7 +189,7 @@ declare namespace componentUtils {
         * Indicates the translation distance of the y-axis, in vp.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         y: double;
         
@@ -198,7 +198,7 @@ declare namespace componentUtils {
         * Indicates the translation distance of the z-axis, in vp.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         z: double;
     }
@@ -208,7 +208,7 @@ declare namespace componentUtils {
     * Scale Result
     * @typedef ScaleResult
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 22 static
+    * @since 23 static
     */
     export interface ScaleResult {
         
@@ -217,7 +217,7 @@ declare namespace componentUtils {
         * Zoom factor of the x-axis.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         x: double;
         
@@ -226,7 +226,7 @@ declare namespace componentUtils {
         * Zoom factor of the y-axis.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         y: double;
         
@@ -235,7 +235,7 @@ declare namespace componentUtils {
         * Zoom factor of the z-axis.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         z: double;
         
@@ -244,7 +244,7 @@ declare namespace componentUtils {
         * Transform the x-axis coordinate of the center point.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         centerX: double;
         
@@ -253,7 +253,7 @@ declare namespace componentUtils {
         * Transform the y-axis coordinate of the center point.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         centerY: double;
     }
@@ -263,7 +263,7 @@ declare namespace componentUtils {
     * Rotation Result.
     * @typedef RotateResult
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 22 static
+    * @since 23 static
     */
     export interface RotateResult {
         
@@ -272,7 +272,7 @@ declare namespace componentUtils {
         * Axis of rotation vector x coordinate.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         x: double;
         
@@ -281,7 +281,7 @@ declare namespace componentUtils {
         * Axis of rotation vector y coordinate.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         y: double;
         
@@ -290,7 +290,7 @@ declare namespace componentUtils {
         * Axis of rotation vector z coordinate.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         z: double;
         
@@ -299,7 +299,7 @@ declare namespace componentUtils {
         * Transform the x-axis coordinate of the center point.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         centerX: double;
         
@@ -308,7 +308,7 @@ declare namespace componentUtils {
         * Transform the y-axis coordinate of the center point.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         centerY: double;
         
@@ -317,7 +317,7 @@ declare namespace componentUtils {
         * Rotation angle.
         * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 22 static
+        * @since 23 static
         */
         angle: double;
     }
@@ -328,7 +328,7 @@ declare namespace componentUtils {
     * @typedef { [double, double, double, double, double, double, double, double, double, double, double, double,
     * double, double, double, double] } Matrix4Result
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 22 static
+    * @since 23 static
     */
     export type Matrix4Result = [
         double,

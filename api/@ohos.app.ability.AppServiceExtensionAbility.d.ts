@@ -30,7 +30,7 @@ import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class AppServiceExtensionAbility extends ExtensionAbility {
   /**
@@ -40,7 +40,7 @@ declare class AppServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   context: AppServiceExtensionContext;
 
@@ -51,7 +51,7 @@ declare class AppServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onCreate(want: Want): void;
 
@@ -61,7 +61,7 @@ declare class AppServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onDestroy(): void;
 
@@ -74,7 +74,7 @@ declare class AppServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onRequest(want: Want, startId: int): void;
 
@@ -86,7 +86,7 @@ declare class AppServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onConnect(want: Want): rpc.RemoteObject;
 
@@ -97,7 +97,7 @@ declare class AppServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   onDisconnect(want: Want): void;
 }

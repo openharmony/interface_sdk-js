@@ -49,7 +49,7 @@ import bundleManager from '../@ohos.bundle.bundleManager';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface ProcessInformation {
   /**
@@ -73,7 +73,7 @@ export interface ProcessInformation {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   pid: int;
 
@@ -89,7 +89,7 @@ export interface ProcessInformation {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   uid: int;
 
@@ -114,7 +114,7 @@ export interface ProcessInformation {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   processName: string;
 
@@ -139,7 +139,7 @@ export interface ProcessInformation {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   bundleNames: Array<string>;
 
@@ -157,7 +157,7 @@ export interface ProcessInformation {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   state: appManager.ProcessState;
 
@@ -168,7 +168,7 @@ export interface ProcessInformation {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   bundleType: bundleManager.BundleType;
 
@@ -178,7 +178,7 @@ export interface ProcessInformation {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   appCloneIndex?: int;
 }

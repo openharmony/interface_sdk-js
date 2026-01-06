@@ -32,7 +32,7 @@ import { OverlayModuleInfo as _OverlayModuleInfo } from './bundleManager/Overlay
  * @namespace overlay
  * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace overlay {
   /**
@@ -46,7 +46,7 @@ declare namespace overlay {
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setOverlayEnabled(moduleName: string, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
@@ -61,7 +61,7 @@ declare namespace overlay {
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setOverlayEnabled(moduleName: string, isEnabled: boolean): Promise<void>;
 
@@ -83,7 +83,7 @@ declare namespace overlay {
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setOverlayEnabledByBundleName(bundleName: string,
     moduleName: string, isEnabled: boolean, callback: AsyncCallback<void>): void;
@@ -106,7 +106,7 @@ declare namespace overlay {
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setOverlayEnabledByBundleName(bundleName: string, moduleName: string, isEnabled: boolean): Promise<void>;
 
@@ -121,7 +121,7 @@ declare namespace overlay {
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getOverlayModuleInfo(moduleName: string, callback: AsyncCallback<OverlayModuleInfo>): void;
 
@@ -136,7 +136,7 @@ declare namespace overlay {
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getOverlayModuleInfo(moduleName: string): Promise<OverlayModuleInfo>;
 
@@ -150,7 +150,7 @@ declare namespace overlay {
    * @throws { BusinessError } 17700034 - The specified module is an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTargetOverlayModuleInfos(targetModuleName: string,
     callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
@@ -165,7 +165,7 @@ declare namespace overlay {
    * @throws { BusinessError } 17700034 - The specified module is an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTargetOverlayModuleInfos(targetModuleName: string): Promise<Array<OverlayModuleInfo>>;
 
@@ -183,7 +183,7 @@ declare namespace overlay {
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getOverlayModuleInfoByBundleName(bundleName: string,
     callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
@@ -205,7 +205,7 @@ declare namespace overlay {
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getOverlayModuleInfoByBundleName(bundleName: string,
     moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
@@ -227,7 +227,7 @@ declare namespace overlay {
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getOverlayModuleInfoByBundleName(bundleName: string,
     moduleName?: string): Promise<Array<OverlayModuleInfo>>;
@@ -246,7 +246,7 @@ declare namespace overlay {
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
     callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
@@ -268,7 +268,7 @@ declare namespace overlay {
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
     moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
@@ -290,7 +290,7 @@ declare namespace overlay {
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
     moduleName?: string): Promise<Array<OverlayModuleInfo>>;
@@ -309,7 +309,7 @@ declare namespace overlay {
    *
    * @typedef { _OverlayModuleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
-   * @since 22 static
+   * @since 23 static
    */
   export type OverlayModuleInfo = _OverlayModuleInfo;
 }

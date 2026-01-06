@@ -34,7 +34,7 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace hdrCapability {
   /**
@@ -51,7 +51,7 @@ declare namespace hdrCapability {
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum HDRFormat {
     /**
@@ -66,7 +66,7 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NONE = 0,
     /**
@@ -81,7 +81,7 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_HLG = 1,
     /**
@@ -96,7 +96,7 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_HDR10 = 2,
     /**
@@ -111,7 +111,7 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VIDEO_HDR_VIVID = 3,
     /**
@@ -126,7 +126,7 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IMAGE_HDR_VIVID_DUAL = 4,
     /**
@@ -141,7 +141,7 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IMAGE_HDR_VIVID_SINGLE = 5,
     /**
@@ -156,7 +156,7 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IMAGE_HDR_ISO_DUAL = 6,
     /**
@@ -171,7 +171,7 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     IMAGE_HDR_ISO_SINGLE = 7,
   }

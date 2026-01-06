@@ -5,7 +5,6 @@
     "SystemCapability.Ability.AbilityRuntime.Core",
     "SystemCapability.Ability.AbilityRuntime.FAModel",
     "SystemCapability.Ability.AbilityRuntime.Mission",
-    "SystemCapability.Ability.AbilityTools.AbilityAssistant",
     "SystemCapability.Ability.AppStartup",
     "SystemCapability.Security.AccessToken",
     "SystemCapability.BarrierFree.Accessibility.Core",
@@ -89,6 +88,7 @@
     "SystemCapability.Notification.Emitter",
     "SystemCapability.Resourceschedule.Ffrt.Core",
     "SystemCapability.Ability.Form",
+    "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
     "SystemCapability.Graphic.Graphic2D.EGL",
     "SystemCapability.Graphic.Graphic2D.GLES2",
     "SystemCapability.Graphic.Graphic2D.GLES3",
@@ -193,6 +193,7 @@
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.Multimedia.Media.Core",
     "SystemCapability.Security.CertificateManager",
-    "SystemCapability.MiscServices.Pasteboard"
+    "SystemCapability.MiscServices.Pasteboard",
+    "SystemCapability.Multimedia.Camera.Core"
   ]
 }

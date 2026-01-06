@@ -31,7 +31,7 @@ import { BuilderParam, Builder } from '@ohos.arkui.component';
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare enum OperationType {
@@ -39,28 +39,28 @@ export declare enum OperationType {
      * The TextArrow style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     TEXT_ARROW = 0,
     /**
      * The Button style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     BUTTON = 1,
     /**
      * The IconGroup style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     ICON_GROUP = 2,
     /**
      * The LoadingProgress style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     LOADING = 3
 }
@@ -68,7 +68,7 @@ export declare enum OperationType {
  * Declare type OperationOption
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare class OperationOption {
@@ -77,7 +77,7 @@ export declare class OperationOption {
      *
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     public value: ResourceStr;
     /**
@@ -85,7 +85,7 @@ export declare class OperationOption {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     public action?: () => void;
     /**
@@ -93,7 +93,7 @@ export declare class OperationOption {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     public accessibilityText?: ResourceStr;
     /**
@@ -101,7 +101,7 @@ export declare class OperationOption {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     public accessibilityDescription?: ResourceStr;
     /**
@@ -110,7 +110,7 @@ export declare class OperationOption {
      * @type { ?string }
      * @default "auto"
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     public accessibilityLevel?: string;
     /**
@@ -119,7 +119,7 @@ export declare class OperationOption {
      * @type { ?boolean }
      * @default { false }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     public defaultFocus?: boolean;
 }
@@ -127,7 +127,7 @@ export declare class OperationOption {
  * Declare type SelectOption
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare class SelectOptions {
@@ -136,7 +136,7 @@ export declare class SelectOptions {
      *
      * @type { Array<SelectOption> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     public options: Array<SelectOption>;
     /**
@@ -144,7 +144,7 @@ export declare class SelectOptions {
      *
      * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     public selected?: int;
     /**
@@ -152,7 +152,7 @@ export declare class SelectOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     public value?: ResourceStr;
     /**
@@ -160,7 +160,7 @@ export declare class SelectOptions {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     public onSelect?: (index: int, value?: string) => void;
     /**
@@ -169,7 +169,7 @@ export declare class SelectOptions {
      * @type { ?boolean }
      * @default { false }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     public defaultFocus?: boolean;
 }
@@ -177,7 +177,7 @@ export declare class SelectOptions {
 * Declare type SymbolOptions
 *
 * @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 22 static
+* @since 23 static
 * @noninterop
 */
 export declare class SymbolOptions {
@@ -186,7 +186,7 @@ export declare class SymbolOptions {
      *
      * @type { ?(double | string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     public fontSize?: double | string | Resource;
     /**
@@ -194,7 +194,7 @@ export declare class SymbolOptions {
      *
      * @type { ?Array<ResourceColor> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     public fontColor?: Array<ResourceColor>;
     /**
@@ -202,7 +202,7 @@ export declare class SymbolOptions {
      *
      * @type { ?(int | FontWeight | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     public fontWeight?: int | FontWeight | string;
     /**
@@ -210,7 +210,7 @@ export declare class SymbolOptions {
      *
      * @type { ?SymbolEffectStrategy }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     public effectStrategy?: SymbolEffectStrategy;
     /**
@@ -218,7 +218,7 @@ export declare class SymbolOptions {
      *
      * @type { ?SymbolRenderingStrategy }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     public renderingStrategy?: SymbolRenderingStrategy;
 }
@@ -226,7 +226,7 @@ export declare class SymbolOptions {
  * Declare struct SubHeader
  * @struct { SubHeader }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @Component
@@ -236,7 +236,7 @@ export declare struct SubHeader {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     @PropRef
     icon?: ResourceStr;
@@ -245,7 +245,7 @@ export declare struct SubHeader {
      *
      * @type { ?SymbolOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     iconSymbolOptions?: SymbolOptions;
     /**
@@ -253,7 +253,7 @@ export declare struct SubHeader {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     @PropRef
     primaryTitle?: ResourceStr;
@@ -262,7 +262,7 @@ export declare struct SubHeader {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     @PropRef
     secondaryTitle?: ResourceStr;
@@ -271,7 +271,7 @@ export declare struct SubHeader {
      *
      * @type { ?SelectOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     select?: SelectOptions;
     /**
@@ -279,7 +279,7 @@ export declare struct SubHeader {
      *
      * @type { ?OperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     @PropRef
     operationType?: OperationType;
@@ -288,7 +288,7 @@ export declare struct SubHeader {
      *
      * @type { ?Array<OperationOption> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     operationItem?: Array<OperationOption>;
     /**
@@ -296,7 +296,7 @@ export declare struct SubHeader {
      *
      * @type { ?Array<SymbolOptions> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     operationSymbolOptions?: Array<SymbolOptions>;
     /**
@@ -304,7 +304,7 @@ export declare struct SubHeader {
      *
      * @type { ?TextModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     primaryTitleModifier?: TextModifier;
     /**
@@ -312,7 +312,7 @@ export declare struct SubHeader {
      *
      * @type { ?TextModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     secondaryTitleModifier?: TextModifier;
     /**
@@ -320,7 +320,7 @@ export declare struct SubHeader {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     @BuilderParam
     titleBuilder?: () => void;
@@ -331,7 +331,7 @@ export declare struct SubHeader {
      * @default {start: LengthMetrics.resource($r('sys.float.margin_left')),
      * <br> end: LengthMetrics.resource($r('sys.float.margin_right'))}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     @PropRef
     contentMargin?: LocalizedMargin;
@@ -343,14 +343,14 @@ export declare struct SubHeader {
      *     <br> When the left area is secondaryTitle or the group of secondaryTitle and icon,
      *     <br> the default value is {start: LengthMetrics.vp(12), end: LengthMetrics.vp(12)};
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     @PropRef
     contentPadding?: LocalizedPadding;
     /**
      * The method to build component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 staticonly
+     * @since 23 staticonly
      */
     @Builder
     build(): void;

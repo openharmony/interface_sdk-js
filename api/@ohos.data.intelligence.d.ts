@@ -24,7 +24,7 @@
  * @namespace intelligence
  * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
  * @since 15 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace intelligence {
   /**
@@ -38,7 +38,7 @@ declare namespace intelligence {
    * @throws { BusinessError } 31300000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTextEmbeddingModel(config: ModelConfig): Promise<TextEmbedding>;
 
@@ -53,7 +53,7 @@ declare namespace intelligence {
    * @throws { BusinessError } 31300000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getImageEmbeddingModel(config: ModelConfig): Promise<ImageEmbedding>;
 
@@ -63,7 +63,7 @@ declare namespace intelligence {
    * @interface ModelConfig
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ModelConfig {
     /**
@@ -73,7 +73,7 @@ declare namespace intelligence {
      * @type { ModelVersion }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     version: ModelVersion;
 
@@ -83,7 +83,7 @@ declare namespace intelligence {
      * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isNpuAvailable: boolean;
 
@@ -93,7 +93,7 @@ declare namespace intelligence {
      * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     cachePath?: string;
   }
@@ -104,7 +104,7 @@ declare namespace intelligence {
    * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ModelVersion {
     /**
@@ -112,7 +112,7 @@ declare namespace intelligence {
      *
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BASIC_MODEL = 0
   }
@@ -124,7 +124,7 @@ declare namespace intelligence {
    * @interface TextEmbedding
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface TextEmbedding {
     /**
@@ -135,7 +135,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     loadModel(): Promise<void>;
 
@@ -147,7 +147,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     releaseModel(): Promise<void>;
 
@@ -163,7 +163,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getEmbedding(text: string): Promise<Array<double>>;
 
@@ -179,7 +179,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getEmbedding(batchTexts: Array<string>): Promise<Array<Array<double>>>;
   }
@@ -190,7 +190,7 @@ declare namespace intelligence {
    * @interface ImageEmbedding
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ImageEmbedding {
     /**
@@ -201,7 +201,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     loadModel(): Promise<void>;
 
@@ -213,7 +213,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     releaseModel(): Promise<void>;
 
@@ -229,7 +229,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getEmbedding(image: Image): Promise<Array<double>>;
   }
@@ -240,7 +240,7 @@ declare namespace intelligence {
    * @typedef { string } Image
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type Image = string;
 
@@ -256,7 +256,7 @@ declare namespace intelligence {
    * @throws { BusinessError } 31300000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function splitText(text: string, config: SplitConfig): Promise<Array<string>>;
 
@@ -266,7 +266,7 @@ declare namespace intelligence {
    * @interface SplitConfig
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SplitConfig {
     /**
@@ -275,7 +275,7 @@ declare namespace intelligence {
      * @type { int }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     size: int;
 
@@ -285,7 +285,7 @@ declare namespace intelligence {
      * @type { double }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     overlapRatio: double;
   }

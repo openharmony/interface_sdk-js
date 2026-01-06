@@ -24,7 +24,7 @@ import { __memo_context_type, __memo_id_type } from './runtime/state';
  * Defining Memo annotation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Memo {};
@@ -33,7 +33,7 @@ export declare @interface Memo {};
  * Defining MemoIntrinsic annotation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface MemoIntrinsic {};
@@ -42,7 +42,7 @@ export declare @interface MemoIntrinsic {};
  * Defining MemoSkip annotation.
  * MemoSkip parameter will not be a state varaiable in Builder functions.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface MemoSkip {};

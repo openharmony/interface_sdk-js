@@ -29,7 +29,7 @@ import type image from './@ohos.multimedia.image';
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @stagemodelonly
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace securityManager {
   /**
@@ -314,7 +314,7 @@ declare namespace securityManager {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getPasswordPolicy(): PasswordPolicy;
 
@@ -496,13 +496,53 @@ declare namespace securityManager {
     function getExternalSourceExtensionsPolicy(admin: Want): common.ManagedPolicy;
 
   /**
+   * Installs an enterprise re-signature certificate.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } certificateAlias - certificateAlias indicates the alias of enterprise re-signature certificate.
+   * @param { int } fd - fd indicates the file descriptor of an enterprise re-signature certificate.
+   * @param { int } accountId - accountId indicates the local ID of the OS account.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9201006 - The number of certificates has reached the limit.
+   * @throws { BusinessError } 9201007 - The certificate is invalid.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function installEnterpriseReSignatureCertificate(admin: Want, certificateAlias: string, fd: int, accountId: int): void;
+
+  /**
+   * Uninstalls the specific enterprise re-signature certificate.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } certificateAlias - certificateAlias indicates the alias of enterprise re-signature certificate.
+   * @param { int } accountId - accountId indicates the local ID of the OS account.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9201008 - The certificate does not exist.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function uninstallEnterpriseReSignatureCertificate(admin: Want, certificateAlias: string, accountId: int): void;
+
+  /**
    * Password policy.
    * 
    * @typedef PasswordPolicy
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface PasswordPolicy {
     /**
@@ -512,7 +552,7 @@ declare namespace securityManager {
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     complexityRegex?: string;
 
@@ -523,7 +563,7 @@ declare namespace securityManager {
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     validityPeriod?: long;
 
@@ -534,7 +574,7 @@ declare namespace securityManager {
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     additionalDescription?: string;
   }

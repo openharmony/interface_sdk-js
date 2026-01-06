@@ -638,7 +638,7 @@ declare namespace advertising {
    * @param { common.UIAbilityContext } context - Indicates the ui ability context of the media application.
    * @param { boolean } needRefresh - Controls whether to refresh the page (true: refresh required; false: no refresh needed).
    * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: Mandatory parameters are left unspecified.
-   * @throws { BusinessError } 21800001 - operation javascriptRegister error.
+   * @throws { BusinessError } 21800001 - System internal error.
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice
    * @since 16
@@ -650,7 +650,7 @@ declare namespace advertising {
    * @param { web_webview.WebviewController } controller - Indicates webview controller to delete ad javascript proxy interface.
    * @param { boolean } needRefresh - Controls whether to refresh the page (true: refresh required; false: no refresh needed).
    * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: Mandatory parameters are left unspecified.
-   * @throws { BusinessError } 21800001 - operation javascriptRegister error.
+   * @throws { BusinessError } 21800001 - System internal error.
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice
    * @since 16

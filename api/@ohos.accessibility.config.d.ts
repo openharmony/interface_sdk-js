@@ -28,7 +28,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace config {
   /**
@@ -37,7 +37,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const daltonizationState: Config<boolean>;
   /**
@@ -46,7 +46,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const audioMono: Config<boolean>;
   /**
@@ -56,7 +56,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const audioBalance: Config<double>;
   /**
@@ -66,7 +66,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   let highContrastText: Config<boolean>;
   /**
@@ -76,7 +76,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   let invertColor: Config<boolean>;
   /**
@@ -86,7 +86,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   let daltonizationColorFilter: Config<DaltonizationColorFilter>;
   /**
@@ -96,7 +96,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   let contentTimeout: Config<int>;
   /**
@@ -106,7 +106,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   let animationOff: Config<boolean>;
   /**
@@ -116,7 +116,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   let brightnessDiscount: Config<double>;
   /**
@@ -126,7 +126,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   let mouseKey: Config<boolean>;
   /**
@@ -136,7 +136,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   let mouseAutoClick: Config<int>;
   /**
@@ -146,7 +146,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   let shortkey: Config<boolean>;
   /**
@@ -156,7 +156,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   let shortkeyTarget: Config<string>;
   /**
@@ -165,7 +165,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const shortkeyMultiTargets: Config<Array<string>>;
   /**
@@ -175,7 +175,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   let captions: Config<boolean>;
   /**
@@ -185,7 +185,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   let captionsStyle: Config<accessibility.CaptionsStyle>;
   /**
@@ -194,7 +194,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const clickResponseTime: Config<ClickResponseTime>;
   /**
@@ -203,7 +203,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const ignoreRepeatClick: Config<boolean>;
   /**
@@ -212,7 +212,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const repeatClickInterval: Config<RepeatClickInterval>;
   /**
@@ -221,7 +221,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   const screenMagnification: Config<boolean>;
 
@@ -244,7 +244,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableAbility(name: string, capability: Array<accessibility.Capability>): Promise<void>;
 
@@ -267,7 +267,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableAbility(
     name: string,
@@ -316,7 +316,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function disableAbility(name: string): Promise<void>;
 
@@ -337,7 +337,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function disableAbility(name: string, callback: AsyncCallback<void>): void;
 
@@ -370,7 +370,7 @@ declare namespace config {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onEnabledAccessibilityExtensionListChange(callback: Callback<void>): void;
 
@@ -403,7 +403,7 @@ declare namespace config {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onInstalledAccessibilityListChange(callback: Callback<void>): void;
 
@@ -436,7 +436,7 @@ declare namespace config {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offEnabledAccessibilityExtensionListChange(callback?: Callback<void>): void;
 
@@ -469,7 +469,7 @@ declare namespace config {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offInstalledAccessibilityListChange(callback?: Callback<void>): void;
 
@@ -485,7 +485,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static 
+   * @since 23 static
    */
   function setMagnificationState(state: boolean): void;
 
@@ -496,7 +496,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Config<T> {
     /**
@@ -515,7 +515,7 @@ declare namespace config {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     set(value: T): Promise<void>;
 
@@ -535,7 +535,7 @@ declare namespace config {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     set(value: T, callback: AsyncCallback<void>): void;
 
@@ -543,11 +543,13 @@ declare namespace config {
      * Getting configuration value.
      *
      * @returns { Promise<T> }
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get(): Promise<T>;
 
@@ -559,7 +561,7 @@ declare namespace config {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     get(callback: AsyncCallback<T>): void;
 
@@ -578,7 +580,7 @@ declare namespace config {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     on(callback: Callback<T>): void;
 
@@ -593,7 +595,7 @@ declare namespace config {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     off(callback?: Callback<T>): void;
   }
@@ -639,7 +641,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type DaltonizationColorFilter = 'Normal' | 'Protanomaly' | 'Deuteranomaly' | 'Tritanomaly';
 
@@ -650,7 +652,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type ClickResponseTime = 'Short' | 'Medium' | 'Long';
 
@@ -661,7 +663,7 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type RepeatClickInterval = 'Shortest' | 'Short' | 'Medium' | 'Long' | 'Longest';
 }

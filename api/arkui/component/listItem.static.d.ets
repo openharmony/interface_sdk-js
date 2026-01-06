@@ -28,21 +28,21 @@ import { AttributeModifier, CommonMethod } from "./common";
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum SwipeEdgeEffect {
     /**
      * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     Spring,
     /**
      * Sliding to the edge has no effect.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     None
 }
@@ -51,28 +51,28 @@ export declare enum SwipeEdgeEffect {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum SwipeActionState {
     /**
      * Collapsed type.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     COLLAPSED,
     /**
      * EXPANDED type.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     EXPANDED,
     /**
      * Action type.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     ACTIONING
 }
@@ -81,7 +81,7 @@ export declare enum SwipeActionState {
  *
  * @interface SwipeActionItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface SwipeActionItem {
     /**
@@ -90,7 +90,7 @@ export declare interface SwipeActionItem {
      *
      * @type { ?CustomBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     builder?: CustomBuilder;
     /**
@@ -99,7 +99,7 @@ export declare interface SwipeActionItem {
       *
       * @type { ?ComponentContent }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 22 static
+      * @since 23 static
       */
     builderComponent?: ComponentContent;
     /**
@@ -108,7 +108,7 @@ export declare interface SwipeActionItem {
      * @type { ?Length }
      * @default 56vp
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     actionAreaDistance?: Length;
     /**
@@ -116,7 +116,7 @@ export declare interface SwipeActionItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     onAction?: () => void;
     /**
@@ -124,7 +124,7 @@ export declare interface SwipeActionItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     onEnterActionArea?: () => void;
     /**
@@ -132,7 +132,7 @@ export declare interface SwipeActionItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     onExitActionArea?: () => void;
     /**
@@ -140,7 +140,7 @@ export declare interface SwipeActionItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     onStateChange?: (state: SwipeActionState) => void;
 }
@@ -149,7 +149,7 @@ export declare interface SwipeActionItem {
  *
  * @interface SwipeActionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface SwipeActionOptions {
     /**
@@ -158,7 +158,7 @@ export declare interface SwipeActionOptions {
      *
      * @type { ?(CustomBuilder | SwipeActionItem) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     start?: CustomBuilder | SwipeActionItem;
     /**
@@ -167,7 +167,7 @@ export declare interface SwipeActionOptions {
      *
      * @type { ?(CustomBuilder | SwipeActionItem) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     end?: CustomBuilder | SwipeActionItem;
     /**
@@ -175,7 +175,7 @@ export declare interface SwipeActionOptions {
      *
      * @type { ?SwipeEdgeEffect }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     edgeEffect?: SwipeEdgeEffect;
     /**
@@ -183,7 +183,7 @@ export declare interface SwipeActionOptions {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     onOffsetChange?: (offset: double) => void;
 }
@@ -192,21 +192,21 @@ export declare interface SwipeActionOptions {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ListItemStyle {
     /**
      * Show custom style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     NONE = 0,
     /**
      * Show default style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     CARD = 1
 }
@@ -215,7 +215,7 @@ export declare enum ListItemStyle {
  *
  * @interface ListItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ListItemOptions {
     /**
@@ -223,7 +223,7 @@ export declare interface ListItemOptions {
      *
      * @type { ?ListItemStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     style?: ListItemStyle;
 }
@@ -234,7 +234,7 @@ export declare interface ListItemOptions {
  * @extends CommonMethod
  * @interface ListItemAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ListItemAttribute extends CommonMethod {
     /**
@@ -243,7 +243,7 @@ export declare interface ListItemAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default selectable(value: boolean | undefined): this;
     /**
@@ -253,7 +253,7 @@ export declare interface ListItemAttribute extends CommonMethod {
      * @param { boolean | Bindable<boolean> | undefined } value - if the listItem is selected.
      * @returns { this } the attribute of the listItem.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default selected(value: boolean | Bindable<boolean> | undefined): this;
     /**
@@ -262,7 +262,7 @@ export declare interface ListItemAttribute extends CommonMethod {
      * @param { SwipeActionOptions | undefined } value - items defines in the SwipeActionOption.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default swipeAction(value: SwipeActionOptions | undefined): this;
     /**
@@ -271,7 +271,7 @@ export declare interface ListItemAttribute extends CommonMethod {
      * @param { function | undefined } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default onSelect(event: ((isSelected: boolean) => void) | undefined): this;
     /**
@@ -280,7 +280,7 @@ export declare interface ListItemAttribute extends CommonMethod {
      * @param { AttributeModifier<ListAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ListItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -292,7 +292,7 @@ export declare interface ListItemAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_]
  * @returns { ListItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @ComponentBuilder
 export declare function ListItem(

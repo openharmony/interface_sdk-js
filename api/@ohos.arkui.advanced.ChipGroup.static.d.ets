@@ -30,7 +30,7 @@ import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
  *
  * @interface IconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface IconOptions {
@@ -40,7 +40,7 @@ export interface IconOptions {
      *
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     src: ResourceStr;
@@ -50,7 +50,7 @@ export interface IconOptions {
      *
      * @type { ?SizeOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     size?: SizeOptions;
@@ -62,7 +62,7 @@ export interface IconOptions {
  * @extends IconOptions
  * @interface SuffixImageIconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface SuffixImageIconOptions extends IconOptions {
@@ -71,7 +71,7 @@ export interface SuffixImageIconOptions extends IconOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     action?: VoidCallback;
@@ -81,7 +81,7 @@ export interface SuffixImageIconOptions extends IconOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     accessibilityText?: ResourceStr;
@@ -91,7 +91,7 @@ export interface SuffixImageIconOptions extends IconOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     accessibilityDescription?: ResourceStr;
@@ -102,7 +102,7 @@ export interface SuffixImageIconOptions extends IconOptions {
      * @type { ?string }
      * @default "auto"
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     accessibilityLevel?: string;
@@ -114,7 +114,7 @@ export interface SuffixImageIconOptions extends IconOptions {
  * @interface ChipItemLabelOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface ChipItemLabelOptions {
@@ -125,7 +125,7 @@ export interface ChipItemLabelOptions {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     text: string;
@@ -137,7 +137,7 @@ export interface ChipItemLabelOptions {
  *
  * @interface ChipGroupItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface ChipGroupItemOptions {
@@ -147,7 +147,7 @@ export interface ChipGroupItemOptions {
      *
      * @type { ?IconOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     prefixIcon?: IconOptions;
@@ -157,7 +157,7 @@ export interface ChipGroupItemOptions {
      *
      * @type { ?ChipSymbolGlyphOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     prefixSymbol?: ChipSymbolGlyphOptions;
@@ -168,7 +168,7 @@ export interface ChipGroupItemOptions {
      * @type { ChipItemLabelOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     label: ChipItemLabelOptions;
@@ -178,7 +178,7 @@ export interface ChipGroupItemOptions {
      *
      * @type { ?SuffixImageIconOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     suffixImageIcon?: SuffixImageIconOptions;
@@ -188,7 +188,7 @@ export interface ChipGroupItemOptions {
      *
      * @type { ?ChipSymbolGlyphOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     suffixSymbol?: ChipSymbolGlyphOptions;
@@ -198,7 +198,7 @@ export interface ChipGroupItemOptions {
      *
      * @type { ?ChipSuffixSymbolGlyphOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     suffixSymbolOptions?: ChipSuffixSymbolGlyphOptions;
@@ -208,7 +208,7 @@ export interface ChipGroupItemOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     allowClose?: boolean;
@@ -218,7 +218,7 @@ export interface ChipGroupItemOptions {
      *
      * @type { ?CloseOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     closeOptions?: CloseOptions;
@@ -228,7 +228,7 @@ export interface ChipGroupItemOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     accessibilityDescription?: ResourceStr;
@@ -239,7 +239,7 @@ export interface ChipGroupItemOptions {
      * @type { ?string }
      * @default "auto"
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     accessibilityLevel?: string;
@@ -251,7 +251,7 @@ export interface ChipGroupItemOptions {
  *
  * @interface ChipItemStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface ChipItemStyle {
@@ -261,7 +261,7 @@ export interface ChipItemStyle {
      *
      * @type { ?(ChipSize | SizeOptions) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     size?: ChipSize | SizeOptions;
@@ -271,7 +271,7 @@ export interface ChipItemStyle {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     backgroundColor?: ResourceColor;
@@ -281,7 +281,7 @@ export interface ChipItemStyle {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     fontColor?: ResourceColor;
@@ -291,7 +291,7 @@ export interface ChipItemStyle {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     selectedFontColor?: ResourceColor;
@@ -301,7 +301,7 @@ export interface ChipItemStyle {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     selectedBackgroundColor?: ResourceColor;
@@ -313,7 +313,7 @@ export interface ChipItemStyle {
  *
  * @interface ChipGroupSpaceOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface ChipGroupSpaceOptions {
@@ -323,7 +323,7 @@ export interface ChipGroupSpaceOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     itemSpace?: string | double;
@@ -333,7 +333,7 @@ export interface ChipGroupSpaceOptions {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     startSpace?: Length;
@@ -343,7 +343,7 @@ export interface ChipGroupSpaceOptions {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     endSpace?: Length;
@@ -354,7 +354,7 @@ export interface ChipGroupSpaceOptions {
  *
  * @interface IconItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface IconItemOptions {
@@ -363,7 +363,7 @@ export interface IconItemOptions {
      *
      * @type { IconOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     icon: IconOptions;
@@ -373,7 +373,7 @@ export interface IconItemOptions {
      *
      * @type { VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     action: VoidCallback;
@@ -383,7 +383,7 @@ export interface IconItemOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     accessibilityText?: ResourceStr;
@@ -393,7 +393,7 @@ export interface IconItemOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     accessibilityDescription?: ResourceStr;
@@ -404,7 +404,7 @@ export interface IconItemOptions {
      * @type { ?string }
      * @default "auto"
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     accessibilityLevel?: string;
@@ -415,7 +415,7 @@ export interface IconItemOptions {
  *
  * @interface SymbolItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface SymbolItemOptions {
@@ -424,7 +424,7 @@ export interface SymbolItemOptions {
      *
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     symbol: SymbolGlyphModifier;
@@ -434,7 +434,7 @@ export interface SymbolItemOptions {
      *
      * @type { VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     action: VoidCallback;
@@ -444,7 +444,7 @@ export interface SymbolItemOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     accessibilityText?: ResourceStr;
@@ -454,7 +454,7 @@ export interface SymbolItemOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     accessibilityDescription?: ResourceStr;
@@ -465,7 +465,7 @@ export interface SymbolItemOptions {
      * @type { ?string }
      * @default "auto"
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     accessibilityLevel?: string;
@@ -476,7 +476,7 @@ export interface SymbolItemOptions {
  *
  * @interface ChipGroupPaddingOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export interface ChipGroupPaddingOptions {
@@ -485,7 +485,7 @@ export interface ChipGroupPaddingOptions {
      *
      * @type { Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     top: Length;
@@ -495,7 +495,7 @@ export interface ChipGroupPaddingOptions {
      *
      * @type { Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     bottom: Length;
@@ -506,7 +506,7 @@ export interface ChipGroupPaddingOptions {
  *
  * @struct IconGroupSuffix
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @Component
@@ -514,21 +514,21 @@ export declare struct IconGroupSuffix {
     /**
      * Suffix item.
      *
-     * @type { Array<IconItemOptions | SymbolGlyphModifier> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     * @noninterop
-     */
-    /**
-     * Suffix item.
-     *
      * @type { Array<IconItemOptions | SymbolGlyphModifier | SymbolItemOptions> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Require @PropRef
     items: Array<IconItemOptions | SymbolGlyphModifier | SymbolItemOptions>;
+
+    /**
+     * The method to build component.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 staticonly
+     */
+    @Builder
+    build(): void;
 }
 
 /**
@@ -536,7 +536,7 @@ export declare struct IconGroupSuffix {
  *
  * @typedef { function } ChipGroupSuffixBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @Builder
@@ -547,7 +547,7 @@ export type ChipGroupSuffixBuilder = () => void;
  *
  * @struct ChipGroup
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 @Component
@@ -558,7 +558,7 @@ export declare struct ChipGroup {
      *
      * @type { ChipGroupItemOptions[] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @Require @PropRef
@@ -569,7 +569,7 @@ export declare struct ChipGroup {
      *
      * @type { ?ChipItemStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @PropRef
@@ -580,7 +580,7 @@ export declare struct ChipGroup {
      *
      * @type { ?Array<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @PropRef
@@ -591,7 +591,7 @@ export declare struct ChipGroup {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @PropRef
@@ -602,7 +602,7 @@ export declare struct ChipGroup {
      *
      * @type { ?ChipGroupSpaceOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @PropRef
@@ -613,7 +613,7 @@ export declare struct ChipGroup {
      *
      * @type { ?ChipGroupPaddingOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @PropRef
@@ -624,7 +624,7 @@ export declare struct ChipGroup {
      *
      * @type { ?Callback<Array<int>> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     onChange?: Callback<Array<int>>;
@@ -634,7 +634,7 @@ export declare struct ChipGroup {
      *
      * @type { ?ChipGroupSuffixBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      * @noninterop
      */
     @BuilderParam
@@ -643,7 +643,7 @@ export declare struct ChipGroup {
     /**
      * The method to build component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 staticonly
+     * @since 23 staticonly
      */
     @Builder
     build(): void;

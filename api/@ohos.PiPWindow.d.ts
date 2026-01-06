@@ -180,7 +180,8 @@ declare namespace PiPWindow {
      * @default -1
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     handleId?: number;
 
@@ -283,7 +284,8 @@ declare namespace PiPWindow {
      * @default true
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     cornerAdsorptionEnabled?: boolean;
   }
@@ -1049,7 +1051,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updateContentSize(width: number, height: number): void;
 
@@ -1061,7 +1063,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
 
@@ -1088,7 +1090,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
 
@@ -1113,6 +1115,22 @@ declare namespace PiPWindow {
      * @since 20 dynamic
      */
      getPiPSettingSwitch(): Promise<boolean>;
+
+    /**
+     * Returns a Boolean value that indicates whether picture-in-picture is active
+     *
+     * Device Behavior Differences:This interface can be normally invoked on phone, tablet, PC and TV devices,
+     * but cannot be invoked on other devices because the controller cannot be created on them.
+     * 
+     * @returns { Promise<boolean> } - The promise used to return the PIP window active status.
+     *     True if PIP window is onscreen, otherwise false.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 23 dynamic
+     * @since 23 static
+     */
+    isPiPActive(): Promise<boolean>;
 
     /**
      * Register picture-in-picture control event listener.

@@ -3040,7 +3040,8 @@ declare namespace inputMethodEngine {
      *     Possible causes: Panel's flag is FLG_FIXED.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     setShadow(radius: double, color: string, offsetX: double, offsetY: double): void;
 
@@ -3056,7 +3057,8 @@ declare namespace inputMethodEngine {
      *     Note: Values with fully transparent alpha channel (#00xxxxxx) are not supported.
      * @returns { Promise<void> } the promise returned by the function.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     setSystemPanelButtonColor(fillColor: string | undefined, backgroundColor: string | undefined): Promise<void>;
 

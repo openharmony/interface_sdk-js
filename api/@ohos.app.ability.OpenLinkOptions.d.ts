@@ -18,9 +18,7 @@
  * @kit AbilityKit
  */
 
-/*** if arkts dynamic */
 import CompletionHandler from './@ohos.app.ability.CompletionHandler';
-/*** endif */
 /*** if arkts static */
 import { RecordData } from './@ohos.base';
 /*** endif */
@@ -33,7 +31,7 @@ import { RecordData } from './@ohos.base';
  * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export default interface OpenLinkOptions {
   /**
@@ -45,7 +43,7 @@ export default interface OpenLinkOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   appLinkingOnly?: boolean;
 
@@ -66,7 +64,7 @@ export default interface OpenLinkOptions {
    * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   parameters?: Record<string, RecordData>;
 
@@ -78,6 +76,7 @@ export default interface OpenLinkOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 21 dynamic
+   * @since 23 static
    */
   completionHandler?: CompletionHandler;
 
@@ -90,7 +89,7 @@ export default interface OpenLinkOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   hideFailureTipDialog?: boolean;
 }

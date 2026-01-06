@@ -24,7 +24,7 @@
  * @typedef OverlayModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface OverlayModuleInfo {
   /**
@@ -34,7 +34,7 @@ export interface OverlayModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly bundleName: string;
 
@@ -45,7 +45,7 @@ export interface OverlayModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly moduleName: string;
 
@@ -56,7 +56,7 @@ export interface OverlayModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly targetModuleName: string;
 
@@ -67,7 +67,7 @@ export interface OverlayModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly priority: int;
 
@@ -78,7 +78,7 @@ export interface OverlayModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly state: int;
 }

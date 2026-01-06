@@ -28,21 +28,21 @@ import { AttributeModifier, CommonMethod } from "./common";
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ListItemGroupStyle {
     /**
      * Show custom style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     NONE = 0,
     /**
      * Show default style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     CARD = 1
 }
@@ -51,7 +51,7 @@ export declare enum ListItemGroupStyle {
  *
  * @interface ListItemGroupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ListItemGroupOptions {
     /**
@@ -59,7 +59,7 @@ export declare interface ListItemGroupOptions {
      *
      * @type { ?CustomBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     header?: CustomBuilder;
     /**
@@ -67,7 +67,7 @@ export declare interface ListItemGroupOptions {
       *
       * @type { ?ComponentContentBase }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 22 static
+      * @since 23 static
       */
     headerComponent?: ComponentContentBase;
     /**
@@ -75,7 +75,7 @@ export declare interface ListItemGroupOptions {
      *
      * @type { ?CustomBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     footer?: CustomBuilder;
     /**
@@ -83,7 +83,7 @@ export declare interface ListItemGroupOptions {
       *
       * @type { ?ComponentContentBase }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 22 static
+      * @since 23 static
       */
     footerComponent?: ComponentContentBase;
     /**
@@ -91,7 +91,7 @@ export declare interface ListItemGroupOptions {
      *
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     space?: double | string;
     /**
@@ -99,7 +99,7 @@ export declare interface ListItemGroupOptions {
      *
      * @type { ?ListItemGroupStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     style?: ListItemGroupStyle;
 }
@@ -110,7 +110,7 @@ export declare interface ListItemGroupOptions {
  * @extends CommonMethod
  * @interface ListItemGroupAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ListItemGroupAttribute extends CommonMethod {
     /**
@@ -120,7 +120,7 @@ export declare interface ListItemGroupAttribute extends CommonMethod {
      * @param { ListDividerOptions | null | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default divider(value: ListDividerOptions | null | undefined): this;
     /**
@@ -129,7 +129,7 @@ export declare interface ListItemGroupAttribute extends CommonMethod {
      * @param { ChildrenMainSize | undefined } value - children main size for ListItemGroup
      * @returns { this } the attribute of the ListItemGroup.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default childrenMainSize(value: ChildrenMainSize | undefined): this;
     /**
@@ -138,7 +138,7 @@ export declare interface ListItemGroupAttribute extends CommonMethod {
      * @param { AttributeModifier<ListItemGroupAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ListItemGroupAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -150,7 +150,7 @@ export declare interface ListItemGroupAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { ListItemGroupAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @ComponentBuilder
 export declare function ListItemGroup(

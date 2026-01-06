@@ -85,6 +85,7 @@ declare type Resource = import('../api/global/resource').Resource;
  *
  * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -284,6 +285,7 @@ declare type Percentage = `${number}%`;
  *
  * @typedef { `${number}deg` } Degree
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @atomicservice
  * @since 11 dynamic
  */
@@ -1117,7 +1119,7 @@ declare type BorderRadiuses = {
  * @atomicservice
  * @since 12 dynamic
  */
-declare interface LocalizedBorderRadiuses  {
+declare interface LocalizedBorderRadiuses {
   /**
    * top-start property.
    *
@@ -1427,7 +1429,7 @@ declare type EdgeColors = {
  * @atomicservice
  * @since 12 dynamic
  */
-declare interface LocalizedEdgeColors  {
+declare interface LocalizedEdgeColors {
   /**
    * top property.
    *
@@ -1486,7 +1488,7 @@ declare interface LocalizedEdgeColors  {
  * @form
  * @atomicservice
  * @since 12 dynamic
-*/
+ */
 declare type LocalizedMargin = LocalizedPadding;
 
 /**
@@ -1759,6 +1761,7 @@ declare type EdgeOutlineStyles = {
  *
  * @typedef { object } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1784,6 +1787,7 @@ declare type Offset = {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1810,6 +1814,7 @@ declare type Offset = {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1945,11 +1950,12 @@ declare type LengthConstrain = {
  *
  * @typedef { function } VoidCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
-declare type VoidCallback  = () => void;
+declare type VoidCallback = () => void;
 
 /**
  * Defines length metrics unit.
@@ -2324,6 +2330,7 @@ declare interface Area {
  *
  * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -2359,6 +2366,7 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -2395,6 +2403,7 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -2471,7 +2480,7 @@ declare interface Edges {
    */
   left?: Dimension;
 
-   /**
+  /**
    * bottom property.
    *
    * @type { ?Dimension }
@@ -2827,6 +2836,7 @@ declare interface ConstraintSizeOptions {
  *
  * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -2862,6 +2872,7 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -2898,6 +2909,7 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -3149,7 +3161,7 @@ declare interface BorderOptions {
 }
 
 /**
- * Defines the options of border.
+ * Defines the options of outline.
  *
  * @interface OutlineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3158,7 +3170,7 @@ declare interface BorderOptions {
  * @since 11
  */
 /**
- * Defines the options of border.
+ * Defines the options of outline.
  *
  * @interface OutlineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3720,6 +3732,7 @@ declare interface AccessibilityActionOptions {
  *
  * @interface ScrollBarMargin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 20 dynamic
  */
@@ -3729,6 +3742,7 @@ declare interface ScrollBarMargin {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -3739,6 +3753,7 @@ declare interface ScrollBarMargin {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -3782,6 +3797,7 @@ declare interface ItemFillPolicy {
  * Define cache count information.
  * @interface CacheCountInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
@@ -3791,6 +3807,7 @@ declare interface CacheCountInfo {
  * 
  * @type { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
@@ -3800,6 +3817,7 @@ minCount: number;
  * 
  * @type { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */

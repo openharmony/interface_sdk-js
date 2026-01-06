@@ -28,7 +28,7 @@ import commonType from '@ohos.data.commonType';
  * @namespace distributedDataObject
  * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
  * @since 8 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace distributedDataObject {
   /**
@@ -37,7 +37,7 @@ declare namespace distributedDataObject {
    * @interface BindInfo
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface BindInfo {
     /**
@@ -46,7 +46,7 @@ declare namespace distributedDataObject {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     storeName: string;
 
@@ -56,7 +56,7 @@ declare namespace distributedDataObject {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     tableName: string;
 
@@ -66,7 +66,7 @@ declare namespace distributedDataObject {
      * @type { commonType.ValuesBucket }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     primaryKey: commonType.ValuesBucket;
 
@@ -76,7 +76,7 @@ declare namespace distributedDataObject {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     field: string;
 
@@ -87,7 +87,7 @@ declare namespace distributedDataObject {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     assetName: string;
   }
@@ -114,7 +114,7 @@ declare namespace distributedDataObject {
    *                                                                   2. Incorrect parameter types.
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function create(context: Context, source: object): DataObject;
 
@@ -124,7 +124,7 @@ declare namespace distributedDataObject {
    * @returns { string } - Return generated sessionId.
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function genSessionId(): string;
 
@@ -135,7 +135,7 @@ declare namespace distributedDataObject {
    * @interface SaveSuccessResponse
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface SaveSuccessResponse {
     /**
@@ -144,7 +144,7 @@ declare namespace distributedDataObject {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sessionId: string;
 
@@ -154,7 +154,7 @@ declare namespace distributedDataObject {
      * @type { int }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     version: int;
 
@@ -166,7 +166,7 @@ declare namespace distributedDataObject {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     deviceId: string;
   }
@@ -178,7 +178,7 @@ declare namespace distributedDataObject {
    * @interface RevokeSaveSuccessResponse
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface RevokeSaveSuccessResponse {
     /**
@@ -187,7 +187,7 @@ declare namespace distributedDataObject {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     sessionId: string;
   }
@@ -200,7 +200,7 @@ declare namespace distributedDataObject {
    * @param { Array<string> } fields - Property names of changed data.
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type DataObserver = (sessionId: string, fields: Array<string>) => void;
 
@@ -215,7 +215,7 @@ declare namespace distributedDataObject {
    *                          'restored' The object restored success.
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type StatusObserver = (sessionId: string, networkId: string, status: string) => void;
 
@@ -228,7 +228,7 @@ declare namespace distributedDataObject {
    * <br>100 indicates that the asset sync is complete and -1 indicates that the asset sync failed.
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
     type ProgressObserver = (sessionId: string, progress: int) => void;
 
@@ -336,7 +336,7 @@ declare namespace distributedDataObject {
    * @interface DataObject
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DataObject {
     /**
@@ -363,7 +363,7 @@ declare namespace distributedDataObject {
      * @throws {BusinessError} 15400001 - Failed to create the in-memory database.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setSessionId(sessionId: string, callback: AsyncCallback<void>): void;
 
@@ -386,7 +386,7 @@ declare namespace distributedDataObject {
      * @throws {BusinessError} 15400001 - Failed to create the in-memory database.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setSessionId(callback: AsyncCallback<void>): void;
 
@@ -414,7 +414,7 @@ declare namespace distributedDataObject {
      * @throws {BusinessError} 15400001 - Failed to create the in-memory database.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setSessionId(sessionId?: string): Promise<void>;
 
@@ -512,7 +512,7 @@ declare namespace distributedDataObject {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     save(deviceId: string, callback: AsyncCallback<SaveSuccessResponse>): void;
 
@@ -533,7 +533,7 @@ declare namespace distributedDataObject {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     save(deviceId: string): Promise<SaveSuccessResponse>;
 
@@ -548,7 +548,7 @@ declare namespace distributedDataObject {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     revokeSave(callback: AsyncCallback<RevokeSaveSuccessResponse>): void;
 
@@ -561,7 +561,7 @@ declare namespace distributedDataObject {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     revokeSave(): Promise<RevokeSaveSuccessResponse>;
 
@@ -576,7 +576,7 @@ declare namespace distributedDataObject {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bindAssetStore(assetKey: string, bindInfo: BindInfo, callback: AsyncCallback<void>): void;
 
@@ -591,7 +591,7 @@ declare namespace distributedDataObject {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     bindAssetStore(assetKey: string, bindInfo: BindInfo): Promise<void>;
 
@@ -610,7 +610,7 @@ declare namespace distributedDataObject {
      *
      * @param { DataObserver } callback - The observer of object data changed.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
-     * @since 22 static
+     * @since 23 static
      */
     onChange(callback: DataObserver): void;
 
@@ -630,7 +630,7 @@ declare namespace distributedDataObject {
      * @param { DataObserver } [callback] - The observer of object data changed, if not null, off the callback, if 
      *     undefined, off all callbacks.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
-     * @since 22 static
+     * @since 23 static
      */
     offChange(callback?: DataObserver): void;
 
@@ -649,7 +649,7 @@ declare namespace distributedDataObject {
      *
      * @param { StatusObserver } callback - The observer of object status changed.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
-     * @since 22 static
+     * @since 23 static
      */
     onStatus(callback: StatusObserver): void
 
@@ -669,7 +669,7 @@ declare namespace distributedDataObject {
      * @param { StatusObserver } [callback] - The observer of object status changed, if not null, off the callback, if 
      *     undefined, off all callbacks.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
-     * @since 22 static
+     * @since 23 static
      */
     offStatus(callback?: StatusObserver): void;
 
@@ -689,7 +689,7 @@ declare namespace distributedDataObject {
      *
      * @param { ProgressObserver } callback Observer to be registered.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
-     * @since 22 static
+     * @since 23 static
      */
     onProgressChanged(callback: ProgressObserver): void;
 
@@ -711,7 +711,7 @@ declare namespace distributedDataObject {
      * @param { ProgressObserver } [callback] Observer to be unregistered.
      *     If this parameter is not set, all observers will be unregistered.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
-     * @since 22 static
+     * @since 23 static
      */
     offProgressChanged(callback?: ProgressObserver): void;
 
@@ -727,7 +727,7 @@ declare namespace distributedDataObject {
      * @throws {BusinessError} 15400003 - The sessionId of the distributed object has been set.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setAsset(assetKey: string, uri: string): Promise<void>;
 
@@ -743,9 +743,18 @@ declare namespace distributedDataObject {
      * @throws {BusinessError} 15400003 - The sessionId of the distributed object has been set.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setAssets(assetsKey: string, uris: Array<string>): Promise<void>;
+
+    /**
+     * Get and set value of property.
+     *
+     * @param { string } key - property name.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 23 static
+     */
+    [key: string]: Object | null | undefined;
   }
 }
 

@@ -24,7 +24,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @interface CircleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface CircleOptions {
     /**
@@ -32,7 +32,7 @@ export declare interface CircleOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     width?: string | double;
     /**
@@ -40,7 +40,7 @@ export declare interface CircleOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     height?: string | double;
 }
@@ -51,7 +51,7 @@ export declare interface CircleOptions {
  * @extends CommonShapeMethod
  * @interface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface CircleAttribute extends CommonShapeMethod {
     /**
@@ -60,7 +60,7 @@ export declare interface CircleAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<CircleAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { CircleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<CircleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -68,14 +68,14 @@ export declare interface CircleAttribute extends CommonShapeMethod {
 /**
  * Circle is returned when the parameter is transferred.
  *
- * @param { CircleOptions } [options] - The options to create a Circle
- * @param { CustomBuilder } [content_]
+ * @param { CircleOptions } [options] - The options to create a Circle.
  * @returns { CircleAttribute } The attribute of the Circle.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Circle(
-    options?: CircleOptions, 
-    content_?: CustomBuilder,
-): CircleAttribute
+    options?: CircleOptions
+): CircleAttribute;

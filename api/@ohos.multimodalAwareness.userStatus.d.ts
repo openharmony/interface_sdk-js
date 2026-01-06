@@ -97,7 +97,7 @@ declare namespace userStatus {
    * <br>4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function on(type: 'userAgeGroupDetected', callback: Callback<UserClassification>): void;
 
@@ -116,7 +116,7 @@ declare namespace userStatus {
    * <br>3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function off(type: 'userAgeGroupDetected', callback?: Callback<UserClassification>): void;
 }

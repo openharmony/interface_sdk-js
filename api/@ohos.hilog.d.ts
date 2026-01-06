@@ -45,7 +45,7 @@ import { RecordData } from '@ohos.base';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace hilog {
 
@@ -98,7 +98,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   function debug(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
@@ -151,7 +151,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   function info(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
@@ -204,7 +204,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   function warn(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
@@ -257,7 +257,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   function error(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
@@ -310,7 +310,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 22 static
+   * @since 23 static
    */
   function fatal(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
@@ -336,7 +336,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isLoggable(domain: int, tag: string, level: LogLevel): boolean;
 
@@ -347,7 +347,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @atomicservice
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
    function setMinLogLevel(level: LogLevel): void;
 
@@ -359,7 +359,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @atomicservice
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setLogLevel(level: LogLevel, prefer: PreferStrategy): void;
 
@@ -385,7 +385,7 @@ declare namespace hilog {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum LogLevel {
     /**
@@ -408,7 +408,7 @@ declare namespace hilog {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEBUG = 3,
     /**
@@ -431,7 +431,7 @@ declare namespace hilog {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INFO = 4,
     /**
@@ -454,7 +454,7 @@ declare namespace hilog {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WARN = 5,
     /**
@@ -477,7 +477,7 @@ declare namespace hilog {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ERROR = 6,
     /**
@@ -500,7 +500,7 @@ declare namespace hilog {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FATAL = 7
   }
@@ -513,7 +513,7 @@ declare namespace hilog {
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum PreferStrategy {
       /**
@@ -523,7 +523,7 @@ declare namespace hilog {
        * @crossplatform
        * @atomicservice
        * @since 21 dynamic
-       * @since 22 static
+       * @since 23 static
        */
       UNSET_LOGLEVEL = 0,
       /**
@@ -534,7 +534,7 @@ declare namespace hilog {
        * @crossplatform
        * @atomicservice
        * @since 21 dynamic
-       * @since 22 static
+       * @since 23 static
        */
       PREFER_CLOSE_LOG = 1,
       /**
@@ -544,7 +544,7 @@ declare namespace hilog {
        * @crossplatform
        * @atomicservice
        * @since 21 dynamic
-       * @since 22 static
+       * @since 23 static
        */
       PREFER_OPEN_LOG = 2,
   }

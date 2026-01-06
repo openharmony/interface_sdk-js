@@ -24,28 +24,28 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @interface PathOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface PathOptions {
     /**
      * Width option.
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     width?: double | string;
     /**
      * Height option.
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     height?: double | string;
     /**
      * Commands option.
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     commands?: string;
 }
@@ -56,7 +56,7 @@ export declare interface PathOptions {
  * @extends CommonShapeMethod
  * @interface PathAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface PathAttribute extends CommonShapeMethod {
     /**
@@ -65,7 +65,7 @@ export declare interface PathAttribute extends CommonShapeMethod {
      * @param { string | undefined } value
      * @returns { PathAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default commands(value: string | undefined): this;
     /**
@@ -74,7 +74,7 @@ export declare interface PathAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<PathAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { PathAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<PathAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -83,13 +83,13 @@ export declare interface PathAttribute extends CommonShapeMethod {
  * Path is returned when the parameter is transferred.
  *
  * @param { PathOptions } [options] - The options to create a Path
- * @param { CustomBuilder } [content_]
  * @returns { PathAttribute } The attribute of the Path.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Path(
-    options?: PathOptions, 
-    content_?: CustomBuilder,
-): PathAttribute
+    options?: PathOptions
+): PathAttribute;

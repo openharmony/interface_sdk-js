@@ -25,7 +25,7 @@ import type Want from './@ohos.app.ability.Want';
  * @namespace webNativeMessagingExtensionManager
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
- * @since 22 static
+ * @since 23 static
  */
 declare namespace webNativeMessagingExtensionManager {
     /**
@@ -33,7 +33,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @typedef ConnectionNativeInfo
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 22 static
+     * @since 23 static
      */
     interface ConnectionNativeInfo {
         /**
@@ -42,7 +42,7 @@ declare namespace webNativeMessagingExtensionManager {
          * @type { int }
          * @syscap SystemCapability.Web.Webview.Core
          * @stagemodelonly
-         * @since 22 static
+         * @since 23 static
          */
         connectionId: int;
         /**
@@ -51,7 +51,7 @@ declare namespace webNativeMessagingExtensionManager {
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
          * @stagemodelonly
-         * @since 22 static
+         * @since 23 static
          */
         bundleName: string;
         /**
@@ -60,7 +60,7 @@ declare namespace webNativeMessagingExtensionManager {
          * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
          * @stagemodelonly
-         * @since 22 static
+         * @since 23 static
          */
         extensionOrigin: string;
         /**
@@ -69,7 +69,7 @@ declare namespace webNativeMessagingExtensionManager {
          * @type { int }
          * @syscap SystemCapability.Web.Webview.Core
          * @stagemodelonly
-         * @since 22 static
+         * @since 23 static
          */
         extensionPid: int;
     }
@@ -79,7 +79,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @enum { int }
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 22 static
+     * @since 23 static
      */
     export enum NmErrorCode {
         /**
@@ -87,7 +87,7 @@ declare namespace webNativeMessagingExtensionManager {
          *
          * @syscap SystemCapability.Web.Webview.Core
          * @stagemodelonly
-         * @since 22 static
+         * @since 23 static
          */
         PERMISSION_DENY = 17100203,
         /**
@@ -95,7 +95,7 @@ declare namespace webNativeMessagingExtensionManager {
          *
          * @syscap SystemCapability.Web.Webview.Core
          * @stagemodelonly
-         * @since 22 static
+         * @since 23 static
          */
         WANT_CONTENT_ERROR = 17100202,
         /**
@@ -103,7 +103,7 @@ declare namespace webNativeMessagingExtensionManager {
          *
          * @syscap SystemCapability.Web.Webview.Core
          * @stagemodelonly
-         * @since 22 static
+         * @since 23 static
          */
         INNER_ERROR = 17100201
     }
@@ -113,7 +113,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @typedef WebExtensionConnectionCallback
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 22 static
+     * @since 23 static
      */
     interface WebExtensionConnectionCallback {
         /**
@@ -122,7 +122,7 @@ declare namespace webNativeMessagingExtensionManager {
          * @param { ConnectionNativeInfo } connection - The remote connection info
          * @syscap SystemCapability.Web.Webview.Core
          * @stagemodelonly
-         * @since 22 static
+         * @since 23 static
          */
         onConnect(connection: ConnectionNativeInfo): void;
         /**
@@ -131,7 +131,7 @@ declare namespace webNativeMessagingExtensionManager {
          * @param { ConnectionNativeInfo } connection - The remote connection info
          * @syscap SystemCapability.Web.Webview.Core
          * @stagemodelonly
-         * @since 22 static
+         * @since 23 static
          */
         onDisconnect(connection: ConnectionNativeInfo): void;
         /**
@@ -141,7 +141,7 @@ declare namespace webNativeMessagingExtensionManager {
          * @param { string } errMsg - The error message of the failure.
          * @syscap SystemCapability.Web.Webview.Core
          * @stagemodelonly
-         * @since 22 static
+         * @since 23 static
          */
         onFailed(code: NmErrorCode, errMsg: string): void;
     }
@@ -156,7 +156,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 22 static
+     * @since 23 static
      */
     function connectNative(context: UIAbilityContext, want: Want, callback: WebExtensionConnectionCallback): int;
     /**
@@ -172,7 +172,7 @@ declare namespace webNativeMessagingExtensionManager {
      *     2. The system service failed to communicate with dependency module.
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 22 static
+     * @since 23 static
      */
     function disconnectNative(connectionId: int): Promise<void>;
 }

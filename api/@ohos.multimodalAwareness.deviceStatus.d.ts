@@ -26,7 +26,7 @@ import type { Callback } from "./@ohos.base";
  * @namespace deviceStatus
  * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
  * @since 18 dynamic
- * @since 22 static
+ * @since 23 static
  */
 
 declare namespace deviceStatus {
@@ -36,7 +36,7 @@ declare namespace deviceStatus {
    * @enum { int } SteadyStandingStatus
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum SteadyStandingStatus {
     /**
@@ -44,7 +44,7 @@ declare namespace deviceStatus {
      *
      * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     STATUS_EXIT = 0,
     /**
@@ -52,7 +52,7 @@ declare namespace deviceStatus {
      *
      * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     STATUS_ENTER = 1
   }
@@ -138,7 +138,7 @@ declare namespace deviceStatus {
    * @throws { BusinessError } 32500001 - Service exception.
    * @throws { BusinessError } 32500002 - Subscription failed.
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
-   * @since 22 static
+   * @since 23 static
    */
   function onSteadyStandingDetect(callback: Callback<SteadyStandingStatus>): void
 
@@ -150,7 +150,7 @@ declare namespace deviceStatus {
    * @throws { BusinessError } 32500001 - Service exception.
    * @throws { BusinessError } 32500003 - Unsubscription failed.
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
-   * @since 22 static
+   * @since 23 static
    */
    function offSteadyStandingDetect(callback?: Callback<SteadyStandingStatus>): void
 }

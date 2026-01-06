@@ -30,7 +30,7 @@ import { AttributeModifier, CommonMethod } from './common';
  * @interface WindowSceneAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 export declare interface WindowSceneAttribute extends CommonMethod {
   /**
@@ -42,7 +42,7 @@ export declare interface WindowSceneAttribute extends CommonMethod {
    * @returns { WindowSceneAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   default attractionEffect(destination: Position | undefined, fraction: double | undefined): this;
 
@@ -53,7 +53,7 @@ export declare interface WindowSceneAttribute extends CommonMethod {
    * @returns { WindowSceneAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   default attributeModifier(modifier:
     AttributeModifier<WindowSceneAttribute> | AttributeModifier<CommonMethod> | undefined) : this;
@@ -67,7 +67,7 @@ export declare interface WindowSceneAttribute extends CommonMethod {
  * @returns { WindowSceneAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @since 23 static
  */
 @ComponentBuilder
 export declare function WindowScene(

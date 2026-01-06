@@ -1238,16 +1238,16 @@ export class FrameNode {
   getNodePropertyValue(property: AnimationPropertyType): number[];
 
   /**
-  * Returns a flag indicating whether the current FrameNode was obtained through dynamic-static conversion,
-  * includes conversions in both directions: dynamic-to-static and static-to-dynamic.
-  *
-  * @returns { boolean } - Returns true if the FrameNode was converted between dynamic and static states,
-  * otherwise returns false.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since 22 dynamic
-  */
+   * Returns a flag indicating whether the current FrameNode was obtained through dynamic-static conversion,
+   * includes conversions in both directions: dynamic-to-static and static-to-dynamic.
+   *
+   * @returns { boolean } - Returns true if the FrameNode was converted between dynamic and static states,
+   *     otherwise, returns false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   isTransferred(): boolean;
 
    /**
@@ -1363,8 +1363,8 @@ export class FrameNode {
   /**
    * Get if the FrameNode is attached to the root node tree.
    *
-   * @returns { boolean } - Returns if the FrameNode is attached to the root node tree. True indicates it is attached
-   *     to the root node tree, while false indicates it is not.
+   * @returns { boolean } - Returns if the FrameNode is attached to the root node tree.
+   * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

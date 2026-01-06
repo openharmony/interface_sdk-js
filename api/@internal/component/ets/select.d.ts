@@ -1241,9 +1241,11 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 
   /**
    * Determine the mode of select menu how to avoid keyboard.
+   * 
+   * No avoiding by default.
    *
    * @param { Optional<MenuKeyboardAvoidMode> } mode - How to avoid keyboard.
-   * @returns { SelectAttribute } - The attribute of the select.
+   * @returns { SelectAttribute } - the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1256,7 +1258,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * Defines the minimum distance between select menu and keyboard.
    *
    * @param { Optional<LengthMetrics> } distance - The minimum avoiding distance.
-   * @returns { SelectAttribute } - The attribute of the select.
+   * @returns { SelectAttribute } - the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

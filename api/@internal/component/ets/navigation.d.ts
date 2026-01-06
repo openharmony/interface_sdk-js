@@ -2586,7 +2586,7 @@ declare interface NavigationMenuOptions {
 }
 
 /**
- * Indicates the options of Navigation's Menu.
+ * The more button options of Navigation's menu or toolbar.
  *
  * @interface MoreButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3417,6 +3417,20 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   enableDragBar(isEnabled: Optional<boolean>): NavigationAttribute;
   
   /**
+   * Set the navigation divider style in split mode.
+   *
+   * @param { NavigationDividerStyle | null } style - navigation divider style in split mode.
+   *      null indicates that the divider is hidden.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  divider(style: NavigationDividerStyle | null): NavigationAttribute;
+
+  /**
    * whether to enable modeChangeAnimation
    * 
    * @param { Optional<boolean> } isEnabled - enableModeChangeAnimation.
@@ -3754,6 +3768,50 @@ declare interface NavContentInfo {
    * @since 12 dynamic
    */
   navDestinationId?: string;
+}
+
+/**
+* Define the style of the Navigation divider.
+*
+* @interface NavigationDividerStyle
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @atomicservice
+* @since 23 dynamic
+*/
+declare interface NavigationDividerStyle {
+  /**
+   * Define the color of the navigation divider.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  color?: ResourceColor;
+
+  /**
+   * Define the start margin of the navigation divider.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  startMargin?: Length;
+
+  /**
+   * Define the end margin of the navigation divider.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  endMargin?: Length;
 }
 
 /**

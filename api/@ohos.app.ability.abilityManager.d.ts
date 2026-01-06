@@ -50,7 +50,7 @@ import { RecordData } from './@ohos.base';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace abilityManager {
   /**
@@ -59,7 +59,7 @@ declare namespace abilityManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum AbilityState {
     /**
@@ -67,7 +67,7 @@ declare namespace abilityManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INITIAL = 0,
 
@@ -76,7 +76,7 @@ declare namespace abilityManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FOCUS = 2,
 
@@ -85,7 +85,7 @@ declare namespace abilityManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FOREGROUND = 9,
 
@@ -94,7 +94,7 @@ declare namespace abilityManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BACKGROUND = 10,
 
@@ -103,7 +103,7 @@ declare namespace abilityManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FOREGROUNDING = 11,
 
@@ -112,7 +112,7 @@ declare namespace abilityManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BACKGROUNDING = 12
   }
@@ -125,7 +125,7 @@ declare namespace abilityManager {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum UserStatus {
     /**
@@ -135,7 +135,7 @@ declare namespace abilityManager {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ASSERT_TERMINATE = 0,
 
@@ -146,7 +146,7 @@ declare namespace abilityManager {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ASSERT_CONTINUE = 1,
 
@@ -157,7 +157,7 @@ declare namespace abilityManager {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ASSERT_RETRY = 2
   }
@@ -170,7 +170,7 @@ declare namespace abilityManager {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface AtomicServiceStartupRule {
     /**
@@ -180,7 +180,7 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isOpenAllowed: boolean;
 
@@ -191,7 +191,7 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isEmbeddedAllowed: boolean;
   }
@@ -223,7 +223,7 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Connect to system server failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function onAbilityForegroundState(observer: AbilityForegroundStateObserver): void;
 
@@ -254,7 +254,7 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Connect to system server failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   function offAbilityForegroundState(observer?: AbilityForegroundStateObserver): void;
 
@@ -272,7 +272,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function updateConfiguration(config: Configuration, callback: AsyncCallback<void>): void;
 
@@ -290,7 +290,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function updateConfiguration(config: Configuration): Promise<void>;
 
@@ -303,7 +303,7 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
 
@@ -321,7 +321,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
 
@@ -339,7 +339,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getExtensionRunningInfos(upperLimit: int): Promise<Array<ExtensionRunningInfo>>;
 
@@ -358,7 +358,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getExtensionRunningInfos(upperLimit: int, callback: AsyncCallback<Array<ExtensionRunningInfo>>): void;
 
@@ -371,7 +371,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTopAbility(): Promise<ElementName>;
 
@@ -386,7 +386,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getTopAbility(callback: AsyncCallback<ElementName>): void;
 
@@ -431,7 +431,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @FaAndStageModel
-   * @since 22 static
+   * @since 23 static
    */
   function acquireShareData(missionId: int, callback: AsyncCallback<Record<string, RecordData>>): void;
 
@@ -473,7 +473,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @FaAndStageModel
-   * @since 22 static
+   * @since 23 static
    */
   function acquireShareData(missionId: int): Promise<Record<string, RecordData>>;
 
@@ -524,7 +524,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getForegroundUIAbilities(callback: AsyncCallback<Array<AbilityStateData>>): void;
 
@@ -539,7 +539,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getForegroundUIAbilities(): Promise<Array<AbilityStateData>>;
 
@@ -556,7 +556,7 @@ declare namespace abilityManager {
    * @systemapi
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isEmbeddedOpenAllowed(context: Context, appId: string): Promise<boolean>;
 
@@ -576,7 +576,7 @@ declare namespace abilityManager {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function notifyDebugAssertResult(sessionId: string, status: UserStatus): Promise<void>;
 
@@ -594,7 +594,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setResidentProcessEnabled(bundleName: string, enable: boolean): Promise<void>;
 
@@ -612,7 +612,7 @@ declare namespace abilityManager {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function queryAtomicServiceStartupRule(context: Context, appId: string): Promise<AtomicServiceStartupRule>;
 
@@ -764,7 +764,7 @@ declare namespace abilityManager {
    * @typedef { _AbilityRunningInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type AbilityRunningInfo = _AbilityRunningInfo;
 
@@ -782,7 +782,7 @@ declare namespace abilityManager {
    *
    * @typedef { _AbilityStateData }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 22 static
+   * @since 23 static
    */
   export type AbilityStateData = _AbilityStateData;
 
@@ -793,7 +793,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type ExtensionRunningInfo = _ExtensionRunningInfo;
 
@@ -813,7 +813,7 @@ declare namespace abilityManager {
    * @typedef { _AbilityForegroundStateObserver }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   export type AbilityForegroundStateObserver = _AbilityForegroundStateObserver;
 

@@ -25,7 +25,7 @@ import { Builder, CustomBuilder, CustomBuilderT } from './arkui/component/builde
 *
 * @interface ParallelOption
 * @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 22 static
+* @since 23 static
 */
 export interface ParallelOption {
 	/**
@@ -33,7 +33,7 @@ export interface ParallelOption {
 	*
 	* @type { ?boolean }
 	* @syscap SystemCapability.ArkUI.ArkUI.Full
-	* @since 22 static
+	* @since 23 static
 	*/
 	enable?: boolean,
 }
@@ -44,7 +44,7 @@ export interface ParallelOption {
  * @param { ParallelOption | undefined } options - ParallelizeUI Option
  * @param { CustomBuilder } content_ - Parallel creation of content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @Builder
 export declare function ParallelizeUI(
@@ -59,7 +59,7 @@ export declare function ParallelizeUI(
  * @param { () => T } param - ParallelizeUI parameter
  * @param { (param: T) => void } content_ - Parallel creation of content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 @Builder
 export declare function ParallelizeUI<T>(
@@ -76,7 +76,7 @@ export declare function ParallelizeUI<T>(
  * @param { (item: V, index: int) => T } [param] - Define item generator function
  * @param { CustomBuilderT<T> } [content_] - Parallel creation of content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 staticonly
+ * @since 23 staticonly
  */
 @Builder
 export declare function ParallelizeUI<V, T>(

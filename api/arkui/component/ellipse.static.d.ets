@@ -24,7 +24,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @interface EllipseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export interface EllipseOptions {
     /**
@@ -32,7 +32,7 @@ export interface EllipseOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     width?: string | double;
     /**
@@ -40,7 +40,7 @@ export interface EllipseOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     height?: string | double;
 }
@@ -50,7 +50,7 @@ export interface EllipseOptions {
  * @extends CommonShapeMethod
  * @interface EllipseAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface EllipseAttribute extends CommonShapeMethod {
     /**
@@ -59,7 +59,7 @@ export declare interface EllipseAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<EllipseAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { EllipseAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<EllipseAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -68,13 +68,13 @@ export declare interface EllipseAttribute extends CommonShapeMethod {
  * Ellipse is returned when the parameter is transferred.
  *
  * @param { EllipseOptions } [options] - The options to create an Ellipse
- * @param { CustomBuilder } [content_]
  * @returns { EllipseAttribute } The attribute of the Ellipse.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Ellipse(
-    options?: EllipseOptions, 
-    content_?: CustomBuilder,
+    options?: EllipseOptions
 ): EllipseAttribute
