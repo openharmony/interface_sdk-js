@@ -5369,7 +5369,7 @@ declare namespace window {
      */
     systemAnimationParams?: StartAnimationSystemParams;
     /**
-     * Whether to need start animation
+     * Whether to start the animation
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
