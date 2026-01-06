@@ -884,7 +884,7 @@ declare namespace pointer {
    * Obtains the mouse pointer style, such as the east arrow, west arrow, south arrow, and north arrow. 
    * This API returns the result synchronously.
    *
-   * @param { number } windowId - Window ID. The default value is -1, indicating the global mouse pointer style.
+   * @param { int } windowId - Window ID. The default value is -1, indicating the global mouse pointer style.
    * @returns { PointerStyle } Returns the pointerStyle.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1801,8 +1801,8 @@ declare namespace pointer {
    *
    * @param { int } windowId - Window ID. The value must be an integer greater than 0.
    * @param { image.PixelMap } pixelMap - Pixel map resource.
-   * @param { number } focusX - Focus x of the custom cursor. The value is greater than or equal to 0. The default value is 0.
-   * @param { number } focusY - Focus y of the custom cursor. The value is greater than or equal to 0. The default value is 0.
+   * @param { int } focusX - Focus x of the custom cursor. The value is greater than or equal to 0. The default value is 0.
+   * @param { int } focusY - Focus y of the custom cursor. The value is greater than or equal to 0. The default value is 0.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer

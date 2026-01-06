@@ -60,6 +60,7 @@ export {
   Key, KeyAction, KeyCode, KeyEvent, MouseAction, MouseEvent, MouseToolType, Pinch, Rotate,
   SourceType, ThreeFingersSwipe, ThreeFingersTap, ToolType, Touch, TouchEvent, inputConsumer,
   inputDevice, pointer, SwipeInward, inputEventClient, inputMonitor, shortKey, infraredEmitter,
-  inputDeviceCooperate, TouchGestureEvent, FingerprintEvent, FixedMode
+  TouchGestureEvent, FingerprintEvent, FixedMode,
+  inputDeviceCooperate
 };
 /*** endif */
