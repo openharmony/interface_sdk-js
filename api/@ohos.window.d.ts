@@ -7135,6 +7135,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      *     Possible cause: The internal services of the window are not started normally.
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 23 dynamic&static
      * @test
      */
