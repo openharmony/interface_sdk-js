@@ -996,12 +996,11 @@ declare namespace photoAccessHelper {
     NO_HIDE_SENSITIVE_TYPE = 3,
 
     /**
-     * Refer MEDIA_LOCATION permission to hide location and shooting parameters.
+     * Refer MEIDA_LOCATION permission to hide location and shooting parameters.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     DEFAULT = 4,
   }
@@ -3370,8 +3369,7 @@ declare namespace photoAccessHelper {
      * Virtual path of the album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 23 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     ALBUM_LPATH = 'lpath',
     /**
@@ -4463,8 +4461,7 @@ declare namespace photoAccessHelper {
      * Album created by app.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 23 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     SOURCE = 2048,
     /**
@@ -4611,8 +4608,7 @@ declare namespace photoAccessHelper {
      * Source album
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 23 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     SOURCE_GENERIC = 2049,
     /**
@@ -4909,8 +4905,7 @@ declare namespace photoAccessHelper {
      * @type { ?string }
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 23 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     readonly lpath?: string;
     /**
