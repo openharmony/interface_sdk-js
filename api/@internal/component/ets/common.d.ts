@@ -1907,14 +1907,14 @@ declare interface Configuration {
 }
 
 /**
- * Defines the data type of the interface restriction.
+ * The data type used to describe a rectangular area.
  *
  * @interface Rectangle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
- * Defines the data type of the interface restriction.
+ * The data type used to describe a rectangular area.
  *
  * @interface Rectangle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1922,7 +1922,7 @@ declare interface Configuration {
  * @since 9
  */
 /**
- * Defines the data type of the interface restriction.
+ * The data type used to describe a rectangular area.
  *
  * @interface Rectangle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1931,7 +1931,7 @@ declare interface Configuration {
  * @since 10
  */
 /**
- * Defines the data type of the interface restriction.
+ * The data type used to describe a rectangular area.
  *
  * @interface Rectangle
  * @syscap SystemCapability.ArkUI.ArkUI.Full

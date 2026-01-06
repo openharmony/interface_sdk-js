@@ -302,7 +302,7 @@ export declare interface Configuration {
     readonly fontScale: double;
 }
 /**
- * Defines the data type of the interface restriction.
+ * The data type used to describe a rectangular area.
  *
  * @interface Rectangle
  * @syscap SystemCapability.ArkUI.ArkUI.Full

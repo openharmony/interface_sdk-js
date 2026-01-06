@@ -511,7 +511,7 @@ export interface FingerInfo {
      */
     globalX: double;
     /**
-     * The Y coordinate of the touch point relative to the upper edge of the device screen.
+     * The Y coordinate of the touch point relative to the upper edge of the current window.
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -519,7 +519,7 @@ export interface FingerInfo {
      */
     globalY: double;
     /**
-     * X coordinate of the touch point relative to the left edge of the touched element.
+     * X coordinate of the touch point relative to the left edge of the current window.
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
