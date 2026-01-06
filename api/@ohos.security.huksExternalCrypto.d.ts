@@ -17,7 +17,7 @@
  * @file
  * @kit UniversalKeystoreKit
  */
-
+ 
 /**
  * This module provides the interface of external crypto provider.
  *
@@ -87,7 +87,7 @@ declare namespace huksExternalCrypto {
      */
     HUKS_EXT_CRYPTO_TAG_UID = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_INT | 200004,
     /**
-     * Purpose of the cert chain.
+     * Purpose of the certificate chain.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
@@ -123,7 +123,7 @@ declare namespace huksExternalCrypto {
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
-    HUKS_EXT_CRYPTO_PIN_LOCKED = 2
+    HUKS_EXT_CRYPTO_PIN_LOCKED = 2,
   }
 
   /**
@@ -154,9 +154,9 @@ declare namespace huksExternalCrypto {
 
   /**
    * Register the specific external key provider by providerName.
-   *
+   * 
    * @permission ohos.permission.CRYPTO_EXTENSION_REGISTER
-   * @param { string } providerName - providerName indicates the name of the external crypto provider
+   * @param { string } providerName - providerName indicates the name of the external crypto provider 
    *     and must be globally unique. One effective way is to include manufacturer information.
    * @param { Array<HuksExternalCryptoParam> } params - params indicates the properties of the operation.
    * @returns { Promise<void> } the promise returned by the function.
@@ -167,8 +167,8 @@ declare namespace huksExternalCrypto {
    * @throws { BusinessError } 12000014 - memory is insufficient.
    * @throws { BusinessError } 12000018 - the input parameter is invalid.
    * @throws { BusinessError } 12000019 - the provider is already registered.
-   * @throws { BusinessError } 12000020 - an error occurred in the dependent module.
-   * @throws { BusinessError } 12000025 - the number of providers exceeds the limit.
+   * @throws { BusinessError } 12000020 - an error occurred in the dependent module. 
+   * @throws { BusinessError } 12000025 - the number of providers exceeds the limit. 
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -183,28 +183,32 @@ declare namespace huksExternalCrypto {
    * @param { Array<HuksExternalCryptoParam> } [params] - params indicates the properties of the operation.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - check permission failed.
-   * @throws { BusinessError } 801 - api is not supported.
+   * @throws { BusinessError } 801 - api is not supported. 
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000011 - the provider is not found.
+   * @throws { BusinessError } 12000012 - Device environment or input parameter is abnormal.
+   *     This may happen for several reasons, such as the model already being unloaded.
    * @throws { BusinessError } 12000014 - memory is insufficient.
    * @throws { BusinessError } 12000018 - the input parameter is invalid.
-   * @throws { BusinessError } 12000020 - an error occurred in the dependent module.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
   function unregisterProvider(providerName: string, params?: Array<HuksExternalCryptoParam>): Promise<void>;
 
   /**
-   * Pin auth for the specified Ukey resource id.
+   * PIN auth for the specified Ukey resource ID.
    *
    * @param { string } resourceId - resourceId indicates the resource id of the provider.
    * @param { Array<HuksExternalCryptoParam> } params - params indicates the properties of the operation.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 202 -  The caller is not a system application
+   *     and is not allowed to use system applications.
    * @throws { BusinessError } 801 - api is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - the Ukey driver operation failed.
    * @throws { BusinessError } 12000011 - queried entity does not exist.
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal.
+   *     This error may occur if the process function is not found, or due to other issues.
    * @throws { BusinessError } 12000014 - memory is insufficient.
    * @throws { BusinessError } 12000018 - the input parameter is invalid.
    * @throws { BusinessError } 12000020 - the provider operation failed.
@@ -226,6 +230,10 @@ declare namespace huksExternalCrypto {
    * @throws { BusinessError } 801 - api is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - the Ukey driver operation failed.
+   * @throws { BusinessError } 12000011 - queried entity does not exist. This may happen
+   *     because the resource ID has not been opened.
+   * @throws { BusinessError } 12000012 - Device environment or input parameter is abnormal.
+   *     This error may occur if the process function is not found, or due to other issues.
    * @throws { BusinessError } 12000014 - memory is insufficient.
    * @throws { BusinessError } 12000018 - the input parameter is invalid.
    * @throws { BusinessError } 12000020 - the provider operation failed.
@@ -234,24 +242,30 @@ declare namespace huksExternalCrypto {
    * @since 22
    */
   function getUkeyPinAuthState(resourceId: string, params?: Array<HuksExternalCryptoParam>): Promise<HuksExternalPinAuthState>;
-
+  
   /**
    * The general get operations of the external provider.
    *
    * @param { string } resourceId - Indicates the resource id of the provider.
-   * @param { string } propertyId - Indicates the id of the property need to get,
-   *     currently support the property method name defined in GMT 0016-2023.
+   * @param { string } propertyId - Indicates the id of the property needed to get.
+   *     currently supports the property method names defined in GMT 0016-2023.
    * @param { Array<HuksExternalCryptoParam> } [params] - Indicates the input operation parameters.
    * @returns { Promise<Array<HuksExternalCryptoParam>> } the promise returned by the function.
+   * @throws { BusinessError } 801 - api is not supported.
+   * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - If the Ukey driver operation failed. Possible causes:
-   *     1. Error reported when provider accessing the SKF interface of Ukey.
-   * @throws { BusinessError } 12000011 - If not found the cached resource id.
+   *     1. Error reported when the provider accesses the SKF interface of Ukey.
+   * @throws { BusinessError } 12000011 - If the cached resource ID is not found.
+   * @throws { BusinessError } 12000012 - Device environment or input parameter is abnormal.
+   *     This error may occur if the process function is not found, or due to other issues.
    * @throws { BusinessError } 12000014 - If the memory is insufficient.
    * @throws { BusinessError } 12000018 - the input parameter is invalid. Possible causes:
    *     1. The resourceId or propertyId length is invalid.
    *     2. The params contain invalid tags or invalid value types.
    * @throws { BusinessError } 12000020 - If the provider operation failed. Possible causes:
    *     1. The provider occurred internal processing error.
+   * @throws { BusinessError } 12000022 - the Ukey PIN is incorrect.
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated.
    * @throws { BusinessError } 12000024 - If the provider or Ukey is busy.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @stagemodelonly
