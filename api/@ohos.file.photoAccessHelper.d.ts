@@ -6309,15 +6309,36 @@ declare namespace photoAccessHelper {
      *
      * @param { Array<string> } srcFileUris - List of the file uris to be saved
      * @param { Array<CreationSetting> } creationSettings - List of the photo asset creation settings
-     * @param { boolean } isImageFullyDisplayed - Supports displaying the image without cropping in the window
      * @returns { Promise<Array<string>> } - Returns the media library file uri list to application which has been authorized
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 23800301 - Internal system error.
+     *     It is recommended to retry and check the logs. Possible causes:
+     *     1. Database corrupted;
+     *     2. The file system is abnormal;
+     *     3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
      * @since 23 dynamic&static
      */
-    showAssetsCreationDialogEx(srcFileUris: Array<string>, creationSettings: Array<CreationSetting>, isImageFullyDisplayed: boolean): Promise<Array<string>>;
+    showAssetsCreationDialogEx(srcFileUris: Array<string>, creationSettings: Array<CreationSetting>): Promise<Array<string>>
+    /**
+     * Create a save dialog to save single photo
+     *
+     * @param { string } srcFileUri - The file uri to be saved
+     * @param { CreationSetting } creationSetting - The photo asset creation setting
+     * @param { boolean } isImageFullyDisplayed - Supports displaying the image without cropping in the window
+     * @returns { Promise<string> } - Returns the media library file uri to application which has been authorized
+     * @throws { BusinessError } 23800301 - Internal system error.
+     *     It is recommended to retry and check the logs. Possible causes:
+     *     1. Database corrupted;
+     *     2. The file system is abnormal;
+     *     3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    showSingleAssetCreationDialogEx(srcFileUri: string, creationSetting: CreationSetting, isImageFullyDisplayed: boolean): Promise<string>
     /**
      * Create assets and grant save permission to the app which called the save dialog.
      *
