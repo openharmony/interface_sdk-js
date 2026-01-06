@@ -6320,7 +6320,7 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 23 dynamic&static
      */
-    showAssetsCreationDialogEx(srcFileUris: Array<string>, creationSettings: Array<CreationSetting>): Promise<Array<string>>
+    showAssetsCreationDialogEx(srcFileUris: Array<string>, creationSettings: Array<CreationSetting>): Promise<Array<string>>;
     /**
      * Create a save dialog to save single photo
      *
@@ -6338,7 +6338,7 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 23 dynamic&static
      */
-    showSingleAssetCreationDialogEx(srcFileUri: string, creationSetting: CreationSetting, isImageFullyDisplayed: boolean): Promise<string>
+    showSingleAssetCreationDialogEx(srcFileUri: string, creationSetting: CreationSetting, isImageFullyDisplayed: boolean): Promise<string>;
     /**
      * Create assets and grant save permission to the app which called the save dialog.
      *
