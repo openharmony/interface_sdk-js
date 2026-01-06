@@ -1266,6 +1266,24 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 23 dynamic
    */
   minKeyboardAvoidDistance(distance: Optional<LengthMetrics>): SelectAttribute;
+
+  /**
+   * Set system-styled materials for select's menu. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of select's menu.
+   *
+   * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+   * their computing power.
+   *
+   * @param { Optional<SystemUiMaterial> } material - The select's menu material, undefined means 
+   *     retaining the original visual style of the select's menu.
+   * @returns { SelectAttribute } - the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  menuSystemMaterial(material: Optional<SystemUiMaterial>): SelectAttribute;
 }
 
 /**

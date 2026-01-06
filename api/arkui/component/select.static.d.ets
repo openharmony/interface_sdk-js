@@ -26,7 +26,7 @@ import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
 import { TextModifier } from '../TextModifier';
 import { OptionWidthMode } from './enums';
 import { ComponentBuilder,  CustomBuilder } from './builder';
-import { AttributeModifier, CommonMethod } from './common';
+import { AttributeModifier, CommonMethod, SystemUiMaterial } from './common';
 /**
  * The declare of selectOption.
  *
@@ -502,6 +502,22 @@ export declare interface SelectAttribute extends CommonMethod {
      * @since 23 static
      */
     default minKeyboardAvoidDistance(distance: LengthMetrics | undefined): this;
+    /**
+     * Set system-styled materials for select's menu. Different materials have different effects, which can influence
+     * the backgroundColor, border, shadow, and other visual attributes of select's menu.
+     *
+     * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+     * their computing power.
+     *
+     * @param { SystemUiMaterial | undefined } material - The select's menu material, undefined means 
+     *     retaining the original visual style of the select's menu.
+     * @returns { SelectAttribute } - The attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default menuSystemMaterial(material: SystemUiMaterial | undefined): this;
 }
 /**
  * MenuItemConfiguration used by menu item content modifier.
