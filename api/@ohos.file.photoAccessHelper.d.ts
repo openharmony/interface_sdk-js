@@ -1124,8 +1124,7 @@ declare namespace photoAccessHelper {
    * @enum { int } CompositeDisplayMode
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 22 dynamic
-   * @since 23 static
+   * @since 23 dynamic&static
    */
   enum CompositeDisplayMode {
     /**
@@ -1133,8 +1132,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     DEFAULT = 0,
 
@@ -1143,8 +1141,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     CLOUD_ENHANCEMENT = 1,
   }
@@ -3199,8 +3196,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     COMPOSITE_DISPLAY_STATUS = 'composite_display_status',
     /**
@@ -10823,8 +10819,7 @@ declare namespace photoAccessHelper {
      *     <br>Possible causes: 1. Database corrupted.2. The file system is abnormal.3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic
-     * @since 23 static
+     * @since 23 dynamic&static
      */
     setCompositeDisplayMode(compositeDisplayMode: CompositeDisplayMode): Promise<void>;
   }
