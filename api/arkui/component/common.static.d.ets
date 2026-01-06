@@ -5845,35 +5845,39 @@ export declare interface BindOptions {
     /**
      * Callback for when the sheet is displayed (after the animation ends).
      *
-     * @type { ?function }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    onAppear?: () => void;
+    onAppear?: VoidCallback;
     /**
      * Callback for when the sheet disappears (after the animation ends).
      *
-     * @type { ?function }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    onDisappear?: () => void;
+    onDisappear?: VoidCallback;
     /**
      * Callback for when the sheet is about to be displayed (before the animation starts).
      *
-     * @type { ?function }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    onWillAppear?: () => void;
+    onWillAppear?: VoidCallback;
     /**
      * Callback function before overlay popAnimation starts.
      *
-     * @type { ?function }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
-    onWillDisappear?: () => void;
+    onWillDisappear?: VoidCallback;
 }
 /**
  * Component content cover dismiss
