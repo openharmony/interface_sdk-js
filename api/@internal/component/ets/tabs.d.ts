@@ -345,6 +345,40 @@ declare enum TabsCacheMode {
 }
 
 /**
+ * Tabs nested scroll nested mode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 24 dynamic
+ */
+declare enum TabsNestedScrollMode {
+  /**
+   * The scrolling is contained within the Tabs component, and no scroll chaining occurs, that is,
+   * the parent container does not scroll when the component scrolling reaches the boundary.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  SELF_ONLY = 0,
+  /**
+   * The Tabs component scrolls first, and when it hits the boundary, the parent container scrolls.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  SELF_FIRST = 1,
+}
+
+/**
  * Provides methods for switching tabs.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1962,6 +1996,20 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 23 dynamic
    */
   onContentDidScroll(handler: OnTabsContentDidScrollCallback | undefined): TabsAttribute;
+
+  /**
+   * Sets the nested scrolling mode of the tabs component and its parent container.
+   *
+   * @param { TabsNestedScrollMode | undefined } value - mode for nested scrolling.
+   * Default value is TabsNestedScrollMode.SELF_ONLY. Undefined means default value.
+   * @returns { TabsAttribute } -the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  nestedScroll(value: TabsNestedScrollMode | undefined): TabsAttribute;
 }
 
 /**
