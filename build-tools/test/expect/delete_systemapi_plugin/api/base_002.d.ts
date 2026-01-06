@@ -1,3 +1,5 @@
+
+
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,127 +19,77 @@
  *
  */
 export namespace TestModuleA {
-  /**
-   * @since 20
-   * 
-   */
-  export interface TestResult<T> {
-    success: boolean;
-    data: T;
-    timestamp: Date;
-    metadata: Record<string, any>;
-  }
-
-  /**
-   * @since 20
-   * 
-   */
-  export enum OperationStatus {
     /**
      * @since 20
-     * 
+     *
      */
-    PENDING = "pending",
-    /**
-     * @since 20
-     * 
-     */
-    RUNNING = "running",
-    /**
-     * @since 20
-     * @systemapi
-     */
-    COMPLETED = "completed",
-    /**
-     * @since 20
-     * 
-     */
-    FAILED = "failed",
-    /**
-     * @since 20
-     * 
-     */
-    CANCELLED = "cancelled"
-  }
-
-  /**
-   * @since 20
-   *
-   */
-  export type ValidationRule = {
-    field: string;
-    required: boolean;
-    minLength?: number;
-    maxLength?: number;
-    pattern?: RegExp;
-    customValidator?: (value: any) => boolean;
-  };
-
-  /**
-   * @since 20
-   *
-   */
-  export class DataProcessor {
-    /**
-     * @since 20
-     * 
-     */
-    private data: any[] = [];
-
-    /**
-     * @since 20
-     * 
-     */
-    constructor(initialData: any[] = []) {
-      this.data = initialData;
+    export interface TestResult<T> {
+        success: boolean;
+        data: T;
+        timestamp: Date;
+        metadata: Record<string, any>;
     }
-
     /**
      * @since 20
-     * @systemapi
+     *
      */
-    public process(): TestResult<any[]> {
-      return {
-        success: true,
-        data: this.data,
-        timestamp: new Date(),
-        metadata: { processed: true, count: this.data.length }
-      };
+    export enum OperationStatus {
+        /**
+         * @since 20
+         *
+         */
+        PENDING = "pending",
+        /**
+         * @since 20
+         *
+         */
+        RUNNING = "running",
+        /**
+         * @since 20
+         *
+         */
+        FAILED = "failed",
+        /**
+         * @since 20
+         *
+         */
+        CANCELLED = "cancelled"
     }
-
     /**
      * @since 20
-     * 
+     *
      */
-    public getStatus(): OperationStatus {
-      return this.data.length > 0 ? OperationStatus.COMPLETED : OperationStatus.PENDING;
-    }
-  }
-
-  /**
-   * @since 20
-   * @systemapi
-   */
-  export type ComplexType<T extends string | number> = {
-    value: T;
-    transformed: string;
-    validated: boolean;
-  };
-
-  /**
-   * @since 20
-   * @systemapi
-   */
-  export function createValidator(rules: ValidationRule[]): (data: any) => boolean {
-    return (data: any) => {
-      return rules.every(rule => {
-        if (rule.required && !data[rule.field]) return false;
-        if (rule.minLength && data[rule.field]?.length < rule.minLength) return false;
-        if (rule.maxLength && data[rule.field]?.length > rule.maxLength) return false;
-        if (rule.pattern && !rule.pattern.test(data[rule.field])) return false;
-        if (rule.customValidator && !rule.customValidator(data[rule.field])) return false;
-        return true;
-      });
+    export type ValidationRule = {
+        field: string;
+        required: boolean;
+        minLength?: number;
+        maxLength?: number;
+        pattern?: RegExp;
+        customValidator?: (value: any) => boolean;
     };
-  }
+    /**
+     * @since 20
+     *
+     */
+    export class DataProcessor {
+        /**
+         * @since 20
+         *
+         */
+        private data: any[] = [];
+        /**
+         * @since 20
+         *
+         */
+        constructor(initialData: any[] = []) {
+            this.data = initialData;
+        }
+        /**
+         * @since 20
+         *
+         */
+        public getStatus(): OperationStatus {
+            return this.data.length > 0 ? OperationStatus.COMPLETED : OperationStatus.PENDING;
+        }
+    }
 }
