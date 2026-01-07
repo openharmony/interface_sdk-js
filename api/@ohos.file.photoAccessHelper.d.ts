@@ -9068,7 +9068,18 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic
      * @since 23 static
      */
-    assetFilter?: Array<OperationItem>;   
+    assetFilter?: Array<OperationItem>;
+
+    /**
+     * Moving photo playback mode. Supports up to two modes.
+     *
+     * @type { ?Array<AutoPlayScene> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    autoPlayScenes?: Array<AutoPlayScene>;     
   }
 
   /**
@@ -13629,6 +13640,99 @@ declare namespace photoAccessHelper {
      */
     close(): void;
   }
+
+  /**
+   * Automatic playback scene of moving photo.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  class AutoPlayScene {
+    /**
+     * Type of moving photo scene.
+     *
+     * @type { SceneType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    sceneType: SceneType;
+ 	
+    /**
+     * Play mode of moving photo in different scenes.
+     *
+     * @type { PlayMode }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    playMode: PlayMode;
+  }
+  
+  /**
+   * Enumeration type of scene.
+   *
+   * @enum { int } SceneType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  export enum SceneType {
+    /**
+     * GRID_TO_PHOTO_BROWSER indicates that the view is transitioning from the grid to the photo browser.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    GRID_TO_PHOTO_BROWSER = 0,
+    /**
+     * PHOTO_BROWSER_SWIPE indicates that a swipe operation occurs in the photo browser.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    PHOTO_BROWSER_SWIPE = 1,
+  }
+  
+  /**
+   * Enumeration type of play mode.
+   *
+   * @enum { int } PlayMode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  export enum PlayMode {
+    /**
+     * DEFAULT indicates that the default play mode.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    DEFAULT = 0,
+    /**
+     * AUTO_PLAY indicates that moving photos will play automatically.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    AUTO_PLAY = 1,
+  }
+ 	 
 
   /**
    * Enumerates the HDR mode of media assets.
