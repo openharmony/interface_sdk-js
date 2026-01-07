@@ -680,6 +680,18 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 23 dynamic&static
    */
   edgeEffect?: EdgeEffect;
+
+  /**
+   * Only display album contents corresponding to the specified applications.
+   * Use the bundle name to identify the application.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  appAlbumFilters?: Array<string>;
 }
 
 /**
@@ -1181,6 +1193,18 @@ export declare class UpdatablePickerConfigs {
    * @since 23 dynamic&static
    */
   autoPlayScenes?: Array<photoAccessHelper.AutoPlayScene>;
+
+  /**
+   * Only display album contents corresponding to the specified applications.
+   * Use the bundle name to identify the application.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  appAlbumFilters?: Array<string>;
 }
 
 /**
