@@ -274,7 +274,7 @@ export default class App {
    *
    * @param { ScreenOnVisibleOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
    */
   static screenOnVisible(options?: ScreenOnVisibleOptions): void;
