@@ -34,6 +34,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -41,6 +42,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -49,6 +51,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -58,6 +61,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -69,6 +73,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -79,6 +84,7 @@ declare interface ViewportRect {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -91,6 +97,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -98,6 +105,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -106,6 +114,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -115,6 +124,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -126,6 +136,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -136,6 +147,7 @@ declare interface ViewportRect {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -148,6 +160,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -155,6 +168,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -163,6 +177,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -172,6 +187,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -183,6 +199,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -193,6 +210,7 @@ declare interface ViewportRect {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -205,6 +223,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -212,6 +231,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -220,6 +240,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -229,6 +250,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -240,6 +262,7 @@ declare interface ViewportRect {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -250,6 +273,7 @@ declare interface ViewportRect {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -263,6 +287,7 @@ declare interface ViewportRect {
  *
  * @interface ShapeInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -270,6 +295,7 @@ declare interface ViewportRect {
  *
  * @interface ShapeInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -278,6 +304,7 @@ declare interface ViewportRect {
  *
  * @interface ShapeInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -287,6 +314,7 @@ declare interface ViewportRect {
  *
  * @interface ShapeInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -297,12 +325,14 @@ interface ShapeInterface {
    * Use the new function to create Shape.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
    * Use the new function to create Shape.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -310,6 +340,7 @@ interface ShapeInterface {
    * Use the new function to create Shape.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -322,6 +353,7 @@ interface ShapeInterface {
    * @param { PixelMap } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -330,6 +362,7 @@ interface ShapeInterface {
    * @param { PixelMap } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -339,6 +372,7 @@ interface ShapeInterface {
    * @param { PixelMap } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -350,6 +384,7 @@ interface ShapeInterface {
    *
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -357,6 +392,7 @@ interface ShapeInterface {
    *
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -365,6 +401,7 @@ interface ShapeInterface {
    *
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -374,6 +411,7 @@ interface ShapeInterface {
    *
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -385,17 +423,20 @@ interface ShapeInterface {
 /**
  * @extends CommonMethod<ShapeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * @extends CommonMethod<ShapeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
 /**
  * @extends CommonMethod<ShapeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -403,6 +444,7 @@ interface ShapeInterface {
 /**
  * @extends CommonMethod<ShapeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -415,6 +457,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { object } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -423,6 +466,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { object } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -432,6 +476,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { object } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -442,6 +487,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { object } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -454,6 +500,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { ViewportRect } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -467,6 +514,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { ResourceColor } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -475,6 +523,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { ResourceColor } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -484,6 +533,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { ResourceColor } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -494,6 +544,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { ResourceColor } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -507,6 +558,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { ResourceColor } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -515,6 +567,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { ResourceColor } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -524,6 +577,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { ResourceColor } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -534,6 +588,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { ResourceColor } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -547,6 +602,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -555,6 +611,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -564,6 +621,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -574,6 +632,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { Length } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -585,6 +644,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { Length } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -598,6 +658,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { Array<any> } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -606,6 +667,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { Array<any> } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -615,6 +677,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { Array<any> } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -625,6 +688,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { Array<any> } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -638,6 +702,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { LineCapStyle } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -646,6 +711,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { LineCapStyle } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -655,6 +721,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { LineCapStyle } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -665,6 +732,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { LineCapStyle } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -678,6 +746,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { LineJoinStyle } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -686,6 +755,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { LineJoinStyle } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -695,6 +765,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { LineJoinStyle } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -705,6 +776,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { LineJoinStyle } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -718,6 +790,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -726,6 +799,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -735,6 +809,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -745,6 +820,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -756,6 +832,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { Length } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -769,6 +846,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string | Resource } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -777,6 +855,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string | Resource } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -786,6 +865,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string | Resource } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -796,6 +876,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string | Resource } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -809,6 +890,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string | Resource } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -817,6 +899,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string | Resource } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -826,6 +909,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string | Resource } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -836,6 +920,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string | Resource } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -849,6 +934,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -857,6 +943,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -866,6 +953,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -876,6 +964,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number | string } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -887,6 +976,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { Length } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -900,6 +990,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { boolean } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -908,6 +999,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { boolean } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -917,6 +1009,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { boolean } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -927,6 +1020,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { boolean } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -942,6 +1036,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number } row
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -952,6 +1047,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number } row
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -963,6 +1059,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number } row
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -975,6 +1072,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @param { number } row
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -987,12 +1085,14 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
  * Defines Shape Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines Shape Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -1000,6 +1100,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
  * Defines Shape Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -1008,6 +1109,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
  * Defines Shape Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -1019,12 +1121,14 @@ declare const Shape: ShapeInterface;
  * Defines Shape Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * Defines Shape Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -1032,6 +1136,7 @@ declare const Shape: ShapeInterface;
  * Defines Shape Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -1040,6 +1145,7 @@ declare const Shape: ShapeInterface;
  * Defines Shape Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
