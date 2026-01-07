@@ -8396,8 +8396,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Set a blob into the metadata.
      *
-     * @param { ArrayBuffer } blob data.
+     * @param { ArrayBuffer } blob - blob data.
      * @returns { Promise<void> } Returns void.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible causes: The blob is empty or has a length of 0.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -8583,9 +8584,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Set a blob into the metadata.
-     * 
-     * @param { ArrayBuffer } blob data.
+     *
+     * @param { ArrayBuffer } blob - blob data.
      * @returns { Promise<void> } Returns void.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible causes: The blob is empty or has a length of 0.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10165,8 +10167,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Set a blob into the metadata.
      *
-     * @param { ArrayBuffer } blob data.
+     * @param { ArrayBuffer } blob - blob data.
      * @returns { Promise<void> } Returns void.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible causes: The blob is empty or has a length of 0.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10804,8 +10807,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Set a blob into the metadata.
      *
-     * @param { ArrayBuffer } blob data.
+     * @param { ArrayBuffer } blob - blob data.
      * @returns { Promise<void> } Returns void.
+     * @throws { BusinessError } 7600206 - Invalid parameter. Possible causes: The blob is empty or has a length of 0.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -12326,14 +12330,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly supportedFormats: Array<string>;
 
     /**
-     * Read metadata of the image source, use propertyKeys to specify properties of interest. If propertyKeys
-     * is not specified, all supported metadata will be returned.
+     * Reads image metadata. You can use propertyKeys to specify the keys of metadata. If propertyKeys is not
+     * specified, all metadata that can be read is returned.
      *
-     * @param { string[] } [propertyKeys] Properties of interest.
-     * @param { int } [index] Index of interest, default is 0.
-     * @returns { Promise<ImageMetadata> } Promise that returns the metadata of the image source.
-     * @throws { BusinessError } 7700102  - Unsupported MIME type.
-     * @throws { BusinessError } 7700202  - Unsupported metadata.
+     * @param { string[] } [propertyKeys] - Keys of metadata.
+     * @param { int } [index] - Frame number. The first frame is used by default.
+     * @returns { Promise<ImageMetadata> } Promise used to return the metadata.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700202 - Unsupported metadata.
+     * @throws { BusinessError } 7700204 - Invalid parameter. Possible causes: 1. The index is negative.
+     *     2. The index is greater than or equal to the number of frames in the image.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -12343,10 +12349,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Write metadata into the image source.
      *
-     * @param { ImageMetadata } imageMetadata ImageMetadata to write into the image source.
+     * @param { ImageMetadata } imageMetadata - ImageMetadata to write into the image source.
      * @returns { Promise<void> } Returns void.
-     * @throws { BusinessError } 7700102  - Unsupported MIME type.
-     * @throws { BusinessError } 7700202  - Unsupported metadata.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700202 - Unsupported metadata.
+     * @throws { BusinessError } 7700204 - Invalid parameter. Possible causes: The imageSource object is released.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @stagemodelonly
      * @since 23 dynamic&static
