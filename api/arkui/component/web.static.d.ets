@@ -6011,8 +6011,8 @@ export declare interface WebAttribute extends CommonMethod {
      * <p>For details about how to rendering native components on the Web using same-layer rendering.
      * </p>
      *
-     * @param { boolean | undefined } enabled - Whether to enable the samelayer rendering feature.
-     *    The value true means to enable the samelayer rendering feature, and false means the opposite.
+     * @param { boolean | undefined } enabled - Whether to enable the same-layer rendering feature.
+     *    The value true means to enable the same-layer rendering feature, and false means the opposite.
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
