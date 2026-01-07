@@ -2089,7 +2089,7 @@ declare namespace avSession {
     /**
      * Set desktop lyric visible state for this session.
      * @param { boolean } visible - make desktop lyric window visible or not
-     * @returns { Promise<boolean> } void promise when executed successfully
+     * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
@@ -9128,7 +9128,7 @@ declare namespace avSession {
     /**
      * Set desktop lyric visible state for this session.
      * @param { boolean } visible - make desktop lyric window visible or not
-     * @returns { Promise<boolean> } void promise when executed successfully
+     * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
