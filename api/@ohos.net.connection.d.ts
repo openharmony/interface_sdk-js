@@ -1391,6 +1391,14 @@ declare namespace connection {
     on(type: 'netBlockStatusChange', callback: Callback<NetBlockStatusInfo>): void;
 
     /**
+     * Registers a listener for netBlockStatusChange events.
+     * @param { Callback<NetBlockStatusInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 23 static
+     */
+    onNetBlockStatusChange(callback: Callback<NetBlockStatusInfo>): void;
+
+    /**
      * Registers a listener for **netCapabilitiesChange** events.
      * @param { 'netCapabilitiesChange' } type - Indicates Event name.
      * @param { Callback<NetCapabilityInfo> } callback - the callback used to return the result.
@@ -1461,6 +1469,16 @@ declare namespace connection {
     on(type: 'netLost', callback: Callback<NetHandle>): void;
 
     /**
+     * Registers a listener for **netLost** events.
+     * @param { Callback<NetHandle> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 23 static
+     */
+    onNetLost(callback: Callback<NetHandle>): void;
+
+    /**
      * Registers a listener for netUnavailable events.
      * @param { 'netUnavailable' } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback used to return the result.
@@ -1485,6 +1503,16 @@ declare namespace connection {
      * @since 11 dynamic
      */
     on(type: 'netUnavailable', callback: Callback<void>): void;
+
+    /**
+     * Registers a listener for netUnavailable events.
+     * @param { Callback<void> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 23 static
+     */
+    onNetUnavailable(callback: Callback<void>): void;
 
     /**
      * Receives status change notifications of a specified network.
