@@ -566,7 +566,7 @@ declare namespace geolocation {
   }
 
   /**
-   * Circular fence information
+   * Circular fence information.
    *
    * @interface Geofence
    * @permission ohos.permission.LOCATION
