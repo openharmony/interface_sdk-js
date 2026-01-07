@@ -1774,7 +1774,7 @@ export type videoPlayStateChangedCallback = (state: VideoPlayerState) => void;
  * @since 22 dynamic
  * @since 23 static
  */
-export type MovingPhotoBadgeStateChangedCallback =
+export type MovingPhotoBadgeStateChangedCallback = 
   (uri: string, state: photoAccessHelper.MovingPhotoBadgeStateType) => void;
 
 import { AsyncCallback } from '@ohos.base';
