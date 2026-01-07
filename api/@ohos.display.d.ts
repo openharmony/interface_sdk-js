@@ -289,10 +289,13 @@ declare namespace display {
   /**
    * Register the callback for changes of display specified attributes.
    *
-   * @param { Array<string> } displayAttributeOption - the display attribute requring callback
-   *     <br>display attribute
-   * @param { Callback<long> } callback - the display id of changed
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @param { Array<string> } displayAttributeOption - The display attributes requiring callback
+   * @param { Callback<long> } callback - Callback used to return the display id of changed
+   * @throws { BusinessError } 801 - Capability not supported. Function onChangeWithAttribute can not work correctly
+   *     due to limited device capabilities.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   *     Possible causes: Internal IPC error.
+   * @syscap SystemCapability.Window.SessionManager
    * @since 23 dynamic&static
    */
   function onChangeWithAttribute(displayAttributeOption: Array<string>, callback: Callback<long>): void;
