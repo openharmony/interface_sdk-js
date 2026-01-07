@@ -5262,6 +5262,7 @@ export class UIContext {
    * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5274,6 +5275,7 @@ export class UIContext {
    * @param { number } delayTime - The delay time in milliseconds,
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
