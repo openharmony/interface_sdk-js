@@ -11826,8 +11826,14 @@ declare namespace window {
      *  Clear the window mask of window
      *
      * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * Possible casue: 1. The window is not created or destroyed.
+     *                 2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible casue:
+     *     1. The window is not subwindow and floating window.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 23 dynamic&static
