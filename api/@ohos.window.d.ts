@@ -6030,8 +6030,11 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: 1. The window is not created or destroyed.
+     *                     2. The window type is not supported for this operation.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     *     Possible cause: The window status is not FLOATING.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
@@ -6115,6 +6118,7 @@ declare namespace window {
      *                     2. The window type is not supported for this operation.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     *     Possible cause: The window status is not FLOATING.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
