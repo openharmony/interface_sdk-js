@@ -1497,7 +1497,7 @@ export declare namespace typeNode {
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 static
    */
   export function bindListController(node: FrameNode, controller: Scroller): void;
@@ -1857,7 +1857,7 @@ export declare namespace typeNode {
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 static
    */
   export function bindGridController(node: FrameNode, controller: Scroller): void;
@@ -1980,7 +1980,7 @@ export declare namespace typeNode {
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 static
    */
   export function bindWaterFlowController(node: FrameNode, controller: Scroller): void;
