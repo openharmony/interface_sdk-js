@@ -6383,9 +6383,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: 1. The window is not created or destroyed.
      *                     2. Internal task error.
-     *                     3. The window type is not supported for this operation. Only sub windows and dialogs are supported.
-     *                     4. The sub window level is more than one.
-     *                     5. The sub window is following its parent window's position.
+     *                     3. The sub window level is more than one.
+     *                     4. The sub window is following its parent window's position.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      *     Possible cause: Invalid window type. Only sub windows and dialogs are supported.
