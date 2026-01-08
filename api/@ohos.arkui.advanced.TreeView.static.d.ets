@@ -160,6 +160,7 @@ export declare struct TreeView {
     treeController: TreeController;
     /**
      * The method to build component.
+     * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 staticonly
      */
