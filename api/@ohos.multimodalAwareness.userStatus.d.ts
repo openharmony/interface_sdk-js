@@ -119,5 +119,34 @@ declare namespace userStatus {
    * @since 23 static
    */
   function off(type: 'userAgeGroupDetected', callback?: Callback<UserClassification>): void;
+
+  /**
+   * Subscribe to detect the user class ification event.
+   * @permission  ohos.permission.DETECT_GESTURE
+   * @param { Callback<UserClassification> } callback - Indicates the callback for getting the event data.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe holdingHandChanged
+   *     <br> event forbidden by ohos.permission.DETECT_GESTURE.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   * <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception.
+   * @throws { BusinessError } 31500002 - Subscribe Failed.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @since 23 static
+   */
+  function OnUserAgeGroupDetectedInner(callback: Callback<UserClassification>): void;
+  /**
+   * Unsubscribe from the holding hand changed event.
+   * @permission  ohos.permission.DETECT_GESTURE
+   * @param { Callback<UserClassification> } [callback] - Indicates the callback for getting the event data.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe holdingHandChanged
+   *     <br> event forbidden by ohos.permission.DETECT_GESTURE.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   * <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception.
+   * @throws { BusinessError } 31500003 - Unsubscribe Failed.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @since 23 static
+   */
+  function OffUserAgeGroupDetectedInner(callback?: Callback<UserClassification>): void;
 }
 export default userStatus;
