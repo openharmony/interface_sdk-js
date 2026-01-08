@@ -38,7 +38,7 @@ declare namespace cooperate {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamiconly
    * @deprecated since 11
-   * @useinstead cooperate#CooperateState
+   * @useinstead cooperate#cooperateMessage
    */
   enum CooperateMsg {
     /**
