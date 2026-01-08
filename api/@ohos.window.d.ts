@@ -6372,7 +6372,7 @@ declare namespace window {
     resizeAsync(width: int, height: int): Promise<void>;
 
     /**
-     * Set whether to follow parent window layout. Only sub windows and dialogs are available.
+     * Set whether to follow parent window layout. Only subwindows and dialogs are available.
      *
      * @param { boolean } enabled - If true, this window updates the layout follow the parent window.
      *                              If false, this window does not update the layout follow the parent window.
@@ -6383,11 +6383,11 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: 1. The window is not created or destroyed.
      *                     2. Internal task error.
-     *                     3. The sub window level is more than one.
-     *                     4. The sub window is following its parent window's position.
+     *                     3. The subwindow level is more than one.
+     *                     4. The subwindow is following its parent window's position.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Only sub windows and dialogs are supported.
+     *     Possible cause: Invalid window type. Only subwindows and dialog windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @atomicservice
