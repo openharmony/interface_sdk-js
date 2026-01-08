@@ -28290,6 +28290,18 @@ declare class CommonMethod<T> {
   accessibilityUseSamePage(pageMode: AccessibilitySamePageMode): T;
 
   /**
+   * Sets accessibilityScrollTriggerable
+   * @param { boolean } isTriggerable - set property of supporting scroll in accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  accessibilityScrollTriggerable(isTriggerable: boolean): T;
+
+  /**
    * Sets the accessibility text.
    * <p><strong>NOTE</strong>
    * If a component has both text content and accessibility text, only the accessibility text is announced.
@@ -28819,18 +28831,6 @@ declare class CommonMethod<T> {
   * @since 19 dynamic
   */
   bindTips(message: TipsMessageType, options?: TipsOptions): T;
-
-  /**
-   * Sets accessibilityScrollTriggerable
-   * @param { boolean } isTriggerable - set property of supporting scroll in accessibility
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  accessibilityScrollTriggerable(isTriggerable: boolean): T;
 
    /**
    * Accessibility focus draw level, and the default value is FocusDrawLevel.SELF.
