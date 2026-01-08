@@ -285,7 +285,6 @@ declare type Percentage = `${number}%`;
  *
  * @typedef { `${number}deg` } Degree
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1951,7 +1950,6 @@ declare type LengthConstrain = {
  *
  * @typedef { function } VoidCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic

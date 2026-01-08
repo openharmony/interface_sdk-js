@@ -258,23 +258,46 @@ export declare interface TabBarIconStyle {
  */
 export declare class TabBarSymbol {
   /**
-   * Symbol icon in the normal style.
+   * Get symbol icon in the normal style.
    *
-   * @type { SymbolGlyphModifier }
-   * @default fontColor: #66182431, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
+   * @returns { SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  normal: SymbolGlyphModifier;
+  get normal(): SymbolGlyphModifier;
+
   /**
-   * Symbol icon in the selected style.
+   * Set symbol icon in the normal style.
    *
-   * @type { ?SymbolGlyphModifier }
-   * @default fontColor: #ff007dff, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
+   * @param { SymbolGlyphModifier } normal - Set symbol icon in the normal style.
+   *     <br>@default fontColor: #66182431, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  selected?: SymbolGlyphModifier;
+  set normal(normal: SymbolGlyphModifier);
+
+  /**
+   * Get symbol icon in the selected style.
+   *
+   * @returns { SymbolGlyphModifier | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  get selected(): SymbolGlyphModifier | undefined;
+
+  /**
+   * Set symbol icon in the selected style.
+   *
+   * @param { SymbolGlyphModifier | undefined } selected - Set symbol icon in the selected style.
+   *     <br>@default fontColor: #ff007dff, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  set selected(selected: SymbolGlyphModifier | undefined);
 }
 /**
  * Icon and text for TabBar.

@@ -2390,8 +2390,10 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 12 dynamic
+     * @since 12 dynamiconly
      * @deprecated since 12
+     * @useinstead ohos.multimedia.camera.CameraPosition#CAMERA_POSITION_BACK
+     * @useinstead ohos.multimedia.camera.CameraPosition#CAMERA_POSITION_FRONT
      */
     CAMERA_POSITION_FOLD_INNER = 3
   }
