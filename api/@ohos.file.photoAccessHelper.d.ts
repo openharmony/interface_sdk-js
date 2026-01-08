@@ -201,6 +201,18 @@ declare namespace photoAccessHelper {
      * @since 21 dynamic
      */
     version: number;
+
+    /**
+     * Enum value of the grid level by the user during the last selection.
+     * This information is only included when gridPinchModeType is configured as FULL_FUNCTION_GRID.
+     *
+     * @type { ?GridLevel }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    gridLevel?: GridLevel;
   }
 
   /**
@@ -6418,6 +6430,23 @@ declare namespace photoAccessHelper {
      * @since 14 dynamic
      */
     requestPhotoUrisReadPermission(srcFileUris: Array<string>): Promise<Array<string>>;
+     /**
+      * Grants the save permission for URIs. This API uses a promise to return the result.
+      *
+      * @param { Array<string> } srcFileUris - URIs of the images or videos to be granted with the permission.
+      * @returns { Promise<RequestReadPermissionResult> } - Returns the result list,
+      *     which includes authorized URI list and invalid URI list.
+      * @throws { BusinessError } 23800301 - Internal system error.
+      *     It is recommended to retry and check the logs. Possible causes:
+      *     1. Database corrupted;
+      *     2. The file system is abnormal;
+      *     3. The IPC request timed out.
+      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+      * @stagemodelonly
+      * @atomicservice
+      * @since 23 dynamic&static
+      */
+    requestPhotoUrisReadPermissionEx(srcFileUris: Array<string>): Promise<RequestReadPermissionResult>;
     /**
      * Obtains the index of an image or video in an album. This API uses an asynchronous callback to return the result.
      *
@@ -10128,6 +10157,50 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     QUALITY_ENHANCEMENT_LOCAL_AND_CLOUD = 2
+  }
+
+  /**
+   * Enumerates the types of the moving photo badge.
+   *
+   * @enum { int } MovingPhotoBadgeStateType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  export enum MovingPhotoBadgeStateType {
+    /**
+    * NOT_MOVING_PHOTO indicates that non-moving photos.
+    *
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @crossplatform
+    * @atomicservice
+    * @since 22 dynamic
+    * @since 23 static
+    */
+    NOT_MOVING_PHOTO = 0,
+
+    /**
+    * MOVING_PHOTO_ENABLED indicates that the motion photo effect is activated.
+    *
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @crossplatform
+    * @atomicservice
+    * @since 22 dynamic
+    * @since 23 static
+    */
+    MOVING_PHOTO_ENABLED = 1,
+
+    /**
+    * MOVING_PHOTO_DISABLED indicates that the motion photo effect is deactivated.
+    *
+    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+    * @crossplatform
+    * @atomicservice
+    * @since 22 dynamic
+    * @since 23 static
+    */
+    MOVING_PHOTO_DISABLED = 2
   }
 
   /**
