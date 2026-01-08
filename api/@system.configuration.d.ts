@@ -27,7 +27,7 @@
  * @interface LocaleResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  */
 export interface LocaleResponse {
   /**
@@ -43,7 +43,7 @@ export interface LocaleResponse {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   language: string;
 
@@ -60,7 +60,7 @@ export interface LocaleResponse {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   countryOrRegion: string;
 
@@ -81,7 +81,7 @@ export interface LocaleResponse {
    * @type { "ltr" | "rtl" }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   dir: "ltr" | "rtl";
 }
@@ -93,7 +93,7 @@ export interface LocaleResponse {
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  */
 export default class Configuration {
   /**
@@ -109,7 +109,7 @@ export default class Configuration {
    * @returns { LocaleResponse }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   static getLocale(): LocaleResponse;
 }
