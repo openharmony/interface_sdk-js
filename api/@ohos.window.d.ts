@@ -1366,38 +1366,42 @@ declare namespace window {
     /**
      * The left of the window rectangle, measured in vp.
      *
-     * @type { float }
+     * @type { double }
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    left: float;
+    left: double;
 
     /**
      * The top of the window rectangle, measured in vp.
      *
-     * @type { float }
+     * @type { double }
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    top: float;
+    top: double;
 
     /**
      * The width of the window rectangle, measured in vp.
      *
-     * @type { float }
+     * @type { double }
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    width: float;
+    width: double;
 
     /**
      * The height of the window rectangle, measured in vp.
      *
-     * @type { float }
+     * @type { double }
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    height: float;
+    height: double;
   }
 
   /**
@@ -1812,20 +1816,22 @@ declare namespace window {
     /**
      * The width of the window, measured in vp.
      *
-     * @type { float }
+     * @type { double }
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    width: float;
+    width: double;
 
     /**
      * The height of the window, measured in vp.
      *
-     * @type { float }
+     * @type { double }
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    height: float;
+    height: double;
   }
 
   /**
