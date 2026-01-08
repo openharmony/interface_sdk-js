@@ -103,7 +103,7 @@ export declare enum FilterType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 22 dynamiconly
+ * @since 22 dynamic
  */
 export declare class FilterParams {
     /**
@@ -171,7 +171,7 @@ export declare class FilterParams {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 22 dynamiconly
+ * @since 22 dynamic
  */
 export declare class FilterResult {
     /**
