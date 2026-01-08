@@ -28332,6 +28332,19 @@ declare class CommonMethod<T> {
   onAccessibilityFocus(callback: AccessibilityFocusCallback): T;
 
   /**
+   * Register accessibility action intercept callback,
+   * when accessibility action is to be executed,the callback will be executed
+   * @param { AccessibilityActionInterceptCallback } callback - accessibility action intercept callback function
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  onAccessibilityActionIntercept(callback: AccessibilityActionInterceptCallback): T;
+
+  /**
    * Sets accessibilityTextHint
    *
    * @param { string } value - set accessibility text hint
@@ -28861,19 +28874,6 @@ declare class CommonMethod<T> {
    * @since 20 dynamic
    */
   onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T;
-
-  /**
-   * Register accessibility action intercept callback,
-   * when accessibility action is to be executed,the callback will be executed
-   * @param { AccessibilityActionInterceptCallback } callback - accessibility action intercept callback function
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  onAccessibilityActionIntercept(callback: AccessibilityActionInterceptCallback): T;
 
   /**
    * Set whether the component enables the ability to invert colors.
