@@ -541,6 +541,7 @@ declare namespace relationalStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 20 dynamic
+     * @since 23 static
      */
 
     enableSemanticIndex?: boolean;
@@ -772,6 +773,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 22 dynamic
+     * @since 23 static
      */
     PLAIN_TEXT
   }
@@ -1347,6 +1349,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20 dynamic
+   * @since 23 static
    */
   interface SqlInfo {
     /**
@@ -1356,6 +1359,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     sql: string;
 
@@ -1366,6 +1370,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     args: Array<ValueType>;
   }
@@ -3249,6 +3254,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     having(conditions:string, args?: Array<ValueType>): RdbPredicates;
   }
@@ -9343,6 +9349,17 @@ declare namespace relationalStore {
     on(event: 'sqliteErrorOccurred', observer: Callback<ExceptionMessage> ): void;
 
     /**
+     * Subscribes to the SQL execution error logs.
+     * @param { Callback<ExceptionMessage> } observer - Callback used to return the SQL execution error log {@link ExceptionMessage}.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 23 static
+     */
+    onSqliteErrorOccurred(observer: Callback<ExceptionMessage> ): void;
+
+    /**
      * Subscribes to the SQL performance statistics.
      * @param { 'perfStat' } event - Event type, which must be 'perfStat'.
      * @param { Callback<SqlExecutionInfo> } observer - Callback used to return the SQL execution statistics {@link SqlExecutionInfo}.
@@ -9353,6 +9370,17 @@ declare namespace relationalStore {
      * @since 20 dynamic
      */
     on(event: 'perfStat', observer: Callback<SqlExecutionInfo>): void;
+
+    /**
+     * Subscribes to the SQL performance statistics.
+     * @param { Callback<SqlExecutionInfo> } observer - Callback used to return the SQL execution statistics {@link SqlExecutionInfo}.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 23 static
+     */
+    onPerfStat(observer: Callback<SqlExecutionInfo>): void;
 
     /**
      * Remove specified observer of specified type from the database.
@@ -9567,6 +9595,17 @@ declare namespace relationalStore {
     off(event: 'sqliteErrorOccurred', observer?: Callback<ExceptionMessage> ): void;
 
     /**
+     * Unsubscribes from the SQL execution error logs.
+     * @param { Callback<ExceptionMessage> } [observer] - Callback to unregister.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 23 static
+     */
+    offSqliteErrorOccurred(observer?: Callback<ExceptionMessage> ): void;
+
+    /**
      * Unsubscribes from the SQL performance statistics.
      * @param { 'perfStat' } event - Event type, which must be 'perfStat'.
      * @param { Callback<SqlExecutionInfo> } observer - Callback to unregister.
@@ -9577,6 +9616,17 @@ declare namespace relationalStore {
      * @since 20 dynamic
      */
     off(event: 'perfStat', observer?: Callback<SqlExecutionInfo>): void;
+
+    /**
+     * Unsubscribes from the SQL performance statistics.
+     * @param { Callback<SqlExecutionInfo> } [observer] - Callback to unregister.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 23 static
+     */
+    offPerfStat(observer?: Callback<SqlExecutionInfo>): void;
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
@@ -9917,6 +9967,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20 dynamic
+     * @since 23 static
      */
     rekey(cryptoParam?: CryptoParam): Promise<void>;
 
@@ -9933,6 +9984,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 20 dynamic
+     * @since 23 static
      */
     setLocale(locale: string) : Promise<void>
 
@@ -11207,6 +11259,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20 dynamic
+   * @since 23 static
    */
   function getInsertSqlInfo(table: string, values: ValuesBucket, conflict?: ConflictResolution):SqlInfo;
 
@@ -11221,6 +11274,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20 dynamic
+   * @since 23 static
    */
   function getUpdateSqlInfo(predicates: RdbPredicates, values: ValuesBucket, conflict?: ConflictResolution):SqlInfo;
 
@@ -11233,6 +11287,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20 dynamic
+   * @since 23 static
    */
   function getDeleteSqlInfo(predicates: RdbPredicates):SqlInfo;
 
@@ -11246,6 +11301,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20 dynamic
+   * @since 23 static
    */
   function getQuerySqlInfo(predicates: RdbPredicates, columns?: Array<string>):SqlInfo;
 }
