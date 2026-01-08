@@ -3500,7 +3500,7 @@ declare namespace window {
    *     Possible cause: The window has been created and can not be created again.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    *     Possible cause: Invalid parent window type, parent window cannot be a subWindow.
-   * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Invalid window type.
+   * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The window type in the configuration is invalid.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3561,7 +3561,7 @@ declare namespace window {
    *     Possible cause: The window has been created and can not be created again.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    *     Possible cause: Invalid parent window type, parent window cannot be a subWindow.
-   * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Invalid window type.
+   * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The window type in the configuration is invalid.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
