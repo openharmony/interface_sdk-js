@@ -9117,17 +9117,16 @@ declare namespace photoAccessHelper {
     gridPinchMode?: GridPinchMode;
 
     /**
-    * Initial state for global moving photos.
-    * Only MOVING_PHOTO_ENABLE and MOVING_PHOTO_DISABLE are supported for configuration.
-    * Defaults to MOVING_PHOTO_ENABLE, which enables the dynamic effect.
-    *
-    * @type { ?MovingPhotoBadgeStateType }
-    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-    * @stagemodelonly
-    * @atomicservice
-    * @since 23 dynamic&static
-
-    */
+     * Initial state for global moving photos.
+     * Only MOVING_PHOTO_ENABLE and MOVING_PHOTO_DISABLE are supported for configuration.
+     * Defaults to MOVING_PHOTO_ENABLE, which enables the dynamic effect.
+     *
+     * @type { ?MovingPhotoBadgeStateType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
     globalMovingPhotoState?: MovingPhotoBadgeStateType;
   }
 
@@ -9808,6 +9807,9 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
+     *     1. An illegal enumeration value was passed to PhotoSelectOptions.globalMovingPhotoState.
+     *     Only MOVING_PHOTO_ENABLE and MOVING_PHOTO_DISABLE are supported for configuration;
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice

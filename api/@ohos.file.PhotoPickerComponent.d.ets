@@ -140,7 +140,7 @@ export declare struct PhotoPickerComponent {
    * @atomicservice
    * @since 23 dynamic&static
    */
-  onPhotoBrowserChangeStart?: PhotoBrowserChangeStartCallback
+  onPhotoBrowserChangeStart?: PhotoBrowserChangeStartCallback;
 
   /**
    * Callback when selected items are deleted
