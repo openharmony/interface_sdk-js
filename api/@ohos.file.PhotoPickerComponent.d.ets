@@ -465,7 +465,7 @@ export declare class PickerController {
    * @atomicservice
    * @since 23 dynamic&static
    */
-    setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateType): Promise<void>;
+  setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateType): Promise<void>;
 }
 
 /**
