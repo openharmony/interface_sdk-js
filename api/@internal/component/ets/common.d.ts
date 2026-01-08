@@ -21173,7 +21173,6 @@ declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
  *
  * @typedef { T | undefined } Optional<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -33329,7 +33328,6 @@ declare interface KeyframeState {
  *
  * @typedef Callback<T, V = void>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -33341,7 +33339,6 @@ declare interface Callback<T, V = void> {
    * @param { T } data - the data will be used in the callback.
    * @returns { V } - Returns result of the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
