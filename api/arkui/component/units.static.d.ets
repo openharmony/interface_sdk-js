@@ -20,7 +20,7 @@
  */
 
 import { Resource as _Resource } from '../../global/resource';
-import { Color, BorderStyle, FontWeight, FontStyle, DividerMode } from './enums';
+import { Color, BorderStyle, FontWeight, FontStyle, DividerMode, PresetFillType } from './enums';
 import { OutlineStyle, AttributeModifier, CommonMethod } from './common';
 import { LengthMetricsUnit as _LengthMetricsUnit, LengthMetrics as _LengthMetrics, ColorMetrics as _ColorMetrics } from '../Graphics';
 import _drawing from '../../../api/@ohos.graphics.drawing'
@@ -1427,9 +1427,10 @@ export declare interface DividerStyleOptions {
  *
  * @interface ScrollBarMargin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-declare interface ScrollBarMargin {
+export declare interface ScrollBarMargin {
   /**
    * Start margin of the scroll bar.
    *
@@ -1513,4 +1514,61 @@ export declare interface AccessibilityActionOptions {
    * @since 23 static
    */
   scrollStep?: int;
+}
+
+/**
+ * Define a responsive item filling pattern that can be used in WaterFlow, Grid, List, and Swiper components.
+ *
+ * @typedef { PresetFillType } ResponsiveFillType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export type ResponsiveFillType = PresetFillType;
+
+/**
+ * Define a responsive item layout suitable for WaterFlow, Grid, List, and Swiper components.
+ *
+ * @interface ItemFillPolicy
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare interface ItemFillPolicy {
+  /**
+   * Specify the number of columns for different responsive breakpoints.
+   *
+   * @type { ?ResponsiveFillType }
+   * @default ResponsiveFillType.BREAKPOINT_DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  fillType?: ResponsiveFillType;
+}
+
+/**
+ * Define cache count information.
+ *
+ * @interface CacheCountInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 23 static
+ */
+export declare interface CacheCountInfo {
+  /**
+   * min cache count.
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 static
+   */
+  minCount: int;
+  /**
+   * max cache count.
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 23 static
+   */
+  maxCount: int;
 }

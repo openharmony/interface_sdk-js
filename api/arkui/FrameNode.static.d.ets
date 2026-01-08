@@ -26,13 +26,13 @@ import { BusinessError } from '@ohos.base';
 import { UIContext } from '@ohos.arkui.UIContext';
 import { UICommonEvent, UIGestureEvent, CommonAttribute, CustomProperty } from '@ohos.arkui.component';
 import { SwiperAttribute, SwiperController } from '@ohos.arkui.component';
-import { ScrollAttribute, Scroller } from '@ohos.arkui.component';
-import { ListAttribute, ListOptions } from '@ohos.arkui.component';
+import { ScrollAttribute, Scroller, UIScrollEvent } from '@ohos.arkui.component';
+import { ListAttribute, ListOptions, UIListEvent } from '@ohos.arkui.component';
 import { ListItemAttribute, ListItemOptions } from '@ohos.arkui.component';
 import { ListItemGroupAttribute, ListItemGroupOptions } from '@ohos.arkui.component';
-import { WaterFlowAttribute, WaterFlowOptions } from '@ohos.arkui.component';
+import { WaterFlowAttribute, WaterFlowOptions, UIWaterFlowEvent } from '@ohos.arkui.component';
 import { FlowItemAttribute } from '@ohos.arkui.component';
-import { GridAttribute, GridLayoutOptions } from '@ohos.arkui.component';
+import { GridAttribute, GridLayoutOptions, UIGridEvent } from '@ohos.arkui.component';
 import { GridItemAttribute, GridItemOptions } from '@ohos.arkui.component';
 import { Resource } from 'global.resource';
 import { TextAttribute, TextOptions } from '@ohos.arkui.component';
@@ -1467,6 +1467,42 @@ export declare namespace typeNode {
   export function createListNode(context: UIContext): List;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { ListAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getListAttribute(node: FrameNode): ListAttribute | undefined;
+
+  /**
+   * Get the event instance of List node.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { UIListEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getListEvent(node: FrameNode): UIListEvent | undefined;
+
+  /**
+   * Bind the controller of FrameNode.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { Scroller } controller - the controller which is bind to the target FrameNode.
+   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
+   *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 static
+   */
+  export function bindListController(node: FrameNode, controller: Scroller): void;
+
+  /**
    * Define the ListItem type of FrameNode.
    *
    * @extends TypedFrameNode<ListItemAttribute>
@@ -1505,6 +1541,17 @@ export declare namespace typeNode {
   export function createListItemNode(context: UIContext): ListItem;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { ListItemAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getListItemAttribute(node: FrameNode): ListItemAttribute | undefined;
+
+  /**
    * Define the ListItemGroup type of FrameNode.
    *
    * @extends TypedFrameNode<ListItemGroupAttribute>
@@ -1541,6 +1588,17 @@ export declare namespace typeNode {
    * @since 23 static
    */
   export function createListItemGroupNode(context: UIContext): ListItemGroup;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { ListItemGroupAttribute | undefined } - Return the attribute instance of FrameNode,
+   *      and return undefined if it does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getListItemGroupAttribute(node: FrameNode): ListItemGroupAttribute | undefined;
 
   /**
    * Define the Progress type of FrameNode.
@@ -1617,6 +1675,41 @@ export declare namespace typeNode {
    * @since 23 static
    */
   export function createScrollNode(context: UIContext): Scroll;
+
+  /**
+   * Bind the controller of FrameNode.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { Scroller } controller - the controller which is bind to the target FrameNode.
+   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
+   *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function bindScrollController(node: FrameNode, controller: Scroller): void;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { ScrollAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getScrollAttribute(node: FrameNode): ScrollAttribute | undefined;
+
+  /**
+   * Get the event instance of Scroll node.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { UIScrollEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getScrollEvent(node: FrameNode): UIScrollEvent | undefined;
 
   /**
    * Define the TextClock type of FrameNode.
@@ -1734,6 +1827,42 @@ export declare namespace typeNode {
   export function createGridNode(context: UIContext): Grid;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { GridAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getGridAttribute(node: FrameNode): GridAttribute | undefined;
+
+  /**
+   * Get the event instance of Grid node.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { UIGridEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getGridEvent(node: FrameNode): UIGridEvent | undefined;
+
+  /**
+   * Bind the controller of FrameNode.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { Scroller } controller - the controller which is bind to the target FrameNode.
+   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
+   *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 static
+   */
+  export function bindGridController(node: FrameNode, controller: Scroller): void;
+
+  /**
    * Define the GridItem type of FrameNode.
    *
    * @extends TypedFrameNode<GridItemAttribute>
@@ -1770,6 +1899,17 @@ export declare namespace typeNode {
    * @since 23 static
    */
   export function createGridItemNode(context: UIContext): GridItem;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { GridItemAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getGridItemAttribute(node: FrameNode): GridItemAttribute | undefined;
 
   /**
    * Define the WaterFlow type of FrameNode.
@@ -1810,6 +1950,42 @@ export declare namespace typeNode {
   export function createWaterFlowNode(context: UIContext): WaterFlow;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { WaterFlowAttribute | undefined } - Return the attribute instance of FrameNode,
+   *      and return undefined if it does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */ 
+  export function getWaterFlowAttribute(node: FrameNode): WaterFlowAttribute | undefined;
+
+  /**
+   * Get the event instance of WaterFlow node.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { UIWaterFlowEvent | undefined } - Return the event instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getWaterFlowEvent(node: FrameNode): UIWaterFlowEvent | undefined;
+
+  /**
+   * Bind the controller of FrameNode.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { Scroller } controller - the controller which is bind to the target FrameNode.
+   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
+   *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @since 23 static
+   */
+  export function bindWaterFlowController(node: FrameNode, controller: Scroller): void;
+
+  /**
    * Define the FlowItem type of FrameNode.
    *
    * @extends TypedFrameNode<FlowItemAttribute>
@@ -1845,6 +2021,17 @@ export declare namespace typeNode {
    * @since 23 static
    */
   export function createFlowItemNode(context: UIContext): FlowItem;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { FlowItemAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   *     does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  export function getFlowItemAttribute(node: FrameNode): FlowItemAttribute | undefined;
 
   /**
    * Define the Text type of FrameNode.
