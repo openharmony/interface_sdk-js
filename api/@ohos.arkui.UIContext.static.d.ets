@@ -297,11 +297,12 @@ export declare class Router {
    * Returns to the specified page.
    *
    * @param { int } index - index of page.
-   * @param { Object } [params] - params of page.
+   * @param { jsonx.JsonElement } [params] - params of page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  back(index: int, params?: Object): void;
+  back(index: int, params?: jsonx.JsonElement): void;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
@@ -384,11 +385,12 @@ export declare class Router {
   /**
    * Obtains information about the current page params.
    *
-   * @returns { Object } Page params.
+   * @returns { jsonx.JsonElement } Page params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  getParams(): Object;
+  getParams(): jsonx.JsonElement;
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
