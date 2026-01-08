@@ -32,6 +32,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 /**
  * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.
@@ -39,6 +40,7 @@
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
+ * @noninterop
  */
 @Component
 export declare struct SplitLayout {
