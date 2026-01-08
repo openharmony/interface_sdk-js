@@ -27616,6 +27616,19 @@ declare class CommonMethod<T> {
   geometryTransition(id: string, options?: GeometryTransitionOptions): T;
 
   /**
+  * Tips control
+  *
+  * @param { TipsMessageType } message
+  * @param { TipsOptions } [options]
+  * @returns { T }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 19 dynamic
+  */
+  bindTips(message: TipsMessageType, options?: TipsOptions): T;
+
+  /**
    * Popup control
    *
    * @param { boolean } show
@@ -28818,19 +28831,6 @@ declare class CommonMethod<T> {
    * @since 12 dynamic
    */
   onSizeChange(event: SizeChangeCallback): T;
-
-  /**
-  * Tips control
-  *
-  * @param { TipsMessageType } message
-  * @param { TipsOptions } [options]
-  * @returns { T }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since 19 dynamic
-  */
-  bindTips(message: TipsMessageType, options?: TipsOptions): T;
 
    /**
    * Accessibility focus draw level, and the default value is FocusDrawLevel.SELF.
