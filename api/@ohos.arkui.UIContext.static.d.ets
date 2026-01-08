@@ -35,7 +35,7 @@ import image from './@ohos.multimedia.image';
 import type common from './@ohos.app.ability.common';
 import type pointer from './@ohos.multimodalInput.pointer';
 import { ComponentContent, FrameNode, Frame } from '@ohos.arkui.node';
-import { ComponentContentBase } from '../ComponentContent';
+import { ComponentContentBase } from 'arkui/ComponentContent';
 import { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import { ClickEvent, ExpectedFrameRateRange, DragItemInfo, AnimateParam, KeyframeAnimateParam, KeyframeState,
   SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent,
