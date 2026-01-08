@@ -11795,7 +11795,7 @@ declare namespace window {
      *                     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible cause: Invalid window type. Only main Windows are supported.
+     *     Possible cause: Invalid window type. Only main windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
