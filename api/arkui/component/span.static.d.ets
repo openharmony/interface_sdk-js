@@ -275,14 +275,13 @@ export declare interface SpanAttribute {
  * Defines Span Component.
  *
  * @param { string | Resource } value
- * @param { CustomBuilder } [content_]
  * @returns { SpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function Span(
-    value: string | Resource, 
-    content_?: CustomBuilder,
+    value: string | Resource
 ): SpanAttribute

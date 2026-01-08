@@ -197,14 +197,13 @@ export declare interface ImageLoadResult {
  * Defines ImageSpan Component.
  *
  * @param { ResourceStr | PixelMap } value
- * @param { CustomBuilder } [content_]
  * @returns { ImageSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function ImageSpan(
-    value: ResourceStr | PixelMap, 
-    content_?: CustomBuilder,
+    value: ResourceStr | PixelMap
 ): ImageSpanAttribute

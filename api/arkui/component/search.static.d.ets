@@ -1090,13 +1090,12 @@ export declare interface SearchAttribute extends CommonMethod {
  * Defines Search Component.
  *
  * @param { SearchOptions } [options]
- * @param { CustomBuilder } [content_]
  * @returns { SearchAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder
 export declare function Search(
-    options?: SearchOptions, 
-    content_?: CustomBuilder,
+    options?: SearchOptions
 ): SearchAttribute

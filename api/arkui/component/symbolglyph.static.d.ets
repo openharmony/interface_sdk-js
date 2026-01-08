@@ -452,14 +452,13 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
  * Defines SymbolGlyph Component.
  *
  * @param { Resource } [value]
- * @param { CustomBuilder } [content_]
  * @returns { SymbolGlyphAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function SymbolGlyph(
-    value?: Resource, 
-    content_?: CustomBuilder,
+    value?: Resource
 ): SymbolGlyphAttribute
