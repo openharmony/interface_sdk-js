@@ -1806,28 +1806,34 @@ declare namespace display {
      * The type of round corner.
      *
      * @type { CornerType }
+     * @readonly
      * @syscap  SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    type: CornerType;
+    readonly type: CornerType;
 
     /**
      * The cneter coordinates of round corner.
      *
      * @type { Position }
+     * @readonly
      * @syscap  SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    position: Position;
+    readonly position: Position;
 
     /**
      * The radius of round corner.
      *
      * @type { int }
+     * @readonly
      * @syscap  SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 23 dynamic&static
      */
-    radius: int;
+    readonly radius: int;
   }
 
   /**
