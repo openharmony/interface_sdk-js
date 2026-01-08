@@ -4151,8 +4151,8 @@ declare namespace window {
    *                     4. Invalid sourceWindowId or targetWindowId.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
-   *     Possible cause: 1. SourceWindow cannot find：not created or not belong to current process;
-   *                     2. TargetWindow cannot find：not created or not belong to current process;
+   *     Possible cause: 1. SourceWindow cannot find: not created or not belong to current process;
+   *                     2. TargetWindow cannot find: not created or not belong to current process;
    *                     3. Internal task error.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -4174,8 +4174,8 @@ declare namespace window {
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 801 - Capability not supported. Function shiftAppWindowTouchEvent can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
-   *     Possible cause: 1. SourceWindow cannot find：not created or not belong to current process;
-   *                     2. TargetWindow cannot find：not created or not belong to current process;
+   *     Possible cause: 1. SourceWindow cannot find: not created or not belong to current process;
+   *                     2. TargetWindow cannot find: not created or not belong to current process;
    *                     3. Internal task error.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300004 - Unauthorized operation.
