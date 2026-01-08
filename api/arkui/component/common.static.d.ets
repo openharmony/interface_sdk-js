@@ -6456,11 +6456,11 @@ export declare interface SheetOptions extends BindOptions {
      * <br>The return value is in px.
      * <p>
      *
-     * @type { ?Callback<number> }
+     * @type { ?Callback<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
-    onHeightDidChange?: Callback<number>;
+    onHeightDidChange?: Callback<int>;
     /**
      * Determine the level sheet shows, whether sheet should be displayed within the page.
      *
@@ -12902,6 +12902,16 @@ export type OnDidStopDraggingCallback = (willFling: boolean) => void;
   */
 export type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: int) => CustomBuilder | undefined;
 /**
+  * Defines the callback type used in onGetPreviewBadge of EditModeOptions.
+  *
+  * @typedef { function } OnGetPreviewBadgeCallback
+  * @returns { boolean | int }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 23 static
+  */
+export type OnGetPreviewBadgeCallback = () => boolean | int;
+/**
  * Defines the onMove callback.
  *
  * @typedef { function } OnMoveHandler
@@ -13110,17 +13120,34 @@ export declare class ChildrenMainSize {
  *
  * @interface EditModeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface EditModeOptions {
     /**
-     * Define whether to gather selected items in grid or list when item is long pressed for context menu or drag.
+     * Define whether to gather selected items in grid or list when item is long pressed for context menu.
      *
-     * @type { ?boolean } - The default value is true.
+     * @type { ?boolean }
+     * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     enableGatherSelectedItemsAnimation?: boolean;
+
+    /**
+     * Called to return whether to display the number badge or the number displayed on the badge
+     * for the context menu preview. If not set, the number of selected items within the display range will be used.
+     * Returning false means not displaying the badge.
+     * Returning true means using the number of selected items within the display range.
+     * Returning a number to include selected items outside the display range.
+     *
+     * @type { ?OnGetPreviewBadgeCallback } onGetPreviewBadge
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onGetPreviewBadge?: OnGetPreviewBadgeCallback;
 }
 
 /**

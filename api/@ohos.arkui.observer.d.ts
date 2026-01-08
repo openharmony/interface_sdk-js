@@ -34,7 +34,6 @@ import type { Size } from './@ohos.arkui.node';
  *
  * @namespace uiObserver
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -850,7 +849,6 @@ declare namespace uiObserver {
    * Density info.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -861,7 +859,6 @@ declare namespace uiObserver {
      *
      * @type { UIContext }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -873,7 +870,6 @@ declare namespace uiObserver {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -942,7 +938,6 @@ declare namespace uiObserver {
    * based on the configured breakpoint thresholds.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @atomicservice
    * @since 22 dynamic
    */
@@ -955,7 +950,6 @@ declare namespace uiObserver {
      * @type { WidthBreakpoint }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
      * @atomicservice
      * @since 22 dynamic
      */
@@ -969,7 +963,6 @@ declare namespace uiObserver {
      * @type { HeightBreakpoint }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
      * @atomicservice
      * @since 22 dynamic
      */
@@ -1239,7 +1232,6 @@ declare namespace uiObserver {
    * @param { UIContext } context - The context scope of the observer.
    * @param { Callback<DensityInfo> } callback - The callback function to be called when the screen density is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1254,7 +1246,6 @@ declare namespace uiObserver {
    * @param { Callback<DensityInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
    *                                               will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1268,7 +1259,6 @@ declare namespace uiObserver {
    * @param { UIContext } context - The context scope of the observer.
    * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1283,7 +1273,6 @@ declare namespace uiObserver {
    * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
    *                                               will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1297,7 +1286,6 @@ declare namespace uiObserver {
    * @param { UIContext } context - The context scope of the observer.
    * @param { Callback<void> } callback - The callback function to be called when the layout is done.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1312,7 +1300,6 @@ declare namespace uiObserver {
    * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
    *                                               will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
