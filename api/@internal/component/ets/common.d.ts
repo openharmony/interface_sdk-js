@@ -28804,21 +28804,6 @@ declare class CommonMethod<T> {
   onTouchIntercept(callback: Callback<TouchEvent, HitTestMode>): T;
 
   /**
-   * Register one callback which will be executed when all gesture recognizers are collected done, this happens
-   * when user touchs down, the system do hit test process and collect gesture recognizers base on the touch
-   * position, after this, before handling any move events, the component can use this interface to know which
-   * gesture recognizers will participate in the recognition and competing with each other.
-   *
-   * @param { TouchTestDoneCallback } callback - A callback instance used when all gesture recognizers are collected.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  onTouchTestDone(callback: TouchTestDoneCallback): T;
-
-  /**
    * This callback is triggered when the component size changes due to layout updates.
    * This event is not triggered for render attribute changes caused by re-rendering.
    *
@@ -28844,6 +28829,21 @@ declare class CommonMethod<T> {
    * @since 19 dynamic
    */
   accessibilityFocusDrawLevel(drawLevel: FocusDrawLevel): T;
+
+  /**
+   * Register one callback which will be executed when all gesture recognizers are collected done, this happens
+   * when user touchs down, the system do hit test process and collect gesture recognizers base on the touch
+   * position, after this, before handling any move events, the component can use this interface to know which
+   * gesture recognizers will participate in the recognition and competing with each other.
+   *
+   * @param { TouchTestDoneCallback } callback - A callback instance used when all gesture recognizers are collected.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  onTouchTestDone(callback: TouchTestDoneCallback): T;
 
   /**
    * Enables the component as a drag-and-drop target with spring loading functionality.
