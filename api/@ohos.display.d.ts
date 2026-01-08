@@ -2687,7 +2687,7 @@ declare namespace display {
     sourceMode?: DisplaySourceMode;
  
     /**
-     * Coordinates of the top-left corner of the display relative to the main display.
+     * The X-axis coordinate of the top-left corner of the display relative to the main display.
      *
      * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
@@ -2698,7 +2698,7 @@ declare namespace display {
     x?: long;
   
     /**
-     * Coordinates of the top-left corner of the display relative to the main display.
+     * The Y-axis coordinate of the top-left corner of the display relative to the main display.
      *
      * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
