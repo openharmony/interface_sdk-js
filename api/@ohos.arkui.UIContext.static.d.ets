@@ -3348,6 +3348,7 @@ export declare class UIContext {
    * @param { ComponentContentBase } bindSheetContent - The content of BindSheet.
    * @param { SheetOptions } [sheetOptions] - The options of sheet.
    * @param { int } [targetId] - The uniqueId of the FrameNode to which BindSheet is attached.
+   *     <br>Value range:(0, +∞)
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -3359,18 +3360,20 @@ export declare class UIContext {
    * @throws { BusinessError } 120005 - The node of targetId is not in the component tree.
    * @throws { BusinessError } 120006 - The node of targetId is not a child of the page node or NavDestination node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  openBindSheet(bindSheetContent: ComponentContentBase, sheetOptions?: SheetOptions, targetId?: int): Promise<void>;
+  openBindSheet(bindSheetContent: ComponentContentBase,
+    sheetOptions?: SheetOptions, targetId?: int): Promise<void>;
 
   /**
    * Update the BindSheet with sheetOptions.
    *
    * @param { ComponentContentBase } bindSheetContent - The content of BindSheet.
    * @param { SheetOptions } sheetOptions - The update options of sheet.
-   * @param { boolean } partialUpdate - If true, only the specified properties in the sheetOptions are updated,
-   *                                    otherwise the rest of the properties are overwritten with the default values.
-   *                                    Default value is false.
+   * @param { boolean } [partialUpdate] - If true, only the specified properties in the sheetOptions are updated,
+   *     otherwise the rest of the properties are overwritten with the default values.
+   *     Default value is false.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -3379,9 +3382,11 @@ export declare class UIContext {
    * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
    * @throws { BusinessError } 120003 - The bindSheetContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-  updateBindSheet(bindSheetContent: ComponentContentBase, sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
+  updateBindSheet(bindSheetContent: ComponentContentBase,
+    sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
 
   /**
    * Close the BindSheet.
@@ -3395,6 +3400,7 @@ export declare class UIContext {
    * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
    * @throws { BusinessError } 120003 - The bindSheetContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   closeBindSheet(bindSheetContent: ComponentContentBase): Promise<void>;
