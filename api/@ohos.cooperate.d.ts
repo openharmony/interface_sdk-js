@@ -685,7 +685,7 @@ declare namespace cooperate {
    * Enables listening for mouse pointer position information on the specified device.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { 'cooperateMouseEvent' } type - Event type, which is **cooperateMouseEvent**.
+   * @param { 'cooperateMouse' } type - Event type, which is **cooperateMouse**.
    * @param { string } networkId - Specified device.
    * @param { Callback<MouseLocation> } callback - Callback for receiving reported events.
    * @throws {BusinessError} 201 - Permission denied.
@@ -696,16 +696,16 @@ declare namespace cooperate {
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
    */
-  function on(type: 'cooperateMouseEvent', networkId: string, callback: Callback<MouseLocation>): void;
+  function on(type: 'cooperateMouse', networkId: string, callback: Callback<MouseLocation>): void;
 
  /**
    * Disables listening for mouse pointer position information on the specified device.
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { 'cooperateMouseEvent' } type - Event type, which is **cooperateMouseEvent**.
+   * @param { 'cooperateMouse' } type - Event type, which is **cooperateMouse**.
    * @param { string } networkId - Specified device.
    * @param { Callback<MouseLocation> } [callback] - Callback for receiving reported events.
-   * <br>If no callback is specified, listening will be disabled for all **cooperateMouseEvent** events of the device specified by **networkId**.
+   * <br>If no callback is specified, listening will be disabled for all **cooperateMouse** events of the device specified by **networkId**.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -714,7 +714,7 @@ declare namespace cooperate {
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
    */
-  function off(type: 'cooperateMouseEvent', networkId: string, callback?: Callback<MouseLocation>): void;
+  function off(type: 'cooperateMouse', networkId: string, callback?: Callback<MouseLocation>): void;
 
 /**
    * Starts screen hopping with options.
