@@ -6086,7 +6086,7 @@ declare namespace audio {
      * @param { boolean } enable - Sets true to enable mute suggestion while registering session state
      *     change event callback.
      * @throws { BusinessError } 6800103 - Function is called without setting {@link #AudioSessionScene} or
-     *     called before audio session activation.
+     *     called after audio session activation.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, system internal error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @stagemodelonly
