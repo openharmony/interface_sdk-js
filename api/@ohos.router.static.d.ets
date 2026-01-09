@@ -76,13 +76,13 @@ declare namespace router {
     /**
      * Data that needs to be passed to the destination page during navigation.
      * After the destination page is displayed, the parameter can be directly used for the page.
+     * For example, this.data1 (data1 is the key value of the params used for page navigation.)
      *
-     * @type { ?jsonx.JsonElement }
+     * @type { ?Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @stagemodelonly
      * @since 23 static
      */
-    params?: jsonx.JsonElement;
+    params?: Object;
 
     /**
      * Set router page stack can be recovered after application is destroyed. When router page stack is recovered,
@@ -132,12 +132,11 @@ declare namespace router {
     /**
      * Data that passed to the destination page during navigation.
      *
-     * @type { jsonx.JsonElement }
+     * @type { Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
      * @since 23 static
      */
-    params: jsonx.JsonElement;
+    params: Object;
   }
 
 
@@ -175,12 +174,11 @@ declare namespace router {
     /**
      * Data that needs to be passed to the destination page during navigation.
      *
-     * @type { ?jsonx.JsonElement }
+     * @type { ?Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
      * @since 23 static
      */
-    params?: jsonx.JsonElement;
+    params?: Object;
 
     /**
      * Set router page stack can be recovered after application is destroyed. When router page stack is recovered,
