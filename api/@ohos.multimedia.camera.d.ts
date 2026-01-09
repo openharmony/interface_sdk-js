@@ -14371,29 +14371,32 @@ declare namespace camera {
   type ImageType = image.Image | image.Picture;
 
   /**
-   * PhotoEx object, which supports capturing uncompressed photo, compared to Photo.
+   * CapturePhoto object, which supports capturing uncompressed photo, compared to Photo.
    *
-   * @typedef PhotoEx
+   * @typedef CapturePhoto
    * @syscap SystemCapability.Multimedia.Camera.Core
+   * @stagemodelonly
    * @atomicservice
    * @since 23 dynamic&static
    */
-  interface PhotoEx {
+  interface CapturePhoto {
     /**
      * Main image.
      *
      * @type { ImageType }
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
      * @atomicservice
      * @since 23 dynamic&static
      */
     main: ImageType;
 
     /**
-     * Release PhotoEx object.
+     * Release CapturePhoto object.
      *
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
      * @atomicservice
      * @since 23 dynamic&static
      */
@@ -14877,20 +14880,24 @@ declare namespace camera {
     /**
      * Subscribes photo available event callback, which supports delivery of uncompressed photo.
      *
-     * @param { Callback<PhotoEx> } callback - Callback used to get the PhotoEx.
+     * @param { Callback<CapturePhoto> } callback - Callback used to get the CapturePhoto.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
-    onPhotoAvailable(callback: Callback<PhotoEx>): void;
+    onCapturePhotoAvailable(callback: Callback<CapturePhoto>): void;
 
     /**
      * Unsubscribes photo available event callback, which supports delivery of uncompressed photo.
      *
-     * @param { Callback<PhotoEx> } [callback] - Callback used to get the PhotoEx.
+     * @param { Callback<CapturePhoto> } [callback] - Callback used to get the CapturePhoto.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
-    offPhotoAvailable(callback?: Callback<PhotoEx>): void;
+    offCapturePhotoAvailable(callback?: Callback<CapturePhoto>): void;
 
     /**
      * Subscribes deferred photo proxy available event callback.
