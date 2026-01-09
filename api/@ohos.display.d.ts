@@ -296,6 +296,7 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    *     Possible causes: Internal IPC error.
    * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
    * @since 23 dynamic&static
    */
   function onChangeWithAttribute(displayAttributeOption: Array<string>, callback: Callback<long>): void;
@@ -1758,6 +1759,7 @@ declare namespace display {
    *
    * @enum { int }
    * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
    * @since 23 dynamic&static
    */
   enum CornerType {
@@ -1765,6 +1767,7 @@ declare namespace display {
      * The round corner in the top left.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 23 dynamic&static
      */
     TOP_LEFT = 0,
@@ -1773,6 +1776,7 @@ declare namespace display {
      * The round corner in the top right.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 23 dynamic&static
      */
     TOP_RIGHT = 1,
@@ -1781,6 +1785,7 @@ declare namespace display {
      * The round corner in the bottom right.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 23 dynamic&static
      */
     BOTTOM_RIGHT = 2,
@@ -1789,6 +1794,7 @@ declare namespace display {
      * The round corner in the bottom left.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 23 dynamic&static
      */
     BOTTOM_LEFT = 3
@@ -1799,6 +1805,7 @@ declare namespace display {
    *
    * @interface RoundedCorner
    * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
    * @since 23 dynamic&static
    */
   interface RoundedCorner {
@@ -1806,28 +1813,37 @@ declare namespace display {
      * The type of round corner.
      *
      * @type { CornerType }
+     * @readonly
      * @syscap  SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
-    type: CornerType;
+    readonly type: CornerType;
 
     /**
      * The cneter coordinates of round corner.
      *
      * @type { Position }
+     * @readonly
      * @syscap  SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
-    position: Position;
+    readonly position: Position;
 
     /**
      * The radius of round corner.
      *
      * @type { int }
+     * @readonly
      * @syscap  SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
      * @since 23 dynamic&static
      */
-    radius: int;
+    readonly radius: int;
   }
 
   /**
@@ -2727,6 +2743,7 @@ declare namespace display {
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 23 dynamic&static
      */
     getRoundedCorner(): Array<RoundedCorner>;
