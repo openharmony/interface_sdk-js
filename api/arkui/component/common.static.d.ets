@@ -2430,6 +2430,7 @@ export declare interface AsymmetricTransitionOption {
  * Each DrawModifier instance can be set for only one component. Repeated setting is not allowed.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class DrawModifier {
@@ -2441,6 +2442,7 @@ export declare class DrawModifier {
      * @since 23 static
      */
     drawBehind(drawContext: DrawContext): void;
+
     /**
      * drawContent Method. Executed when associated Node is drawing, the default drawContent method will be replaced
      * if this method is set.
@@ -2450,6 +2452,7 @@ export declare class DrawModifier {
      * @since 23 static
      */
     drawContent(drawContext: DrawContext): void;
+
     /**
      * drawFront Method. Executed after drawing associated Node and its children.
      * @param { DrawContext } drawContext - The drawContext used to draw.
@@ -2457,6 +2460,7 @@ export declare class DrawModifier {
      * @since 23 static
      */
      drawFront(drawContext: DrawContext): void;
+
     /**
      * Draws content in the overlay layer after the associated Node and all its children have been drawn.
      *
