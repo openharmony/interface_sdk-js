@@ -9738,7 +9738,7 @@ declare namespace photoAccessHelper {
 
     /**
      * Moving photo badge states for the selected media files in the gallery.
-     * When isShowMovingPhotoBadge is true, movingPhotoBadgeStates contains the moving photo states;
+     * When isMovingPhotoBadgeShown is true, movingPhotoBadgeStates contains the moving photo states;
      * otherwise, it is empty.
      *
      * @type { Array<MovingPhotoBadgeStateType> }
