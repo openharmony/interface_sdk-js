@@ -753,7 +753,7 @@ export declare enum KeyCode {
   KEYCODE_DEL = 2055,
 
   /**
-   * Key /
+   * Key `
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1289,7 +1289,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_DIVIDE = 2113,
 
   /**
-   * Key ) on numeric keypad
+   * Key * on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
