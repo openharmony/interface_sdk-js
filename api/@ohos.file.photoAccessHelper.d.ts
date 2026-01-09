@@ -9814,6 +9814,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     select(option?: PhotoSelectOptions): Promise<PhotoSelectResult>;
 
@@ -9848,10 +9849,14 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
+     *     1. An illegal enumeration value was passed to PhotoSelectOptions.globalMovingPhotoState.
+     *     Only MOVING_PHOTO_ENABLE and MOVING_PHOTO_DISABLE are supported for configuration;
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>): void;
 
@@ -9887,6 +9892,7 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     select(callback: AsyncCallback<PhotoSelectResult>): void;
   }
@@ -10159,50 +10165,6 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     QUALITY_ENHANCEMENT_LOCAL_AND_CLOUD = 2
-  }
-
-  /**
-   * Enumerates the types of the moving photo badge.
-   *
-   * @enum { int } MovingPhotoBadgeStateType
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  export enum MovingPhotoBadgeStateType {
-    /**
-    * NOT_MOVING_PHOTO indicates that non-moving photos.
-    *
-    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-    * @crossplatform
-    * @atomicservice
-    * @since 22 dynamic
-    * @since 23 static
-    */
-    NOT_MOVING_PHOTO = 0,
-
-    /**
-    * MOVING_PHOTO_ENABLED indicates that the motion photo effect is activated.
-    *
-    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-    * @crossplatform
-    * @atomicservice
-    * @since 22 dynamic
-    * @since 23 static
-    */
-    MOVING_PHOTO_ENABLED = 1,
-
-    /**
-    * MOVING_PHOTO_DISABLED indicates that the motion photo effect is deactivated.
-    *
-    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-    * @crossplatform
-    * @atomicservice
-    * @since 22 dynamic
-    * @since 23 static
-    */
-    MOVING_PHOTO_DISABLED = 2
   }
 
   /**
