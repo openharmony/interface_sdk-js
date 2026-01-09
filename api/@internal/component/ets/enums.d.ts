@@ -1422,14 +1422,14 @@ declare enum InteractionHand {
 }
 
 /**
- * Function Called by Mouse
+ * Define the button types of the mouse device.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
- * Function Called by Mouse
+ * Define the button types of the mouse device.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1437,7 +1437,7 @@ declare enum InteractionHand {
  * @since 10
  */
 /**
- * Function Called by Mouse
+ * Define the button types of the mouse device.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full

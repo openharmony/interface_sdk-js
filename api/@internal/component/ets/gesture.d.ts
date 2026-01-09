@@ -1058,14 +1058,14 @@ interface FingerInfo {
   globalDisplayY?: number;
 
   /**
-   * X coordinate of the touch point relative to the left edge of the device screen.
+   * X coordinate of the touch point relative to the left edge of the current window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * X coordinate of the touch point relative to the left edge of the device screen.
+   * X coordinate of the touch point relative to the left edge of the current window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1073,7 +1073,7 @@ interface FingerInfo {
    * @since 10
    */
   /**
-   * X coordinate of the touch point relative to the left edge of the device screen.
+   * X coordinate of the touch point relative to the left edge of the current window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1084,14 +1084,14 @@ interface FingerInfo {
   globalX: number;
 
   /**
-   * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   * The Y coordinate of the touch point relative to the upper edge of the current window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   * The Y coordinate of the touch point relative to the upper edge of the current window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1099,7 +1099,7 @@ interface FingerInfo {
    * @since 10
    */
   /**
-   * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   * The Y coordinate of the touch point relative to the upper edge of the current window.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
