@@ -61,6 +61,7 @@ declare type Resource = import('../api/global/resource').Resource;
  *
  * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -68,6 +69,7 @@ declare type Resource = import('../api/global/resource').Resource;
  *
  * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -76,6 +78,7 @@ declare type Resource = import('../api/global/resource').Resource;
  *
  * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -1746,6 +1749,7 @@ declare type EdgeOutlineStyles = {
  *
  * @typedef { object } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -1753,6 +1757,7 @@ declare type EdgeOutlineStyles = {
  *
  * @typedef { object } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1772,6 +1777,7 @@ declare type Offset = {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1779,6 +1785,7 @@ declare type Offset = {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1799,6 +1806,7 @@ declare type Offset = {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -1806,6 +1814,7 @@ declare type Offset = {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -2305,6 +2314,7 @@ declare interface Area {
  *
  * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -2312,6 +2322,7 @@ declare interface Area {
  *
  * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -2320,6 +2331,7 @@ declare interface Area {
  *
  * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -2341,6 +2353,7 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -2348,6 +2361,7 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2356,6 +2370,7 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2378,6 +2393,7 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -2385,6 +2401,7 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2393,6 +2410,7 @@ declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2811,6 +2829,7 @@ declare interface ConstraintSizeOptions {
  *
  * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
@@ -2818,6 +2837,7 @@ declare interface ConstraintSizeOptions {
  *
  * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -2826,6 +2846,7 @@ declare interface ConstraintSizeOptions {
  *
  * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -2847,6 +2868,7 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -2854,6 +2876,7 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2862,6 +2885,7 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -2884,6 +2908,7 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -2891,6 +2916,7 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -2899,6 +2925,7 @@ declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10

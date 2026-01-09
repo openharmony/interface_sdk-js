@@ -21598,12 +21598,14 @@ declare interface BackgroundOptions {
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 7
  */
 /**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @form
  * @since 9
  */
@@ -21611,6 +21613,7 @@ declare interface BackgroundOptions {
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @since 10
@@ -21632,6 +21635,7 @@ declare class CommonMethod<T> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -21945,6 +21949,7 @@ declare class CommonMethod<T> {
    * @param { ConstraintSizeOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -21954,6 +21959,7 @@ declare class CommonMethod<T> {
    * @param { ConstraintSizeOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -21964,6 +21970,7 @@ declare class CommonMethod<T> {
    * @param { ConstraintSizeOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -22053,6 +22060,7 @@ declare class CommonMethod<T> {
    * @param { number | string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -22061,6 +22069,7 @@ declare class CommonMethod<T> {
    * @param { number | string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -22070,6 +22079,7 @@ declare class CommonMethod<T> {
    * @param { number | string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -24388,6 +24398,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -24397,6 +24408,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -24407,6 +24419,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -25742,6 +25755,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -25750,6 +25764,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -25759,6 +25774,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -25784,6 +25800,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -25792,6 +25809,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -25801,6 +25819,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -25920,6 +25939,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -25928,6 +25948,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -25937,6 +25958,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -25962,6 +25984,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -25970,6 +25993,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -25979,6 +26003,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -26053,6 +26078,7 @@ declare class CommonMethod<T> {
    * @param { Direction } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -26061,6 +26087,7 @@ declare class CommonMethod<T> {
    * @param { Direction } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -26070,6 +26097,7 @@ declare class CommonMethod<T> {
    * @param { Direction } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -26310,6 +26338,7 @@ declare class CommonMethod<T> {
    * @param { boolean } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -26319,6 +26348,7 @@ declare class CommonMethod<T> {
    * @param { boolean } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -26329,6 +26359,7 @@ declare class CommonMethod<T> {
    * @param { boolean } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -26438,6 +26469,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -26446,6 +26478,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -26455,6 +26488,7 @@ declare class CommonMethod<T> {
    * @param { number } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -27782,6 +27816,7 @@ declare class CommonMethod<T> {
    * @param { string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -27790,6 +27825,7 @@ declare class CommonMethod<T> {
    * @param { string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -27799,6 +27835,7 @@ declare class CommonMethod<T> {
    * @param { string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -29250,10 +29287,11 @@ declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
  *
  * @interface CommonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  */
 interface CommonInterface {
   /**
@@ -29261,6 +29299,7 @@ interface CommonInterface {
    *
    * @returns { CommonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 7
    */
   /**
@@ -29268,6 +29307,7 @@ interface CommonInterface {
    *
    * @returns { CommonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @form
    * @since 9
    */
@@ -29276,6 +29316,7 @@ interface CommonInterface {
    *
    * @returns { CommonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @since 10
@@ -29285,10 +29326,11 @@ interface CommonInterface {
    *
    * @returns { CommonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
   (): CommonAttribute;
 }
