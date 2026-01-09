@@ -7146,7 +7146,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      *     Possible cause: Create js object failed.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     *     Possible causes: Invalid window type. Only main windows are supported.
+     *     Possible cause: Invalid window type. Only main windows are supported.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
