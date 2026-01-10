@@ -10224,7 +10224,7 @@ declare interface PickerTextStyle {
  */
 declare interface PickerDialogButtonStyle {
   /**
-   * Describes the button style.
+   * Describes the button type.
    *
    * @type { ?ButtonType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
