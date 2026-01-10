@@ -1026,6 +1026,15 @@ declare namespace bundleManager {
     CRYPTO = 35,
 
     /**
+     * Indicates extension info with type of the partner agent
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    PARTNER_AGENT = 36,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
