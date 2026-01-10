@@ -633,11 +633,11 @@ export { ParticleModifier } from './arkui/ParticleModifier';
 export { StepperModifier } from './arkui/StepperModifier';
 
 /**
- * Export PickerModifier, which is used to expose applyNormalAttribute function.
+ * Export UIPickerComponentModifier, which is used to expose applyNormalAttribute function.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
-export { PickerModifier } from './arkui/PickerModifier';
+export { UIPickerComponentModifier } from './arkui/UIPickerComponentModifier';

@@ -19,12 +19,14 @@
  * @kit ArkUI
  */
 import { AttributeModifier } from '@ohos.arkui.component';
-import { PickerAttribute } from '@ohos.arkui.component';
+import { UIPickerComponentAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Picker Modifier
- * @implements { PickerAttribute, AttributeModifier<PickerAttribute> }
+ *
+ * @implements { UIPickerComponentAttribute, AttributeModifier<UIPickerComponentAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-export declare class PickerModifier implements PickerAttribute, AttributeModifier<PickerAttribute> {}
+export declare class UIPickerComponentModifier implements UIPickerComponentAttribute, AttributeModifier<UIPickerComponentAttribute> {}
