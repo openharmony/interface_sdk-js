@@ -265,7 +265,7 @@ declare namespace huksExternalCrypto {
    * @throws { BusinessError } 12000020 - If the provider operation failed. Possible causes:
    *     1. The provider occurred internal processing error.
    * @throws { BusinessError } 12000022 - the Ukey PIN is incorrect.
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated.
+   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated. 
    * @throws { BusinessError } 12000024 - If the provider or Ukey is busy.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @stagemodelonly
