@@ -176,14 +176,13 @@ export declare interface PluginComponentAttribute extends CommonMethod {
 /**
  * Defines PluginComponent Component.
  * @param { PluginComponentOptions } options - The options
- * @param { CustomBuilder } [content_] - container
  * @returns { PluginComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @systemapi
  * @since 23 static
  */
 @ComponentBuilder
 export declare function PluginComponent(
-    options: PluginComponentOptions,
-    content_?: CustomBuilder,
+    options: PluginComponentOptions
 ): PluginComponentAttribute

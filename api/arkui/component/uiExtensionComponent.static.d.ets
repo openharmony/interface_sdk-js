@@ -314,14 +314,13 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
  * Defines UIExtensionComponent Component.
  * @param { Want } want - The want
  * @param { UIExtensionOptions } [options] - The options
- * @param { CustomBuilder } [content_] - container
  * @returns { UIExtensionComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @systemapi
  * @since 23 static
  */
 @ComponentBuilder
 export declare function UIExtensionComponent(
-    want: Want, options?: UIExtensionOptions, 
-    content_?: CustomBuilder,
+    want: Want, options?: UIExtensionOptions
 ): UIExtensionComponentAttribute
