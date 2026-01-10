@@ -244,14 +244,14 @@ declare namespace huksExternalCrypto {
   function getUkeyPinAuthState(resourceId: string, params?: Array<HuksExternalCryptoParam>): Promise<HuksExternalPinAuthState>;
   
   /**
-   * The general get operations of the external provider.
+   * The general get operation of the external provider.
    *
    * @param { string } resourceId - Indicates the resource id of the provider.
    * @param { string } propertyId - Indicates the id of the property needed to get.
-   *     currently supports the property method names defined in GMT 0016-2023.
+   *     Currently supports the property method names defined in GMT 0016-2023.
    * @param { Array<HuksExternalCryptoParam> } [params] - Indicates the input operation parameters.
-   * @returns { Promise<Array<HuksExternalCryptoParam>> } the promise returned by the function.
-   * @throws { BusinessError } 801 - api is not supported.
+   * @returns { Promise<Array<HuksExternalCryptoParam>> } The promise returned by the function.
+   * @throws { BusinessError } 801 - API is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - If the Ukey driver operation failed. Possible causes:
    *     1. Error reported when the provider accesses the SKF interface of Ukey.
@@ -259,13 +259,13 @@ declare namespace huksExternalCrypto {
    * @throws { BusinessError } 12000012 - Device environment or input parameter is abnormal.
    *     This error may occur if the process function is not found, or due to other issues.
    * @throws { BusinessError } 12000014 - If the memory is insufficient.
-   * @throws { BusinessError } 12000018 - the input parameter is invalid. Possible causes:
+   * @throws { BusinessError } 12000018 - Input parameter is invalid. Possible causes:
    *     1. The resourceId or propertyId length is invalid.
-   *     2. The params contain invalid tags or invalid value types.
+   *     2. The params contains invalid tags or invalid value types.
    * @throws { BusinessError } 12000020 - If the provider operation failed. Possible causes:
-   *     1. The provider occurred internal processing error.
-   * @throws { BusinessError } 12000022 - the Ukey PIN is incorrect.
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated. 
+   *     1. The provider experienced an internal processing error.
+   * @throws { BusinessError } 12000021 - The Ukey PIN is locked.
+   * @throws { BusinessError } 12000023 - The Ukey PIN is not authenticated.
    * @throws { BusinessError } 12000024 - If the provider or Ukey is busy.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @stagemodelonly
