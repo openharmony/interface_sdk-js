@@ -2135,6 +2135,21 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 23 dynamic
    */
   voiceButton(options: Optional<VoiceButtonOptions>): TextAreaAttribute;
+  
+  /**
+   * Whether to enable horizontal scrolling when text is wider than the view.
+   * The default value is false, and text will be wrapped by the view.
+   *
+   * @param { Optional<boolean> } enabled - whether to enable horizontal scrolling.
+   * True means enable this feature, false means disable this feature.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  horizontalScrolling(enabled: Optional<boolean>): TextAreaAttribute;
 }
 
 /**
