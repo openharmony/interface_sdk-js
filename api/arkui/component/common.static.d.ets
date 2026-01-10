@@ -10465,6 +10465,8 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default renderGroup(value: boolean | undefined): this;
+
+    default excludeFromRenderGroup(exclude: boolean | undefined): T;
     /**
      * Sets whether to freeze the component. When frozen, the component and its children are cached for
      * repeated drawing after offscreen rendering, without updating internal attributes.
