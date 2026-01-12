@@ -272,6 +272,34 @@ declare namespace audio {
   function createAudioCapturer(options: AudioCapturerOptions): Promise<AudioCapturer | null>;
 
   /**
+   * Obtains a special {@link #AudioCapturer} instance. This method uses a promise to return the capturer instance.
+   * This capture can be used to record both Mic-In audio data and echo reference signal, for application to
+   * process algorithm.
+   * Mic-In audio data and echo reference signal will be put in one buffer or multiple buffers according to
+   * configuration set by application.
+   * Capturer is also not allowed to be created when application is in background.
+   * @permission ohos.permission.MICROPHONE
+   * @param { AudioCapturerMicInConfig } config - Capturer configurations, see {@link #AudioCapturerMicInConfig}
+   *     for details.
+   * * @returns { Promise<AudioCapturer | null> } Promise used to return the audio capturer instance,
+   *     or null if any error occurs.
+   * @throws { BusinessError } 201 - Permission denied, including background recording.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 6800101 - Parameter verification failed.
+   * @throws { BusinessError } 6800104 - Capturer creation is not supported, may caused by following problems:
+   *     <br> 1.Source type is unsupported for this capturer, only {@link #SOURCE_TYPE_UNPROCESSED_VOICE_ASSISTANT} is
+   *     supported currently.
+   *     <br> 2.Echo reference signal's config is unsupported, echo reference's sampling rate and format must be the
+   *     same as MicIn audio data currently.
+   * @throws { BusinessError } 6800301 - Audio system internal error, such as system process crash.
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  function createMicInAudioCapturer(config: AudioCapturerMicInConfig): Promise<AudioCapturer | null>;
+
+  /**
    * Obtains an {@link AudioRenderer} instance.
    * This method uses an asynchronous callback to return the renderer instance.
    * @param { AudioRendererOptions } options - Renderer configurations.
@@ -11524,7 +11552,17 @@ declare namespace audio {
      * @since 20 dynamic
      * @since 23 static
      */
-    SOURCE_TYPE_LIVE = 17
+    SOURCE_TYPE_LIVE = 17,
+
+    /**
+     * Unprocessed voice assistant source type.
+     * 
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    SOURCE_TYPE_UNPROCESSED_VOICE_ASSISTANT = 19
   }
 
   /**
@@ -11648,6 +11686,51 @@ declare namespace audio {
      * @since 23 static
      */
     preferredInputDevice?: AudioDeviceDescriptor;
+  }
+
+  /**
+   * Describes audio capturer configuration that can capture
+   * microphone input (mic-in) audio data before any processing.
+   * 
+   * @typedef AudioCapturerMicInConfig
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  interface AudioCapturerMicInConfig {
+    /**
+     * stream information that describes Mic-In audio stream.
+     * 
+     * 
+     * @type { AudioStreamInfo }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    micInstreamInfo: AudioStreamInfo;
+    /**
+     * stream information that describes echo reference signal.
+     * If not set this attribute, the capturer will only record Mic-In audio stream.
+     * 
+     * @type { ?AudioStreamInfo }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    ecStreamInfo?: AudioStreamInfo;
+    /**
+     * Capturer attribute information.
+     * 
+     * @type { AudioCapturerInfo }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 dynamic&static
+     */
+    capturerInfo: AudioCapturerInfo;
   }
 
   /**
