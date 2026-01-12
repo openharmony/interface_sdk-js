@@ -21,7 +21,7 @@
 
 import { Resource as _Resource } from '../../global/resource';
 import { Color, BorderStyle, FontWeight, FontStyle, DividerMode, PresetFillType } from './enums';
-import { OutlineStyle, AttributeModifier, CommonMethod } from './common';
+import { OutlineStyle, AttributeModifier, CommonMethod, AccessibilityRoleType} from './common';
 import { LengthMetricsUnit as _LengthMetricsUnit, LengthMetrics as _LengthMetrics, ColorMetrics as _ColorMetrics } from '../Graphics';
 import _drawing from '../../../api/@ohos.graphics.drawing'
 /**
@@ -1495,6 +1495,46 @@ export declare interface AccessibilityOptions {
    * @since 23 static
    */
   accessibilityPreferred?: boolean;
+
+  /**
+   * stateControllerType - the first component of a specific type found within the composition defined by
+   * accessibility group will take over the state attributes and announcement of the composition
+   *
+   * @type { ?AccessibilityRoleType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  stateControllerRoleType?: AccessibilityRoleType;
+
+  /**
+   * stateControllerId - the first component of a specific id found within the composition defined by
+   * accessibility group will take over the state attributes and announcement of the composition
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  stateControllerId?: string;
+
+  /**
+   * actionControllerRoleType - the first component of a specific type found within the composition defined by
+   * accessibility group will take over part of the accessibility action of the composition
+   *
+   * @type { ?AccessibilityRoleType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  actionControllerRoleType?: AccessibilityRoleType;
+
+  /**
+   * actionControllerId - the first component of a specific id found within the composition defined by
+   * accessibility group will take over part of the accessibility action of the composition
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  actionControllerId?: string;
 }
 
 /**
