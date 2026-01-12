@@ -108,7 +108,6 @@ export declare interface FilterResult {
 
 /**
  * Callback method after a user clicks a filter item.
- *
  * @typedef { function } OnFilterChangedCallback
  * @param { Array<FilterResult> } filterResults - The result of filter.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
