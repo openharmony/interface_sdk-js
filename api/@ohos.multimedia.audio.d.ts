@@ -255,7 +255,6 @@ declare namespace audio {
    */
   function createAudioCapturer(options: AudioCapturerOptions): Promise<AudioCapturer>;
 
-  zyyyy
   /**
    * Obtains an {@link AudioCapturer} instance. This method uses a promise to return the capturer instance.
    * Using {@link #AudioCapturer} to record audio will need permission according to different {@link #Sourcetype}
