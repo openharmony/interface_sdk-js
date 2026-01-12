@@ -112,6 +112,16 @@ export interface MarqueeOptions {
      * @since 23 static
      */
     spacing?: LengthMetrics;
+
+    /**
+     * The waiting time between each round of the marquee.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    delay?: int;
 }
 
 /**
