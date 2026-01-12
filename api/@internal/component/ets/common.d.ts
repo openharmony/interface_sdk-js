@@ -305,6 +305,16 @@ declare const ComponentV2: ClassDecorator & ((options: ComponentOptions) => Clas
  * @atomicservice
  * @since 11 dynamic
  */
+ /**
+ * Defines the options of Entry ClassDecorator.
+ *
+ * @interface EntryOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare interface EntryOptions {
   /**
    * Named route name.
@@ -322,6 +332,16 @@ declare interface EntryOptions {
    * @form
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * Named route name.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   routeName? : string,
 
@@ -341,6 +361,16 @@ declare interface EntryOptions {
    * @form
    * @atomicservice
    * @since 11 dynamic
+   */
+  /**
+   * LocalStorage to be passed.
+   *
+   * @type { ?LocalStorage }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   storage? : LocalStorage,
 
