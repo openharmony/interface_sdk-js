@@ -10194,7 +10194,6 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @FaAndStageModel
    * @since 11 dynamic
    */
   BLOOM_BORDER = 4,
