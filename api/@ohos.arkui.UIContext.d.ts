@@ -2389,6 +2389,37 @@ export class UIObserver {
   off(type: 'tabChange', callback?: Callback<observer.TabContentInfo>): void;
 
   /**
+   * Registers a callback function to be called when the window size layout breakpoint changes.
+   * This method allows observing changes in window size breakpoints which can be used to
+   * adapt UI layouts responsively based on window dimensions.
+   *
+   * @param { 'windowSizeLayoutBreakpointChange' } type - The type of event to listen for.
+   *     Must be 'windowSizeLayoutBreakpointChange'.
+   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } callback - The callback function to be
+   *     called when the window size layout breakpoint changes. The callback receives a
+   *     {@link WindowSizeLayoutBreakpointInfo} object containing the current width and height
+   *     breakpoint classifications.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  on(type: 'windowSizeLayoutBreakpointChange', callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
+
+  /**
+   * Removes a previously registered callback function for window size layout breakpoint changes.
+   * If no callback is provided, all callbacks for the specified context will be removed.
+   *
+   * @param { 'windowSizeLayoutBreakpointChange' } type - The type of event to remove the listener for.
+   *     Must be 'windowSizeLayoutBreakpointChange'.
+   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - The specific callback function to remove.
+   *     If not provided, all callbacks for the given event type and context will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  off(type: 'windowSizeLayoutBreakpointChange', callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
+
+  /**
    * Registers a callback function to be called when the specific node's render state changed.
    * This callback will be executed once immediately when the register is successful.
    * [Notes]:
@@ -2436,37 +2467,6 @@ export class UIObserver {
    * @since 20 dynamic
    */
   off(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
-
-  /**
-   * Registers a callback function to be called when the window size layout breakpoint changes.
-   * This method allows observing changes in window size breakpoints which can be used to
-   * adapt UI layouts responsively based on window dimensions.
-   *
-   * @param { 'windowSizeLayoutBreakpointChange' } type - The type of event to listen for.
-   *     Must be 'windowSizeLayoutBreakpointChange'.
-   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } callback - The callback function to be
-   *     called when the window size layout breakpoint changes. The callback receives a
-   *     {@link WindowSizeLayoutBreakpointInfo} object containing the current width and height
-   *     breakpoint classifications.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  on(type: 'windowSizeLayoutBreakpointChange', callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
-
-  /**
-   * Removes a previously registered callback function for window size layout breakpoint changes.
-   * If no callback is provided, all callbacks for the specified context will be removed.
-   *
-   * @param { 'windowSizeLayoutBreakpointChange' } type - The type of event to remove the listener for.
-   *     Must be 'windowSizeLayoutBreakpointChange'.
-   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - The specific callback function to remove.
-   *     If not provided, all callbacks for the given event type and context will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  off(type: 'windowSizeLayoutBreakpointChange', callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
 
   /**
   * Registers a callback function to be called when text field's content is changed.
