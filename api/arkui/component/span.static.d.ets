@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { ResourceColor, Dimension, BorderRadiuses, Length, Font } from "./units";
+import { ResourceColor, Dimension, BorderRadiuses, Length, Font, ResourceStr } from "./units";
 import { CommonMethod, ShadowOptions, AttributeModifier, ClickEvent, Callback, HoverCallback } from "./common";
 import { LengthMetrics } from './../Graphics';
 import { Resource } from './../../../api/global/resource';
@@ -122,14 +122,15 @@ export declare interface SpanAttribute {
      */
     default fontStyle(value: FontStyle | undefined): this;
     /**
-    * Called when the font weight is set.
-    *
-    * @param { int | FontWeight | string | undefined } value
-    * @returns { SpanAttribute }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 23 static
-    */
-    default fontWeight(value: int | FontWeight | string | undefined): this;
+     * Called when the font weight is set.
+     *
+     * @param { int | FontWeight | ResourceStr | undefined } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default fontWeight(value: int | FontWeight | ResourceStr | undefined): this;
     /**
      * Called when the font list of text is set.
      *
