@@ -252,14 +252,13 @@ export declare interface MarqueeAttribute extends CommonMethod {
  * Defines Marquee Component.
  *
  * @param { MarqueeOptions } options
- * @param { CustomBuilder } [content_]
  * @returns { MarqueeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function Marquee(
-    options: MarqueeOptions, 
-    content_?: CustomBuilder,
+    options: MarqueeOptions
 ): MarqueeAttribute

@@ -1894,13 +1894,12 @@ export declare interface TextInputAttribute extends CommonMethod {
  * Defines TextInput Component.
  *
  * @param { TextInputOptions } [value]
- * @param { CustomBuilder } [content_]
  * @returns { TextInputAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder
 export declare function TextInput(
-    value?: TextInputOptions, 
-    content_?: CustomBuilder,
+    value?: TextInputOptions
 ): TextInputAttribute

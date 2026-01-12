@@ -1143,13 +1143,12 @@ export declare interface TextAreaAttribute extends CommonMethod {
  * Defines TextArea Component.
  *
  * @param { TextAreaOptions } [value]
- * @param { CustomBuilder } [content_]
  * @returns { TextAreaAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder
 export declare function TextArea(
-    value?: TextAreaOptions, 
-    content_?: CustomBuilder,
+    value?: TextAreaOptions
 ): TextAreaAttribute
